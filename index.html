@@ -4,21 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="Interaktywny atlas Układu Słonecznego z orbitami JPL, rotacją planet i horyzontem Ziemi oraz Księżyca.">
-  <title>ATLAS SOLARIS 8.0 — Światy Jowisza · Planetarium Offline</title>
+  <meta name="description" content="Interaktywny Układ Słoneczny 3D: planowanie misji międzyplanetarnych, orbity JPL, zaćmienia, Jowisz i obserwatorium.">
+  <title>ATLAS SOLARIS 10.0 — Centrum Misji · Układ Słoneczny 3D</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
+<link rel="stylesheet" href="css/missions.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 8.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 10.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 8.0</span></div>
-   <div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 10.0</span></div>
+   <button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -30,10 +31,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V8.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V10.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -215,7 +216,7 @@
  <p><strong>Nowość v5 — zaćmienia.</strong> Pozycje Słońca i Księżyca dla lat 2024–2040 są zapisane w samodzielnym pakiecie jako współrzędne w układzie J2000, próbkowane co 6 godzin i interpolowane sześciennie. Wartości obliczono na podstawie Swiss Ephemeris (Moshier), bez dołączania kodu biblioteki. Tarczę zaćmienia Słońca i rozmiar ziemskiego cienia obliczamy z faktycznych odległości, promieni i geometrii obserwatora. Atmosfera, blask korony, przyciemnienie tarczy i czerwień Księżyca są wizualizacjami, nie pełnym modelem radiacyjnym. Przewidywania dokładnych kontaktów i granic pasa należy sprawdzać w danych NASA.</p><p><strong>Nowość v6 — Ziemia z kosmosu.</strong> Glob powstaje poprzez rzut ortograficzny statycznej mozaiki Blue Marble. Obrót Ziemi i kierunek oświetlenia wyznaczamy z czasu gwiazdowego. Dla zaćmień Słońca zakrycie tarczy jest liczone oddzielnie dla punktów powierzchniowych z uwzględnieniem ich paralaksy; zaciemnienie jest ilustracyjne. Linia osi cienia wyznaczana jest z promienia Słońce–Księżyc. Dla zaćmień Księżyca podświetlamy półkulę, z której Księżyc znajduje się nad horyzontem. Punkt wybrany na globie służy do symulacji obserwacji lokalnej; nie należy wykorzystywać obrazu do ustalenia dokładnych kontaktów, miejsc ani bezpiecznego obserwowania Słońca.</p><p><strong>Nowość v7 — geometria stożków.</strong> W lokalnym układzie Ziemia–Księżyc wyznaczono oś promieni słonecznych, przekroje półcienia i cienia głównego jako funkcje faktycznej odległości od ciała rzucającego cień. W trybie poglądowym skracana jest tylko odległość wzdłuż osi — promienie przekrojów nie są mnożone. Przedłużenie stożka powstaje tam, gdzie główny stożek zamyka się przed oświetlonym ciałem. Kamera projekcyjna jest obrotowa; scena jest rzutem 3D na płótno Canvas, także bez WebGL. Nie jest to pełny model promieniowania ani precyzyjna prognoza zaćmienia dla danego punktu.</p><div class="source-links"><a target="_blank" rel="noopener" href="https://eclipse.gsfc.nasa.gov/SEdecade/SEdecade2021.html">NASA — katalog zaćmień Słońca ↗</a><a target="_blank" rel="noopener" href="https://eclipse.gsfc.nasa.gov/lunar.html">NASA — zaćmienia Księżyca ↗</a><a target="_blank" rel="noopener" href="https://github.com/astronexus/HYG-Database">HYG Astronexus · CC BY-SA 4.0 ↗</a><a target="_blank" rel="noopener" href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/">NASA · Blue Marble NG ↗</a><a target="_blank" rel="noopener" href="https://ssd.jpl.nasa.gov/planets/approx_pos.html">NASA/JPL · Elementy orbitalne ↗</a><a target="_blank" rel="noopener" href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">NASA · Planetary Fact Sheet ↗</a><a target="_blank" rel="noopener" href="https://iauarchive.eso.org/science/scientific_bodies/working_groups/98/">IAU · Wzory rotacji ↗</a><a target="_blank" rel="noopener" href="https://science.nasa.gov/solar-system/planets/mars/what-does-a-sunrise-sunset-look-like-on-mars/">NASA · Kolory nieba na Marsie ↗</a></div>
  </dialog>
  
-<!-- ATLAS SOLARIS 8.0 / system galileuszowy — pełna symulacja offline -->
+<!-- ATLAS SOLARIS 10.0 / system galileuszowy — pełna symulacja offline -->
 <dialog id="jupiterDialog" aria-label="Światy Jowisza, księżyce Galileuszowe i ich cienie">
  <header class="jupiter-head"><div><div class="jov-kicker">ATLAS SOLARIS / MISJA W UKŁADZIE JOWISZA</div><h2>Światy <em>Jowisza</em> <span class="jov-title-num">08 / GALILEUSZ</span></h2><p>Io · Europa · Ganimedes · Kallisto — orbity, tranzyty i zaćmienia</p></div><button id="jovClose" aria-label="Zamknij moduł Jowisza">✕</button></header>
  <div class="jov-layout">
@@ -247,6 +248,58 @@
  </div>
 </dialog>
 
+
+<!-- ATLAS SOLARIS 10.0: orbital mission planner, independent of the legacy lab modules -->
+<dialog id="missionDialog" aria-label="ATLAS SOLARIS Centrum Misji">
+ <header class="mc-header">
+  <div><small>ATLAS SOLARIS / EKSPEDYCJA MIĘDZYPLANETARNA / 10.0</small>
+  <h2>Centrum <em>Misji</em></h2><p>Wybierz dwie planety, wyznacz okno startowe i poprowadź sondę po orbicie transferowej.</p></div>
+  <button id="mcClose" class="mc-close" aria-label="Zamknij centrum misji">✕</button>
+ </header>
+ <div class="mc-layout">
+  <section class="mc-stage" aria-label="Animacja transferu międzyplanetarnego">
+   <div class="mc-stage-head"><small>SYMULACJA HELIOCENTRYCZNA</small><strong id="mcRouteTitle">Ziemia → Mars</strong><span>Ślady orbit i lot sondy · przeciągnij mapę, aby ją przesunąć</span></div>
+   <div class="mc-stage-clock" id="mcCanvasTime">—</div>
+   <canvas id="mcCanvas" aria-label="Animowana mapa planet, orbity transferowej i sondy kosmicznej"></canvas>
+   <div class="mc-timeline">
+    <div class="mc-timeline-top"><strong id="mcProgressDate">—</strong><span id="mcProgressPercent">0% lotu</span></div>
+    <input id="mcProgress" type="range" min="0" max="2600" value="0" step="1" aria-label="Postęp lotu w dniach">
+    <div class="mc-stage-actions">
+     <button class="mc-primary" id="mcPlay">▶ Odtwórz lot</button>
+     <button id="mcRestart">⟲ Od początku</button>
+     <select id="mcSpeed" aria-label="Prędkość lotu"><option value="1">1 dzień/s</option><option value="7" selected>7 dni/s</option><option value="30">30 dni/s</option><option value="120">120 dni/s</option></select>
+     <button id="mcResetCamera">◎ Wycentruj mapę</button>
+    </div>
+   </div>
+  </section>
+  <aside class="mc-side">
+   <div class="mc-section-label">01 / TRASA PODRÓŻY</div>
+   <div id="mcShortcuts" class="mc-preset-list"></div>
+   <div class="mc-fields">
+    <label>PLANETA STARTOWA<select id="mcOrigin"></select></label>
+    <label>PLANETA DOCELOWA<select id="mcTarget"></select></label>
+   </div>
+   <div class="mc-section-label">02 / DATA I OKNO STARTOWE</div>
+   <label class="mc-date-label">START (UTC)<input type="date" id="mcDate" min="1800-01-01" max="2050-12-31"></label>
+   <div class="mc-date-actions"><button id="mcAtlasDate">◷ Data z atlasu</button><button id="mcFind" class="mc-primary">⌕ Znajdź okno</button></div>
+   <div class="mc-window"><small>NAJBLIŻSZE OKNO FAZOWE</small><strong id="mcWindow">—</strong><p id="mcWindowInfo">—</p>
+   <div class="mc-window-actions"><button id="mcFindNext">Następne okno ↗</button></div></div>
+   <div class="mc-section-label">03 / PARAMETRY MISJI</div>
+   <div class="mc-stat-grid">
+    <div class="mc-stat"><small>START</small><strong id="mcLaunch">—</strong></div>
+    <div class="mc-stat"><small>PRZYLOT</small><strong id="mcArrival">—</strong></div>
+    <div class="mc-stat"><small>CZAS PRZELOTU</small><strong id="mcDuration">—</strong></div>
+    <div class="mc-stat"><small>DŁUGOŚĆ TRAJEKTORII</small><strong id="mcDistance">—</strong></div>
+    <div class="mc-stat"><small>Δv · ZMIANA PRĘDKOŚCI*</small><strong id="mcDV">—</strong><span id="mcDVDetail">—</span></div>
+    <div class="mc-stat"><small>FAZA WYMAGANA / BŁĄD</small><strong id="mcPhase">—</strong><span>Odchylenie: <b id="mcError">—</b></span></div>
+   </div>
+   <div class="mc-section-label">04 / WYJŚCIE Z MISJI</div>
+   <div class="mc-side-actions"><button id="mcToAtlas">↗ Pokaż tę datę w atlasie</button><button id="mcCopy">⧉ Kopiuj plan</button></div>
+   <p class="mc-technical"><strong>Granice symulacji.</strong> Transfer Hohmanna zakłada orbity kołowe i współpłaszczyznowe. Pozycje planet do oceny fazy pochodzą z modelu astronomicznego Atlasu, ale orbita sondy jest idealizowana. Okna fazowe są orientacyjne, nie są precyzyjnymi oknami startowymi ani trajektoriami misji NASA. Nie uwzględniono startu z powierzchni, grawitacji planet, asyst grawitacyjnych, korekt kursu i manewrów nachylenia. *Δv obejmuje jedynie idealne heliocentryczne zmiany prędkości przy odejściu i dotarciu do orbity celu. Rysunek jest poglądowy; nachylenie widoku nie odzwierciedla inklinacji.</p>
+  </aside>
+ </div>
+</dialog>
+
 <div id="errorScreen" class="error-screen hidden"><h1>Nie udało się uruchomić sceny 3D</h1><p id="errorText"></p><p>Włącz obsługę WebGL 2 i otwórz projekt przez lokalny serwer HTTP — instrukcja znajduje się w pliku README.md.</p></div>
 <script src="js/assets.js"></script>
 <script src="js/stars.js"></script>
@@ -254,5 +307,6 @@
 <script type="module" src="js/app.js"></script>
 <script src="js/jupiter-assets.js"></script>
 <script src="js/jupiter.js"></script>
+<script src="js/missions.js"></script>
 </body>
 </html>

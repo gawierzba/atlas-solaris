@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050b16">
+  <meta name="description" content="Interaktywny atlas Układu Słonecznego z orbitami JPL, rotacją planet i horyzontem Ziemi oraz Księżyca.">
+  <title>ATLAS SOLARIS 8.0 — Światy Jowisza · Planetarium Offline</title>
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/jupiter.css">
+</head>
+<body>
+ <div id="app">
+  <aside id="sidebar" class="sidebar">
+   <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 8.0</span></div>
+   <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
+   <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
+   <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 8.0</span></div>
+   <div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   </section><div class="sidebar-footer">
+    <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
+    <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
+    <button class="text-link" id="openMethod">Źródła, dokładność i ograniczenia <span>↗</span></button>
+   </div>
+  </aside>
+  <main id="main" class="main">
+   <canvas id="space" aria-label="Interaktywna scena Układu Słonecznego 3D"></canvas>
+   <div class="canvas-vignette" aria-hidden="true"></div>
+   <header class="topbar">
+    <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
+    <div class="top-toolbar"><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+<div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
+   </header>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V8.0</strong> · ZAĆMIENIA</div></div>
+   <div class="labels" id="labels" aria-hidden="false"></div>
+   <div class="view-controls">
+    <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
+    <button id="zoomIn" title="Przybliż">+</button>
+    <button id="zoomOut" title="Oddal">−</button>
+    <button id="resetCam" title="Resetuj kamerę">⟳</button><button id="captureBtn" title="Zapisz obraz symulacji w PNG" aria-label="Zapisz widok PNG">▣</button><button id="helpBtn" title="Otwórz dokumentację" aria-label="Dokumentacja i ograniczenia">?</button>
+   </div>
+   <section id="infoPanel" class="info-panel" aria-live="polite">
+    <div class="panel-eyebrow"><span class="dash"></span> KARTA OBIEKTU <button id="collapseInfo" title="Zwiń panel">−</button></div>
+    <div class="info-title-row"><h2 id="infoName">Układ Słoneczny</h2><span id="infoType">8 planet</span></div>
+    <p id="infoDesc">Osiem planet poruszających się po eliptycznych orbitach wokół Słońca.</p>
+    <div class="info-metrics"><div><small>ODLEGŁOŚĆ OD SŁOŃCA</small><strong id="metricDistance">—</strong></div><div><small>ŚREDNICA</small><strong id="metricDiameter">—</strong></div></div>
+    <div class="scientific-grid"><div><small>ŚWIATŁO OD SŁOŃCA</small><strong id="metricLight">—</strong></div><div><small>PRĘDKOŚĆ ORBITALNA*</small><strong id="metricVelocity">—</strong></div></div>
+    <div class="metric-extra" id="metricExtra">—</div>
+    <div class="panel-actions"><button id="orbitMode" class="selected">◌ Orbita</button><button id="surfaceMode" disabled>◉ Powierzchnia</button></div>
+    <div id="surfaceOptions" class="surface-options hidden">
+      <div class="surface-caption">POZYCJA OBSERWATORA</div>
+      <div class="coord-grid"><label>Szerokość (°)<input id="latitude" type="number" min="-90" max="90" value="54.35" step="0.1"></label><label>Długość E (°)<input id="longitude" type="number" min="-180" max="180" value="18.65" step="0.1"></label></div>
+      <div class="sky-stats"><div><small>WYSOKOŚĆ SŁOŃCA</small><b id="sunAlt">—</b></div><div><small>AZYMUT SŁOŃCA</small><b id="sunAz">—</b></div><div><small>PORA DNIA</small><b id="skyDay">—</b></div></div><div id="otherSky" class="other-sky">—</div>
+      <div class="look-buttons"><button id="lookSun">☀ Na Słońce</button><button id="lookOther">◌ Na Księżyc</button></div>
+      <p id="surfaceNote" class="fineprint">Niebo obliczane geometrycznie. Teren i atmosfera są poglądowe.</p>
+    </div>
+   </section>
+   <div class="zoom-scale" id="zoomScale">SKALA WIDOKU · ZWIĘKSZONE ROZMIARY PLANET</div>
+   <section class="time-dock" aria-label="Sterowanie czasem symulacji">
+    <div class="dock-top">
+      <div class="date-block"><small>CZAS SYMULACJI <span>UTC</span></small><div class="date-row"><input id="dateInput" type="datetime-local" min="1800-01-01T00:00" max="2050-12-31T23:59"><button id="nowBtn" title="Ustaw aktualny czas">Teraz</button></div></div>
+      <div class="speed-block"><small>TEMPO UPŁYWU CZASU</small><div class="speed-row"><button id="playBtn" class="play-btn" title="Wstrzymaj animację">Ⅱ</button><select id="speedSelect" title="Prędkość symulacji"><option value="-1">−1 dzień/s</option><option value="0.1">0,1 dnia/s</option><option value="1" selected>1 dzień/s</option><option value="7">7 dni/s</option><option value="30">30 dni/s</option><option value="365.256">1 rok/s</option></select></div></div>
+     <div class="toggle-block"><small>WARSTWY</small><div class="check-group"><label><input id="orbitsToggle" type="checkbox" checked><span class="switch-dot"></span> Tory orbit</label><label><input id="lightingToggle" type="checkbox" checked><span class="switch-dot"></span> Dzień i noc</label><label title="W widoku orbitalnym rozmiary ciał i ich odległości będą w jednej skali"><input id="trueScaleToggle" type="checkbox"><span class="switch-dot"></span> Skala 1:1</label></div></div>
+    </div>
+    <div class="timeline"><span class="tick-label">−10 LAT</span><input id="timeSlider" type="range" min="0" max="1000" value="500" step="1" aria-label="Przesuń czas symulacji"><span class="tick-label">+10 LAT</span></div>
+    <div class="dock-footer"><div><span class="live-point"></span><span id="liveStatus">SYMULACJA URUCHOMIONA</span></div><span id="epochWarning">ORBITY WYLICZANE Z ELEMENTÓW JPL</span><span>3D / WEBGL 2</span></div>
+   </section>
+   <div id="toast" class="toast" role="status"></div>
+  </main>
+ </div>
+
+ <dialog id="observatoryDialog" class="observatory-dialog" aria-label="Obserwatorium: mapa nieba i wschody Słońca">
+  <div class="obs-head"><div><div class="obs-eyebrow">ATLAS SOLARIS / MODUŁ ASTRONOMICZNY</div><h2>Obserwatorium <em>6.0</em></h2><p>Rzeczywista geometria horyzontu · dowolny moment symulacji · kliknij ciało niebieskie, aby spojrzeć w jego kierunku.</p></div><button id="closeObservatory" class="obs-close" title="Zamknij">✕</button></div>
+  <div class="obs-settings"><label>CIAŁO OBSERWATORA<select id="obsWorld"><option value="earth">Ziemia</option><option value="moon">Księżyc</option><option value="mars">Mars</option><option value="mercury">Merkury</option><option value="venus">Wenus (chmury)</option></select></label>
+  <label>SZEROKOŚĆ °<input id="obsLatitude" type="number" min="-90" max="90" step="0.01" value="54.35"></label><label>DŁUGOŚĆ E °<input id="obsLongitude" type="number" min="-180" max="180" step="0.01" value="18.65"></label>
+  <div class="obs-time"><small>DATA SYMULACJI (UTC)</small><b id="obsDate">—</b></div></div>
+  <div class="obs-layout"><section class="obs-skycol"><div class="obs-section-title">MAPA NIEBA <small>RZUT ZENITALNY · N ↑ / E →</small></div>
+  <div class="star-options"><label><input id="obsStarsToggle" type="checkbox" checked> Gwiazdy katalogowe</label><label><input id="obsNamesToggle" type="checkbox" checked> Nazwy jasnych gwiazd</label><label><input id="obsTrianglesToggle" type="checkbox" checked> Trójkąty nieba</label></div>
+  <canvas id="skyMap" width="540" height="540" aria-label="Rysunek widocznego nieba z położeniami planet"></canvas>
+  <div id="obsCompass" class="obs-compass">Horyzont: 0° · zenit: +90°. Pozycje pod horyzontem podano na liście obok.</div>
+  <div class="obs-action-row"><button id="obsSurfaceGo" class="obs-main-action">◉ Przejdź na powierzchnię</button><button id="obsSunriseFind" class="obs-secondary-action">☀ Policz wschód / zachód</button></div>
+  <div id="obsSunTimes" class="obs-suntimes">Wybierz „Policz wschód / zachód”, aby obliczyć kolejne dwa zdarzenia.</div>
+  </section><section class="obs-listcol"><div class="obs-section-title">OBIEKTY NA NIEBIE <small>WYSOKOŚĆ / AZYMUT</small></div><div id="obsBodies" class="obs-bodies"></div>
+  <div class="obs-starblock"><div class="obs-section-title">JASNE GWIAZDY <small id="obsStarCount">KATALOG HYG · J2000</small></div><div id="obsStarList" class="obs-starlist"></div><small class="obs-starhint">Kliknij gwiazdę, aby skierować na nią kamerę. Refrakcja i precesja nie są uwzględnione.</small></div>
+  <div class="obs-sci"><div class="obs-section-title">FAZA KSIĘŻYCA <small>Z ZIEMI</small></div><div class="obs-phase-line"><canvas id="obsMoonPhase" width="110" height="110"></canvas><div><b id="obsPhasePercent">—</b><span id="obsPhaseName">—</span><small id="obsMoonDistance">—</small></div></div></div>
+  </section></div><div class="obs-disclaimer">Pozycje <strong>gwiazd katalogowych</strong> to rektascensja i deklinacja J2000 z opracowania HYG/Astronexus (CC BY-SA 4.0); nie są aktualizowane o ruch własny, precesję ani refrakcję. Trójkąty nieba oznaczają umowne asteryzmy, nie granice gwiazdozbiorów. Uwaga: model JPL 1800–2050 jest przybliżony, położenia Księżyca pochodzą z uproszczonej teorii, a obserwacje nie uwzględniają refrakcji, atmosfery, aberracji ani czasu drogi światła. To moduł edukacyjny, a nie podstawa do wyznaczania dokładnych zaćmień. Na Wenus niebo jest przesłonięte chmurami — mapa przedstawia wyłącznie geometrię.</div>
+ </dialog>
+  <dialog id="eclipseDialog" class="eclipse-dialog" aria-label="Laboratorium zaćmień Słońca i Księżyca">
+  <div class="eclipse-head">
+   <div><div class="obs-eyebrow">ATLAS SOLARIS / ZJAWISKA ASTRONOMICZNE</div><h2>Laboratorium <em>zaćmień</em></h2>
+    <p>Przyspiesz czas, przybliż tarcze i obserwuj rzeczywistą geometrię Słońca, Ziemi i Księżyca. Cień nie jest animowany ręcznie.</p></div>
+   <button id="closeEclipses" class="obs-close" aria-label="Zamknij laboratorium">✕</button>
+  </div>
+  <div class="eclipse-options">
+   <label>WYBIERZ ZJAWISKO<select id="eclipseEvent" aria-label="Wybierz zaćmienie"></select></label>
+   <div class="eclipse-title"><small id="eclipseType">ZAĆMIENIE SŁOŃCA</small><strong id="eclipseTitle">—</strong><span id="eclipsePlace">—</span></div>
+   <label>SZEROKOŚĆ OBSERWATORA °<input id="eclipseLat" type="number" min="-90" max="90" step=".01" value="25.24"></label>
+   <label>DŁUGOŚĆ E °<input id="eclipseLon" type="number" min="-180" max="180" step=".01" value="33.54"></label>
+  </div>
+  <div class="eclipse-mid">
+   <section class="eclipse-skycard">
+    <div class="obs-section-title">WIDOK TARCZ / CIENIA <small>GEOMETRIA OBSERWATORA · OBLICZONA</small></div>
+    <div class="eclipse-diagram-wrap"><canvas id="eclipseDiagram" aria-label="Animacja zaćmienia: tarcze Słońca i Księżyca albo cień Ziemi na Księżycu"></canvas>
+     <div class="eclipse-now" id="eclipseNow">—</div></div>
+    <div class="eclipse-timeline">
+      <div class="eclipse-timeline-head"><small>PRZEBIEG ZJAWISKA</small><b id="eclipseOffset">0 min od maksimum</b></div>
+      <input id="eclipseProgress" type="range" min="-240" max="240" step=".2" value="0" aria-label="Przesuń czas względem maksimum zaćmienia">
+      <div class="eclipse-timeline-labels"><span>−4 godz.</span><span>MAKSIMUM</span><span>+4 godz.</span></div>
+    </div>
+    <div class="eclipse-actions">
+     <button id="eclipseRewind" title="Ustaw czas przed maksimum">⟲ Początek</button>
+     <button id="eclipseMinus" title="Cofnij pięć minut">−5 min</button>
+     <button id="eclipsePlay" class="eclipse-primary">▶ Odtwórz</button>
+     <button id="eclipsePlus" title="Przesuń o pięć minut">+5 min</button>
+     <button id="eclipsePeak">◎ Maksimum</button>
+    </div>
+    <div class="eclipse-datetime"><label>DATA I GODZINA UTC<input id="eclipseDate" type="datetime-local" min="2024-01-01T00:00" max="2039-12-31T23:59"></label>
+     <label>PRZYSPIESZENIE<select id="eclipseSpeed"><option value="60">1 min / s</option><option value="300" selected>5 min / s</option><option value="900">15 min / s</option><option value="1800">30 min / s</option></select></label>
+     <button id="eclipseToday" title="Użyj bieżącej daty z głównego symulatora">Aktualny czas symulatora</button>
+    </div>
+   </section>
+   <aside class="eclipse-sidecard">
+    <div class="obs-section-title" id="eclipseMapTitle">Zasięg cienia na Ziemi</div>
+    <canvas id="eclipseMap" aria-label="Mapa Ziemi z poruszającą się strefą zaćmienia"></canvas>
+    <div class="eclipse-mainvalue"><small id="eclipseValueLabel">ZAKRYCIE TARCZY SŁOŃCA</small><b id="eclipseValue">—</b><p id="eclipseStatus">—</p></div>
+    <div class="eclipse-stats"><div><small id="eclipseStat1Label">ODSTĘP ŚRODKÓW</small><b id="eclipseStat1">—</b></div><div><small id="eclipseStat2Label">WYSOKOŚĆ SŁOŃCA</small><b id="eclipseStat2">—</b></div></div>
+    <button id="eclipseGeometry" class="eclipse-globe">◈ Geometria stożków cienia</button><button id="eclipseGlobe" class="eclipse-globe">🌍 Zobacz cień na globie Ziemi</button>
+    <button id="eclipseVisit" class="eclipse-visit">◉ Przejdź do teleskopu na Ziemi</button>
+    <p class="eclipse-note">Dane efemerydalne 2024–2040: współrzędne Słońca i Księżyca obliczone modelem Moshiera, interpolacja co 6 h. Daty zjawisk: NASA GSFC. Widok korony, barwa zaćmionego Księżyca i atmosfera to wizualizacje. Czas i dokładny przebieg lokalnego zaćmienia należy sprawdzać w oficjalnych efemerydach. Nie patrz bez ochrony na Słońce podczas zaćmienia częściowego ani obrączkowego.</p>
+   </aside>
+  </div>
+ </dialog>
+
+
+ <dialog id="globeDialog" class="globe-dialog" aria-label="Ziemia z kosmosu: geometria zaćmień i dzień noc">
+   <header class="globe-head">
+    <div class="globe-head-brand"><div class="obs-eyebrow">ATLAS SOLARIS 7.0 / EKSPEDYCJA ORBITALNA</div><h2>Ziemia <em>z kosmosu</em></h2><p>Obracaj glob, śledź cień Księżyca i wybierz miejsce obserwacji. Wizualizacja geometrii na tle mapy NASA Blue Marble.</p></div>
+    <button id="globeClose" class="obs-close" title="Zamknij widok Ziemi z kosmosu" aria-label="Zamknij">✕</button>
+   </header>
+   <div class="globe-layout">
+    <section class="globe-viewport">
+      <canvas id="globeCanvas" aria-label="Interaktywny glob Ziemi z nocą, dniem i cieniem zaćmienia" tabindex="0"></canvas>
+      <div class="globe-top-stats"><div><span id="globeModeLabel">ZAĆMIENIE SŁOŃCA</span><strong id="globeClock">—</strong></div><span id="globeProjection">RZUT ORTOGRAFICZNY • MODEL FIZYCZNY</span></div>
+      <div class="globe-bottom-hint">Przeciągnij: obróć Ziemię · kliknij: wybierz obserwatora · kółko myszy: zbliż/oddal</div>
+      <div id="globeLoading" class="globe-loading">Wczytywanie mapy Ziemi…</div>
+    </section>
+    <aside class="globe-controls">
+     <div class="globe-section-heading">WYDARZENIE I CZAS</div>
+     <label class="globe-label">WYBIERZ ZAĆMIENIE<select id="globeEvent"></select></label>
+     <label class="globe-label">PRZEBIEG ZJAWISKA <span id="globeOffset">0 min</span><input id="globeProgress" type="range" min="-240" max="240" step="0.5" value="0"></label>
+     <div class="globe-player"><button id="globeRewind" title="Cofnij do początku">⟲ Początek</button><button id="globePlay" class="globe-play">▶ Odtwórz</button><select id="globeSpeed" title="Prędkość symulacji"><option value="30">30 s/s</option><option value="60">1 min/s</option><option value="300" selected>5 min/s</option><option value="900">15 min/s</option></select></div>
+     <div class="globe-section-heading">KAMERA ORBITALNA</div>
+     <div class="globe-cameras"><button id="globeFollow" class="selected">◎ Śledź cień</button><button id="globeSunward">☀ Strona dzienna</button><button id="globeLocation">◉ Obserwator</button><button id="globeReset">⟳ Reset</button></div>
+     <div class="globe-switches"><label><input type="checkbox" id="globeTrack" checked> Tor osi cienia</label><label><input type="checkbox" id="globeGrid"> Siatka geograficzna</label></div>
+     <div class="globe-section-heading">WYBRANY PUNKT NA ZIEMI</div>
+     <div class="globe-coordinate-controls"><label>SZEROKOŚĆ °<input id="globeLat" type="number" value="25.24" step="0.01" min="-90" max="90"></label><label>DŁUGOŚĆ E °<input id="globeLon" type="number" value="33.54" step="0.01" min="-180" max="180"></label></div>
+     <div class="globe-local-facts"><div><small id="globeValueLabel">ZAKRYCIE SŁOŃCA</small><strong id="globeCoverage">—</strong></div><div><small id="globeSubLabel">SŁOŃCE NAD HORYZONTEM</small><strong id="globeSunAlt">—</strong></div></div>
+     <div id="globeObservationNote" class="globe-observation-note">Wybierz punkt na globie, by zobaczyć warunki lokalne.</div>
+     <div class="globe-last-actions"><button id="globeGeometry" class="globe-primary">◈ Geometria 3D</button><button id="globeTelescope" class="globe-primary">◉ Teleskop z tego miejsca</button><button id="globeLaboratory">◌ Laboratorium zaćmień</button></div>
+     <p class="globe-disclaimer">Ciemny obszar przy zaćmieniu Słońca obrazuje zakrycie tarczy w modelu geometrycznym; nie jest to zmierzone zdjęcie cienia. Przy zaćmieniu Księżyca zaznaczamy obszar widoczności Księżyca, nie cień na Ziemi. Granice cienia i dokładne czasy wymagają efemeryd o wyższej precyzji oraz modeli topograficznych.</p>
+    </aside>
+   </div>
+   <footer class="globe-legend"><span><i class="legend-dot observer"></i> Obserwator</span><span><i class="legend-dot axis"></i> Oś cienia / linia centralna (model)</span><span><i class="legend-dot day"></i> Dzień</span><span><i class="legend-dot night"></i> Noc</span></footer>
+ </dialog>
+
+
+ <dialog id="geometryDialog" class="geometry-dialog" aria-label="Geometria zaćmień w przestrzeni trójwymiarowej">
+   <header class="geometry-head">
+      <div><div class="obs-eyebrow">ATLAS SOLARIS 7.0 / LABORATORIUM GEOMETRII</div>
+      <h2>Stożki <em>światła i cienia</em></h2>
+      <p>Obróć kamerę wokół Ziemi i Księżyca. Zobacz półcień, cień główny i — przy zaćmieniu obrączkowym — przedłużenie stożka.</p></div>
+      <button id="geometryClose" class="obs-close" aria-label="Zamknij geometrię">✕</button>
+   </header>
+   <div class="geometry-layout">
+     <section class="geometry-stage">
+       <canvas id="geometryCanvas" aria-label="Obrotowa przestrzenna projekcja Ziemi, Księżyca i stożków cienia" tabindex="0"></canvas>
+       <div class="geometry-stage-top"><span id="geometryKindLabel">ZAĆMIENIE SŁOŃCA</span><strong id="geometryTime">—</strong></div>
+       <div class="geometry-stage-bottom">Przeciągnij: obrót kamery · rolka lub gest szczypania: zoom · dwuklik: widok początkowy</div>
+       <div class="geometry-watermark">MODEL 3D • PRZEKROJE STOŻKÓW Z GEOMETRII ASTRONOMICZNEJ</div>
+     </section>
+     <aside class="geometry-controls">
+       <div class="geometry-label-head">WYDARZENIE</div>
+       <label class="geometry-control-label">Zaćmienie<select id="geometryEvent"></select></label>
+       <label class="geometry-control-label">Czas względem maksimum <span id="geometryOffset">0 min</span><input type="range" id="geometryProgress" min="-180" max="180" step="0.25" value="0"></label>
+       <div class="geometry-play-row"><button id="geometryStart">⟲ Początek</button><button id="geometryPlay">▶ Odtwórz</button><select id="geometrySpeed"><option value="30">30 s/s</option><option value="60">1 min/s</option><option value="300" selected>5 min/s</option><option value="900">15 min/s</option></select></div>
+       <div class="geometry-label-head">WIDOK KAMERY</div>
+       <div class="geometry-cameras"><button id="geometrySide" class="active">◉ Z boku</button><button id="geometryAxis">◎ Wzdłuż osi</button><button id="geometryEarth">⊕ Na Ziemię</button><button id="geometryReset">↻ Reset</button></div>
+       <label class="geometry-check"><input id="geometryActual" type="checkbox"> Ścisłe proporcje odległości i średnic (skala 1:1)</label>
+       <label class="geometry-check"><input id="geometryPen" type="checkbox" checked> Pokaż półcień</label>
+       <label class="geometry-check"><input id="geometryUmbra" type="checkbox" checked> Pokaż cień główny</label>
+       <label class="geometry-check"><input id="geometryGrid" type="checkbox"> Pokaż płaszczyznę odniesienia</label>
+       <div class="geometry-label-head">PARAMETRY OBLICZONE DLA TEJ CHWILI</div>
+       <div class="geometry-facts">
+         <div><small>ZIEMIA – KSIĘŻYC</small><strong id="geometryDist">—</strong></div>
+         <div><small>ODLEGŁOŚĆ DO SŁOŃCA</small><strong id="geometrySunDist">—</strong></div>
+         <div><small id="geometryUmbraLabel">PROMIEŃ CIENIA NA ODLEGŁOŚCI ZIEMI</small><strong id="geometryUmbraR">—</strong></div>
+         <div><small id="geometryCoverageLabel">OSIOWY DYSTANS OD ŚRODKA</small><strong id="geometryAxisMiss">—</strong></div>
+       </div>
+       <p id="geometryNote" class="geometry-note">—</p>
+       <div class="geometry-actions"><button id="geometryToGlobe">🌍 Ziemia z kosmosu</button><button id="geometryToLab">☀ Laboratorium zaćmień</button></div>
+       <p class="geometry-disclaimer">W widoku poglądowym odległość wzdłuż osi cienia jest skrócona 6,25×, aby zobaczyć tarcze i stożki jednocześnie; przekroje poprzeczne oraz wartości liczbowe wynikają z rzeczywistych promieni i odległości. W trybie 1:1 wszystkie osie stosują jednakową skalę. To model geometryczny, bez nieregularności brzegu Księżyca, topografii i szczegółowej atmosfery; nie służy do planowania lokalnych kontaktów zaćmień.</p>
+     </aside>
+   </div>
+   <footer class="geometry-legend"><span><i style="background:#8fd9ed"></i> Półcień</span><span><i style="background:#3f617a"></i> Cień główny</span><span><i style="background:#eab668"></i> Przedłużenie stożka (antumbra)</span><span><i style="background:#82eadc"></i> Oś cienia</span></footer>
+ </dialog>
+
+ <dialog id="methodDialog"><button class="dialog-close" id="closeMethod">✕</button><div class="dialog-eyebrow">DOKUMENTACJA / WERSJA 7.0</div><h2>ATLAS SOLARIS 7.0 — metoda i ograniczenia</h2>
+ <p><strong>Pozycje planet.</strong> NASA/JPL Solar System Dynamics, „Approximate Positions of the Planets”, tabela 1 (lata 1800–2050). Elementy oskulacyjne aproksymowane liniowo w czasie, równanie Keplera rozwiązywane iteracyjnie. Model dotyczy pozycji geometrycznych, bez czasu przelotu światła, aberracji, nutacji i poprawek relatywistycznych. To nie jest precyzyjna efemeryda Horizons ani narzędzie do planowania obserwacji zaćmień.</p>
+ <p><strong>Ziemia i Księżyc.</strong> Tabela JPL podaje barycentrum Ziemia–Księżyc. Pozycja geocentrum została oszacowana na podstawie przybliżonej teorii ruchu Księżyca, uwzględniającej główne składniki okresowe. Księżyc ma dodatkowo uproszczoną orientację synchroniczną — libracja nie jest odtwarzana w pełni. Wschody i zachody oraz fazy mają charakter orientacyjny.</p>
+ <p><strong>Obrót planet.</strong> Zastosowano pozycje osi i średnie szybkości obrotu wg wybranych wzorów IAU. Nie są uwzględniane wszystkie krótkookresowe człony okresowe. Ziemia korzysta z obrotu gwiazdowego GMST w układzie J2000 (z pominięciem części precesji/nutacji).</p>
+ <p><strong>Nowość V3.</strong> Tekstura Ziemi to prawdziwa globalna mapa NASA Blue Marble: Next Generation, lipcowy/roczny obraz bazowy dostępny w pakiecie Matplotlib Basemap (źródło NASA Visible Earth). To statyczna mozaika, a nie bieżąca pogoda ani zdjęcie planety w czasie wybranym w symulatorze. Pozostałe ciała nadal mają mapy ilustracyjne. W trybie „Skala 1:1” również średnice są przeliczane według odległości; niewielkie planety z daleka stają się niewidoczne. Obserwatorium wyznacza geometryczne kierunki obiektów, a przewidywanie wschodów jest przybliżone.</p><p><strong>Nowość V4 — rzeczywiste gwiazdy.</strong> Wybrano blisko 200 najjaśniejszych gwiazd z katalogu HYG (zestaw RA/Dec J2000, Vmag i B–V; baza pierwotna Astronexus). Punktowe pozycje i kolory w obserwatorium są oparte na danych; symulacja nie zawiera jednak pełnej sfery niebieskiej, ruchów własnych, precesji i refrakcji. Sztucznego gwiezdnego tła nie podajemy jako rzeczywistego katalogu. Trójkąt Letni i Zimowy są asteryzmami edukacyjnymi.</p><p><strong>Skala i grafika.</strong> Tory orbit zachowują proporcje odległości (1 AU = 22 jednostki sceny), ale rozmiary kul są celowo wyolbrzymione, inaczej planety byłyby praktycznie niewidoczne. Księżyc w bliskim widoku Ziemi ma również sztucznie powiększoną odległość graficzną (80×) — jego obliczone położenie pozostaje bez zmian. Powierzchnie poza Ziemią są teksturami <em>generowanymi proceduralnie</em>, nie autentycznymi mozaikami NASA. Nie należy traktować map kontynentów, chmur, kraterów ani rzeźby terenu jako materiału pomiarowego.</p>
+ <p><strong>Perspektywa powierzchniowa.</strong> Ziemia, Księżyc, Merkury, Wenus i Mars: pozorne położenie Słońca oraz innych ciał względem lokalnego horyzontu uwzględnia pozycję obserwatora (paralaksę). Krajobraz, kolor nieba, pierścienie atmosferyczne, dokładne zakrycia tarcz i rozpraszanie światła są tylko wizualizacją. Na Wenus gęsta pokrywa chmur wizualnie przesłania Słońce; szczegóły atmosfery i krajobrazu są poglądowe. Na olbrzymach gazowych nie ma stałej powierzchni, dlatego tryb powierzchni nie jest oferowany.</p>
+ <p><strong>Nowość v5 — zaćmienia.</strong> Pozycje Słońca i Księżyca dla lat 2024–2040 są zapisane w samodzielnym pakiecie jako współrzędne w układzie J2000, próbkowane co 6 godzin i interpolowane sześciennie. Wartości obliczono na podstawie Swiss Ephemeris (Moshier), bez dołączania kodu biblioteki. Tarczę zaćmienia Słońca i rozmiar ziemskiego cienia obliczamy z faktycznych odległości, promieni i geometrii obserwatora. Atmosfera, blask korony, przyciemnienie tarczy i czerwień Księżyca są wizualizacjami, nie pełnym modelem radiacyjnym. Przewidywania dokładnych kontaktów i granic pasa należy sprawdzać w danych NASA.</p><p><strong>Nowość v6 — Ziemia z kosmosu.</strong> Glob powstaje poprzez rzut ortograficzny statycznej mozaiki Blue Marble. Obrót Ziemi i kierunek oświetlenia wyznaczamy z czasu gwiazdowego. Dla zaćmień Słońca zakrycie tarczy jest liczone oddzielnie dla punktów powierzchniowych z uwzględnieniem ich paralaksy; zaciemnienie jest ilustracyjne. Linia osi cienia wyznaczana jest z promienia Słońce–Księżyc. Dla zaćmień Księżyca podświetlamy półkulę, z której Księżyc znajduje się nad horyzontem. Punkt wybrany na globie służy do symulacji obserwacji lokalnej; nie należy wykorzystywać obrazu do ustalenia dokładnych kontaktów, miejsc ani bezpiecznego obserwowania Słońca.</p><p><strong>Nowość v7 — geometria stożków.</strong> W lokalnym układzie Ziemia–Księżyc wyznaczono oś promieni słonecznych, przekroje półcienia i cienia głównego jako funkcje faktycznej odległości od ciała rzucającego cień. W trybie poglądowym skracana jest tylko odległość wzdłuż osi — promienie przekrojów nie są mnożone. Przedłużenie stożka powstaje tam, gdzie główny stożek zamyka się przed oświetlonym ciałem. Kamera projekcyjna jest obrotowa; scena jest rzutem 3D na płótno Canvas, także bez WebGL. Nie jest to pełny model promieniowania ani precyzyjna prognoza zaćmienia dla danego punktu.</p><div class="source-links"><a target="_blank" rel="noopener" href="https://eclipse.gsfc.nasa.gov/SEdecade/SEdecade2021.html">NASA — katalog zaćmień Słońca ↗</a><a target="_blank" rel="noopener" href="https://eclipse.gsfc.nasa.gov/lunar.html">NASA — zaćmienia Księżyca ↗</a><a target="_blank" rel="noopener" href="https://github.com/astronexus/HYG-Database">HYG Astronexus · CC BY-SA 4.0 ↗</a><a target="_blank" rel="noopener" href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/">NASA · Blue Marble NG ↗</a><a target="_blank" rel="noopener" href="https://ssd.jpl.nasa.gov/planets/approx_pos.html">NASA/JPL · Elementy orbitalne ↗</a><a target="_blank" rel="noopener" href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">NASA · Planetary Fact Sheet ↗</a><a target="_blank" rel="noopener" href="https://iauarchive.eso.org/science/scientific_bodies/working_groups/98/">IAU · Wzory rotacji ↗</a><a target="_blank" rel="noopener" href="https://science.nasa.gov/solar-system/planets/mars/what-does-a-sunrise-sunset-look-like-on-mars/">NASA · Kolory nieba na Marsie ↗</a></div>
+ </dialog>
+ 
+<!-- ATLAS SOLARIS 8.0 / system galileuszowy — pełna symulacja offline -->
+<dialog id="jupiterDialog" aria-label="Światy Jowisza, księżyce Galileuszowe i ich cienie">
+ <header class="jupiter-head"><div><div class="jov-kicker">ATLAS SOLARIS / MISJA W UKŁADZIE JOWISZA</div><h2>Światy <em>Jowisza</em> <span class="jov-title-num">08 / GALILEUSZ</span></h2><p>Io · Europa · Ganimedes · Kallisto — orbity, tranzyty i zaćmienia</p></div><button id="jovClose" aria-label="Zamknij moduł Jowisza">✕</button></header>
+ <div class="jov-layout">
+  <section class="jov-stage"><canvas id="jovCanvas" role="img" aria-label="Widok Jowisza, czterech księżyców i ich orbit" tabindex="0"></canvas>
+   <div class="jov-hud"><div><small>POZYCJA OBSERWATORA</small><strong id="jovStatus">ZIEMIA</strong></div><div><small>TRYB OBLICZEŃ</small><strong class="jov-mode">MEEUS + JPL · PRZYBLIŻONE</strong></div></div>
+   <div class="jov-stage-bottom"><span>Przeciągnij: obrót kamery · rolka: zoom</span><span>3D / CANVAS · OFFLINE</span></div>
+  </section>
+  <aside class="jov-side">
+   <div class="jov-section">01 · WEHIKUŁ CZASU</div>
+   <span id="jovClock">—</span>
+   <div class="jov-date-row"><input class="jov-input" id="jovDate" type="datetime-local" min="1800-01-01T00:00" max="2050-12-31T23:59"><button id="jovNow">Teraz</button></div>
+   <div class="jov-event-buttons"><button id="jovHubble" class="jov-primary">◉ Hubble · 2015</button><button id="jovNext">⌕ Znajdź tranzyt</button></div>
+   <label class="jov-line-label" style="margin-top:13px">OŚ CZASU <span id="jovTimeOffset" style="float:right">0 h</span></label>
+   <input type="range" id="jovTimeline" min="-480" max="480" step="1" value="0">
+   <div class="jov-play-row"><button id="jovBeginning">⟲ −2 h</button><button class="jov-primary" id="jovPlay">▶ Odtwórz</button><select class="jov-input" id="jovSpeed"><option value="60">1 min/s</option><option value="600" selected>10 min/s</option><option value="3600">1 h/s</option><option value="21600">6 h/s</option><option value="86400">1 dzień/s</option></select></div>
+   <div class="jov-section">02 · KAMERA</div>
+   <div class="jov-cameras"><button data-jov-camera="earth" class="active">◉ Widok z Ziemi</button><button data-jov-camera="sun">☀ Od Słońca</button><button data-jov-camera="pole">⊙ Z bieguna</button><button data-jov-camera="free">◌ Swobodna</button></div>
+   <div class="jov-section">03 · PRZYBLIŻENIE</div>
+   <div class="jov-row"><button id="jovWide">Cały system</button><input type="range" id="jovZoom" min="1.2" max="22" step="0.2" value="6.5" style="flex:1;min-width:0"><button id="jovCloseup">Zbliżenie</button></div>
+   <div class="jov-toggles"><label><input type="checkbox" id="jovOrbit" checked> Orbity</label><label><input type="checkbox" id="jovShadows" checked> Cienie</label><label><input type="checkbox" id="jovLabels" checked> Podpisy</label></div>
+   <div class="jov-section">04 · KSIĘŻYCE · KLIKNIJ, BY STANĄĆ NA POWIERZCHNI</div>
+   <div class="jov-list" id="jovMoonCards"></div>
+   <div class="jov-section">05 · ZJAWISKA I PARAMETRY</div>
+   <div class="jov-stats"><div class="jov-stat"><small>JOWISZ – SŁOŃCE</small><strong id="jovDistance">—</strong></div><div class="jov-stat"><small>WYBRANY KSIĘŻYC</small><strong id="jovMoonFocus">Europa</strong></div></div>
+   <p id="jovPhenomena">—</p><p class="jov-info-line" id="jovModeNote">Pozycje czterech księżyców obliczane metodą Meeusa (rozdz. 44) z poprawkami rezonansów; elementy JPL opisują orbity. Zdarzenia historyczne mogą różnić się od dokładnych efemeryd.</p>
+   <button id="jovToSolar" class="jov-end">↗ Powrót do planetarium · Jowisz</button>
+   <p class="jov-disclaimer">Promienie i średnie orbity pochodzą z JPL, a pozycje widziane z Ziemi wylicza algorytm Meeusa. Nie jest tu odczytywany dokładny kernel JUP365. Widok z powierzchni oraz mapy Io, Europy, Ganimedesa i Kallisto są ilustracyjne; układ chmur Jowisza nie jest aktualnym zdjęciem. Symulator nie wyznacza dokładnych kontaktów tranzytów. <a href="https://ssd.jpl.nasa.gov/sats/elem/" target="_blank" rel="noopener">Źródło elementów: JPL</a> · <a href="https://science.nasa.gov/missions/hubble/hubble-captures-rare-triple-moon-conjunction/" target="_blank" rel="noopener">Wydarzenie Hubble 2015</a>.</p>
+  </aside>
+ </div>
+</dialog>
+
+<div id="errorScreen" class="error-screen hidden"><h1>Nie udało się uruchomić sceny 3D</h1><p id="errorText"></p><p>Włącz obsługę WebGL 2 i otwórz projekt przez lokalny serwer HTTP — instrukcja znajduje się w pliku README.md.</p></div>
+<script src="js/assets.js"></script>
+<script src="js/stars.js"></script>
+<script src="js/ephemeris.js"></script>
+<script type="module" src="js/app.js"></script>
+<script src="js/jupiter-assets.js"></script>
+<script src="js/jupiter.js"></script>
+</body>
+</html>

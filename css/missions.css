@@ -75,3 +75,7 @@
  .mc-stat strong{font-size:15px}
 }
 @media(max-width:450px){.mc-stage-head{max-width:60%}.mc-stage-head span{display:none}.mc-stage{min-height:407px}#mcCanvas{height:300px;min-height:300px}.mc-stat-grid{gap:6px}.mc-stat{padding:9px 8px}}
+
+/* Space-saving toolbar: the six exploration modules remain accessible on narrow screens. */
+@media(max-width:1450px){#openMissions span{display:none}#openMissions{min-width:35px;padding:8px 10px}}
+@media(max-width:650px){#openMissions{min-width:33px;padding:8px 7px;font-size:14px;border-radius:8px}.top-status{display:none}.top-toolbar{gap:4px}.top-left{gap:7px}}

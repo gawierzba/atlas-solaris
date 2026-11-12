@@ -1,0 +1,77 @@
+/* ATLAS SOLARIS 10 — Centrum Misji. Independent, mobile-first mission console. */
+#openMissions,.mission-side-launch{background:linear-gradient(115deg,#102c3a,#0e4150);border:1px solid #2c8996;color:#b9faff;border-radius:8px;padding:9px 12px;font-weight:700;letter-spacing:.04em;cursor:pointer}
+#openMissions:hover,.mission-side-launch:hover{background:#155368;border-color:#8bf5f3}
+.mission-side-launch{width:100%;margin:10px 0 6px;text-align:left;font-size:12px}
+#missionDialog{padding:0;width:min(1520px,98vw);max-width:98vw;height:min(910px,97dvh);max-height:97dvh;overflow:hidden;color:#e0ecf6;background:#06101e;border:1px solid #294a60;border-radius:16px;font-family:Inter,'Segoe UI',system-ui,sans-serif;box-shadow:0 32px 120px #000e}
+#missionDialog::backdrop{background:#02060de6;backdrop-filter:blur(9px)}
+#missionDialog *{box-sizing:border-box}
+#missionDialog button,#missionDialog select,#missionDialog input{font:inherit}
+#missionDialog button{cursor:pointer;transition:background .15s,border .15s}
+#missionDialog button:focus-visible,#missionDialog select:focus-visible,#missionDialog input:focus-visible{outline:2px solid #78dedf;outline-offset:2px}
+.mc-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:19px 25px;border-bottom:1px solid #244057;background:linear-gradient(120deg,#0e3040,#101a2c 66%,#081925)}
+.mc-header small,.mc-kicker{color:#75d5db;font-size:10px;font-weight:750;letter-spacing:.2em}
+.mc-header h2{font-size:clamp(22px,2.6vw,34px);line-height:1.15;font-weight:700;letter-spacing:-.04em;margin:4px 0}
+.mc-header h2 em{font-style:normal;color:#87e7e6}
+.mc-header p{margin:0;color:#8da7bc;font-size:12px}
+.mc-close{border:1px solid #35586c;background:#153143;color:#e0f3fa;border-radius:9px;width:42px;height:42px;font-size:22px;flex-shrink:0}
+.mc-layout{display:grid;grid-template-columns:minmax(0,1fr) 370px;height:calc(100% - 105px);min-height:0}
+.mc-stage{position:relative;display:flex;flex-direction:column;min-width:0;min-height:0;background:#030a12}
+.mc-stage-head{position:absolute;top:20px;left:23px;z-index:2;pointer-events:none;display:grid;gap:5px}
+.mc-stage-head small{color:#88b2bf;letter-spacing:.15em;font-size:10px}
+.mc-stage-head strong{font-size:20px;color:#e9fcff}
+.mc-stage-head span{color:#8aa5b7;font-size:11px}
+#mcCanvas{display:block;width:100%;height:100%;min-height:300px;flex:1;touch-action:none;cursor:grab}
+#mcCanvas:active{cursor:grabbing}
+.mc-stage-clock{position:absolute;top:18px;right:16px;font-size:10px;border:1px solid #2d4e61;background:#0a1b2bc9;padding:8px 12px;border-radius:8px;color:#a0e8e1;pointer-events:none}
+.mc-timeline{padding:13px 20px 16px;background:#0b1b2c;border-top:1px solid #254052}
+.mc-timeline-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;font-size:12px}
+.mc-timeline-top strong{color:#e0f1fa;font-size:13px}
+.mc-timeline-top span{color:#8fe1da;font-size:11px}
+#mcProgress{width:100%;accent-color:#6ce9dd;cursor:pointer}
+.mc-stage-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+#missionDialog button.mc-primary{background:#157483;color:#ecffff;border:1px solid #2caabc;font-weight:700}
+#missionDialog button.mc-primary:hover{background:#238b9b}
+.mc-stage-actions button,.mc-stage-actions select{background:#172f42;color:#d6edfa;border:1px solid #355265;border-radius:8px;padding:8px 10px;font-size:12px}
+.mc-side{background:#0a1827;border-left:1px solid #254055;padding:18px 18px 32px;overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#375c6c #0c1d2a}
+.mc-section-label{font-size:10px;letter-spacing:.18em;color:#71b7c6;font-weight:750;border-bottom:1px solid #274153;padding:4px 0 8px;margin:8px 0 12px}
+.mc-section-label:not(:first-child){margin-top:22px}
+.mc-preset-list{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.mc-preset-list button{font-size:11px;border:1px solid #315064;border-radius:18px;padding:6px 9px;color:#aecddb;background:#102a3a}
+.mc-preset-list button.active{background:#165768;border-color:#56b5c4;color:#f1ffff}
+.mc-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mc-fields label,.mc-date-label{display:flex;flex-direction:column;gap:6px;color:#88a6ba;font-size:10px;letter-spacing:.08em;font-weight:700}
+.mc-fields select,.mc-date-label input{min-width:0;width:100%;padding:9px 8px;color:#e5f3fa;border:1px solid #345368;background:#102438;border-radius:7px;color-scheme:dark;font-size:13px}
+.mc-date-label{margin-top:10px}
+.mc-date-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.mc-date-actions button,.mc-side-actions button{font-size:11px;padding:8px 9px;border:1px solid #35566c;border-radius:7px;background:#183244;color:#d4edf8}
+.mc-date-actions button:hover,.mc-side-actions button:hover{background:#224c61}
+.mc-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mc-stat{padding:11px 10px;border:1px solid #254557;border-radius:9px;background:#0f2738;min-width:0}
+.mc-stat small{display:block;color:#82a4b7;font-size:9px;letter-spacing:.07em;line-height:1.4}
+.mc-stat strong{display:block;color:#e9f9ff;font-size:17px;letter-spacing:-.03em;margin:6px 0 2px;overflow-wrap:anywhere}
+.mc-stat span{display:block;color:#7291a9;font-size:10px;line-height:1.4}
+.mc-stat strong.mc-good{color:#7debc2}.mc-stat strong.mc-warn{color:#e5d383}.mc-stat strong.mc-bad{color:#f1aa8e}
+.mc-window{background:#102c3d;border:1px solid #2d6274;padding:12px;border-radius:9px;display:grid;gap:5px}
+.mc-window small{font-size:10px;letter-spacing:.1em;color:#84b8c9}
+.mc-window strong{font-size:17px;color:#b6f2ec}
+.mc-window p{font-size:11px;color:#9cbbcb;line-height:1.5;margin:3px 0}
+.mc-window-actions,.mc-side-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
+.mc-window-actions button{background:#1c5f71;border:1px solid #3993a4;color:#e9feff;font-size:11px;padding:8px 10px;border-radius:7px}
+.mc-technical{color:#7795a8;line-height:1.55;font-size:10px;margin:15px 0 8px}
+.mc-technical strong{color:#a8c4d3}
+@media(max-width:1180px){#openMissions{padding:8px}.mc-layout{grid-template-columns:minmax(0,1fr) 325px}.mc-header{padding:16px 20px}}
+@media(max-width:760px){
+ #missionDialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border:0;border-radius:0}
+ .mc-header{padding:11px 14px;min-height:89px}.mc-header h2{font-size:21px}.mc-header p{font-size:10px}
+ .mc-layout{height:calc(100% - 89px);display:flex;flex-direction:column;overflow-y:auto}
+ .mc-stage{min-height:435px;flex:0 0 auto}
+ #mcCanvas{height:330px;min-height:330px;flex:none}
+ .mc-stage-head{top:11px;left:12px}.mc-stage-head strong{font-size:15px}
+ .mc-stage-clock{top:11px;right:9px;font-size:9px}
+ .mc-timeline{padding:12px}.mc-stage-actions{gap:5px}
+ .mc-stage-actions button,.mc-stage-actions select{padding:7px;font-size:11px}
+ .mc-side{overflow:visible;border-left:0;border-top:1px solid #2d4b60;padding:14px 15px 25px}
+ .mc-stat-grid{grid-template-columns:1fr 1fr}
+ .mc-stat strong{font-size:15px}
+}
+@media(max-width:450px){.mc-stage-head{max-width:60%}.mc-stage-head span{display:none}.mc-stage{min-height:407px}#mcCanvas{height:300px;min-height:300px}.mc-stat-grid{gap:6px}.mc-stat{padding:9px 8px}}

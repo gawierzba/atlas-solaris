@@ -1,6 +1,6 @@
-# ATLAS SOLARIS 10.1 — interaktywny Układ Słoneczny i Centrum Misji
+# ATLAS SOLARIS 11.0 — Laboratorium Trajektorii i Układ Słoneczny 3D
 
-Statyczna aplikacja astronomiczna 3D do nauki i eksploracji Układu Słonecznego. Wersja 10.1 poprawia **Centrum Misji**, tak aby wyliczony tor sondy kończył się dokładnie w pozycji docelowej planety w chwili przylotu. Zachowuje wszystkie wcześniej istniejące moduły: obserwatorium, rekonstrukcje zaćmień, geometrię cieni, glob Ziemi, widoki z powierzchni i księżyce Jowisza.
+Statyczna aplikacja astronomiczna 3D do nauki i eksploracji Układu Słonecznego. Wersja 11.0 dodaje **Laboratorium Trajektorii**, w którym każdy punkt mapy jest osobnym rozwiązaniem numerycznym zadania Lamberta. Wybrany wariant uruchamia się następnie jako animacja 3D. Zachowuje wszystkie wcześniej istniejące moduły: obserwatorium, rekonstrukcje zaćmień, geometrię cieni, glob Ziemi, widoki z powierzchni i księżyce Jowisza.
 
 ## Otwórz stronę
 
@@ -8,7 +8,24 @@ Statyczna aplikacja astronomiczna 3D do nauki i eksploracji Układu Słonecznego
 
 Wymagane ustawienie: GitHub → Settings → Pages → Deploy from a branch → `main` → `/(root)`.
 
-## Centrum Misji w wersji 10.1
+## Laboratorium Trajektorii 11.0
+
+- **Interaktywna mapa porkchop**: data startu (oś X), czas lotu w dniach (oś Y), kolory — wymagany koszt energetyczny.
+- 40 × 26 = **1040 niezależnych wariantów** obliczanych w przeglądarce metodą Lamberta 3D dla daty odlotu, czasu lotu i pozycji planet ze wspólnego silnika Atlasu.
+- Wybór planet Merkury, Wenus, Ziemia, Mars, Jowisz i Saturn, zakresu dat oraz czasu lotu.
+- Zmiana miary kolorów: suma v∞ odlot + v∞ przylot [km/s], energia C3 = (v∞ odlot)² [km²/s²] oraz v∞ przy przylocie [km/s].
+- Kliknięcie/dotknięcie punktu pokazuje dokładne daty, C3 i prędkości. Biały krzyżyk wskazuje minimum z siatki, ulepszone lokalnym badaniem sąsiedztwa.
+- Przycisk **Odtwórz lot sondy w 3D** przenosi bez modyfikowania wybraną datę i czas lotu do Centrum Misji.
+- Eksport CSV ze wszystkimi poprawnie wyznaczonymi wariantami; kopiowanie wyników dla pojedynczej trajektorii.
+- Przetwarzanie porcjowane między kolejnymi klatkami animacji, bez zewnętrznych API.
+
+**Jak skorzystać:** otwórz Laboratorium Trajektorii z górnego paska lub menu bocznego, wybierz trasę i zakres, oblicz mapę, wskaż punkt i kliknij **Odtwórz lot sondy w 3D**.
+
+**Jak interpretować wyniki:** C3 to kwadrat prędkości hiperbolicznego nadmiaru przy odlocie, a nie paliwo zużyte przez sondę. Suma v∞ jest orientacyjną miarą porównawczą, a nie pełnym budżetem Δv z powierzchni. Skala kolorów jest względna dla aktualnego wykresu. Znalezione minimum jest najlepsze w badanym przedziale i przy lokalnej optymalizacji, niekoniecznie globalne.
+
+**Granice modelu:** heliocentryczny model dwóch ciał, pozycje planet z przybliżeń JPL, brak perturbacji innych planet, efektów napędu, asyst grawitacyjnych, manewrów naprowadzania, startu z powierzchni i ograniczeń rakiet. Zdarzenia poza zasięgiem przybliżeń 1800–2050 nie są obliczane.
+
+## Centrum Misji — zachowane funkcje 10.1
 
 - **Centrum Misji** w górnym pasku i w menu bocznym; działa również na telefonach.
 - Wybór planet początkowej i docelowej, gotowe trasy m.in. Ziemia–Mars, Ziemia–Wenus, Ziemia–Jowisz, Ziemia–Saturn i Mars–Ziemia.
@@ -24,7 +41,8 @@ Wymagane ustawienie: GitHub → Settings → Pages → Deploy from a branch → 
 - `index.html` — aplikacja i panele.
 - `css/style.css` i `js/app.js` — główny silnik astronomiczny i sceny.
 - `css/jupiter.css`, `js/jupiter.js`, `js/jupiter-assets.js` — moduł Jowisza.
-- `css/missions.css`, `js/missions.js` — Centrum Misji 10.1.
+- `css/missions.css`, `js/missions.js` — Centrum Misji i połączenie z Laboratorium.
+- `css/porkchop.css`, `js/porkchop.js` — nowy moduł naukowy 11.0.
 - `js/assets.js`, `js/stars.js`, `js/ephemeris.js` — zasoby wbudowane i dane.
 
 Do uruchomienia lokalnego: `python -m http.server 8000`, a następnie `http://localhost:8000/`. Wariant wieloplikowy może nie działać poprawnie przez `file://` ze względu na moduły ES.
@@ -44,10 +62,12 @@ To jest **symulator edukacyjny**, nie system do faktycznego planowania startów 
 ### Źródła
 
 - [JPL SSD — przybliżone pozycje planet](https://ssd.jpl.nasa.gov/planets/approx_pos.html)
+- [NASA Trajectory Browser — wykresy porkchop, Lambert, ograniczenia](https://trajbrowser.arc.nasa.gov/user_guide.php)
+- [JPL Mission-Design Tool — definicja C3 i prędkości v∞](https://ssd.jpl.nasa.gov/tools/mdesign.html)
 - [NASA Planetary Fact Sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/)
 - [NASA — Basics of Space Flight](https://science.nasa.gov/learn/basics-of-space-flight/)
 - [GPU Accelerated Lambert Solution Method — opis metody zmiennych uniwersalnych](https://www.adrc.iastate.edu/files/2012/09/AAS-11-263.pdf)
 
 ## Zachowanie poprzedniej wersji
 
-Poprzednie wydania zabezpieczono w gałęziach `backup-v8-before-v10` oraz `backup-v10-before-transfer-fix`. Główna gałąź `main` zawiera poprawioną wersję 10.1.
+Poprzednie wydania zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix` oraz `backup-v10-1-before-porkchop`. Gałąź `main` zawiera wersję 11.0.

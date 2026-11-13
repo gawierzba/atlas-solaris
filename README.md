@@ -1,6 +1,6 @@
-# ATLAS SOLARIS 15.0 — Łowca Egzoplanet · Fotometria Tranzytowa
+# ATLAS SOLARIS 16.0 — Asteroidy, komety i bliskie zbliżenia z Ziemią
 
-ATLAS SOLARIS to interaktywne planetarium z laboratoriami astronomii i astrodynamiki. Wersja 15.0 dodaje **Łowcę Egzoplanet**, czyli obliczeniową symulację metody tranzytowej i syntetycznej fotometrii, wraz z doświadczeniem polegającym na samodzielnym dopasowaniu ukrytych parametrów planety. Wszystkie starsze moduły pozostały dostępne.
+ATLAS SOLARIS to naukowy atlas Układu Słonecznego. Wersja **16.0** dodaje laboratorium małych ciał — rozróżnia **oficjalnie policzone zbliżenia NASA/JPL**, **formalną niepewność odległości** oraz **poglądową wizualizację heliocentrycznej orbity oskulacyjnej**. Zachowano wszystkie moduły wersji 8–15, w tym łowcę egzoplanet, archiwum sond i misje.
 
 ## Otwórz stronę
 
@@ -8,6 +8,52 @@ ATLAS SOLARIS to interaktywne planetarium z laboratoriami astronomii i astrodyna
 
 GitHub Pages: Settings → Pages → Deploy from a branch → `main` → `/(root)`.
 
+## Nowość: Asteroidy, komety i bliskie spotkania — 16.0
+
+### Funkcje
+
+- **Katalog zbliżeń z Ziemią** — tabela nominalnych przejść wyliczonych przez NASA/JPL SBDB Close Approach Data (CAD). Filtr według nazwy, kategorii i maksymalnej odległości w LD (średnia odległość Ziemia–Księżyc = 384 400 km).
+- **Oficjalne parametry JPL:** nominalna odległość od środka Ziemi, granice odległości 3σ, względna prędkość obiektu, prędkość nadmiarowa, niepewność czasu przelotu, wielkość H i zmierzona średnica (jeśli istnieje).
+- **Orbity 3D** z oskulacyjnych elementów `a,e,i,Ω,ω,M` w heliocentrycznej ekliptyce J2000; animacja Keplera z dwuciałowym przybliżeniem słonecznym. Wstępnie udokumentowane przykłady to 99942 Apophis i 101955 Bennu (ESA Aegis, 30 lipca 2026) oraz kometa 67P/Churyumov–Gerasimenko (MPC, 5 listopada 2026).
+- **Oś czasu bliskiego przejścia**, regulowane tempo i moment ±72 h od oficjalnego czasu najbliższego zbliżenia. Dodatkowy wykres odległości jest jawnie oznaczonym **modelem dydaktycznym** `r(t) = sqrt(d₀² + [v_rel·t]²)` dla stałej prędkości, nie autentyczną efemerydą ani prognozą ryzyka.
+- Powiększanie i obracanie 3D gestami na telefonie; pobieranie danych zbliżeń CSV.
+- **Rozdzielenie znaczeń:** `3σ` to przybliżony przedział niepewności obliczonej odległości; nie jest prawdopodobieństwem uderzenia. `MOID` to najmniejsza geometryczna odległość między orbitami, nie minimalna odległość w konkretnej dacie. Z oceną rzeczywistego ryzyka należy zapoznać się w [JPL Sentry](https://cneos.jpl.nasa.gov/sentry/).
+
+### Dlaczego strona nie odpytuje NASA bezpośrednio?
+
+**NASA/JPL SSD API zabrania osadzania zapytań do API bezpośrednio w witrynach internetowych (polityka CORS/fair use).** Stąd projekt przechowuje migawki w plikach `data/neo-close-approaches.json` oraz `data/neo-orbits.json`. Kod w przeglądarce **nie wykonuje zapytań do ssd-api.jpl.nasa.gov**.
+
+Skrypt `scripts/update_neo_data.py` pobiera je **po stronie serwera** przez GitHub Actions, weryfikuje wersję interfejsu, zakres i spójność pól, zapisuje źródło oraz dokładną datę aktualizacji. Workflow `.github/workflows/update-neo.yml` przewiduje **codzienny** pobór bliskich przejść na następne 366 dni, w promieniu nominalnym do 0,05 AU (do 100 rekordów). W niedzielę albo przy ręcznym uruchomieniu dodatkowo zapisuje wybrane aktualne oskulacyjne orbity, m.in. komet 67P i 1P, o ile API zwróci poprawne eliptyczne elementy. Zapytania są wykonywane pojedynczo i z odstępami.
+
+**Ważne: harmonogram automatycznej aktualizacji działa wyłącznie przy włączonych GitHub Actions, odpowiednich uprawnieniach do zapisu i pomyślnym uruchomieniu workflow.** Sam fakt dodania pliku do repozytorium nie potwierdza, że automatyzacja już wykonała pobór danych. Sprawdzaj workflow w zakładce **Actions**. Jeśli GitHub Actions są wyłączone lub wystąpi błąd, aplikacja wyświetla datę ostatniej zapisanej kopii, a nie udaje bieżących pomiarów.
+
+Bot aktualizuje pliki w gałęzi `main`. Ponieważ commity wykonane standardowym `GITHUB_TOKEN` **nie uruchamiają automatycznie przebudowy GitHub Pages w trybie „Deploy from a branch”**, strona próbuje pobierać **gotowy statyczny JSON z publicznej gałęzi `main` na `raw.githubusercontent.com`**, a w razie niepowodzenia używa pliku opublikowanego na Pages. To nie jest połączenie z NASA API, lecz tylko pobranie publicznego pliku własnego repozytorium.
+
+### Dane startowe i pochodzenie
+
+Na początku dostępna jest **oznaczona demonstracja dokumentacyjna**, a nie lista z dnia wydania programu: trzy przykładowe rekordy JPL CAD 1.5 dotyczące 153814 (2001 WN5), 99942 Apophis oraz (2001 AV43) z 2028–2029. Są to dokładnie liczby z oficjalnej [dokumentacji JPL CAD API](https://ssd-api.jpl.nasa.gov/doc/cad.html), wraz z `dist_min`, `dist_max` i `v_rel`. Po pomyślnym pobraniu przez workflow demo zastąpi aktualny zestaw z datą jego zapisania.
+
+Orbits seed: [ESA Aegis — Apophis (epoka 2026-06-09)](https://neo.ssa.esa.int/search-for-asteroids?des=99942+Apophis&tab=orbprop), [ESA Aegis — Bennu](https://neo.ssa.esa.int/search-for-asteroids?des=101955+Bennu&tab=summary), [MPC/MPEC — 67P (epoka 2026-11-05)](https://cobs.si/comet/68/). Dla 67P anomalia średnia przy epoce została przeliczona z czasu peryhelium według modelu Keplera.
+
+### Najważniejsze ograniczenia naukowe
+
+- **Dokładność zbliżenia** bierze się wyłącznie z `dist`, `dist_min`, `dist_max` oficjalnej migawki JPL. Nie wyznaczamy jej na podstawie dwuciałowego wykresu orbit. To istotne np. dla **Apophisa w 2029**, gdy ziemska grawitacja wyraźnie zmienia orbitę planetoidy. Sama wizualizacja heliocentrycznej elipsy może w takich przypadkach odchylać się bardzo znacznie od prawdziwej trajektorii.
+- JPL nie rekomenduje używania dwuciałowego Orbit Viewer do precyzyjnych prognoz przy bliskich przejściach; poprawne wyznaczanie położeń i ocena ryzyka wymagają zaburzanego modelu N-ciał lub Horizons i Sentry.
+- Granice `dist_min` i `dist_max` to **formalny przedział odległości 3σ**, a nie geometryczna osłona wokół osi czasu. Nie są równoznaczne z szansą kolizji; szansa uderzenia może wymagać badania nieliniowego w systemie Sentry.
+- Średnica pozostaje nieznana, jeśli JPL jej nie podało; **nie wyprowadzamy domniemanej średnicy z samego H** bez przyjęcia albedo.
+- Orbity komet mogą dodatkowo zmieniać się wskutek aktywności i sił niegrawitacyjnych. Moduł dwuciałowy świadomie tego nie oblicza.
+- Czas `jd` jest w **TDB**, prezentowany w datowaniu cywilnym jako przybliżenie UTC — różnica rzędu około minuty. Dla dokładnych wydarzeń używaj kart JPL.
+
+### Źródła oficjalne
+
+- [NASA/JPL — SBDB Close Approach Data API](https://ssd-api.jpl.nasa.gov/doc/cad.html)
+- [NASA/JPL — Small Body Database API](https://ssd-api.jpl.nasa.gov/doc/sbdb.html)
+- [JPL — Orbit Viewer, ograniczenia dwuciałowego modelu](https://ssd.jpl.nasa.gov/ov/index.html)
+- [NASA/JPL — Sentry, monitorowanie zagrożeń](https://cneos.jpl.nasa.gov/sentry/intro.html)
+- [NASA/JPL — SSD API fair use / CORS](https://ssd-api.jpl.nasa.gov/)
+- [GitHub — GitHub Pages build i GITHUB_TOKEN](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+## Zachowane moduły poprzednich wersji
 ## Nowość: Łowca Egzoplanet 15.0
 
 ### Eksperyment
@@ -217,6 +263,9 @@ Stabilność L4/L5 wynika z kryterium Routha **μ < 0,0385209** i dotyczy liniow
 - `css/archive.css`, `js/archive.js` — interaktywne archiwum misji 14.0.
 - `js/mission-tracks.js` — lokalne, archiwalne próbki NASA/JPL Horizons dla Voyager 1, Voyager 2 i Cassini.
 - `css/exoplanets.css`, `js/exoplanets.js` — Łowca Egzoplanet 15.0: fizyczny model tranzytów, wykres fotometryczny i tryb odkrywcy.
+- `css/neo.css`, `js/neo.js` — Asteroidy/komety 16.0, orbity Keplera, geometria spotkań, odczyty niepewności JPL.
+- `data/neo-close-approaches.json`, `data/neo-orbits.json` — lokalne i okresowo odświeżane migawki danych.
+- `scripts/update_neo_data.py`, `.github/workflows/update-neo.yml` — aktualizacja danych po stronie GitHub Actions.
 - `js/assets.js`, `js/stars.js`, `js/ephemeris.js` — zasoby wbudowane i dane.
 
 Do uruchomienia lokalnego: `python -m http.server 8000`, a następnie `http://localhost:8000/`. Wariant wieloplikowy może nie działać poprawnie przez `file://` ze względu na moduły ES.
@@ -244,4 +293,4 @@ To jest **symulator edukacyjny**, nie system do faktycznego planowania startów 
 
 ## Zachowanie poprzedniej wersji
 
-Poprzednie wersje zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop`, `backup-v11-before-three-body`, `backup-v12-before-gravity-assists`, `backup-v13-before-mission-archive` oraz `backup-v14-before-exoplanets`. Gałąź `main` zawiera wersję 15.0.
+Poprzednie wersje zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop`, `backup-v11-before-three-body`, `backup-v12-before-gravity-assists`, `backup-v13-before-mission-archive`, `backup-v14-before-exoplanets` oraz `backup-v15-before-small-bodies`. Gałąź `main` zawiera wersję 16.0.

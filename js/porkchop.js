@@ -81,6 +81,7 @@ function recomputeRange(){
  state.range=[low,hi<=low?low+1:hi];
 }
 function draw(){
+ $('pcMetricLabel').textContent=metricName();
  const c=$('pcCanvas');if(!c)return;
  const L=layout(),dpr=Math.min(2,window.devicePixelRatio||1);
  if(c.width!==Math.round(L.w*dpr)||c.height!==Math.round(L.h*dpr)){c.width=Math.round(L.w*dpr);c.height=Math.round(L.h*dpr);}
@@ -191,12 +192,13 @@ function recomputeBest(){
 }
 function run(){
  const p=inputParams();
- if(!p){status('Sprawdź planetę docelową, datę i zakres czasu lotu.');return;}
+ if(!p){token++;status('Sprawdź planetę docelową, datę i zakres czasu lotu.');return;}
  Object.assign(state,p);
  token++;const active=token;
  state.grid=new Array(COLS*ROWS);state.best=null;state.selected=null;
  state.valid=0;state.failed=0;state.complete=false;state.progress=0;
  hovered=null;$('pcMission').disabled=true;$('pcCopy').disabled=true;$('pcCSV').disabled=true;
+ for(const id of ['pcChosenStart','pcChosenArrival','pcChosenTime','pcChosenC3','pcChosenDep','pcChosenArr','pcChosenTotal'])$(id).textContent='—';
  $('pcSelection').textContent='Mapa jest obliczana…';$('pcBestMetric').textContent='—';$('pcBestStart').textContent='—';$('pcBestTime').textContent='—';
  countProgress(0,state.grid.length);
  const span=monthsLater(p.baseJD,p.months)-p.baseJD,total=COLS*ROWS;

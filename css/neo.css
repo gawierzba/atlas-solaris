@@ -98,3 +98,6 @@
 }
 @media(max-width:420px){.neo-header h2{font-size:20px}.neo-space{height:256px;min-height:256px}.neo-stage-head span{display:none}}
 @media(max-width:650px){#openNeo{min-width:33px;padding:8px;font-size:15px}}
+
+.neo-spotlight{width:100%;margin-top:9px;padding:9px 11px;border:1px solid #5b8190;border-radius:8px;text-align:left;background:#203747;color:#c6f2e8;font-size:11px}
+.neo-spotlight:hover{background:#285769}

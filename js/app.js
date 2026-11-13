@@ -1507,6 +1507,7 @@ window.ATLAS_MAIN_API={
  positions:(jd)=>positions(jd),
  earthAxes:(jd)=>axes('earth',jd),
  redrawGlobe:()=>globeDraw(),
+ setGlobeObserver:(lat,lon)=>{globeSetObserver(lat,lon);globeDraw();},
  selectJupiter:()=>select('jupiter'),
  /** Register a computed eclipse and open an existing visualization scene. */
  openCalendarEclipse:(candidate,view='geometry')=>{

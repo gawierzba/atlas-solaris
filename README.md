@@ -1,6 +1,25 @@
-# ATLAS SOLARIS 17.2 — Mapa Zaćmień na Ziemi
+# ATLAS SOLARIS 17.3 — Wędrówka cienia po Ziemi
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **17.2** dodaje mapę zasięgu zaćmienia Słońca na globie, przybliżony pas centralny i kontakty C1–C4, zachowując kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **17.3** rozbudowuje mapę zaćmień o ruchomy ślad cienia, obliczaną prędkość przelotu, kierunek oraz sterowanie pełną animacją. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 17.3 — animacja przelotu pasa centralnego
+
+**Jak uruchomić:** na stronie głównej wybierz „Mapa zaćmień 17.3 · wędrówka cienia” albo „Ziemia z kosmosu”. Wybierz zaćmienie Słońca z centralnym pasem (np. 2 sierpnia 2027). W panelu **Wędrówka cienia** kliknij „Odtwórz cały przelot”.
+
+**Co pokazuje animacja:**
+- Obrotowy glob Ziemi z aktualnym zaciemnieniem powierzchni obliczonym z geometrycznego nakładania tarcz Słońca i Księżyca dla każdej klatki.
+- Podświetloną turkusowo trasę już przebytą przez punkt przecięcia osi cienia z Ziemią; trasę pozostałą do przebycia pokazuje linia przerywana. Dostępne są przełączniki obu warstw.
+- Pulsujący znacznik aktualnego punktu osi cienia z kierunkiem ruchu. Położenie pochodzi z bieżącej efemerydy, a nie z ręcznie przygotowanej animacji.
+- Szacunkową prędkość punktu osi po powierzchni Ziemi (km/h), długość przebytej i całkowitej trasy, procent drogi, szerokość i długość geograficzną.
+- Suwak obejmujący cały przebieg centralny, od pierwszego do ostatniego wyznaczonego punktu, niezależnie od dotychczasowej osi ±4 h względem maksimum; przyciski odtwarzania od początku oraz pauzy i wznowienia.
+
+**Metoda:** do wizualizacji wykorzystano przygotowany w 17.2 tor z funkcji centralTrack() wyznaczany z interpolowanych efemeryd i obrotu Ziemi. Prędkość wynika z długości łuków ortodromy między próbkami (promień Ziemi 6371 km) i ich odstępu czasowego. Pozycja bieżącego znacznika jest dodatkowo wyliczana z aktualnej geometrii. Przy przecięciu południka 180° kierunek i odległość liczone są jako geodezyjne na kuli; przerwy w torze nie są łączone wymyśloną linią. Przed odtworzeniem wykonywana jest analiza centralnej ścieżki. Podczas animacji aktualizowane są również wcześniejsze strefy zakrycia, pas i mapa zbliżenia.
+
+**Ograniczenia:** przedstawiamy średnią prędkość punktu osi cienia na powierzchni Ziemi między sąsiednimi próbkami, nie prędkość przestrzenną Księżyca ani dokładne wartości z elementów Bessela. Przy brzegach tarczy Ziemi prędkość osi na powierzchni może szybko rosnąć; obliczone wartości trzeba traktować orientacyjnie. Kształt i przebieg pasa są modelowe, bez topografii i nierówności księżycowego brzegu. Dla zaćmień częściowych bez pasa centralnego animacja trasy nie jest dostępna, ale nadal działa glob z zaciemnieniem częściowym.
+
+Pliki: js/eclipse17-motion.js, js/eclipse17-motion-ui.js, css/eclipse17-motion.css, tests/eclipse17-motion.test.cjs. Test: node tests/eclipse17-motion.test.cjs.
+
+---
 
 ## Nowość 17.2 — mapa geograficzna zaćmienia na Ziemi
 

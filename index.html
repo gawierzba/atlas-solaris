@@ -4,22 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="Interaktywny Układ Słoneczny 3D: planowanie misji międzyplanetarnych, orbity JPL, zaćmienia, Jowisz i obserwatorium.">
-  <title>ATLAS SOLARIS 10.1 — Centrum Misji · Układ Słoneczny 3D</title>
+  <meta name="description" content="ATLAS SOLARIS 11.0: naukowe laboratorium trajektorii z mapą okien startowych, C3, Lambertem, Układem Słonecznym 3D i zaćmieniami.">
+  <title>ATLAS SOLARIS 11.0 — Laboratorium Trajektorii · Układ Słoneczny 3D</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
+<link rel="stylesheet" href="css/porkchop.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 10.1</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 11.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 10.1</span></div>
-   <button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 11.0</span></div>
+   <button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -31,10 +32,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V10.1</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V11.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -216,7 +217,7 @@
  <p><strong>Nowość v5 — zaćmienia.</strong> Pozycje Słońca i Księżyca dla lat 2024–2040 są zapisane w samodzielnym pakiecie jako współrzędne w układzie J2000, próbkowane co 6 godzin i interpolowane sześciennie. Wartości obliczono na podstawie Swiss Ephemeris (Moshier), bez dołączania kodu biblioteki. Tarczę zaćmienia Słońca i rozmiar ziemskiego cienia obliczamy z faktycznych odległości, promieni i geometrii obserwatora. Atmosfera, blask korony, przyciemnienie tarczy i czerwień Księżyca są wizualizacjami, nie pełnym modelem radiacyjnym. Przewidywania dokładnych kontaktów i granic pasa należy sprawdzać w danych NASA.</p><p><strong>Nowość v6 — Ziemia z kosmosu.</strong> Glob powstaje poprzez rzut ortograficzny statycznej mozaiki Blue Marble. Obrót Ziemi i kierunek oświetlenia wyznaczamy z czasu gwiazdowego. Dla zaćmień Słońca zakrycie tarczy jest liczone oddzielnie dla punktów powierzchniowych z uwzględnieniem ich paralaksy; zaciemnienie jest ilustracyjne. Linia osi cienia wyznaczana jest z promienia Słońce–Księżyc. Dla zaćmień Księżyca podświetlamy półkulę, z której Księżyc znajduje się nad horyzontem. Punkt wybrany na globie służy do symulacji obserwacji lokalnej; nie należy wykorzystywać obrazu do ustalenia dokładnych kontaktów, miejsc ani bezpiecznego obserwowania Słońca.</p><p><strong>Nowość v7 — geometria stożków.</strong> W lokalnym układzie Ziemia–Księżyc wyznaczono oś promieni słonecznych, przekroje półcienia i cienia głównego jako funkcje faktycznej odległości od ciała rzucającego cień. W trybie poglądowym skracana jest tylko odległość wzdłuż osi — promienie przekrojów nie są mnożone. Przedłużenie stożka powstaje tam, gdzie główny stożek zamyka się przed oświetlonym ciałem. Kamera projekcyjna jest obrotowa; scena jest rzutem 3D na płótno Canvas, także bez WebGL. Nie jest to pełny model promieniowania ani precyzyjna prognoza zaćmienia dla danego punktu.</p><div class="source-links"><a target="_blank" rel="noopener" href="https://eclipse.gsfc.nasa.gov/SEdecade/SEdecade2021.html">NASA — katalog zaćmień Słońca ↗</a><a target="_blank" rel="noopener" href="https://eclipse.gsfc.nasa.gov/lunar.html">NASA — zaćmienia Księżyca ↗</a><a target="_blank" rel="noopener" href="https://github.com/astronexus/HYG-Database">HYG Astronexus · CC BY-SA 4.0 ↗</a><a target="_blank" rel="noopener" href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/">NASA · Blue Marble NG ↗</a><a target="_blank" rel="noopener" href="https://ssd.jpl.nasa.gov/planets/approx_pos.html">NASA/JPL · Elementy orbitalne ↗</a><a target="_blank" rel="noopener" href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">NASA · Planetary Fact Sheet ↗</a><a target="_blank" rel="noopener" href="https://iauarchive.eso.org/science/scientific_bodies/working_groups/98/">IAU · Wzory rotacji ↗</a><a target="_blank" rel="noopener" href="https://science.nasa.gov/solar-system/planets/mars/what-does-a-sunrise-sunset-look-like-on-mars/">NASA · Kolory nieba na Marsie ↗</a></div>
  </dialog>
  
-<!-- ATLAS SOLARIS 10.1 / system galileuszowy — pełna symulacja offline -->
+<!-- ATLAS SOLARIS 11.0 / system galileuszowy — pełna symulacja offline -->
 <dialog id="jupiterDialog" aria-label="Światy Jowisza, księżyce Galileuszowe i ich cienie">
  <header class="jupiter-head"><div><div class="jov-kicker">ATLAS SOLARIS / MISJA W UKŁADZIE JOWISZA</div><h2>Światy <em>Jowisza</em> <span class="jov-title-num">08 / GALILEUSZ</span></h2><p>Io · Europa · Ganimedes · Kallisto — orbity, tranzyty i zaćmienia</p></div><button id="jovClose" aria-label="Zamknij moduł Jowisza">✕</button></header>
  <div class="jov-layout">
@@ -249,10 +250,10 @@
 </dialog>
 
 
-<!-- ATLAS SOLARIS 10.1: orbital mission planner, independent of the legacy lab modules -->
+<!-- ATLAS SOLARIS 11.0: orbital mission planner, independent of the legacy lab modules -->
 <dialog id="missionDialog" aria-label="ATLAS SOLARIS Centrum Misji">
  <header class="mc-header">
-  <div><small>ATLAS SOLARIS / EKSPEDYCJA MIĘDZYPLANETARNA / 10.1</small>
+  <div><small>ATLAS SOLARIS / EKSPEDYCJA MIĘDZYPLANETARNA / 11.0</small>
   <h2>Centrum <em>Misji</em></h2><p>Wybierz planety, oblicz spotkanie sondy z celem i zobacz tor lotu w 3D.</p></div>
   <button id="mcClose" class="mc-close" aria-label="Zamknij centrum misji">✕</button>
  </header>
@@ -301,6 +302,76 @@
  </div>
 </dialog>
 
+
+<!-- ATLAS SOLARIS 11.0 — prawdziwe obliczenia porkchop/Lambert, całkowicie po stronie przeglądarki -->
+<dialog id="porkchopDialog" aria-label="Laboratorium trajektorii międzyplanetarnych">
+ <header class="pc-header">
+  <div><div class="pc-kicker">ATLAS SOLARIS / ASTRODYNAMIKA / 11.0</div>
+   <h2>Laboratorium <em>Trajektorii</em></h2>
+   <p>Tysiące wariantów startu · metoda Lamberta · energia C3 · spotkanie z planetą</p>
+  </div><button class="pc-close" id="pcClose" aria-label="Zamknij laboratorium">✕</button>
+ </header>
+ <div class="pc-layout">
+  <section class="pc-map-pane" aria-label="Mapa kosztów transferu międzyplanetarnego">
+   <div class="pc-map-head"><div><small>PRZESTRZEŃ ROZWIĄZAŃ / PORKCHOP PLOT</small><br><strong>Mapa energetyczna lotów</strong></div><small>DOTKNIJ PUNKTU NA MAPIE, BY GO WYBRAĆ</small></div>
+   <div class="pc-map-shell">
+    <canvas id="pcCanvas" tabindex="0" role="img" aria-label="Mapa kosztu transferu; poziomo data startu, pionowo czas lotu. Wybierz komórkę dotykiem lub strzałkami klawiatury."></canvas>
+   </div>
+   <div class="pc-map-foot">
+    <div class="pc-keyrow"><strong>SKALA KOLORÓW · <span id="pcMetricLabel">SUMA v∞</span></strong><span>Chłodniejsze kolory = niższy koszt · krzyżyk = minimum</span></div>
+    <canvas id="pcLegend" aria-label="Legenda wartości koloru"></canvas>
+    <div class="pc-progress"><label for="pcProgress">OBLICZENIA</label><progress id="pcProgress" max="100" value="0"></progress><b id="pcPercent">0%</b></div>
+    <p id="pcStatus" aria-live="polite">Wybierz trasę i uruchom obliczenia.</p>
+   </div>
+  </section>
+  <aside class="pc-right">
+   <div class="pc-section-title">01 / PARAMETRY EKSPERYMENTU</div>
+   <div class="pc-field-grid">
+    <label>START<select id="pcFrom"></select></label>
+    <label>CEL<select id="pcTo"></select></label>
+   </div>
+   <div class="pc-field-grid" style="margin-top:10px">
+    <label>POCZĄTEK BADAŃ (UTC)<input id="pcStart" type="date" min="1800-01-01" max="2050-01-01"></label>
+    <label>OKRES STARTOWY<select id="pcSpan"><option value="12">12 miesięcy</option><option value="24">24 miesiące</option><option value="30" selected>30 miesięcy</option><option value="36">36 miesięcy</option><option value="48">48 miesięcy</option></select></label>
+   </div>
+   <div class="pc-field-grid" style="margin-top:10px">
+    <label>MIN. CZAS LOTU (DNI)<input id="pcMinDays" type="number" min="20" max="4000" step="1" value="155"></label>
+    <label>MAKS. CZAS LOTU (DNI)<input id="pcMaxDays" type="number" min="20" max="4000" step="1" value="440"></label>
+   </div>
+   <label class="pc-field-line">CO OZNACZA KOLOR?
+    <select id="pcMetric"><option value="sum">Suma prędkości v∞ — odlot + przylot</option><option value="c3">Energia startowa C3 (km²/s²)</option><option value="arrival">Prędkość v∞ przy przylocie (km/s)</option></select>
+   </label>
+   <div class="pc-controls"><button class="pc-primary" id="pcRun">◉ Oblicz mapę</button><button id="pcCSV" disabled>↓ Eksport CSV</button></div>
+   <p class="pc-muted">Każdy punkt mapy to odrębne rozwiązanie równania Lamberta w przestrzeni 3D. Zmiana dat i czasu lotu zmienia wymaganą prędkość sondy.</p>
+   <div class="pc-section-title">02 / NAJKORZYSTNIEJSZY WARIANT</div>
+   <div class="pc-highlight">
+    <small>MINIMUM W BADANYM ZAKRESIE · WYBRANA MIARA</small>
+    <strong id="pcBestMetric">—</strong>
+    <span id="pcBestStart">—</span>
+    <span id="pcBestTime">—</span>
+    <button id="pcBest">◎ Wybierz minimum</button>
+   </div>
+   <div class="pc-section-title">03 / ZAZNACZONA TRAJEKTORIA</div>
+   <p id="pcSelection" class="pc-selection-note">Wskaż komórkę na mapie po obliczeniu wyników.</p>
+   <div class="pc-stats">
+    <div class="pc-stat"><small>START (UTC)</small><strong id="pcChosenStart">—</strong></div>
+    <div class="pc-stat"><small>PRZYLOT (UTC)</small><strong id="pcChosenArrival">—</strong></div>
+    <div class="pc-stat"><small>CZAS LOTU</small><strong id="pcChosenTime">—</strong></div>
+    <div class="pc-stat"><small>ENERGIA STARTOWA C3</small><strong id="pcChosenC3">—</strong></div>
+    <div class="pc-stat"><small>v∞ PRZY ODLOCIE</small><strong id="pcChosenDep">—</strong></div>
+    <div class="pc-stat"><small>v∞ PRZY PRZYLOCIE</small><strong id="pcChosenArr">—</strong></div>
+    <div class="pc-stat pc-wide"><small>SUMA PRĘDKOŚCI v∞ (MIARA PORÓWNAWCZA)</small><strong id="pcChosenTotal">—</strong></div>
+   </div>
+   <div class="pc-section-title">04 / URUCHOM WYBRANY LOT</div>
+   <div class="pc-actions"><button class="pc-primary" id="pcMission" disabled>▶ Odtwórz lot sondy w 3D</button><button id="pcCopy" disabled>⧉ Kopiuj dane</button></div>
+   <div class="pc-sources"><strong>O modelu i ograniczeniach:</strong> położenia planet opierają się na uproszczonym modelu JPL, a lot sondy na dwuciałowym zadaniu Lamberta (Słońce + sonda). Pominięto grawitację planet, fazy startu z powierzchni, asysty grawitacyjne, napęd i korekty. C3 = (v∞ przy odlocie)²; prezentowana suma v∞ jest miarą porównawczą, <strong>nie pełnym budżetem paliwa rakiety</strong>. Puste komórki oznaczają brak rozwiązania w stosowanym modelu lub poza zakresem danych. Minimum jest lokalne względem przyjętej siatki i analizowanego przedziału.
+    <a href="https://trajbrowser.arc.nasa.gov/user_guide.php" target="_blank" rel="noopener">NASA Trajectory Browser — metody</a> ·
+    <a href="https://ssd.jpl.nasa.gov/tools/mdesign.html" target="_blank" rel="noopener">JPL Mission Design</a>.
+   </div>
+  </aside>
+ </div>
+</dialog>
+
 <div id="errorScreen" class="error-screen hidden"><h1>Nie udało się uruchomić sceny 3D</h1><p id="errorText"></p><p>Włącz obsługę WebGL 2 i otwórz projekt przez lokalny serwer HTTP — instrukcja znajduje się w pliku README.md.</p></div>
 <script src="js/assets.js"></script>
 <script src="js/stars.js"></script>
@@ -309,5 +380,6 @@
 <script src="js/jupiter-assets.js"></script>
 <script src="js/jupiter.js"></script>
 <script src="js/missions.js"></script>
+<script src="js/porkchop.js"></script>
 </body>
 </html>

@@ -31,7 +31,7 @@ Bot aktualizuje pliki w gałęzi `main`. Ponieważ commity wykonane standardowym
 
 ### Dane startowe i pochodzenie
 
-Na początku dostępna jest **oznaczona demonstracja dokumentacyjna**, a nie lista z dnia wydania programu: trzy przykładowe rekordy JPL CAD 1.5 dotyczące 153814 (2001 WN5), 99942 Apophis oraz (2001 AV43) z 2028–2029. Są to dokładnie liczby z oficjalnej [dokumentacji JPL CAD API](https://ssd-api.jpl.nasa.gov/doc/cad.html), wraz z `dist_min`, `dist_max` i `v_rel`. Po pomyślnym pobraniu przez workflow demo zastąpi aktualny zestaw z datą jego zapisania.
+Na początku dostępna jest **oznaczona demonstracja dokumentacyjna**, a nie lista z dnia wydania programu: trzy przykładowe rekordy JPL CAD 1.5 dotyczące 153814 (2001 WN5), 99942 Apophis oraz (2001 AV43) z 2028–2029. Są to dokładnie liczby z oficjalnej [dokumentacji JPL CAD API](https://ssd-api.jpl.nasa.gov/doc/cad.html), wraz z `dist_min`, `dist_max` i `v_rel`. Po pomyślnym pobraniu przez workflow główna lista wyświetla aktualny zestaw z datą jego zapisania. **Przykład Apophisa z 13 kwietnia 2029 pozostaje dodatkowo dostępny przez osobny przycisk**, zawsze oznaczony jako dane dokumentacyjne JPL z 2023 r. (a nie najnowsza prognoza).
 
 Orbits seed: [ESA Aegis — Apophis (epoka 2026-06-09)](https://neo.ssa.esa.int/search-for-asteroids?des=99942+Apophis&tab=orbprop), [ESA Aegis — Bennu](https://neo.ssa.esa.int/search-for-asteroids?des=101955+Bennu&tab=summary), [MPC/MPEC — 67P (epoka 2026-11-05)](https://cobs.si/comet/68/). Dla 67P anomalia średnia przy epoce została przeliczona z czasu peryhelium według modelu Keplera.
 

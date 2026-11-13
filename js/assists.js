@@ -290,10 +290,10 @@ function setPreset(mode){
  const gain=mode==='boost';
  setParams({side:1,approach:gain?-90-delta/2:90-delta/2});
 }
-function snapshot(){state.saved={energy:state.model.energy,deltaSpeed:state.model.deltaSpeed,turn:state.model.turn,planet:state.planet,vinf:state.vinf,altitude:state.altitude,approach:state.approach,side:state.side};status();}
+function snapshot(){state.saved={energy:state.model.energy,deltaSpeed:state.model.deltaSpeed,turn:state.model.turn,planet:state.planet,vinf:state.vinf,altitude:state.altitude,approach:state.approach,side:state.side,jd:state.jd};status();}
 function restore(){
  const s=state.saved;if(!s)return;
- setParams({planet:s.planet,vinf:s.vinf,altitude:s.altitude,approach:s.approach,side:s.side});
+ setParams({planet:s.planet,jd:s.jd,vinf:s.vinf,altitude:s.altitude,approach:s.approach,side:s.side});
 }
 function init(){
  if(!$('assistDialog')||!window.ATLAS_MAIN_API)return;
@@ -307,7 +307,8 @@ function init(){
   if(state.priorPlaying!==null)window.ATLAS_MAIN_API.setPlaying(state.priorPlaying);
   state.priorPlaying=null;
  });
- for(const id of ['gaPlanet','gaDate','gaVinf','gaAltitude','gaApproach','gaSide'])
+ $('gaPlanet').onchange=()=>{state.planet=$('gaPlanet').value;state.altitude=PLANETS[state.planet].alt;syncInputs();reset();};
+ for(const id of ['gaDate','gaVinf','gaAltitude','gaApproach','gaSide'])
   $(id).addEventListener(id==='gaVinf'||id==='gaAltitude'||id==='gaApproach'?'input':'change',updateInputsAndReset);
  $('gaRate').onchange=()=>{state.rate=Number($('gaRate').value)||1;};
  for(const [key,name]of [['gaVectors','showVectors'],['gaAsymptotes','showAsymptotes'],['gaGrid','showGrid']])

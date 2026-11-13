@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "generatedAt": null,
+  "mode": "offline-reference",
+  "source": "ESA NEO Coordination Centre / Aegis, orbit elements as at 2026-07-30 UTC",
+  "objects": {
+    "99942": {
+      "des": "99942",
+      "name": "(99942) Apophis",
+      "kind": "asteroid",
+      "epoch": 2461200.5,
+      "equinox": "J2000",
+      "a": 0.922359,
+      "e": 0.191149,
+      "i": 3.341,
+      "om": 203.8936,
+      "w": 126.6796,
+      "ma": 175.3304,
+      "moid": 0.000108,
+      "period": 323.5553,
+      "soln_date": "2026-07-30",
+      "source": "https://neo.ssa.esa.int/search-for-asteroids?des=99942+Apophis&tab=orbprop",
+      "approx": false
+    },
+    "101955": {
+      "des": "101955",
+      "name": "(101955) Bennu",
+      "kind": "asteroid",
+      "epoch": 2461200.5,
+      "equinox": "J2000",
+      "a": 1.125951,
+      "e": 0.203682,
+      "i": 6.033,
+      "om": 66.4106,
+      "w": 1.9666,
+      "ma": 72.45176,
+      "moid": 0.003081,
+      "period": 436.3927,
+      "soln_date": "2026-07-30",
+      "source": "https://neo.ssa.esa.int/search-for-asteroids?des=101955+Bennu&tab=orbprop",
+      "approx": false
+    }
+  }
+}

@@ -4,25 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 13.0 — asysty grawitacyjne, hiperboliczne loty sond, Laboratorium Grawitacji, okna startowe i zaćmienia.">
-  <title>ATLAS SOLARIS 13.0 — Asysty Grawitacyjne · Loty międzyplanetarne</title>
+  <meta name="description" content="ATLAS SOLARIS 14.0 — trasy Voyager 1, Voyager 2 i Cassini z JPL Horizons, interaktywny Układ Słoneczny i laboratoria astrodynamiki.">
+  <title>ATLAS SOLARIS 14.0 — Archiwum Misji · Voyager i Cassini</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
 <link rel="stylesheet" href="css/porkchop.css">
 <link rel="stylesheet" href="css/gravity.css">
 <link rel="stylesheet" href="css/assists.css">
+<link rel="stylesheet" href="css/archive.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 13.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 14.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 13.0</span></div>
-   <button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 14.0</span></div>
+   <button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -34,10 +35,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V13.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V14.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -592,6 +593,89 @@
  </div>
 </dialog>
 
+
+<!-- ATLAS SOLARIS 14.0 — Historyczne trajektorie NASA/JPL Horizons (próbkowane) -->
+<dialog id="archiveDialog" aria-label="Archiwum Misji Kosmicznych NASA">
+ <header class="arc-header">
+  <div><small>ATLAS SOLARIS / HISTORIA EKSPLORACJI / 14.0</small>
+  <h2>Archiwum <em>Misji Kosmicznych</em></h2>
+  <p>Voyager 1 · Voyager 2 · Cassini–Huygens — autentyczne próbki JPL Horizons</p></div>
+  <button id="arcClose" class="arc-close" aria-label="Zamknij archiwum misji">✕</button>
+ </header>
+ <div class="arc-layout">
+  <section class="arc-main" aria-label="Trójwymiarowy widok trajektorii sond">
+   <div class="arc-stage-head">
+    <div><small>ODTWARZANIE ARCHIWUM / UKŁAD HELIOCENTRYCZNY</small><strong id="arcTitle">Voyager 2</strong></div>
+    <span id="arcSubtitle">Wielka podróż</span>
+   </div>
+   <div class="arc-stage">
+    <canvas id="arcCanvas" tabindex="0" aria-label="Przestrzenny widok historycznych trajektorii sond; przeciągnij, aby obracać; uszczypnij, aby przybliżyć"></canvas>
+    <div class="arc-headup"><small>DATA MISJI · KALENDARZ UTC*</small><strong id="arcDate">—</strong><span id="arcPercent">—</span></div>
+    <div class="arc-status" id="arcStatus">PAUZA</div>
+   </div>
+   <div class="arc-player">
+    <div class="arc-time-head"><strong>Historia lotu</strong><span>Oś czasu misji</span></div>
+    <input id="arcSlider" class="arc-range" type="range" min="0" max="1000" value="0" step="1" aria-label="Przewijaj czas od startu misji do końca zakresu danych">
+    <div class="arc-time-ends"><span id="arcMin">—</span><span id="arcMax">—</span></div>
+    <div class="arc-player-actions">
+     <button id="arcPlay" class="arc-primary">▶ Odtwórz podróż</button>
+     <button id="arcReset">⟲ Początek</button>
+     <button id="arcPrev">‹ Poprzednie wydarzenie</button>
+     <button id="arcNext">Następne wydarzenie ›</button>
+     <select id="arcSpeed" aria-label="Szybkość biegu czasu">
+      <option value="3">3 dni/s</option><option value="15">15 dni/s</option><option value="50" selected>50 dni/s</option><option value="180">180 dni/s</option><option value="730">2 lata/s</option>
+     </select>
+     <button id="arcResetCamera">◎ Wycentruj</button>
+    </div>
+   </div>
+   <div class="arc-layerbar">
+    <label><input type="checkbox" id="arcPlanets" checked> Planety</label>
+    <label><input type="checkbox" id="arcRings" checked> Orbity referencyjne</label>
+    <label><input type="checkbox" id="arcOthers"> Inne sondy</label>
+    <label><input type="checkbox" id="arcLabels" checked> Opisy</label>
+    <label><input type="checkbox" id="arcFuture" checked> Przyszły fragment historycznej trasy</label>
+   </div>
+  </section>
+  <aside class="arc-right" aria-label="Historia, wydarzenia i dane astronomiczne">
+   <div class="arc-section">01 / WYBIERZ MISJĘ</div>
+   <div id="arcMissionNav" class="arc-missions"></div>
+   <p class="arc-intro" id="arcIntro">—</p>
+   <div class="arc-section">02 / PARAMETRY LOTU</div>
+   <div class="arc-science-grid">
+    <div class="arc-stat"><small>ODLEGŁOŚĆ OD SŁOŃCA</small><strong id="arcDist">—</strong></div>
+    <div class="arc-stat"><small>ODLEGŁOŚĆ OD SŁOŃCA</small><strong id="arcDistKm">—</strong></div>
+    <div class="arc-stat"><small>ŚREDNIA PRĘDKOŚĆ NA ODCINKU*</small><strong id="arcSegmentSpeed">—</strong></div>
+    <div class="arc-stat"><small>WSPÓŁRZĘDNA Z (EKLIPTYKA)</small><strong id="arcZ">—</strong></div>
+    <div class="arc-stat"><small>MINIMALNA DŁUGOŚĆ ŚLADU*</small><strong id="arcTravel">—</strong></div>
+    <div class="arc-stat"><small>CZAS OD STARTU</small><strong id="arcElapsed">—</strong></div>
+    <div class="arc-stat"><small>CZAS ŚWIATŁA OD SŁOŃCA</small><strong id="arcLight">—</strong></div>
+    <div class="arc-stat"><small>PRÓBKI JPL</small><strong id="arcCoverage">—</strong></div>
+   </div>
+   <label class="arc-field">PUNKT ODNIESIENIA KAMERY
+    <select id="arcFocus">
+     <option value="sun" selected>Słońce — cała misja</option>
+     <option value="ship">Sonda — śledź sondę</option>
+     <option value="target">Planeta wydarzenia — zbliżenie</option>
+    </select>
+   </label>
+   <div class="arc-section">03 / KAMIENIE MILOWE</div>
+   <div class="arc-event-head"><strong id="arcEventHeading">—</strong><p id="arcEventDescription">Wybierz wydarzenie, aby zobaczyć jego historię.</p></div>
+   <div id="arcEvents" class="arc-events" aria-label="Chronologiczna lista wydarzeń misji"></div>
+   <div class="arc-section">04 / ŹRÓDŁA I DOKŁADNOŚĆ</div>
+   <div class="arc-caution" id="arcNote">Próbki NASA/JPL Horizons są wyświetlane z interpolacją liniową; bliskie przeloty mają ograniczoną rozdzielczość.</div>
+   <p class="arc-note">
+    <strong>Rzeczywiste dane:</strong> wektory położeń sond NASA/JPL Horizons względem Słońca, ekliptyka J2000, jednostka AU. Są to zachowane próbki, a nie połączenie na żywo z Horizons.
+    <strong>Przybliżenia:</strong> liniowe odcinki łączą punkty; prędkość to średnia między próbkami; długość śladu jest dolnym oszacowaniem drogi. Planety pochodzą z osobnego, przybliżonego silnika JPL Atlasu, a okręgi orbit są odniesieniem, nie dokładnymi torami.
+    *Daty kalendarza UTC wyprowadzamy orientacyjnie z czasów JD TDB (różnica około minuty); historyczne wydarzenia zaznaczono według dat dziennych, nie sekundowych.*
+   </p>
+   <div class="arc-metadata-row">
+    <button id="arcCSV">↓ Eksport próbek CSV</button>
+    <a id="arcMissionSource" href="https://science.nasa.gov/mission/voyager/" target="_blank" rel="noopener">NASA — opis misji ↗</a>
+   </div>
+   <p class="arc-source-line"><span id="arcSource">NASA/JPL Horizons</span>. Publiczne próbki pozyskano z <a href="https://github.com/giancarloerra/Astro.Observer-Orrery/blob/main/DATA-SOURCES.md" target="_blank" rel="noopener">udokumentowanego archiwum Horizons</a> i zapisano lokalnie w projekcie. <a href="https://ssd.jpl.nasa.gov/horizons/" target="_blank" rel="noopener">Oficjalny system NASA/JPL Horizons</a>.</p>
+  </aside>
+ </div>
+</dialog>
 <div id="errorScreen" class="error-screen hidden"><h1>Nie udało się uruchomić sceny 3D</h1><p id="errorText"></p><p>Włącz obsługę WebGL 2 i otwórz projekt przez lokalny serwer HTTP — instrukcja znajduje się w pliku README.md.</p></div>
 <script src="js/assets.js"></script>
 <script src="js/stars.js"></script>
@@ -603,5 +687,7 @@
 <script src="js/porkchop.js"></script>
 <script src="js/gravity.js"></script>
 <script src="js/assists.js"></script>
+<script src="js/mission-tracks.js"></script>
+<script src="js/archive.js"></script>
 </body>
 </html>

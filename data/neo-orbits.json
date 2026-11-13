@@ -39,6 +39,25 @@
       "soln_date": "2026-07-30",
       "source": "https://neo.ssa.esa.int/search-for-asteroids?des=101955+Bennu&tab=orbprop",
       "approx": false
+    },
+    "67P": {
+      "des": "67P",
+      "name": "67P/Churyumov–Gerasimenko",
+      "kind": "comet",
+      "epoch": 2461349.5,
+      "equinox": "J2000",
+      "a": 3.458982,
+      "e": 0.649468,
+      "i": 3.866,
+      "om": 36.2843,
+      "w": 22.2413,
+      "ma": 280.093124574,
+      "moid": 0.257,
+      "period": 2349.7457884,
+      "soln_date": "2026-11-05",
+      "source": "https://cobs.si/comet/68/",
+      "approx": false,
+      "note": "MPC/MPEC 2026-R26 osculating elements; mean anomaly derived at epoch from perihelion JD 2461871.0579 and Keplerian period. This is not a high-fidelity numerical ephemeris."
     }
   }
 }

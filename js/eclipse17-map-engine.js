@@ -197,6 +197,26 @@ function createMap({getPositions,getEarthAxes}){
    if(val(p).outerGapRad>val(q).outerGapRad)left=p;else right=q;
   }
   const max=val((left+right)/2);
+  // Very short central phases (near grazing eclipses) may fall between
+  // 15-second samples. Bracket their inner contacts directly from maximum.
+  if(max.central&&inner.length<2){
+   const roots=[];
+   for(const direction of [-1,1]){
+    let near=max.jd,far=near,distance=step/2;
+    while(distance<=windowHours/24){
+     far=near+direction*distance;
+     if(far<out||far>end)break;
+     if(val(far).innerGapRad>0){
+      const z=findZero(j=>val(j).innerGapRad,Math.min(far,near),Math.max(far,near));
+      const hit=val(z);
+      roots.push({jd:z,utc:iso(z),sunAboveHorizon:hit.altitudeDeg>0});
+      break;
+     }
+     distance*=2;
+    }
+   }
+   if(roots.length===2)inner.splice(0,inner.length,...roots.sort((a,b)=>a.jd-b.jd));
+  }
   const entries=[];
   if(outer[0])entries.push({label:'C1',...outer[0]});
   if(inner[0]&&max.central)entries.push({label:'C2',...inner[0]});

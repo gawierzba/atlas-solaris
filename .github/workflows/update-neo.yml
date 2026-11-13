@@ -1,0 +1,52 @@
+name: ATLAS SOLARIS — dzienne migawki NASA JPL
+
+on:
+  schedule:
+    - cron: "17 7 * * *"
+  workflow_dispatch:
+    inputs:
+      update_orbits:
+        description: "Zaktualizuj też elementy orbitalne (SBDB)"
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atlas-solaris-neo-update
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Zaktualizuj kopię statyczną JPL po stronie GitHub Actions
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          ORBIT_INPUT: ${{ inputs.update_orbits }}
+        run: |
+          if [[ "$EVENT_NAME" == "workflow_dispatch" && "$ORBIT_INPUT" == "true" ]] || [[ "$(date -u +%u)" == "7" ]]; then
+            python scripts/update_neo_data.py --update-orbits
+          else
+            python scripts/update_neo_data.py
+          fi
+      - name: Zapisz migawki tylko po zweryfikowaniu
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain -- data/neo-close-approaches.json data/neo-orbits.json)" ]]; then
+            git config user.name "atlas-solaris-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/neo-close-approaches.json data/neo-orbits.json
+            git commit -m "data: JPL small-body snapshots"
+            git push
+          else
+            echo "Brak zmian danych JPL."
+          fi

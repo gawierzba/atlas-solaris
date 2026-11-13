@@ -25,7 +25,7 @@ const SYSTEMS={
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const fmt=(n,d=2)=>Number(n).toLocaleString('pl-PL',{minimumFractionDigits:d,maximumFractionDigits:d});
 const U={system:'earthmoon',point:'L4',offset:.5,kick:0,speed:1,playing:false,priorPlaying:null,
- view:'rotating',showZones:true,showVectors:true,showLabels:true,place:false,
+ view:'rotating',showZones:true,showVectors:true,showLabels:true,place:false,customOrigin:null,
  zoom:1,panX:0,panY:0,t:0,start:null,craft:null,C0:null,trail:[],reference:null,
  collision:null,energyMax:0,canvasQuality:1};
 let raf=0,last=0,pointers=new Map(),drag=null,pinch=0,drawCounter=0,zoneCache=null,needsZones=true;
@@ -83,8 +83,7 @@ function physical(s){
  return {distanceUnit,velocityUnit,accUnit:velocityUnit*TWO_PI/(c.period*86400)};
 }
 function initial(){
- if(U.point==='custom'&&U.start)return U.start.slice();
- const p=points(config().mu)[U.point]||points(config().mu).L4;
+ const p=U.point==='custom'&&U.customOrigin?U.customOrigin:(points(config().mu)[U.point]||points(config().mu).L4);
  const frac=U.offset/100,velocity=U.kick/physical().velocityUnit;
  return [p[0]+frac,p[1],0,velocity];
 }
@@ -313,7 +312,7 @@ function draw(){
   ctx.fillStyle=glow;ctx.beginPath();ctx.arc(q[0],q[1],r*1.8,0,TWO_PI);ctx.fill();
   if(U.showLabels){ctx.fillStyle='#dceaf6';ctx.font='650 12px system-ui';ctx.fillText(name,q[0]+r+4,q[1]+18);}
  }
- if(U.showVectors)vectors(ctx,L);
+ if(U.showVectors&&U.view==='rotating')vectors(ctx,L);
  const p=screen(U.craft[0],U.craft[1],U.t,L);
  circle(ctx,p[0],p[1],5.2,'#c8fff4',14);
  ctx.strokeStyle='#cbfff4aa';ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(p[0],p[1],11,0,TWO_PI);ctx.stroke();
@@ -374,7 +373,7 @@ function handlePointer(){
    else if(U.place){
     const v=unscreen(x,y,L);
     if(Number.isFinite(v[0])&&Number.isFinite(v[1])&&Math.hypot(v[0],v[1])<8){
-     U.point='custom';U.start=[v[0],v[1],0,0];$('gravPoint').value='custom';reset();
+     U.point='custom';U.customOrigin=v;U.offset=0;U.kick=0;U.start=null;$('gravOffset').value='0';$('gravKick').value='0';$('gravPoint').value='custom';reset();
     }
    }
   }
@@ -410,7 +409,7 @@ function init(){
   U.priorPlaying=null;
  });
  $('gravSystem').onchange=()=>{
-  updateInput();U.point='L4';U.start=null;U.zoom=1;U.panX=0;U.panY=0;U.reference=null;
+  updateInput();U.point='L4';U.start=null;U.customOrigin=null;U.zoom=1;U.panX=0;U.panY=0;U.reference=null;
   $('gravPoint').value='L4';$('gravReference').textContent='Brak zapisanego śladu';reset({preserveReference:false});
  };
  $('gravPoint').onchange=()=>{

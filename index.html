@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 15.0 — Łowca Egzoplanet, symulator tranzytów i syntetycznej fotometrii, trajektorie NASA i laboratoria Układu Słonecznego.">
-  <title>ATLAS SOLARIS 15.0 — Łowca Egzoplanet · Fotometria Tranzytowa</title>
+  <meta name="description" content="ATLAS SOLARIS 16.0 — naukowe laboratorium asteroid i komet z danymi bliskich zbliżeń JPL, orbitami 3D i niepewnościami odległości.">
+  <title>ATLAS SOLARIS 16.0 — Asteroidy, Komety i Bliskie Spotkania z Ziemią</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -14,17 +14,18 @@
 <link rel="stylesheet" href="css/assists.css">
 <link rel="stylesheet" href="css/archive.css">
 <link rel="stylesheet" href="css/exoplanets.css">
+<link rel="stylesheet" href="css/neo.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 15.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 16.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 15.0</span></div>
-   <button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 16.0</span></div>
+   <button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -36,10 +37,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V15.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V16.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -760,6 +761,124 @@
   </aside>
  </div>
 </dialog>
+
+<!-- ATLAS SOLARIS 16.0 — NEO, bliskie zbliżenia Ziemi wg NASA/JPL -->
+<dialog id="neoDialog" aria-label="Asteroidy i komety — laboratorium bliskich zbliżeń">
+ <header class="neo-header">
+  <div><small>ATLAS SOLARIS / OBRONA PLANETARNA / 16.0</small>
+   <h2>Asteroidy, komety i <em>bliskie spotkania</em></h2>
+   <p>Rzeczywiste dane JPL · niepewność orbit · 3D · analiza zbliżeń bez sensacji</p>
+  </div>
+  <button id="neoClose" class="neo-close" aria-label="Zamknij laboratorium małych ciał">✕</button>
+ </header>
+ <div class="neo-layout">
+  <section class="neo-main" aria-label="Model przestrzenny małych ciał i przebiegu zbliżenia">
+   <div class="neo-stage-head">
+    <div><small>MODEL DWUCIAŁOWY / EKLIPTYKA J2000</small><strong id="neoSelectedName">Wybierz małe ciało</strong></div>
+    <span>Przeciągnij: obróć · szczypanie/rolka: zoom</span>
+   </div>
+   <div class="neo-space">
+    <canvas id="neoOrbitCanvas" tabindex="0" aria-label="Przestrzenna orbita małego ciała, Ziemi i Słońca, obliczana przybliżeniem dwóch ciał"></canvas>
+    <div class="neo-hud"><small>DATA MODELU ORBITALNEGO</small><strong id="neoTimeLabel">—</strong></div>
+    <div class="neo-space-label">POŁOŻENIE POGLĄDOWE · NIE JEST PRZEWIDYWANIEM ODLEGŁOŚCI ZBLIŻENIA</div>
+   </div>
+   <div class="neo-playback">
+    <div class="neo-timeline"><strong>Odtwarzanie spotkania</strong><span id="neoOffsetLabel">0 h</span></div>
+    <input id="neoOffset" class="neo-slider" type="range" min="-72" max="72" step=".25" value="0" aria-label="Godziny przed i po wyznaczonym zbliżeniu">
+    <div class="neo-play-buttons">
+     <button id="neoPlay" class="neo-primary">▶ Odtwórz przelot</button>
+     <button id="neoReset">◎ Najbliższe zbliżenie</button>
+     <select id="neoClockSpeed" aria-label="Tempo przelotu">
+      <option value="12">12 h/s</option><option value="60" selected>60 h/s</option><option value="180">180 h/s</option>
+     </select>
+     <button id="neoCenter">◉ Wycentruj</button>
+     <span id="neoMotionLabel">PAUZA</span>
+    </div>
+   </div>
+   <div class="neo-approx">
+    <div class="neo-approx-head">
+     <strong>Odległość w pobliżu spotkania — model dydaktyczny</strong>
+     <small id="neoModelDist">—</small>
+    </div>
+    <canvas id="neoCloseCanvas" role="img" aria-label="Poglądowy przebieg odległości sondy od Ziemi przy stałej prędkości, zbliżenie centralne zakotwiczone w nominalnej odległości JPL"></canvas>
+    <p id="neoModelCaution">Model prostoliniowy nie jest efemerydą JPL.</p>
+   </div>
+  </section>
+  <aside class="neo-right" aria-label="Katalog spotkań i dokładne odczyty JPL">
+   <div class="neo-section">01 / DANE NASA/JPL</div>
+   <div class="neo-source">
+    <strong id="neoSourceState">ŁADOWANIE ARCHIWUM</strong>
+    <small id="neoSourceDate">—</small>
+    <small id="neoSourceCount">—</small>
+    <small id="neoApiState" class="neo-warn">Strona czyta statyczny plik. Nie pobiera bezpośrednio danych z API JPL.</small>
+    <small id="neoDataWarning" class="neo-warn"></small>
+   </div>
+   <div class="neo-section">02 / WYBIERZ ZBLIŻENIE</div>
+   <div class="neo-filter">
+    <label class="wide">SZUKAJ NAZWY / OZNACZENIA <input id="neoSearch" type="search" placeholder="np. Apophis, 2001 WN5"></label>
+    <label>RODZAJ OBIEKTU
+     <select id="neoType">
+      <option value="all">Wszystkie</option><option value="asteroids">Asteroidy</option><option value="comets">Komety</option>
+     </select>
+    </label>
+    <label>ODLEGŁOŚĆ MAKS.
+     <select id="neoDistanceFilter">
+      <option value="5">5 LD</option><option value="10">10 LD</option><option value="30" selected>30 LD</option>
+      <option value="100">100 LD</option><option value="500">500 LD</option>
+     </select>
+    </label>
+   </div>
+   <div class="neo-listhead"><span id="neoFilterCount">—</span><small>LD = 384 400 km</small></div>
+   <div class="neo-events" id="neoEvents" aria-label="Lista nominalnych bliskich zbliżeń z Ziemią"></div>
+   <div class="neo-section">03 / WYBRANE ZBLIŻENIE — JPL</div>
+   <div class="neo-selected">
+    <strong id="neoSelectedKind">—</strong>
+    <span id="neoSelectedTime">—</span>
+    <span id="neoNoteProvenance">—</span>
+   </div>
+   <div class="neo-stats">
+    <div class="neo-stat"><small>ODLEGŁOŚĆ NOMINALNA OD ŚRODKA ZIEMI</small><strong id="neoNominal">—</strong></div>
+    <div class="neo-stat"><small>ODLEGŁOŚĆ W JEDNOSTKACH KSIĘŻYCOWYCH</small><strong id="neoLD">—</strong></div>
+    <div class="neo-stat"><small>MINIMALNA ODLEGŁOŚĆ W PRZEDZIALE 3σ</small><strong id="neoMin">—</strong></div>
+    <div class="neo-stat"><small>MAKSYMALNA ODLEGŁOŚĆ W PRZEDZIALE 3σ</small><strong id="neoMax">—</strong></div>
+    <div class="neo-stat"><small>SZEROKOŚĆ PRZEDZIAŁU 3σ</small><strong id="neoUncWidth">—</strong></div>
+    <div class="neo-stat"><small>ODLEGŁOŚĆ PONAD POWIERZCHNIĄ PRZY MINIMUM (PRZYBLIŻONA)</small><strong id="neoAlt">—</strong></div>
+    <div class="neo-stat"><small>PRĘDKOŚĆ WZGLĘDEM ZIEMI</small><strong id="neoVrel">—</strong></div>
+    <div class="neo-stat"><small>PRĘDKOŚĆ v∞ WZGLĘDEM ZIEMI</small><strong id="neoVinf">—</strong></div>
+    <div class="neo-stat"><small>3σ NIEPEWNOŚĆ CZASU ZBLIŻENIA</small><strong id="neoTimeUnc">—</strong></div>
+    <div class="neo-stat"><small>ZNANA ŚREDNICA (JEŚLI OPUBLIKOWANO)</small><strong id="neoDiameter">—</strong></div>
+    <div class="neo-stat"><small>JASNOŚĆ ABSOLUTNA H</small><strong id="neoH">—</strong></div>
+    <div class="neo-stat"><small>MOID — ODLEGŁOŚĆ MIN. MIĘDZY ORBITAMI</small><strong id="neoOrbitMoid">—</strong></div>
+   </div>
+   <p class="neo-doc" id="neoProximityNote">Wyświetlane odległości pochodzą z tabeli JPL, a nie z poglądowego wykresu 3D.</p>
+   <div class="neo-section">04 / ORBITY PLANETOID I KOMET</div>
+   <div class="neo-orbit-presets">
+    <button id="neoApophis" class="neo-mini">Apophis</button>
+    <button id="neoBennu" class="neo-mini">Bennu</button>
+    <button id="neo67P" class="neo-mini">67P — kometa</button>
+    <button id="neoHalley" class="neo-mini">1P/Halley</button>
+   </div>
+   <div class="neo-orbit-presets" id="neoOrbitPresets"></div>
+   <p class="neo-doc" id="neoOrbitalState">Pokazywane są orbity ze zapisanych elementów oskulacyjnych, jeśli dostępne.</p>
+   <p class="neo-doc">Epoka elementów: <strong id="neoOrbitEpoch">—</strong>. Elementy opisują orbitę przy danej epoce; propagacja pomija grawitację planet, dlatego <strong>przy bliskim przejściu wykres 3D może znacznie rozmijać się z dokładnymi danymi JPL</strong>. Podobne zastrzeżenie podaje oficjalna przeglądarka orbit JPL.</p>
+   <div class="neo-visibility">
+    <label><input id="neoShowEarth" type="checkbox" checked> Pokaż Ziemię</label>
+    <label><input id="neoShowOrbit" type="checkbox" checked> Pokaż orbitę</label>
+    <label><input id="neoShowLabels" type="checkbox" checked> Nazwy</label>
+   </div>
+   <div class="neo-section">05 / JAK INTERPRETOWAĆ WYNIKI?</div>
+   <div class="neo-notice"><strong>Bliskie zbliżenie nie oznacza zagrożenia.</strong> Przedział 3σ w tabeli CAD to przybliżona niepewność przewidywanej odległości, a nie prawdopodobieństwo uderzenia w Ziemię. Formalne ryzyko zderzenia bada osobny system JPL Sentry. MOID jest odległością geometryczną między orbitami, nie przewidywaną datą spotkania. Nie wyciągamy wniosków o kolizji z samej orbity, średnicy ani bliskości w LD.</div>
+   <div class="neo-links">
+    <a id="neoSourceLink" href="https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html" target="_blank" rel="noopener">Karta obiektu JPL</a>
+    <a href="https://cneos.jpl.nasa.gov/sentry/" target="_blank" rel="noopener">Sentry — ryzyko uderzeń</a>
+    <a href="https://ssd-api.jpl.nasa.gov/doc/cad.html" target="_blank" rel="noopener">Definicje danych CAD</a>
+    <button id="neoCsv" class="neo-action">↓ Eksport CSV</button>
+   </div>
+   <p class="neo-doc" id="neoRefreshNote">Aktualizacja danych odbywa się przez GitHub Actions; działanie harmonogramu zależy od ustawień repozytorium.</p>
+  </aside>
+ </div>
+</dialog>
+
 <div id="errorScreen" class="error-screen hidden"><h1>Nie udało się uruchomić sceny 3D</h1><p id="errorText"></p><p>Włącz obsługę WebGL 2 i otwórz projekt przez lokalny serwer HTTP — instrukcja znajduje się w pliku README.md.</p></div>
 <script src="js/assets.js"></script>
 <script src="js/stars.js"></script>
@@ -774,5 +893,6 @@
 <script src="js/mission-tracks.js"></script>
 <script src="js/archive.js"></script>
 <script src="js/exoplanets.js"></script>
+<script src="js/neo.js"></script>
 </body>
 </html>

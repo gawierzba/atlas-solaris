@@ -176,7 +176,7 @@ function draw(){
   ctx.fillStyle=i%8?'#9fbacc45':'#d2e4ee8b';ctx.fillRect(x,y,1,1);
  }
  if(state.showGrid){
-  const gridR=m.range*[.25,.5,.75,1];
+  const gridR=[.25,.5,.75,1].map(v=>m.range*v);
   for(const r of gridR){
    ctx.beginPath();ctx.arc(L.cx,L.cy,r*L.s,0,TAU);ctx.strokeStyle='#94b5ce20';ctx.lineWidth=.8;ctx.stroke();
   }

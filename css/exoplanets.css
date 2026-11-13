@@ -76,12 +76,12 @@
  .exo-header{height:88px;min-height:88px;padding:12px 14px}.exo-header h2{font-size:22px}.exo-header p{font-size:10px}.exo-header small{font-size:9px}
  .exo-layout{height:calc(100% - 88px);display:flex;flex-direction:column;overflow-y:auto}
  .exo-left{min-height:0;flex:none}
- .exo-hero{height:248px;min-height:248px;flex:none;grid-template-columns:minmax(0,1fr)}
- .exo-scene{border-right:0}.exo-orbit{display:none}
+ .exo-hero{height:385px;min-height:385px;flex:none;grid-template-columns:minmax(0,1fr);grid-template-rows:225px 160px}
+ .exo-scene{border-right:0}.exo-orbit{display:block;border-top:1px solid #294a60}
  .exo-chart-wrap{height:300px;min-height:300px;flex:none;padding:9px 9px 4px}
  #exoChart{min-height:260px}
  .exo-bottom{padding:10px 13px}
  .exo-form{overflow:visible;border-left:0;border-top:1px solid #345b72;padding:15px 14px 30px}
 }
-@media(max-width:420px){.exo-header h2{font-size:20px}.exo-header p{font-size:9px}.exo-hero{height:220px;min-height:220px}.exo-chart-wrap{height:290px;min-height:290px}}
+@media(max-width:420px){.exo-header h2{font-size:20px}.exo-header p{font-size:9px}.exo-hero{height:355px;min-height:355px;grid-template-rows:205px 150px}.exo-chart-wrap{height:290px;min-height:290px}}
 @media(max-width:650px){#openExoplanets{font-size:15px;min-width:32px;padding:8px}}

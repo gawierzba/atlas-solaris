@@ -1,6 +1,6 @@
-# ATLAS SOLARIS 11.0 — Laboratorium Trajektorii i Układ Słoneczny 3D
+# ATLAS SOLARIS 12.0 — Laboratorium Grawitacji · Mechanika nieba
 
-Statyczna aplikacja astronomiczna 3D do nauki i eksploracji Układu Słonecznego. Wersja 11.0 dodaje **Laboratorium Trajektorii**, w którym każdy punkt mapy jest osobnym rozwiązaniem numerycznym zadania Lamberta. Wybrany wariant uruchamia się następnie jako animacja 3D. Zachowuje wszystkie wcześniej istniejące moduły: obserwatorium, rekonstrukcje zaćmień, geometrię cieni, glob Ziemi, widoki z powierzchni i księżyce Jowisza.
+Statyczna aplikacja astronomiczna 3D do nauki i eksploracji Układu Słonecznego. Wersja 12.0 dodaje **Laboratorium Grawitacji**, eksperymentalny symulator kołowego ograniczonego problemu trzech ciał. Zachowuje Laboratorium Trajektorii 11.0, Centrum Misji 10.1 i starsze moduły. W modelu CR3BP można badać punkty L1–L5, stabilność, odchylenia trajektorii i zachowanie stałej Jacobiego. Zachowuje wszystkie wcześniej istniejące moduły: obserwatorium, rekonstrukcje zaćmień, geometrię cieni, glob Ziemi, widoki z powierzchni i księżyce Jowisza.
 
 ## Otwórz stronę
 
@@ -8,6 +8,44 @@ Statyczna aplikacja astronomiczna 3D do nauki i eksploracji Układu Słonecznego
 
 Wymagane ustawienie: GitHub → Settings → Pages → Deploy from a branch → `main` → `/(root)`.
 
+## Nowość: Laboratorium Grawitacji 12.0
+
+Interaktywny, **planarny model CR3BP** (Circular Restricted Three-Body Problem) z rozwiązaniem numerycznym równań ruchu sondy metodą Rungego–Kutty 4. rzędu (RK4) oraz automatycznym doborem kroku zależnym od odległości od masywnych ciał.
+
+- Dwa układy fizyczne: **Ziemia–Księżyc** (średnia separacja 384 400 km, okres 27,321661 d) oraz **Słońce–Ziemia** (1 AU, okres 365,2568983 d). Masy i promienie reprezentowane wartościami średnimi.
+- Numeryczne wyznaczanie współliniowych **L1, L2, L3** oraz analitycznych trójkątnych **L4, L5** w normalizowanym, obracającym się układzie barycentrycznym.
+- Zmiana pozycji startowej i impulsu prędkości sondy; regulacja tempa czasu, pauza i restart eksperymentu. Możliwość dotknięcia punktu L na scenie lub ręcznego ustawienia sondy w innym miejscu.
+- Dwa układy odniesienia: **współobracający się** (punkty L nieruchome) oraz **inercjalny barycentryczny** (ciała, punkty i ich trajektorie poruszają się).
+- Wersja współobracająca pokazuje wektory przyspieszeń grawitacyjnych od obu ciał, odśrodkowe i Coriolisa; strzałki przeskalowane wizualnie, nie są wektorami w jednolitej skali.
+- Wyświetlanie obszarów dostępnych/niedostępnych ruchowo z warunku stałej Jacobiego **2Ω ≥ C** (potencjał efektywny), położenia sondy, odległości i przyspieszeń w jednostkach fizycznych.
+- Monitor **stałej Jacobiego**: C = 2Ω − (ẋ² + ẏ²), procentowy dryf numeryczny C, wykrywanie zderzeń z podstawowymi ciałami oraz opuszczenia skali symulacji.
+- Eksperyment porównawczy: **Zachowaj ślad A** i uruchom kolejną próbę, aby nałożyć oba ślady i badać wrażliwość na warunki początkowe.
+- Obsługa gestów na telefonie (przesuwanie i przybliżanie) oraz sterowania klawiaturą.
+
+### Równania i interpretacja
+
+W znormalizowanym układzie barycentrycznym, z μ = m₂/(m₁ + m₂), przy położeniach ciał (−μ, 0) i (1−μ, 0):
+
+```text
+Ω(x,y) = ½(x²+y²) + (1−μ)/r₁ + μ/r₂
+x¨ = 2 y˙ + ∂Ω/∂x
+y¨ = −2 x˙ + ∂Ω/∂y
+C = 2Ω − (x˙² + y˙²)
+r₁² = (x+μ)²+y²
+r₂² = (x−1+μ)²+y²
+```
+
+Stabilność L4/L5 wynika z kryterium Routha **μ < 0,0385209** i dotyczy liniowej teorii idealnego modelu. L1/L2/L3 są niestabilne. Symulacja jest **dwuwymiarowa** — nie rekonstruuje prawdziwych przestrzennych orbit halo ani lotu JWST. Rzeczywiste trajektorie są modyfikowane przez nieregularności orbit, inne ciała, promieniowanie i manewry napędu.
+
+**Pomysł na doświadczenie:** wybierz Ziemia–Księżyc i L4 z przesunięciem 0,5%; odtwórz kilka okresów, zachowaj ślad A. Następnie wybierz L1 z przesunięciem 0,5% i porównaj, jak szybko sonda opuszcza otoczenie punktu równowagi.
+
+### Źródła do modelu
+
+- [NASA — What are Lagrange Points?](https://science.nasa.gov/solar-system/resources/faq/what-are-lagrange-points/)
+- [NASA Webb — Orbital Mechanics and L2](https://science.nasa.gov/mission/webb/orbit/)
+- [ESA — What are Lagrange points?](https://www.esa.int/Enabling_Support/Operations/What_are_Lagrange_points)
+
+## Zachowane moduły
 ## Laboratorium Trajektorii 11.0
 
 - **Interaktywna mapa porkchop**: data startu (oś X), czas lotu w dniach (oś Y), kolory — wymagany koszt energetyczny.
@@ -42,7 +80,8 @@ Wymagane ustawienie: GitHub → Settings → Pages → Deploy from a branch → 
 - `css/style.css` i `js/app.js` — główny silnik astronomiczny i sceny.
 - `css/jupiter.css`, `js/jupiter.js`, `js/jupiter-assets.js` — moduł Jowisza.
 - `css/missions.css`, `js/missions.js` — Centrum Misji i połączenie z Laboratorium.
-- `css/porkchop.css`, `js/porkchop.js` — nowy moduł naukowy 11.0.
+- `css/porkchop.css`, `js/porkchop.js` — Laboratorium Trajektorii 11.0.
+- `css/gravity.css`, `js/gravity.js` — Laboratorium Grawitacji 12.0 (CR3BP i RK4).
 - `js/assets.js`, `js/stars.js`, `js/ephemeris.js` — zasoby wbudowane i dane.
 
 Do uruchomienia lokalnego: `python -m http.server 8000`, a następnie `http://localhost:8000/`. Wariant wieloplikowy może nie działać poprawnie przez `file://` ze względu na moduły ES.
@@ -70,4 +109,4 @@ To jest **symulator edukacyjny**, nie system do faktycznego planowania startów 
 
 ## Zachowanie poprzedniej wersji
 
-Poprzednie wydania zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix` oraz `backup-v10-1-before-porkchop`. Gałąź `main` zawiera wersję 11.0.
+Poprzednie wydania zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop` oraz `backup-v11-before-three-body`. Gałąź `main` zawiera wersję 12.0.

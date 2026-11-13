@@ -154,4 +154,4 @@ To jest **symulator edukacyjny**, nie system do faktycznego planowania startów 
 
 ## Zachowanie poprzedniej wersji
 
-Poprzednie wydania zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop` `backup-v11-before-three-body` oraz `backup-v12-before-gravity-assists`. Gałąź `main` zawiera wersję 13.0.
+Poprzednie wydania zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop`, `backup-v11-before-three-body` oraz `backup-v12-before-gravity-assists`. Gałąź `main` zawiera wersję 13.0.

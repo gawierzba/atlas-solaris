@@ -158,9 +158,11 @@ function updateSavedOrbits(){
  const box=$('neoOrbitPresets');box.textContent='';
  const items=S.orbitIndex||{};
  const unique=new Set();
- for(const key of ['99942','101955','67P','1P',...Object.keys(items)]){
+ const featured=new Set(['99942','101955','67P','1P']);
+ for(const key of Object.keys(items)){
   const o=items[key];
-  if(!o||unique.has(o.des))continue;unique.add(o.des);
+  if(!o||featured.has(key)||featured.has(o.des)||unique.has(o.des))continue;
+  unique.add(o.des);
   if(unique.size>20)break;
   const button=document.createElement('button');button.textContent=o.name||o.des;
   button.className='neo-mini';button.onclick=()=>pickOrbit(key);box.appendChild(button);

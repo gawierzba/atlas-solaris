@@ -129,13 +129,14 @@ function syncInputs(){
  for(const [id,val]of pairs)$(id).value=val;
 }
 function syncInfo(){
- const p=paramCopy(),T=summarize(p),hidden=state.challenge&&!state.revealed;
+ const p=paramCopy(),T=summarize(p),hidden=state.challenge;
  const table={
  exoRadiusV:hidden?'??? R⊕':fmt(p.radius,2)+' R⊕',
  exoStarRV:fmt(p.starR,3)+' R☉',exoStarMV:fmt(p.starM,3)+' M☉',
  exoPeriodV:fmt(p.period,3)+' d',exoInclV:hidden?'???°':fmt(p.inc,3)+'°',
  exoU1V:fmt(p.u1,2),exoU2V:fmt(p.u2,2),exoNoiseV:fmt(state.noise,0)+' ppm',
  exoGuessRV:fmt(state.guessRadius,2)+' R⊕',exoGuessIV:fmt(state.guessIncl,3)+'°',
+ exoKnownStar:'Dane gwiazdy: R★ = '+fmt(p.starR,3)+' R☉; a/R★ = '+fmt(aRatio(p),2)+'; okres P = '+fmt(p.period,3)+' d.',
  exoAR:fmt(aRatio(p),2),exoImpact:hidden?'???':fmt(T.b,3),
  exoDepth:hidden?'???':fmt(T.depthPPM,0)+' ppm',
  exoDuration:hidden?'???':T.transit?fmt(T.duration,2)+' h':'brak tranzytu',
@@ -209,7 +210,7 @@ function drawScene(){
  if(t.z>0){ctx.fillStyle='#10223a';ctx.beginPath();ctx.arc(pixX,pixY,diskR,0,TAU);ctx.fill();ctx.strokeStyle='#7896af';ctx.lineWidth=.6;ctx.stroke();}
  else if(Math.hypot(t.x,t.y)<3){ctx.fillStyle='#678baa44';ctx.beginPath();ctx.arc(pixX,pixY,diskR,0,TAU);ctx.fill();}
  ctx.fillStyle='#b7d5e7';ctx.font='700 12px system-ui';ctx.fillText('WIDOK Z ODLEGŁEGO TELESKOPU',17,24);
- ctx.font='11px system-ui';ctx.fillStyle='#85a5bd';ctx.fillText('Tarcza gwiazdy w prawidłowej skali względnej',17,h-20);
+ ctx.font='11px system-ui';ctx.fillStyle='#85a5bd';ctx.fillText('Względne promienie; bardzo małe tarcze mają minimum pikselowe.',17,h-20);
  const info=[
  ['ŚRODEK TRANZYTU',fmt(100*(1-flux(state,state.t)),4)+'% spadku jasności'],
  ['PROMIEŃ PLANETY',state.challenge&&!state.revealed?'UKRYTY':fmt(state.radius,2)+' R⊕'],

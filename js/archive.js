@@ -97,7 +97,7 @@ function setTime(jd){
 function missionChange(id,opening=true){
  if(!source.data[id])return;
  S.id=id;S.playing=false;S.focus='sun';S.zoom=1;S.panX=0;S.panY=0;
- S.target=null;
+ S.target=EVENTS[id].find(e=>e.date===META[id].opening)?.body||null;
  const desired=opening?eDate(META[id].opening):startJD();
  S.jd=clamp(desired,startJD(),stopJD());
  $('arcFocus').value=S.focus;
@@ -373,7 +373,7 @@ function init(){
  $('arcReset').onclick=()=>{S.playing=false;setTime(startJD());};
  $('arcPrev').onclick=()=>pickEvent(-1);$('arcNext').onclick=()=>pickEvent(1);
  $('arcSpeed').onchange=()=>{S.rate=Number($('arcSpeed').value)||50;};
- $('arcFocus').onchange=()=>{S.focus=$('arcFocus').value;S.zoom=1;if(S.focus==='target'&&!S.target)S.target='neptune';draw();};
+ $('arcFocus').onchange=()=>{S.focus=$('arcFocus').value;S.zoom=1;if(S.focus==='target'&&!S.target){const ev=selectedEvent();S.target=ev?.body||EVENTS[S.id].find(e=>e.body)?.body||'earth';}draw();};
  $('arcResetCamera').onclick=()=>{S.yaw=-.36;S.pitch=.78;S.zoom=1;S.panX=0;S.panY=0;S.focus='sun';S.target=null;$('arcFocus').value='sun';draw();};
  $('arcPlanets').onchange=()=>{S.showPlanets=$('arcPlanets').checked;draw();};
  $('arcRings').onchange=()=>{S.showOrbitRings=$('arcRings').checked;draw();};

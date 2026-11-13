@@ -1,0 +1,91 @@
+/* ATLAS SOLARIS 12.0 — Laboratorium Grawitacji CR3BP */
+#openGravity,.gravity-side-launch{border:1px solid #527eae;background:linear-gradient(120deg,#142c4c,#20335a);color:#d3eaff;border-radius:9px;padding:9px 12px;font-size:10px;letter-spacing:.055em;font-weight:760;white-space:nowrap;cursor:pointer;transition:background .16s,border .16s}
+#openGravity:hover,.gravity-side-launch:hover{background:#284d7a;border-color:#91b4e4}
+.gravity-side-launch{width:100%;margin:7px 0 0;text-align:left;font-size:11px;padding:10px 12px}
+#gravityDialog{color:#e7f2fa;border:1px solid #334d69;border-radius:17px;padding:0;width:min(1550px,98vw);max-width:98vw;height:min(930px,97dvh);max-height:97dvh;background:#071524;overflow:hidden;box-shadow:0 32px 130px #000e;font:13px/1.5 Inter,'Segoe UI',system-ui,sans-serif}
+#gravityDialog::backdrop{background:#010714ec;backdrop-filter:blur(11px)}
+#gravityDialog *{box-sizing:border-box}
+#gravityDialog button,#gravityDialog select,#gravityDialog input{font:inherit}
+#gravityDialog button{cursor:pointer;transition:background .15s,border-color .15s}
+#gravityDialog button:disabled{cursor:not-allowed;opacity:.4}
+#gravityDialog button:focus-visible,#gravityDialog select:focus-visible,#gravityDialog input:focus-visible,#gravCanvas:focus-visible{outline:2px solid #7ddfe6;outline-offset:2px}
+.grav-header{min-height:100px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:19px 24px;background:linear-gradient(112deg,#102c4a,#111e32 69%,#0c1a28);border-bottom:1px solid #284661}
+.grav-header small{font-size:10px;letter-spacing:.19em;font-weight:760;color:#9ac0ee}
+.grav-header h2{font-size:clamp(24px,2.5vw,34px);font-weight:650;line-height:1.1;letter-spacing:-.042em;margin:4px 0}
+.grav-header h2 em{font-style:normal;color:#8de7dd}
+.grav-header p{font-size:11px;line-height:1.5;margin:0;color:#97b0c6}
+.grav-close{border:1px solid #3e5c72;color:#e6f1f8;background:#1c3249;width:42px;height:42px;border-radius:9px;font-size:21px;flex-shrink:0}
+.grav-layout{display:grid;grid-template-columns:minmax(0,1fr) 354px;min-height:0;height:calc(100% - 101px)}
+.grav-stage{min-width:0;min-height:0;display:flex;flex-direction:column;background:#030d1b}
+.grav-stage-head{min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 20px;background:#0b2133}
+.grav-stage-head small{font-size:9px;letter-spacing:.11em;color:#8faabd;font-weight:700}
+.grav-stage-head strong{font-size:13px;color:#c8f3f3;font-weight:730}
+.grav-stage-head span{font-size:10px;color:#91acbd}
+.grav-canvas-shell{flex:1;position:relative;min-height:250px;overflow:hidden}
+#gravCanvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#gravCanvas:active{cursor:grabbing}
+.grav-hud{position:absolute;top:13px;right:15px;pointer-events:none;text-align:right;border:1px solid #2b5164;background:#081b2ad8;border-radius:9px;padding:8px 11px;min-width:120px}
+.grav-hud small{display:block;font-size:9px;letter-spacing:.14em;color:#789eb6;font-weight:740}
+.grav-hud strong{display:block;margin-top:3px;font-size:15px;font-variant-numeric:tabular-nums;color:#c8f6ee}
+.grav-status{position:absolute;left:16px;bottom:16px;border:1px solid #2d5769;background:#091a29d8;color:#9ddace;font-size:10px;font-weight:720;letter-spacing:.08em;border-radius:8px;padding:7px 9px;pointer-events:none}
+.grav-status.grav-danger{color:#ffaba6;border-color:#aa565e}
+.grav-stage-bottom{padding:13px 18px;background:#0b2030;border-top:1px solid #2b485d}
+.grav-player{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.grav-player button,.grav-player select{border-radius:8px;background:#17354a;border:1px solid #3b5c70;color:#d8effa;padding:8px 10px;font-size:12px}
+#gravityDialog button.grav-primary{background:#137783;border-color:#3dadb9;color:#eeffff;font-weight:760}
+#gravityDialog button.grav-primary:hover{background:#1b8994}
+.grav-compare{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.grav-compare span{font-size:10px;color:#d6b6df}
+.grav-mini{font-size:10px;color:#8eaebd;line-height:1.6;margin-top:9px}
+.grav-key{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:7px;color:#9db7c8;font-size:10px}
+.grav-key span:before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--dot);box-shadow:0 0 8px var(--dot)}
+.grav-right{overflow-y:auto;min-height:0;padding:17px 18px 32px;background:#0b192b;border-left:1px solid #264459;overscroll-behavior:contain;scrollbar-color:#365777 transparent}
+.grav-section{font-size:10px;color:#91bedc;letter-spacing:.17em;font-weight:760;border-bottom:1px solid #29465d;padding:3px 0 9px;margin:2px 0 13px}
+.grav-section:not(:first-child){margin-top:21px}
+.grav-field-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.grav-field-grid label,.grav-field{display:grid;gap:6px;font-size:10px;color:#91adbf;letter-spacing:.06em;font-weight:720;min-width:0}
+.grav-field-grid select,.grav-field select{background:#122a3d;color:#e5f4fd;border:1px solid #35576a;border-radius:8px;padding:9px 8px;min-width:0;width:100%;font-size:12px;font-weight:580;letter-spacing:normal;color-scheme:dark}
+.grav-field{margin-top:11px}
+.grav-slider-head{display:flex;align-items:center;justify-content:space-between;gap:9px;font-size:10px;color:#9bb6c7;margin-top:13px}
+.grav-slider-head b{font-size:11px;color:#b9f4ed;font-weight:750}
+.grav-range{width:100%;accent-color:#6bd0d3;cursor:pointer;margin:10px 0 2px}
+.grav-shortcuts{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
+.grav-shortcuts button{background:#193147;color:#d7e8fa;border:1px solid #37546a;border-radius:8px;padding:7px 10px;font-size:11px;font-weight:700}
+.grav-shortcuts button:hover{background:#285074}
+.grav-toggles{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.grav-toggles label{display:flex;align-items:center;gap:6px;font-size:11px;color:#a7c0d0;cursor:pointer}
+.grav-toggles input{accent-color:#75d9d2}
+.grav-stats{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.grav-stat{padding:10px 9px;background:#102639;border:1px solid #2a495f;border-radius:9px;min-width:0;overflow-wrap:anywhere}
+.grav-stat small{display:block;font-size:9px;color:#8ba9bd;line-height:1.4;letter-spacing:.05em}
+.grav-stat strong{display:block;font-size:13px;line-height:1.4;color:#def4fa;margin:4px 0 0;font-variant-numeric:tabular-nums}
+.grav-stat strong.grav-warn{color:#eac77f}
+.grav-note{font-size:11px;line-height:1.58;color:#a1bbc9;margin:12px 0}
+.grav-theory{font-size:10px;line-height:1.66;color:#819eaf;margin-top:17px}
+.grav-theory strong{color:#b7cfde}
+.grav-theory a{color:#a6dae9}
+.grav-constants{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:#92adbf;margin:5px 0 12px}
+.grav-constants b{color:#ccf4f0;font-weight:680}
+.grav-legend{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px;font-size:10px;color:#99b6c7}
+.grav-legend span{display:flex;align-items:center;gap:7px}
+.grav-legend i{display:block;width:14px;height:3px;border-radius:2px;background:var(--vector)}
+.grav-flag{display:block;color:#d3b0d3;font-size:10px;line-height:1.5}
+@media(max-width:1500px){#openGravity span{display:none}#openGravity{padding:9px;font-size:16px}}
+@media(max-width:1100px){.grav-layout{grid-template-columns:minmax(0,1fr) 320px}.grav-header{padding:15px 18px}}
+@media(max-width:760px){
+ #gravityDialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border:0;border-radius:0}
+ .grav-header{min-height:88px;height:88px;padding:11px 14px}.grav-header h2{font-size:22px}.grav-header p{font-size:10px}.grav-header small{font-size:9px}
+ .grav-layout{height:calc(100% - 88px);display:flex;flex-direction:column;overflow-y:auto}
+ .grav-stage{flex:none;min-height:449px}
+ .grav-stage-head{min-height:49px;padding:9px 12px}.grav-stage-head strong{font-size:12px}.grav-stage-head span{font-size:9px}
+ .grav-canvas-shell{height:275px;min-height:275px;flex:none}
+ .grav-stage-bottom{padding:9px 12px}.grav-player{gap:5px}.grav-player button,.grav-player select{font-size:11px;padding:7px}
+ .grav-hud{padding:6px 8px;top:8px;right:8px}.grav-hud strong{font-size:12px}.grav-hud small{font-size:8px}
+ .grav-status{bottom:8px;left:8px;font-size:9px}.grav-mini{font-size:9px;margin-top:5px}
+ .grav-right{padding:15px 14px 28px;border-top:1px solid #294e62;border-left:0;overflow:visible}
+}
+@media(max-width:430px){.grav-header h2{font-size:20px}.grav-header p{font-size:9px}.grav-stage{min-height:428px}.grav-canvas-shell{height:255px;min-height:255px}.grav-stage-head span{display:none}}
+@media(max-width:650px){
+ #openGravity{min-width:32px;padding:8px;font-size:15px}
+ .top-toolbar>*{flex-shrink:0}
+}

@@ -1509,6 +1509,24 @@ window.ATLAS_MAIN_API={
  redrawGlobe:()=>globeDraw(),
  setGlobeObserver:(lat,lon)=>{globeSetObserver(lat,lon);globeDraw();},
  getSelectedEclipse:()=>eclipseSelected,
+ getGlobePlaying:()=>globePlaying,
+ setGlobePlayback:(yes,speed=null)=>{
+  if(speed!==null&&[30,60,300,900].includes(speed)){
+   globeSpeed=speed;$('globeSpeed').value=String(speed);
+  }
+  globePlaying=!!yes&&$('globeDialog').open;
+  if(globePlaying){state.playing=false;syncPlay();}
+  globeDraw();return globePlaying;
+ },
+ startShadowFlight:(jd,speed=300)=>{
+  if(!$('globeDialog').open||!Number.isFinite(jd))return false;
+  state.jd=jd;state.anchorJD=jd;dateClamp();
+  globeSpeed=[30,60,300,900].includes(speed)?speed:300;
+  $('globeSpeed').value=String(globeSpeed);
+  globeCamera.follow=true;globeCamera.mode='shadow';globeSyncCameras();
+  globePlaying=true;state.playing=false;syncPlay();
+  globeDraw();return true;
+ },
  selectJupiter:()=>select('jupiter'),
  /** Register a computed eclipse and open an existing visualization scene. */
  openCalendarEclipse:(candidate,view='geometry')=>{

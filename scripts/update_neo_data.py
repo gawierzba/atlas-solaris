@@ -44,7 +44,7 @@ def cad_fetch():
         for k in ("jd","dist","dist_min","dist_max","v_rel","v_inf","h","diameter","diameter_sigma"):
             row[k]=numeric(src,k)
         if any(row[k] is None for k in ("jd","dist","dist_min","dist_max","v_rel")):continue
-        if not 0<=row["dist_min"]<=row["dist"]<=row["dist_max"]<=.06:continue
+        if not 0<=row["dist_min"]<=row["dist"]<=row["dist_max"]:continue
         row["des"]=str(row["des"]).strip()
         row["fullname"]=str(row["fullname"] or row["des"]).strip()[:150]
         rows.append(row)

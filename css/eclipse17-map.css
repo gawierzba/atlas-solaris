@@ -31,3 +31,6 @@
 .e17m-contact-list dd{margin:0;color:#b5d3e1}
 .e17m-warning{color:#ebc7aa}.e17m-contacts-foot{font-size:10px;color:#83a5b8}
 @media(max-width:700px){.e17m-toggles{grid-template-columns:1fr 1fr;gap:9px 6px}.e17m-toggles label{font-size:10px}#e17mCanvas{height:190px}.e17m-detail-bottom{flex-direction:column;gap:8px}.e17m-detail-bottom label{justify-content:space-between}.e17m-detail-bottom select{max-width:75%}}
+
+.e17m-side-entry{display:block;width:100%;text-align:left;padding:11px 12px;margin:7px 0 0;border:1px solid #337c8c;border-radius:9px;background:linear-gradient(100deg,#163f50,#0b2b3d);color:#d3f3f8;font:650 12px/1.45 system-ui,sans-serif;cursor:pointer}
+.e17m-side-entry:hover{border-color:#81d9e5;background:#1a4e5c}

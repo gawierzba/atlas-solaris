@@ -178,6 +178,7 @@ function start(){
   if(!solar){
    $('e17mLocalStatus').textContent='Zaćmienie Księżyca — nie tworzy pasa cienia na Ziemi';
    $('e17mMapSummary').textContent='Dla zaćmienia Księżyca użyj istniejącego widoku widoczności na globie.';
+   $('e17mDetailLabel').textContent='Zaćmienie Księżyca · brak pasa na powierzchni Ziemi';
    $('e17mCanvas').classList.add('e17m-not-solar');
    return;
   }

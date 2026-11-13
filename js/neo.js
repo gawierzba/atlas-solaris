@@ -59,10 +59,23 @@ function normalizeOrbits(raw){
  return out;
 }
 async function loadSnapshot(){
+ // Read already-published static JSON from GitHub, not JPL APIs.
+ // GITHUB_TOKEN commits do not trigger a GitHub Pages rebuild, so use
+ // the public raw branch snapshot; fall back to the Pages local copy.
  const fetchFile=async(path)=>{
-  const res=await fetch(path,{cache:'no-store'});
-  if(!res.ok)throw Error('HTTP '+res.status);
-  return res.json();
+  let lastError;
+  const locations=[
+   'https://raw.githubusercontent.com/gawierzba/atlas-solaris/main/'+path+'?snapshot='+Math.floor(Date.now()/1800000),
+   path
+  ];
+  for(const url of locations){
+   try{
+    const res=await fetch(url,{cache:'no-store'});
+    if(!res.ok)throw Error('HTTP '+res.status);
+    return await res.json();
+   }catch(e){lastError=e;}
+  }
+  throw lastError||Error('Brak dostępnego pliku danych');
  };
  let snapshot=fallback,orbits=defaults,closeOK=false,orbitOK=false;
  try{snapshot=normalizeSnapshot(await fetchFile('data/neo-close-approaches.json'));closeOK=true;}
@@ -138,8 +151,8 @@ function pickOrbit(des){
  S.jd=c(S.jd,2451545,2469807);
  // This is a separate orbital exhibit: never relabel the official CAD encounter as another object.
 
- $('neoOrbitalState').textContent='Widok orbity: '+item.name+'; elementy z '+(item.soln_date||'archiwum JPL')+'. Jest to przybliżenie dwuciałowe, nie zweryfikowany bliski przelot.';
- draw();
+ $('neoOrbitalState').textContent='Widok orbity: '+item.name+'; elementy z '+(item.soln_date||'archiwum JPL')+'. Jest to odrębna poglądowa orbita; wartości zbliżenia w panelu nadal dotyczą '+S.selected.fullname+'.';
+ sync();draw();
 }
 function updateSavedOrbits(){
  const box=$('neoOrbitPresets');box.textContent='';

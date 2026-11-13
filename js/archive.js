@@ -274,7 +274,7 @@ function sync(){
  const sunDist=norm(p),distancePath=distanceTraveled(m.samples,S.jd);
  const z=p[2],travelSignal=sunDist*8.317;
  const pairs=[['arcDist',fmt(sunDist,3)+' AU'],['arcDistKm',fmt(sunDist*AU/1e9,3)+' mld km'],
- ['arcSpeed',fmt(speed,2)+' km/s'],['arcZ',fmt(z,3)+' AU'],
+ ['arcSegmentSpeed',fmt(speed,2)+' km/s'],['arcZ',fmt(z,3)+' AU'],
  ['arcTravel',fmt(distancePath,2)+' AU'],['arcElapsed',fmt(elapsed,2)+' lat'],
  ['arcLight',travelSignal<60?fmt(travelSignal,1)+' min':fmt(travelSignal/60,2)+' h'],
  ['arcCoverage',fmt(m.samples.length,0)+' próbek']];

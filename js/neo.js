@@ -122,8 +122,9 @@ function pathPoints(el,count=220){
  const period=365.2568983*Math.pow(el.a,1.5);
  return Array.from({length:count+1},(_,i)=>orbitalPosition(el,el.epoch+period*i/count));
 }
-function sourceLabel(){
+function sourceLabel(row=null){
  const snap=S.snapshot;
+ if(row?._documentationExample)return 'Przykład z dokumentacji JPL CAD 1.5 (2023), nie bieżąca efemeryda';
  return snap.mode==='jpl-cad-snapshot'?'Migawka JPL / '+(snap.generatedAt?new Date(snap.generatedAt).toISOString().slice(0,10):'brak daty'):'Przykład z dokumentacji JPL CAD (nieaktualny zestaw)';
 }
 function setTimeOffset(h){
@@ -136,7 +137,7 @@ function selectEncounter(row){
  S.offsetHours=0;S.jd=row.jd;S.zoom=1;S.view='solar';
  $('neoSelectedName').textContent=row.fullname;
  $('neoSelectedTime').textContent=timeLabel(row.jd);
- $('neoNoteProvenance').textContent='Dane tabelaryczne: '+sourceLabel()+'.';
+ $('neoNoteProvenance').textContent='Dane tabelaryczne: '+sourceLabel(row)+'.';
  $('neoSourceLink').href='https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr='+encodeURIComponent(row.des);
  $('neoSelectedKind').textContent=isComet(row.des)?'KOMETA':'PLANETOID / ASTEROIDA';
  $('neoOrbitalState').textContent=S.orbit
@@ -375,6 +376,7 @@ function init(){
  $('neoShowLabels').onchange=()=>{S.showLabels=$('neoShowLabels').checked;draw();};
  $('neoCenter').onclick=()=>{S.yaw=-.35;S.pitch=.64;S.zoom=1;draw();};
  $('neoCsv').onclick=downloadCSV;
+ $('neoApophis2029').onclick=()=>selectEncounter({...fallback.rows[0],_documentationExample:true});
  for(const [button,des]of [['neoApophis','99942'],['neoBennu','101955'],['neo67P','67P'],['neoHalley','1P']]){
   $(button).onclick=()=>pickOrbit(des);
  }

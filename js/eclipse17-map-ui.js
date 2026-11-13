@@ -22,6 +22,10 @@ function start(){
    detailKey:'',detailReal:0, detailMap:null,
    lastObserverKey:'',lastContactsKey:''
  };
+ $('openEclipseMap17Side')?.addEventListener('click',()=>{
+  if(dlg.open)return;
+  $('openGlobe')?.click();
+ });
  const canvas=$('e17mCanvas'),inset=document.createElement('canvas');
  inset.width=200;inset.height=116;
  const imgCtx=inset.getContext('2d',{willReadFrequently:true});

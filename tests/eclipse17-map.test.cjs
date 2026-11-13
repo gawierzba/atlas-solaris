@@ -43,6 +43,19 @@ assert.ok(contacts.maximum.jd<contacts.contacts[2].jd);
 assert.ok(contacts.contacts[2].jd<contacts.contacts[3].jd);
 assert.equal(moving.contacts(JD,0,0).kind,'none');
 console.log('OK: local C1-C4 timing, maximum, observer on opposite Earth hemisphere');
+const grazing=createMap({
+ getPositions:jd=>({
+  sun:[0,0,0],earth:[1,0,0],
+  moon:[1-379000/AU,(jd-JD)*1440*60/AU,0]
+ }),
+ getEarthAxes:axes
+});
+const shortContacts=grazing.contacts(JD,0,180);
+assert.equal(shortContacts.kind,'total');
+assert.deepEqual(shortContacts.contacts.map(x=>x.label),['C1','C2','C3','C4']);
+assert.ok((shortContacts.contacts[2].jd-shortContacts.contacts[1].jd)*86400<15);
+console.log('OK: sub-15-second central phase recovered between sampling instants');
+
 
 const displaced=createMap({
  getPositions:()=>({sun:[0,0,0],earth:[1,0,0],moon:[1-355000/AU,18000/AU,0]}),

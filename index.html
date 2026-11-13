@@ -4,23 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 11.0: naukowe laboratorium trajektorii z mapą okien startowych, C3, Lambertem, Układem Słonecznym 3D i zaćmieniami.">
-  <title>ATLAS SOLARIS 11.0 — Laboratorium Trajektorii · Układ Słoneczny 3D</title>
+  <meta name="description" content="ATLAS SOLARIS 12.0 — naukowe laboratorium grawitacji trzech ciał i punktów Lagrange’a, trajektorie sond, orbity JPL i zaćmienia.">
+  <title>ATLAS SOLARIS 12.0 — Laboratorium Grawitacji · Punkty Lagrange’a</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
 <link rel="stylesheet" href="css/porkchop.css">
+<link rel="stylesheet" href="css/gravity.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 11.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 12.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 11.0</span></div>
-   <button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 12.0</span></div>
+   <button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -32,10 +33,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V11.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V12.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -217,7 +218,7 @@
  <p><strong>Nowość v5 — zaćmienia.</strong> Pozycje Słońca i Księżyca dla lat 2024–2040 są zapisane w samodzielnym pakiecie jako współrzędne w układzie J2000, próbkowane co 6 godzin i interpolowane sześciennie. Wartości obliczono na podstawie Swiss Ephemeris (Moshier), bez dołączania kodu biblioteki. Tarczę zaćmienia Słońca i rozmiar ziemskiego cienia obliczamy z faktycznych odległości, promieni i geometrii obserwatora. Atmosfera, blask korony, przyciemnienie tarczy i czerwień Księżyca są wizualizacjami, nie pełnym modelem radiacyjnym. Przewidywania dokładnych kontaktów i granic pasa należy sprawdzać w danych NASA.</p><p><strong>Nowość v6 — Ziemia z kosmosu.</strong> Glob powstaje poprzez rzut ortograficzny statycznej mozaiki Blue Marble. Obrót Ziemi i kierunek oświetlenia wyznaczamy z czasu gwiazdowego. Dla zaćmień Słońca zakrycie tarczy jest liczone oddzielnie dla punktów powierzchniowych z uwzględnieniem ich paralaksy; zaciemnienie jest ilustracyjne. Linia osi cienia wyznaczana jest z promienia Słońce–Księżyc. Dla zaćmień Księżyca podświetlamy półkulę, z której Księżyc znajduje się nad horyzontem. Punkt wybrany na globie służy do symulacji obserwacji lokalnej; nie należy wykorzystywać obrazu do ustalenia dokładnych kontaktów, miejsc ani bezpiecznego obserwowania Słońca.</p><p><strong>Nowość v7 — geometria stożków.</strong> W lokalnym układzie Ziemia–Księżyc wyznaczono oś promieni słonecznych, przekroje półcienia i cienia głównego jako funkcje faktycznej odległości od ciała rzucającego cień. W trybie poglądowym skracana jest tylko odległość wzdłuż osi — promienie przekrojów nie są mnożone. Przedłużenie stożka powstaje tam, gdzie główny stożek zamyka się przed oświetlonym ciałem. Kamera projekcyjna jest obrotowa; scena jest rzutem 3D na płótno Canvas, także bez WebGL. Nie jest to pełny model promieniowania ani precyzyjna prognoza zaćmienia dla danego punktu.</p><div class="source-links"><a target="_blank" rel="noopener" href="https://eclipse.gsfc.nasa.gov/SEdecade/SEdecade2021.html">NASA — katalog zaćmień Słońca ↗</a><a target="_blank" rel="noopener" href="https://eclipse.gsfc.nasa.gov/lunar.html">NASA — zaćmienia Księżyca ↗</a><a target="_blank" rel="noopener" href="https://github.com/astronexus/HYG-Database">HYG Astronexus · CC BY-SA 4.0 ↗</a><a target="_blank" rel="noopener" href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/">NASA · Blue Marble NG ↗</a><a target="_blank" rel="noopener" href="https://ssd.jpl.nasa.gov/planets/approx_pos.html">NASA/JPL · Elementy orbitalne ↗</a><a target="_blank" rel="noopener" href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">NASA · Planetary Fact Sheet ↗</a><a target="_blank" rel="noopener" href="https://iauarchive.eso.org/science/scientific_bodies/working_groups/98/">IAU · Wzory rotacji ↗</a><a target="_blank" rel="noopener" href="https://science.nasa.gov/solar-system/planets/mars/what-does-a-sunrise-sunset-look-like-on-mars/">NASA · Kolory nieba na Marsie ↗</a></div>
  </dialog>
  
-<!-- ATLAS SOLARIS 11.0 / system galileuszowy — pełna symulacja offline -->
+<!-- ATLAS SOLARIS 12.0 / system galileuszowy — pełna symulacja offline -->
 <dialog id="jupiterDialog" aria-label="Światy Jowisza, księżyce Galileuszowe i ich cienie">
  <header class="jupiter-head"><div><div class="jov-kicker">ATLAS SOLARIS / MISJA W UKŁADZIE JOWISZA</div><h2>Światy <em>Jowisza</em> <span class="jov-title-num">08 / GALILEUSZ</span></h2><p>Io · Europa · Ganimedes · Kallisto — orbity, tranzyty i zaćmienia</p></div><button id="jovClose" aria-label="Zamknij moduł Jowisza">✕</button></header>
  <div class="jov-layout">
@@ -250,10 +251,10 @@
 </dialog>
 
 
-<!-- ATLAS SOLARIS 11.0: orbital mission planner, independent of the legacy lab modules -->
+<!-- ATLAS SOLARIS 12.0: orbital mission planner, independent of the legacy lab modules -->
 <dialog id="missionDialog" aria-label="ATLAS SOLARIS Centrum Misji">
  <header class="mc-header">
-  <div><small>ATLAS SOLARIS / EKSPEDYCJA MIĘDZYPLANETARNA / 11.0</small>
+  <div><small>ATLAS SOLARIS / EKSPEDYCJA MIĘDZYPLANETARNA / 12.0</small>
   <h2>Centrum <em>Misji</em></h2><p>Wybierz planety, oblicz spotkanie sondy z celem i zobacz tor lotu w 3D.</p></div>
   <button id="mcClose" class="mc-close" aria-label="Zamknij centrum misji">✕</button>
  </header>
@@ -303,10 +304,10 @@
 </dialog>
 
 
-<!-- ATLAS SOLARIS 11.0 — prawdziwe obliczenia porkchop/Lambert, całkowicie po stronie przeglądarki -->
+<!-- ATLAS SOLARIS 12.0 — prawdziwe obliczenia porkchop/Lambert, całkowicie po stronie przeglądarki -->
 <dialog id="porkchopDialog" aria-label="Laboratorium trajektorii międzyplanetarnych">
  <header class="pc-header">
-  <div><div class="pc-kicker">ATLAS SOLARIS / ASTRODYNAMIKA / 11.0</div>
+  <div><div class="pc-kicker">ATLAS SOLARIS / ASTRODYNAMIKA / 12.0</div>
    <h2>Laboratorium <em>Trajektorii</em></h2>
    <p>Tysiące wariantów startu · metoda Lamberta · energia C3 · spotkanie z planetą</p>
   </div><button class="pc-close" id="pcClose" aria-label="Zamknij laboratorium">✕</button>
@@ -372,6 +373,123 @@
  </div>
 </dialog>
 
+
+<!-- ATLAS SOLARIS 12.0 — kołowy ograniczony problem trzech ciał (planarny CR3BP) -->
+<dialog id="gravityDialog" aria-label="Laboratorium grawitacji i punktów Lagrange’a">
+ <header class="grav-header">
+  <div>
+   <small>ATLAS SOLARIS / MECHANIKA NIEBA / 12.0</small>
+   <h2>Laboratorium <em>Grawitacji</em></h2>
+   <p>Trzy ciała · punkty Lagrange’a · symulacja ruchu sondy · stała Jacobiego</p>
+  </div>
+  <button id="gravClose" class="grav-close" aria-label="Zamknij laboratorium">✕</button>
+ </header>
+ <div class="grav-layout">
+  <section class="grav-stage" aria-label="Interaktywna mapa ruchu sondy w układzie trzech ciał">
+   <div class="grav-stage-head">
+    <div><small>ROZWIĄZYWANE NA ŻYWO / MODEL CR3BP</small><br><strong id="gravSystemTitle">Ziemia — Księżyc</strong></div>
+    <span id="gravViewNote">Układ współobracający się</span>
+   </div>
+   <div class="grav-canvas-shell">
+    <canvas id="gravCanvas" tabindex="0" aria-label="Pozycje dwóch ciał, pięciu punktów Lagrange’a, sondy i jej toru. Przeciągnij mapę; gestem szczypania zmień skalę; dotknij punktu L, aby wybrać eksperyment."></canvas>
+    <div class="grav-hud"><small>CZAS SYMULACJI</small><strong id="gravClock">0 dób</strong></div>
+    <div class="grav-status" id="gravStatus">CZAS ZATRZYMANY</div>
+   </div>
+   <div class="grav-stage-bottom">
+    <div class="grav-player">
+     <button class="grav-primary" id="gravPlay">▶ Odtwórz</button>
+     <button id="gravRestart">⟲ Restart</button>
+     <select id="gravSpeed" aria-label="Tempo czasu symulacji">
+      <option value="0.1">0,1 dnia/s</option>
+      <option value="1" selected>1 dzień/s</option>
+      <option value="5">5 dni/s</option>
+      <option value="30">30 dni/s</option>
+      <option value="120">120 dni/s</option>
+     </select>
+     <button id="gravCenter">◎ Wycentruj</button>
+    </div>
+    <div class="grav-compare">
+     <button id="gravCompare" disabled>◇ Zachowaj ślad A</button>
+     <button id="gravClearCompare">Usuń porównanie</button>
+     <span id="gravReference">Brak zapisanego śladu</span>
+    </div>
+    <div class="grav-key">
+     <span style="--dot:#7ae6c7">Tor sondy</span>
+     <span style="--dot:#d6a0e3">Ślad porównawczy</span>
+     <span style="--dot:#9fbccc">Punkty L1–L5</span>
+    </div>
+    <div class="grav-mini">Dotknij L1–L5, aby rozpocząć doświadczenie. Przeciągaj mapę, przybliżaj szczypaniem, a po włączeniu „Umieść sondę” wybierz dowolny punkt. Kolory obszarów dostępnych i niedostępnych dotyczą zadanej stałej Jacobiego.</div>
+   </div>
+  </section>
+  <aside class="grav-right">
+   <div class="grav-section">01 / UKŁAD FIZYCZNY</div>
+   <label class="grav-field">UKŁAD DWÓCH CIAŁ GŁÓWNYCH
+    <select id="gravSystem"></select>
+   </label>
+   <div class="grav-constants">
+    <span>PARAMETR <b id="gravMu">—</b></span>
+    <span>OKRES <b id="gravPeriod">—</b></span>
+    <span>ODLEGŁOŚĆ <b id="gravSep">—</b></span>
+   </div>
+   <div class="grav-section">02 / PUNKT STARTOWY SONDY</div>
+   <label class="grav-field">PUNKT LAGRANGE’A
+    <select id="gravPoint"></select>
+   </label>
+   <div class="grav-shortcuts">
+    <button id="gravPickL1">L1</button>
+    <button id="gravPickL2">L2</button>
+    <button id="gravPickL3">L3</button>
+    <button id="gravPickL4">L4</button>
+    <button id="gravPickL5">L5</button>
+   </div>
+   <div class="grav-slider-head"><label for="gravOffset">PRZESUNIĘCIE POZYCJI X</label><b id="gravOffsetLabel">0,50% odległości</b></div>
+   <input class="grav-range" id="gravOffset" type="range" min="0" max="5" step="0.05" value="0.5">
+   <div class="grav-slider-head"><label for="gravKick">IMPULS PRĘDKOŚCI Y</label><b id="gravKickLabel">0 m/s</b></div>
+   <input class="grav-range" id="gravKick" type="range" min="-100" max="100" step="1" value="0">
+   <p id="gravLNote" class="grav-note">L4 — punkt trójkątny, w którym można badać ruch ograniczony wokół równowagi.</p>
+   <div class="grav-section">03 / WIDOK I WARSTWY</div>
+   <label class="grav-field">UKŁAD ODNIESIENIA
+    <select id="gravView">
+     <option value="rotating" selected>Współobracający się</option>
+     <option value="inertial">Inercjalny (barycentryczny)</option>
+    </select>
+   </label>
+   <div class="grav-toggles">
+    <label><input id="gravZones" type="checkbox" checked> Obszary Jacobiego</label>
+    <label><input id="gravVectors" type="checkbox" checked> Wektory sił</label>
+    <label><input id="gravLabels" type="checkbox" checked> Nazwy obiektów</label>
+    <label><input id="gravPlace" type="checkbox"> Umieść sondę</label>
+   </div>
+   <div class="grav-legend">
+    <span><i style="--vector:#62adf1"></i>Grawitacja ciała A</span>
+    <span><i style="--vector:#d5e8f5"></i>Grawitacja ciała B</span>
+    <span><i style="--vector:#dda7ec"></i>Odśrodkowa</span>
+    <span><i style="--vector:#73d9bc"></i>Coriolisa</span>
+   </div>
+   <p class="grav-muted">Długości strzałek są przeskalowane dla czytelności. Wektory odśrodkowe i Coriolisa występują w obracającym się układzie odniesienia.</p>
+   <div class="grav-section">04 / ODCZYTY NAUKOWE</div>
+   <div class="grav-stats">
+    <div class="grav-stat"><small>STAŁA JACOBIEGO · C</small><strong id="gravJacobi">—</strong></div>
+    <div class="grav-stat"><small>WZGLĘDNY DRYF C</small><strong id="gravDrift">—</strong></div>
+    <div class="grav-stat"><small>ODLEGŁOŚĆ OD A</small><strong id="gravBodyADist">—</strong></div>
+    <div class="grav-stat"><small>ODLEGŁOŚĆ OD B</small><strong id="gravBodyBDist">—</strong></div>
+    <div class="grav-stat"><small>PRĘDKOŚĆ W UKŁ. OBRACAJĄCYM</small><strong id="gravRotSpeed">—</strong></div>
+    <div class="grav-stat"><small>NAJWIĘKSZA ZMIANA C</small><strong id="gravEnergyMax">—</strong></div>
+    <div class="grav-stat"><small>PRZYSP. GRAWITACYJNE A</small><strong id="gravAccA">—</strong></div>
+    <div class="grav-stat"><small>PRZYSP. GRAWITACYJNE B</small><strong id="gravAccB">—</strong></div>
+   </div>
+   <p class="grav-note"><span id="gravLive">Gotowy do eksperymentu</span> · Ślad: <span id="gravTrailCount">0 punktów</span></p>
+   <div class="grav-section">05 / CO DOKŁADNIE LICZYMY?</div>
+   <div class="grav-theory">
+    <strong>Model:</strong> kołowy ograniczony problem trzech ciał (CR3BP), obliczany numerycznie metodą Rungego–Kutty 4. rzędu w płaszczyźnie orbit. Dwa masywne obiekty krążą po idealnych orbitach kołowych wokół barycentrum; sonda ma zaniedbywalną masę. W modelu wyznaczamy pięć punktów Lagrange’a i stałą Jacobiego, która bez zderzeń powinna pozostać stała.<br>
+    <strong>Granice:</strong> to model edukacyjny, nie symulacja pełnego Układu Słonecznego ani rzeczywistej orbity halo JWST. Nie uwzględnia ekscentryczności, inklinacji, innych planet, promieniowania, napędu ani korekt kursu. W rzeczywistości stabilność i utrzymanie satelitów zależą od dodatkowych oddziaływań. <strong>L1, L2, L3 są niestabilne; L4 i L5 stabilne w liniowej teorii tego modelu przy podanych stosunkach mas.</strong><br>
+    <a href="https://science.nasa.gov/solar-system/resources/faq/what-are-lagrange-points/" target="_blank" rel="noopener">NASA · What are Lagrange Points?</a> ·
+    <a href="https://science.nasa.gov/mission/webb/orbit/" target="_blank" rel="noopener">NASA · Orbita Webba</a>
+   </div>
+  </aside>
+ </div>
+</dialog>
+
 <div id="errorScreen" class="error-screen hidden"><h1>Nie udało się uruchomić sceny 3D</h1><p id="errorText"></p><p>Włącz obsługę WebGL 2 i otwórz projekt przez lokalny serwer HTTP — instrukcja znajduje się w pliku README.md.</p></div>
 <script src="js/assets.js"></script>
 <script src="js/stars.js"></script>
@@ -381,5 +499,6 @@
 <script src="js/jupiter.js"></script>
 <script src="js/missions.js"></script>
 <script src="js/porkchop.js"></script>
+<script src="js/gravity.js"></script>
 </body>
 </html>

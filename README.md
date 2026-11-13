@@ -1,12 +1,56 @@
-# ATLAS SOLARIS 12.0 — Laboratorium Grawitacji · Mechanika nieba
+# ATLAS SOLARIS 13.0 — Asysty Grawitacyjne · Układ Słoneczny 3D
 
-Statyczna aplikacja astronomiczna 3D do nauki i eksploracji Układu Słonecznego. Wersja 12.0 dodaje **Laboratorium Grawitacji**, eksperymentalny symulator kołowego ograniczonego problemu trzech ciał. Zachowuje Laboratorium Trajektorii 11.0, Centrum Misji 10.1 i starsze moduły. W modelu CR3BP można badać punkty L1–L5, stabilność, odchylenia trajektorii i zachowanie stałej Jacobiego. Zachowuje wszystkie wcześniej istniejące moduły: obserwatorium, rekonstrukcje zaćmień, geometrię cieni, glob Ziemi, widoki z powierzchni i księżyce Jowisza.
+Interaktywny atlas Układu Słonecznego i naukowe laboratoria lotów kosmicznych. Nowa wersja **13.0** dodaje obliczeniowy symulator hiperbolicznych asyst grawitacyjnych. Nie usuwa modułów poprzednich wersji: Laboratorium Grawitacji 12.0, Laboratorium Trajektorii 11.0, Centrum Misji 10.1, Jowisza, zaćmień, globu Ziemi i obserwatorium.
 
 ## Otwórz stronę
 
 **https://gawierzba.github.io/atlas-solaris/**
 
-Wymagane ustawienie: GitHub → Settings → Pages → Deploy from a branch → `main` → `/(root)`.
+GitHub Pages: Settings → Pages → Deploy from a branch → `main` → `/(root)`.
+
+## Nowość: Asysty Grawitacyjne 13.0
+
+Laboratorium przedstawia przelot sondy obok planety w modelu **patched conics / niewymuszonej hiperboli Keplera**. Obliczenia są dynamiczne, oparte na prędkości planety z istniejącego silnika JPL Atlasu i na stałych grawitacyjnych opublikowanych przez JPL. Nie jest to nagranie ani ręcznie narysowany, niezależny od parametrów tor.
+
+- **8 planet** (Merkury–Neptun) z ich parametrami GM oraz promieniami.
+- Wybór daty, prędkości nadmiarowej sondy względem planety `v∞`, wysokości perycentrum `h`, kierunku nadlotu względem ruchu planety oraz strony skrętu.
+- Tor hiperboliczny z rzeczywistą geometrią Keplera: dynamiczna mimośrodowość, kąt skrętu, parametr zderzenia `b`, promień i prędkość w perycentrum.
+- Animacja z parametryzacją **czasową** przez anomalię hiperboliczną i równanie Keplera; sterowanie czasem, prędkością animacji i kamerą.
+- Oddzielne wykresy pozycji sondy wokół planety oraz **dodawania wektorów prędkości** w układzie heliocentrycznym.
+- Porównanie `v∞` przed i po (moduły równe), zmianę prędkości sondy względem Słońca oraz zmianę jej heliocentrycznej energii właściwej.
+- Scenariusze „↑ Maks. zysk energii” i „↓ Maks. hamowanie”, wyznaczające skrajne kąty nadlotu dla danych `GM`, `h` i `v∞` przy uproszczeniach dwuwymiarowych.
+- Zapis i przywrócenie parametrów porównawczych A.
+- Działa lokalnie w przeglądarce, bez serwera aplikacji i dodatkowych bibliotek, z wersją mobilną.
+
+### Równania
+
+```text
+rₚ = promień planety + wysokość przelotu
+e = 1 + rₚ · v∞² / GM
+δ = 2 · asin(1/e)
+|v∞,przed| = |v∞,po|
+v_helio = V_planety + v∞
+Δε = (|v_helio,po|² − |v_helio,przed|²)/2
+vₚ = sqrt(v∞² + 2GM/rₚ)
+b = (GM/v∞²) · sqrt(e² − 1)
+```
+
+Animacja pozycji liczona jest z hiperbolicznej anomalii `H`, równania `M = e sinh(H) − H` i promienia `r = (GM/v∞²)(e cosh(H) − 1)`. Model zakłada układ dwóch ciał i brak impulsów silnika podczas przelotu.
+
+### Ważne ograniczenia
+
+To **model edukacyjny przelotu planetocentrycznego** połączony z chwilową planetarną prędkością heliocentryczną. Nie jest analizą kompletnej misji ani pełnym problemem N-ciał. Kierunki wektorów ograniczono do płaszczyzny ekliptyki; w rzeczywistych asystach stosuje się trójwymiarowe celowanie w płaszczyźnie B (B-plane). Pominięto zmianę pozycji planety podczas przelotu, oddziaływanie grawitacyjne innych ciał, spłaszczenie i atmosfery planet, podgrzewanie przy niskim perycentrum, korekty i napęd. W szczególności symulator nie weryfikuje, czy dana konfiguracja przybycia jest fizycznie osiągalna od poprzedniej planety.
+
+**Ważne fizycznie:** w układzie planety przed i po przelocie moduły prędkości `v∞` są identyczne, ponieważ tor jest niepowered. Zysk lub utrata energii względem Słońca pochodzi ze zmiany wektorowego dodawania prędkości planety. To nie „stworzenie energii” — w pełnym modelu planeta również wymienia pęd, choć jej odpowiednia zmiana jest znikoma.
+
+### Źródła 13.0
+
+- [NASA — Trajectories, gravity assist](https://science.nasa.gov/learn/basics-of-space-flight/chapter4-1/)
+- [NASA — Gravity Assist Primer](https://science.nasa.gov/learn/basics-of-space-flight/primer/)
+- [JPL — Astrodynamic Parameters](https://ssd.jpl.nasa.gov/astro_par.html)
+- [JPL — Planetary Satellite Physical Parameters, GM planets](https://ssd.jpl.nasa.gov/sats/phys_par/)
+
+## Zachowane laboratoria
 
 ## Nowość: Laboratorium Grawitacji 12.0
 
@@ -82,6 +126,7 @@ Stabilność L4/L5 wynika z kryterium Routha **μ < 0,0385209** i dotyczy liniow
 - `css/missions.css`, `js/missions.js` — Centrum Misji i połączenie z Laboratorium.
 - `css/porkchop.css`, `js/porkchop.js` — Laboratorium Trajektorii 11.0.
 - `css/gravity.css`, `js/gravity.js` — Laboratorium Grawitacji 12.0 (CR3BP i RK4).
+- `css/assists.css`, `js/assists.js` — Asysty Grawitacyjne 13.0 (hiperbola, czas i wektory).
 - `js/assets.js`, `js/stars.js`, `js/ephemeris.js` — zasoby wbudowane i dane.
 
 Do uruchomienia lokalnego: `python -m http.server 8000`, a następnie `http://localhost:8000/`. Wariant wieloplikowy może nie działać poprawnie przez `file://` ze względu na moduły ES.
@@ -109,4 +154,4 @@ To jest **symulator edukacyjny**, nie system do faktycznego planowania startów 
 
 ## Zachowanie poprzedniej wersji
 
-Poprzednie wydania zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop` oraz `backup-v11-before-three-body`. Gałąź `main` zawiera wersję 12.0.
+Poprzednie wydania zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop` `backup-v11-before-three-body` oraz `backup-v12-before-gravity-assists`. Gałąź `main` zawiera wersję 13.0.

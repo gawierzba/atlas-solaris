@@ -1,0 +1,100 @@
+/* ATLAS SOLARIS 16 — Laboratorium bliskich zbliżeń, asteroid i komet */
+#openNeo,.neo-side-launch{border:1px solid #587e99;background:linear-gradient(125deg,#15324c,#1e4560);color:#d9f0fb;padding:10px 12px;border-radius:9px;cursor:pointer;font:760 10px Inter,system-ui,sans-serif;letter-spacing:.055em;white-space:nowrap}
+#openNeo:hover,.neo-side-launch:hover{background:#28637a;border-color:#84d1dc}
+.neo-side-launch{width:100%;margin:6px 0;text-align:left;font-size:11px}
+#neoDialog{width:min(1580px,99vw);max-width:99vw;height:min(945px,97dvh);max-height:97dvh;border:1px solid #33546d;border-radius:17px;padding:0;overflow:hidden;color:#ddecf8;background:#071523;box-shadow:0 35px 140px #000d;font:13px/1.48 Inter,system-ui,'Segoe UI',sans-serif}
+#neoDialog::backdrop{background:#020712f0;backdrop-filter:blur(10px)}
+#neoDialog *{box-sizing:border-box}
+#neoDialog button,#neoDialog select,#neoDialog input{font:inherit}
+#neoDialog button{cursor:pointer;transition:border-color .12s,background .12s}
+#neoDialog button:focus-visible,#neoDialog select:focus-visible,#neoDialog input:focus-visible,#neoOrbitCanvas:focus-visible{outline:2px solid #9ee4e5;outline-offset:2px}
+.neo-header{min-height:102px;background:linear-gradient(115deg,#123449,#142840 65%,#101c32);border-bottom:1px solid #345367;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.neo-header small{font-size:10px;color:#89c5d9;letter-spacing:.16em;font-weight:760}
+.neo-header h2{font-size:clamp(24px,2.6vw,34px);line-height:1.15;letter-spacing:-.042em;font-weight:680;margin:4px 0}
+.neo-header h2 em{font-style:normal;color:#a5eae2}
+.neo-header p{font-size:11px;color:#9bb8c8;margin:0}
+.neo-close{height:42px;min-width:42px;border-radius:9px;background:#203b51;border:1px solid #4b6e83;color:#e5f7fc;font-size:20px}
+.neo-layout{height:calc(100% - 102px);display:grid;grid-template-columns:minmax(0,1fr) 370px;min-height:0}
+.neo-main{min-width:0;min-height:0;display:flex;flex-direction:column;background:#061423}
+.neo-stage-head{min-height:54px;background:#0b2435;display:flex;justify-content:space-between;align-items:center;gap:13px;padding:10px 16px}
+.neo-stage-head small{font-size:9px;color:#86afc0;letter-spacing:.11em;font-weight:740}
+.neo-stage-head strong{display:block;font-size:13px;color:#c8f6ee}
+.neo-stage-head span{font-size:10px;color:#9ab8c8;text-align:right}
+.neo-space{flex:1;position:relative;min-height:255px}
+#neoOrbitCanvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#neoOrbitCanvas:active{cursor:grabbing}
+.neo-hud{position:absolute;top:11px;right:12px;border:1px solid #356374;background:#091c2bdc;border-radius:9px;padding:9px 10px;pointer-events:none;max-width:64%;text-align:right}
+.neo-hud small{display:block;font-size:9px;font-weight:750;color:#82aabf;letter-spacing:.07em}
+.neo-hud strong{font-size:13px;color:#baf6ec;display:block;margin-top:4px}
+.neo-space-label{position:absolute;left:12px;bottom:12px;pointer-events:none;background:#091e2fd9;border:1px solid #38586b;border-radius:7px;padding:6px 9px;font-size:9px;font-weight:760;color:#93b8cc;letter-spacing:.08em}
+.neo-playback{background:#0e2536;border-top:1px solid #355568;padding:12px 17px}
+.neo-timeline{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#a4ccda;font-size:10px;margin-bottom:7px}
+.neo-timeline strong{font-size:12px;color:#c8f5ec}
+.neo-slider{width:100%;accent-color:#78dbd4;cursor:pointer}
+.neo-play-buttons{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:10px}
+.neo-play-buttons button,.neo-play-buttons select{padding:8px 10px;border:1px solid #3c6675;background:#173648;color:#d7f1f5;border-radius:8px;font-size:11px}
+#neoDialog button.neo-primary{background:#176f81;border-color:#4ba5ad;color:#f1fcff;font-weight:750}
+#neoDialog button.neo-primary:hover{background:#228b9b}
+.neo-approx{padding:11px 17px 13px;background:#0b1c2e;border-top:1px solid #29465c;min-height:240px}
+.neo-approx-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11px;color:#bdece1}
+.neo-approx-head small{font-size:9px;color:#8eafc2}
+#neoCloseCanvas{display:block;width:100%;height:160px;margin-top:4px}
+.neo-approx p{font-size:10px;line-height:1.5;color:#89abbc;margin:3px 0}
+.neo-right{min-height:0;overflow-y:auto;overscroll-behavior:contain;border-left:1px solid #2c4e64;background:#0b1c2e;padding:17px 17px 30px;scrollbar-color:#345d73 transparent}
+.neo-section{font-size:10px;color:#8fc5d4;font-weight:780;letter-spacing:.16em;border-bottom:1px solid #34536a;padding-bottom:9px;margin:1px 0 12px}
+.neo-section:not(:first-child){margin-top:20px}
+.neo-source{background:#123145;border:1px solid #426b81;border-radius:10px;padding:10px 12px;margin-bottom:11px}
+.neo-source strong{display:block;font-size:11px;color:#b9eaf2}
+.neo-source small{display:block;color:#a7c0cb;font-size:10px;margin-top:3px;line-height:1.5}
+.neo-source .neo-warn{color:#ffd1a0}
+.neo-filter{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.neo-filter label{font-size:10px;color:#a2bbc8;font-weight:690;display:grid;gap:5px;min-width:0}
+.neo-filter input,.neo-filter select{background:#122e40;color:#e4f7fa;border:1px solid #3e6172;border-radius:8px;min-width:0;padding:8px 7px;width:100%;color-scheme:dark;font-size:11px}
+.neo-filter label.wide{grid-column:span 2}
+.neo-listhead{display:flex;justify-content:space-between;gap:8px;margin:12px 0 8px;align-items:center;font-size:10px;color:#a0becb}
+.neo-events{display:flex;flex-direction:column;gap:5px;max-height:245px;overflow-y:auto;scrollbar-color:#3d6078 transparent}
+.neo-event{display:grid;grid-template-columns:1fr 75px;gap:4px 9px;align-items:center;text-align:left;padding:9px;background:#123044;color:#d5edf8;border-radius:8px;border:1px solid #34566b}
+.neo-event:hover{background:#1b4559}.neo-event.active{background:#204a55;border-color:#90d8cc}
+.neo-event strong{font-size:11px;font-weight:750;min-width:0;overflow-wrap:anywhere}
+.neo-event time{font-size:9px;color:#a4b9c9;text-align:right}
+.neo-event small{grid-column:1/-1;color:#89bac3;font-size:10px}
+.neo-empty{font-size:11px;line-height:1.5;color:#a9bac7}
+.neo-selected{border:1px solid #326274;background:#123346;padding:11px;border-radius:10px}
+.neo-selected strong{display:block;color:#e1faf2;font-size:14px}
+.neo-selected span{font-size:10px;color:#a4c3d4;display:block;margin-top:3px}
+.neo-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.neo-stat{padding:9px;background:#102a3d;border:1px solid #304f61;border-radius:9px;min-width:0}
+.neo-stat small{display:block;font-size:9px;color:#92b3c3;line-height:1.45}
+.neo-stat strong{display:block;font-size:14px;color:#e0f4fc;font-variant-numeric:tabular-nums;margin-top:4px;overflow-wrap:anywhere}
+.neo-stat.wide{grid-column:1/-1}
+.neo-doc{font-size:10px;color:#9ab8c6;line-height:1.65;margin:10px 0}
+.neo-doc strong{color:#c9f0ee}
+.neo-doc a,.neo-links a{color:#b5e8ec}
+.neo-orbit-presets{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}
+.neo-mini{border:1px solid #416579;background:#15374b;color:#d4f3f9;padding:7px 9px;border-radius:8px;font-size:11px}
+.neo-mini:hover{background:#21536a}
+.neo-visibility{display:flex;flex-wrap:wrap;gap:8px 13px;margin:12px 0}
+.neo-visibility label{font-size:10px;color:#96b7c9;display:flex;align-items:center;gap:5px}
+.neo-visibility input{accent-color:#79d7d1}
+.neo-notice{border-left:2px solid #9dc4d9;background:#12293c;padding:10px;color:#adc5d0;font-size:10px;line-height:1.65}
+.neo-links{display:flex;flex-wrap:wrap;gap:10px;font-size:10px;color:#9ebbc9;margin-top:12px}
+.neo-action{border:1px solid #426879;background:#173f53;color:#d8f1f8;padding:8px 10px;border-radius:8px;font-size:11px}
+@media(max-width:1500px){#openNeo span{display:none}#openNeo{font-size:15px;padding:9px}}
+@media(max-width:1150px){.neo-layout{grid-template-columns:minmax(0,1fr) 320px}}
+@media(max-width:760px){
+ #neoDialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border:0;border-radius:0}
+ .neo-header{height:91px;min-height:91px;padding:12px 14px}.neo-header h2{font-size:22px}.neo-header small{font-size:9px}.neo-header p{font-size:10px}
+ .neo-layout{height:calc(100% - 91px);display:flex;flex-direction:column;overflow-y:auto}
+ .neo-main{flex:none;min-height:0}
+ .neo-stage-head{min-height:47px;padding:8px 12px}.neo-stage-head strong{font-size:11px}.neo-stage-head span{font-size:9px}
+ .neo-space{height:286px;min-height:286px;flex:none}
+ .neo-hud{top:7px;right:8px;padding:7px}.neo-hud strong{font-size:11px}.neo-hud small{font-size:8px}
+ .neo-playback{padding:10px 12px}
+ .neo-play-buttons button,.neo-play-buttons select{padding:7px;font-size:10px}
+ .neo-approx{padding:9px 12px;min-height:220px}
+ #neoCloseCanvas{height:145px}
+ .neo-right{overflow:visible;border-top:1px solid #345c70;border-left:0;padding:15px 13px 30px}
+ .neo-events{max-height:none}
+}
+@media(max-width:420px){.neo-header h2{font-size:20px}.neo-space{height:256px;min-height:256px}.neo-stage-head span{display:none}}
+@media(max-width:650px){#openNeo{min-width:33px;padding:8px;font-size:15px}}

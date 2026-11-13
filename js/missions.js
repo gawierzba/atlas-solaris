@@ -34,7 +34,7 @@ const add3=(a,b)=>a.map((v,i)=>v+b[i]);
 const mul3=(a,k)=>a.map(v=>v*k);
 const angle=p=>Math.atan2(p[1],p[0]);
 const api=()=>window.ATLAS_MAIN_API;
-const state={from:'earth',to:'mars',launch:dateJD(new Date()),elapsed:0,speed:7,playing:false,priorPlay:false,firstOpen:true,zoom:1,spin:-.27,panX:0,panY:0,plan:null,win:null};
+const state={from:'earth',to:'mars',launch:dateJD(new Date()),elapsed:0,speed:7,playing:false,priorPlay:false,firstOpen:true,customDays:null,zoom:1,spin:-.27,panX:0,panY:0,plan:null,win:null};
 let raf=0,last=0,drag=null,pointers=new Map(),pinch=0;
 function calc(from,to){
  const r1=worlds[from].r,r2=worlds[to].r,a=(r1+r2)/2,e=Math.abs(r2-r1)/(r1+r2);
@@ -174,6 +174,7 @@ function distanceLabel(km){
 function rebuild(){
  if(state.from===state.to){state.to=state.from==='mars'?'earth':'mars';$('mcTarget').value=state.to;}
  state.plan=calc(state.from,state.to);
+ if(Number.isFinite(state.customDays)&&state.customDays>0)state.plan.days=state.customDays;
  state.plan.transfer=buildTransfer(state.launch,state.from,state.to,state.plan);
  state.elapsed=0;state.playing=false;
  state.win=nextWindow(state.launch,state.plan);
@@ -186,6 +187,7 @@ function setLaunch(jd){
  rebuild();
 }
 function choose(from,to){
+ state.customDays=null;
  state.from=from;state.to=to;
  $('mcOrigin').value=from;$('mcTarget').value=to;
  document.querySelectorAll('[data-mc-route]').forEach(b=>b.classList.toggle('active',b.dataset.mcRoute===from+'-'+to));
@@ -202,10 +204,10 @@ function syncUI(){
  $('mcPhase').textContent=fmt(mod(p.needed)*180/Math.PI,1)+'°';
  $('mcError').textContent=fmt(err,1)+'°';
  $('mcError').className=err<3?'mc-good':err<12?'mc-warn':'mc-bad';
- $('mcWindow').textContent=state.win?dateLabel(state.win.jd):'Poza zakresem modelu';
+ $('mcWindow').textContent=state.customDays?'Okno ustalone na mapie':state.win?dateLabel(state.win.jd):'Poza zakresem modelu';
  $('mcDistance').textContent=fmt(p.transfer.distance/1e6,0)+' mln km';
- $('mcRouteTitle').textContent=worlds[state.from].name+' → '+worlds[state.to].name;
- $('mcWindowInfo').textContent=!p.transfer.solved?'Geometria szczególna: tor interpolowany; nie jest orbitą Keplera.':err<3?'Dobra faza. Trajektoria Lamberta wyznacza dokładne spotkanie.':err<12?'Faza bliska optymalnej; tor wyliczono dla spotkania.':'Nieoptymalna faza: spotkanie wymaga większej zmiany prędkości. Wybierz okno startowe.';
+ $('mcRouteTitle').textContent=worlds[state.from].name+' → '+worlds[state.to].name+(state.customDays?' · WARIANT Z MAPY':'');
+ $('mcWindowInfo').textContent=state.customDays?'Czas lotu i termin startu pochodzą z Laboratorium Trajektorii.':!p.transfer.solved?'Geometria szczególna: tor interpolowany; nie jest orbitą Keplera.':err<3?'Dobra faza. Trajektoria Lamberta wyznacza dokładne spotkanie.':err<12?'Faza bliska optymalnej; tor wyliczono dla spotkania.':'Nieoptymalna faza: spotkanie wymaga większej zmiany prędkości. Wybierz okno startowe.';
  $('mcProgress').max=Math.ceil(p.days*10);$('mcProgress').value=Math.round(state.elapsed*10);
  $('mcProgressDate').textContent=dateLabel(state.launch+state.elapsed);
  $('mcProgressPercent').textContent=fmt(100*state.elapsed/p.days,0)+'% lotu';
@@ -324,8 +326,8 @@ function setup(){
  $('mcTarget').onchange=()=>choose(state.from,$('mcTarget').value);
  $('mcDate').onchange=()=>{const jd=dayFromInput($('mcDate').value);if(jd!==null)setLaunch(jd);};
  $('mcAtlasDate').onclick=()=>{setLaunch(api().getJD());};
- $('mcFind').onclick=()=>{const result=nextWindow(state.launch,state.plan);if(result&&result.error<rad(3))setLaunch(result.jd);else $('mcWindowInfo').textContent='Nie znaleziono pełnego okna przed rokiem 2050.';};
- $('mcFindNext').onclick=()=>{const result=nextWindow(state.launch+8,state.plan);if(result&&result.error<rad(3))setLaunch(result.jd);else $('mcWindowInfo').textContent='Nie znaleziono kolejnego okna przed rokiem 2050.';};
+ $('mcFind').onclick=()=>{state.customDays=null;rebuild();const result=nextWindow(state.launch,state.plan);if(result&&result.error<rad(3))setLaunch(result.jd);else $('mcWindowInfo').textContent='Nie znaleziono pełnego okna przed rokiem 2050.';};
+ $('mcFindNext').onclick=()=>{state.customDays=null;rebuild();const result=nextWindow(state.launch+8,state.plan);if(result&&result.error<rad(3))setLaunch(result.jd);else $('mcWindowInfo').textContent='Nie znaleziono kolejnego okna przed rokiem 2050.';};
  $('mcPlay').onclick=()=>{if(state.elapsed>=state.plan.days)state.elapsed=0;state.playing=!state.playing;syncUI();};
  $('mcRestart').onclick=()=>{state.elapsed=0;state.playing=false;update();};
  $('mcSpeed').onchange=()=>{state.speed=Number($('mcSpeed').value)||7;};
@@ -355,7 +357,20 @@ function setup(){
  $('mcResetCamera').onclick=()=>{state.zoom=1;state.panX=0;state.panY=0;state.spin=-.27;draw();};
  window.addEventListener('resize',()=>{if($('missionDialog').open)draw();});
  choose('earth','mars');
- window.ATLAS_MISSIONS_TEST={calc,phase,nextWindow,stumpff,solveLambert,propagate,buildTransfer,targetDistance,state,show};
+ window.ATLAS_MISSIONS={
+ openSelected:({from,to,launchJD,days})=>{
+  if(!worlds[from]||!worlds[to]||from===to||!Number.isFinite(days)||days<20||
+    !Number.isFinite(launchJD)||launchJD<dateJD(new Date('1800-01-01T00:00:00Z'))||
+    launchJD+days>dateJD(new Date('2050-12-31T23:59:00Z')))return false;
+  show();
+  state.from=from;state.to=to;state.launch=launchJD;state.customDays=days;
+  $('mcOrigin').value=from;$('mcTarget').value=to;
+  document.querySelectorAll('[data-mc-route]').forEach(b=>b.classList.toggle('active',b.dataset.mcRoute===from+'-'+to));
+  rebuild();
+  return true;
+ }
+};
+window.ATLAS_MISSIONS_TEST={calc,phase,nextWindow,stumpff,solveLambert,propagate,buildTransfer,targetDistance,state,show};
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 })();

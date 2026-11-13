@@ -1,13 +1,55 @@
-# ATLAS SOLARIS 14.0 — Archiwum Misji Kosmicznych · Voyager i Cassini
+# ATLAS SOLARIS 15.0 — Łowca Egzoplanet · Fotometria Tranzytowa
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego z laboratoriami fizyki. Wersja **14.0** dodaje archiwalną rekonstrukcję historycznych lotów **Voyagera 1, Voyagera 2 i Cassini–Huygens** na podstawie realnych, próbkowanych wektorów pozycji ze źródła **NASA/JPL Horizons**. Nie usunięto żadnego z modułów wersji 8–13.
+ATLAS SOLARIS to interaktywne planetarium z laboratoriami astronomii i astrodynamiki. Wersja 15.0 dodaje **Łowcę Egzoplanet**, czyli obliczeniową symulację metody tranzytowej i syntetycznej fotometrii, wraz z doświadczeniem polegającym na samodzielnym dopasowaniu ukrytych parametrów planety. Wszystkie starsze moduły pozostały dostępne.
 
 ## Otwórz stronę
 
 **https://gawierzba.github.io/atlas-solaris/**
 
-GitHub Pages → Settings → Pages → Deploy from a branch → `main` → `/(root)`.
+GitHub Pages: Settings → Pages → Deploy from a branch → `main` → `/(root)`.
 
+## Nowość: Łowca Egzoplanet 15.0
+
+### Eksperyment
+
+- Wybierz jedną z pięciu znanych egzoplanet: HD 209458 b, TRAPPIST-1 e, GJ 1214 b, WASP-12 b lub Kepler-22 b.
+- Obserwuj gwiazdę i planetę od strony odległego teleskopu. Obracający się schemat orbity jest poglądowy; tarcze w widoku fotometrycznym są względnie skalowane, z minimalnym rozmiarem piksela dla bardzo małych planet.
+- Zmieniaj promień planety (R⊕), promień i masę gwiazdy (jednostki słoneczne), okres orbitalny, nachylenie orbity i dwa współczynniki ciemnienia brzegowego.
+- Odczytuj spadek jasności w ppm, czas tranzytu między pierwszym i czwartym kontaktem, parametr b oraz wielkość a/R★. Jeśli inklinacja jest niewłaściwa, tranzyt znika całkowicie.
+- Obserwuj wykres względnego strumienia z **SYNTETYCZNYMI** punktami pomiarowymi; można regulować szum w ppm, ponawiać jego losowanie, przewijać czas i pobrać próbki CSV.
+- Włącz **Tryb odkrywcy**: promień planety i nachylenie zostają ukryte. Zgadywane wartości generują własną krzywą modelową, którą można porównać z zaszumionymi obserwacjami za pomocą błędu RMS. Na koniec można odsłonić odpowiedź.
+
+### Co dokładnie liczy symulator?
+
+Planeta porusza się po idealnej orbicie kołowej. Jej pozycja jest rzutowana na tarczę gwiazdy z uwzględnieniem inklinacji. Następnie numerycznie całkowany jest strumień zakrytej części tarczy; algorytm rozdziela przedziały w punktach styczności geometrycznej. Używamy **kwadratowego ciemnienia brzegowego** (quadratic limb darkening):
+
+`I(μ) = 1 − u₁(1−μ) − u₂(1−μ)²`, gdzie `μ = √(1−r²)`.
+
+`k = R_planety/R_gwiazdy`, `b = (a/R★)·|cos(i)|`; tranzyt występuje dla `b < 1+k`. Całkowity znormalizowany strumień niezasłoniętej gwiazdy to `1−u₁/3−u₂/6`. Gdy `u₁=u₂=0` i przejście jest centralne oraz całkowite, głębokość wynosi `k²`. W pozostałych przypadkach zależy również od jasności w miejscu przejścia.
+
+### Pochodzenie danych i ograniczenia
+
+Dla rzeczywistych przykładów stosujemy **offline zestaw przybliżonych parametrów** pochodzących z opisów NASA Science i NASA Exoplanet Archive. Część wartości pochodzi z różnych publikacji, a niektóre inklinacje i promienie gwiazd oznaczono jako orientacyjne. Żadne parametry nie są pobierane na żywo. Wykresy są wyliczane przez program, zaś szum dodawany sztucznie — **nie przedstawiamy ich jako faktycznych szeregów fotometrycznych TESS lub Keplera**.
+
+Model pomija ekscentryczność orbit, zmienność gwiazd, plamy, wpływ innych planet, atmosferę planety, zanieczyszczenia fotometryczne i czas integracji ekspozycji. Rozwiązanie zadania odwrotnego może być niejednoznaczne, ponieważ wiele par promienia i nachylenia daje podobne krzywe, zwłaszcza w obecności szumu.
+
+**Źródła wybranych układów:**
+
+- [NASA Exoplanet Archive — HD 209458](https://exoplanetarchive.ipac.caltech.edu/overview/HD_209458)
+- [NASA Exoplanet Archive — TRAPPIST-1](https://exoplanetarchive.ipac.caltech.edu/overview/TRAPPIST-1)
+- [NASA Science — GJ 1214 b i gwiazda](https://science.nasa.gov/asset/webb/exoplanet-gj-1214-b-and-its-star-illustration/)
+- [NASA Science — WASP-12 b](https://science.nasa.gov/exoplanet-catalog/wasp-12-b/)
+- [NASA Science — Kepler-22 b](https://science.nasa.gov/exoplanet-catalog/kepler-22b/)
+- [NASA Exoplanet Archive — kolumny tabel PS](https://exoplanetarchive.ipac.caltech.edu/docs/API_PS_columns.html)
+- [NASA Exoplanet Archive — API TAP](https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html)
+
+### Kontrola obliczeń 15.0
+
+- Numeryczne całkowanie centralnego tranzytu na jednorodnej tarczy dało, dla testowanych przypadków, zgodność ze wzorem `k²` z błędem poniżej `10⁻⁸`.
+- Dla inklinacji eliminującej tranzyt uzyskano jasność `F=1` i czas tranzytu równy zero.
+- Pięć skonfigurowanych planet daje oczekiwany tranzyt; parametry dopasowania w trybie odkrywcy obniżają RMS do poziomu wygenerowanego szumu.
+
+## Zachowane moduły wcześniejszych wersji
 ## Nowość: Archiwum Misji Kosmicznych 14.0
 
 ### Zakres i funkcje
@@ -174,6 +216,7 @@ Stabilność L4/L5 wynika z kryterium Routha **μ < 0,0385209** i dotyczy liniow
 - `css/assists.css`, `js/assists.js` — Asysty Grawitacyjne 13.0 (hiperbola, czas i wektory).
 - `css/archive.css`, `js/archive.js` — interaktywne archiwum misji 14.0.
 - `js/mission-tracks.js` — lokalne, archiwalne próbki NASA/JPL Horizons dla Voyager 1, Voyager 2 i Cassini.
+- `css/exoplanets.css`, `js/exoplanets.js` — Łowca Egzoplanet 15.0: fizyczny model tranzytów, wykres fotometryczny i tryb odkrywcy.
 - `js/assets.js`, `js/stars.js`, `js/ephemeris.js` — zasoby wbudowane i dane.
 
 Do uruchomienia lokalnego: `python -m http.server 8000`, a następnie `http://localhost:8000/`. Wariant wieloplikowy może nie działać poprawnie przez `file://` ze względu na moduły ES.
@@ -201,4 +244,4 @@ To jest **symulator edukacyjny**, nie system do faktycznego planowania startów 
 
 ## Zachowanie poprzedniej wersji
 
-Poprzednie wersje zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop`, `backup-v11-before-three-body`, `backup-v12-before-gravity-assists` oraz `backup-v13-before-mission-archive`. Gałąź `main` zawiera wersję 14.0.
+Poprzednie wersje zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop`, `backup-v11-before-three-body`, `backup-v12-before-gravity-assists`, `backup-v13-before-mission-archive` oraz `backup-v14-before-exoplanets`. Gałąź `main` zawiera wersję 15.0.

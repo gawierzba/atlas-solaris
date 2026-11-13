@@ -206,7 +206,7 @@ function createMap({getPositions,getEarthAxes}){
     sunAltitudeDeg:max.altitudeDeg,visible:max.visible},contacts:entries,localVisibility:entries.some(e=>e.sunAboveHorizon)||max.visible,
    disclaimer:'Przybliżone geometryczne kontakty; topografia, refrakcja i profil limb Księżyca nieuwzględnione.'};
  }
- return Object.freeze({moment,local,axisPoint,centralBoundary,centralTrack,contours,contacts});
+ return Object.freeze({moment,local,atGeo:(snapshot,lat,lon)=>atVector(snapshot,geoVector(lat,lon)),axisPoint,centralBoundary,centralTrack,contours,contacts});
 }
 root.ATLAS_ECLIPSE_GEO_MAP=Object.freeze({createMap,overlap,geoVector});
 if(typeof module!=='undefined'&&module.exports)module.exports=root.ATLAS_ECLIPSE_GEO_MAP;

@@ -992,7 +992,7 @@ function eclipseDraw(){const dlg=$('eclipseDialog');if(!dlg.open)return;
 }
 function eclipsePickEvent(id){const event=ECLIPSES.find(e=>e.id===id)||ECLIPSES[2];eclipseSelected=event;
  $('eclipseEvent').value=event.id;$('eclipseLat').value=event.lat;$('eclipseLon').value=event.lon;
- $('eclipsePlace').textContent=event.place+' · czas maksimum wg katalogu NASA (UTC)';
+ $('eclipsePlace').textContent=event.place+(event.computed?' · orientacyjny czas z modelu geometrycznego (UTC)':' · czas maksimum wg katalogu NASA (UTC)');
  $('eclipseType').textContent=event.kind==='solar'?'ZAĆMIENIE SŁOŃCA':'ZAĆMIENIE KSIĘŻYCA';
  $('eclipseTitle').textContent=event.name;$('eclipseMapTitle').textContent=event.kind==='solar'?'Zasięg cienia na Ziemi':'Widoczność Księżyca na Ziemi';
  eclipseSetDate(event.date);eclipseIsPlaying=false;eclipseDraw();
@@ -1352,7 +1352,7 @@ function geoInfo(){
  const shadow17=result17?.shadow[solar?'solar':'lunar'];
  const miss=shadow17?.axisDistanceKm??norm(sub(delta,mul(ray,intercept)));
  const x=intercept;
- const blocker=solar?ECLIPSE_RMOON:ECLIPSE_REARTH;
+ const blocker=solar?ECLIPSE_RMOON:ECLIPSE_REARTH*1.02;
  const umbra=shadow17?.umbraSignedRadiusAtTargetKm??(blocker-x*(ECLIPSE_RSUN-blocker)/sunD);
  const penumbra=shadow17?.penumbraRadiusAtTargetKm??(blocker+x*(ECLIPSE_RSUN+blocker)/sunD);
  const apex=shadow17?.coneApexDistanceKm??(blocker*sunD/(ECLIPSE_RSUN-blocker));
@@ -1501,7 +1501,38 @@ window.ATLAS_MAIN_API={
  setPlaying:(yes)=>{state.playing=!!yes;syncPlay();},
  setJD:(jd)=>{state.jd=jd;state.anchorJD=jd;dateClamp();},
  positions:(jd)=>positions(jd),
- selectJupiter:()=>select('jupiter')
+ selectJupiter:()=>select('jupiter'),
+ /** Register a computed eclipse and open an existing visualization scene. */
+ openCalendarEclipse:(candidate,view='geometry')=>{
+  if(!candidate||!['solar','lunar'].includes(candidate.type)||!['geometry','globe','lab'].includes(view))
+   throw new Error('Nieprawidłowe zaćmienie lub widok.');
+  const when=new Date(candidate.approximatePeakUTC);
+  if(!Number.isFinite(when.getTime())||when.getUTCFullYear()<2024||when.getUTCFullYear()>2040)
+   throw new Error('Nieprawidłowa data wyszukanego zaćmienia.');
+  const labels={partial:'częściowe',total:'całkowite',annular:'obrączkowe',
+   hybrid:'hybrydowe',penumbral:'półcieniowe'};
+  const plDate=new Intl.DateTimeFormat('pl-PL',{timeZone:'UTC',day:'numeric',month:'long',year:'numeric'}).format(when);
+  const description=labels[candidate.subtype]||'geometryczne';
+  const id='calc-'+candidate.type+'-'+when.toISOString().slice(0,10);
+  const event={id,kind:candidate.type,type:description.toUpperCase(),
+   date:when.toISOString(),name:plDate+' · '+description+' (model)',
+   lat:54.35,lon:18.65,place:'Punkt testowy: Polska (nie oznacza widoczności)',
+   source:'ATLAS SOLARIS 17.1 · wynik obliczeń',computed:true};
+  const index=ECLIPSES.findIndex(item=>item.id===id);
+  if(index>=0)ECLIPSES[index]=event;else ECLIPSES.push(event);
+  for(const selectId of ['eclipseEvent','geometryEvent','globeEvent']){
+   const select=$(`${selectId}`);
+   if(!select)continue;
+   let option=Array.from(select.options).find(o=>o.value===id);
+   if(!option){option=document.createElement('option');option.value=id;select.appendChild(option);}
+   option.textContent=(candidate.type==='solar'?'☀ ':'☾ ')+event.name;
+  }
+  eclipseSelected=event;
+  if(view==='geometry')geometryOpen('main');
+  else if(view==='globe')globeOpen(false);
+  else $('openEclipses').click();
+  return event;
+ }
 };
 boot();
 

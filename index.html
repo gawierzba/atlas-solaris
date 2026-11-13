@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 16.0 — naukowe laboratorium asteroid i komet z danymi bliskich zbliżeń JPL, orbitami 3D i niepewnościami odległości.">
-  <title>ATLAS SOLARIS 17.0 — Laboratorium Zaćmień i naukowy atlas Układu Słonecznego</title>
+  <meta name="description" content="ATLAS SOLARIS 17.1 — automatyczny kalendarz zaćmień, symulacja Układu Słonecznego 3D i laboratoria astronomiczne.">
+  <title>ATLAS SOLARIS 17.1 — Kalendarz Zaćmień i Układ Słoneczny 3D</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -16,17 +16,18 @@
 <link rel="stylesheet" href="css/exoplanets.css">
 <link rel="stylesheet" href="css/neo.css">
 <link rel="stylesheet" href="css/eclipse17.css">
+<link rel="stylesheet" href="css/eclipse17-calendar.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 17.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 17.1</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 17.0</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 17.1</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -41,7 +42,7 @@
     <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V17.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V17.1</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -134,7 +135,7 @@
     <canvas id="eclipseMap" aria-label="Mapa Ziemi z poruszającą się strefą zaćmienia"></canvas>
     <div class="eclipse-mainvalue"><small id="eclipseValueLabel">ZAKRYCIE TARCZY SŁOŃCA</small><b id="eclipseValue">—</b><p id="eclipseStatus">—</p></div>
     <div class="eclipse-stats"><div><small id="eclipseStat1Label">ODSTĘP ŚRODKÓW</small><b id="eclipseStat1">—</b></div><div><small id="eclipseStat2Label">WYSOKOŚĆ SŁOŃCA</small><b id="eclipseStat2">—</b></div></div>
-    <button id="eclipseGeometry" class="eclipse-globe">◈ Geometria stożków cienia</button><button id="eclipseGlobe" class="eclipse-globe">🌍 Zobacz cień na globie Ziemi</button>
+    <button id="e17CalendarFromEclipse" class="eclipse-globe">◷ Wyszukaj inne zaćmienia</button><button id="eclipseGeometry" class="eclipse-globe">◈ Geometria stożków cienia</button><button id="eclipseGlobe" class="eclipse-globe">🌍 Zobacz cień na globie Ziemi</button>
     <button id="eclipseVisit" class="eclipse-visit">◉ Przejdź do teleskopu na Ziemi</button>
     <p class="eclipse-note">Dane efemerydalne 2024–2040: współrzędne Słońca i Księżyca obliczone modelem Moshiera, interpolacja co 6 h. Daty zjawisk: NASA GSFC. Widok korony, barwa zaćmionego Księżyca i atmosfera to wizualizacje. Czas i dokładny przebieg lokalnego zaćmienia należy sprawdzać w oficjalnych efemerydach. Nie patrz bez ochrony na Słońce podczas zaćmienia częściowego ani obrączkowego.</p>
    </aside>
@@ -226,7 +227,7 @@
          </div>
          <div class="e17-disclaimer"><span id="e17Precision">—</span>. Model czysto geometryczny; typy i globalne przecięcia cienia nie są prognozą widoczności ani dokładnych kontaktów dla obserwatora. Scena 3D nadal ma poglądowy tryb skróconej odległości.</div>
        </section>
-       <div class="geometry-actions"><button id="geometryToGlobe">🌍 Ziemia z kosmosu</button><button id="geometryToLab">☀ Laboratorium zaćmień</button></div>
+       <div class="geometry-actions"><button id="geometryToGlobe">🌍 Ziemia z kosmosu</button><button id="geometryToLab">☀ Laboratorium zaćmień</button><button id="e17CalendarFromGeometry">◷ Kalendarz zaćmień</button></div>
        <p class="geometry-disclaimer">W widoku poglądowym odległość wzdłuż osi cienia jest skrócona 6,25×, aby zobaczyć tarcze i stożki jednocześnie; przekroje poprzeczne oraz wartości liczbowe wynikają z rzeczywistych promieni i odległości. W trybie 1:1 wszystkie osie stosują jednakową skalę. To model geometryczny, bez nieregularności brzegu Księżyca, topografii i szczegółowej atmosfery; nie służy do planowania lokalnych kontaktów zaćmień.</p>
      </aside>
    </div>
@@ -900,6 +901,38 @@
  </div>
 </dialog>
 
+
+<!-- ATLAS SOLARIS 17.1 — katalog obliczany bezpośrednio ze syzygii i stożków cienia -->
+<dialog id="e17CalendarDialog" class="e17c-dialog" aria-label="Kalendarz zaćmień — wyszukiwarka">
+ <header class="e17c-header">
+  <div>
+   <small>ATLAS SOLARIS / LABORATORIUM ZAĆMIEŃ / 17.1</small>
+   <h2>Kalendarz <em>zaćmień</em></h2>
+   <p>Wybierz rok lub miesiąc. Obliczenia znajdą nowie, pełnie i przecięcia stożków cienia. Każde wykryte zaćmienie możesz odtworzyć w istniejącym atlasie 3D.</p>
+  </div>
+  <button id="e17CalendarClose" class="e17c-close" type="button" aria-label="Zamknij kalendarz">✕</button>
+ </header>
+ <form id="e17CalendarForm" class="e17c-form">
+  <label>ROK (2024–2040)<input id="e17CalendarYear" type="number" min="2024" max="2040" step="1" value="2027" required></label>
+  <label>OKRES<select id="e17CalendarMonth">
+   <option value="0">Cały rok</option><option value="1">Styczeń</option><option value="2">Luty</option><option value="3">Marzec</option>
+   <option value="4">Kwiecień</option><option value="5">Maj</option><option value="6">Czerwiec</option>
+   <option value="7">Lipiec</option><option value="8">Sierpień</option><option value="9">Wrzesień</option>
+   <option value="10">Październik</option><option value="11">Listopad</option><option value="12">Grudzień</option>
+  </select></label>
+  <label>RODZAJ<select id="e17CalendarKind"><option value="all">Słońca i Księżyca</option><option value="solar">Tylko Słońca</option><option value="lunar">Tylko Księżyca</option></select></label>
+  <button id="e17CalendarSearch" class="e17c-submit" type="submit">Wyszukaj zaćmienia</button>
+ </form>
+ <div class="e17c-quick"><span>Szybki wybór:</span><button id="e17CalendarQuick2027" type="button">2027</button><button id="e17CalendarQuick2028" type="button">2028</button><button id="e17CalendarQuick2029" type="button">2029</button></div>
+ <progress id="e17CalendarProgress" class="e17c-progress" max="100" value="0"></progress>
+ <section class="e17c-summary"><div><strong id="e17CalendarCount">—</strong><span> znalezionych zjawisk</span></div><p id="e17CalendarStatus" role="status" aria-live="polite">Wybierz zakres i uruchom wyszukiwanie.</p></section>
+ <section id="e17CalendarResults" class="e17c-results" aria-label="Wyszukane zaćmienia"></section>
+ <footer class="e17c-foot">
+  <p><strong>Uwaga naukowa:</strong> to automatyczne wyniki geometrycznego modelu ATLAS SOLARIS, nie oficjalny katalog. Czasy są przybliżone (UTC i dla Polski), a warunki widoczności, dokładne kontakty i zaćmienia brzegowe mogą się różnić od danych NASA. Wyszukiwarka korzysta z próbkowanych efemeryd 2024–2040; rok 2040 wymaga ostrożności przy zakresie danych na jego końcu.</p>
+  <p>Weryfikacja: <a href="https://eclipse.gsfc.nasa.gov/solar.html" target="_blank" rel="noopener">NASA · zaćmienia Słońca</a> · <a href="https://eclipse.gsfc.nasa.gov/lunar.html" target="_blank" rel="noopener">NASA · zaćmienia Księżyca</a></p>
+ </footer>
+</dialog>
+
 <div id="errorScreen" class="error-screen hidden"><h1>Nie udało się uruchomić sceny 3D</h1><p id="errorText"></p><p>Włącz obsługę WebGL 2 i otwórz projekt przez lokalny serwer HTTP — instrukcja znajduje się w pliku README.md.</p></div>
 <script src="js/assets.js"></script>
 <script src="js/stars.js"></script>
@@ -917,5 +950,7 @@
 <script src="js/exoplanets.js"></script>
 <script src="js/neo.js"></script>
 <script src="js/eclipse17-ui.js"></script>
+<script src="js/eclipse17-calendar-search.js"></script>
+<script src="js/eclipse17-calendar-ui.js"></script>
 </body>
 </html>

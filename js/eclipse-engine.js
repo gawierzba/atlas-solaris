@@ -41,8 +41,9 @@ function shadowAt(source,blocker,blockerRadius,sourceRadius,target,targetRadius)
   hitsPenumbra:p.hit,hitsUmbra:u.hit,hitsAntumbra:a.hit,
   penetrationKm:{penumbra:p.clearanceKm,umbra:u.clearanceKm,antumbra:a.clearanceKm}};
 }
-function createEngine({getPositions,auKm=AU,radiiKm={sun:696340,earth:6371,moon:1737.4}}){
+function createEngine({getPositions,auKm=AU,radiiKm={sun:696340,earth:6371,moon:1737.4},lunarShadowScale=1.02}){
  if(typeof getPositions!=='function')throw new TypeError('getPositions(jd) jest wymagane.');
+ if(!(Number.isFinite(lunarShadowScale)&&lunarShadowScale>=1&&lunarShadowScale<=1.05))throw new RangeError('Nieprawidłowa korekta ziemskiego cienia.');
  function vectors(jd){
   const p=getPositions(jd);
   if(!Number.isFinite(jd)||!p||!['sun','earth','moon'].every(k=>Array.isArray(p[k])&&p[k].length===3&&p[k].every(Number.isFinite)))throw new Error('Nieprawidłowe pozycje ciał.');
@@ -78,7 +79,10 @@ function createEngine({getPositions,auKm=AU,radiiKm={sun:696340,earth:6371,moon:
  function at(jd,options={}){
   const v=vectors(jd),p=v.km;
   const solar=shadowAt(p.sun,p.moon,radiiKm.moon,radiiKm.sun,p.earth,radiiKm.earth);
-  const lunar=shadowAt(p.sun,p.earth,radiiKm.earth,radiiKm.sun,p.moon,radiiKm.moon);
+  // Conventional approximate 2% enlargement of Earth's eclipse shadow
+  // to account for the atmosphere. Essential for grazing penumbral events.
+  const lunar=shadowAt(p.sun,p.earth,radiiKm.earth*lunarShadowScale,radiiKm.sun,p.moon,radiiKm.moon);
+  lunar.atmosphericShadowScale=lunarShadowScale;
   let type='none',subtype='none';
   if(solar.hitsPenumbra){
    type='solar';subtype=solar.hitsUmbra&&solar.hitsAntumbra?'hybrid':solar.hitsUmbra?'total':solar.hitsAntumbra?'annular':'partial';
@@ -96,7 +100,7 @@ function createEngine({getPositions,auKm=AU,radiiKm={sun:696340,earth:6371,moon:
     nearNode:Math.abs(v.latitude)<=2,
     nearestNode:options.includeNode===false?null:nearestNode(jd)},
    shadow:{solar,lunar},
-   warnings:['Klasyfikacja geometryczna; dokładne kontakty i granice widoczności sprawdź w katalogach NASA.']};
+   warnings:['Ziemski cień przy zaćmieniu Księżyca zwiększony umownie o '+Math.round((lunarShadowScale-1)*100)+'%; dokładne kontakty i widoczność sprawdź w NASA.']};
  }
  function findAlignments(start,end,step=.5){
   if(!(end>start&&end-start<=370&&step>0&&step<=1))throw new RangeError('Nieprawidłowy zakres.');

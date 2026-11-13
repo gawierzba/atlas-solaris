@@ -89,7 +89,7 @@ function init(){
  }
  function drawFrame({ctx,jd,solar,project,track,event,showTrack=true}){
   if(!solar){resetForLunar();return;}
-  sceneIsSolar=true;
+  if(!sceneIsSolar){sceneIsSolar=true;enabled(true);}
   const prepared=getPrepared(event,track);
   if(!prepared||!prepared.first){enabled(false);set('e17sStatus','To zaćmienie nie ma centralnego pasa cienia na Ziemi.');return;}
   const now=motion.evaluate(prepared,jd);

@@ -79,3 +79,11 @@
 /* Space-saving toolbar: the six exploration modules remain accessible on narrow screens. */
 @media(max-width:1450px){#openMissions span{display:none}#openMissions{min-width:35px;padding:8px 10px}}
 @media(max-width:650px){#openMissions{min-width:33px;padding:8px 7px;font-size:14px;border-radius:8px}.top-status{display:none}.top-toolbar{gap:4px}.top-left{gap:7px}}
+
+/* V10.1: numerical rendezvous readout, always visible during the flight. */
+.mc-arrival-readout{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 9px;font-size:10px;color:#95b5c3}
+.mc-arrival-readout span:first-child{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.mc-arrival-readout strong{font-size:14px;color:#c8fbef;white-space:nowrap}
+#mcArrivalStatus{color:#95afbd;font-size:9px;letter-spacing:.07em;font-weight:750;white-space:nowrap}
+#mcArrivalStatus.mc-arrived{color:#72f0ba;text-shadow:0 0 10px #3cc09e4b}
+@media(max-width:450px){.mc-arrival-readout{gap:5px;font-size:9px}.mc-arrival-readout strong{font-size:12px}#mcArrivalStatus{font-size:8px}}

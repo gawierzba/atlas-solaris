@@ -254,12 +254,10 @@ function start(){
   const jd=api.getJD(),e=$('globeEvent').value;
   const observer={lat:Number($('globeLat').value),lon:Number($('globeLon').value)};
   if(!Number.isFinite(observer.lat)||!Number.isFinite(observer.lon))return;
-  const options=document.getElementById('globeEvent');
-  const selected=options.options[options.selectedIndex];
-  const atBase=root.ATLAS_MAIN_API.getJD();
-  // The selected event's reference maximum is retained by the original globe's slider.
-  const offset=Number($('globeProgress').value||0);
-  const peakJD=jd-offset/1440;
+  // Use the actual selected eclipse's stored maximum, never reconstruct it
+  // from a clamped UI slider or an arbitrary frame.
+  const reference=api.getSelectedEclipse();
+  const peakJD=Date.parse(reference.date)/86400000+2440587.5;
   const result=map.contacts(peakJD,observer.lat,observer.lon);
   state.lastContactsKey=eventKey();
   drawContacts(result,observer);

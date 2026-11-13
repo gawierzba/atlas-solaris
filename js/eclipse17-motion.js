@@ -87,7 +87,7 @@ function evaluate(model,jd){
    current={...at,jd,distanceKm:prev.distanceKm+
     (p.distanceKm-prev.distanceKm)*fraction};
    status='crossing';km=current.distanceKm;
-   velocityKmH=(p.distanceKm-prev.distanceKm)*24/(p.jd-prev.jd);
+   velocityKmH=(p.distanceKm-prev.distanceKm)/((p.jd-prev.jd)*24);
    bearing=bearingDeg(prev,p);
   }
   prev=p;

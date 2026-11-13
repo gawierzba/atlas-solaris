@@ -66,7 +66,7 @@ def sbdb_fetch(des):
     if ma is None and epoch is not None and numeric(e,"tp") is not None:
         ma=((epoch-numeric(e,"tp"))/(365.2568983*a**1.5)*360)%360
     if any(v is None for v in (epoch,inc,node,w,ma)):return None
-    return {"des":str(obj.get("des") or des).strip(),"name":str(obj.get("fullname") or des).strip()[:150],
+    return {"des":str(des).strip(),"name":str(obj.get("fullname") or des).strip()[:150],
             "kind":"comet" if re.search(r"(^\d+P|^P/|^C/|^D/)",str(des),re.I) else "asteroid",
             "epoch":epoch,"equinox":str(orb.get("equinox") or "J2000"),"a":a,"e":ecc,"i":inc,"om":node,"w":w,"ma":ma,
             "moid":numeric(orb,"moid"),"period":numeric(e,"per") or 365.2568983*a**1.5,

@@ -13,6 +13,7 @@ const dateFromJD=jd=>new Date((jd-JD_EPOCH)*DAY);
 const jdFromDate=date=>date.getTime()/DAY+JD_EPOCH;
 const dateLabel=jd=>dateFromJD(jd).toLocaleDateString('pl-PL',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'});
 const fullDate=jd=>dateFromJD(jd).toLocaleDateString('pl-PL',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'});
+const utcTime=jd=>dateFromJD(jd).toISOString().slice(0,16).replace('T',' ')+' UTC';
 const num=(x,d=2)=>Number(x).toLocaleString('pl-PL',{minimumFractionDigits:d,maximumFractionDigits:d});
 const norm=v=>Math.hypot(v[0],v[1],v[2]);
 const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2]);
@@ -151,7 +152,7 @@ function select(m){
  if(!m)return;
  state.selected=m;
  const cells=[
-  ['pcChosenStart',fullDate(m.launchJD)],['pcChosenArrival',fullDate(m.arrivalJD)],
+  ['pcChosenStart',utcTime(m.launchJD)],['pcChosenArrival',utcTime(m.arrivalJD)],
   ['pcChosenTime',num(m.days,1)+' dni'],['pcChosenC3',num(m.c3,2)+' km²/s²'],
   ['pcChosenDep',num(m.vDep,2)+' km/s'],['pcChosenArr',num(m.vArr,2)+' km/s'],
   ['pcChosenTotal',num(m.sum,2)+' km/s']
@@ -187,7 +188,8 @@ function recomputeBest(){
  state.best=best;
  select(best);
  $('pcBestMetric').textContent=num(val(best),2)+' '+unit();
- $('pcBestStart').textContent=fullDate(best.launchJD);
+ $('pcBest').disabled=false;
+ $('pcBestStart').textContent=utcTime(best.launchJD);
  $('pcBestTime').textContent=num(best.days,1)+' dni';
 }
 function run(){
@@ -197,7 +199,7 @@ function run(){
  token++;const active=token;
  state.grid=new Array(COLS*ROWS);state.best=null;state.selected=null;
  state.valid=0;state.failed=0;state.complete=false;state.progress=0;
- hovered=null;$('pcMission').disabled=true;$('pcCopy').disabled=true;$('pcCSV').disabled=true;
+ hovered=null;$('pcMission').disabled=true;$('pcCopy').disabled=true;$('pcCSV').disabled=true;$('pcBest').disabled=true;
  for(const id of ['pcChosenStart','pcChosenArrival','pcChosenTime','pcChosenC3','pcChosenDep','pcChosenArr','pcChosenTotal'])$(id).textContent='—';
  $('pcSelection').textContent='Mapa jest obliczana…';$('pcBestMetric').textContent='—';$('pcBestStart').textContent='—';$('pcBestTime').textContent='—';
  countProgress(0,state.grid.length);
@@ -246,7 +248,7 @@ function exportCSV(){
  const header=['ATLAS SOLARIS 11.0','Model heliocentryczny dwuciałowy; orbity planet JPL-approx; transfer zero-rev Lambert',
  'Trajektoria: '+BODY[state.from]+' > '+BODY[state.to],'Data początkowa: '+fullDate(state.baseJD),'Data startu UTC;Data przylotu UTC;Czas lotu [dni];v∞ odlot [km/s];C3 [km2/s2];v∞ przylot [km/s];Suma v∞ [km/s]'].join('\r\n');
  const rows=state.grid.filter(Boolean).map(m=>[
-  dateFromJD(m.launchJD).toISOString().slice(0,10),dateFromJD(m.arrivalJD).toISOString().slice(0,10),
+  dateFromJD(m.launchJD).toISOString().slice(0,19),dateFromJD(m.arrivalJD).toISOString().slice(0,19),
   m.days.toFixed(4),m.vDep.toFixed(5),m.c3.toFixed(5),m.vArr.toFixed(5),m.sum.toFixed(5)].join(';'));
  const blob=new Blob(['\uFEFF'+header+'\r\n'+rows.join('\r\n')+'\r\n'],{type:'text/csv;charset=utf-8'});
  const url=URL.createObjectURL(blob),a=document.createElement('a');
@@ -263,7 +265,7 @@ function sendToMission(){
 function exportSelected(){
  const m=state.selected;if(!m)return;
  const txt='ATLAS SOLARIS 11.0 — Laboratorium Trajektorii\n'+BODY[state.from]+' → '+BODY[state.to]+
-  '\nOdlot UTC: '+fullDate(m.launchJD)+'\nPrzylot UTC: '+fullDate(m.arrivalJD)+
+  '\nOdlot UTC: '+utcTime(m.launchJD)+'\nPrzylot UTC: '+utcTime(m.arrivalJD)+
   '\nCzas lotu: '+num(m.days,1)+' dni\nv∞ odlot: '+num(m.vDep,3)+' km/s'+
   '\nC3: '+num(m.c3,3)+' km²/s²\nv∞ przylot: '+num(m.vArr,3)+' km/s'+
   '\nSuma v∞: '+num(m.sum,3)+' km/s\nModel: JPL approx + Lambert, dwa ciała, bez perturbacji.';

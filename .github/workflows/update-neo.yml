@@ -41,6 +41,10 @@ jobs:
           else
             python scripts/update_neo_data.py
           fi
+      - name: Sprawdź składnię aktualizatora
+        run: python -m py_compile scripts/update_neo_data.py
+      - name: Testy poprawności danych astronomicznych
+        run: python -m unittest discover -s tests -p 'test_neo_data.py' -v
       - name: Zapisz migawki tylko po zweryfikowaniu
         shell: bash
         run: |

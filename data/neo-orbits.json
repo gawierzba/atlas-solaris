@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-11-13T17:59:01+00:00",
+  "generatedAt": "2026-11-13T18:08:32+00:00",
   "mode": "jpl-sbdb-snapshot",
   "source": "https://ssd-api.jpl.nasa.gov/sbdb.api",
   "objects": {
@@ -154,6 +154,25 @@
       "orbit_id": "3",
       "soln_date": "2022-03-12 04:49:25",
       "source": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=2022%20EF1",
+      "approx": false
+    },
+    "2019 XF2": {
+      "des": "2019 XF2",
+      "name": "(2019 XF2)",
+      "kind": "asteroid",
+      "epoch": 2461200.5,
+      "equinox": "J2000",
+      "a": 1.108086159856044,
+      "e": 0.2481936765249053,
+      "i": 13.6655489740042,
+      "om": 252.3885753561887,
+      "w": 101.7083486692117,
+      "ma": 260.892518457313,
+      "moid": 0.00285061,
+      "period": 426.0481880669976,
+      "orbit_id": "3",
+      "soln_date": "2021-04-15 22:10:20",
+      "source": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=2019%20XF2",
       "approx": false
     }
   }

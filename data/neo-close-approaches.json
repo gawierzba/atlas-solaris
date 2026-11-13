@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "mode": "jpl-cad-snapshot",
-  "generatedAt": "2026-11-13T17:58:45+00:00",
+  "generatedAt": "2026-11-13T18:08:17+00:00",
   "notice": "Statyczna kopia danych NASA/JPL. Nie stanowi oceny ryzyka zderzenia.",
   "source": "https://ssd-api.jpl.nasa.gov/cad.api",
   "query": {
@@ -241,6 +241,22 @@
       "fullname": "(2026 VJ13)"
     },
     {
+      "des": "2023 VE6",
+      "orbit_id": "4",
+      "jd": 2461361.781963406,
+      "cd": "2026-Nov-17 06:46",
+      "dist": 0.0470991947664407,
+      "dist_min": 0.0153912148117894,
+      "dist_max": 0.0788139034845923,
+      "v_rel": 10.1012078051812,
+      "v_inf": 10.0956057676574,
+      "t_sigma_f": "5_03:28",
+      "h": 27.16,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2023 VE6)"
+    },
+    {
       "des": "2026 VB13",
       "orbit_id": "2",
       "jd": 2461361.98976954,
@@ -287,6 +303,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2012 VF46)"
+    },
+    {
+      "des": "2018 NE1",
+      "orbit_id": "14",
+      "jd": 2461363.594765024,
+      "cd": "2026-Nov-19 02:16",
+      "dist": 0.0426855037095717,
+      "dist_min": 0.0422080084155706,
+      "dist_max": 0.0679454825600221,
+      "v_rel": 13.2843078205714,
+      "v_inf": 13.2796081237275,
+      "t_sigma_f": "4_20:03",
+      "h": 23.4,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2018 NE1)"
     },
     {
       "des": "2026 VA11",
@@ -417,6 +449,38 @@
       "fullname": "(2025 CP1)"
     },
     {
+      "des": "2019 XF2",
+      "orbit_id": "3",
+      "jd": 2461378.524423954,
+      "cd": "2026-Dec-04 00:35",
+      "dist": 0.00795386356544704,
+      "dist_min": 0.00305445074486126,
+      "dist_max": 0.0637616731325908,
+      "v_rel": 10.2034308257869,
+      "v_inf": 10.1705465413561,
+      "t_sigma_f": "2_19:21",
+      "h": 27.1,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2019 XF2)"
+    },
+    {
+      "des": "2023 XH3",
+      "orbit_id": "2",
+      "jd": 2461381.298083015,
+      "cd": "2026-Dec-06 19:09",
+      "dist": 0.0478012298502166,
+      "dist_min": 0.0115886736922763,
+      "dist_max": 0.161547303682952,
+      "v_rel": 16.4857689880392,
+      "v_inf": 16.482387494055,
+      "t_sigma_f": "8_15:43",
+      "h": 27.02,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2023 XH3)"
+    },
+    {
       "des": "2020 XC3",
       "orbit_id": "22",
       "jd": 2461382.530363886,
@@ -545,6 +609,22 @@
       "fullname": "(2018 FQ4)"
     },
     {
+      "des": "2021 PF7",
+      "orbit_id": "1",
+      "jd": 2461401.30438746,
+      "cd": "2026-Dec-26 19:18",
+      "dist": 0.0397311205479323,
+      "dist_min": 0.0201820814744386,
+      "dist_max": 0.0613061825385761,
+      "v_rel": 7.67157289378591,
+      "v_inf": 7.66282618278709,
+      "t_sigma_f": "18:19",
+      "h": 27.81,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2021 PF7)"
+    },
+    {
       "des": "2023 FP1",
       "orbit_id": "2",
       "jd": 2461410.5993224,
@@ -559,6 +639,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2023 FP1)"
+    },
+    {
+      "des": "2014 BP",
+      "orbit_id": "6",
+      "jd": 2461419.155078974,
+      "cd": "2027-Jan-13 15:43",
+      "dist": 0.0221688007445832,
+      "dist_min": 0.0221633575133901,
+      "dist_max": 0.24949687882197,
+      "v_rel": 10.4181499474939,
+      "v_inf": 10.4066069071598,
+      "t_sigma_f": "7_17:14",
+      "h": 25.1,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2014 BP)"
     },
     {
       "des": "2024 RR14",
@@ -625,6 +721,22 @@
       "fullname": "(2023 TX)"
     },
     {
+      "des": "2020 BY",
+      "orbit_id": "5",
+      "jd": 2461427.912669585,
+      "cd": "2027-Jan-22 09:54",
+      "dist": 0.0139559666851348,
+      "dist_min": 0.00685578361897467,
+      "dist_max": 0.0970369880631743,
+      "v_rel": 16.216151615791,
+      "v_inf": 16.204373864512,
+      "t_sigma_f": "3_02:26",
+      "h": 24.5,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2020 BY)"
+    },
+    {
       "des": "2015 DG200",
       "orbit_id": "15",
       "jd": 2461428.000440717,
@@ -639,6 +751,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2015 DG200)"
+    },
+    {
+      "des": "2022 BB2",
+      "orbit_id": "5",
+      "jd": 2461429.386555139,
+      "cd": "2027-Jan-23 21:17",
+      "dist": 0.0477961670908406,
+      "dist_min": 0.0169871767678394,
+      "dist_max": 0.0820832042545245,
+      "v_rel": 16.3377618698391,
+      "v_inf": 16.3343493743761,
+      "t_sigma_f": "01:53",
+      "h": 26.54,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2022 BB2)"
     },
     {
       "des": "2020 XA5",
@@ -673,6 +801,22 @@
       "fullname": "(2020 OP3)"
     },
     {
+      "des": "2015 KP57",
+      "orbit_id": "6",
+      "jd": 2461437.086887575,
+      "cd": "2027-Jan-31 14:05",
+      "dist": 0.0375851686929516,
+      "dist_min": 0.0299231473334133,
+      "dist_max": 0.180144068231346,
+      "v_rel": 13.7327963944653,
+      "v_inf": 13.7276331995358,
+      "t_sigma_f": "3_06:22",
+      "h": 24.9,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2015 KP57)"
+    },
+    {
       "des": "2016 PC8",
       "orbit_id": "8",
       "jd": 2461437.309601465,
@@ -705,6 +849,22 @@
       "fullname": "(2021 BJ3)"
     },
     {
+      "des": "2020 DS3",
+      "orbit_id": "5",
+      "jd": 2461450.659045009,
+      "cd": "2027-Feb-14 03:49",
+      "dist": 0.0283700368924247,
+      "dist_min": 0.01687339584467,
+      "dist_max": 0.103013656563529,
+      "v_rel": 6.67702379377261,
+      "v_inf": 6.66294298164404,
+      "t_sigma_f": "5_15:13",
+      "h": 25.9,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2020 DS3)"
+    },
+    {
       "des": "893859",
       "orbit_id": "24",
       "jd": 2461451.299857109,
@@ -719,6 +879,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "893859 (2016 VO1)"
+    },
+    {
+      "des": "2024 UQ11",
+      "orbit_id": "1",
+      "jd": 2461458.366386412,
+      "cd": "2027-Feb-21 20:48",
+      "dist": 0.0499729525038757,
+      "dist_min": 0.0491442929431279,
+      "dist_max": 0.0776786089099855,
+      "v_rel": 9.0254834806825,
+      "v_inf": 9.01957400331897,
+      "t_sigma_f": "11:08",
+      "h": 25.87,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2024 UQ11)"
     },
     {
       "des": "2025 UZ7",
@@ -751,6 +927,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2023 DD2)"
+    },
+    {
+      "des": "2022 DQ2",
+      "orbit_id": "4",
+      "jd": 2461462.578758237,
+      "cd": "2027-Feb-26 01:53",
+      "dist": 0.0488206160389821,
+      "dist_min": 0.00395147350043613,
+      "dist_max": 0.0939401731478643,
+      "v_rel": 20.7997240000589,
+      "v_inf": 20.7970999088544,
+      "t_sigma_f": "2_03:16",
+      "h": 25.21,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2022 DQ2)"
     },
     {
       "des": "2026 DS8",
@@ -799,6 +991,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2017 DS37)"
+    },
+    {
+      "des": "2016 DW1",
+      "orbit_id": "8",
+      "jd": 2461468.467729035,
+      "cd": "2027-Mar-03 23:14",
+      "dist": 0.0355937893000638,
+      "dist_min": 0.0355081115882112,
+      "dist_max": 0.0820715608848963,
+      "v_rel": 9.20471839118194,
+      "v_inf": 9.19658222881624,
+      "t_sigma_f": "2_05:56",
+      "h": 25.9,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2016 DW1)"
     },
     {
       "des": "2026 EJ",
@@ -881,6 +1089,22 @@
       "fullname": "(2025 DL8)"
     },
     {
+      "des": "2022 EA",
+      "orbit_id": "6",
+      "jd": 2461471.784755833,
+      "cd": "2027-Mar-07 06:50",
+      "dist": 0.0183417204617927,
+      "dist_min": 0.00769649010873147,
+      "dist_max": 0.1330354617112,
+      "v_rel": 15.0987151592452,
+      "v_inf": 15.0890908242285,
+      "t_sigma_f": "9_18:55",
+      "h": 26.47,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2022 EA)"
+    },
+    {
       "des": "2011 ES4",
       "orbit_id": "18",
       "jd": 2461478.44909004,
@@ -913,6 +1137,38 @@
       "fullname": "(2026 HT)"
     },
     {
+      "des": "2010 TK",
+      "orbit_id": "16",
+      "jd": 2461479.869827297,
+      "cd": "2027-Mar-15 08:53",
+      "dist": 0.0468428635958222,
+      "dist_min": 0.00554592409151216,
+      "dist_max": 0.187048272744503,
+      "v_rel": 11.3968177335175,
+      "v_inf": 11.3918256660812,
+      "t_sigma_f": "9_23:10",
+      "h": 25.3,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2010 TK)"
+    },
+    {
+      "des": "2010 TB54",
+      "orbit_id": "8",
+      "jd": 2461480.696793967,
+      "cd": "2027-Mar-16 04:43",
+      "dist": 0.0438712655432382,
+      "dist_min": 0.0389839235275571,
+      "dist_max": 0.179383482010068,
+      "v_rel": 7.63926757526481,
+      "v_inf": 7.6313131897485,
+      "t_sigma_f": "9_09:31",
+      "h": 26.8,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2010 TB54)"
+    },
+    {
       "des": "2012 RM15",
       "orbit_id": "9",
       "jd": 2461481.098412227,
@@ -927,6 +1183,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2012 RM15)"
+    },
+    {
+      "des": "2026 FW12",
+      "orbit_id": "1",
+      "jd": 2461481.523278377,
+      "cd": "2027-Mar-17 00:34",
+      "dist": 0.0124839410638281,
+      "dist_min": 0.00911464007417968,
+      "dist_max": 0.0655891456159055,
+      "v_rel": 8.14851535006205,
+      "v_inf": 8.12228030273233,
+      "t_sigma_f": "1_15:36",
+      "h": 27.19,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2026 FW12)"
     },
     {
       "des": "673675",
@@ -961,6 +1233,22 @@
       "fullname": "506074 Svarog (2015 UM67)"
     },
     {
+      "des": "2021 UY2",
+      "orbit_id": "7",
+      "jd": 2461484.25034953,
+      "cd": "2027-Mar-19 18:01",
+      "dist": 0.0471517806297298,
+      "dist_min": 0.0288637107652634,
+      "dist_max": 0.0706178913031672,
+      "v_rel": 9.26193992163609,
+      "v_inf": 9.25583675240606,
+      "t_sigma_f": "3_20:56",
+      "h": 23.44,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2021 UY2)"
+    },
+    {
       "des": "2026 FU",
       "orbit_id": "5",
       "jd": 2461488.347107864,
@@ -991,6 +1279,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2005 FC)"
+    },
+    {
+      "des": "2024 EU4",
+      "orbit_id": "5",
+      "jd": 2461492.250655666,
+      "cd": "2027-Mar-27 18:01",
+      "dist": 0.0468290195217292,
+      "dist_min": 0.0280700659173137,
+      "dist_max": 0.0725612029817004,
+      "v_rel": 26.0319602700052,
+      "v_inf": 26.0297744789093,
+      "t_sigma_f": "1_09:13",
+      "h": 22.11,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2024 EU4)"
     },
     {
       "des": "2025 SP20",
@@ -1039,6 +1343,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2015 MB54)"
+    },
+    {
+      "des": "2016 FL14",
+      "orbit_id": "5",
+      "jd": 2461497.42567482,
+      "cd": "2027-Apr-01 22:13",
+      "dist": 0.041946958467689,
+      "dist_min": 0.033130005231802,
+      "dist_max": 0.206932610399248,
+      "v_rel": 11.7274191149925,
+      "v_inf": 11.7220014797683,
+      "t_sigma_f": "7_00:14",
+      "h": 25.9,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2016 FL14)"
     },
     {
       "des": "2022 GL",
@@ -1217,6 +1537,38 @@
       "fullname": "(2018 JO1)"
     },
     {
+      "des": "2019 HW3",
+      "orbit_id": "9",
+      "jd": 2461527.380180633,
+      "cd": "2027-May-01 21:07",
+      "dist": 0.04078144187692,
+      "dist_min": 0.0405249756556041,
+      "dist_max": 0.0879573168289649,
+      "v_rel": 8.55730327163373,
+      "v_inf": 8.54966479541115,
+      "t_sigma_f": "09:30",
+      "h": 25.0,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2019 HW3)"
+    },
+    {
+      "des": "2010 JL1",
+      "orbit_id": "8",
+      "jd": 2461528.13895062,
+      "cd": "2027-May-02 15:20",
+      "dist": 0.0355732685658362,
+      "dist_min": 0.0354446621729005,
+      "dist_max": 0.113209541730999,
+      "v_rel": 11.0518162986444,
+      "v_inf": 11.0450369471769,
+      "t_sigma_f": "1_09:46",
+      "h": 25.5,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2010 JL1)"
+    },
+    {
       "des": "2014 JU15",
       "orbit_id": "10",
       "jd": 2461528.166054454,
@@ -1231,6 +1583,22 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2014 JU15)"
+    },
+    {
+      "des": "2010 JL88",
+      "orbit_id": "8",
+      "jd": 2461540.369702701,
+      "cd": "2027-May-14 20:52",
+      "dist": 0.0459526407026812,
+      "dist_min": 0.000786437862652768,
+      "dist_max": 0.158469852426607,
+      "v_rel": 16.2210070507679,
+      "v_inf": 16.2174320846489,
+      "t_sigma_f": "7_05:48",
+      "h": 26.8,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "(2010 JL88)"
     },
     {
       "des": "2026 JB2",

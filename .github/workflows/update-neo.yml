@@ -1,6 +1,9 @@
 name: ATLAS SOLARIS — dzienne migawki NASA JPL
 
 on:
+  push:
+    paths:
+      - ".github/workflows/update-neo.yml"
   schedule:
     - cron: "17 7 * * *"
   workflow_dispatch:
@@ -33,7 +36,7 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           ORBIT_INPUT: ${{ inputs.update_orbits }}
         run: |
-          if [[ "$EVENT_NAME" == "workflow_dispatch" && "$ORBIT_INPUT" == "true" ]] || [[ "$(date -u +%u)" == "7" ]]; then
+          if [[ "$EVENT_NAME" == "push" ]] || [[ "$EVENT_NAME" == "workflow_dispatch" && "$ORBIT_INPUT" == "true" ]] || [[ "$(date -u +%u)" == "7" ]]; then
             python scripts/update_neo_data.py --update-orbits
           else
             python scripts/update_neo_data.py

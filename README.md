@@ -1,6 +1,22 @@
-# ATLAS SOLARIS 16.0 — Asteroidy, komety i bliskie zbliżenia z Ziemią
+# ATLAS SOLARIS 17.0 — Laboratorium Zaćmień
 
 ATLAS SOLARIS to naukowy atlas Układu Słonecznego. Wersja **16.0** dodaje laboratorium małych ciał — rozróżnia **oficjalnie policzone zbliżenia NASA/JPL**, **formalną niepewność odległości** oraz **poglądową wizualizację heliocentrycznej orbity oskulacyjnej**. Zachowano wszystkie moduły wersji 8–15, w tym łowcę egzoplanet, archiwum sond i misje.
+
+## Nowość 17.0 — naukowy silnik zaćmień połączony z geometrią 3D
+
+**Wejście:** przycisk **ZAĆMIENIA 17** w górnym pasku albo **Laboratorium Zaćmień 17.0 · silnik naukowy** w panelu bocznym. Dotychczasowe przyciski GEOMETRIA 3D, ZAĆMIENIA i ZIEMIA Z KOSMOSU nadal działają. Nowe przyciski otwierają istniejącą obrotową scenę stożków z dodatkowym panelem obliczeniowym.
+
+**W trakcie animacji:** pozycje Słońca, Ziemi i Księżyca są liczone z istniejących efemeryd atlasu. Nowy silnik analizuje matematyczne przecięcia **półcienia**, **cienia głównego (umbry)** i **antumbry** z kulą Ziemi lub Księżyca. Panel pokazuje typ zjawiska (brak / Słońca / Księżyca wraz z podtypem), syzygię, szerokość ekliptyczną Księżyca, najbliższe przejście przez węzeł orbitalny, odległości oraz rodzaj przecięcia cienia.
+
+Wielkości klasyfikacyjne są liczone niezależnie od powiększenia wizualizacji. Scena 3D ma istniejącą opcję ścisłej skali 1:1 lub czytelnej skali poglądowej ze skróconymi odległościami. Bez dodatkowych bibliotek JavaScript i bez zewnętrznego API w przeglądarce.
+
+Pliki wersji: js/eclipse-engine.js, js/eclipse17-ui.js, css/eclipse17.css, tests/eclipse17.test.cjs. Test syntetycznych scenariuszy: node tests/eclipse17.test.cjs.
+
+**Ograniczenia:** w latach 2024–2040 atlas wykorzystuje dostarczone wcześniej próbkowane efemerydy i ich interpolację; poza tym zakresem prognozy są orientacyjne (uproszczony model Księżyca). Nowy silnik nie uwzględnia rozszerzenia ziemskiej umbry wskutek atmosfery (promień Ziemi 6371 km), nieregularnego brzegu Księżyca, topografii, refrakcji, dokładnych elementów Bessela, lokalnego horyzontu i czasu drogi światła. Wcześniejsze demonstracyjne widoki 3D i globu zachowują swoje odrębne uproszczenia opisane w dokumentacji. Nie wyznaczać na tej podstawie bezpiecznych czasów obserwacji ani precyzyjnego pasa całkowitości.
+
+Dla dokładnych danych zaćmień: [NASA GSFC — katalog zaćmień Słońca](https://eclipse.gsfc.nasa.gov/SEcat5/SEcatalog.html) i [NASA GSFC — katalog zaćmień Księżyca](https://eclipse.gsfc.nasa.gov/LEcat5/LEcatalog.html).
+
+---
 
 ## Otwórz stronę
 

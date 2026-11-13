@@ -121,7 +121,6 @@ function selectEncounter(row){
  if(!row)return;
  S.playing=false;S.selected=row;S.manualDes=row.des;S.orbit=S.orbitIndex?.[row.des]||null;
  S.offsetHours=0;S.jd=row.jd;S.zoom=1;S.view='solar';
- $('neoView').value='solar';
  $('neoSelectedName').textContent=row.fullname;
  $('neoSelectedTime').textContent=timeLabel(row.jd);
  $('neoNoteProvenance').textContent='Dane tabelaryczne: '+sourceLabel()+'.';
@@ -137,8 +136,8 @@ function pickOrbit(des){
  if(!item){$('neoOrbitalState').textContent='Brak lokalnych elementów '+des+'. Wybierz Apophis lub Bennu albo zaktualizuj orbity w GitHub Actions.';return;}
  S.orbit=item;S.manualDes=des;
  S.jd=c(S.jd,2451545,2469807);
- $('neoSelectedName').textContent=item.name;
- $('neoSelectedKind').textContent=item.kind==='comet'?'KOMETA':'ASTEROIDA';
+ // This is a separate orbital exhibit: never relabel the official CAD encounter as another object.
+
  $('neoOrbitalState').textContent='Widok orbity: '+item.name+'; elementy z '+(item.soln_date||'archiwum JPL')+'. Jest to przybliżenie dwuciałowe, nie zweryfikowany bliski przelot.';
  draw();
 }
@@ -192,7 +191,7 @@ function sync(){
   neoTimeUnc:r.t_sigma_f||'brak',neoDiameter:r.diameter!==null?fmt(r.diameter*1000,0)+' m':'brak pewnego pomiaru',
   neoH:normalizeValue(r.h,2,' mag'),
   neoUncWidth:fmt(dMax-dMin,2)+' km',neoAlt:fmt(dist-RE,0)+' km',
-  neoOrbitMoid:S.orbit&&S.orbit.moid!==null?normalizeValue(Number(S.orbit.moid),6,' AU'):'brak danych',
+  neoOrbitMoid:S.orbit?.des===S.selected?.des&&S.orbit.moid!==null?normalizeValue(Number(S.orbit.moid),6,' AU'):'— (brak zgodnej orbity)',
   neoOrbitEpoch:S.orbit?dateLabel(S.orbit.epoch):'brak danych',
   neoTimeLabel:timeLabel(S.jd),
   neoOffsetLabel:(S.offsetHours>0?'+':'')+fmt(S.offsetHours,1)+' h',
@@ -353,7 +352,7 @@ function init(){
  $('neoType').onchange=()=>{S.type=$('neoType').value;refreshList();};
  $('neoDistanceFilter').onchange=()=>{S.maxLD=Number($('neoDistanceFilter').value)||30;refreshList();};
  $('neoOffset').oninput=()=>{S.playing=false;setTimeOffset(Number($('neoOffset').value));};
- $('neoPlay').onclick=()=>{if(S.offsetHours>=72)setTimeOffset(-72);S.playing=!S.playing;sync();};
+ $('neoPlay').onclick=()=>{if(S.offsetHours>=72||Math.abs(S.offsetHours)<1e-9)setTimeOffset(-72);S.playing=!S.playing;sync();};
  $('neoReset').onclick=()=>{S.playing=false;setTimeOffset(0);};
  $('neoClockSpeed').onchange=()=>{S.clockScale=Number($('neoClockSpeed').value)||60;};
  $('neoShowEarth').onchange=()=>{S.showEarth=$('neoShowEarth').checked;draw();};

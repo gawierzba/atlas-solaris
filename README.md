@@ -1,12 +1,57 @@
-# ATLAS SOLARIS 13.0 — Asysty Grawitacyjne · Układ Słoneczny 3D
+# ATLAS SOLARIS 14.0 — Archiwum Misji Kosmicznych · Voyager i Cassini
 
-Interaktywny atlas Układu Słonecznego i naukowe laboratoria lotów kosmicznych. Nowa wersja **13.0** dodaje obliczeniowy symulator hiperbolicznych asyst grawitacyjnych. Nie usuwa modułów poprzednich wersji: Laboratorium Grawitacji 12.0, Laboratorium Trajektorii 11.0, Centrum Misji 10.1, Jowisza, zaćmień, globu Ziemi i obserwatorium.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego z laboratoriami fizyki. Wersja **14.0** dodaje archiwalną rekonstrukcję historycznych lotów **Voyagera 1, Voyagera 2 i Cassini–Huygens** na podstawie realnych, próbkowanych wektorów pozycji ze źródła **NASA/JPL Horizons**. Nie usunięto żadnego z modułów wersji 8–13.
 
 ## Otwórz stronę
 
 **https://gawierzba.github.io/atlas-solaris/**
 
-GitHub Pages: Settings → Pages → Deploy from a branch → `main` → `/(root)`.
+GitHub Pages → Settings → Pages → Deploy from a branch → `main` → `/(root)`.
+
+## Nowość: Archiwum Misji Kosmicznych 14.0
+
+### Zakres i funkcje
+
+- **Voyager 1:** 861 próbek heliocentrycznych, od 5 września 1977 do 16 sierpnia 2026.
+- **Voyager 2:** 1012 próbek heliocentrycznych, od 20 sierpnia 1977 do 16 sierpnia 2026.
+- **Cassini:** 975 próbek heliocentrycznych, od 15 października 1997 do 15 września 2017.
+- Interaktywny obracany widok przestrzenny trajektorii (rzut 3D), możliwość przybliżania i centrowania na Słońcu, sondzie lub planecie historycznego wydarzenia.
+- Przewijanie osi czasu, automatyczna animacja, różne prędkości odtwarzania, skoki do wybranych wydarzeń i krok do poprzedniego/następnego.
+- Daty historycznych przelotów: Voyager 1 (Jowisz, Saturn, Pale Blue Dot, heliopauza), Voyager 2 (Jowisz, Saturn, Uran, Neptun, heliopauza), Cassini (Wenus × 2, Ziemia, Jowisz, przybycie do Saturna, Huygens, Wielki Finał).
+- Możliwość nałożenia śladów pozostałych dwóch sond i podglądu położeń planet z istniejącego silnika Atlasu.
+- Odczyty heliocentrycznej odległości w AU i km, znormalizowanej współrzędnej Z, odległości przebytej na łamanej próbkowanej trajektorii, średniej prędkości **na odcinku między dwiema próbkami** oraz orientacyjnego czasu lotu światła od Słońca.
+- Eksport CSV zawierający **rzeczywiste zapisane próbki** (a nie interpolowane punkty animacji) z Julian Date i współrzędnymi J2000.
+- Moduł działa offline i na GitHub Pages. Nie wywołuje Horizons podczas działania aplikacji.
+
+### Źródło danych, jego pochodzenie i przekształcenia
+
+**Oryginalne pochodzenie:** NASA/JPL Horizons, `EPHEM_TYPE=VECTORS`, `CENTER=500@10` (środek Słońca), `REF_PLANE=ECLIPTIC`, `OUT_UNITS=AU-D`, `CSV_FORMAT=YES`, `VEC_TABLE=1`, `COMMAND=-31` (Voyager 1), `-32` (Voyager 2), `-82` (Cassini). Układ odniesienia: heliocentryczna ekliptyka i równonoc J2000. Czas zapisany jako **JD TDB**.
+
+**Weryfikowalna kopia:** próbki zostały pozyskane ze zbioru `data/probes.json` w publicznym repozytorium [giancarloerra/Astro.Observer-Orrery](https://github.com/giancarloerra/Astro.Observer-Orrery/blob/main/data/probes.json). Autor dokumentuje dokładne zapytania, próbkowanie i ograniczenia w [DATA-SOURCES.md](https://github.com/giancarloerra/Astro.Observer-Orrery/blob/main/DATA-SOURCES.md). SHA pliku źródłowego w chwili importu: `c5ba457593e249dfeeb6cae3235e0f09f021b7a4`.
+
+**Dostosowanie na potrzeby ATLAS SOLARIS:** współrzędne zaokrąglono do 10 miejsc po przecinku w AU, a JD do 7 miejsc po przecinku. Z obu Voyagerów wyłączono próbki **późniejsze niż 16 sierpnia 2026**, by prognozowanych przyszłych trajektorii Horizons nie przedstawiać jako historii. Cassini pozostawiono do chwili zakończenia misji 15 września 2017. Zestaw znajduje się w `js/mission-tracks.js` i jest ładowany statycznie.
+
+### Ważne ograniczenia — przeczytaj
+
+- **Wszystkie pozycje zapisanych próbek pochodzą z danych Horizons**, lecz animowana pozycja pomiędzy nimi jest **interpolacją liniową**. Nie jest ponownie wyznaczoną efemerydą NASA.
+- Rozdzielczość próbkowania: Voyager 1 co 4 dni w pierwszych latach, potem co 30; Voyager 2 co 8 dni w okresie przelotów międzyplanetarnych, potem co 30; Cassini co 5 dni przed przybyciem do Saturna i **co 10 dni w trakcie orbity saturnowej**. To za mało, by odtworzyć pojedyncze bliskie przejścia, kilkudniowe obiegi, manewry napędu i orbitę lądownika Huygens. Linie łączące próbki Cassini po 2004 r. są tylko wizualizacją rzadkich próbek.
+- **Położenia planet** pochodziły z już istniejącego uproszczonego silnika orbitalnego Atlasu (JPL approx. positions), a nie z tego samego zestawu Horizons dla sond. Nie należy na podstawie sceny obliczać dokładnych odległości minimalnych pomiędzy sondą a planetą.
+- Odczyt prędkości = moduł różnicy kolejnych pozycji, podzielony przez upływ czasu. Jest **średnią prędkością odcinkową** i może różnić się od prędkości chwilowej szczególnie podczas zbliżeń.
+- Długość narysowanego śladu jest sumą odległości między próbkami i stanowi **dolne oszacowanie** drogi po rzeczywistej krzywej. Nie jest dokładnym dystansem pokonanym podczas misji.
+- Zapisana data to JD **TDB**, a daty wyświetlane przybliżono cywilnym kalendarzem UTC, bez korekty TDB–UTC (rzędu 1 minuty). Historyczne przyciski wskazują datę wydarzenia, nie dokładny moment perycentrum.
+- Okręgi orbit i rozmiary planet służą orientacji wizualnej; nie są dokładną wizualizacją rozmiarów ciał w jednej skali.
+- Najnowszy archiwalny punkt Voyagerów pochodzi z 16.08.2026; **nie udajemy pomiaru w czasie rzeczywistym**. Aktualne położenie można sprawdzić w bieżących serwisach NASA.
+
+### Materiały NASA
+
+- [JPL Horizons — oficjalne efemerydy](https://ssd.jpl.nasa.gov/horizons/)
+- [Voyager 1 — NASA](https://science.nasa.gov/mission/voyager/voyager-1/)
+- [Voyager 2 — NASA](https://science.nasa.gov/mission/voyager/voyager-2/)
+- [NASA NSSDC — dokładne daty i czasy przelotów Voyagerów](https://nssdc.gsfc.nasa.gov/planetary/voyager-periapse.html)
+- [Cassini — NASA](https://science.nasa.gov/mission/cassini/)
+- [Cassini — chronologia ESA](https://www.esa.int/Science_Exploration/Space_Science/Cassini-Huygens_overview)
+
+## Zachowane laboratoria wcześniejszych wersji
 
 ## Nowość: Asysty Grawitacyjne 13.0
 
@@ -127,6 +172,8 @@ Stabilność L4/L5 wynika z kryterium Routha **μ < 0,0385209** i dotyczy liniow
 - `css/porkchop.css`, `js/porkchop.js` — Laboratorium Trajektorii 11.0.
 - `css/gravity.css`, `js/gravity.js` — Laboratorium Grawitacji 12.0 (CR3BP i RK4).
 - `css/assists.css`, `js/assists.js` — Asysty Grawitacyjne 13.0 (hiperbola, czas i wektory).
+- `css/archive.css`, `js/archive.js` — interaktywne archiwum misji 14.0.
+- `js/mission-tracks.js` — lokalne, archiwalne próbki NASA/JPL Horizons dla Voyager 1, Voyager 2 i Cassini.
 - `js/assets.js`, `js/stars.js`, `js/ephemeris.js` — zasoby wbudowane i dane.
 
 Do uruchomienia lokalnego: `python -m http.server 8000`, a następnie `http://localhost:8000/`. Wariant wieloplikowy może nie działać poprawnie przez `file://` ze względu na moduły ES.
@@ -154,4 +201,4 @@ To jest **symulator edukacyjny**, nie system do faktycznego planowania startów 
 
 ## Zachowanie poprzedniej wersji
 
-Poprzednie wydania zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop`, `backup-v11-before-three-body` oraz `backup-v12-before-gravity-assists`. Gałąź `main` zawiera wersję 13.0.
+Poprzednie wersje zabezpieczono w gałęziach `backup-v8-before-v10`, `backup-v10-before-transfer-fix`, `backup-v10-1-before-porkchop`, `backup-v11-before-three-body`, `backup-v12-before-gravity-assists` oraz `backup-v13-before-mission-archive`. Gałąź `main` zawiera wersję 14.0.

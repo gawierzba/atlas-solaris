@@ -268,7 +268,7 @@ function draw(){
  }
  const ship=p.transfer.at(state.elapsed),near=p.transfer.at(Math.min(p.days,state.elapsed+p.days*.003));
  const a=project(ship[0],ship[1]),b=project(near[0],near[1]);
- let spin=Math.atan2(b[1]-a[1],b[0]-a[0]);if(u>=.999)spin=Math.atan2(a[1]-h*.53,a[0]-w*.49);
+ let spin=Math.atan2(b[1]-a[1],b[0]-a[0]);if(state.elapsed/state.plan.days>=.999)spin=Math.atan2(a[1]-h*.53,a[0]-w*.49);
  ctx.save();ctx.translate(a[0],a[1]);ctx.rotate(spin);ctx.fillStyle='#bbfff6';ctx.shadowColor='#45dcca';ctx.shadowBlur=17;
  ctx.beginPath();ctx.moveTo(11,0);ctx.lineTo(-8,-5.2);ctx.lineTo(-3,0);ctx.lineTo(-8,5.2);ctx.closePath();ctx.fill();ctx.restore();
  ctx.fillStyle='#caedee';ctx.font='600 11px system-ui';ctx.fillText(state.elapsed>=p.days?'CEL OSIĄGNIĘTY':'SONDA',a[0]+12,a[1]-14);

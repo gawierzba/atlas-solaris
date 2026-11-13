@@ -1,0 +1,22 @@
+/* ATLAS SOLARIS 17.0 — scientific overlay on established 3D eclipse laboratory. */
+.e17-entry{display:flex;align-items:center;justify-content:center;gap:7px;border:1px solid #55b4ca80;border-radius:10px;background:linear-gradient(120deg,#163c55,#0b233e);color:#d9faff;font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.015em;padding:11px 14px;cursor:pointer;transition:border-color .2s,transform .2s}
+.e17-entry:hover,.e17-entry:focus-visible{border-color:#7fe2ff;transform:translateY(-1px)}
+.e17-entry-top{padding:8px 10px;margin:0 5px}
+.e17-panel{margin:16px 0 12px;padding:15px;border:1px solid #3a809266;border-radius:12px;background:linear-gradient(155deg,rgba(11,39,54,.94),rgba(8,21,38,.93));color:#e5f7ff;font:13px/1.5 system-ui,sans-serif}
+.e17-panel *{box-sizing:border-box}
+.e17-kicker{display:flex;align-items:center;gap:7px;color:#9ed6e7;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.e17-kicker:before{content:'';width:7px;height:7px;border-radius:50%;background:#86e9d0;box-shadow:0 0 9px #69d9c9aa}
+.e17-status{display:flex;flex-direction:column;align-items:flex-start;gap:3px;margin:13px 0}
+.e17-status strong{font-size:19px;line-height:1.1;letter-spacing:.01em;color:#d8e5ef}
+.e17-status strong.e17-lit{color:#88f1d0;text-shadow:0 0 18px #4aceb14a}
+.e17-status span{font-size:12px;color:#9fc4d6}
+.e17-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;margin:14px 0}
+.e17-grid div{min-width:0;padding:8px 9px;border:1px solid #39617665;border-radius:8px;background:#0b2137a8}
+.e17-grid small{display:block;font-size:9px;letter-spacing:.07em;color:#80a6bf;margin-bottom:2px;text-transform:uppercase}
+.e17-grid b{display:block;font-size:12px;line-height:1.5;font-weight:650;color:#d9ebf7;overflow-wrap:anywhere}
+.e17-diagnostics{border-top:1px solid #5c8b9e51;margin-top:12px;padding-top:12px}
+.e17-diagnostics p{font-size:12px;color:#b4cede;margin:0 0 8px}
+.e17-diagnostics p:last-child{margin:0}
+.e17-diagnostics strong{color:#e6f7ff}
+.e17-disclaimer{font-size:10px;line-height:1.5;color:#89a7b7;border-top:1px solid #56778b4b;padding-top:9px;margin-top:12px}
+@media (max-width:700px){.e17-panel{padding:12px;margin:14px 0}.e17-grid{gap:8px}.e17-grid div{padding:7px}.e17-status strong{font-size:16px}.e17-entry-top{font-size:12px}}

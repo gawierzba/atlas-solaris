@@ -186,11 +186,11 @@ function start(){
   $('e17mLocalStatus').textContent=label[v.visibleKind]+' · '+(v.coverageFraction*100).toFixed(2)+'% zakrycia Słońca';
   $('e17mMapSummary').textContent=
    v.altitudeDeg>0?'Słońce '+v.altitudeDeg.toFixed(1)+'° nad horyzontem. '+(v.central?'Obserwator leży w wąskim pasie centralnym.':'Obserwator poza pasem centralnym.'):'Słońce pod geometrycznym horyzontem — zaćmienie nie jest teraz widoczne.';
-  const key=[obs.lat.toFixed(2),obs.lon.toFixed(2),eventKey(),Math.round(jd*24*60)].join('/');
+  const key=[obs.lat.toFixed(2),obs.lon.toFixed(2),eventKey()].join('/');
   if(state.lastObserverKey!==key){
    state.lastObserverKey=key;
    if(state.lastContactsKey!==''){
-    $('e17mContactsOutput').textContent='Zmieniłeś miejsce lub czas. Oblicz ponownie kontakty dla tego punktu.';
+    $('e17mContactsOutput').textContent='Zmieniłeś miejsce lub zdarzenie. Oblicz ponownie kontakty dla tego punktu.';
     state.lastContactsKey='';
    }
   }

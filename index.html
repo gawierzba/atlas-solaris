@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 14.0 — trasy Voyager 1, Voyager 2 i Cassini z JPL Horizons, interaktywny Układ Słoneczny i laboratoria astrodynamiki.">
-  <title>ATLAS SOLARIS 14.0 — Archiwum Misji · Voyager i Cassini</title>
+  <meta name="description" content="ATLAS SOLARIS 15.0 — Łowca Egzoplanet, symulator tranzytów i syntetycznej fotometrii, trajektorie NASA i laboratoria Układu Słonecznego.">
+  <title>ATLAS SOLARIS 15.0 — Łowca Egzoplanet · Fotometria Tranzytowa</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -13,17 +13,18 @@
 <link rel="stylesheet" href="css/gravity.css">
 <link rel="stylesheet" href="css/assists.css">
 <link rel="stylesheet" href="css/archive.css">
+<link rel="stylesheet" href="css/exoplanets.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 14.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 15.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 14.0</span></div>
-   <button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 15.0</span></div>
+   <button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -35,10 +36,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V14.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V15.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -676,6 +677,88 @@
   </aside>
  </div>
 </dialog>
+
+<!-- ATLAS SOLARIS 15.0 — naukowe, syntetyczne tranzyty egzoplanet -->
+<dialog id="exoDialog" aria-label="Łowca Egzoplanet — laboratorium metody tranzytowej">
+ <header class="exo-header">
+  <div>
+   <small>ATLAS SOLARIS / ASTRONOMIA ODKRYWCZA / 15.0</small>
+   <h2>Łowca <em>Egzoplanet</em></h2>
+   <p>Przejście planety przed gwiazdą · fotometria · odkrywanie z ukrytych danych</p>
+  </div><button id="exoClose" class="exo-close" aria-label="Zamknij laboratorium egzoplanet">✕</button>
+ </header>
+ <div class="exo-layout">
+  <section class="exo-left" aria-label="Wizualizacja tranzytu i krzywa jasności">
+   <div class="exo-hero">
+    <div class="exo-scene"><canvas id="exoStarCanvas" role="img" aria-label="Widok tarczy gwiazdy i planety w trakcie tranzytu, z proporcją promieni"></canvas><span class="exo-scene-caption">FOTOMETRIA · WIDOK Z TELESKOPU</span></div>
+    <div class="exo-orbit"><canvas id="exoOrbitCanvas" role="img" aria-label="Poglądowy widok trójwymiarowej orbity egzoplanety wokół gwiazdy"></canvas></div>
+   </div>
+   <div class="exo-chart-wrap">
+    <div class="exo-chart-head"><strong>Krzywa jasności gwiazdy</strong><small>DANE SYNTETYCZNE · NIE POMIARY TESS / KEPLERA</small></div>
+    <canvas id="exoChart" role="img" aria-label="Wykres obliczonej jasności gwiazdy i syntetycznych pomiarów z szumem. Poziomo czas względem środka tranzytu, pionowo względny strumień."></canvas>
+   </div>
+   <div class="exo-bottom">
+    <div class="exo-timeline-head"><strong id="exoTime">0 h</strong><span id="exoPhase">0% okresu</span></div>
+    <input id="exoTimeSlider" class="exo-time-slider" type="range" min="0" max="1000" step="1" value="0" aria-label="Przewiń czas tranzytu">
+    <div class="exo-player">
+     <button id="exoPlay" class="exo-primary">▶ Odtwórz tranzyt</button>
+     <button id="exoReset">⟲ Cofnij</button>
+     <select id="exoRate" aria-label="Tempo animacji"><option value=".25">0,25×</option><option value="1" selected>1×</option><option value="3">3×</option><option value="8">8×</option></select>
+     <span id="exoStatus" class="exo-live">ZATRZYMANA</span>
+    </div>
+   </div>
+  </section>
+  <aside class="exo-form" aria-label="Parametry układu, pomiary i tryb odkrywcy">
+   <div class="exo-section">01 / RZECZYWISTE PRZYKŁADY NASA</div>
+   <label class="exo-field">WYBIERZ ZNANĄ EGZOPLANETĘ <select id="exoPreset"></select></label>
+   <p class="exo-caption"><strong id="exoStarTitle">—</strong> <span id="exoStarDesc"></span></p>
+   <p class="exo-sources"><a id="exoSource" href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener">Dane źródłowe egzoplanety — NASA ↗</a></p>
+   <div class="exo-section">02 / ZMIEŃ PARAMETRY FIZYCZNE</div>
+   <div id="exoKnownSection">
+    <div class="exo-slider-head"><label for="exoRadius">PROMIEŃ PLANETY (R⊕)</label><strong id="exoRadiusV">—</strong></div><input class="exo-range" id="exoRadius" type="range" min="0.2" max="26" step="0.02" value="15.58">
+    <div class="exo-slider-head"><label for="exoStarR">PROMIEŃ GWIAZDY (R☉)</label><strong id="exoStarRV">—</strong></div><input class="exo-range" id="exoStarR" type="range" min="0.08" max="2.4" step="0.005" value="1.16">
+    <div class="exo-slider-head"><label for="exoStarM">MASA GWIAZDY (M☉)</label><strong id="exoStarMV">—</strong></div><input class="exo-range" id="exoStarM" type="range" min="0.07" max="2.4" step="0.005" value="1.15">
+    <div class="exo-slider-head"><label for="exoPeriod">OKRES OBIEGU (DNI)</label><strong id="exoPeriodV">—</strong></div><input class="exo-range" id="exoPeriod" type="range" min="0.6" max="450" step="0.001" value="3.525">
+    <div class="exo-slider-head"><label for="exoIncl">NACHYLENIE ORBITY (°)</label><strong id="exoInclV">—</strong></div><input class="exo-range" id="exoIncl" type="range" min="75" max="90" step="0.005" value="86.6">
+    <div class="exo-slider-head"><label for="exoU1">CIEMNIENIE BRZEGOWE u₁</label><strong id="exoU1V">—</strong></div><input class="exo-range" id="exoU1" type="range" min="0" max="0.9" step="0.01" value="0.33">
+    <div class="exo-slider-head"><label for="exoU2">CIEMNIENIE BRZEGOWE u₂</label><strong id="exoU2V">—</strong></div><input class="exo-range" id="exoU2" type="range" min="0" max="0.6" step="0.01" value="0.22">
+   </div>
+   <div class="exo-slider-head"><label for="exoNoise">SZUM FOTOMETRYCZNY (ppm)</label><strong id="exoNoiseV">—</strong></div><input class="exo-range" id="exoNoise" type="range" min="0" max="1600" step="10" value="175">
+   <div class="exo-actionbar"><button id="exoNewNoise">◇ Wylosuj nowy szum</button><button id="exoExport">↓ Eksport syntetycznych obserwacji CSV</button></div>
+   <div class="exo-status" id="exoTransit">—</div>
+   <div class="exo-grid">
+    <div class="exo-stat"><small>POŁOŚ W JEDNOSTKACH PROMIENIA GWIAZDY (a/R★)</small><strong id="exoAR">—</strong></div>
+    <div class="exo-stat"><small>PARAMETR TRANZYTU b</small><strong id="exoImpact">—</strong></div>
+    <div class="exo-stat"><small>GŁĘBOKOŚĆ TRANZYTU (ppm)</small><strong id="exoDepth">—</strong></div>
+    <div class="exo-stat"><small>CZAS TRANZYTU T₁₄</small><strong id="exoDuration">—</strong></div>
+   </div>
+   <div class="exo-section">03 / ODKRYJ PLANETĘ SAMODZIELNIE</div>
+   <div class="exo-challenge">
+    <h3>◈ Tryb odkrywcy</h3>
+    <p>Ukryj rozmiar planety i nachylenie orbity. Zostaną tylko zaszumione pomiary jasności. Dopasuj własny model, tak jak przy poszukiwaniu egzoplanet.</p>
+    <button id="exoChallengeMode">◈ Tryb odkrywcy</button>
+    <div id="exoChallengeSection" class="exo-challenge-sub" hidden>
+     <div class="exo-slider-head"><label for="exoGuessR">TWÓJ PROMIEŃ PLANETY</label><strong id="exoGuessRV">—</strong></div><input class="exo-range" id="exoGuessR" type="range" min="0.2" max="26" step="0.02" value="8">
+     <div class="exo-slider-head"><label for="exoGuessI">TWOJE NACHYLENIE ORBITY</label><strong id="exoGuessIV">—</strong></div><input class="exo-range" id="exoGuessI" type="range" min="75" max="90" step="0.005" value="89.3">
+     <p class="exo-challenge-readout">BŁĄD DOPASOWANIA RMS: <strong id="exoRMS" class="exo-rms">—</strong></p>
+     <p class="exo-challenge-readout" id="exoFitResult">—</p>
+     <div class="exo-challenge-actions"><button id="exoReveal">Sprawdź rozwiązanie</button></div>
+     <p id="exoFeedback"></p>
+    </div>
+   </div>
+   <div class="exo-section">04 / JAK TO DZIAŁA?</div>
+   <div class="exo-modelnote">
+    <strong>Fizyka:</strong> planeta na orbicie kołowej zasłania część jasnej tarczy gwiazdy. Jej pozycję rzutujemy z rzeczywistego nachylenia orbity. Jasność liczymy przez całkowanie po pierścieniach gwiazdy z <strong>kwadratowym prawem ciemnienia brzegowego</strong>: I(μ) = 1 − u₁(1−μ) − u₂(1−μ)². Zjawisko zanika, gdy parametr b jest zbyt duży.
+   </div>
+   <p class="exo-caption" id="exoExplain">—</p>
+   <p class="exo-modelnote">Parametry wybranych potwierdzonych egzoplanet pochodzą z opublikowanych stron NASA Exoplanet Archive i NASA Science. Mogą pochodzić z różnych publikacji; nie są jedną wspólną analizą obserwacji. Nachylenia oznaczone jako orientacyjne nie są wartościami referencyjnymi. Wykresy to <strong>symulacje syntetyczne</strong>, nie prawdziwe szeregi czasowe Keplera ani TESS. Model pomija mimośród, plamy gwiazd, przesunięcia czasów tranzytów, zanieczyszczenie światłem innych gwiazd oraz czasową integrację ekspozycji.</p>
+   <p class="exo-sources"><span id="exoNote">—</span><br>
+    <a href="https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html" target="_blank" rel="noopener">NASA Exoplanet Archive — dokumentacja TAP</a> ·
+    <a href="https://science.nasa.gov/exoplanets/" target="_blank" rel="noopener">NASA — egzoplanety</a>.
+   </p>
+  </aside>
+ </div>
+</dialog>
 <div id="errorScreen" class="error-screen hidden"><h1>Nie udało się uruchomić sceny 3D</h1><p id="errorText"></p><p>Włącz obsługę WebGL 2 i otwórz projekt przez lokalny serwer HTTP — instrukcja znajduje się w pliku README.md.</p></div>
 <script src="js/assets.js"></script>
 <script src="js/stars.js"></script>
@@ -689,5 +772,6 @@
 <script src="js/assists.js"></script>
 <script src="js/mission-tracks.js"></script>
 <script src="js/archive.js"></script>
+<script src="js/exoplanets.js"></script>
 </body>
 </html>

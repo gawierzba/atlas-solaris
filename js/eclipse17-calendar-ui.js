@@ -10,7 +10,7 @@ const subtypes={total:'całkowite',partial:'częściowe',annular:'obrączkowe',
  hybrid:'hybrydowe',penumbral:'półcieniowe'};
 const plDay=new Intl.DateTimeFormat('pl-PL',{timeZone:'UTC',day:'numeric',month:'long',year:'numeric'});
 const plUTC=new Intl.DateTimeFormat('pl-PL',{timeZone:'UTC',hour:'2-digit',minute:'2-digit',hour12:false});
-const plPoland=new Intl.DateTimeFormat('pl-PL',{timeZone:'Europe/Warsaw',hour:'2-digit',minute:'2-digit',hour12:false});
+const plPoland=new Intl.DateTimeFormat('pl-PL',{timeZone:'Europe/Warsaw',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});
 function node(tag,className,content){
  const result=document.createElement(tag);
  if(className)result.className=className;

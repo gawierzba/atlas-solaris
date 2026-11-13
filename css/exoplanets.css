@@ -64,7 +64,7 @@
 .exo-challenge-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .exo-challenge-actions button{flex:0 0 auto}
 .exo-rms{font-variant-numeric:tabular-nums;color:#b4faeb;font-weight:800}
-.exo-masked{opacity:.37;pointer-events:none}
+.exo-masked{opacity:.15;pointer-events:none;filter:blur(7px);user-select:none}
 .exo-sources{font-size:10px;line-height:1.65;color:#8fa9ba;margin:12px 0}
 .exo-modelnote{background:#112b42;border-left:2px solid #7da9cc;padding:10px;font-size:10px;line-height:1.65;color:#9ebcd0;margin:11px 0}
 .exo-actionbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}

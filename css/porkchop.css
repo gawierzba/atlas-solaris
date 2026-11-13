@@ -74,3 +74,16 @@
  .pc-section-title:not(:first-child){margin-top:18px}
 }
 @media(max-width:420px){.pc-header h2{font-size:20px}.pc-header p{max-width:260px}.pc-map-pane{min-height:417px}.pc-map-shell{height:253px;min-height:253px}}
+
+/* Every previous module remains reachable on narrow phones: toolbar can be swiped. */
+@media(max-width:650px){
+ .top-left{min-width:0;flex:0 0 123px;gap:7px}
+ .top-left .heading{min-width:0;max-width:83px;overflow:hidden}
+ .top-left .heading small{display:none}
+ .top-left .heading strong{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .top-toolbar{min-width:0;flex:1;max-width:calc(100vw - 153px);overflow-x:auto;overflow-y:hidden;
+   touch-action:pan-x;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;gap:4px}
+ .top-toolbar::-webkit-scrollbar{display:none}
+ .top-toolbar>*{flex-shrink:0}
+ #openPorkchop{padding:8px 7px;min-width:33px}
+}

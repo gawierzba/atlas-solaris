@@ -41,7 +41,7 @@ function normalizeSnapshot(raw){
   r.des=String(r.des||'').trim().slice(0,45);
   r.fullname=String(r.fullname||r.des).trim().slice(0,140);
   return r;
- }).filter(r=>r.des&&Number.isFinite(r.jd)&&Number.isFinite(r.v_rel)&&r.v_rel>0&&r.dist>0&&r.dist_min>=0&&r.dist_max>=r.dist&&r.dist>=r.dist_min);
+ }).filter(r=>r.des&&Number.isFinite(r.jd)&&Number.isFinite(r.v_rel)&&r.v_rel>0&&Number.isFinite(r.dist)&&r.dist>=0&&r.dist_min>=0&&r.dist_max>=r.dist&&r.dist>=r.dist_min);
  rows.sort((a,b)=>a.jd-b.jd);
  if(!rows.length)throw Error('Brak poprawnych rekordów zbliżeń.');
  return {...raw,rows};

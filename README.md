@@ -1,7 +1,21 @@
-# ATLAS SOLARIS 17.0 — Laboratorium Zaćmień
+# ATLAS SOLARIS 17.1 — Kalendarz Zaćmień
 
-ATLAS SOLARIS to naukowy atlas Układu Słonecznego. Wersja **16.0** dodaje laboratorium małych ciał — rozróżnia **oficjalnie policzone zbliżenia NASA/JPL**, **formalną niepewność odległości** oraz **poglądową wizualizację heliocentrycznej orbity oskulacyjnej**. Zachowano wszystkie moduły wersji 8–15, w tym łowcę egzoplanet, archiwum sond i misje.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **17.1** dodaje automatyczny kalendarz zaćmień Słońca i Księżyca na podstawie położeń i geometrii stożków cienia. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
 
+## Nowość 17.1 — automatyczne wyszukiwanie zaćmień
+
+**Jak uruchomić:** w bocznej nawigacji wybierz **Kalendarz zaćmień · znajdź daty 2024–2040**. Kalendarz jest dostępny również z paneli *Geometria 3D* i *Laboratorium zaćmień*.
+
+Wpisz rok (2024–2040), opcjonalnie miesiąc i filtr: wszystkie / tylko Słońca / tylko Księżyca. Kalendarz oblicza nowie i pełnie, weryfikuje szerokość ekliptyczną Księżyca, a następnie wyszukuje przecięcia stożków cienia w oknie każdego możliwego zjawiska. Wyniki zawierają **przybliżoną datę maksimum w UTC i czasie polskim**, typ zjawiska, odległość Ziemia–Księżyc i informację o węźle. Z każdej karty można przejść do widoku **Geometria 3D**, **Ziemia z kosmosu** lub **Widok tarcz** — system automatycznie ustawia datę oraz rejestruje zdarzenie w dotychczasowych selektorach.
+
+Dzięki wyszukiwaniu w okolicy syzygii analiza całego roku wymaga jedynie niewielkiej części obliczeń potrzebnych do skanowania każdej minuty w roku. Wyszukiwanie zwalnia klatkę interfejsu po każdym miesiącu, aktualizuje pasek postępu i można je anulować przez zamknięcie okna. Całość działa w przeglądarce bez API i bez dodatkowych bibliotek.
+
+**Uwaga naukowa:** lista przedstawia wyniki automatycznego **modelu geometrycznego**, a nie oficjalne prognozy NASA. NASA rozróżnia również kontakty lokalne, elementy Bessela i efekty atmosferyczne. Dla płytkich zaćmień półcieniowych zaimplementowano przybliżenie powiększenia ziemskiego cienia o 2%: bez niego model pomijał m.in. bardzo płytkie zaćmienie z **18 lipca 2027**. Porównanie z oficjalnymi katalogami NASA wskazuje pięć zaćmień w 2027 i pięć w 2028, ale nie gwarantuje dokładności wszystkich dat i czasów maksimum. Model pozostał odrębny od katalogu NASA — przybywa wyników z obliczeń, nie z pobranej tabeli.
+
+Pliki: `js/eclipse17-calendar-search.js`, `js/eclipse17-calendar-ui.js`, `css/eclipse17-calendar.css`, `tests/eclipse17-calendar.test.cjs`. Test: `node tests/eclipse17-calendar.test.cjs`.
+
+---
+  
 ## Nowość 17.0 — naukowy silnik zaćmień połączony z geometrią 3D
 
 **Wejście:** przycisk **ZAĆMIENIA 17** w górnym pasku albo **Laboratorium Zaćmień 17.0 · silnik naukowy** w panelu bocznym. Dotychczasowe przyciski GEOMETRIA 3D, ZAĆMIENIA i ZIEMIA Z KOSMOSU nadal działają. Nowe przyciski otwierają istniejącą obrotową scenę stożków z dodatkowym panelem obliczeniowym.
@@ -12,7 +26,7 @@ Wielkości klasyfikacyjne są liczone niezależnie od powiększenia wizualizacji
 
 Pliki wersji: js/eclipse-engine.js, js/eclipse17-ui.js, css/eclipse17.css, tests/eclipse17.test.cjs. Test syntetycznych scenariuszy: node tests/eclipse17.test.cjs.
 
-**Ograniczenia:** w latach 2024–2040 atlas wykorzystuje dostarczone wcześniej próbkowane efemerydy i ich interpolację; poza tym zakresem prognozy są orientacyjne (uproszczony model Księżyca). Nowy silnik nie uwzględnia rozszerzenia ziemskiej umbry wskutek atmosfery (promień Ziemi 6371 km), nieregularnego brzegu Księżyca, topografii, refrakcji, dokładnych elementów Bessela, lokalnego horyzontu i czasu drogi światła. Wcześniejsze demonstracyjne widoki 3D i globu zachowują swoje odrębne uproszczenia opisane w dokumentacji. Nie wyznaczać na tej podstawie bezpiecznych czasów obserwacji ani precyzyjnego pasa całkowitości.
+**Ograniczenia:** w latach 2024–2040 atlas wykorzystuje dostarczone wcześniej próbkowane efemerydy i ich interpolację; poza tym zakresem prognozy są orientacyjne (uproszczony model Księżyca). Nowy silnik używa konwencjonalnego przybliżenia powiększenia ziemskiego cienia o 2% przy zaćmieniach Księżyca (rzeczywisty promień Ziemi pozostaje równy 6371 km), ale nie uwzględnia precyzyjnej refrakcji i szczegółowych własności atmosfery, nieregularnego brzegu Księżyca, topografii, refrakcji, dokładnych elementów Bessela, lokalnego horyzontu i czasu drogi światła. Wcześniejsze demonstracyjne widoki 3D i globu zachowują swoje odrębne uproszczenia opisane w dokumentacji. Nie wyznaczać na tej podstawie bezpiecznych czasów obserwacji ani precyzyjnego pasa całkowitości.
 
 Dla dokładnych danych zaćmień: [NASA GSFC — katalog zaćmień Słońca](https://eclipse.gsfc.nasa.gov/SEcat5/SEcatalog.html) i [NASA GSFC — katalog zaćmień Księżyca](https://eclipse.gsfc.nasa.gov/LEcat5/LEcatalog.html).
 

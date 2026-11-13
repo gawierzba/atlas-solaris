@@ -162,7 +162,7 @@ function createMap({getPositions,getEarthAxes}){
   }
   return result;
  }
- function contacts(peakJD,lat,lon,{windowHours=5,stepMinutes=1}={}){
+ function contacts(peakJD,lat,lon,{windowHours=5,stepMinutes=.25}={}){
   if(!(windowHours>=1&&windowHours<=8&&stepMinutes>=.25&&stepMinutes<=5))throw new RangeError('Invalid scan range.');
   const out=peakJD-windowHours/24,end=peakJD+windowHours/24,step=stepMinutes/1440;
   const outer=[],inner=[],samples=[];

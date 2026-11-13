@@ -189,14 +189,22 @@ function createMap({getPositions,getEarthAxes}){
    prev=cur;if(jd>=end)break;
   }
   const active=samples.filter(s=>s.moonFront&&s.geometricCoverageFraction>0);
-  if(!active.length)return {kind:'none',maximum:null,contacts:[],localVisibility:false};
-  let best=active.reduce((a,b)=>b.outerGapRad<a.outerGapRad?b:a);
+  const visibleSamples=active.filter(s=>s.visible&&s.coverageFraction>0);
+  // A geometric disk overlap behind the Earth is not an observable eclipse.
+  if(!visibleSamples.length)return {
+   kind:'none',maximum:null,contacts:[],localVisibility:false,
+   reason:active.length?'solar-disk-overlap-below-horizon':'no-geometric-overlap'
+  };
+  let best=visibleSamples.reduce((a,b)=>b.outerGapRad<a.outerGapRad?b:a);
   let left=best.jd-step,right=best.jd+step;
   for(let k=0;k<32;k++){
    const p=left+(right-left)*.38196601125,q=left+(right-left)*.61803398875;
    if(val(p).outerGapRad>val(q).outerGapRad)left=p;else right=q;
   }
-  const max=val((left+right)/2);
+  let max=val((left+right)/2);
+  // For sunrise/sunset grazing events the geometric maximum might occur
+  // after local sunset. Report the deepest visible sample instead.
+  if(!max.visible)max=best;
   // Very short central phases (near grazing eclipses) may fall between
   // 15-second samples. Bracket their inner contacts directly from maximum.
   if(max.central&&inner.length<2){

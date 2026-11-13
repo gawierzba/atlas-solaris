@@ -1,0 +1,52 @@
+name: ATLAS SOLARIS — testy laboratoriów zaćmień
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'js/eclipse*.js'
+      - 'js/app.js'
+      - 'tests/eclipse*.cjs'
+      - 'css/eclipse*.css'
+      - 'index.html'
+      - '.github/workflows/eclipse-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'js/eclipse*.js'
+      - 'js/app.js'
+      - 'tests/eclipse*.cjs'
+      - '.github/workflows/eclipse-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  eclipses:
+    name: Testy geometrii i symulacji
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Pobierz kod
+        uses: actions/checkout@v4
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Sprawdź składnię modułów
+        run: |
+          node --check js/app.js
+          node --check js/eclipse-engine.js
+          node --check js/eclipse17-calendar-search.js
+          node --check js/eclipse17-map-engine.js
+          node --check js/eclipse17-map-ui.js
+          node --check js/eclipse17-motion.js
+          node --check js/eclipse17-motion-ui.js
+      - name: Test klasyfikacji zaćmień 17.0
+        run: node tests/eclipse17.test.cjs
+      - name: Test kalendarza zaćmień 17.1
+        run: node tests/eclipse17-calendar.test.cjs
+      - name: Test mapy zaćmień 17.2
+        run: node tests/eclipse17-map.test.cjs
+      - name: Test animacji wędrówki cienia 17.3
+        run: node tests/eclipse17-motion.test.cjs

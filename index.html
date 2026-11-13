@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 17.2 — geograficzna mapa stref zaćmień, pas całkowitości i obrączkowości, kalendarz oraz symulacja Układu Słonecznego 3D.">
-  <title>ATLAS SOLARIS 17.2 — Mapa Zaćmień na Ziemi i Laboratorium 3D</title>
+  <meta name="description" content="ATLAS SOLARIS 17.3 — animacja wędrówki cienia Księżyca po Ziemi, prędkość pasa centralnego, kalendarz zaćmień i astronomia 3D.">
+  <title>ATLAS SOLARIS 17.3 — Animacja wędrówki cienia po Ziemi</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -18,17 +18,18 @@
 <link rel="stylesheet" href="css/eclipse17.css">
 <link rel="stylesheet" href="css/eclipse17-calendar.css">
 <link rel="stylesheet" href="css/eclipse17-map.css">
+<link rel="stylesheet" href="css/eclipse17-motion.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 17.2</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 17.3</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 17.2</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.2 · strefy i kontakty</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 17.3</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -43,7 +44,7 @@
     <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V17.2</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V17.3</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -146,7 +147,7 @@
 
  <dialog id="globeDialog" class="globe-dialog" aria-label="Ziemia z kosmosu: geometria zaćmień i dzień noc">
    <header class="globe-head">
-    <div class="globe-head-brand"><div class="obs-eyebrow">ATLAS SOLARIS 17.2 / MAPA ZAĆMIEŃ</div><h2>Ziemia <em>z kosmosu</em></h2><p>Obracaj glob, śledź cień Księżyca i wybierz miejsce obserwacji. Wizualizacja geometrii na tle mapy NASA Blue Marble.</p></div>
+    <div class="globe-head-brand"><div class="obs-eyebrow">ATLAS SOLARIS 17.3 / WĘDRÓWKA CIENIA</div><h2>Ziemia <em>z kosmosu</em></h2><p>Obracaj glob, śledź cień Księżyca i wybierz miejsce obserwacji. Wizualizacja geometrii na tle mapy NASA Blue Marble.</p></div>
     <button id="globeClose" class="obs-close" title="Zamknij widok Ziemi z kosmosu" aria-label="Zamknij">✕</button>
    </header>
    <div class="globe-layout">
@@ -177,6 +178,35 @@
          <span><i class="e17m-dot half"></i> 50%</span>
          <span><i class="e17m-dot core"></i> Centralny</span>
        </div>
+
+       <section class="e17s-panel" aria-label="Animacja przelotu osi cienia po Ziemi">
+         <div class="e17s-heading">
+           <div><small>ATLAS SOLARIS 17.3 / OŚ CIENIA</small><strong>Wędrówka cienia</strong></div>
+           <span class="e17s-live"><i></i> MODEL CZASOWY</span>
+         </div>
+         <p id="e17sStatus" class="e17s-status">Wybierz zaćmienie Słońca, by zobaczyć trasę cienia.</p>
+         <div class="e17s-metrics">
+           <div><small>Prędkość po Ziemi</small><strong id="e17sCurrentSpeed">—</strong></div>
+           <div><small>Droga / cała trasa</small><strong id="e17sTravel">—</strong></div>
+           <div><small>Wykonany przelot</small><strong id="e17sProgress">—</strong></div>
+           <div><small>Pozycja osi</small><strong id="e17sLocation">—</strong></div>
+         </div>
+         <label class="e17s-timeline-label" for="e17sSlider">PRZEBIEG TRASY CENTRALNEJ</label>
+         <input type="range" id="e17sSlider" min="0" max="1000" step="1" value="0" aria-label="Przesuń cień wzdłuż centralnej trasy zaćmienia">
+         <div class="e17s-timeline-clock">
+           <span id="e17sStartUTC">—</span>
+           <span id="e17sEndUTC">—</span>
+         </div>
+         <div class="e17s-actions">
+           <button type="button" id="e17sStart" class="e17s-start">▶ Odtwórz cały przelot</button>
+           <button type="button" id="e17sPause" class="e17s-pause">Ⅱ Pauza / wznów</button>
+         </div>
+         <div class="e17s-layers">
+           <label><input id="e17sShowPast" type="checkbox" checked> Przebyta trasa</label>
+           <label><input id="e17sShowAhead" type="checkbox" checked> Dalsza trasa</label>
+         </div>
+         <p class="e17s-foot">Animowana linia pokazuje ruch punktu przecięcia osi cienia z kulą Ziemi. Prędkość jest średnią na odcinku toru (km/h); może szybko rosnąć przy brzegu globu. To nie jest prędkość Księżyca ani dokładna mapa NASA.</p>
+       </section>
        <div class="e17m-detail">
          <div class="e17m-detail-top"><strong>Zbliżenie mapy</strong><small id="e17mDetailLabel">Cień Księżyca</small></div>
          <canvas id="e17mCanvas" width="360" height="210" aria-label="Zbliżenie geograficznej strefy zaćmienia: kliknij, by wybrać obserwatora"></canvas>
@@ -986,5 +1016,7 @@
 <script src="js/eclipse17-calendar-ui.js"></script>
 <script src="js/eclipse17-map-engine.js"></script>
 <script src="js/eclipse17-map-ui.js"></script>
+<script src="js/eclipse17-motion.js"></script>
+<script src="js/eclipse17-motion-ui.js"></script>
 </body>
 </html>

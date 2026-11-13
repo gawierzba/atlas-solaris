@@ -209,13 +209,15 @@ function start(){
    C.fillStyle='#0b2035';C.fillRect(0,0,canvas.width,canvas.height);
    C.fillStyle='#b6d5e3';C.font='12px system-ui';C.textAlign='center';
    C.fillText('Zaćmienie Księżyca — mapa stref Słońca jest ukryta',canvas.width/2,canvas.height/2);
+   root.ATLAS_ECLIPSE_SHADOW_FLIGHT?.drawFrame({solar:false});
    return;
   }
   if(trackEnabled&&yes('e17mShowPath')){
    const track=getTrack(event);
    projectPath(ctx,project,track.left,'rgba(98,221,217,.7)',1.35);
    projectPath(ctx,project,track.right,'rgba(98,221,217,.7)',1.35);
-   projectPath(ctx,project,track.center,'rgba(233,246,255,.8)',1.45,true);
+   if(!root.ATLAS_ECLIPSE_SHADOW_FLIGHT)
+    projectPath(ctx,project,track.center,'rgba(233,246,255,.8)',1.45,true);
   }
   if(yes('e17mShowPartial')||yes('e17mShowHalf')){
    const groups=getGlobalContours(jd);
@@ -226,6 +228,10 @@ function start(){
    const center=getCentral(jd);
    if(center)drawRing(ctx,project,center.points,'rgba(112,249,214,.99)',2.3);
   }
+  root.ATLAS_ECLIPSE_SHADOW_FLIGHT?.drawFrame({
+   ctx,jd,solar,project,event,track:getTrack(event),
+   showTrack:trackEnabled&&yes('e17mShowPath')
+  });
   drawDetail(jd,observer,texture,event);
  }
  function fmtContact(jd){return pl.format(time(jd))+' UTC';}

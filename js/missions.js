@@ -206,7 +206,7 @@ function syncUI(){
  $('mcDistance').textContent=fmt(p.transfer.distance/1e6,0)+' mln km';
  $('mcRouteTitle').textContent=worlds[state.from].name+' → '+worlds[state.to].name;
  $('mcWindowInfo').textContent=!p.transfer.solved?'Geometria szczególna: tor interpolowany; nie jest orbitą Keplera.':err<3?'Dobra faza. Trajektoria Lamberta wyznacza dokładne spotkanie.':err<12?'Faza bliska optymalnej; tor wyliczono dla spotkania.':'Nieoptymalna faza: spotkanie wymaga większej zmiany prędkości. Wybierz okno startowe.';
- $('mcProgress').max=Math.round(p.days*10);$('mcProgress').value=Math.round(state.elapsed*10);
+ $('mcProgress').max=Math.ceil(p.days*10);$('mcProgress').value=Math.round(state.elapsed*10);
  $('mcProgressDate').textContent=dateLabel(state.launch+state.elapsed);
  $('mcProgressPercent').textContent=fmt(100*state.elapsed/p.days,0)+'% lotu';
  const arrival=state.elapsed>=p.days;

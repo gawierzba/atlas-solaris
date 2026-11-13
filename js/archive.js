@@ -60,7 +60,7 @@ const EVENTS={
 const META={
  voyager1:{name:'Voyager 1',tagline:'Jowisz · Saturn · ku gwiazdom',color:'#7ad8ed',intro:'Szybsza z dwóch sond Voyagerów. Po badaniach Jowisza i Saturna opuściła płaszczyznę orbit planet i jako pierwsza dotarła do przestrzeni międzygwiazdowej.',missionUrl:'https://science.nasa.gov/mission/voyager/voyager-1/',opening:'1980-11-12'},
  voyager2:{name:'Voyager 2',tagline:'Wielka Podróż · cztery planety olbrzymy',color:'#a8f3cf',intro:'Jedyna sonda, która odwiedziła z bliska Jowisza, Saturna, Urana i Neptuna. Seria asyst grawitacyjnych ukształtowała jej wielką podróż.',missionUrl:'https://science.nasa.gov/mission/voyager/voyager-2/',opening:'1989-08-25'},
- cassini:{name:'Cassini–Huygens',tagline:'Wenus · Ziemia · Jowisz · Saturn',color:'#edca99',intro:'Misja NASA/ESA/ASI do Saturna: po czterech planetarnych asystach Cassini weszła na orbitę planety, badając pierścienie i księżyce aż do Wielkiego Finału.',missionUrl:'https://science.nasa.gov/mission/cassini/',opening:'2004-07-01'}
+ cassini:{name:'Cassini–Huygens',tagline:'Wenus · Ziemia · Jowisz · Saturn',color:'#c8b5ee',intro:'Misja NASA/ESA/ASI do Saturna: po czterech planetarnych asystach Cassini weszła na orbitę planety, badając pierścienie i księżyce aż do Wielkiego Finału.',missionUrl:'https://science.nasa.gov/mission/cassini/',opening:'2004-07-01'}
 };
 const S={id:'voyager2',jd:0,playing:false,rate:50,priorPlaying:null,yaw:-.36,pitch:.78,zoom:1,panX:0,panY:0,focus:'sun',target:null,showPlanets:true,showOrbitRings:true,showOther:false,labels:true,showFuture:true,trailFull:true,firstOpen:true,loaded:false};
 let raf=0,lastFrame=0,pointers=new Map(),drag=null,pinchDist=0,drawFrame=0;

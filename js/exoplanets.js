@@ -38,28 +38,41 @@ function transitDuration(p){
  if(denominator<=0)return 0;
  return (p.period*24/Math.PI)*Math.asin(clamp(Math.sqrt(Math.max(0,(1+k)*(1+k)-b*b))/denominator,0,1));
 }
-const RINGS=200;
-function weights(p){
- const u1=p.u1,u2=p.u2,arr=[],normal=1-u1/3-u2/6;
- for(let i=0;i<RINGS;i++){
-  const r=(i+.5)/RINGS,mu=Math.sqrt(Math.max(0,1-r*r)),inten=1-u1*(1-mu)-u2*(1-mu)*(1-mu);
-  const weight=2*r/(RINGS*RINGS?1:1); // overwritten with exact radial-area fraction
-  arr.push({r,w:(2*i+1)/(RINGS*RINGS)*inten/normal});
- }
- return arr;
+/* Adaptive-geometry stellar radial integration. For uniform brightness this
+   converges to exact circle-overlap area, including very small transiting planets.
+   Break integral at tangencies r=|d-k|, r=d+k and use r(theta)=lo+(hi-lo)sin²theta
+   to smooth square-root endpoint cusps. */
+function weights(p){return {u1:p.u1,u2:p.u2,norm:1-p.u1/3-p.u2/6};}
+function simpson(fun,a,b,n=96){
+ if(!(b>a))return 0;
+ const h=(b-a)/n;
+ let result=fun(a)+fun(b);
+ for(let j=1;j<n;j++)result+=(j%2?4:2)*fun(a+h*j);
+ return result*h/3;
+}
+function intensity(r,w){
+ const mu=Math.sqrt(Math.max(0,1-r*r)),one=1-mu;
+ return 1-w.u1*one-w.u2*one*one;
 }
 function lossAt(d,k,w){
- if(d>=1+k)return 0;
+ if(d>=1+k||k<=0)return 0;
  if(k>=1+d)return 1;
- let blocked=0;
- for(let i=0;i<w.length;i++){
-  const r=w[i].r,ww=w[i].w;
-  if(r+d<=k){blocked+=ww;continue;}
-  if(d>=r+k||r>=d+k)continue;
-  const c=clamp((r*r+d*d-k*k)/(2*r*Math.max(1e-15,d)),-1,1);
-  blocked+=ww*Math.acos(c)/Math.PI;
+ const norm=w.norm;
+ const fullRadius=Math.min(1,Math.max(0,k-d));
+ const core=simpson(r=>2*r*intensity(r,w),0,fullRadius,64);
+ const lo=Math.max(0,Math.abs(k-d)),hi=Math.min(1,k+d);
+ let partial=0;
+ if(d>1e-12&&hi>lo){
+  const spread=hi-lo;
+  partial=simpson(theta=>{
+   const sn=Math.sin(theta),r=lo+spread*sn*sn;
+   if(r<=0)return 0;
+   const cosang=clamp((r*r+d*d-k*k)/(2*r*d),-1,1);
+   const fraction=Math.acos(cosang)/Math.PI;
+   return 2*r*intensity(r,w)*fraction*spread*Math.sin(2*theta);
+  },0,Math.PI/2,96);
  }
- return clamp(blocked,0,1);
+ return clamp((core+partial)/norm,0,1);
 }
 function flux(p,h,w){
  const o=orbit(p,h);
@@ -289,10 +302,11 @@ function init(){
   state.priorPlaying=null;
  });
  $('exoPreset').onchange=()=>choose($('exoPreset').value);
- for(const id of ['exoRadius','exoStarR','exoStarM','exoPeriod','exoIncl','exoU1','exoU2','exoNoise'])$(id).oninput=()=>{
-  if(state.challenge&&['exoRadius','exoIncl'].includes(id))return;
+ for(const id of ['exoRadius','exoStarR','exoStarM','exoPeriod','exoIncl','exoU1','exoU2'])$(id).oninput=()=>{
+  if(state.challenge)return;
   recalculate();
  };
+ $('exoNoise').oninput=()=>{state.noise=num('exoNoise');state.observations=generateObservations(truth(),state.noise,state.noiseSeed);syncInfo();draw();};
  for(const id of ['exoGuessR','exoGuessI'])$(id).oninput=guessChanged;
  $('exoChallengeMode').onclick=beginChallenge;$('exoReveal').onclick=reveal;
  $('exoPlay').onclick=()=>{if(state.t>=state.windowHours/2)state.t=-state.windowHours/2;state.playing=!state.playing;syncInfo();};

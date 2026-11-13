@@ -1,6 +1,22 @@
-# ATLAS SOLARIS 17.1 — Kalendarz Zaćmień
+# ATLAS SOLARIS 17.2 — Mapa Zaćmień na Ziemi
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **17.1** dodaje automatyczny kalendarz zaćmień Słońca i Księżyca na podstawie położeń i geometrii stożków cienia. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **17.2** dodaje mapę zasięgu zaćmienia Słońca na globie, przybliżony pas centralny i kontakty C1–C4, zachowując kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 17.2 — mapa geograficzna zaćmienia na Ziemi
+
+**Jak uruchomić:** na stronie głównej wybierz ZIEMIA Z KOSMOSU, a następnie zaćmienie Słońca (np. 2 sierpnia 2027). Panel STREFY ZAĆMIENIA pozwala włączać granicę częściowego zakrycia (>0,1%), izolinię 50% powierzchni Słońca, centralną granicę fazy całkowitej lub obrączkowej oraz granice pasa centralnego wzdłuż jego przebiegu.
+
+**Model obliczeniowy:** nowy moduł js/eclipse17-map-engine.js wylicza położenia Słońca i Księżyca w obracającym się ziemskim układzie geograficznym na podstawie istniejących efemeryd. Dla punktów powierzchni Ziemi liczy rzeczywisty rozmiar kątowy tarcz i ich odległość kątową, uwzględniając paralaksę. Oznacza częściowe, całkowite i obrączkowe zakrycie tylko przy Słońcu nad geometrycznym horyzontem. Izolinie częściowego zakrycia wyznacza metodą marching squares na siatce 3°, a bardzo wąski pas centralny rozwiązuje przez przeszukiwanie promieni wychodzących z punktu przecięcia osi cienia z kulą Ziemi. Tor osi i jego boczne krawędzie powstają przez próbkowanie ruchu cienia. Zakres pasa przy wejściu lub wyjściu cienia na brzeg Ziemi jest uproszczony.
+
+**Mapa zbliżenia:** pod przełącznikami globu jest druga mapa — zbliżenie do osi cienia lub wybranego obserwatora (skala 4°, 12°, 30° lub 60°). Kliknięcie mapy ustawia położenie obserwatora na Ziemi. Zakrycie i wysokość Słońca przeliczane są na bieżąco. Dotychczasowe: obrót Ziemi, animacja czasu, mapa Blue Marble i obserwacja teleskopowa pozostają dostępne.
+
+**Kontakty lokalne:** przycisk Oblicz lokalne kontakty C1–C4 sprawdza punkt w zakresie ±5 godzin od maksimum zdarzenia, wykrywa geometryczne początki i końce zakrycia tarczy oraz granice fazy centralnej. Pokazuje przybliżone UTC i wysokość Słońca, w tym ostrzeżenie, jeśli jest pod horyzontem. C1/C4 = pierwsze i ostatnie dotknięcie brzegów tarcz, C2/C3 = początek i koniec fazy centralnej.
+
+**Ograniczenia naukowe:** nie jest to oficjalna mapa ani precyzyjny pas NASA. Zastosowano kulistą Ziemię o promieniu 6371 km, stałe promienie Słońca i Księżyca, interpolowane efemerydy dostępne dla lat 2024–2040 oraz uproszczoną orientację Ziemi. Brak topografii, nierówności brzegu Księżyca, refrakcji, elementów Bessela, szczegółowej atmosfery i czasu drogi światła. Siatka izoliniowa 3° nie wyznacza dokładnych granic częściowego zakrycia; kontakty lokalne są orientacyjne. Nie używać do planowania bezpiecznych obserwacji.
+
+Pliki: js/eclipse17-map-engine.js, js/eclipse17-map-ui.js, css/eclipse17-map.css, tests/eclipse17-map.test.cjs. Test: node tests/eclipse17-map.test.cjs.
+
+---
 
 ## Nowość 17.1 — automatyczne wyszukiwanie zaćmień
 

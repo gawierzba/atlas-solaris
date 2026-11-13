@@ -1255,7 +1255,11 @@ function globeDraw(){const dlg=$('globeDialog');if(!dlg.open)return;
  const geo=globeFixedVectors(jd,p),solar=eclipseSelected.kind==='solar';
  globeDrawSphere(ctx,{cx,cy,r},geo,solar);
  if($('globeGrid').checked)globeDrawGrid(ctx);
- if($('globeTrack').checked&&solar){const track=globeTrack();globeDrawLine(ctx,track,'rgba(250,190,111,.95)',2.2);}
+ if($('globeTrack').checked&&solar&&!window.ATLAS_ECLIPSE_MAP17_2){const track=globeTrack();globeDrawLine(ctx,track,'rgba(250,190,111,.95)',2.2);}
+ window.ATLAS_ECLIPSE_MAP17_2?.drawGlobeFrame({
+   ctx,jd,solar,project:globeProject,texture:globeTexture,
+   observer:{...globeObserver},event:eclipseSelected,trackEnabled:$('globeTrack').checked
+ });
  if(solar){const shadow=eclipseShadowAxis(jd,p);if(shadow)globeDrawMarker(ctx,shadow.lat,shadow.lon,'OŚ CIENIA','#ffc477',true);}
  else {const submoon=globeSublunar(jd,p);globeDrawMarker(ctx,submoon.lat,submoon.lon,'KSIĘŻYC W ZENICIE','#99bfff',true);}
  globeDrawMarker(ctx,globeObserver.lat,globeObserver.lon,'OBSERWATOR','#69f2d9');
@@ -1501,6 +1505,10 @@ window.ATLAS_MAIN_API={
  setPlaying:(yes)=>{state.playing=!!yes;syncPlay();},
  setJD:(jd)=>{state.jd=jd;state.anchorJD=jd;dateClamp();},
  positions:(jd)=>positions(jd),
+ earthAxes:(jd)=>axes('earth',jd),
+ redrawGlobe:()=>globeDraw(),
+ setGlobeObserver:(lat,lon)=>{globeSetObserver(lat,lon);globeDraw();},
+ getSelectedEclipse:()=>eclipseSelected,
  selectJupiter:()=>select('jupiter'),
  /** Register a computed eclipse and open an existing visualization scene. */
  openCalendarEclipse:(candidate,view='geometry')=>{

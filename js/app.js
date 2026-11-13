@@ -1346,14 +1346,16 @@ function geoInfo(){
  if(solar){start=moonKm;ray=unit(sub(p.moon,p.sun));sunD=norm(sub(sunKm,moonKm));shadowSourceRadius=ECLIPSE_RMOON;intercept=dot(mul(moonKm,-1),ray);}
  else{start=[0,0,0];ray=unit(mul(sunKm,-1));sunD=norm(sunKm);shadowSourceRadius=ECLIPSE_REARTH;intercept=dot(moonKm,ray);}
  const delta=solar?mul(start,-1):moonKm;
- const miss=norm(sub(delta,mul(ray,intercept)));
+ // The v17 engine provides the precise cone/sphere geometry independently
+ // of the illustrated zoom or the axial distance compression.
+ const result17=window.ATLAS_ECLIPSE17?.at(state.jd,{includeNode:false});
+ const shadow17=result17?.shadow[solar?'solar':'lunar'];
+ const miss=shadow17?.axisDistanceKm??norm(sub(delta,mul(ray,intercept)));
  const x=intercept;
- // The geometrical cone uses solar and occulting-body radii. 1.02 Earth-radius
- // expansion in the lunar case, as in v5, approximates atmospheric shadow enlargement.
- const blocker=solar?ECLIPSE_RMOON:ECLIPSE_REARTH*1.02;
- const umbra=blocker-x*(ECLIPSE_RSUN-blocker)/sunD;
- const penumbra=blocker+x*(ECLIPSE_RSUN+blocker)/sunD;
- const apex=blocker*sunD/(ECLIPSE_RSUN-blocker);
+ const blocker=solar?ECLIPSE_RMOON:ECLIPSE_REARTH;
+ const umbra=shadow17?.umbraSignedRadiusAtTargetKm??(blocker-x*(ECLIPSE_RSUN-blocker)/sunD);
+ const penumbra=shadow17?.penumbraRadiusAtTargetKm??(blocker+x*(ECLIPSE_RSUN+blocker)/sunD);
+ const apex=shadow17?.coneApexDistanceKm??(blocker*sunD/(ECLIPSE_RSUN-blocker));
  return {p,solar,moonKm,sunKm,start,ray,sunD,intercept,miss,umbra,penumbra,blocker,apex,shadowSourceRadius};
 }
 function geoFrame(){let c=geometryC(),dpr=Math.min(2,window.devicePixelRatio||1),w=c.clientWidth||900,h=c.clientHeight||590;if(c.width!==Math.round(w*dpr)||c.height!==Math.round(h*dpr)){c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);}

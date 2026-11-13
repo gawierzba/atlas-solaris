@@ -1,11 +1,12 @@
-/* ATLAS SOLARIS 10.0 — Centrum Misji
-   Transfer Hohmanna: model kołowy, współpłaszczyznowy, dwuciałowy.
-   Pozycje planet: wspólny silnik JPL Atlasu (API v8+).
-   Nie jest to solver Lamberta, pełna dynamika lotu ani okna startowe NASA. */
+/* ATLAS SOLARIS 10.1 — precyzyjne spotkanie sondy z planetą.
+   Czas transferu: orientacyjny Hohmann. Tor: 3D Lambert, prograde, zero-revolution,
+   następnie propagacja Keplera z użyciem zmiennych uniwersalnych i mu Słońca.
+   Położenia planet: model JPL Atlasu. Bez perturbacji N-ciał i asyst grawitacyjnych. */
 (()=>{
 'use strict';
 const $=id=>document.getElementById(id);
 const AU=149597870.7, MU=132712440018, DAY=86400, TAU=2*Math.PI, YR=365.2568983;
+const MU_AUDAY=MU*DAY*DAY/(AU*AU*AU), AUDAY_KMS=AU/DAY;
 const worlds={
  mercury:{name:'Merkury',r:.387098,color:'#b2b3bd'},
  venus:{name:'Wenus',r:.723332,color:'#e6bd8e'},
@@ -26,6 +27,11 @@ const dateLabel=jd=>jdDate(jd).toLocaleDateString('pl-PL',{year:'numeric',month:
 const inputDay=jd=>jdDate(jd).toISOString().slice(0,10);
 const dayFromInput=text=>{const d=new Date(text+'T12:00:00Z');return Number.isFinite(d.getTime())?dateJD(d):null;};
 const norm2=p=>Math.hypot(p[0],p[1]);
+const norm3=p=>Math.hypot(p[0],p[1],p[2]);
+const dot3=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const diff3=(a,b)=>a.map((v,i)=>v-b[i]);
+const add3=(a,b)=>a.map((v,i)=>v+b[i]);
+const mul3=(a,k)=>a.map(v=>v*k);
 const angle=p=>Math.atan2(p[1],p[0]);
 const api=()=>window.ATLAS_MAIN_API;
 const state={from:'earth',to:'mars',launch:dateJD(new Date()),elapsed:0,speed:7,playing:false,priorPlay:false,firstOpen:true,zoom:1,spin:-.27,panX:0,panY:0,plan:null,win:null};
@@ -60,18 +66,115 @@ function nextWindow(jd,plan){
  }
  return best;
 }
-function orbitXY(u,p,theta){
- const mean=(p.r2>p.r1?0:Math.PI)+Math.PI*u;
- let E=mean;
- for(let i=0;i<14;i++){const de=(E-p.e*Math.sin(E)-mean)/(1-p.e*Math.cos(E));E-=de;if(Math.abs(de)<1e-12)break;}
- const f=Math.atan2(Math.sqrt(1-p.e*p.e)*Math.sin(E),Math.cos(E)-p.e);
- const nu=p.r2>p.r1?mod(f):mod(f-Math.PI);
- const r=p.a*(1-p.e*Math.cos(E));
- return [r*Math.cos(theta+nu),r*Math.sin(theta+nu),0];
+/** Stumpff functions C(z), S(z); Taylor approximation near zero avoids cancellation. */
+function stumpff(z){
+ if(Math.abs(z)<.0001){const z2=z*z,z3=z2*z;return {C:.5-z/24+z2/720-z3/40320,S:1/6-z/120+z2/5040-z3/362880};}
+ if(z>0){const v=Math.sqrt(z);return {C:(1-Math.cos(v))/z,S:(v-Math.sin(v))/(v*v*v)};}
+ const v=Math.sqrt(-z);return {C:(Math.cosh(v)-1)/(-z),S:(Math.sinh(v)-v)/(v*v*v)};
+}
+/** Sun-centred two-body propagation in AU, AU/day. */
+function propagate(r0,v0,days){
+ if(days<=0)return r0.slice();
+ const r=norm3(r0),vr=dot3(r0,v0)/r,alpha=2/r-dot3(v0,v0)/MU_AUDAY,sq=Math.sqrt(MU_AUDAY);
+ const F=x=>{
+  const z=alpha*x*x,{C,S}=stumpff(z);
+  return r*x + r*vr/sq*x*x*C + (1-alpha*r)*x*x*x*S -sq*days;
+ };
+ let lo=0,hi=Math.max(.01,sq*days/Math.max(.25,r));
+ for(let j=0;j<55&&F(hi)<0;j++)hi*=2;
+ if(!Number.isFinite(F(hi))||F(hi)<0)return null;
+ for(let i=0;i<54;i++){const mid=(lo+hi)/2;if(F(mid)>0)hi=mid;else lo=mid;}
+ const chi=(lo+hi)/2,z=alpha*chi*chi,{C,S}=stumpff(z);
+ const f=1-chi*chi/r*C,g=days-chi*chi*chi*S/sq;
+ return add3(mul3(r0,f),mul3(v0,g));
+}
+/** Universal-variable Lambert solver, 0-revolution, prograde about the ecliptic pole.
+    Coordinates in AU; velocities in AU/day. */
+function solveLambert(r0,r1,days){
+ const R0=norm3(r0),R1=norm3(r1),cos=bound(dot3(r0,r1)/(R0*R1),-1,1);
+ const crossZ=r0[0]*r1[1]-r0[1]*r1[0];
+ const A=(crossZ>=0?1:-1)*Math.sqrt(R0*R1*(1+cos));
+ if(!Number.isFinite(A)||Math.abs(A)<1e-7)return null;
+ const arrival=z=>{
+  const {C,S}=stumpff(z);
+  if(C<=0||!Number.isFinite(C))return null;
+  const y=R0+R1+A*(z*S-1)/Math.sqrt(C);
+  if(y<=0||!Number.isFinite(y))return null;
+  const x=Math.sqrt(y/C),seconds=(x*x*x*S+A*Math.sqrt(y))/Math.sqrt(MU_AUDAY);
+  return Number.isFinite(seconds)?{time:seconds,y}:null;
+ };
+ let prev=null,lo=0,hi=0,found=false;
+ for(let i=0;i<=720;i++){
+  const z=-140 + i*(140+4*Math.PI*Math.PI-1e-4)/720,r=arrival(z);
+  if(!r)continue;
+  if(prev&&(prev.r.time-days)*(r.time-days)<=0){
+   lo=prev.z;hi=z;found=true;break;
+  }
+  prev={z,r};
+ }
+ if(!found)return null;
+ for(let i=0;i<65;i++){
+  const z=(lo+hi)/2,r=arrival(z);
+  if(!r)return null;
+  if(r.time>days)hi=z;else lo=z;
+ }
+ const r=arrival((lo+hi)/2),y=r?.y;
+ if(!Number.isFinite(y))return null;
+ const f=1-y/R0,g=A*Math.sqrt(y/MU_AUDAY),gdot=1-y/R1;
+ if(!Number.isFinite(g)||Math.abs(g)<1e-8)return null;
+ const v0=mul3(diff3(r1,mul3(r0,f)),1/g);
+ const v1=mul3(diff3(mul3(r1,gdot),r0),1/g);
+ const check=propagate(r0,v0,days);
+ if(!check||norm3(diff3(check,r1))>5e-5)return null;
+ return {v0,v1};
+}
+function planetVelocity(jd,id){
+ const delta=.015,a=api().positions(jd-delta)[id],b=api().positions(jd+delta)[id];
+ return mul3(diff3(b,a),1/(2*delta));
+}
+/** Rare near-collinear solver degeneracy: explicitly labelled kinematic interpolation. */
+function fallbackPoint(start,end,va,vb,t,days){
+ const u=bound(t/days,0,1),u2=u*u,u3=u2*u;
+ return start.map((x,i)=>(2*u3-3*u2+1)*x+(-2*u3+3*u2)*end[i]+
+  (u3-2*u2+u)*days*va[i]+(u3-u2)*days*vb[i]);
+}
+function buildTransfer(launch,from,to,plan){
+ const start=api().positions(launch)[from].slice(),end=api().positions(launch+plan.days)[to].slice();
+ const departureSpeed=planetVelocity(launch,from),arrivalSpeed=planetVelocity(launch+plan.days,to);
+ const solved=solveLambert(start,end,plan.days);
+ const at=t=>{
+  if(t<=0)return start.slice();
+  if(t>=plan.days)return end.slice(); // terminal state exactly equals planet position
+  const result=solved?propagate(start,solved.v0,t):null;
+  return result||fallbackPoint(start,end,departureSpeed,arrivalSpeed,t,plan.days);
+ };
+ const path=[];
+ let distance=0,last=at(0);
+ for(let i=0;i<=240;i++){
+  const next=at(plan.days*i/240);
+  if(i)distance+=norm3(diff3(next,last))*AU;
+  path.push(next);last=next;
+ }
+ const dv1=solved?norm3(diff3(solved.v0,departureSpeed))*AUDAY_KMS:null;
+ const dv2=solved?norm3(diff3(solved.v1,arrivalSpeed))*AUDAY_KMS:null;
+ return {start,end,path,distance,dv1,dv2,total:solved?dv1+dv2:null,solved:!!solved,at};
+}
+function targetDistance(t){
+ const p=state.plan;if(!p?.transfer)return null;
+ if(t>=p.days)return 0;
+ const ship=p.transfer.at(t),planet=api().positions(state.launch+t)[state.to];
+ return norm3(diff3(ship,planet))*AU;
+}
+function distanceLabel(km){
+ if(km<.5)return '0 km';
+ if(km<1e3)return fmt(km,0)+' km';
+ if(km<1e6)return fmt(km/1000,1)+' tys. km';
+ return fmt(km/1e6,2)+' mln km';
 }
 function rebuild(){
  if(state.from===state.to){state.to=state.from==='mars'?'earth':'mars';$('mcTarget').value=state.to;}
  state.plan=calc(state.from,state.to);
+ state.plan.transfer=buildTransfer(state.launch,state.from,state.to,state.plan);
  state.elapsed=0;state.playing=false;
  state.win=nextWindow(state.launch,state.plan);
  update();
@@ -94,18 +197,22 @@ function syncUI(){
  $('mcLaunch').textContent=dateLabel(state.launch);
  $('mcArrival').textContent=dateLabel(state.launch+p.days);
  $('mcDuration').textContent=fmt(p.days,0)+' dni';
- $('mcDV').textContent=fmt(p.total,2)+' km/s';
- $('mcDVDetail').textContent='odlot '+fmt(p.dv1,2)+' · hamowanie '+fmt(p.dv2,2)+' km/s';
+ $('mcDV').textContent=p.transfer.solved?fmt(p.transfer.total,2)+' km/s':'—';
+ $('mcDVDetail').textContent=p.transfer.solved?'odlot '+fmt(p.transfer.dv1,2)+' · spotkanie '+fmt(p.transfer.dv2,2)+' km/s':'tor interpolowany (brak Δv)';
  $('mcPhase').textContent=fmt(mod(p.needed)*180/Math.PI,1)+'°';
  $('mcError').textContent=fmt(err,1)+'°';
  $('mcError').className=err<3?'mc-good':err<12?'mc-warn':'mc-bad';
  $('mcWindow').textContent=state.win?dateLabel(state.win.jd):'Poza zakresem modelu';
- $('mcDistance').textContent=fmt(p.halfLength/1e6,0)+' mln km';
+ $('mcDistance').textContent=fmt(p.transfer.distance/1e6,0)+' mln km';
  $('mcRouteTitle').textContent=worlds[state.from].name+' → '+worlds[state.to].name;
- $('mcWindowInfo').textContent=err<3?'Dobra zgodność fazy w modelu kołowym.':err<12?'Faza zbliżona, ale nieoptymalna.':'Niedopasowanie fazy: wybierz najbliższe okno startowe.';
+ $('mcWindowInfo').textContent=!p.transfer.solved?'Geometria szczególna: tor interpolowany; nie jest orbitą Keplera.':err<3?'Dobra faza. Trajektoria Lamberta wyznacza dokładne spotkanie.':err<12?'Faza bliska optymalnej; tor wyliczono dla spotkania.':'Nieoptymalna faza: spotkanie wymaga większej zmiany prędkości. Wybierz okno startowe.';
  $('mcProgress').max=Math.round(p.days*10);$('mcProgress').value=Math.round(state.elapsed*10);
  $('mcProgressDate').textContent=dateLabel(state.launch+state.elapsed);
  $('mcProgressPercent').textContent=fmt(100*state.elapsed/p.days,0)+'% lotu';
+ const arrival=state.elapsed>=p.days;
+ $('mcTargetDistance').textContent=distanceLabel(targetDistance(state.elapsed));
+ $('mcArrivalStatus').textContent=arrival?'✓ CEL OSIĄGNIĘTY':state.playing?'SONDA W LOCIE':'OCZEKIWANIE / PAUZA';
+ $('mcArrivalStatus').classList.toggle('mc-arrived',arrival);
  $('mcPlay').textContent=state.playing?'Ⅱ Pauza':'▶ Odtwórz lot';
  $('mcDate').value=inputDay(state.launch);
 }
@@ -130,8 +237,7 @@ function draw(){
  }
  const p=state.plan, rmax=Math.max(p.r1,p.r2),scale=Math.min(w*.41,h*.43)/(rmax*1.17)*state.zoom;
  const project=(x,y)=>toScreen(x,y,w,h,scale);
- const world=api().positions(state.launch+state.elapsed),depart=api().positions(state.launch);
- const theta=angle(depart[state.from]);
+ const world=api().positions(state.launch+state.elapsed);
  const sun=project(0,0);
  ctx.save();ctx.lineWidth=1;
  for(const [key,v] of Object.entries(worlds)){
@@ -141,14 +247,12 @@ function draw(){
   ctx.strokeStyle=(key===state.from||key===state.to)?'#4e789e70':'#44627d28';ctx.setLineDash(key===state.from||key===state.to?[]:[3,7]);ctx.stroke();
  }
  ctx.setLineDash([]);
- const full=[],done=[],segments=220;
- for(let i=0;i<=segments;i++){
-  const xy=orbitXY(i/segments,p,theta),pt=project(xy[0],xy[1]);full.push(pt);
-  if(i/segments<=state.elapsed/p.days)done.push(pt);
- }
+ const full=p.transfer.path.map(v=>project(v[0],v[1]));
+ const done=full.slice(0,Math.max(1,Math.floor((full.length-1)*state.elapsed/p.days)+1));
+ done.push(project(...p.transfer.at(state.elapsed).slice(0,2)));
  const pathDraw=(points,color,width)=>{ctx.beginPath();points.forEach((pt,i)=>i?ctx.lineTo(pt[0],pt[1]):ctx.moveTo(pt[0],pt[1]));ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();};
  pathDraw(full,'#38c7e599',2.1);if(done.length>1)pathDraw(done,'#9bf5ec',3.8);
- const targetAtArrival=api().positions(state.launch+p.days)[state.to],future=project(targetAtArrival[0],targetAtArrival[1]);
+ const targetAtArrival=p.transfer.end,future=project(targetAtArrival[0],targetAtArrival[1]);
  ctx.beginPath();ctx.arc(future[0],future[1],11,0,TAU);ctx.strokeStyle='#e4f5ff77';ctx.lineWidth=1.2;ctx.setLineDash([3,4]);ctx.stroke();ctx.setLineDash([]);
  ctx.fillStyle='#c0dceb';ctx.font='10px system-ui';ctx.fillText('CEL W CHWILI PRZYLOTU',future[0]+13,future[1]-12);
  const gl=ctx.createRadialGradient(sun[0],sun[1],4,sun[0],sun[1],42);gl.addColorStop(0,'#fff7ca');gl.addColorStop(.2,'#ffd68b');gl.addColorStop(.54,'#f8a34d55');gl.addColorStop(1,'#eb9e4600');
@@ -162,12 +266,15 @@ function draw(){
   ctx.beginPath();ctx.arc(q[0],q[1],rr,0,TAU);ctx.fillStyle=v.color;ctx.shadowColor=v.color;ctx.shadowBlur=major?12:3;ctx.fill();ctx.shadowBlur=0;
   ctx.fillStyle=major?'#e8f3fc':'#89a4b7';ctx.fillText(v.name,q[0]+rr+5,q[1]-rr-4);
  }
- const u=bound(state.elapsed/p.days,0,1),ship=orbitXY(u,p,theta),near=orbitXY(bound(u+.003,0,1),p,theta);
+ const ship=p.transfer.at(state.elapsed),near=p.transfer.at(Math.min(p.days,state.elapsed+p.days*.003));
  const a=project(ship[0],ship[1]),b=project(near[0],near[1]);
  let spin=Math.atan2(b[1]-a[1],b[0]-a[0]);if(u>=.999)spin=Math.atan2(a[1]-h*.53,a[0]-w*.49);
  ctx.save();ctx.translate(a[0],a[1]);ctx.rotate(spin);ctx.fillStyle='#bbfff6';ctx.shadowColor='#45dcca';ctx.shadowBlur=17;
  ctx.beginPath();ctx.moveTo(11,0);ctx.lineTo(-8,-5.2);ctx.lineTo(-3,0);ctx.lineTo(-8,5.2);ctx.closePath();ctx.fill();ctx.restore();
- ctx.fillStyle='#caedee';ctx.font='600 11px system-ui';ctx.fillText('SONDA',a[0]+12,a[1]-14);
+ ctx.fillStyle='#caedee';ctx.font='600 11px system-ui';ctx.fillText(state.elapsed>=p.days?'CEL OSIĄGNIĘTY':'SONDA',a[0]+12,a[1]-14);
+ if(state.elapsed>=p.days){
+  ctx.beginPath();ctx.arc(a[0],a[1],17,0,TAU);ctx.strokeStyle='#8bffe2';ctx.lineWidth=2;ctx.stroke();
+ }
  ctx.restore();
  // Scale bar is approximate because orbital views are flattened in Y.
  ctx.fillStyle='#88a9c2';ctx.font='10px system-ui';ctx.fillText('ORBITY · AU  |  WIDOK Z GÓRY, SPŁASZCZENIE PERSPEKTYWICZNE',15,h-17);
@@ -227,9 +334,9 @@ function setup(){
  $('mcCopy').onclick=async()=>{
   const p=state.plan,text='ATLAS SOLARIS 10.0 — MISJA\n'+worlds[state.from].name+' → '+worlds[state.to].name+
   '\nStart (UTC): '+dateLabel(state.launch)+'\nPrzylot (UTC): '+dateLabel(state.launch+p.days)+
-  '\nCzas transferu: '+fmt(p.days,1)+' dni\nŁączne Δv (heliocentryczne): '+fmt(p.total,2)+' km/s'+
+  '\nCzas transferu: '+fmt(p.days,1)+' dni\nΔv spotkania (heliocentryczne): '+(p.transfer.solved?fmt(p.transfer.total,2)+' km/s':'nieustalone')+
   '\nOdchylenie fazy: '+fmt(Math.abs(phase(state.launch,p))*180/Math.PI,1)+'°'+
-  '\nModel: idealny transfer Hohmanna, bez poprawek na ekscentryczność, nachylenie i start z powierzchni.';
+  '\nModel: orientacyjny czas Hohmanna, 3D Lambert Słońce-sonda, bez perturbacji planet, startu z powierzchni i manewrów asyst.';
   try{await navigator.clipboard.writeText(text);$('mcCopy').textContent='✓ Skopiowano';}
   catch(e){$('mcCopy').textContent='Kopiowanie niedostępne';}
   setTimeout(()=>$('mcCopy').textContent='⧉ Kopiuj plan',2500);
@@ -248,7 +355,7 @@ function setup(){
  $('mcResetCamera').onclick=()=>{state.zoom=1;state.panX=0;state.panY=0;state.spin=-.27;draw();};
  window.addEventListener('resize',()=>{if($('missionDialog').open)draw();});
  choose('earth','mars');
- window.ATLAS_MISSIONS_TEST={calc,phase,nextWindow,orbitXY,state,show};
+ window.ATLAS_MISSIONS_TEST={calc,phase,nextWindow,stumpff,solveLambert,propagate,buildTransfer,targetDistance,state,show};
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 })();

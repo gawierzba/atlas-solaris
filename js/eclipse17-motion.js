@@ -92,6 +92,25 @@ function evaluate(model,jd){
   }
   prev=p;
  }
+ // Handle a point lying exactly on a sampling instant, including the
+ // first and last available central-axis intersection.
+ if(status==='outside'){
+  const exactIndex=model.valid.findIndex(p=>Math.abs(p.jd-jd)<1e-9);
+  if(exactIndex>=0){
+   const point=model.valid[exactIndex];
+   current={lat:point.lat,lon:point.lon,jd,kind:point.kind,distanceKm:point.distanceKm};
+   km=point.distanceKm;status='crossing';
+   const neighbor=model.valid[exactIndex+1]?.group===point.group?
+    model.valid[exactIndex+1]:
+    (model.valid[exactIndex-1]?.group===point.group?model.valid[exactIndex-1]:null);
+   if(neighbor){
+    const a=neighbor.jd<point.jd?neighbor:point;
+    const b=neighbor.jd<point.jd?point:neighbor;
+    velocityKmH=arcKm(a,b)/((b.jd-a.jd)*24);
+    bearing=bearingDeg(a,b);
+   }
+  }
+ }
  if(status==='crossing'){
   // Rebuild past and future with the current location at the split, while
   // retaining explicit nulls to avoid drawing lines through the far side

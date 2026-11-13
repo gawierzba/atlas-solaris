@@ -252,8 +252,8 @@
 <!-- ATLAS SOLARIS 10.0: orbital mission planner, independent of the legacy lab modules -->
 <dialog id="missionDialog" aria-label="ATLAS SOLARIS Centrum Misji">
  <header class="mc-header">
-  <div><small>ATLAS SOLARIS / EKSPEDYCJA MIĘDZYPLANETARNA / 10.0</small>
-  <h2>Centrum <em>Misji</em></h2><p>Wybierz dwie planety, wyznacz okno startowe i poprowadź sondę po orbicie transferowej.</p></div>
+  <div><small>ATLAS SOLARIS / EKSPEDYCJA MIĘDZYPLANETARNA / 10.1</small>
+  <h2>Centrum <em>Misji</em></h2><p>Wybierz planety, oblicz spotkanie sondy z celem i zobacz tor lotu w 3D.</p></div>
   <button id="mcClose" class="mc-close" aria-label="Zamknij centrum misji">✕</button>
  </header>
  <div class="mc-layout">
@@ -263,6 +263,7 @@
    <canvas id="mcCanvas" aria-label="Animowana mapa planet, orbity transferowej i sondy kosmicznej"></canvas>
    <div class="mc-timeline">
     <div class="mc-timeline-top"><strong id="mcProgressDate">—</strong><span id="mcProgressPercent">0% lotu</span></div>
+    <div class="mc-arrival-readout"><span>ODLEGŁOŚĆ SONDY OD PLANETY <strong id="mcTargetDistance">—</strong></span><span id="mcArrivalStatus">OCZEKIWANIE</span></div>
     <input id="mcProgress" type="range" min="0" max="2600" value="0" step="1" aria-label="Postęp lotu w dniach">
     <div class="mc-stage-actions">
      <button class="mc-primary" id="mcPlay">▶ Odtwórz lot</button>
@@ -290,12 +291,12 @@
     <div class="mc-stat"><small>PRZYLOT</small><strong id="mcArrival">—</strong></div>
     <div class="mc-stat"><small>CZAS PRZELOTU</small><strong id="mcDuration">—</strong></div>
     <div class="mc-stat"><small>DŁUGOŚĆ TRAJEKTORII</small><strong id="mcDistance">—</strong></div>
-    <div class="mc-stat"><small>Δv · ZMIANA PRĘDKOŚCI*</small><strong id="mcDV">—</strong><span id="mcDVDetail">—</span></div>
+    <div class="mc-stat"><small>Δv · SPOTKANIE Z PLANETĄ*</small><strong id="mcDV">—</strong><span id="mcDVDetail">—</span></div>
     <div class="mc-stat"><small>FAZA WYMAGANA / BŁĄD</small><strong id="mcPhase">—</strong><span>Odchylenie: <b id="mcError">—</b></span></div>
    </div>
    <div class="mc-section-label">04 / WYJŚCIE Z MISJI</div>
    <div class="mc-side-actions"><button id="mcToAtlas">↗ Pokaż tę datę w atlasie</button><button id="mcCopy">⧉ Kopiuj plan</button></div>
-   <p class="mc-technical"><strong>Granice symulacji.</strong> Transfer Hohmanna zakłada orbity kołowe i współpłaszczyznowe. Pozycje planet do oceny fazy pochodzą z modelu astronomicznego Atlasu, ale orbita sondy jest idealizowana. Okna fazowe są orientacyjne, nie są precyzyjnymi oknami startowymi ani trajektoriami misji NASA. Nie uwzględniono startu z powierzchni, grawitacji planet, asyst grawitacyjnych, korekt kursu i manewrów nachylenia. *Δv obejmuje jedynie idealne heliocentryczne zmiany prędkości przy odejściu i dotarciu do orbity celu. Rysunek jest poglądowy; nachylenie widoku nie odzwierciedla inklinacji.</p>
+   <p class="mc-technical"><strong>Granice symulacji.</strong> Czas przejścia oszacowano metodą Hohmanna. Tor sondy jest obliczany metodą Lamberta dla rzeczywistych, trójwymiarowych położeń planet w modelu Atlasu i propagowany po orbicie dwuciałowej wokół Słońca. Sonda trafia w położenie planety w chwili przylotu. Nie uwzględniamy perturbacji grawitacyjnych innych ciał, startu z powierzchni, asyst grawitacyjnych ani poprawek manewrowych. *Δv to różnica prędkości heliocentrycznych sondy i planet przy odlocie i przylocie, a nie pełny budżet rakiety. Okna fazowe pozostają orientacyjne, nie są kalendarzem rzeczywistych startów. W rzadkich układach geometrycznie osobliwych stosowana jest oznaczona interpolacja zamiast rozwiązania orbitalnego. Rysunek jest projekcją 3D i może spłaszczać inklinacje.</p>
   </aside>
  </div>
 </dialog>

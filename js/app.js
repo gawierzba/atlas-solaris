@@ -1352,7 +1352,7 @@ function geoInfo(){
  const shadow17=result17?.shadow[solar?'solar':'lunar'];
  const miss=shadow17?.axisDistanceKm??norm(sub(delta,mul(ray,intercept)));
  const x=intercept;
- const blocker=solar?ECLIPSE_RMOON:ECLIPSE_REARTH;
+ const blocker=solar?ECLIPSE_RMOON:ECLIPSE_REARTH*1.02;
  const umbra=shadow17?.umbraSignedRadiusAtTargetKm??(blocker-x*(ECLIPSE_RSUN-blocker)/sunD);
  const penumbra=shadow17?.penumbraRadiusAtTargetKm??(blocker+x*(ECLIPSE_RSUN+blocker)/sunD);
  const apex=shadow17?.coneApexDistanceKm??(blocker*sunD/(ECLIPSE_RSUN-blocker));

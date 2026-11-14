@@ -87,7 +87,7 @@ for(const fragment of [
 const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
 const ui=fs.readFileSync(path.join(__dirname,'..','js','cockpit22-ui.js'),'utf8');
 const s21=fs.readFileSync(path.join(__dirname,'..','js','probe21-ui.js'),'utf8');
-assert.ok(html.includes('ATLAS SOLARIS 22.0'));
+assert.ok(html.includes('id="openCockpit22Side"'),'Stage 22 must remain available after later versions.');
 assert.ok(html.includes('href="css/cockpit22.css"'));
 for(const file of ['cockpit22-core.js','cockpit22-renderer.js','cockpit22-ui.js']){
  assert.ok(html.includes('src="js/'+file+'"'),'Missing script '+file);

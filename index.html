@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 18.1 — atlas gwiazdozbiorów J2000, 110 obiektów Messiera i planer najlepszych nocy obserwacji.">
-  <title>ATLAS SOLARIS 18.1 — Gwiazdozbiory i 110 obiektów Messiera</title>
+  <meta name="description" content="ATLAS SOLARIS 19.0 — podróż 3D między gwiazdami, autentyczne odległości, paralaksa, zmienne gwiazdozbiory i relatywistyka.">
+  <title>ATLAS SOLARIS 19.0 — Podróż między gwiazdami 3D</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -21,17 +21,18 @@
 <link rel="stylesheet" href="css/eclipse17-motion.css">
 <link rel="stylesheet" href="css/observatory18.css">
 <link rel="stylesheet" href="css/observatory181.css">
+<link rel="stylesheet" href="css/interstellar19.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 18.1</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 19.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 18.1</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 19.0</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -43,10 +44,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V18.1</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V19.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -84,7 +85,93 @@
   </main>
  </div>
 
- <dialog id="observatoryDialog" class="observatory-dialog" aria-label="Obserwatorium: mapa nieba i wschody Słońca">
+ 
+<dialog id="inter19Dialog" class="inter19-dialog" aria-labelledby="inter19Heading">
+ <div class="inter19-shell">
+  <header class="inter19-header">
+   <div><div class="inter19-eyebrow">ATLAS SOLARIS 19.0 / EKSPEDYCJA MIĘDZYGWIEZDNA</div>
+    <h2 id="inter19Heading">Podróż <em>między gwiazdami.</em></h2>
+    <p>Rzeczywiste pozycje 3D gwiazd · nowa perspektywa na gwiazdozbiory · dwa zegary i relatywistyka</p>
+   </div>
+   <button id="inter19Close" type="button" class="inter19-close" aria-label="Zamknij podróż między gwiazdami">✕</button>
+  </header>
+  <div class="inter19-layout">
+   <section class="inter19-scene" aria-label="Wizualizacja lotu między gwiazdami">
+    <div class="inter19-scene-frame">
+     <canvas id="inter19Canvas" width="1440" height="820" tabindex="0" aria-label="Trójwymiarowa wizualizacja gwiazd; przeciągnij, aby obrócić kamerę, dotknij gwiazdy, aby obrać kurs"></canvas>
+     <div class="inter19-scene-top">
+      <div class="inter19-ship-code">◈ ATLAS / DEEP SPACE NAVIGATION</div>
+      <span id="inter19Phase">POZYCJA POCZĄTKOWA / SŁOŃCE</span>
+     </div>
+     <div class="inter19-scene-bottom">
+      <span id="inter19HeadingTxt">Kierunek: —</span>
+      <span class="inter19-controls-hint">Przeciągaj: rozejrzyj się · kółko: pole widzenia · dotknij gwiazdy: wyznacz kurs</span>
+     </div>
+    </div>
+    <div class="inter19-readouts">
+     <div><small>ODLEGŁOŚĆ OD SŁOŃCA</small><strong id="inter19Dist">0,000 ly</strong></div>
+     <div><small>CZAS W UKŁADZIE SŁOŃCA</small><strong id="inter19EarthTime">0 lat</strong></div>
+     <div><small>CZAS NA STATKU</small><strong id="inter19ShipTime">0 lat</strong></div>
+     <div><small>POZOSTAŁY DYSTANS</small><strong id="inter19Remaining">— ly</strong></div>
+    </div>
+    <div class="inter19-comparison">
+     <div class="inter19-compare-head">
+      <div><small>EKSPERYMENT PARALAKSY 3D</small><strong>Orion: z Ziemi i z aktualnej pozycji</strong></div>
+      <span id="inter19OrionInfo">Te same siedem gwiazd, inny punkt obserwacji</span>
+     </div>
+     <canvas id="inter19Compare" width="900" height="278" aria-label="Porównanie geometrii Oriona z Ziemi i z bieżącego położenia sondy"></canvas>
+    </div>
+   </section>
+   <aside class="inter19-command">
+    <div class="inter19-panel-label">01 / CEL EKSPEDYCJI</div>
+    <label class="inter19-field" for="inter19Destination">Wybierz gwiazdę docelową
+     <select id="inter19Destination" aria-label="Wybór gwiazdy docelowej"></select>
+    </label>
+    <div class="inter19-destination-info">
+     <b id="inter19TargetName">—</b>
+     <span id="inter19TargetDist">— lat świetlnych od Słońca</span>
+    </div>
+    <div class="inter19-panel-label">02 / PRĘDKOŚĆ STATKU</div>
+    <div class="inter19-speed-value"><strong id="inter19BetaText">0,80 c</strong><span id="inter19GammaText">γ = 1,667</span></div>
+    <input type="range" id="inter19Beta" min="1" max="99" step="1" value="80" aria-label="Prędkość od 0,01 do 0,99 prędkości światła">
+    <div class="inter19-range-labels"><small>0,01 c</small><small>0,99 c</small></div>
+    <label class="inter19-toggle"><input id="inter19Relativity" type="checkbox"> <span><b>Relatywistyczna aberracja</b><small>Niebo zmienia kierunki przy prędkościach bliskich c. Dylatacja czasu jest liczona zawsze.</small></span></label>
+    <div class="inter19-panel-label">03 / MOSTEK KAPITAŃSKI</div>
+    <div class="inter19-main-actions">
+     <button id="inter19Play" class="inter19-action-primary" type="button">▶ ROZPOCZNIJ LOT</button>
+     <button id="inter19Reset" class="inter19-action-secondary" type="button">↺ Powrót do Słońca</button>
+    </div>
+    <label class="inter19-progress-label" for="inter19Progress">PRZEBYTA TRASA <strong id="inter19ProgressText">0%</strong></label>
+    <input id="inter19Progress" type="range" min="0" max="1000" value="0" step="1" aria-label="Pozycja na trasie między Słońcem a wybraną gwiazdą">
+    <div class="inter19-look-actions">
+     <button id="inter19LookTarget" type="button">◎ Na cel</button>
+     <button id="inter19LookOrion" type="button">✧ Na Oriona</button>
+     <button id="inter19LookSun" type="button">☉ Na Słońce</button>
+    </div>
+    <div class="inter19-panel-label">04 / WIDOK GWIAZDOZBIORÓW</div>
+    <label class="inter19-field" for="inter19Patterns">Które figury rysować?
+     <select id="inter19Patterns">
+      <option value="ori">Orion</option>
+      <option value="uma">Wielka Niedźwiedzica</option>
+      <option value="cas">Kasjopeja</option>
+      <option value="cyg">Łabędź</option>
+      <option value="all">Wszystkie 88</option>
+      <option value="none">Ukryj linie</option>
+     </select>
+    </label>
+    <div class="inter19-physics">
+     <div><small>ZWŁOKA SYGNAŁU DO ZIEMI</small><b id="inter19Signal">0 lat</b></div>
+     <div><small>DOPPLER W KIERUNKU LOTU</small><b id="inter19Doppler">×1,00</b></div>
+     <div><small>DYSTANS DO CELU / CZAS STATKU</small><b id="inter19Duration">—</b></div>
+    </div>
+    <div id="inter19Status" class="inter19-status" role="status">Wybierz cel i rozpocznij podróż. Zobacz, jak zmienia się Orion.</div>
+    <p class="inter19-science-note">MODEL NAUKOWY: pozycje gwiazd J2000 i odległości z katalogów Hipparcos/Yale i lokalnego spisu najbliższych gwiazd. Lot jest prostoliniowy, ze stałą prędkością; brak przyspieszania, ruchu własnego gwiazd i opóźnienia obrazów światła. Sekwencja startowa ma skalę ilustracyjną. Gwiazdy z nieznanymi odległościami nie dostają wymyślonych współrzędnych. Nie jest to prognoza rzeczywistej misji.</p>
+   </aside>
+  </div>
+ </div>
+</dialog>
+
+<dialog id="observatoryDialog" class="observatory-dialog" aria-label="Obserwatorium: mapa nieba i wschody Słońca">
   <div class="obs-head"><div><div class="obs-eyebrow">ATLAS SOLARIS / MODUŁ ASTRONOMICZNY</div><h2>Żywe Obserwatorium <em>18.1</em></h2><p>Rzeczywista geometria horyzontu · dowolny moment symulacji · kliknij ciało niebieskie, aby spojrzeć w jego kierunku.</p></div><button id="closeObservatory" class="obs-close" title="Zamknij">✕</button></div>
   <div class="obs-settings"><label>CIAŁO OBSERWATORA<select id="obsWorld"><option value="earth">Ziemia</option><option value="moon">Księżyc</option><option value="mars">Mars</option><option value="mercury">Merkury</option><option value="venus">Wenus (chmury)</option></select></label>
   <label>SZEROKOŚĆ °<input id="obsLatitude" type="number" min="-90" max="90" step="0.01" value="54.35"></label><label>DŁUGOŚĆ E °<input id="obsLongitude" type="number" min="-180" max="180" step="0.01" value="18.65"></label>
@@ -1100,5 +1187,8 @@
 <script src="js/observatory181-catalog.js"></script>
 <script src="js/observatory181-core.js"></script>
 <script src="js/observatory181-ui.js"></script>
+<script src="js/interstellar19-data.js"></script>
+<script src="js/interstellar19-core.js"></script>
+<script src="js/interstellar19-ui.js"></script>
 </body>
 </html>

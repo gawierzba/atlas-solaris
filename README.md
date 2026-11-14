@@ -1,6 +1,35 @@
-# ATLAS SOLARIS 18.1 — Messier i gwiazdozbiory
+# ATLAS SOLARIS 19.0 — Podróż między gwiazdami
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **18.1** rozszerza Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **19.0** dodaje pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 19.0 — Podróż między gwiazdami 3D
+
+**Jak uruchomić:** na stronie głównej kliknij 🚀 **LOT MIĘDZYGWIEZDNY** lub pozycję **PODRÓŻ MIĘDZY GWIAZDAMI 19.0** w menu bocznym. Z rozwijanej listy wybierz np. *Proxima Centauri* (około 4,25 roku świetlnego od Słońca), *Sirius A*, *Wega* lub *Betelgeuse*. Uruchom przyciskiem **Rozpocznij lot**.
+
+**Funkcje:**
+- Interaktywna panorama gwiazd widziana z dowolnego punktu na odcinku 3D między Słońcem a wybraną gwiazdą. Ruch przez przestrzeń jest realną zmianą położenia obserwatora, więc gwiazdy są oglądane pod nowymi kątami — nie jest to obrót płaskiej mapy.
+- Przyspieszony, kilkudziesięciosekundowy pokaz całej trasy; prędkość fizyczna statku ustawiana osobno od tempa odtwarzania animacji (0,01–0,99 prędkości światła).
+- Wskaźniki: przebyty i pozostały dystans w latach świetlnych, czas w układzie Słońca, czas własny na statku oraz opóźnienie jednokierunkowego sygnału radiowego wracającego do Ziemi.
+- Interaktywny tryb **relatywistycznej aberracji** światła: kierunki gwiazd przeliczane ze szczególnej teorii względności dla stałej prędkości względem układu katalogu. Wyświetlany czynnik Dopplera *w kierunku ruchu*. Nie symulujemy fizycznie dokładnych widm, jasności relatywistycznej ani opóźnionych obrazów.
+- 88 ziemskich figur gwiazdozbiorów odtworzonych przez punkty 3D z katalogu. Szybkie przełączniki: Orion, Wielka Niedźwiedzica, Kasjopeja, Łabędź, wszystkie lub bez linii. Pozostawiono przerwy tam, gdzie katalog nie podaje wiarygodnej odległości.
+- Porównanie **Oriona widzianego ze Słońca i z aktualnego miejsca statku** w dwóch równoległych kadrach, z rzeczywiście obliczanym odstępem kątowym skrajnych gwiazd jego Pasa. Przykładowo, podróż ku Betelgezie znacznie mocniej zmienia kształt gwiazdozbioru niż podróż do Proximy Centauri.
+- Sterowanie dotykiem: przeciąganie panoramy, wskazywanie gwiazdy do wyznaczenia kursu, suwak pozycji na trasie, kierowanie na cel, Oriona lub Słońce, powrót do miejsca startu.
+- Przy starcie krótki **wyraźnie podpisany prolog ilustrujący opuszczenie Układu Słonecznego**. Orbity narysowano w schematycznej skali logarytmicznej AU; nie należy mylić ich z następującą później liniową skalą lat świetlnych.
+
+**Rzetelność naukowa:** podstawą współrzędnych są rektascensja i deklinacja J2000, z odległościami z dawnych pomiarów paralaksy **Hipparcos/Yale Bright Star Catalogue** (public-domain compilation Geir Isene). Dodatkowo uwzględniono najbliższe gwiazdy z zestawienia RECONS/Gliese. Wszystkie punkty mają rzeczywiste współrzędne w latach świetlnych, nie losowo rozrzucone dekoracje. Katalog **nie jest nowym, pełnym katalogiem Gaia DR3** — to osobny etap ewentualnej przyszłej aktualizacji. Wpisy bez wiarygodnej odległości nie otrzymują sztucznej głębokości. Cztery ważne, niepewne odległości (*Betelgeuse*, *Alnilam*, *Mintaka*, *Deneb*) zostały uzupełnione jawnymi oszacowaniami z literatury, oznaczonymi w danych odpowiednim kodem, a w interfejsie napisem „odległość szacunkowa”, jeżeli obiekt jest celem podróży.
+
+**Model fizyczny:** tor statku to odcinek prosty w heliocentrycznym układzie współrzędnych J2000. Przy stałej prędkości \`β=v/c\` i długości \`D\` lat świetlnych upływ czasu w układzie Słońca to \`D/β\` lat, czasu na pokładzie \`D/(βγ)\`, gdzie \`γ=1/sqrt(1−β²)\`. Wzór na aberrację przelicza składową kierunku gwiazdy równoległą do lotu \`cos(θ′)=(cosθ+β)/(1+βcosθ)\`, a czynnik Dopplera częstotliwości wynosi \`δ=γ(1+βcosθ)\`. Obserwator znajduje się w przestrzeni euklidesowej z ustalonymi gwiazdami. **Nie uwzględniono:** fizycznego przyspieszania i hamowania, grawitacji, ruchów własnych gwiazd na przestrzeni setek lat, opóźnienia propagacji światła widzianego z różnych epok, a także szczegółów względności ogólnej. Efekty deformacji gwiazdozbiorów wynikają z obecnych współrzędnych przestrzennych, natomiast liczby czasu własnego i wzór aberracji są poprawne dla przyjętego modelu ruchu jednostajnego.
+
+**Źródła:**
+- Geir Isene, *starmap*, pozycje i odległości ~9 tys. jasnych gwiazd z Yale Bright Star Catalogue / Hipparcos; dane gwiazd public domain: https://github.com/isene/starmap/blob/master/data/README.md
+- Mike Bertin, *proxima*, zestawienie najbliższych sąsiadów Słońca według RECONS/Gliese: https://github.com/MikeBertin/proxima
+- Royal Museums Greenwich, materiały o dystansach gwiazd Oriona, oraz NASA Night Sky Network — Deneb i niepewność jego odległości: https://nightsky.jpl.nasa.gov/documents/215/NightSkyNotes_Aug2020_Deneb.pdf
+- Olaf Frohn, *d3-celestial* (BSD-3-Clause), tradycyjne linie figur gwiazdozbiorów, wykorzystane już w Obserwatorium 18.1: https://github.com/ofrohn/d3-celestial
+- Wprowadzenie do szczególnej teorii względności: https://people.maths.bris.ac.uk/~macpd/spec_rel/notes.pdf
+
+Pliki: \`js/interstellar19-data.js\`, \`js/interstellar19-core.js\`, \`js/interstellar19-ui.js\`, \`css/interstellar19.css\`, \`tests/interstellar19.test.cjs\`. Test: \`node tests/interstellar19.test.cjs\`. Zestaw GitHub Actions wykonuje również regresję modułów 17.0–18.1.
+
+---
 
 ## Nowość 18.1 — Gwiazdozbiory i katalog Messiera
 

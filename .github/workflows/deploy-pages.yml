@@ -19,6 +19,7 @@ on:
       - 'atlas.html'
       - '404.html'
       - 'tests/pulsar32.test.cjs'
+      - 'tests/pulsar32-visual.test.cjs'
       - 'tests/pulsar32-browser.test.cjs'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
@@ -53,14 +54,16 @@ jobs:
           test -d data
           test -f .nojekyll
           test -s portal/data.js
+          test -s portal/pulsar32-cinema.js
           test -s portal/pulsar32-ui.js
           test -s laboratoria/pulsar/index.html
           test -s etapy/32/index.html
           node --check portal/data.js
           node --check portal/site.js
           node --check portal/pulsar32-core.js
+          node --check portal/pulsar32-cinema.js
           node --check portal/pulsar32-ui.js
-          node --test tests/pulsar32.test.cjs
+          node --test tests/pulsar32.test.cjs tests/pulsar32-visual.test.cjs
           node tests/pulsar32-browser.test.cjs
           node --check js/app.js
           node --check js/blackhole201-core.js
@@ -73,6 +76,7 @@ jobs:
           rsync -a --exclude='.git/' --exclude='.github/' --exclude='_site/' --exclude='tests/' --exclude='scripts/' --exclude='*.md' --exclude='*.py' ./ _site/
           test -s _site/etapy/32/index.html
           test -s _site/laboratoria/pulsar/index.html
+          test -s _site/portal/pulsar32-cinema.js
           echo "Publishing commit: ${GITHUB_SHA}"
           echo "Published title:"
           grep -m 1 -o '<title>[^<]*</title>' _site/index.html

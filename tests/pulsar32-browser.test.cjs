@@ -6,9 +6,12 @@ const css=read('portal/pulsar32.css');
 assert.match(css,/overflow-x:hidden/,'Dokument musi mieć zabezpieczenie przed przewijaniem poziomym');
 assert.match(css,/@media\(max-width:590px\)/,'Wymagany układ na telefon');
 assert.match(css,/@media\(max-width:850px\)/,'Wymagany układ na tablet');
+assert.match(css,/\.p32-quality/,'Tryby jakości obrazu są dostępne');
+assert.match(read('portal/pulsar32-ui.js'),/AtlasPulsar32Cinema/,'Nowa warstwa musi być podłączona do działającego UI');
 const markup=read('laboratoria/pulsar/index.html')
  .replace('<link rel="stylesheet" href="../../portal/pulsar32.css">','<style>'+css+'</style>')
  .replace('<script src="../../portal/pulsar32-core.js"></script>','<script>'+read('portal/pulsar32-core.js')+'</script>')
+ .replace('<script src="../../portal/pulsar32-cinema.js"></script>','<script>'+read('portal/pulsar32-cinema.js')+'</script>')
  .replace('<script src="../../portal/pulsar32-ui.js"></script>','<script>'+read('portal/pulsar32-ui.js')+'</script>');
 const chrome=['chromium','google-chrome','chromium-browser'].find(name=>cp.spawnSync('which',[name],{encoding:'utf8'}).status===0);
 if(!chrome){console.log('SKIP browser pulsar32: Chromium unavailable');process.exit(0)}

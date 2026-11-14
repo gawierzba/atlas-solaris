@@ -45,7 +45,7 @@ test('Powiększenie maleje do 1 daleko od osi',()=>{
 test('Etap 31 współistnieje z historycznym etapem 27',()=>{
  const json=JSON.parse(fs.readFileSync(path.join(__dirname,'../portal/catalog.json'),'utf8'));
  const js=fs.readFileSync(path.join(__dirname,'../portal/data.js'),'utf8');
- assert.equal(json.version,'31.0');
+ assert.ok(Number.parseFloat(json.version)>=31,'Nowsza wersja zachowuje etap 31');
  assert.equal(json.stages['31'].path,'etapy/31/');
  assert.equal(json.stages['27'].number,27);
  assert.equal(json.stages['27'].milestone,true);

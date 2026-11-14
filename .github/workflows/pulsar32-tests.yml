@@ -4,11 +4,13 @@ on:
     paths:
       - 'portal/pulsar32-core.js'
       - 'tests/pulsar32.test.cjs'
+      - 'tests/pulsar32-browser.test.cjs'
       - '.github/workflows/pulsar32-tests.yml'
   pull_request:
     paths:
       - 'portal/pulsar32-core.js'
       - 'tests/pulsar32.test.cjs'
+      - 'tests/pulsar32-browser.test.cjs'
       - '.github/workflows/pulsar32-tests.yml'
   workflow_dispatch:
 jobs:
@@ -19,4 +21,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: node --check portal/pulsar32-ui.js
       - run: node --test tests/pulsar32.test.cjs
+      - run: node tests/pulsar32-browser.test.cjs

@@ -63,7 +63,7 @@ function init(){
  const dialog=$('bh20Dialog'),canvas=$('bh20Canvas'),raysCanvas=$('bh20Rays');
  if(!core||!rendererEngine||!dialog||!canvas||!raysCanvas)return;
  const state={preset:'sagittarius',distance:32,inclination:64,fov:50,roll:0,
-  clockR:2.6,quality:.65,lensing:true,disk:true,doppler:true,
+  clockR:2.6,quality:root.innerWidth<650?.45:.65,lensing:true,disk:true,doppler:true,
   time:0,animate:false,rayAnimate:false,rayProgress:1,inspected:null,
   previousPlaying:false,webgl:null,webglError:'',raf:0,lastTick:0,
   lastRender:0,drag:null,dirty:true,opening:false};
@@ -97,7 +97,7 @@ function init(){
   $('bh20Critical').textContent='Krytyczny b = 3√3 r_g ≈ '+format(core.PHOTON_B,3)+' r_g';
   $('bh20ViewInfo').textContent='r = '+format(state.distance,0)+' r_g · i = '+
    format(state.inclination,0)+'° · obrót kamery '+format(state.roll,0)+'°';
-  $('bh20RenderMode').textContent=state.lensing?
+  $('bh20RenderMode').textContent=state.webglError?'WEBGL2 NIEDOSTĘPNY':state.lensing?
    'WEBGL2 · GEODEZYJNE OTW':'WEBGL2 · PROMIENIE PROSTE (KONTROLA)';
   $('bh20Field').textContent=state.lensing?
    'u″ + u = 3Mu² · r_s = 2M':'u″ + u = 0 · model płaski, porównawczy';
@@ -269,6 +269,7 @@ function init(){
   dialog.addEventListener('cancel',e=>{e.preventDefault();close();});
   dialog.addEventListener('click',e=>{if(e.target===dialog)close();});
   $('bh20Preset').addEventListener('change',setPreset);
+  $('bh20Quality').value=String(state.quality);
   adjust('bh20Distance','distance');
   adjust('bh20Incline','inclination');
   adjust('bh20Fov','fov');

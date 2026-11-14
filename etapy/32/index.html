@@ -1,17 +1,149 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050917">
-<title>Pulsar — kosmiczna latarnia | ATLAS SOLARIS 32.0</title><meta name="description" content="Gwiazda neutronowa, obrotowa wiązka promieniowania, syntetyczny radioteleskop, profile impulsów i pomiar okresu.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="32" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 32 / Gwiazdy i czas</span><strong>Pulsar. Kosmiczna latarnia</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport">
-<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Oś magnetyczna · sygnał radiowy · pomiar okresu…</small></div>
-<iframe id="stageFrame" title="Pulsar — kosmiczna latarnia, laboratorium 3D i radioteleskop" src="../../laboratoria/pulsar/index.html?v=32.4-lite" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button> · <a href="../../laboratoria/pulsar/index.html?v=32.4-lite">Otwórz bezpośrednio</a></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 32</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
-<h1>Pulsar. Kosmiczna latarnia</h1><p class="stage-lead">Gwiazda neutronowa, sygnał i wirtualny radioteleskop</p>
-<p>Zmień okres rotacji, położenie obserwatora, nachylenie osi magnetycznej i szerokość wiązek. Obserwuj przestrzenny model, odczytaj sztuczny sygnał z radioteleskopu i wyznacz okres metodą autokorelacji. Włącz dźwięk, żeby usłyszeć sonifikowane impulsy w tempie demonstracyjnym.</p>
-<p class="stage-info-note">To model geometrii latarni, a nie realistyczny opis magnetosfery. Sygnały, szum i dźwięk są generowane lokalnie; nie są obserwacjami prawdziwego pulsara. Prędkość animacji 3D jest niezależna od fizycznego okresu rotacji.</p><div id="stageRelated"></div>
-</aside><noscript><p class="stage-nojs">JavaScript jest niezbędny do działania laboratorium.</p></noscript></body></html>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050b19">
+<title>Pulsar. Niebo ma swój rytm — artykuł i laboratorium | ATLAS SOLARIS</title>
+<meta name="description" content="Jak Jocelyn Bell Burnell odkryła pulsary? Poznaj historię sygnału z 1967 roku, fizykę gwiazd neutronowych, zobacz prawdziwe obserwacje i samodzielnie zbadaj kosmiczną latarnię.">
+<meta property="og:title" content="Pulsar. Niebo ma swój rytm | ATLAS SOLARIS">
+<meta property="og:description" content="Opowieść o odkryciu pulsarów, obrazy z kosmosu i interaktywne laboratorium.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/pulsar32-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/pulsar32-story.css?v=32.5">
+<script src="../../portal/data.js" defer></script>
+<script src="../../portal/stage.js?v=32.5" defer></script>
+</head>
+<body data-route="32" data-kind="stage" class="p32-story-page">
+<a class="p32-skip" href="#historia">Przejdź do artykułu</a>
+<header class="stage-nav">
+ <a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+ <div class="stage-crumb"><span>ETAP 32 / GWIAZDY I CZAS</span><strong>Pulsar. Kosmiczna latarnia</strong></div>
+ <nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main p32-story-main" id="main">
+<article class="p32-story" aria-labelledby="p32HeroTitle">
+ <section class="p32-cover" aria-label="Pulsar — kosmiczna latarnia">
+  <img class="p32-cover-art" src="../../portal/media/pulsar32-cover.svg" width="1600" height="900" fetchpriority="high" alt="Artystyczna statyczna ilustracja pulsara — świetlista gwiazda neutronowa, obiegające ją linie pola i umowne wiązki promieniowania na tle kosmosu.">
+  <div class="p32-cover-mask"></div>
+  <div class="p32-cover-inner">
+    <div class="p32-superline"><span class="p32-signal-dot"></span> ATLAS SOLARIS <span>/</span> OPOWIEŚCI O WSZECHŚWIECIE <span>/</span> 32</div>
+    <div class="p32-cover-copy">
+     <span class="p32-chapter">ROZDZIAŁ 32 · ASTROFIZYKA</span>
+     <h1 id="p32HeroTitle">W kosmosie coś <em>odmierza czas.</em></h1>
+     <p class="p32-hero-lead">W 1967 roku z nieznanego źródła nadchodził sygnał tak regularny, że przez chwilę trudno było uwierzyć, iż stworzyła go natura. Tak zaczęła się historia pulsarów.</p>
+     <div class="p32-cover-actions">
+       <a class="p32-primary-link" href="#historia">Poznaj tę historię <span aria-hidden="true">↓</span></a>
+       <a class="p32-secondary-link" href="#laboratorium" id="stageLaunch">Przejdź do laboratorium <span aria-hidden="true">↗</span></a>
+     </div>
+    </div>
+    <div class="p32-cover-foot">
+     <span>HISTORIA ODKRYCIA · FIZYKA · PRAWDZIWE OBSERWACJE · EKSPERYMENT</span>
+     <span>ILUSTRACJA ARTYSTYCZNA · NIE ZDJĘCIE</span>
+    </div>
+  </div>
+ </section>
+ <div class="p32-reading-meta"><span>ATLAS SOLARIS / BIBLIOTEKA WIEDZY</span><span>ARTYKUŁ POPULARNONAUKOWY · OKOŁO 7 MIN CZYTANIA</span></div>
+ <section class="p32-chapter-section p32-intro" id="historia">
+  <div class="p32-section-index"><span>01 / ŚLAD NA PAPIERZE</span><span class="p32-index-line"></span><span>CAMBRIDGE · 1967</span></div>
+  <div class="p32-section-body">
+   <p class="p32-overline">WSZYSTKO ZACZĘŁO SIĘ OD CZEGOŚ, CO WYGLĄDAŁO JAK ZAKŁÓCENIE</p>
+   <h2>Wśród kilometrów szumu ukrywała się <em>nowa klasa gwiazd.</em></h2>
+   <p class="p32-dropcap">Jocelyn Bell, doktorantka Uniwersytetu Cambridge, analizowała w 1967 roku papierowe zapisy radioteleskopu. Aparatura miała pomagać w badaniu odległych kwazarów, a papier z rejestratora pokrywał się pozornie chaotycznymi liniami. Na jednej z taśm Bell dostrzegła niepozorny, powtarzający się ślad. Nie przypominał zwykłego szumu.</p>
+   <p>W sierpniu zauważyła pierwszą anomalię. Zwracała uwagę, że sygnał wracał z tego samego rejonu nieba, zgodnie z rytmem gwiazd, a nie ziemskiego zegara. Trzeba było wykluczyć zakłócenia radiowe, usterki i sygnały pochodzenia ludzkiego. Szybszy zapis z <strong>28 listopada 1967 roku</strong> pokazał coś zdumiewającego: regularny ciąg impulsów, jeden co około <strong>1,337 sekundy</strong>. <a class="p32-cite" href="#zrodla" aria-label="Źródła 1 i 2">[1, 2]</a></p>
+   <p>Na chwilę pojawiła się nawet żartobliwa nazwa LGM — od angielskiego „Little Green Men”. Nie chodziło o dowód istnienia obcych, lecz o to, jak zagadkowe wydawało się zjawisko. Wkrótce odnaleziono kolejne źródła. W lutym 1968 roku zespół ogłosił odkrycie nowego rodzaju obiektu astronomicznego. <a class="p32-cite" href="#zrodla" aria-label="Źródło 2">[2]</a></p>
+   <aside class="p32-fact-line" aria-label="Najważniejsza liczba"><span class="p32-fact-value">1,337<span> s</span></span><span class="p32-fact-text">Odstęp między impulsami pierwszego pulsara, dziś znanego jako PSR B1919+21. To nie była przerwa między wysłanymi wiadomościami — to rytm obserwowanej emisji.</span></aside>
+  </div>
+ </section>
+ <figure class="p32-signal-sheet" aria-labelledby="p32SignalCaption">
+  <div class="p32-signal-sheet-head"><span>NOTATNIK RADIOASTRONOMA / REKONSTRUKCJA</span><span>PRZEBIEG POGLĄDOWY · NIE ZAPIS HISTORYCZNY</span></div>
+  <svg viewBox="0 0 1080 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Poglądowy wykres: powtarzające się impulsy radiowe w regularnych odstępach na tle drobnego szumu." preserveAspectRatio="none">
+   <defs><pattern id="grid32" width="45" height="30" patternUnits="userSpaceOnUse"><path d="M45 0H0V30" fill="none" stroke="#536b7a" stroke-width=".7" opacity=".2"/></pattern></defs>
+   <rect x="0" y="0" width="1080" height="180" fill="url(#grid32)"/>
+   <path d="M0 128 L18 124 L32 130 L44 126 L66 132 L77 124 L89 127 L103 120 L114 124 L130 116 L140 112 L147 60 L153 35 L159 78 L166 113 L177 126 L198 124 L214 131 L230 123 L247 125 L265 131 L282 126 L295 115 L307 108 L316 60 L323 34 L331 79 L340 116 L357 129 L380 123 L400 130 L418 126 L438 130 L451 121 L466 124 L482 115 L492 107 L502 52 L509 29 L517 78 L526 112 L541 124 L559 129 L579 122 L596 127 L619 129 L634 124 L648 129 L663 116 L674 104 L681 54 L688 31 L695 70 L706 111 L722 128 L742 126 L759 131 L775 124 L799 127 L820 123 L837 128 L844 117 L854 111 L865 65 L874 34 L882 82 L894 117 L911 124 L929 127 L945 123 L968 131 L983 126 L1000 129 L1020 124 L1045 127 L1062 121 L1080 125" fill="none" stroke="#b5edf5" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+   <path d="M0 155H1080" stroke="#456478" stroke-width="1"/>
+   <g stroke="#9af0ef" opacity=".55" stroke-dasharray="3 6"><path d="M153 17V151M323 17V151M509 17V151M688 17V151M874 17V151"/></g>
+  </svg>
+  <figcaption id="p32SignalCaption"><strong>Pięć regularnych impulsów.</strong> Tak można wyobrazić sobie zasadę rejestracji pulsara. To schemat autorski, a nie oryginalna taśma Jocelyn Bell Burnell ani rzeczywisty sygnał pomiarowy.</figcaption>
+ </figure>
+ <section class="p32-chapter-section" id="jak-dziala">
+  <div class="p32-section-index"><span>02 / MECHANIZM</span><span class="p32-index-line"></span><span>FIZYKA GWIAZDY</span></div>
+  <div class="p32-section-body">
+   <p class="p32-overline">ZAGADKA MA ROZWIĄZANIE</p>
+   <h2>Gwiazda nie musi gasnąć i rozbłyskać. <em>Wystarczy, że się obraca.</em></h2>
+   <p>Gdy masywna gwiazda kończy życie w wybuchu supernowej, w pewnych warunkach pozostawia po sobie niezwykle gęste jądro: <strong>gwiazdę neutronową</strong>. Obiekt o średnicy rzędu kilkudziesięciu kilometrów może mieć masę porównywalną z masą Słońca lub większą. To materia w warunkach, których nie potrafimy odtworzyć w laboratorium na Ziemi.</p>
+   <p>Gwiazda neutronowa może szybko wirować i mieć niezwykle silne pole magnetyczne. Jeżeli kierunek osi magnetycznej nie pokrywa się z osią obrotu, obszary emisji omiatają przestrzeń. Obserwator odbiera impulsy tylko wtedy, gdy promieniowanie dociera w jego stronę. Nie jest to więc koniecznie pulsowanie całego obiektu, lecz <strong>pulsowanie sygnału widzianego z konkretnego kierunku</strong>. <a class="p32-cite" href="#zrodla" aria-label="Źródło 3">[3]</a></p>
+   <div class="p32-principles" aria-label="Trzy elementy kosmicznej latarni">
+    <div><span class="p32-principle-n">I</span><h3>Oś obrotu</h3><p>Wyznacza kierunek, wokół którego wiruje gwiazda.</p></div>
+    <div><span class="p32-principle-n">II</span><h3>Oś magnetyczna</h3><p>Może być nachylona względem osi obrotu.</p></div>
+    <div><span class="p32-principle-n">III</span><h3>Linia widzenia</h3><p>Decyduje, czy obserwator znajdzie się na drodze promieniowania.</p></div>
+   </div>
+   <p class="p32-subtle">Ważne: świecące stożki w symulatorze są umownym sposobem pokazania kierunku emisji. Fal radiowych nie zobaczylibyśmy gołym okiem jako świetlnych reflektorów. Rzeczywista magnetosfera pulsara jest znacznie bardziej złożona.</p>
+  </div>
+ </section>
+ <section class="p32-quote-panel" aria-label="Sedno zagadki">
+  <span>JEDNO ZDANIE, KTÓRE ZMIENIA PERSPEKTYWĘ</span>
+  <p>To nie Wszechświat mruga do nas. To <em>my znajdujemy się na drodze jego światła.</em></p>
+  <small>Światła w znaczeniu promieniowania elektromagnetycznego — niekoniecznie widzialnego.</small>
+ </section>
+ <section class="p32-chapter-section" id="obserwacje">
+  <div class="p32-section-index"><span>03 / PRAWDZIWE NIEBO</span><span class="p32-index-line"></span><span>OD ODKRYCIA DO OBSERWACJI</span></div>
+  <div class="p32-section-body">
+   <p class="p32-overline">PULSAR NIE JEST TYLKO WZOREM NA WYKRESIE</p>
+   <h2>W sercu Mgławicy Kraba tyka <em>jeden z najsłynniejszych pulsarów.</em></h2>
+   <p>W 1054 roku obserwatorzy nieba odnotowali pojawienie się niezwykle jasnej „nowej gwiazdy”. Dziś wiemy, że w tym rejonie Byka znajduje się pozostałość po supernowej — Mgławica Kraba, oznaczana także jako M1. Jej centrum zasila pulsar wykonujący około 30 obrotów na sekundę: pełen obrót trwa mniej więcej 33 milisekundy. <a class="p32-cite" href="#zrodla" aria-label="Źródło 4">[4]</a></p>
+   <figure class="p32-observation">
+    <div class="p32-observation-photo"><img src="https://chandra.harvard.edu/photo/2008/crab/crab_lg.jpg" loading="lazy" decoding="async" width="800" height="800" referrerpolicy="no-referrer" alt="Obserwacja rentgenowska Mgławicy Kraba wykonana przez Chandra X-ray Observatory — jasna struktura z pierścieniami i strumieniami wokół centralnego pulsara."></div>
+    <figcaption><span>OBSERWACJA · PROMIENIOWANIE RENTGENOWSKIE</span><strong>Mgławica Kraba — Chandra X-ray Observatory</strong><p>Jasny punkt w centrum to gwiazda neutronowa; rozświetlone struktury wokół niej pokazują oddziaływanie energetycznych cząstek z otoczeniem. Barwy zdjęcia są przypisane do danych rentgenowskich, nie odpowiadają temu, co zobaczyłoby ludzkie oko.</p><small>Źródło i autorstwo: NASA/CXC/SAO/F. Seward i in. · <a href="https://chandra.harvard.edu/photo/2008/crab/" target="_blank" rel="noopener noreferrer">zobacz opis obserwacji</a>.</small></figcaption>
+   </figure>
+   <p>Nie wszystkie pulsary wysyłają sygnał wykrywalny z Ziemi. Nie wszystkie obserwujemy tylko w falach radiowych: wiele badamy również w promieniowaniu rentgenowskim i gamma. Wrażliwa aparatura pozwala wykorzystywać regularność impulsów do sprawdzania zachowania ekstremalnej materii, precyzyjnych pomiarów czasu, a nawet badań nad nawigacją w przestrzeni kosmicznej. <a class="p32-cite" href="#zrodla" aria-label="Źródła 3 i 5">[3, 5]</a></p>
+  </div>
+ </section>
+ <div class="p32-numbers" aria-label="Trzy skale czasu"><div><span>ODKRYCIE</span><strong>1,337 s</strong><small>Pierwszy rozpoznany pulsar</small></div><div><span>MGŁAWICA KRABA</span><strong>~33 ms</strong><small>Około 30 obrotów na sekundę</small></div><div><span>WARIANT LABORATORYJNY</span><strong>5 ms</strong><small>200 obrotów na sekundę</small></div></div>
+ <section class="p32-experiment-intro" aria-labelledby="p32ExperimentTitle">
+  <div class="p32-section-index"><span>04 / TWOJA KOLEJ</span><span class="p32-index-line"></span><span>SPRAWDŹ HIPOTEZĘ</span></div>
+  <div class="p32-section-body">
+   <p class="p32-overline">PRZECZYTAŁEŚ HISTORIĘ. TERAZ PRZEJMIJ STEROWANIE.</p>
+   <h2 id="p32ExperimentTitle">Czy potrafisz <em>odnaleźć impuls?</em></h2>
+   <p>Za chwilę uruchomisz uproszczony model rotującej gwiazdy neutronowej. Zanim poruszysz suwaki, spróbuj przewidzieć wynik trzech prób:</p>
+   <div class="p32-missions">
+    <div><span>01</span><h3>Złap wiązkę</h3><p>Ustaw kąt obserwatora ζ blisko nachylenia osi magnetycznej α. Sprawdź, jak zmienia się odbiór.</p></div>
+    <div><span>02</span><h3>Odnajdź ciszę</h3><p>Wybierz „Radiowa cisza”. Czy pulsar przestaje istnieć — czy tylko wiązka omija teleskop?</p></div>
+    <div><span>03</span><h3>Zmierz czas</h3><p>Wybierz wariant 5 ms i spróbuj odzyskać okres z zaszumionego sygnału odbiornika.</p></div>
+   </div>
+   <p class="p32-lab-disclaimer">Laboratorium generuje dane syntetyczne. Model opisuje geometrię widzenia i okresowość, ale nie oblicza pełnej fizyki magnetosfery ani rzeczywistej emisji radiowej.</p>
+  </div>
+ </section>
+</article>
+<section class="p32-lab-block" id="laboratorium" aria-label="Interaktywne laboratorium pulsara">
+ <div class="p32-lab-head"><div><span>ATLAS SOLARIS · LABORATORIUM 32</span><h2>Teraz Wszechświat jest <em>w Twoich rękach.</em></h2><p>Przesuwaj suwaki, obracaj kamerę i zbadaj, kiedy kosmiczna latarnia staje się widoczna dla radioteleskopu.</p></div><span class="p32-lab-state">INTERAKTYWNA SYMULACJA · TRYB LEKKI</span></div>
+ <div id="stageViewport" class="stage-viewport">
+  <div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Prosty model graficzny · sygnał · pomiar okresu</small></div>
+  <iframe id="stageFrame" title="Pulsar: interaktywne laboratorium geometryczne i radioteleskop" data-lazy="true" data-src="../../laboratoria/pulsar/index.html?v=32.4-lite" allow="fullscreen" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+ </div>
+ <div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button> · <a href="../../laboratoria/pulsar/index.html?v=32.4-lite">Otwórz bezpośrednio</a></div>
+ <p class="p32-lab-caption">Animacja jest celowo uproszczona i spowolniona, aby działała płynnie także na telefonach. Barwy i wielkości na ekranie są ilustracyjne, a pomiar dotyczy danych wygenerowanych przez model.</p>
+</section>
+<section class="p32-outro" id="zrodla">
+ <div class="p32-section-index"><span>05 / ŹRÓDŁA</span><span class="p32-index-line"></span><span>SPRAWDŹ SAM</span></div>
+ <div class="p32-section-body"><h2>Skąd to wiemy?</h2><p>Historia opiera się na relacjach z odkrycia i materiałach instytucji naukowych. Obok autorskiej ilustracji oddzielnie pokazujemy prawdziwe obserwacje. Warto porównać jedno z drugim — to dwie różne formy poznawania kosmosu.</p>
+ <ol class="p32-sources">
+  <li><a href="https://www.nasa.gov/missions/station/nasa-continues-to-study-pulsars-50-years-after-their-chance-discovery/" target="_blank" rel="noopener noreferrer">NASA — 50 lat od odkrycia pulsarów</a><span>Przebieg obserwacji, zapis 1,33730 s, Jocelyn Bell Burnell.</span></li>
+  <li><a href="https://www.astro.phy.cam.ac.uk/outreach/astronomy-podcasts/journeys-discovery-jocelyn-bell-burnell-and-pulsars" target="_blank" rel="noopener noreferrer">Uniwersytet Cambridge — rozmowa z Jocelyn Bell Burnell</a><span>Historyczny kontekst i własna relacja badaczki.</span></li>
+  <li><a href="https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-pulsars/" target="_blank" rel="noopener noreferrer">NASA Science — czym są pulsary?</a><span>Mechanizm latarni, wirowanie i promieniowanie.</span></li>
+  <li><a href="https://chandra.harvard.edu/photo/2008/crab/" target="_blank" rel="noopener noreferrer">Chandra X-ray Observatory — Mgławica Kraba</a><span>Obraz rentgenowski, opis struktur i oznaczenie źródła.</span></li>
+  <li><a href="https://science.nasa.gov/mission/nicer/" target="_blank" rel="noopener noreferrer">NASA NICER — pulsary jako narzędzia badań i nawigacji</a><span>Współczesne zastosowania obserwacji gwiazd neutronowych.</span></li>
+ </ol>
+ <p class="p32-editorial-note">Opracowanie popularnonaukowe ATLAS SOLARIS. Wartości liczbowe są przybliżone i dobrane do celu wyjaśnienia zjawisk. Zdjęcie NASA/CXC/SAO/F. Seward i in. jest osobną, zewnętrzną obserwacją. Ilustracja otwierająca rozdział oraz wykres impulsów to autorskie schematy poglądowe.</p></div>
+</section>
+<div class="p32-last-line"><span>ATLAS SOLARIS / 32</span><span>NAJPIERW ZROZUMIEĆ. POTEM ODKRYWAĆ.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></div>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie">
+ <div class="stage-info-head"><span>ATLAS SOLARIS / ETAP 32</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+ <h2>Pulsar. Kosmiczna latarnia</h2>
+ <p class="stage-lead">Artykuł popularnonaukowy i interaktywne laboratorium</p>
+ <p>Przeczytaj historię odkrycia, poznaj zasadę działania i przejdź do modelu sygnału radiowego. W laboratorium zmieniaj kąty osi, obserwatora, szerokość wiązki, okres i szum — a potem zmierz okres metodą autokorelacji.</p>
+ <p class="stage-info-note">Emisja, kolory i trójwymiarowe wiązki przedstawione w symulatorze to model poglądowy. Wyniki dotyczą danych syntetycznych, nie oryginalnych pomiarów radioteleskopu.</p>
+ <div id="stageRelated"></div>
+</aside>
+<noscript><p class="stage-nojs">Do uruchomienia laboratorium potrzebny jest JavaScript. Artykuł można czytać bez niego.</p></noscript>
+</body></html>

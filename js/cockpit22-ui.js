@@ -424,6 +424,7 @@ function init(){
     return setupConfig(item.cfg,key,item.name);
    },
    setTau(t){state.tau=C.clamp(t,0,state.trajectory.properElapsed);schedule();},
+   renderNow:()=>{if(dialog.open)paint(true);},
    getState:()=>({preset:state.preset,spin:state.config.spin,
     tau:state.tau,playing:state.playing,aim:state.aim,relativity:state.relativity,
     webglAvailable:!!state.gpu,error:state.gpuError,

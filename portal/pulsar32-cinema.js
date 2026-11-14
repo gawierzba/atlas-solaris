@@ -148,19 +148,21 @@ function fieldLines(ctx,P,m,layer,quality,phase){
      add(mul(e1,radius*Math.sin(t)*ca),mul(e2,radius*Math.sin(t)*sa)));
     pts.push(proj(p));
    }
-   for(const side of [0,1]){
-    if(layer!==side)continue;
-    const filtered=[];const color= j%2?
-     (layer?'rgba(167,165,255,.54)':'rgba(112,109,245,.23)'):
-     (layer?'rgba(96,249,248,.55)':'rgba(70,178,210,.22)');
-    // Individual visible segments rather than drawing the back side through the star.
-    for(let i=1;i<pts.length;i++){
-     if((pts[i].z>=0?1:0)===layer && (pts[i-1].z>=0?1:0)===layer){
-      const seg=[pts[i-1],pts[i]];
-      stroke(ctx,seg,color,layer?1.22:.75,layer?9:0);
-     }
+   const color=j%2?
+    (layer?'rgba(167,165,255,.54)':'rgba(112,109,245,.23)'):
+    (layer?'rgba(96,249,248,.55)':'rgba(70,178,210,.22)');
+   let continuous=[];
+   for(let i=1;i<pts.length;i++){
+    const visible=(pts[i].z>=0?1:0)===layer&&(pts[i-1].z>=0?1:0)===layer;
+    if(visible){
+     if(!continuous.length)continuous.push(pts[i-1]);
+     continuous.push(pts[i]);
+    }else if(continuous.length){
+     stroke(ctx,continuous,color,layer?1.22:.75,layer?7:0);
+     continuous=[];
     }
    }
+   if(continuous.length)stroke(ctx,continuous,color,layer?1.22:.75,layer?7:0);
    if(layer&&quality==='cinema'&&j%2===0){
     const t=(phase*.55+j*.2)%1,idx=Math.max(0,Math.min(steps,Math.floor(t*steps))),p=pts[idx];
     if(p.z>0){

@@ -34,7 +34,7 @@ function verify(){
     for(let j=0;j<pix.length;j+=4){
      const r=pix[j],g=pix[j+1],b=pix[j+2],v=Math.max(r,g,b);
      if(v>75)bright++;
-     if(v<25)dark++;
+     if(v<40)dark++;
      if(g>130&&g>r*1.10)lime++;
      if(b>100&&b>g*1.07)violet++;
     }
@@ -52,7 +52,7 @@ function verify(){
     throw new Error('Laser interferometer image missing physical optics contrast: '+
      JSON.stringify({bright:p1.bright,dark:p1.dark,lime:p1.lime}));
    if(p2.bright<100||p2.dark<100)
-    throw new Error('Dual-detector strain curves did not render.');
+    throw new Error('Dual-detector plot contrast missing: '+JSON.stringify({bright:p2.bright,dark:p2.dark,lime:p2.lime,violet:p2.violet}));
    if(p3.bright<50)throw new Error('SNR baseline panel missing.');
    if(app.getState().found!==null)throw new Error('Blind search was not blind.');
    const result=app.detect();

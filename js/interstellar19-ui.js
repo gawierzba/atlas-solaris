@@ -73,13 +73,16 @@ function init(){
   const f=flight();
   if(mode==='target')setCameraTo(core.sub(state.target.p,f.position));
   else if(mode==='orion')setCameraTo(orionDirection(f.position));
-  else if(mode==='sun')setCameraTo(core.mul(f.position[0]||f.position[1]||f.position[2]?f.position:f.direction,-1));
+  else if(mode==='sun')setCameraTo(core.mul(core.norm(f.position)>1e-7?f.position:f.direction,-1));
   render();
  }
  function updateAutoCamera(f){
-  if(state.view==='target')setCameraTo(core.sub(state.target.p,f.position)||f.direction);
+  if(state.view==='target'){
+   const ray=core.sub(state.target.p,f.position);
+   if(core.norm(ray)>1e-7)setCameraTo(ray);
+  }
   else if(state.view==='orion')setCameraTo(orionDirection(f.position));
-  else if(state.view==='sun')setCameraTo(core.mul(f.position[0]||f.position[1]||f.position[2]?f.position:f.direction,-1));
+  else if(state.view==='sun')setCameraTo(core.mul(core.norm(f.position)>1e-7?f.position:f.direction,-1));
  }
  function resize(canvasElement){
   const rect=canvasElement.getBoundingClientRect();

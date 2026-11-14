@@ -113,6 +113,18 @@
           <button id="obs18Next" type="button">+ 1 dzień</button>
           <button id="obs18DarkJump" type="button">☼ Słońce najniżej</button>
         </div>
+        <div class="obs18-playbar">
+          <button id="obs18Play" type="button">▶ Odtwórz noc</button>
+          <label for="obs18Speed">TEMPO ANIMACJI
+            <select id="obs18Speed">
+              <option value="300">5 min / s</option>
+              <option value="900">15 min / s</option>
+              <option value="1800" selected>30 min / s</option>
+              <option value="3600">1 godz. / s</option>
+            </select>
+          </label>
+          <span id="obs18Playback">Animacja zatrzymana</span>
+        </div>
         <p id="obs18NightSummary" class="obs18-night-summary">Obliczanie warunków nocy…</p>
         <div class="obs18-list-head"><strong>Obiekty do obserwacji</strong><span>Sortowane według warunków w ciągu 24 h</span></div>
         <label class="obs18-search-label" for="obs18Search"><span>WYSZUKAJ OBIEKT</span><input id="obs18Search" type="search" autocomplete="off" placeholder="np. Jowisz, Saturn, Syriusz, Wega…"></label>

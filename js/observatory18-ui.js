@@ -36,7 +36,8 @@ function init(){
  const pos=()=>api.getObservatoryContext();
  const toNumber=(v,dp=1)=>Number.isFinite(v)?v.toFixed(dp).replace('.',','):'—';
  const mm=n=>Number.isFinite(n)?Math.round(n).toLocaleString('pl-PL'):'—';
- const bodyInfo=t=>t.kind==='star'?'Gwiazda katalogu HYG':'Układ Słoneczny';
+ const bodyInfo=t=>t.kind==='star'?'Gwiazda katalogu HYG':
+  t.kind==='dso'?(root.ATLAS_OBS181_CORE?.typeNames[t.type]||'Obiekt Messiera'):'Układ Słoneczny';
  function setClock(jd){
   if(document.activeElement!==field)field.value=jdToDate(jd).toISOString().slice(0,16);
  }
@@ -93,16 +94,18 @@ function init(){
  function renderTargets(){
   const container=$('obs18Targets'),term=norm($('obs18Search').value);
   const all=state.plan?.targets||[];
-  const found=all.filter(v=>!term||norm(v.name).includes(term)||norm(v.id).includes(term));
-  const shown=found.slice(0,term?60:18);
+  const category=root.ATLAS_OBS181?.category?.()||'all';
+  const found=all.filter(v=>(category==='all'||v.kind===category)&&
+   (!term||[v.name,v.id,v.ngc,v.other,v.type].some(x=>norm(x).includes(term))));
+  const shown=found.slice(0,term?90:category==='dso'?45:18);
   container.replaceChildren();
-  if(!shown.length){container.textContent='Nie znaleziono obiektu w katalogu HYG / Układu Słonecznego.';return;}
+  if(!shown.length){container.textContent='Nie znaleziono obiektu w katalogach planet, HYG i Messiera.';return;}
   for(const item of shown){
    const b=document.createElement('button');b.type='button';
    b.className='obs18-target'+(state.selected===item.id?' active':'');
    b.setAttribute('aria-pressed',state.selected===item.id?'true':'false');
    const first=document.createElement('span');first.className='obs18-target-name';
-   const name=document.createElement('b');name.textContent=item.name;
+   const name=document.createElement('b');name.textContent=(item.kind==='dso'?item.id+' · ':'')+item.name;
    const kind=document.createElement('small');kind.textContent=bodyInfo(item);
    first.append(name,kind);
    const right=document.createElement('span');right.className='obs18-target-time';
@@ -114,7 +117,15 @@ function init(){
    score.textContent=quality[item.quality]||item.quality;
    if(item.quality==='very-good'||item.quality==='good')score.className='obs18-quality-best';
    right.append(at,score);b.append(first,right);
-   b.onclick=()=>{state.selected=item.id;renderTargets();drawChart();drawScope();};
+   b.onclick=()=>{
+    state.selected=item.id;renderTargets();drawChart();drawScope();
+    root.ATLAS_OBS181?.onPlannerDraw?.({
+     site:pos(),snapshot:sample(api.getJD(),pos()),
+     plan:state.plan,selected:state.selected,
+     selectTarget:id=>{state.selected=id;renderTargets();drawChart();drawScope();},
+     setTime
+    });
+   };
    container.append(b);
   }
   if(!term&&all.length>shown.length){
@@ -224,6 +235,21 @@ function init(){
     'rgba(240,239,229,'+opacity+')';
    ctx.beginPath();ctx.arc(p.x,p.y,clamp(2.8-st.mag*.33,.7,2.5),0,7);ctx.fill();
   }
+  // Messier objects are drawn as catalogued angular outlines, not invented images.
+  for(const obj of snapshot.dsos||[]){
+   const p=project(obj);if(!p)continue;
+   const r=clamp((obj.angularRadius||0)*RAD*pxPerDeg,2,radius*4);
+   ctx.save();ctx.strokeStyle=obj.id===selected.id?'#7debd8':'#5b8ea3';
+   ctx.lineWidth=obj.id===selected.id?2.5:1;
+   ctx.setLineDash(obj.id===selected.id?[4,4]:[2,5]);
+   ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.stroke();
+   ctx.setLineDash([]);
+   if(obj.id===selected.id){
+    ctx.fillStyle='#b4f7e9';ctx.font='11px system-ui';ctx.textAlign='left';
+    ctx.fillText(obj.id,p.x+9,p.y-9);
+   }
+   ctx.restore();
+  }
   for(const body of snapshot.bodies){
    if(body.id==='sun')continue;
    const p=project(body);if(!p)continue;
@@ -249,7 +275,7 @@ function init(){
   }
   ctx.restore();
   ctx.fillStyle='#cbe1eb';ctx.font='12px system-ui';ctx.textAlign='center';
-  ctx.fillText('POLE '+toNumber(fov,1)+'° · '+(selected.kind==='star'?'J2000 HYG':'POZYCJA GEOMETRYCZNA'),cx,H-17);
+  ctx.fillText('POLE '+toNumber(fov,1)+'° · '+(selected.kind==='star'?'J2000 HYG':selected.kind==='dso'?'MESSIER J2000':'POZYCJA GEOMETRYCZNA'),cx,H-17);
   ctx.fillStyle='#93b5c8';ctx.font='11px system-ui';
   ctx.fillText(fmtUTC(now),cx,19);
   const warning=selected.altitude<=0?'Obiekt znajduje się pod geometrycznym horyzontem. Zaznaczona tarcza to pozycja obliczona, nie widok rzeczywisty.':
@@ -259,7 +285,9 @@ function init(){
   const solarWarning=sunAngle<=fov/2+1?
    ' UWAGA: Słońce jest blisko pola widzenia! Nigdy nie kieruj teleskopu ani lornetki ku Słońcu bez certyfikowanego filtra.':'';
 
-  $('obs18ScopeNote').textContent=warning+solarWarning+
+  $('obs18ScopeNote').textContent=warning+
+   (selected.kind==='dso'?' Obrys jest symbolem przybliżonej średnicy kątowej '+(selected.dim||'brak')+' minut kątowych; rozmiar i jasność powierzchniową należy weryfikować w katalogu.':'')+
+   solarWarning+
    (selected.id==='saturn'?' Pierścienie Saturna są tu wyłącznie schematycznym symbolem.':'')+
    (snapshot.sunAltitude>0?' Trwa dzień; słabe gwiazdy nie będą widoczne gołym okiem.':'');
   $('obs18Point').disabled=selected.altitude<=0;
@@ -321,6 +349,11 @@ function init(){
    renderSummary(site,snap);
    drawChart();
    drawScope();
+   root.ATLAS_OBS181?.onPlannerDraw?.({
+    site,snapshot:snap,plan:state.plan,selected:state.selected,
+    selectTarget:id=>{state.selected=id;renderTargets();drawChart();drawScope();},
+    setTime
+   });
   }catch(error){
    console.error('ATLAS SOLARIS 18.0:',error);
    $('obs18NightSummary').textContent='Nie udało się przygotować planu obserwacji: '+String(error.message||error);
@@ -387,7 +420,12 @@ function init(){
   setTime(clamp(api.getJD()+delta,state.plan.startJD,state.plan.endJD));
  });
  dialog.addEventListener('close',()=>{state.opened=false;pause();});
- root.ATLAS_OBSERVATORY18=Object.freeze({onSkyDraw,refresh:()=>{state.planKey='';onSkyDraw();}});
+ root.ATLAS_OBSERVATORY18=Object.freeze({
+  onSkyDraw,
+  refresh:()=>{state.planKey='';onSkyDraw();},
+  refreshTargets:()=>{renderTargets();drawChart();drawScope();},
+  selectTarget:(id)=>{state.selected=id;renderTargets();drawChart();drawScope();}
+ });
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
 else init();

@@ -25,7 +25,7 @@ function rank(record,target){
  const darkWeight={night:3,astronomical:2,nautical:1,civil:0,day:-2}[phase]??-2;
  const safeAlt=clamp(alt,0,90);
  // Preference for darkness is intentional: good elevation at noon is not a night target.
- return darkWeight*110+safeAlt-(target.kind==='star'?Math.max(0,target.mag||0)*1.6:0);
+ return darkWeight*110+safeAlt-((target.kind==='star'||target.kind==='dso')?Math.max(0,target.mag||0)*(target.kind==='dso'?2.3:1.6):0);
 }
 function plan({startJD,hours=24,stepMinutes=20,sample}){
  if(!Number.isFinite(startJD)||typeof sample!=='function'||

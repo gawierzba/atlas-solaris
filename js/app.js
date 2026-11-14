@@ -178,6 +178,10 @@ const STAR_CATALOG=(window.ATLAS_STARS||[]).map((s,index)=>{
  return {id:index,name:s[4]||'',ra:s[0]/100,dec:s[1]/100,mag:s[2]/10,bv:s[3]/10,dir:unit(eqToEcl(eq))};
 });
 const NAMED_STARS=STAR_CATALOG.filter(s=>s.name);
+const MESSIER_CATALOG=(window.ATLAS_OBS181_CATALOG?.messier||[]).map(m=>{
+ const ra=m.ra*DEG,dec=m.dec*DEG;
+ return {...m,dir:unit(eqToEcl([Math.cos(dec)*Math.cos(ra),Math.cos(dec)*Math.sin(ra),Math.sin(dec)]))};
+});
 function starHorizon(star,pt){const v=star.dir;const east=dot(v,pt.east),north=dot(v,pt.north),up=dot(v,pt.up);return {
  altitude:Math.asin(Math.max(-1,Math.min(1,up)))*RAD, azimuth:P(Math.atan2(east,north)*RAD),east,north,up};}
 function colorBV(ci){
@@ -605,7 +609,7 @@ function astroMetrics(id,jd){
 }
 /** Sky-map engine: topocentric direction derived from the same JPL approximate coordinates. */
 const skyBodies=['sun','moon','mercury','venus','earth','mars','jupiter','saturn','uranus','neptune'];
-let obsStarLocations=[];
+let obsStarLocations=[],obsDsoLocations=[];
 let obsLocations=[],obsSelected='sun',obsLastDraw=0,obsSkyCoords=null,obsLastEventKey='',obsPriorPlaying=false;
 function observerOptions(){return {world:$('obsWorld').value,lat:clamp(Number($('obsLatitude').value)||0,-90,90),lon:clamp(Number($('obsLongitude').value)||0,-180,180)};}
 function obsSyncLocation(){if(state.mode==='surface'){ $('obsWorld').value=state.focus;$('obsLatitude').value=state.lat;$('obsLongitude').value=state.lon;} else { $('obsWorld').value=['earth','moon','mars','mercury','venus'].includes(state.focus)?state.focus:'earth';$('obsLatitude').value=state.lat;$('obsLongitude').value=state.lon;}}
@@ -638,8 +642,16 @@ function obsDraw(){if(!$('observatoryDialog').open)return;
  ctx.strokeStyle='#34576a';for(let a=0;a<360;a+=30){const r=a*DEG;ctx.beginPath();ctx.moveTo(cx+Math.sin(r)*R,cy-Math.cos(r)*R);ctx.lineTo(cx-Math.sin(r)*R,cy+Math.cos(r)*R);ctx.stroke();}
  for(const [text0,dx,dy] of [['N',0,-R-17],['E',R+17,0],['S',0,R+20],['W',-R-17,0]]){ctx.font='700 18px system-ui';ctx.fillStyle='#b6d1de';ctx.textAlign='center';ctx.fillText(text0,cx+dx,cy+dy+5);}
  ctx.font='11px system-ui';ctx.fillStyle='#7894a5';ctx.textAlign='left';for(const alt of [30,60])ctx.fillText('+'+alt+'°',cx+9,cy-R*(90-alt)/90+14);
- obsLocations=[];obsStarLocations=[];
+ obsLocations=[];obsStarLocations=[];obsDsoLocations=[];
  const site=surfacePoint(o.world,state.jd,o.lat,o.lon);
+ const projectJ2000=(raDeg,decDeg)=>{
+  const ra=raDeg*DEG,dec=decDeg*DEG;
+  const v=unit(eqToEcl([Math.cos(dec)*Math.cos(ra),Math.cos(dec)*Math.sin(ra),Math.sin(dec)]));
+  return starHorizon({dir:v},site);
+ };
+ obsDsoLocations=window.ATLAS_OBS181?.drawSkyOverlay?.({
+  ctx,site,projectJ2000,obsPolar,cx,cy,R
+ })||[];
  const visibleStars=[];
  if($('obsStarsToggle').checked){
   for(const star of STAR_CATALOG){const hp=starHorizon(star,site);if(hp.altitude<0)continue;
@@ -712,9 +724,14 @@ function obsFindEvents(){const loc=observerOptions();const {world,lat,lon}=loc;
 function setupObservatory(){const dialog=$('observatoryDialog');$('openObservatory').onclick=()=>{obsPriorPlaying=state.playing;state.playing=false;syncPlay();obsSyncLocation();obsLastEventKey='';$('obsSunTimes').textContent='Wybierz „Policz wschód / zachód”, aby wyznaczyć dwa następne zdarzenia.';dialog.showModal();obsDraw();};
  $('closeObservatory').onclick=()=>dialog.close();for(const id of ['obsWorld','obsLatitude','obsLongitude','obsStarsToggle','obsNamesToggle','obsTrianglesToggle'])$(id).addEventListener('change',()=>{obsDraw();$('obsSunTimes').textContent='Nowe współrzędne: oblicz ponownie wschód i zachód.';});
  $('obsSurfaceGo').onclick=()=>obsGo();$('obsSunriseFind').onclick=obsFindEvents;
- $('skyMap').onclick=e=>{if(!obsLocations.length&&!obsStarLocations.length)return;const r=$('skyMap').getBoundingClientRect(),mx=(e.clientX-r.left)*540/r.width,my=(e.clientY-r.top)*540/r.height;let best=null,d=25;for(const o of obsLocations){let x=Math.hypot(o.x-mx,o.y-my);if(x<d){d=x;best=o.id;}} if(best){obsGo(best);return;}let nearest=null;
+ $('skyMap').onclick=e=>{if(!obsLocations.length&&!obsStarLocations.length&&!obsDsoLocations.length)return;const r=$('skyMap').getBoundingClientRect(),mx=(e.clientX-r.left)*540/r.width,my=(e.clientY-r.top)*540/r.height;let best=null,d=25;for(const o of obsLocations){let x=Math.hypot(o.x-mx,o.y-my);if(x<d){d=x;best=o.id;}} if(best){obsGo(best);return;}let nearest=null;
   for(const o of obsStarLocations){const dd=Math.hypot(o.x-mx,o.y-my);if(dd<d){d=dd;nearest=o.star;}}
-  if(nearest)obsGoStar(nearest);};
+  if(nearest){obsGoStar(nearest);return;}
+  let nearDso=null;for(const item of obsDsoLocations){
+   const dd=Math.hypot(item.x-mx,item.y-my);if(dd<d){d=dd;nearDso=item.id;}
+  }
+  if(nearDso)window.ATLAS_MAIN_API?.pointObservatory(nearDso);
+ };
  dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});dialog.addEventListener('close',()=>{state.playing=obsPriorPlaying;syncPlay();});}
 function worldPosition(id,jd,trueScale=false){const p=positions(jd);return id==='solar'?[0,0,0]:id==='moon'?(trueScale?mul(p.moon,SW):add(mul(p.earth,SW),mul(sub(p.moon,p.earth),SW*80))):mul(p[id],SW);}
 function flightEase(t){t=clamp(t,0,1);return t*t*(3-2*t);}
@@ -1530,17 +1547,50 @@ window.ATLAS_MAIN_API={
     kind:'star',ra:st.ra,dec:st.dec,mag:st.mag,bv:st.bv,...hp};
   });
   const moonPhase=moonPhaseAt(jd);
+  const dsos=MESSIER_CATALOG.map(m=>{
+   const hp=starHorizon(m,site);
+   const major=Number.parseFloat(m.dim);
+   return {...m,kind:'dso',altitude:hp.altitude,azimuth:hp.azimuth,
+    angularRadius:Number.isFinite(major)?major/120*DEG:0};
+  });
   return {jd,world,lat,lon,
    sunAltitude:hz.sun.altitude,moonAltitude:world==='moon'?null:hz.moon.altitude,
-   moonIllumination:moonPhase.fraction,bodies,stars,
-   targets:[...bodies.filter(b=>b.id!=='sun'),...stars.filter(st=>st.name&&!st.name.startsWith('HYG '))],
+   moonIllumination:moonPhase.fraction,bodies,stars,dsos,
+   targets:[...bodies.filter(b=>b.id!=='sun'),
+    ...stars.filter(st=>st.name&&!st.name.startsWith('HYG ')),
+    ...dsos],
    moonPhase};
+ },
+ observatoryTargetSnapshot:(jd,lat,lon,id)=>{
+  if(!Number.isFinite(jd)||!Number.isFinite(lat)||!Number.isFinite(lon)||
+   lat < -90||lat>90||lon < -180||lon>180)
+   throw new RangeError('Nieprawidłowa lokalizacja obserwatora.');
+  const hz=horizon('earth',jd,lat,lon);
+  let altitude;
+  if(id.startsWith('star-')){
+   const st=STAR_CATALOG[Number(id.slice(5))];
+   if(!st)return null;
+   altitude=starHorizon(st,surfacePoint('earth',jd,lat,lon)).altitude;
+  }else if(id.startsWith('M')){
+   const obj=MESSIER_CATALOG.find(x=>x.id===id);
+   if(!obj)return null;
+   altitude=starHorizon(obj,surfacePoint('earth',jd,lat,lon)).altitude;
+  }else{
+   if(!hz[id]||id==='sun')return null;
+   altitude=hz[id].altitude;
+  }
+  return {sunAltitude:hz.sun.altitude,targetAltitude:altitude,
+   moonAltitude:hz.moon.altitude,moonIllumination:moonPhaseAt(jd).fraction};
  },
  pointObservatory:(id)=>{
   if(!document.getElementById('observatoryDialog').open)return false;
   if(id.startsWith('star-')){
    const st=STAR_CATALOG.find(st=>'star-'+st.id===id);
    if(!st)return false;obsGoStar(st);
+  }else if(/^M(?:[1-9]|[1-9][0-9]|10[0-9]|110)$/.test(id)){
+   const m=MESSIER_CATALOG.find(m=>m.id===id);
+   if(!m)return false;
+   obsGoStar({name:m.id+' · '+m.name,dir:m.dir});
   }else{
    if(!skyBodies.includes(id)||id===observerOptions().world)return false;
    obsPriorPlaying=false;obsGo(id);

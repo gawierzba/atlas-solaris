@@ -1,0 +1,30 @@
+/* ATLAS SOLARIS 18.1 — Messier catalog, observational night selection and constellation layers */
+.obs181-categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin:10px 0 6px}
+.obs181-categories button{background:#102f3e;color:#9ac6d4;border:1px solid #386270;border-radius:7px;padding:9px 4px;font:660 10px/1.2 system-ui,sans-serif;cursor:pointer}
+.obs181-categories button:hover,.obs181-categories button.active{background:#1b6264;color:#e9fffa;border-color:#79d7c9}
+.obs181-catalog-card{margin-top:14px;border:1px solid #3b6874;border-radius:11px;background:linear-gradient(145deg,#123c4b,#071d2b);padding:15px;min-width:0}
+.obs181-catalog-head{display:flex;flex-direction:column;gap:5px}
+.obs181-catalog-head small{font-size:9px;font-weight:750;letter-spacing:.1em;color:#77cbd0}
+.obs181-catalog-head strong{font-size:18px;color:#e0f6f8;font-weight:660;line-height:1.3}
+.obs181-data{font-size:11px;line-height:1.6;color:#aed0dc;margin:9px 0 16px;overflow-wrap:anywhere}
+.obs181-night-head{border-top:1px solid #45777a66;padding-top:14px;display:flex;flex-direction:column;gap:4px}
+.obs181-night-head strong{font-size:13px;color:#d5f6ec}
+.obs181-night-head small{font-size:10px;color:#91bac7;line-height:1.5}
+#obs181Scan{display:block;width:100%;margin:13px 0 8px;border:1px solid #6bcabc;background:#1c6a67;color:#eafff6;border-radius:8px;padding:12px;cursor:pointer;font:700 12px/1.25 system-ui,sans-serif}
+#obs181Scan:hover{background:#28807a}
+#obs181Scan:disabled{opacity:.45;cursor:not-allowed}
+#obs181ScanStatus{font-size:10px;color:#a8cbd1;line-height:1.5;min-height:17px}
+.obs181-night-list{display:flex;flex-direction:column;gap:7px;margin-top:8px}
+.obs181-night-row{border:1px solid #416c78;border-radius:8px;background:#0a2c3b;color:#def4f4;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 11px;cursor:pointer}
+.obs181-night-row:hover{background:#154858;border-color:#8ed9cf}
+.obs181-night-main{display:flex;flex-direction:column;gap:4px}
+.obs181-night-main strong{font-size:11px;font-weight:710;font-variant-numeric:tabular-nums}
+.obs181-night-main small{font-size:10px;color:#97b5c5}
+.obs181-night-moon{font-size:10px;color:#8cd9d0;text-align:right;max-width:40%;line-height:1.4}
+.obs181-method{font-size:10px;line-height:1.55;color:#88afbd;border-top:1px solid #3d6b7860;margin:14px 0 0;padding-top:10px}
+@media(max-width:650px){
+ .obs181-categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+ .obs181-catalog-card{padding:12px}
+ .obs181-night-row{flex-direction:column;align-items:flex-start}
+ .obs181-night-moon{max-width:none;text-align:left}
+}

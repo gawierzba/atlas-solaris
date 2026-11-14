@@ -9,7 +9,7 @@ on:
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
       - 'css/eclipse*.css'
-      - 'css/observatory18.css'
+      - 'css/observatory18*.css'
       - 'index.html'
       - '.github/workflows/eclipse-tests.yml'
   push:
@@ -47,6 +47,9 @@ jobs:
           node --check js/eclipse17-motion-ui.js
           node --check js/observatory18-core.js
           node --check js/observatory18-ui.js
+          node --check js/observatory181-catalog.js
+          node --check js/observatory181-core.js
+          node --check js/observatory181-ui.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -57,3 +60,5 @@ jobs:
         run: node tests/eclipse17-motion.test.cjs
       - name: Test żywego obserwatorium 18.0
         run: node tests/observatory18.test.cjs
+      - name: Test atlasu Messiera i gwiazdozbiorów 18.1
+        run: node tests/observatory181.test.cjs

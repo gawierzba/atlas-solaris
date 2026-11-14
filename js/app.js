@@ -1561,6 +1561,27 @@ window.ATLAS_MAIN_API={
     ...dsos],
    moonPhase};
  },
+ observatoryTargetSnapshot:(jd,lat,lon,id)=>{
+  if(!Number.isFinite(jd)||!Number.isFinite(lat)||!Number.isFinite(lon)||
+   lat < -90||lat>90||lon < -180||lon>180)
+   throw new RangeError('Nieprawidłowa lokalizacja obserwatora.');
+  const hz=horizon('earth',jd,lat,lon);
+  let altitude;
+  if(id.startsWith('star-')){
+   const st=STAR_CATALOG[Number(id.slice(5))];
+   if(!st)return null;
+   altitude=starHorizon(st,surfacePoint('earth',jd,lat,lon)).altitude;
+  }else if(id.startsWith('M')){
+   const obj=MESSIER_CATALOG.find(x=>x.id===id);
+   if(!obj)return null;
+   altitude=starHorizon(obj,surfacePoint('earth',jd,lat,lon)).altitude;
+  }else{
+   if(!hz[id]||id==='sun')return null;
+   altitude=hz[id].altitude;
+  }
+  return {sunAltitude:hz.sun.altitude,targetAltitude:altitude,
+   moonAltitude:hz.moon.altitude,moonIllumination:moonPhaseAt(jd).fraction};
+ },
  pointObservatory:(id)=>{
   if(!document.getElementById('observatoryDialog').open)return false;
   if(id.startsWith('star-')){

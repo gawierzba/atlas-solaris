@@ -3,15 +3,15 @@ const ROOT=path.join(__dirname,'..');
 const html=p=>fs.readFileSync(path.join(ROOT,p),'utf8');
 const global={};const vm=require('node:vm');
 vm.runInNewContext(html('portal/data.js'),{window:global});const data=global.ATLAS_PORTAL_DATA;
-assert.equal(Object.keys(data.stages).length,26);
+assert.equal(Object.keys(data.stages).length,27);
 assert.equal(Object.keys(data.bonuses).length,6);
 assert.equal(Object.keys(data.categories).length,6);
-for(let n=1;n<=26;n++){
- const key=String(n).padStart(2,'0'),item=data.stages[key];
- assert.equal(item.number,n);assert.ok(item.title&&item.description&&item.mode);
+for(const [key,item] of Object.entries(data.stages)){
+ assert.ok(item.number);assert.ok(item.title&&item.description&&item.mode);
  assert.ok(data.categories[item.category]);
  const page=html(item.path+'index.html');
- assert.match(page,new RegExp('portal='+item.mode));
+ if(item.src) assert.ok(page.includes(item.src), `Missing custom src for \${key}`);
+ else assert.match(page,new RegExp('portal='+item.mode));
  assert.match(page,/<iframe /);
  assert.ok(page.includes('aria-controls="stageInfo"'));
 }
@@ -33,4 +33,4 @@ if(fs.existsSync(path.join(ROOT,'atlas.html'))){
  assert.match(legacy,/portal\/embed\.js/);
  assert.match(legacy,/portal\/embed\.css/);
 }
-console.log('ATLAS SOLARIS 27 · routes, links, categories and entrypoints OK');
+console.log('ATLAS SOLARIS 28 · routes, links, categories and entrypoints OK');

@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — testy astronomii 17–27.0
+name: ATLAS SOLARIS — testy astronomii 17–28.0
 on:
   pull_request:
     branches: [main]
@@ -31,6 +31,7 @@ on:
       - 'tests/zodiac25*.cjs'
       - 'tests/time26*.cjs'
       - 'tests/portal27.test.cjs'
+      - 'tests/portal28.test.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
@@ -74,6 +75,7 @@ on:
       - 'tests/zodiac25*.cjs'
       - 'tests/time26*.cjs'
       - 'tests/portal27.test.cjs'
+      - 'tests/portal28.test.cjs'
       - '.github/workflows/eclipse-tests.yml'
   workflow_dispatch:
 
@@ -184,5 +186,7 @@ jobs:
         run: node tests/time26.test.cjs
       - name: Przywróć stronę portalu przed testem 27.0
         run: cp /tmp/atlas-solaris-portal27-home.html index.html
-      - name: Test katalogu 26 osobnych podstron portalu 27.0
+      - name: Test katalogu i mostka portalu 27.0
         run: node tests/portal27.test.cjs
+      - name: Test nowego laboratorium skali Wszechświata 28.0
+        run: node tests/portal28.test.cjs

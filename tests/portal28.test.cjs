@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const ROOT=path.join(__dirname,'..');
+const read=p=>fs.readFileSync(path.join(ROOT,p),'utf8');
+const sandbox={}; vm.runInNewContext(read('portal/data.js'),{window:sandbox}); const data=sandbox.ATLAS_PORTAL_DATA;
+assert.equal(data.version,'28.0');
+assert.equal(Object.keys(data.stages).length,27);
+assert.ok(data.stages['28']);
+assert.equal(data.stages['28'].src,'laboratoria/granice-wszechswiata/index.html');
+assert.match(read('etapy/28/index.html'),/granice-wszechswiata\/index\.html/);
+assert.match(read('laboratoria/granice-wszechswiata/index.html'),/ATLAS SOLARIS 28\.0/);
+assert.match(read('portal/universe28.js'),/Promień obserwowalnego Wszechświata/);
+assert.match(read('portal/stage.js'),/orderedStageKeys/);
+assert.match(read('portal/stage.js'),/item\.src/);
+console.log('ATLAS SOLARIS 28 · stage routing and universe laboratory OK');

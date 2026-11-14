@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07101f">
+  <title>ATLAS SOLARIS 28.0 — Od Ziemi do granic Wszechświata</title>
+  <meta name="description" content="Interaktywna podróż od powierzchni Ziemi przez Układ Słoneczny, Drogę Mleczną i gromady galaktyk aż do granicy obserwowalnego Wszechświata.">
+  <link rel="stylesheet" href="../../portal/universe28.css">
+</head>
+<body>
+  <div class="u28-app">
+    <header class="u28-topbar">
+      <div>
+        <p class="u28-eyebrow">ATLAS SOLARIS 28.0 / EKSPEDYCJA KOSMICZNA</p>
+        <h1>Od Ziemi do granic obserwowalnego Wszechświata</h1>
+        <p class="u28-subtitle">Skala logarytmiczna, punkty orientacyjne, czas lotu i wizualna podróż od metrów do setek milionów lat świetlnych.</p>
+      </div>
+      <div class="u28-kpis" aria-label="Podsumowanie doświadczenia">
+        <div><strong>27</strong><span>rzędów wielkości</span></div>
+        <div><strong>15</strong><span>punktów orientacyjnych</span></div>
+        <div><strong>c</strong><span>porównanie z prędkością światła</span></div>
+      </div>
+    </header>
+
+    <main class="u28-grid">
+      <section class="u28-visual">
+        <canvas id="u28Canvas" aria-label="Ilustracyjna wizualizacja podróży przez skale Wszechświata"></canvas>
+        <div class="u28-phase-box">
+          <span id="u28PhaseKicker">SKALA</span>
+          <strong id="u28PhaseTitle">Powierzchnia Ziemi</strong>
+          <small id="u28PhaseRange">1 m — 100 km</small>
+        </div>
+        <div class="u28-progress-box">
+          <span>AKTYWNY CEL</span>
+          <strong id="u28ActiveName">Start</strong>
+          <small id="u28Between">Ziemia → Linia Kármána</small>
+        </div>
+      </section>
+
+      <aside class="u28-panel">
+        <section class="u28-controls" aria-labelledby="u28ControlsTitle">
+          <div class="u28-section-head">
+            <p>STEROWANIE WYPRAWĄ</p>
+            <h2 id="u28ControlsTitle">Skok przez kolejne skale</h2>
+          </div>
+          <div class="u28-button-row">
+            <button type="button" id="u28Prev">← Poprzedni</button>
+            <button type="button" id="u28Play">▶ Autopilot</button>
+            <button type="button" id="u28Next">Następny →</button>
+          </div>
+          <label class="u28-range-wrap" for="u28Range">
+            <span id="u28RangeLabel">Skala: 1 m</span>
+            <input id="u28Range" type="range" min="0" max="26.65" step="0.001" value="0">
+            <span class="u28-range-min">1 m</span>
+            <span class="u28-range-max">46,5 mld l.św.</span>
+          </label>
+          <div class="u28-jumps" id="u28Jumps" aria-label="Szybkie skoki"></div>
+        </section>
+
+        <section class="u28-card" aria-labelledby="u28TargetTitle">
+          <div class="u28-section-head compact">
+            <p>AKTUALNY PUNKT ORIENTACYJNY</p>
+            <h2 id="u28TargetTitle">Opis celu</h2>
+          </div>
+          <div class="u28-target-meta">
+            <span id="u28Type" class="u28-pill">SKALA</span>
+            <span id="u28Ordinal" class="u28-pill ghost">#01</span>
+          </div>
+          <h3 id="u28TargetName">Powierzchnia Ziemi</h3>
+          <p id="u28Lead" class="u28-lead">Tu wszystko się zaczyna.</p>
+          <p id="u28Description">Startujemy metr nad powierzchnią naszej planety. W tym laboratorium skala zmienia się logarytmicznie — dzięki temu w jednej podróży można objąć i Ziemię, i granicę obserwowalnego Wszechświata.</p>
+          <div class="u28-stats" id="u28Stats"></div>
+        </section>
+
+        <section class="u28-card" aria-labelledby="u28ScaleTitle">
+          <div class="u28-section-head compact">
+            <p>INTERPRETACJA</p>
+            <h2 id="u28ScaleTitle">Jak czytać tę wyprawę?</h2>
+          </div>
+          <ul class="u28-notes">
+            <li>Oś odległości jest <strong>logarytmiczna</strong>: każdy krok reprezentuje wzrost o kolejny rząd wielkości.</li>
+            <li>Wizualizacja pokazuje <strong>skalę i strukturę</strong>, a nie dokładną mapę wszystkich galaktyk.</li>
+            <li>Czasy są porównaniami pokonania dystansu danej skali, nie rzeczywistymi czasami dotarcia do wszystkich obiektów. Prędkości: światło, Voyager 1 (ok. 17 km/s) i hipotetyczny statek <strong>1% c</strong>.</li>
+            <li>Promień obserwowalnego Wszechświata przyjmujemy jako ok. <strong>46,5 miliarda lat świetlnych</strong>.</li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="u28-footer">
+      <strong>Uczciwe zastrzeżenie naukowe:</strong>
+      to laboratorium nie udaje kompletnego katalogu struktur kosmicznych. Tam, gdzie pokazujemy Układ Słoneczny, Drogę Mleczną czy odległości do galaktyk, opieramy się na przybliżonych, powszechnie używanych wartościach referencyjnych. Wielkoskalowa sieć kosmiczna jest wizualizacją poglądową.
+    </footer>
+  </div>
+  <script src="../../portal/universe28.js"></script>
+</body>
+</html>

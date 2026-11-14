@@ -1,6 +1,21 @@
-# ATLAS SOLARIS 27.0 — Portal Astronomiczny
+# ATLAS SOLARIS 28.0 — Od Ziemi do granic obserwowalnego Wszechświata
 
 ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **24.0** dodaje obserwatorium dwóch laserowych interferometrów LIGO, detekcję syntetycznych sygnałów GW150914 w niezależnych szumach i interaktywny filtr dopasowany. Wersja **23.0** dodała obserwatorium fal grawitacyjnych z widowiskową wizualizacją zderzenia dwóch czarnych dziur, fizyką inspiralu i przybliżonym wygaszaniem drgań Kerra. Wersja **22.0** dodała kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 28.0 — Od Ziemi do granic obserwowalnego Wszechświata
+
+**Samodzielne laboratorium:** `/etapy/28/`, alternatywnie `/laboratoria/granice-wszechswiata/`. Rozszerzenie portalu 27.0 bez naruszenia istniejącego `/atlas.html` i etapów 01–26.
+
+- Logarytmiczna oś skali od 1 m do ~46,5 mld lat świetlnych (15 punktów orientacyjnych); automatyczna podróż, ręczny suwak i szybkie skoki.
+- Animowana ilustracja od Ziemi, przez planety i najbliższe gwiazdy, po Drogę Mleczną, Andromedę, Grupę Lokalną, gromady galaktyk, supergromady i granicę obserwowalnego Wszechświata.
+- Porównanie *długości odcinka* i czasu przebycia z prędkością światła, z prędkością ok. 17 km/s (Voyager 1) i hipotetycznego statku 0,01c. **Nie jest to realistyczny czas dotarcia do granicy Wszechświata**: kosmologiczna ekspansja przestrzeni i horyzont zdarzeń ograniczają interpretację takiego porównania.
+- **Odległość ≠ rozmiar:** niektóre kamienie milowe są odległościami od Ziemi lub Słońca, inne charakterystycznym rozmiarem struktury, np. średnicą Drogi Mlecznej. Oś pokazuje wspólną skalę rzędu wielkości, a nie trajektorię po fizycznie jednej linii.
+- Portal zawiera teraz **27 głównych doświadczeń** o numerach 01–26 i 28. Numer 27 był etapem przebudowy architektury; nie ma osobnej podstrony 27.
+- Wszystkie wcześniejsze laboratoria pozostały niezmienione; backup: `backup-v27-before-universe28`.
+
+**Dokumentacja i testy:** `README_ETAP28.md`, `node tests/portal27.test.cjs`, `node tests/portal28.test.cjs`.
+
+**Źródła danych orientacyjnych:** [NASA — How Big Is Space?](https://www.nasa.gov/science-research/astrophysics/how-big-is-space-we-asked-a-nasa-expert-episode-61/), [NASA — Voyager 1](https://science.nasa.gov/mission/voyager/voyager-1/). Oś odległości/rozmiarów i układy gwiazdowo-galaktyczne są wizualizacją poglądową, **nie pełną katalogową mapą kosmosu**.
 
 ## Nowość 27.0 — Portal Astronomiczny, 26 osobnych podstron
 

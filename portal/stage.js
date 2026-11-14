@@ -19,15 +19,19 @@ toggle.addEventListener('click',()=>info.hidden?open():close());
 document.getElementById('stageInfoClose').addEventListener('click',close);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!info.hidden){e.preventDefault();close()}});
 const links=[];
+const orderedStageKeys=Object.keys(data.stages).sort((a,b)=>data.stages[a].number-data.stages[b].number);
 if(kind==='stage'){
- const n=Number(id);if(n>1)links.push({path:data.stages[String(n-1).padStart(2,'0')].path,title:'← Poprzedni etap'});
- if(n<26)links.push({path:data.stages[String(n+1).padStart(2,'0')].path,title:'Następny etap →'});
- for(const extra of Object.values(data.bonuses).filter(x=>x.parent===n))links.push({path:extra.path,title:extra.title+' ↗'});
+ const position=orderedStageKeys.indexOf(id);
+ if(position>0){const prev=data.stages[orderedStageKeys[position-1]];links.push({path:prev.path,title:'← Poprzedni etap'})}
+ if(position>=0 && position<orderedStageKeys.length-1){const next=data.stages[orderedStageKeys[position+1]];links.push({path:next.path,title:'Następny etap →'})}
+ for(const extra of Object.values(data.bonuses).filter(x=>x.parent===item.number))links.push({path:extra.path,title:extra.title+' ↗'});
 }else{links.push({path:data.stages[String(item.parent).padStart(2,'0')].path,title:'← Etap główny'})}
 related.innerHTML=`<nav class="stage-related" aria-label="Powiązane doświadczenia">${links.map(x=>`<a href="${new URL(x.path,root).href}">${x.title}</a>`).join('')}</nav>`;
 let settled=false;
 function ready(){if(settled)return;settled=true;error.hidden=true;loader.classList.add('is-loaded');setTimeout(()=>{loader.hidden=true},500)}
 function fail(message){if(settled)return;settled=true;loader.hidden=true;error.hidden=false;if(message)console.warn('[ATLAS portal]',message)}
+const stageSrc=item.src ? new URL(item.src,root).href : new URL('atlas.html?portal='+encodeURIComponent(item.mode),root).href;
+if(iframe && !iframe.getAttribute('src')) iframe.src=stageSrc;
 const timeout=setTimeout(()=>fail('Laboratorium nie zgłosiło gotowości'),23000);
 window.addEventListener('message',event=>{
  if(event.source!==iframe.contentWindow)return;
@@ -47,5 +51,5 @@ iframe.addEventListener('load',()=>{
  // In rare cases the browser loads a pre-cached document before it posts ready.
  setTimeout(()=>{if(!settled){try{iframe.contentWindow.postMessage({type:'atlas:portal:ping'},location.origin)}catch(_){}}},1500);
 });
-document.getElementById('stageReload').addEventListener('click',()=>{settled=false;error.hidden=true;loader.hidden=false;loader.classList.remove('is-loaded');iframe.src=new URL('atlas.html?portal='+encodeURIComponent(item.mode),root).href});
+document.getElementById('stageReload').addEventListener('click',()=>{settled=false;error.hidden=true;loader.hidden=false;loader.classList.remove('is-loaded');iframe.src=stageSrc});
 })();

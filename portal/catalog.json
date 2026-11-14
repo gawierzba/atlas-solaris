@@ -1,5 +1,5 @@
 {
-  "version": "27.0",
+  "version": "28.0",
   "categories": {
     "planety": {
       "id": "planety",
@@ -310,6 +310,17 @@
       "mode": "time",
       "path": "etapy/26/",
       "kind": "stage"
+    },
+    "28": {
+      "number": 28,
+      "title": "Od Ziemi do granic Wszechświata",
+      "lead": "Wielka podróż przez skale kosmosu",
+      "description": "Przeleć od powierzchni Ziemi przez Układ Słoneczny, Drogę Mleczną i gromady galaktyk aż do granicy obserwowalnego Wszechświata.",
+      "category": "nauka",
+      "mode": "universe28",
+      "path": "etapy/28/",
+      "kind": "stage",
+      "src": "laboratoria/granice-wszechswiata/index.html"
     }
   },
   "bonuses": {

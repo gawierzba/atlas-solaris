@@ -30,6 +30,7 @@ function init(){
  const api=root.ATLAS_MAIN_API;
  if(!core||!api||!$('obs18Board'))return;
  const dialog=$('observatoryDialog'),chart=$('obs18Timeline'),scope=$('obs18Scope'),field=$('obs18Time');
+ $('openObservatory18Side')?.addEventListener('click',()=>api.openObservatory());
  const state={anchorJD:null,plan:null,planKey:'',selected:'moon',lastContext:null,
   latest:null,lastDraw:-Infinity,opened:false,filter:'',busy:false,playing:false};
  const pos=()=>api.getObservatoryContext();

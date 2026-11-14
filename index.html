@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 25.0 — Atlas Zodiaku: 13 astronomicznych gwiazdozbiorów, 12 znaków, ekliptyka, mapa nieba i położenia planet. Wszystkie poprzednie laboratoria zachowane.">
-  <title>ATLAS SOLARIS 25.0 — Atlas Zodiaku i 13 gwiazdozbiorów</title>
+  <meta name="description" content="ATLAS SOLARIS 25.1 — Żywe Konstelacje: 13 astronomicznych gwiazdozbiorów, 12 znaków, ekliptyka, mapa nieba i położenia planet. Wszystkie poprzednie laboratoria zachowane.">
+  <title>ATLAS SOLARIS 25.1 — Żywe Konstelacje · Zodiak w 3D</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -29,17 +29,18 @@
 <link rel="stylesheet" href="css/merger23.css">
 <link rel="stylesheet" href="css/ligo24.css">
 <link rel="stylesheet" href="css/zodiac25.css">
+<link rel="stylesheet" href="css/zodiac251.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 25.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 25.1</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 25.0</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openProbe21Side" class="probe21-side-launch" type="button">🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ</button><button id="openCockpit22Side" class="cockpit22-side-launch" type="button">◉ KAMERA NA POKŁADZIE 22.0 · WIDOK Z SONDY</button><button id="openMerger23Side" class="merger23-side-launch" type="button">✦ ZDERZENIE GIGANTÓW 23.0 · FALE GRAWITACYJNE</button><button id="openZodiac25Side" class="z25-side-launch" type="button">✧ ATLAS ZODIAKU 25.0 · 13 GWIAZDOZBIORÓW</button><button id="openLigo24Side" class="ligo24-side-launch" type="button">◈ OBSERWATORIUM LIGO 24.0 · WYKRYJ FALĘ</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 25.1</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openProbe21Side" class="probe21-side-launch" type="button">🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ</button><button id="openCockpit22Side" class="cockpit22-side-launch" type="button">◉ KAMERA NA POKŁADZIE 22.0 · WIDOK Z SONDY</button><button id="openMerger23Side" class="merger23-side-launch" type="button">✦ ZDERZENIE GIGANTÓW 23.0 · FALE GRAWITACYJNE</button><button id="openZodiac251Side" type="button" class="z251-side-launch">✦ ŻYWE KONSTELACJE 25.1 · LOT MIĘDZY GWIAZDAMI</button><button id="openZodiac25Side" class="z25-side-launch" type="button">✧ ATLAS ZODIAKU 25.0 · 13 GWIAZDOZBIORÓW</button><button id="openLigo24Side" class="ligo24-side-launch" type="button">◈ OBSERWATORIUM LIGO 24.0 · WYKRYJ FALĘ</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -51,10 +52,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openZodiac25Top" class="z25-top-launch" type="button" title="Zodiak astronomiczny, ekliptyka i prawdziwe gwiazdozbiory">✧ <span>ATLAS ZODIAKU 25</span></button><button id="openLigo24Top" class="ligo24-top-launch" type="button" title="Obserwatorium LIGO: laser, interferencja, dwa detektory i wykrywanie fal grawitacyjnych">◈ <span>OBSERWATORIUM LIGO</span></button><button id="openMerger23Top" class="merger23-top-launch" type="button" title="Zderzenie dwóch czarnych dziur i fala grawitacyjna">✦ <span>ZDERZENIE GIGANTÓW</span></button><button id="openCockpit22Top" class="cockpit22-top-launch" type="button" title="Kamera sondy: co widać podczas lotu obok czarnej dziury Kerra">◉ <span>KAMERA SONDY</span></button><button id="openProbe21Top" class="probe21-top-launch" type="button" title="Misja 21.0: lot sondą w pobliżu ergosfery">🚀 <span>LOT PRZEZ ERGOSFERĘ</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openZodiac251Top" type="button" class="z251-top-launch" title="Żywe konstelacje i lot 3D">✦ <span>ŻYWE KONSTELACJE 25.1</span></button><button id="openZodiac25Top" class="z25-top-launch" type="button" title="Zodiak astronomiczny, ekliptyka i prawdziwe gwiazdozbiory">✧ <span>ATLAS ZODIAKU 25</span></button><button id="openLigo24Top" class="ligo24-top-launch" type="button" title="Obserwatorium LIGO: laser, interferencja, dwa detektory i wykrywanie fal grawitacyjnych">◈ <span>OBSERWATORIUM LIGO</span></button><button id="openMerger23Top" class="merger23-top-launch" type="button" title="Zderzenie dwóch czarnych dziur i fala grawitacyjna">✦ <span>ZDERZENIE GIGANTÓW</span></button><button id="openCockpit22Top" class="cockpit22-top-launch" type="button" title="Kamera sondy: co widać podczas lotu obok czarnej dziury Kerra">◉ <span>KAMERA SONDY</span></button><button id="openProbe21Top" class="probe21-top-launch" type="button" title="Misja 21.0: lot sondą w pobliżu ergosfery">🚀 <span>LOT PRZEZ ERGOSFERĘ</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V25.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V25.1</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -99,6 +100,65 @@
 
 
 <!-- ATLAS SOLARIS 25.0 — zodiak astronomiczny / ekliptyka -->
+<!-- ATLAS SOLARIS 25.1 — Żywe konstelacje / od oficjalnej granicy na sferze do przestrzennej paralaksy -->
+<dialog id="z251Dialog" class="z251-dialog" aria-labelledby="z251Title">
+ <div class="z251-shell">
+  <header class="z251-header">
+   <div class="z251-heading"><small><i class="z251-live-led"></i> ATLAS SOLARIS 25.1 <span>/</span> ŻYWE KONSTELACJE</small>
+    <h2 id="z251Title">Gwiazdozbiory <em>ożywają.</em></h2>
+    <p>Podziwiaj ich kształty z Ziemi. Potem przeleć między gwiazdy i zobacz, co zostanie z dobrze znanych figur.</p>
+   </div>
+   <button id="z251Close" class="z251-close" type="button" aria-label="Zamknij Żywe Konstelacje">✕</button>
+  </header>
+  <div class="z251-strip" aria-live="polite">
+   <div><small>WYBRANY GWIAZDOZBIÓR</small><strong id="z251ActiveName">—</strong></div>
+   <div><small>GWIAZDY FIGURY Z ODLEGŁOŚCIAMI</small><strong id="z251NodeCount">—</strong></div>
+   <div><small>ODLEGŁOŚĆ DO CELU</small><strong id="z251DestinationDistance">—</strong></div>
+   <div><small>ZMIANA PERSPEKTYWY</small><strong id="z251Separation">—</strong></div>
+  </div>
+  <div class="z251-body">
+   <aside class="z251-nav">
+    <div class="z251-section-title"><small>01 / ODKRYWAJ</small><strong>13 światów na niebie</strong></div>
+    <div class="z251-constellations" id="z251Constellations" role="group" aria-label="Wybór gwiazdozbioru"></div>
+    <div class="z251-nav-foot"><small>NASZA ZASADA</small><p>Linie są ludzkim umownym rysunkiem. Gwiazdy mają prawdziwe odległości w latach świetlnych.</p></div>
+   </aside>
+   <section class="z251-stage">
+    <div class="z251-stage-head"><div><small>02 / NIEBO PRZESTRZENNE · J2000</small><strong id="z251StageHeading">Widok z Układu Słonecznego</strong></div>
+     <div class="z251-modes"><button type="button" id="z251ResetView" title="Spójrz na wybrany gwiazdozbiór">◎ Wyrównaj</button><button type="button" id="z251BorderToggle" aria-pressed="true">▧ Granice IAU</button><button type="button" id="z251FigureToggle" aria-pressed="true">✧ Figury</button></div>
+    </div>
+    <div class="z251-canvas-wrap">
+     <canvas id="z251Canvas" width="1450" height="830" tabindex="0" aria-label="Przestrzenny widok katalogowych gwiazd wybranego gwiazdozbioru. Przesuwaj, aby obracać kamerą; przybliżaj rolką. Linie figur zmieniają kształt w trakcie lotu, ponieważ gwiazdy znajdują się w różnych odległościach."></canvas>
+     <div class="z251-viewlabel"><span><i></i> <span id="z251ViewMode">PERSPEKTYWA SŁOŃCA</span></span><span id="z251SceneTime">J2000 · UKŁAD INERCJALNY</span></div>
+     <div class="z251-float-target" id="z251FloatTarget"><small>OBRANY KIERUNEK</small><strong id="z251TargetStar">—</strong><span id="z251StarCaption">Kliknij gwiazdę lub wybierz cel lotu</span></div>
+     <div class="z251-hint">PRZECIĄGNIJ · OBRÓĆ KAMERĘ <span>•</span> ROLKA / SZCZYPNIĘCIE · PRZYBLIŻ <span>•</span> DOTKNIJ GWIAZDY · WYBIERZ CEL</div>
+     <div class="z251-scienceflag" id="z251BorderNote">Granice IAU są regionami ziemskiej sfery niebieskiej i nie mają fizycznej głębokości.</div>
+    </div>
+    <div class="z251-flightbar">
+     <div class="z251-flight-head"><div><small>03 / EKSPEDYCJA TRÓJWYMIAROWA</small><strong id="z251JourneyTitle">Zmień perspektywę. Odkryj prawdę.</strong></div><div class="z251-location"><small>POZYCJA SONDY</small><strong id="z251Position">0,00 ly</strong></div></div>
+     <div class="z251-flight-controls"><button id="z251Fly" class="z251-fly" type="button">▶ ROZPOCZNIJ LOT</button><input id="z251Progress" type="range" min="0" max="950" step="1" value="0" aria-label="Pozycja sondy od Słońca do gwiazdy, 0 do 95 procent"><button id="z251Home" class="z251-home" type="button" title="Powrót do Słońca">↺ Ziemia</button></div>
+     <div class="z251-progress-foot"><span>SŁOŃCE / 0%</span><span id="z251ProgressText">0,0% drogi</span><span>95% / PRZED GWIAZDĄ</span></div>
+     <div class="z251-flight-options"><label>Gwiazda docelowa <select id="z251StarSelect" aria-label="Wybierz gwiazdę docelową w gwiazdozbiorze"></select></label><label>Tempo <select id="z251FlightSpeed" aria-label="Szybkość odtwarzania lotu"><option value="16">Spokojnie</option><option value="8" selected>Filmowo</option><option value="4">Szybko</option></select></label><label>Kamera <select id="z251Camera"><option value="figure">Cały gwiazdozbiór</option><option value="target">Na gwiazdę</option><option value="sun">Spójrz za siebie</option><option value="free">Swobodna</option></select></label></div>
+    </div>
+   </section>
+   <aside class="z251-facts">
+    <div class="z251-section-title"><small>04 / NAUKOWA KARTA</small><strong id="z251InfoTitle">—</strong></div>
+    <div class="z251-symbol" id="z251Glyph" aria-hidden="true">✧</div>
+    <p id="z251InfoText">Wybierz gwiazdozbiór, aby rozpocząć.</p>
+    <div class="z251-stat"><small>ROZPIĘTOŚĆ ODLEGŁOŚCI GWIAZD FIGURY</small><strong id="z251Depth">—</strong></div>
+    <div class="z251-stat"><small>JASNOŚĆ WYBRANEJ GWIAZDY / V</small><strong id="z251Magnitude">—</strong></div>
+    <div class="z251-stat"><small>RZECZYWISTA ODLEGŁOŚĆ WYBRANEJ GWIAZDY</small><strong id="z251StarDistance">—</strong></div>
+    <div class="z251-divider"></div>
+    <div class="z251-section-title"><small>05 / PRAWDZIWE GRANICE</small><strong>Gdzie dziś jest Słońce?</strong></div>
+    <label class="z251-date-label" for="z251Date">Data obserwacji (UTC)</label><input id="z251Date" type="date" min="2024-01-01" max="2040-12-31" value="2026-11-14">
+    <div class="z251-iau-readout"><small>GWIAZDOZBIÓR SŁOŃCA / IAU J2000</small><strong id="z251SunZone">—</strong><span id="z251SunLongitude">—</span></div>
+    <div class="z251-iau-readout subdued"><small>NASTĘPNE PRZEKROCZENIE GRANICY</small><strong id="z251NextCrossing">—</strong><span id="z251CrossingNote">Orientacyjny czas z modelu astronomicznego</span></div>
+    <div class="z251-date-buttons"><button id="z251Today" type="button">Dzisiaj</button><button id="z251AtlasDate" type="button">↗ Ustaw datę w Atlasie</button><button id="z251BackTo25" type="button">↩ Koło zodiaku 25.0</button></div>
+    <div class="z251-did-you-know"><strong>Dlaczego figury się rozpadają?</strong><p>Gwiazdozbiór to wzór na sklepieniu nieba widziany z jednego miejsca. Gwiazdy nie leżą na jednej płaszczyźnie. W locie zmieniają się kąty ich widzenia — powstaje <b>paralaksa perspektywiczna</b>, a nie ruch samych gwiazd.</p></div>
+   </aside>
+  </div>
+  <footer class="z251-footer"><span><b>GRANICE:</b> IAU/Delporte, J2000 (d3-celestial, BSD-3). <b>GWIAZDY:</b> atlas 19.0 (Hipparcos/Yale + RECONS), nie Gaia; 3D bez ruchów własnych i czasu lotu światła. <b>SŁOŃCE:</b> przybliżony Meeus/NOAA z precesją IAU 1976; chwile przekroczeń orientacyjne. Kamera, poświaty i tempo lotu są ilustracyjne.</span><span>ATLAS SOLARIS · 25.1</span></footer>
+ </div>
+</dialog>
 <dialog id="zodiac25Dialog" class="z25-dialog" aria-labelledby="z25Title">
  <div class="z25-shell">
   <header class="z25-head">
@@ -116,7 +176,7 @@
   <div class="z25-body">
    <section class="z25-main">
     <div class="z25-stage-bar"><div><small>01 / PODRÓŻ WOKÓŁ EKLIPTYKI</small><strong>Niebo z perspektywy Ziemi</strong></div>
-     <div class="z25-stage-actions"><button id="z25Center" type="button">◎ Centruj na Słońcu</button><button id="z25Stars" type="button" aria-pressed="true">✧ Figury gwiazd</button></div>
+     <div class="z25-stage-actions"><button type="button" id="z25ToLive">✦ ŻYWE KONSTELACJE · LOT 3D</button><button id="z25Center" type="button">◎ Centruj na Słońcu</button><button id="z25Stars" type="button" aria-pressed="true">✧ Figury gwiazd</button></div>
     </div>
     <div class="z25-sky-frame"><canvas id="z25Sky" width="1350" height="620" tabindex="0" aria-label="Panoramiczna mapa ekliptyki w J2000. Przesuwaj, by zmienić kierunek, kółkiem powiększaj; widoczne gwiazdy katalogowe, figury gwiazdozbiorów i geocentryczne pozycje planet."></canvas>
      <div class="z25-sky-corner">NIEBO / J2000 <i></i> DANE GWIAZDOWE HYG + FIGURY D3-CELESTIAL</div>
@@ -138,7 +198,7 @@
     <div class="z25-truth"><strong>Dlaczego to inne zodiaki?</strong><p><b>Znaki</b> tworzą 12 umownych sektorów po 30°, licząc od punktu równonocy. <b>Gwiazdozbiory</b> są obszarami o nierównych granicach wyznaczonych przez IAU. Wężownik leży między Skorpionem a Strzelcem. To astronomia, nie horoskop.</p></div>
    </aside>
   </div>
-  <footer class="z25-footer"><span><strong>MODEL NAUKOWY:</strong> pozycje planet: istniejący silnik JPL Atlasu; mapa gwiazd J2000 HYG; figury z d3-celestial. Słońce: przybliżony algorytm Meeusa/NOAA. Granice gwiazdozbiorów na kole są przybliżone, wyznaczone z przejść Słońca w 2026 r. — to <b>nie</b> pełne wielokąty IAU ani narzędzie do precyzyjnego wyznaczania chwil ingresu.</span><a href="https://openstax.org/books/astronomy/pages/2-1-the-sky-above" target="_blank" rel="noopener">OpenStax · astronomia ↗</a></footer>
+  <footer class="z25-footer"><span><strong>MODEL NAUKOWY:</strong> pozycje planet: istniejący silnik JPL Atlasu; mapa gwiazd J2000 HYG; figury z d3-celestial. Słońce: przybliżony algorytm Meeusa/NOAA. Granice w kole są teraz wyznaczane z wielokątów IAU J2000 dla badanego roku. Obliczenia Słońca Meeus/NOAA oraz precesji są przybliżone; podane godziny ingresów nie są precyzyjnymi efemerydami.</span><a href="https://openstax.org/books/astronomy/pages/2-1-the-sky-above" target="_blank" rel="noopener">OpenStax · astronomia ↗</a></footer>
  </div>
 </dialog>
 <dialog id="ligo24Dialog" class="ligo24-dialog" aria-labelledby="ligo24Title">
@@ -1816,6 +1876,9 @@
 <script src="js/ligo24-core.js"></script>
 <script src="js/ligo24-ui.js"></script>
 <script src="js/zodiac25-core.js"></script>
+<script src="js/zodiac251-bounds.js"></script>
+<script src="js/zodiac251-core.js"></script>
 <script src="js/zodiac25-ui.js"></script>
+<script src="js/zodiac251-ui.js"></script>
 </body>
 </html>

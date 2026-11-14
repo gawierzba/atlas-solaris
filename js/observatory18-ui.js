@@ -7,6 +7,8 @@
 const $=id=>document.getElementById(id);
 const core=root.ATLAS_OBSERVATORY18_CORE;
 const DAY=1,DEG=Math.PI/180,RAD=180/Math.PI;
+const JD_MIN=Date.UTC(1800,0,1)/86400000+2440587.5;
+const JD_MAX=Date.UTC(2050,11,30)/86400000+2440587.5;
 const jdToDate=jd=>new Date((jd-2440587.5)*86400000);
 const fmt=jd=>jdToDate(jd).toISOString().slice(11,16)+' UTC';
 const fmtUTC=jd=>jdToDate(jd).toISOString().slice(0,16).replace('T',' ')+' UTC';
@@ -38,9 +40,11 @@ function init(){
   if(document.activeElement!==field)field.value=jdToDate(jd).toISOString().slice(0,16);
  }
  function setTime(jd,restart=false){
-  if(restart)state.anchorJD=jd;
-  api.setObservatoryTime(jd);
-  setClock(jd);
+  const safe=clamp(jd,JD_MIN,JD_MAX);
+  if(restart||!Number.isFinite(state.anchorJD)||state.anchorJD<JD_MIN||state.anchorJD>JD_MAX)
+   state.anchorJD=safe;
+  api.setObservatoryTime(safe);
+  setClock(safe);
  }
  function keyOf(site){
   return [site.world,site.lat.toFixed(3),site.lon.toFixed(3),
@@ -69,7 +73,8 @@ function init(){
   const a=snapshot.sunAltitude;
   $('obs18SunAlt').textContent=toNumber(a)+'°';
   $('obs18MoonAlt').textContent=snapshot.moonAltitude===null?'Nie dotyczy':toNumber(snapshot.moonAltitude)+'°';
-  $('obs18MoonPhase').textContent=Math.round(snapshot.moonIllumination*100)+'%';
+  $('obs18MoonPhase').textContent=site.world==='earth'?
+   Math.round(snapshot.moonIllumination*100)+'%':'Z perspektywy Ziemi';
   $('obs18DarkBadge').textContent=core.instantDescription(a).toLocaleUpperCase('pl-PL');
   $('obs18DarkBadge').dataset.mode=core.darkness(a);
   const dark=state.plan.astronomicalDarkHours,night=state.plan.hasAstronomicalNight;
@@ -247,7 +252,12 @@ function init(){
   ctx.fillText(fmtUTC(now),cx,19);
   const warning=selected.altitude<=0?'Obiekt znajduje się pod geometrycznym horyzontem. Zaznaczona tarcza to pozycja obliczona, nie widok rzeczywisty.':
     'Poglądowy okular: pozycje i rozmiary kątowe, bez optyki, seeingu, atmosfery i szczegółowych tekstur.';
-  $('obs18ScopeNote').textContent=warning+
+  const sun=snapshot.bodies.find(b=>b.id==='sun');
+  const sunAngle=sun?Math.acos(clamp(dot(view,angleTarget(sun)),-1,1))*RAD:180;
+  const solarWarning=sunAngle<=fov/2+1?
+   ' UWAGA: Słońce jest blisko pola widzenia! Nigdy nie kieruj teleskopu ani lornetki ku Słońcu bez certyfikowanego filtra.':'';
+
+  $('obs18ScopeNote').textContent=warning+solarWarning+
    (selected.id==='saturn'?' Pierścienie Saturna są tu wyłącznie schematycznym symbolem.':'')+
    (snapshot.sunAltitude>0?' Trwa dzień; słabe gwiazdy nie będą widoczne gołym okiem.':'');
   $('obs18Point').disabled=selected.altitude<=0;
@@ -262,8 +272,12 @@ function init(){
    state.lastContext=site;
    const snap=sample(api.getJD(),site);
    state.latest=snap;
+   if(!currentTarget(snap)){
+    state.selected=snap.targets.find(t=>t.altitude>0)?.id||snap.targets[0]?.id||'';
+    state.planKey='';
+   }
    setClock(api.getJD());
-   if(changed)renderTargets();
+   if(changed||state.selected==='')renderTargets();
    renderSummary(site,snap);
    drawChart();
    drawScope();

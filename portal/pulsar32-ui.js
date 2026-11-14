@@ -39,7 +39,7 @@ function orientation(){
  return {right,up,front};
 }
 function sizeCanvas(c){
- const r=c.getBoundingClientRect(),w=Math.max(1,r.width),h=Math.max(1,r.height),dpr=Math.min(2,window.devicePixelRatio||1);
+ const r=c.getBoundingClientRect(),w=Math.max(1,r.width),h=Math.max(1,r.height),dpr=Math.min(c===scene&&(renderQuality==='eco'||(renderQuality==='auto'&&w<570))?1.25:2,window.devicePixelRatio||1);
  const pxw=Math.round(w*dpr),pxh=Math.round(h*dpr);
  if(c.width!==pxw||c.height!==pxh){c.width=pxw;c.height=pxh}
  const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -132,13 +132,19 @@ function drawSceneLegacy(){
  ctx.font='800 10px system-ui';ctx.fillStyle='#ffbb91';
  ctx.fillText('ROT',clamp(upper.x,28,w-28),clamp(upper.y-10,60,h-42));
 }
+let cinemaBroken=false;
 function drawScene(){
  const {ctx,w,h}=sizeCanvas(scene);
- if(window.AtlasPulsar32Cinema){
-  window.AtlasPulsar32Cinema.draw(ctx,w,h,state,core,renderQuality);
- }else{
-  drawSceneLegacy();
+ if(window.AtlasPulsar32Cinema&&!cinemaBroken){
+  try{
+   window.AtlasPulsar32Cinema.draw(ctx,w,h,state,core,renderQuality);
+   return;
+  }catch(err){
+   cinemaBroken=true;
+   console.warn('ATLAS 32: przywracam bezpieczny widok naukowy',err);
+  }
  }
+ drawSceneLegacy();
 }
 function drawGraph(canvas,scopeMode){
  const {ctx,w,h}=sizeCanvas(canvas),pad={l:34,r:12,t:15,b:25},pw=w-pad.l-pad.r,ph=h-pad.t-pad.b;

@@ -18,6 +18,8 @@ on:
       - 'legal/**'
       - 'atlas.html'
       - '404.html'
+      - 'tests/pulsar32.test.cjs'
+      - 'tests/pulsar32-browser.test.cjs'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 

@@ -221,6 +221,18 @@
       "path": "etapy/26/",
       "kind": "stage"
     },
+    "27": {
+      "number": 27,
+      "title": "Narodziny ATLAS SOLARIS",
+      "lead": "Od jednego symulatora do całego portalu",
+      "description": "Poznaj przełomową przebudowę Atlasu: od jednego planetarium do strony głównej, sześciu działów i osobnych podstron. Interaktywna historia projektu.",
+      "category": "nauka",
+      "mode": "origin27",
+      "path": "etapy/27/",
+      "kind": "stage",
+      "src": "opowiesc/narodziny-atlasu/index.html",
+      "milestone": true
+    },
     "28": {
       "number": 28,
       "title": "Od Ziemi do granic Wszechświata",

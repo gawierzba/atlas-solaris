@@ -29,15 +29,18 @@ function verify(){
   const w=cv.width,h=cv.height;
   const pixels=new Uint8Array(w*h*4);
   gl.readPixels(0,0,w,h,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
-  let bright=0,dark=0;
+  let bright=0,dark=0,warm=0;
   for(let i=0;i<pixels.length;i+=4){
-   const intensity=Math.max(pixels[i],pixels[i+1],pixels[i+2]);
-   if(intensity>25)bright++;
-   else dark++;
+   const rr=pixels[i],gg=pixels[i+1],bb=pixels[i+2];
+   const intensity=Math.max(rr,gg,bb);
+   if(intensity>25)bright++;else dark++;
+   if(rr>50&&rr>bb*1.25&&rr>gg*1.07)warm++;
   }
-  if(bright<80||dark<80)throw new Error(
-   'GLSL rendered no meaningful disk/horizon contrast: bright='+bright+', dark='+dark);
-  document.body.setAttribute('data-result','SUCCESS '+w+'x'+h+' bright='+bright+' dark='+dark);
+  if(bright<80||dark<80||warm<80)throw new Error(
+   'GLSL ray tracer has insufficient disk/shadow pixels: bright='+bright+
+   ', dark='+dark+', warm disk='+warm);
+  document.body.setAttribute('data-result','SUCCESS '+w+'x'+h+
+   ' bright='+bright+' dark='+dark+' warm-disk='+warm);
  }catch(e){document.body.setAttribute('data-result','ERROR '+String(e.message||e));}
 }
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'atlassolaris-bh20-'));

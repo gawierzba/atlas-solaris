@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06101f">
+<title>Narodziny ATLAS SOLARIS — etap 27 | Historia portalu</title>
+<meta name="description" content="Poznaj przełomowy etap 27: od jednego planetarium do rozbudowanego portalu astronomicznego z podstronami, katalogiem i własnymi laboratoriami.">
+<link rel="stylesheet" href="../../portal/origin27.css">
+<script defer src="../../portal/origin27.js"></script>
+</head>
+<body>
+<main class="o27-page">
+  <section class="o27-hero" aria-labelledby="originTitle">
+    <div class="o27-orbit-orb o27-orbit-orb-a" aria-hidden="true"></div><div class="o27-orbit-orb o27-orbit-orb-b" aria-hidden="true"></div>
+    <div class="o27-hero-content">
+      <div class="o27-eyebrow"><span class="o27-pulse"></span> ATLAS SOLARIS / ETAP 27.0 <span class="o27-separator">//</span> KAMIEŃ MILOWY</div>
+      <p class="o27-pretitle">Jeden projekt. Cały Wszechświat.</p>
+      <h1 id="originTitle">To tutaj Atlas<br><em>stał się światem.</em></h1>
+      <p class="o27-hero-lead">Zaczęło się od interaktywnego Układu Słonecznego. Z czasem przybyły misje, zaćmienia, konstelacje i laboratoria. W etapie 27 zmieniliśmy nie fizykę, lecz sposób odkrywania: jeden program zamienił się w prawdziwy portal z osobnymi podstronami.</p>
+      <div class="o27-hero-actions">
+        <a href="#przemiana" class="o27-primary">ZOBACZ PRZEMIANĘ <span aria-hidden="true">↘</span></a>
+        <a href="../../" class="o27-quiet">STRONA GŁÓWNA ATLASU <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="o27-hero-foot">
+        <span>01 — 26<br><strong>ISTNIEJĄCE ETAPY</strong></span>
+        <i aria-hidden="true"></i>
+        <span>27.0<br><strong>NOWA ARCHITEKTURA</strong></span>
+        <i aria-hidden="true"></i>
+        <span>28 — ∞<br><strong>OTWARTA PRZYSZŁOŚĆ</strong></span>
+      </div>
+    </div>
+    <div class="o27-sky" aria-label="Artystyczna animacja przejścia z jednego układu do wielu połączonych laboratoriów">
+      <canvas id="o27Canvas" role="img" aria-label="Dekoracyjny ruch orbit i połączonych laboratoriów projektu; animacja nie przedstawia rzeczywistych efemeryd"></canvas>
+      <div class="o27-diagram-title"><span>PORTAL / ŻYWA ARCHITEKTURA</span><strong>OD JEDNEGO CENTRUM<br>DO WIELU ODKRYĆ</strong></div>
+      <div class="o27-diagram-note">Każdy punkt to inna droga eksploracji. Schemat koncepcyjny.</div>
+    </div>
+  </section>
+
+  <section class="o27-intro o27-wrap" aria-labelledby="whyTitle">
+    <div class="o27-kicker">01 / DLACZEGO NASTĄPIŁA ZMIANA</div>
+    <div class="o27-intro-grid">
+      <h2 id="whyTitle">Astronomia rosła.<br><em>Jedno okno</em> przestało wystarczać.</h2>
+      <div class="o27-prose"><p>W pierwszych wersjach wszystkie doświadczenia mieszkały wewnątrz jednego, stale rozbudowywanego symulatora. Działały, ale kolejne narzędzia otwierały się jako panele i okna tego samego programu.</p><p>Przełomem było pytanie: <strong>czy każde odkrycie może mieć własny adres i własną przestrzeń?</strong> Odpowiedzią został ATLAS SOLARIS 27.0 — odrębna strona główna, katalog, działy tematyczne i pełnoekranowe podstrony.</p></div>
+    </div>
+  </section>
+
+  <section id="przemiana" class="o27-transformation o27-wrap" aria-labelledby="changeTitle">
+    <div class="o27-heading-line">
+      <div><div class="o27-kicker">02 / PRZED I PO</div><h2 id="changeTitle">Ta sama wiedza.<br>Nowy sposób podróżowania.</h2></div>
+      <div class="o27-toggle" role="group" aria-label="Wybierz architekturę do obejrzenia"><button type="button" id="o27Before" class="is-active" aria-pressed="true">PRZED / 26.0</button><button type="button" id="o27After" aria-pressed="false">PO / 27.0</button></div>
+    </div>
+    <div class="o27-compare" data-mode="before">
+      <div class="o27-browser" aria-label="Schemat zmiany architektury">
+        <div class="o27-browser-top"><div class="o27-dots" aria-hidden="true"><i></i><i></i><i></i></div><span id="o27Address">atlas-solaris / symulator</span><span class="o27-browser-tag">SCHEMAT</span></div>
+        <div class="o27-browser-screen">
+          <div class="o27-old-model" id="o27OldModel" aria-label="Jeden główny symulator i kolejne narzędzia otwierane jako okna">
+            <div class="o27-old-stars" aria-hidden="true"></div>
+            <div class="o27-old-sun" aria-hidden="true"></div>
+            <div class="o27-old-orbit o27-old-o1"></div><div class="o27-old-orbit o27-old-o2"></div><div class="o27-old-orbit o27-old-o3"></div>
+            <div class="o27-old-ribbon">PLANETARIUM 3D <span>JEDEN SILNIK</span></div>
+            <div class="o27-old-dialog"><span>◦  LABORATORIUM</span><strong>Okno wewnątrz programu</strong><div class="o27-faux-field"></div><div class="o27-faux-field short"></div><div class="o27-faux-btn"></div></div>
+          </div>
+          <div class="o27-new-model" id="o27NewModel" aria-label="Portal z katalogiem, sześcioma działami i wieloma podstronami" hidden>
+            <div class="o27-new-top"><span class="o27-new-brand">◉ ATLAS <b>SOLARIS</b></span><span>ODKRYWAJ &nbsp; | &nbsp; WSZYSTKIE ETAPY</span></div>
+            <div class="o27-new-hero"><small>INTERAKTYWNY ATLAS ASTRONOMICZNY</small><strong>Wszechświat,<br><em>który możesz odkrywać.</em></strong><span>PEŁNOEKRANOWE ODKRYCIA ↗</span></div>
+            <div class="o27-new-grid"><span>◌<small>ŚWIATY</small></span><span>↗<small>MISJE</small></span><span>◉<small>ZJAWISKA</small></span><span>✦<small>GWIAZDY</small></span><span>◎<small>RELATYWISTYKA</small></span><span>⌁<small>NAUKA</small></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="o27-compare-explain" aria-live="polite">
+        <div class="o27-compare-index" id="o27ComparisonNumber">26.0 <span>/ JEDNO CENTRUM</span></div>
+        <h3 id="o27CompareTitle">Wiele narzędzi w jednym programie.</h3>
+        <p id="o27CompareText">Planetarium było sercem wszystkich doświadczeń. Z czasem zaawansowane laboratoria uruchamiały się w oknach i panelach osadzonych w tej samej aplikacji.</p>
+        <ul id="o27CompareBullets"><li>Jedna główna strona programu</li><li>Laboratoria jako panele i dialogi</li><li>Wspólne zasoby i silnik astronomiczny</li></ul>
+        <div class="o27-reality">Ważne: to wizualne schematy architektury, nie zrzuty ekranu z archiwalnych wydań.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="o27-timeline o27-wrap" aria-labelledby="timelineTitle">
+    <div class="o27-kicker">03 / HISTORIA ROZWOJU</div>
+    <div class="o27-heading-line"><h2 id="timelineTitle">Wyprawa nie kończy się<br>na jednym odkryciu.</h2><p>Kolejne punkty to rzeczywiste obszary rozbudowy projektu. Numer oznacza etap, nie upływ czasu.</p></div>
+    <div class="o27-timeline-list">
+      <a href="../../etapy/01/" class="o27-time-item"><span class="o27-timeline-mark">01</span><div><small>POCZĄTEK</small><h3>Pierwszy Układ Słoneczny</h3><p>Planety, orbity i sterowanie czasem — fundament interaktywnego symulatora.</p></div><span class="o27-time-arrow">↗</span></a>
+      <a href="../../etapy/10/" class="o27-time-item"><span class="o27-timeline-mark">10</span><div><small>EKSPERYMENTY</small><h3>Od oglądania do planowania</h3><p>Centrum Misji i kolejne narzędzia do badania ruchu oraz lotów międzyplanetarnych.</p></div><span class="o27-time-arrow">↗</span></a>
+      <a href="../../etapy/17/" class="o27-time-item"><span class="o27-timeline-mark">17</span><div><small>FIZYKA I OBSERWACJE</small><h3>Laboratoria zaćmień i obserwatorium</h3><p>Geometria cienia, wyszukiwanie zjawisk oraz badanie nocnego nieba.</p></div><span class="o27-time-arrow">↗</span></a>
+      <a href="../../etapy/25/" class="o27-time-item"><span class="o27-timeline-mark">25</span><div><small>NIEBO I CZAS</small><h3>Zodiak, gwiazdozbiory i precesja</h3><p>Rozszerzenie Atlasu o astronomiczne granice gwiazdozbiorów i długie skale czasu.</p></div><span class="o27-time-arrow">↗</span></a>
+      <div class="o27-time-item o27-time-current" aria-current="step"><span class="o27-timeline-mark">27</span><div><small>PRZEŁOM ARCHITEKTONICZNY</small><h3>Narodziny portalu ATLAS SOLARIS</h3><p>Nowa strona główna, sześć działów, katalog, wyszukiwarka oraz osobne adresy etapów. Stare planetarium pozostaje dostępne.</p></div><span class="o27-time-arrow">✦</span></div>
+      <a href="../../etapy/28/" class="o27-time-item"><span class="o27-timeline-mark">28+</span><div><small>NOWY ROZDZIAŁ</small><h3>Od galaktyk po kolejne laboratoria</h3><p>Nowa architektura pozwala dodawać kolejne doświadczenia jako niezależne strony.</p></div><span class="o27-time-arrow">↗</span></a>
+    </div>
+  </section>
+
+  <section class="o27-architecture" aria-labelledby="architectureTitle">
+    <div class="o27-wrap">
+      <div class="o27-kicker">04 / CO NAPRAWDĘ ZMIENILIŚMY</div>
+      <h2 id="architectureTitle">Sześć kierunków.<br><em>Jedna mapa odkrywania.</em></h2>
+      <div class="o27-architecture-grid">
+        <a href="../../dzialy/planety/" class="o27-domain"><span>◌</span><strong>Światy i orbity</strong><small>Planety, Księżyc, ruch</small><b aria-hidden="true">↗</b></a>
+        <a href="../../dzialy/misje/" class="o27-domain"><span>↗</span><strong>Misje kosmiczne</strong><small>Trajektorie i loty</small><b aria-hidden="true">↗</b></a>
+        <a href="../../dzialy/zjawiska/" class="o27-domain"><span>◉</span><strong>Zjawiska na niebie</strong><small>Zaćmienia i geometria</small><b aria-hidden="true">↗</b></a>
+        <a href="../../dzialy/gwiazdy/" class="o27-domain"><span>✦</span><strong>Gwiazdy i czas</strong><small>Obserwacje i ewolucja</small><b aria-hidden="true">↗</b></a>
+        <a href="../../dzialy/relatywistyka/" class="o27-domain"><span>◎</span><strong>Czarne dziury</strong><small>Fale i czasoprzestrzeń</small><b aria-hidden="true">↗</b></a>
+        <a href="../../dzialy/nauka/" class="o27-domain"><span>⌁</span><strong>Naukowe laboratoria</strong><small>Modele i pomiary</small><b aria-hidden="true">↗</b></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="o27-truth o27-wrap" aria-labelledby="truthTitle">
+    <div class="o27-truth-symbol" aria-hidden="true">27</div>
+    <div><div class="o27-kicker">05 / FUNDAMENT, NIE NOWA FIZYKA</div><h2 id="truthTitle">Nie wszystko trzeba budować od zera.</h2>
+    <p>Wersja 27.0 nie była nową symulacją astronomiczną. Była zmianą architektury serwisu. Istniejący silnik 26.0 zachowano jako <code>atlas.html</code>, a poszczególne laboratoria udostępniono na osobnych podstronach. Wiele z nich nadal korzystało z tego samego silnika, uruchamianego wewnątrz ramki <code>iframe</code>. To świadoma migracja, nie obietnica całkowicie niezależnych aplikacji.</p>
+    <p>Dzięki temu rozwój projektu mógł trwać bez utraty wcześniejszej pracy. Kolejne etapy to już nowe, osobne laboratoria, ale ich numeracja zachowuje prawdziwą historię Atlasu.</p>
+    <div class="o27-truth-links"><a href="../../atlas.html">Otwórz klasyczne planetarium ↗</a><a href="../../README_PORTAL27.md">Czytaj pierwotną dokumentację 27.0 ↗</a><a href="../../README_ETAP27.md">Dokumentacja tego rozdziału ↗</a></div></div>
+  </section>
+
+  <section class="o27-finale" aria-labelledby="finaleTitle">
+    <div class="o27-finale-inner">
+      <div class="o27-kicker">ODPOWIEDŹ NA PYTANIE: CO DALEJ?</div>
+      <h2 id="finaleTitle">To dopiero<br><em>początek podróży.</em></h2>
+      <p>Etap 27 nie zamyka żadnego rozdziału. To most między pierwszym symulatorem a całą kolekcją kosmicznych eksperymentów.</p>
+      <div class="o27-final-actions"><a href="../../#etapy" class="o27-primary">ODKRYJ WSZYSTKIE ETAPY ↗</a><a href="../../etapy/28/" class="o27-quiet">PRZEJDŹ DO ETAPU 28 ↗</a></div>
+    </div>
+  </section>
+  <footer class="o27-footer">ATLAS SOLARIS · ETAP 27 · ARCHITEKTURA I HISTORIA PROJEKTU <span>WIZUALIZACJE SCHEMATYCZNE / NIE EFEMERYDY</span></footer>
+</main>
+</body>
+</html>

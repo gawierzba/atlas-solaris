@@ -1,6 +1,26 @@
-# ATLAS SOLARIS 25.1 — Żywe Konstelacje: zodiak w przestrzeni 3D
+# ATLAS SOLARIS 26.0 — Maszyna Czasu Nieba
 
 ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **24.0** dodaje obserwatorium dwóch laserowych interferometrów LIGO, detekcję syntetycznych sygnałów GW150914 w niezależnych szumach i interaktywny filtr dopasowany. Wersja **23.0** dodała obserwatorium fal grawitacyjnych z widowiskową wizualizacją zderzenia dwóch czarnych dziur, fizyką inspiralu i przybliżonym wygaszaniem drgań Kerra. Wersja **22.0** dodała kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 26.0 — Maszyna Czasu Nieba: 28 tysięcy lat precesji Ziemi
+
+**Otwórz:** przycisk „◷ MASZYNA CZASU 26” w górnym pasku lub „◷ MASZYNA CZASU NIEBA 26.0 · PRECESJA ZIEMI” w menu bocznym. Dostępne są również przejścia z Zodiaku 25 i Żywych Konstelacji 25.1.
+
+- Dwie zsynchronizowane sceny Canvas2D: **mapa północnego nieba**, prezentująca zmieniający się kierunek północnego bieguna niebieskiego, oraz **schemat 3D Ziemi**, z osią obrotu i biegunem ekliptyki.
+- Przedział **rok astronomiczny −12000 do +16000**, animacja i suwak. W zapisie astronomicznym rok 0 oznacza rok 1 p.n.e., a −2800 to 2801 p.n.e.
+- Epoki: Thuban (około −2800), Polarna (2026) i Wega (około 13700). Pokazane odległości to **kąty na niebie**; „najbliższa gwiazda” oznacza najbliższą spośród dziewięciu opisanych kandydatów.
+- Prawdziwa geometria J2000: biegun równika, biegun ekliptyki, kąt nachylenia, punkt równonocy marcowej, długość ekliptyczna J2000 oraz rektascensja i deklinacja.
+- **Długookresowa precesja Vondrák, Capitaine, Wallace (2011, 2012)**, zaadaptowana z implementacji ERFA (biblioteka wywodząca się z IAU SOFA), zamiast extrapolacji krótkookresowego wielomianu IAU 1976. Warunki licencyjne ERFA opisane w `legal/ERFA-LICENSE.txt`.
+- Wskaźnik równonocy na ekliptycznej mapie **13 gwiazdozbiorów IAU J2000**, klasyfikowany z rzeczywistej pozycji równonocy w układzie J2000; współrzędne gwiazd z wcześniej używanego Atlasu 19.
+- Nawigacja między modułami 25, 25.1 i 26. Wszystkie wcześniejsze laboratoria zachowane; kopia kodu przed tym etapem jest w gałęzi `backup-v25-1-before-time-machine26`.
+
+### Ograniczenia i interpretacja
+
+**Precesja jest obliczana na podstawie opublikowanego modelu**, ale star map wykorzystuje **nieruchomy katalog gwiazd J2000**. Przy tysiącach lat ruchy własne gwiazd mogą być istotne, toteż dokładna odległość gwiazdy od bieguna w takim odległym roku jest tu przybliżeniem. Prawdziwy tor bieguna ekliptyki zmienia się w czasie i jest liczony; wizualny wygląd Ziemi, graticule, jasność i szybkość lotu przez epoki pozostają schematyczne. Nie obliczamy wstecz lub wprzód pozycji planet poza wiarygodnym zakresem istniejącego silnika JPL, nie przewidujemy historycznych zjawisk ani położeń gwiazd z pełnym ruchem własnym. Wskaźnik ekliptyczny przedstawia **długość J2000**, a nie projekcję na ekliptykę daty; w odległych epokach te płaszczyzny nie pokrywają się.
+
+**Testy:** `node tests/time26.test.cjs`; zawierają referencyjne wyniki ERFA dla epoki −1373.5959534565 oraz kontrolę geometrii historycznej i przyszłej. Testy całego Atlasu są uruchamiane przez GitHub Actions.
+
+**Źródła:** [Vondrák et al. 2011, A&A 534 A22](https://doi.org/10.1051/0004-6361/201117274), [ERFA NumFOCUS — ltpequ, ltpecl, ltp](https://github.com/liberfa/erfa), [NASA StarChild — Earth's precession](https://starchild.gsfc.nasa.gov/docs/StarChild/question.html). Zob. także lokalną dokumentację `legal/ERFA-LICENSE.txt`.
 
 ## Nowość 25.1 — Żywe Konstelacje, paralaksa 3D i rzeczywiste granice IAU
 

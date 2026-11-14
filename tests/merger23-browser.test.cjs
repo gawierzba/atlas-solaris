@@ -37,8 +37,12 @@ function verify(){
      if(b>100&&b>r*1.25)blue++;
      if(r>85&&r>g*1.13)coral++;
     }
-    for(let i=0;i<140;i++){
-     const pix=Math.floor((i+.3)*pixels.length/4/140)*4;
+    // Sample a regular 2-D grid around the orbit, not one sparse
+    // full-image raster line that can miss the black-hole silhouettes.
+    for(let j=0;j<12;j++)for(let i=0;i<20;i++){
+     const xx=Math.min(canvas.width-1,Math.floor(canvas.width*(.12+.76*(i+.5)/20)));
+     const yy=Math.min(canvas.height-1,Math.floor(canvas.height*(.12+.76*(j+.5)/12)));
+     const pix=(yy*canvas.width+xx)*4;
      grid.push(pixels[pix],pixels[pix+1],pixels[pix+2]);
     }
     return {bright,dark,blue,coral,grid};

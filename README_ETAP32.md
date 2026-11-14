@@ -1,11 +1,10 @@
-# ATLAS SOLARIS 32.1 — Pulsar. Kosmiczna latarnia
+# ATLAS SOLARIS 32.0 — Pulsar. Kosmiczna latarnia
 
 ## Ścieżki i budowa
 - Podstrona etapu: `/etapy/32/`
 - Laboratorium: `/laboratoria/pulsar/`
 - Obliczenia: `/portal/pulsar32-core.js`
 - Interfejs, animacja przestrzenna, wykresy i audio: `/portal/pulsar32-ui.js`
-- Filmowa warstwa rysowania i fallback: `/portal/pulsar32-cinema.js`
 - Responsywne style: `/portal/pulsar32.css`
 - Testy modelu: `/tests/pulsar32.test.cjs`
 
@@ -47,14 +46,3 @@ Okres obrotu P wybierany jest w zakresie około 1.6 ms do 1.8 s. `f=1/P` podaje 
 - NASA ATNF Pulsar Catalog — https://catalog.data.gov/dataset/atnf-pulsar-catalog
 
 Testy: `node --test tests/pulsar32.test.cjs`.
-
-## Aktualizacja 32.1 — filmowa oprawa bez zmian w fizyce
-
-- Nowa tekstura gwiazdy neutronowej generowana lokalnie, ze światłem na kuli i szczegółami umownych struktur plazmy.
-- Złożone, półprzezroczyste stożki promieniowania, jasne filamenty, strumienie cząstek, przestrzenny model linii pola magnetycznego i wielowarstwowa poświata.
-- Kosmiczne tło z wieloma głębiami gwiazd oraz rozproszoną mgławicą, przeprojektowane karty i telemetria.
-- Trzy tryby renderingu: Auto, Filmowa, Lekka. Automatyczna oszczędność na wąskich ekranach i urządzeniach z małą pamięcią.
-- Poprzedni renderer jest zachowany jako awaryjny; nowa warstwa nie ingeruje w `pulsar32-core.js`, sygnały, pomiary, wykresy ani sonifikację.
-- Wysokiej jakości wizualizacja **nie jest obserwacyjnym zdjęciem gwiazdy neutronowej**. Świecące stożki pokazują kierunki niewidzialnej dla oka radioemisji, a materiały, barwy, poświaty i strumienie są artystyczną interpretacją.
-
-Testy: `node --test tests/pulsar32.test.cjs tests/pulsar32-visual.test.cjs` oraz `node tests/pulsar32-browser.test.cjs`.

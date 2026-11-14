@@ -31,7 +31,7 @@ function init(){
  if(!core||!api||!$('obs18Board'))return;
  const dialog=$('observatoryDialog'),chart=$('obs18Timeline'),scope=$('obs18Scope'),field=$('obs18Time');
  const state={anchorJD:null,plan:null,planKey:'',selected:'moon',lastContext:null,
-  latest:null,lastDraw:-Infinity,opened:false,filter:'',busy:false};
+  latest:null,lastDraw:-Infinity,opened:false,filter:'',busy:false,playing:false};
  const pos=()=>api.getObservatoryContext();
  const toNumber=(v,dp=1)=>Number.isFinite(v)?v.toFixed(dp).replace('.',','):'—';
  const mm=n=>Number.isFinite(n)?Math.round(n).toLocaleString('pl-PL'):'—';
@@ -264,6 +264,44 @@ function init(){
   const targetPlan=state.plan?.targets.find(p=>p.id===state.selected);
   $('obs18Best').disabled=!targetPlan?.best||targetPlan.best.altitude<=0;
  }
+ let frameId=0,lastAnimationAt=0,lastCanvasAt=0,accumulatedSeconds=0;
+ function pause(message='Animacja zatrzymana'){
+  state.playing=false;
+  if(frameId){cancelAnimationFrame(frameId);frameId=0;}
+  lastAnimationAt=0;accumulatedSeconds=0;
+  $('obs18Play').textContent='▶ Odtwórz noc';
+  $('obs18Playback').textContent=message;
+ }
+ function frame(now){
+  if(!state.playing||!dialog.open){pause();return;}
+  if(!lastAnimationAt)lastAnimationAt=now;
+  const dt=Math.max(0,Math.min(.25,(now-lastAnimationAt)/1000));
+  lastAnimationAt=now;
+  accumulatedSeconds+=dt*(Number($('obs18Speed').value)||1800);
+  if(now-lastCanvasAt>=140){
+   const start=state.plan?.startJD??api.getJD();
+   const end=state.plan?.endJD??api.getJD();
+   const next=Math.min(end,Math.max(start,api.getJD()+accumulatedSeconds/86400));
+   accumulatedSeconds=0;lastCanvasAt=now;
+   if(next>=end-1/8640000){
+    setTime(end);pause('Zakończono 24 godziny symulacji.');return;
+   }
+   setTime(next);
+   $('obs18Playback').textContent='Odtwarzanie · '+fmt(next);
+  }
+  frameId=requestAnimationFrame(frame);
+ }
+ function play(){
+  if(!dialog.open||!state.plan)return;
+  if(state.playing){pause();return;}
+  const jd=api.getJD();
+  if(jd<state.plan.startJD||jd>=state.plan.endJD)setTime(state.plan.startJD);
+  state.playing=true;lastAnimationAt=0;lastCanvasAt=0;accumulatedSeconds=0;
+  field.blur();
+  $('obs18Play').textContent='Ⅱ Pauza';
+  $('obs18Playback').textContent='Odtwarzanie · '+fmt(api.getJD());
+  frameId=requestAnimationFrame(frame);
+ }
  function onSkyDraw(){
   if(!dialog.open||state.busy)return;
   state.busy=true;
@@ -287,6 +325,7 @@ function init(){
   }finally{state.busy=false;}
  }
  field.addEventListener('change',()=>{
+  pause();
   const value=field.value;
   const date=new Date(value.endsWith('Z')?value:value+'Z');
   if(!Number.isFinite(date.getTime())||date.getUTCFullYear()<1800||date.getUTCFullYear()>2050){
@@ -296,16 +335,19 @@ function init(){
   state.anchorJD=date.getTime()/86400000+2440587.5;
   setTime(state.anchorJD);
  });
- $('obs18Now').onclick=()=>{state.anchorJD=Date.now()/86400000+2440587.5;setTime(state.anchorJD);};
- $('obs18Prev').onclick=()=>{state.anchorJD=(state.anchorJD??api.getJD())-DAY;setTime(state.anchorJD);};
- $('obs18Next').onclick=()=>{state.anchorJD=(state.anchorJD??api.getJD())+DAY;setTime(state.anchorJD);};
+ $('obs18Now').onclick=()=>{pause();state.anchorJD=Date.now()/86400000+2440587.5;setTime(state.anchorJD);};
+ $('obs18Prev').onclick=()=>{pause();state.anchorJD=(state.anchorJD??api.getJD())-DAY;setTime(state.anchorJD);};
+ $('obs18Next').onclick=()=>{pause();state.anchorJD=(state.anchorJD??api.getJD())+DAY;setTime(state.anchorJD);};
  $('obs18DarkJump').onclick=()=>{
+  pause();
   const rows=state.plan?.records||[];
   if(!rows.length)return;
   const best=rows.reduce((a,b)=>b.sunAltitude<a.sunAltitude?b:a);
   setTime(best.jd);
  };
+ $('obs18Play').onclick=play;
  $('obs18Preset').onchange=e=>{
+  pause();
   const pair=cities[e.target.value];if(!pair)return;
   $('obsWorld').value='earth';
   $('obsLatitude').value=pair[0].toFixed(3);
@@ -313,6 +355,7 @@ function init(){
   api.redrawObservatory();
  };
  for(const id of ['obsLatitude','obsLongitude','obsWorld'])$(id).addEventListener('change',()=>{
+  pause();
   const site=pos();const val=Object.entries(cities).find(([,p])=>
    site.world==='earth'&&Math.abs(p[0]-site.lat)<.01&&Math.abs(p[1]-site.lon)<.01);
   $('obs18Preset').value=val?val[0]:'manual';
@@ -323,10 +366,12 @@ function init(){
   if(state.selected)api.pointObservatory(state.selected);
  };
  $('obs18Best').onclick=()=>{
+  pause();
   const best=state.plan?.targets.find(t=>t.id===state.selected)?.best;
   if(best&&Number.isFinite(best.jd))setTime(best.jd);
  };
  chart.addEventListener('pointerdown',e=>{
+  pause();
   if(!state.plan)return;
   const r=chart.getBoundingClientRect(),fraction=(e.clientX-r.left)/r.width;
   const L=37/chart.width,R=1-13/chart.width;
@@ -334,11 +379,12 @@ function init(){
   setTime(state.plan.startJD+p*(state.plan.endJD-state.plan.startJD));
  });
  chart.addEventListener('keydown',e=>{
+  if(state.plan&&['ArrowLeft','ArrowRight'].includes(e.key))pause();
   if(!state.plan||!['ArrowLeft','ArrowRight'].includes(e.key))return;
   e.preventDefault();const delta=e.key==='ArrowRight'?20/1440:-20/1440;
   setTime(clamp(api.getJD()+delta,state.plan.startJD,state.plan.endJD));
  });
- dialog.addEventListener('close',()=>{state.opened=false;});
+ dialog.addEventListener('close',()=>{state.opened=false;pause();});
  root.ATLAS_OBSERVATORY18=Object.freeze({onSkyDraw,refresh:()=>{state.planKey='';onSkyDraw();}});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);

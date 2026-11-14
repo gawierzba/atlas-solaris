@@ -1,0 +1,43 @@
+name: ATLAS SOLARIS — artykul o gwiazdach podwojnych 30
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/30/**'
+      - 'portal/binary30-story.css'
+      - 'portal/media/binary30-cover.svg'
+      - 'portal/stage.js'
+      - 'tests/binary30-story.test.cjs'
+      - 'tests/binary30-story-browser.test.cjs'
+      - '.github/workflows/binary30-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chapter:
+    name: Rzetelnosc, responsywnosc i wydajnosc
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test naukowy i redakcyjny
+        run: |
+          node --check portal/stage.js
+          node --test tests/binary30.test.cjs tests/binary30-story.test.cjs
+      - name: Zainstaluj przegladarke testowa
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Weryfikuj artykul na komputerze i telefonach
+        run: node tests/binary30-story-browser.test.cjs
+      - name: Zachowaj miniatury porownawcze
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-binary30-article-preview
+          path: _binary30_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

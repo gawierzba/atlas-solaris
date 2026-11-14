@@ -84,7 +84,7 @@ function init(){
   if(see('obs181MessierMap')){
    ctx.save();
    for(const obj of objects){
-    if(obj.mag!==null&&obj.mag>9.2)continue;
+    // Show each Messier object above the horizon; fainter entries use smaller markers.
     const q=project(obj.ra,obj.dec);
     if(!q)continue;
     locations.push({id:obj.id,x:q.x,y:q.y});

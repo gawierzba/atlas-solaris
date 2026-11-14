@@ -3,13 +3,23 @@ on:
   push:
     paths:
       - 'portal/pulsar32-core.js'
+      - 'portal/pulsar32-cinema.js'
+      - 'portal/pulsar32-ui.js'
+      - 'portal/pulsar32.css'
+      - 'laboratoria/pulsar/index.html'
       - 'tests/pulsar32.test.cjs'
+      - 'tests/pulsar32-visual.test.cjs'
       - 'tests/pulsar32-browser.test.cjs'
       - '.github/workflows/pulsar32-tests.yml'
   pull_request:
     paths:
       - 'portal/pulsar32-core.js'
+      - 'portal/pulsar32-cinema.js'
+      - 'portal/pulsar32-ui.js'
+      - 'portal/pulsar32.css'
+      - 'laboratoria/pulsar/index.html'
       - 'tests/pulsar32.test.cjs'
+      - 'tests/pulsar32-visual.test.cjs'
       - 'tests/pulsar32-browser.test.cjs'
       - '.github/workflows/pulsar32-tests.yml'
   workflow_dispatch:
@@ -22,5 +32,6 @@ jobs:
         with:
           node-version: '22'
       - run: node --check portal/pulsar32-ui.js
-      - run: node --test tests/pulsar32.test.cjs
+      - run: node --check portal/pulsar32-cinema.js
+      - run: node --test tests/pulsar32.test.cjs tests/pulsar32-visual.test.cjs
       - run: node tests/pulsar32-browser.test.cjs

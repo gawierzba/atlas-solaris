@@ -1,0 +1,64 @@
+name: ATLAS SOLARIS — publikacja GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - '.nojekyll'
+      - 'css/**'
+      - 'js/**'
+      - 'data/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: atlas-solaris-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Zbuduj i opublikuj stronę
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Pobierz najnowszy kod main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Sprawdź pliki strony
+        shell: bash
+        run: |
+          test -s index.html
+          test -d css
+          test -d js
+          test -d data
+          test -f .nojekyll
+          node --check js/app.js
+          node --check js/blackhole201-core.js
+          node --check js/blackhole201-renderer.js
+          node --check js/blackhole201-ui.js
+      - name: Przygotuj wyłącznie pliki publicznej strony
+        shell: bash
+        run: |
+          mkdir -p _site
+          cp -a index.html .nojekyll css js data _site/
+          echo "Publishing commit: ${GITHUB_SHA}"
+          echo "Published title:"
+          grep -m 1 -o '<title>[^<]*</title>' _site/index.html
+      - name: Skonfiguruj GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Zapakuj stronę
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Opublikuj GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

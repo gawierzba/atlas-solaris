@@ -85,7 +85,7 @@ const order=['interstellar19-data.js','interstellar19-core.js','interstellar19-u
  .map(f=>html.indexOf('src="js/'+f+'"'));
 assert.ok(order.every(x=>x>0)&&order[0]<order[1]&&order[1]<order[2]);
 assert.ok(html.includes('href="css/interstellar19.css"'));
-assert.equal((html.match(/<dialog\\b/g)||[]).length,(html.match(/<\\/dialog>/g)||[]).length);
+assert.equal(html.split('<dialog ').length-1,html.split('</dialog>').length-1);
 console.log('OK: UI controls, repository scripts and balanced dialogs.');
 
 // Smoke-test a real canvas draw / dialog open without relying on browser packages.

@@ -6,10 +6,15 @@ const css=read('portal/pulsar32.css');
 assert.match(css,/overflow-x:hidden/,'Dokument musi mieć zabezpieczenie przed przewijaniem poziomym');
 assert.match(css,/@media\(max-width:590px\)/,'Wymagany układ na telefon');
 assert.match(css,/@media\(max-width:850px\)/,'Wymagany układ na tablet');
-const markup=read('laboratoria/pulsar/index.html')
- .replace('<link rel="stylesheet" href="../../portal/pulsar32.css">','<style>'+css+'</style>')
- .replace('<script src="../../portal/pulsar32-core.js"></script>','<script>'+read('portal/pulsar32-core.js')+'</script>')
- .replace('<script src="../../portal/pulsar32-ui.js"></script>','<script>'+read('portal/pulsar32-ui.js')+'</script>');
+const lab=read('laboratoria/pulsar/index.html');
+assert.doesNotMatch(lab,/pulsar32-cinema|data-p32quality/,'Ciężki renderer i jego przełączniki nie mogą być ładowane');
+assert.doesNotMatch(read('portal/pulsar32-ui.js'),/AtlasPulsar32Cinema/,'UI musi działać samodzielnie w trybie lekkim');
+const markup=lab
+ .replace(/<link rel="stylesheet" href="\.\.\/\.\.\/portal\/pulsar32\.css(?:\?[^"]*)?">/,'<style>'+css+'</style>')
+ .replace(/<script src="\.\.\/\.\.\/portal\/pulsar32-core\.js(?:\?[^"]*)?"><\/script>/,'<script>'+read('portal/pulsar32-core.js')+'</script>')
+ .replace(/<script src="\.\.\/\.\.\/portal\/pulsar32-ui\.js(?:\?[^"]*)?"><\/script>/,'<script>'+read('portal/pulsar32-ui.js')+'</script>');
+assert.match(markup,/class="p32-app"/);
+assert.doesNotMatch(markup,/pulsar32-cinema/);
 const chrome=['chromium','google-chrome','chromium-browser'].find(name=>cp.spawnSync('which',[name],{encoding:'utf8'}).status===0);
 if(!chrome){console.log('SKIP browser pulsar32: Chromium unavailable');process.exit(0)}
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));

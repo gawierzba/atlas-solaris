@@ -58,11 +58,19 @@ function plan({startJD,hours=24,stepMinutes=20,sample}){
   }
  }
  const windows=[];let started=null;
+ // Interpolate the exact geometric -18° threshold between 20-minute samples.
+ function crossing(p,q,threshold=-18){
+  if(!p||!q||p.sunAltitude===q.sunAltitude)return q.jd;
+  const f=clamp((threshold-p.sunAltitude)/(q.sunAltitude-p.sunAltitude),0,1);
+  return p.jd+(q.jd-p.jd)*f;
+ }
  for(let i=0;i<records.length;i++){
-  const r=records[i],dark=r.sunAltitude<=-18;
-  if(dark&&started===null)started=r.jd;
+  const r=records[i],previous=records[i-1],dark=r.sunAltitude<=-18;
+  if(dark&&started===null)started=previous&&! (previous.sunAltitude<=-18)?
+   crossing(previous,r):r.jd;
   if((!dark||i===records.length-1)&&started!==null){
-   windows.push({startJD:started,endJD:dark&&i===records.length-1?r.jd:r.jd});
+   const end=dark?r.jd:crossing(previous,r);
+   windows.push({startJD:started,endJD:end});
    started=null;
   }
  }

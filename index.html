@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 23.0 — zderzenie dwóch czarnych dziur, spirala grawitacyjna, chirp, energetyka GW150914 i model drgań czarnej dziury końcowej.">
-  <title>ATLAS SOLARIS 23.0 — Zderzenie gigantów i fale grawitacyjne</title>
+  <meta name="description" content="ATLAS SOLARIS 24.0 — naukowe obserwatorium LIGO, interferometr laserowy i wykrywanie syntetycznych fal grawitacyjnych w szumie Hanford i Livingston.">
+  <title>ATLAS SOLARIS 24.0 — Obserwatorium LIGO i wykrywanie fal grawitacyjnych</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -27,17 +27,18 @@
 <link rel="stylesheet" href="css/probe21.css">
 <link rel="stylesheet" href="css/cockpit22.css">
 <link rel="stylesheet" href="css/merger23.css">
+<link rel="stylesheet" href="css/ligo24.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 23.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 24.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 23.0</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openProbe21Side" class="probe21-side-launch" type="button">🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ</button><button id="openCockpit22Side" class="cockpit22-side-launch" type="button">◉ KAMERA NA POKŁADZIE 22.0 · WIDOK Z SONDY</button><button id="openMerger23Side" class="merger23-side-launch" type="button">✦ ZDERZENIE GIGANTÓW 23.0 · FALE GRAWITACYJNE</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 24.0</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openProbe21Side" class="probe21-side-launch" type="button">🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ</button><button id="openCockpit22Side" class="cockpit22-side-launch" type="button">◉ KAMERA NA POKŁADZIE 22.0 · WIDOK Z SONDY</button><button id="openMerger23Side" class="merger23-side-launch" type="button">✦ ZDERZENIE GIGANTÓW 23.0 · FALE GRAWITACYJNE</button><button id="openLigo24Side" class="ligo24-side-launch" type="button">◈ OBSERWATORIUM LIGO 24.0 · WYKRYJ FALĘ</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -49,10 +50,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openMerger23Top" class="merger23-top-launch" type="button" title="Zderzenie dwóch czarnych dziur i fala grawitacyjna">✦ <span>ZDERZENIE GIGANTÓW</span></button><button id="openCockpit22Top" class="cockpit22-top-launch" type="button" title="Kamera sondy: co widać podczas lotu obok czarnej dziury Kerra">◉ <span>KAMERA SONDY</span></button><button id="openProbe21Top" class="probe21-top-launch" type="button" title="Misja 21.0: lot sondą w pobliżu ergosfery">🚀 <span>LOT PRZEZ ERGOSFERĘ</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openLigo24Top" class="ligo24-top-launch" type="button" title="Obserwatorium LIGO: laser, interferencja, dwa detektory i wykrywanie fal grawitacyjnych">◈ <span>OBSERWATORIUM LIGO</span></button><button id="openMerger23Top" class="merger23-top-launch" type="button" title="Zderzenie dwóch czarnych dziur i fala grawitacyjna">✦ <span>ZDERZENIE GIGANTÓW</span></button><button id="openCockpit22Top" class="cockpit22-top-launch" type="button" title="Kamera sondy: co widać podczas lotu obok czarnej dziury Kerra">◉ <span>KAMERA SONDY</span></button><button id="openProbe21Top" class="probe21-top-launch" type="button" title="Misja 21.0: lot sondą w pobliżu ergosfery">🚀 <span>LOT PRZEZ ERGOSFERĘ</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V23.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V24.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -94,6 +95,122 @@
 
 
 
+
+
+<dialog id="ligo24Dialog" class="ligo24-dialog" aria-labelledby="ligo24Title">
+ <div class="ligo24-shell">
+  <header class="ligo24-header">
+   <div>
+    <div class="ligo24-eyebrow">ATLAS SOLARIS 24.0 / ZIEMSKIE OBSERWATORIUM FAL GRAWITACYJNYCH</div>
+    <h2 id="ligo24Title">Wykryj <em>niewidzialne.</em></h2>
+    <p>Dwa interferometry laserowe · szum detektorów · filtr dopasowany · próba z ukrytym sygnałem</p>
+   </div>
+   <button id="ligo24Close" type="button" class="ligo24-close" aria-label="Zamknij obserwatorium LIGO">✕</button>
+  </header>
+  <div class="ligo24-layout">
+   <section class="ligo24-science-stage">
+    <div class="ligo24-scene">
+     <canvas id="ligo24Canvas" width="1100" height="670" aria-label="Animowany schemat LIGO: dwa czterokilometrowe ramiona, laser, zwierciadła, rozdzielacz wiązki i fotodioda. Przemieszczenie luster powiększone schematycznie."></canvas>
+     <div class="ligo24-scene-header"><span><i class="ligo24-record-dot"></i> <span id="ligo24Observatory">L1 / LIVINGSTON, LUIZJANA</span></span><span>MICHELSON / 4 km + 4 km</span></div>
+     <div class="ligo24-scene-footer"><span id="ligo24SceneStatus">LASER 1064 nm / INFRARED</span><span id="ligo24SceneClock">t = 0,000 s</span></div>
+     <div class="ligo24-scene-warning">PRZEMIESZCZENIE LUSTER I WIĄZKI ŚWIETLNE POWIĘKSZONE ILUSTRACYJNIE</div>
+    </div>
+    <div class="ligo24-telemetry">
+     <div><small>ODKSZTAŁCENIE h(t)</small><strong id="ligo24Strain">—</strong></div>
+     <div><small>ZMIANA RAMIENIA X / ΔLx</small><strong id="ligo24DX">— m</strong></div>
+     <div><small>ZMIANA RAMIENIA Y / ΔLy</small><strong id="ligo24DY">— m</strong></div>
+     <div><small>RÓŻNICA RAMION / ΔL</small><strong id="ligo24DL">— m</strong></div>
+     <div><small>PRZESUNIĘCIE FAZY / Δφ</small><strong id="ligo24Phase">— rad</strong></div>
+     <div><small>IDEALNY CIEMNY PORT / I/I₀</small><strong id="ligo24DarkPort">—</strong></div>
+    </div>
+    <div class="ligo24-plot-block">
+     <div class="ligo24-plot-head">
+      <div><small>01 / SYNTETYCZNY ODCZYT DETEKTORÓW</small><strong>Gdzie ukryła się fala?</strong></div>
+      <span id="ligo24PlotInfo">Dwa niezależne szumy / 4096 próbek na sekundę</span>
+     </div>
+     <canvas id="ligo24DataPlot" width="1120" height="300" aria-label="Porównanie dwóch syntetycznych serii czasowych strain h(t) w detektorach Hanford i Livingston z ukrytą injekcją"></canvas>
+     <div class="ligo24-legend">
+      <span><i class="ligo24-legend-l1"></i> L1 / Livingston</span>
+      <span><i class="ligo24-legend-h1"></i> H1 / Hanford, przeciwny znak odpowiedzi</span>
+      <span><i class="ligo24-legend-true"></i> Injekcja: widoczna po odsłonięciu</span>
+     </div>
+    </div>
+    <div class="ligo24-plot-block ligo24-detection-block">
+     <div class="ligo24-plot-head">
+      <div><small>02 / FILTR DOPASOWANY</small><strong id="ligo24FilterTitle">Szukamy spójnego sygnału w dwóch detektorach</strong></div>
+      <span id="ligo24FilterHint">Kliknij „Szukaj sygnału”, aby obliczyć korelację</span>
+     </div>
+     <canvas id="ligo24SNRPlot" width="1120" height="265" aria-label="Krzywe znormalizowanej korelacji SNR w Hanford i Livingston; piki przed/po wyszukiwaniu"></canvas>
+     <div class="ligo24-analysis-results">
+      <div><small>SNR / LIVINGSTON</small><strong id="ligo24SNRL">—</strong></div>
+      <div><small>SNR / HANFORD</small><strong id="ligo24SNRH">—</strong></div>
+      <div><small>SNR SIECI / MODEL</small><strong id="ligo24SNRNet">—</strong></div>
+      <div><small>OPÓŹNIENIE / WYNIK</small><strong id="ligo24Delay">— ms</strong></div>
+     </div>
+     <div id="ligo24Verdict" class="ligo24-verdict" role="status">Nie przeprowadzono jeszcze analizy. Wykres przedstawia syntetyczne odkształcenie, nie prawdziwy pomiar LIGO.</div>
+    </div>
+    <div class="ligo24-explainer">
+     <div><small>SKALA POMIARU / CO NAPRAWDĘ OBSERWUJEMY?</small><strong>4 km i różnica krótsza od jądra atomowego</strong></div>
+     <p>Dla ilustracyjnego h ≈ 10⁻²¹ jedno ramię zmienia długość o około ±2 × 10⁻¹⁸ m. Przy ułożeniu + ramiona reagują przeciwnie, więc ΔL ≈ 4 × 10⁻¹⁸ m. W uproszczonym interferometrze faza wiązek po powrocie różni się o Δφ = 4πΔL/λ. Rzeczywisty Advanced LIGO wykorzystuje znacznie bardziej skomplikowane wnęki Fabry’ego–Perota, układ recyklingu światła i kalibrację wyjścia.</p>
+    </div>
+   </section>
+   <aside class="ligo24-controls">
+    <div class="ligo24-control-section">01 / USTAW EKSPERYMENT</div>
+    <label class="ligo24-field" for="ligo24Preset">Scenariusz danych
+     <select id="ligo24Preset">
+      <option value="discovery" selected>GW150914 · ukryty sygnał</option>
+      <option value="loud">Silne źródło · bliżej Ziemi</option>
+      <option value="weak">Odległe źródło · trudny przypadek</option>
+      <option value="null">Szum bez sygnału · próba kontrolna</option>
+      <option value="custom">Własne parametry · model</option>
+     </select>
+    </label>
+    <div id="ligo24Scenario" class="ligo24-scenario">Model fal na podstawie mas GW150914; sztucznie wstrzykujemy sygnał w nieznanym momencie pomiaru.</div>
+    <label class="ligo24-range" for="ligo24Distance"><span>Odległość źródła <b id="ligo24DistanceValue">420 Mpc</b></span>
+     <input id="ligo24Distance" type="range" min="100" max="2000" step="10" value="420"></label>
+    <label class="ligo24-range" for="ligo24Noise"><span>Poziom szumu <b id="ligo24NoiseValue">1,00×</b></span>
+     <input id="ligo24Noise" type="range" min="30" max="400" step="5" value="100"></label>
+    <div class="ligo24-mass-pair">
+     <label class="ligo24-range" for="ligo24M1"><span>Masa 1 <b id="ligo24M1Value">36,2 M☉</b></span>
+      <input id="ligo24M1" type="range" min="10" max="80" step="0.1" value="36.2"></label>
+     <label class="ligo24-range" for="ligo24M2"><span>Masa 2 <b id="ligo24M2Value">29,1 M☉</b></span>
+      <input id="ligo24M2" type="range" min="10" max="80" step="0.1" value="29.1"></label>
+    </div>
+    <div class="ligo24-control-section">02 / OBSERWUJ LASER I LUSTRA</div>
+    <label class="ligo24-field" for="ligo24Site">Schemat interferometru
+     <select id="ligo24Site">
+      <option value="L1" selected>L1 / Livingston · Luizjana</option>
+      <option value="H1">H1 / Hanford · Waszyngton</option>
+     </select>
+    </label>
+    <div class="ligo24-controls-row">
+     <button id="ligo24Play" class="ligo24-secondary" type="button">▶ Odtwórz pomiar</button>
+     <button id="ligo24Replay" class="ligo24-secondary" type="button">↺ Początek</button>
+    </div>
+    <label class="ligo24-range" for="ligo24Timeline"><span>Czas w oknie pomiaru <b id="ligo24TimelineValue">0,000 s</b></span>
+     <input id="ligo24Timeline" type="range" min="0" max="1500" step="1" value="0"></label>
+    <div class="ligo24-control-section">03 / SAMODZIELNE ODKRYCIE</div>
+    <button id="ligo24Detect" class="ligo24-detect" type="button">◈ SZUKAJ SYGNAŁU / FILTR DOPASOWANY</button>
+    <div class="ligo24-controls-row">
+     <button id="ligo24Reveal" class="ligo24-outline" type="button">◎ Pokaż injekcję</button>
+     <button id="ligo24NewNoise" class="ligo24-outline" type="button">↻ Nowa próbka szumu</button>
+    </div>
+    <p id="ligo24BlindNote" class="ligo24-blind">Położenie syntetycznego zdarzenia jest na początku ukryte. Próg ρ sieci ≥ 9 wraz z ρ każdego detektora ≥ 5 to <b>reguła dydaktyczna</b>, a nie profesjonalna istotność statystyczna ani fałszywa częstość alarmów LIGO.</p>
+    <div class="ligo24-control-section">04 / CO JEST RZECZYWISTE?</div>
+    <div class="ligo24-facts">
+     <div><small>DŁUGOŚĆ RAMIENIA L</small><strong>4 000 m</strong></div>
+     <div><small>DŁUGOŚĆ FALI LASERA λ</small><strong>1064 nm</strong></div>
+     <div><small>PRZELOT ŚWIATŁA TAM I Z POWROTEM</small><strong id="ligo24RoundTrip">26,69 µs</strong></div>
+     <div><small>CZĘSTOTLIWOŚĆ PRÓBKOWANIA MODELU</small><strong>4096 Hz</strong></div>
+     <div><small>SZUM / σ NA PRÓBKĘ</small><strong id="ligo24Sigma">—</strong></div>
+     <div><small>MASA CHIRPU / ŹRÓDŁO</small><strong id="ligo24ChirpMass">— M☉</strong></div>
+     <div><small>MODEL / OKNO DANYCH</small><strong>1,50 s</strong></div>
+    </div>
+    <p class="ligo24-limits"><b>GRANICE WIARYGODNOŚCI:</b> w całym etapie korzystamy wyłącznie z syntetycznych danych z modelu etapu 23 i niezależnego białego szumu Gaussa. Wykrywamy wzorzec o znanej fazie i masach; nie jest to rzeczywisty bank szablonów, korekta spektralna PSD, rekonstrukcja zarejestrowanych danych ani pomiar statystycznej istotności GW150914. Orientacje anten H1/L1 i opóźnienie 6,9 ms są uproszczonym ustawieniem dydaktycznym. Nie imitujemy rzeczywistego prądu fotodiody ani dynamiki wnęk optycznych.</p>
+   </aside>
+  </div>
+ </div>
+</dialog>
 
 <dialog id="merger23Dialog" class="merger23-dialog" aria-labelledby="merger23Title">
  <div class="merger23-shell">
@@ -172,7 +289,7 @@
     <div class="merger23-section-title">03 / OBEJRZYJ ZDERZENIE</div>
     <div class="merger23-buttons">
       <button id="merger23Play" class="merger23-play" type="button">▶ URUCHOM ZDERZENIE</button>
-      <button id="merger23Replay" class="merger23-replay" type="button">↺ Od początku</button>
+      <button id="merger23Replay" class="merger23-replay" type="button">↺ Od początku</button><button id="merger23ToLigo24" class="merger23-replay" type="button">◈ Wykryj tę falę w LIGO 24.0</button>
     </div>
     <label class="merger23-range-head" for="merger23Progress">Odtwarzanie w zwolnionym czasie <b id="merger23ProgressText">0%</b></label>
     <input id="merger23Progress" type="range" min="0" max="1000" step="1" value="0">
@@ -1652,5 +1769,7 @@
 <script src="js/cockpit22-ui.js"></script>
 <script src="js/merger23-core.js"></script>
 <script src="js/merger23-ui.js"></script>
+<script src="js/ligo24-core.js"></script>
+<script src="js/ligo24-ui.js"></script>
 </body>
 </html>

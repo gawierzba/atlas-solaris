@@ -1,6 +1,67 @@
-# ATLAS SOLARIS 23.0 — Zderzenie gigantów i fale grawitacyjne
+# ATLAS SOLARIS 24.0 — Obserwatorium LIGO: wykrywanie niewidzialnej fali
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **23.0** dodaje obserwatorium fal grawitacyjnych z widowiskową wizualizacją zderzenia dwóch czarnych dziur, fizyką inspiralu i przybliżonym wygaszaniem drgań Kerra. Wersja **22.0** dodała kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **24.0** dodaje obserwatorium dwóch laserowych interferometrów LIGO, detekcję syntetycznych sygnałów GW150914 w niezależnych szumach i interaktywny filtr dopasowany. Wersja **23.0** dodała obserwatorium fal grawitacyjnych z widowiskową wizualizacją zderzenia dwóch czarnych dziur, fizyką inspiralu i przybliżonym wygaszaniem drgań Kerra. Wersja **22.0** dodała kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 24.0 — Obserwatorium LIGO: naprawdę wykryj falę w szumie
+
+**Wejście:** przycisk **◈ OBSERWATORIUM LIGO** w górnym pasku albo **◈ OBSERWATORIUM LIGO 24.0 · WYKRYJ FALĘ** w menu bocznym. Z laboratorium zderzeń 23.0 można również przejść przyciskiem **„Wykryj tę falę w LIGO 24.0”**. Dla źródła o masach gwiazdowych i obsługiwanej odległości przejmowane są wartości mas i odległości. Hipotetycznych czarnych dziur supermasywnych nie kierujemy do pasma detektorów naziemnych: ich sygnał mHz należy do innych typów obserwatoriów, więc przejście w tym wypadku resetuje misję do GW150914 i wyświetla powód.
+
+### Co przedstawia laboratorium?
+
+**Interferometr:** wizualny schemat dwóch prostopadłych ramion \`L=4000 m\`, lasera podczerwonego \`λ=1064 nm\`, rozdzielacza wiązki, zwierciadeł (mas testowych) i fotodiody. Przy przechodzeniu fali \`+\` przy osi odpowiednio ustawionego interferometru jeden kierunek ulega wydłużeniu, a drugi skróceniu. Ruch zwierciadeł oraz widoczne wiązki na scenie są **poglądowo zwielokrotnione**: rzeczywista wiązka podczerwieni jest niewidoczna, a zmiany odległości są mniejsze niż skale jądrowe.
+
+**Dwa detektory:** Hanford (H1, stan Waszyngton) i Livingston (L1, Luizjana), w rzeczywistości odległe o około 3000 km. Model zawiera dwa *niezależne* białe szumy Gaussa, cyfrowe próbki strain \`h(t)\` o częstotliwości 4096 Hz przez 1,50 sekundy, falę wyliczoną przez silnik inspiralu + ringdown z etapu 23 i odmienną odpowiedź antenową. Dla scenariusza GW150914 wzorcowa fala pojawia się najpierw w L1, a około **6,9 ms później** w H1 (w rzeczywistych obserwacjach opóźnienie wyniosło około 7 ms). Znak i względna amplituda \`H1 = −0,75 × L1\` są **uproszczoną, wybraną orientacją modelową**; nie pochodzą z wyliczenia kierunku na niebie konkretnego układu pod kątem ramion LIGO.
+
+**Filtrowanie:** możesz patrzeć na wykresy dwóch strumieni strain, a następnie uruchomić **„SZUKAJ SYGNAŁU / FILTR DOPASOWANY”**. Algorytm dla każdej możliwej chwili coalescence porównuje próbki danych z przesuwanym szablonem fali (korelacja normalizowana znanym odchyleniem szumu i normą szablonu). Osobno liczymy \`ρ_L1(t)\` i \`ρ_H1(t)\`, szukamy pików zgodnych w przedziale ±10 ms i podajemy umowną statystykę sieci \`√(ρ_L1²+ρ_H1²)\`. Reguła **ρ każdego detektora ≥5 i ρ sieci ≥9** jest demonstracyjnym progiem ustawionym tylko dla tego symulatora. **Nie wolno interpretować jej jako rzeczywistej częstości fałszywych alarmów, istotności p, sigma ani jako rankingu zdarzeń LIGO.**
+
+**Wzorzec jest znany:** filtr używa *tej samej fazy i parametrów modelu*, z którego wstrzyknięto falę. W rzeczywistym LIGO stosuje się banki szablonów o różnych masach, spinach, fazach i orientacjach, kalibrację, korekcję spektralną przez PSD, rozpoznawanie krótkich artefaktów szumu, testy spójności i ocenę alarmów z tła. Nasz wybór to świadomie dydaktyczny **matched filter dla syntetycznego szumu białego**, a nie zaawansowany detektor prawdziwego sygnału LIGO. Dla bazowej injekcji GW150914 poziom sztucznego szumu ustawiono *ręcznie*, aby wynik miał podobny rząd wielkości do historycznego network SNR 23,6; uzyskane SNR około 22–23 nie jest niezależną rekonstrukcją tego pomiaru.
+
+### Eksperymenty
+
+- **GW150914 / ukryty sygnał:** wartości startowe to źródłowe masy 36,2 i 29,1 M☉ oraz dystans 420 Mpc; inspiral i ringdown liczone są modelem 23.0, nie skopiowanym sygnałem ani rzeczywistymi danymi z detektorów.
+- **Silne źródło:** dystans około 210 Mpc, przez co amplituda się zwiększa i odnalezienie fali w dwukanałowym szumie jest znacznie łatwiejsze.
+- **Odległe źródło:** około 1350 Mpc i podwyższony poziom szumu; program wstrzykuje falę, ale może jej **nie wykryć**. Pokaż pozycję prawdziwej injekcji, aby zaobserwować wynik fałszywie ujemny.
+- **Szum bez źródła:** falę wyłączono całkowicie. Przypadkowe lokalne szczyty korelacji nie powinny spełnić demonstracyjnego progu dwóch detektorów.
+- **Własne warunki:** suwaki mas \`m1\`, \`m2\` (10–80 M☉), dystansu (100–2000 Mpc), poziomu szumu (0,30–4,00 ×). W modelu zmienionych mas masa końcowa i spin są **przyjęte orientacyjnie**, nie rozwiązane pełną numeryczną względnością. Przycisk „Nowa próbka szumu” generuje nowy deterministyczny strumień z innym ziarnem; przycisk „Pokaż injekcję” ujawnia prawdziwą obecność i położenie sztucznego sygnału.
+- **Odtwarzanie:** 1,5 sekundy rzeczywistej skali czasu modelu rozciągnięte na około 13 sekund filmu, z pauzą i przewijaniem. Tempo odtwarzania nie zmienia próbki fizycznej.
+
+### Fizyka metrologii
+
+Idealny, uproszczony interferometr Michelsona przy fali \`+\` propagującej prostopadle do płaszczyzny ramion i skierowanej wzdłuż osi detektora daje
+\[
+\Delta L_x=\frac{1}{2}Lh,\qquad \Delta L_y=-\frac{1}{2}Lh,\qquad
+\Delta L_x-\Delta L_y=Lh.
+\]
+Faza dwóch powracających wiązek w uproszczeniu jednej podróży tam i z powrotem wynosi
+\[
+\Delta\phi=\frac{4\pi\Delta L}{\lambda},\qquad
+\frac{I_{\mathrm{dark}}}{I_0}=\sin^2\!\left(\frac{\Delta\phi}{2}\right).
+\]
+Dla \`h≈10⁻²¹\` i \`L=4 km\`: \`ΔLx≈+2×10⁻¹⁸ m\`, \`ΔLy≈−2×10⁻¹⁸ m\`, \`ΔL≈4×10⁻¹⁸ m\`, \`Δφ≈4,72×10⁻¹¹ rad\`, \`I_dark/I_0≈5,58×10⁻²²\`, a foton potrzebowałby \`2L/c≈26,69 µs\` na pojedynczą trasę tam i z powrotem. Tak małych wartości nie przedstawiamy w skali pikseli — położenia luster są artystycznie powiększone. Rzeczywisty Advanced LIGO ma wielokrotne obiegi w wnękach Fabry’ego–Perota, recycling światła, złożoną odpowiedź częstotliwościową oraz specjalne techniki odczytu, dlatego wykres \`I_dark\` nie powinien być traktowany jako rzeczywisty prąd fotodiody.
+
+Syntetyczne próbki strain dla każdego detektora to
+\[
+d_\mathrm{L1}[n]=F_\mathrm{L1} h(t_n-t_0)+\epsilon_{\mathrm{L1}}[n], \quad
+d_\mathrm{H1}[n]=F_\mathrm{H1}h(t_n-t_0-\delta t)+\epsilon_{\mathrm{H1}}[n],
+\]
+gdzie \`F_L1=+1\`, \`F_H1=−0.75\`, \`δt=6.9 ms\`, a każde \`ε\` ma rozkład normalny o odchyleniu \`σ\` w *fizycznych bezwymiarowych jednostkach strain na próbkę*. Obecna symulacja **nie** modeluje rzeczywistego szumu kolorowego (charakterystyki sejsmicznej, kwantowej, linii widmowych). Korelacja przy znanym szumie białym i znanym szablonie \`q\`:
+\[
+\rho(t_k)=\frac{\sum_j d[k+j]q[j]}
+{\sigma\sqrt{\sum_j q[j]^2}},
+\]
+przy umownie skorygowanym przeciwnym znaku odpowiedzi H1. Czas opóźnienia estymujemy z maksimów korelacji, sprawdzając zgodność nie większą niż 10 ms. Nie wykonujemy automatycznie realnej analizy fałszywych alarmów; sygnały testowe pozostają niezależne.
+
+### Źródła naukowe
+
+- LIGO Scientific Collaboration, [GW150914 — science summary](https://ligo.org/science-summaries/GW150914/): 14 września 2015, pierwszy sygnał najpierw w Livingston, po około 7 ms w Hanford; podstawy interferometrii.
+- LIGO, [Advanced LIGO — instrument at the first detection](https://ligo.org/science-summaries/gw150914detector/): ramiona po 4 km, zmiana różnicy odległości rzędu 4×10⁻¹⁸ m, realne wnęki optyczne.
+- Caltech/MIT LIGO Lab, [LIGO's Laser](https://www.ligo.caltech.edu/MIT/page/laser): źródło 1064 nm w podczerwieni.
+- GWOSC, [intro and matched filtering tutorial](https://gwosc.org/s/events/GW150914/LOSC_Event_tutorial_GW150914.html): filtrowanie dopasowane, PSD i rzeczywista analiza GW150914.
+- GWOSC, [public GW150914 data](https://gwosc.org/events/GW150914/): **prawdziwe otwarte próbki H1/L1**, które w przyszłym etapie można dodać jako osobny tryb. Wersja 24.0 **ich jeszcze nie pobiera ani nie używa**.
+
+**Pliki:** \`js/ligo24-core.js\`, \`js/ligo24-ui.js\`, \`css/ligo24.css\`, \`tests/ligo24.test.cjs\`, \`tests/ligo24-browser.test.cjs\`. Poprzednie wersje atlasu 17–23 działają niezależnie. Składnię JS, prawa optyki, odtwarzalność szumu, rzeczywiste opóźnienie oraz detekcje i brak detekcji dla czterech scenariuszy weryfikuje CI; test w Chromium uruchamia rzeczywiste Canvas2D i komplet sterowania.
+
+---
 
 ## Nowość 23.0 — Zderzenie gigantów / fale grawitacyjne
 

@@ -1,0 +1,82 @@
+/* ATLAS SOLARIS 24.0 — LIGO / industrial graphite, ion-lime & signal violet */
+.ligo24-side-launch,.ligo24-top-launch{border:1px solid #72986a;border-radius:9px;background:linear-gradient(110deg,#22392e,#223b3a);color:#eaffd2;font:770 11px/1.25 system-ui;cursor:pointer}
+.ligo24-side-launch{display:block;width:100%;text-align:left;padding:13px;margin:9px 0;letter-spacing:.035em}
+.ligo24-top-launch{padding:10px 12px}
+.ligo24-side-launch:hover,.ligo24-top-launch:hover{background:#35543a;border-color:#c9f9aa}
+.ligo24-dialog{margin:auto;padding:0;width:min(1680px,99vw);max-width:99vw;max-height:99dvh;border-radius:16px;border:1px solid #62766c;background:linear-gradient(140deg,#0b1214,#111a20 47%,#131b19);color:#eaf7f3;box-shadow:0 24px 120px #000c;overflow:auto;scrollbar-color:#4c665a transparent}
+.ligo24-dialog::backdrop{background:#020809e9;backdrop-filter:blur(11px)}
+.ligo24-shell{font:400 12px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.ligo24-header{padding:20px 24px 19px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:1px solid #344849}
+.ligo24-eyebrow{font-size:9px;letter-spacing:.14em;font-weight:790;color:#acd6a5}
+.ligo24-header h2{font-size:clamp(26px,3vw,41px);line-height:1.06;letter-spacing:-.056em;font-weight:670;margin:6px 0}
+.ligo24-header h2 em{color:#d3f39c;font-style:normal}
+.ligo24-header p{font-size:11px;line-height:1.5;color:#a5babb;margin:7px 0 0}
+.ligo24-close{cursor:pointer;background:#263536;color:#ecfcf3;border:1px solid #61857b;border-radius:8px;padding:9px 12px}
+.ligo24-layout{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(305px,.85fr)}
+.ligo24-science-stage{min-width:0;padding:14px}
+.ligo24-scene{border:1px solid #4d7168;border-radius:13px;background:#050d11;overflow:hidden;position:relative;min-height:365px}
+#ligo24Canvas{display:block;width:100%;height:min(58dvh,630px);min-height:365px;touch-action:none}
+.ligo24-scene-header,.ligo24-scene-footer{position:absolute;left:14px;right:14px;display:flex;justify-content:space-between;gap:9px;align-items:center;font:760 9px/1.4 system-ui;color:#b4d8d0;letter-spacing:.10em;text-shadow:0 2px 5px #000;pointer-events:none}
+.ligo24-scene-header{top:12px}.ligo24-scene-footer{bottom:12px}
+.ligo24-record-dot{display:inline-block;width:7px;height:7px;background:#d5ff93;box-shadow:0 0 11px #abff71;border-radius:50%;vertical-align:middle;margin-right:7px}
+#ligo24SceneClock{color:#d4fba5;font-variant-numeric:tabular-nums}
+.ligo24-scene-warning{position:absolute;bottom:36px;left:14px;color:#7b9b8e;font:610 8px/1.4 system-ui;letter-spacing:.06em;pointer-events:none}
+.ligo24-telemetry{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0 14px}
+.ligo24-telemetry>div{min-width:0;background:linear-gradient(125deg,#172a29,#142224);border:1px solid #3e625c;border-radius:9px;padding:11px 10px}
+.ligo24-telemetry small{display:block;color:#9bbcaf;font-size:8px;letter-spacing:.085em;line-height:1.4}
+.ligo24-telemetry strong{display:block;color:#ddffbf;font:690 clamp(12px,1.5vw,18px)/1.35 system-ui;margin-top:6px;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ligo24-plot-block{margin-bottom:12px;background:linear-gradient(137deg,#101e23,#151d20);border:1px solid #375650;border-radius:12px;padding:12px}
+.ligo24-plot-head{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin-bottom:10px}
+.ligo24-plot-head small{display:block;font-size:9px;letter-spacing:.09em;font-weight:780;color:#abdba5}
+.ligo24-plot-head strong{display:block;font-size:14px;font-weight:670;color:#e9f8f3;margin-top:5px}
+.ligo24-plot-head>span{font-size:9px;line-height:1.4;color:#93b0aa;text-align:right;max-width:38%}
+#ligo24DataPlot,#ligo24SNRPlot{display:block;width:100%;border:1px solid #365453;border-radius:8px;background:#081518}
+#ligo24DataPlot{height:210px}
+#ligo24SNRPlot{height:190px}
+.ligo24-legend{display:flex;align-items:center;flex-wrap:wrap;gap:6px 15px;font-size:9px;color:#93b4b2;margin-top:9px}
+.ligo24-legend span{display:flex;align-items:center;gap:6px}
+.ligo24-legend i{display:inline-block;width:14px;height:3px;border-radius:1px}
+.ligo24-legend-l1{background:#bafc8c}.ligo24-legend-h1{background:#b3a6fa}.ligo24-legend-true{background:#ffc99b}
+.ligo24-analysis-results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:9px}
+.ligo24-analysis-results>div{padding:10px 8px;border:1px solid #3c5d57;border-radius:8px;background:#142928;min-width:0}
+.ligo24-analysis-results small{display:block;color:#9ab8ac;font-size:8px;line-height:1.45}
+.ligo24-analysis-results strong{display:block;color:#f3ffcf;font-size:clamp(13px,1.55vw,19px);margin-top:5px;font-weight:740;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ligo24-verdict{background:#24362f;border-left:3px solid #bcdba2;border-radius:2px;color:#dcece2;padding:11px;font-size:11px;line-height:1.62;margin-top:11px}
+.ligo24-verdict[data-detected=true]{border-color:#bdff91;background:#213f2c;color:#e8ffdf}
+.ligo24-verdict[data-detected=false]{border-color:#fac096;background:#3a3227;color:#ffe9cd}
+.ligo24-explainer{border:1px solid #3b5c58;border-radius:10px;background:#121f22;padding:14px}
+.ligo24-explainer>div small{display:block;font-size:9px;color:#a6caa6;letter-spacing:.09em;font-weight:790}
+.ligo24-explainer>div strong{font-size:14px;font-weight:690;color:#e6f9e3;display:block;margin-top:6px}
+.ligo24-explainer p{font-size:10px;color:#a5bdb8;line-height:1.75;margin:8px 0 0}
+.ligo24-controls{padding:18px 17px 25px;border-left:1px solid #385250;min-width:0;background:linear-gradient(150deg,#172322,#111b21)}
+.ligo24-control-section{color:#bbdc9d;font:780 9px/1.4 system-ui;letter-spacing:.115em;margin:6px 0 12px}
+.ligo24-controls .ligo24-control-section:not(:first-child){margin-top:22px}
+.ligo24-field{display:flex;flex-direction:column;gap:8px;font-size:10px;color:#b3c8c0}
+.ligo24-field select{max-width:100%;min-width:0;padding:11px 9px;border-radius:8px;border:1px solid #4d756b;background:#243838;color:#f0ffed;font:12px system-ui}
+.ligo24-scenario{border-left:3px solid #bceca1;background:#24372c;color:#d1e4cb;font-size:10px;line-height:1.6;padding:11px;margin:12px 0}
+.ligo24-range{display:block;margin:13px 0}
+.ligo24-range>span{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:10px;color:#b0c2b9}
+.ligo24-range b{font-size:12px;color:#e1ffb9;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ligo24-controls input[type=range]{display:block;width:100%;accent-color:#c9ee99;margin:10px 0 0;cursor:pointer}
+.ligo24-mass-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:11px}
+.ligo24-controls-row{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}
+.ligo24-controls-row button{flex:1 1 125px;min-width:0}
+.ligo24-controls button:not(.ligo24-close){border-radius:8px;padding:12px 8px;cursor:pointer;font:740 10px/1.45 system-ui;letter-spacing:.01em}
+.ligo24-secondary{background:#294039;color:#e5f6df;border:1px solid #597b65}
+.ligo24-outline{background:#253634;color:#d2e7dd;border:1px solid #587a71}
+.ligo24-detect{display:block;width:100%;background:linear-gradient(110deg,#d9ff9e,#96e9bf);border:1px solid #f5ffd2;color:#163529;box-shadow:0 3px 20px #88ffc015;font-weight:840!important;font-size:11px!important}
+.ligo24-controls button:hover{filter:brightness(1.13)}
+.ligo24-controls button:disabled{cursor:not-allowed;opacity:.53}
+.ligo24-blind{font-size:10px;color:#9bb8ad;line-height:1.7;margin:12px 0}
+.ligo24-blind b{font-weight:740;color:#d2eccb}
+.ligo24-facts{border:1px solid #44665a;border-radius:9px;background:#1a2c2c;padding:0 10px}
+.ligo24-facts>div{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #3a5852}
+.ligo24-facts>div:last-child{border:0}
+.ligo24-facts small{font-size:9px;color:#a1bdb0;line-height:1.4;max-width:67%}
+.ligo24-facts strong{font-size:11px;color:#e4fdd0;font-weight:690;white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+.ligo24-limits{font-size:9px;color:#96ada2;line-height:1.75;margin:13px 0 0}
+.ligo24-limits b{color:#cbebbe}
+@media(max-width:1180px){.ligo24-layout{grid-template-columns:minmax(0,1.4fr) minmax(295px,.90fr)}.ligo24-science-stage{padding:10px}#ligo24Canvas{height:51dvh;min-height:310px}.ligo24-scene{min-height:310px}.ligo24-telemetry{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.ligo24-layout{grid-template-columns:1fr}.ligo24-controls{border-left:0;border-top:1px solid #446056}.ligo24-dialog{width:99vw;max-width:99vw;border-radius:10px;max-height:99dvh}#ligo24Canvas{height:52dvh;min-height:290px}.ligo24-scene{min-height:290px}.ligo24-analysis-results{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:590px){.ligo24-header{padding:13px}.ligo24-header h2{font-size:25px}.ligo24-header p{font-size:10px}.ligo24-eyebrow{font-size:8px}.ligo24-top-launch span{display:none}.ligo24-top-launch{padding:9px}#ligo24Canvas{height:44dvh;min-height:260px}.ligo24-scene{min-height:260px}.ligo24-scene-header,.ligo24-scene-footer{left:8px;right:8px;font-size:8px}.ligo24-scene-warning{font-size:7px;bottom:32px;left:8px}.ligo24-telemetry>div{padding:9px 7px}.ligo24-telemetry strong{font-size:13px}.ligo24-plot-head{display:block}.ligo24-plot-head>span{max-width:none;display:block;text-align:left;margin-top:5px}#ligo24DataPlot{height:165px}#ligo24SNRPlot{height:155px}.ligo24-analysis-results{grid-template-columns:repeat(2,minmax(0,1fr))}.ligo24-analysis-results strong{font-size:16px}.ligo24-controls{padding:13px}.ligo24-mass-pair{grid-template-columns:1fr}.ligo24-plot-block{padding:9px}}
+@media(prefers-reduced-motion:reduce){.ligo24-record-dot{box-shadow:none}}

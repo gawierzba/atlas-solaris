@@ -17,6 +17,7 @@ on:
       - 'etapy/**'
       - 'dzialy/**'
       - 'laboratoria/**'
+      - 'opowiesc/**'
       - 'o-projekcie/**'
       - 'atlas.html'
       - 'js/app.js'
@@ -31,6 +32,7 @@ on:
       - 'tests/zodiac25*.cjs'
       - 'tests/time26*.cjs'
       - 'tests/portal27.test.cjs'
+      - 'tests/origin27.test.cjs'
       - 'tests/portal28.test.cjs'
       - 'tests/portal29.test.cjs'
       - 'tests/binary30.test.cjs'
@@ -64,6 +66,7 @@ on:
       - 'etapy/**'
       - 'dzialy/**'
       - 'laboratoria/**'
+      - 'opowiesc/**'
       - 'o-projekcie/**'
       - 'atlas.html'
       - 'js/app.js'
@@ -78,6 +81,7 @@ on:
       - 'tests/zodiac25*.cjs'
       - 'tests/time26*.cjs'
       - 'tests/portal27.test.cjs'
+      - 'tests/origin27.test.cjs'
       - 'tests/portal28.test.cjs'
       - 'tests/portal29.test.cjs'
       - 'tests/binary30.test.cjs'
@@ -139,6 +143,7 @@ jobs:
           node --check js/time26-core.js
           node --check js/time26-ui.js
           node --check portal/site.js
+          node --check portal/origin27.js
           node --check portal/star29.js
           node --check portal/binary30-core.js
           node --check portal/binary30-ui.js
@@ -198,6 +203,8 @@ jobs:
         run: cp /tmp/atlas-solaris-portal27-home.html index.html
       - name: Test katalogu i mostka portalu 27.0
         run: node tests/portal27.test.cjs
+      - name: Test rozdziału 27.0 i ciągłości 31 etapów
+        run: node tests/origin27.test.cjs
       - name: Test nowego laboratorium skali Wszechświata 28.0
         run: node tests/portal28.test.cjs
       - name: Test laboratorium ewolucji gwiazd 29.0

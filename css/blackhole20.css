@@ -15,7 +15,7 @@
 .bh20-layout{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(285px,.85fr);min-width:0}
 .bh20-stage{padding:17px;min-width:0}
 .bh20-viewport{position:relative;min-height:410px;overflow:hidden;background:#03050b;border:1px solid #43536f;border-radius:12px;box-shadow:inset 0 0 80px #060817}
-#bh20Canvas{display:block;width:100%;height:min(63dvh,665px);min-height:410px;object-fit:fill;touch-action:pan-y}
+#bh20Canvas{display:block;width:100%;height:min(63dvh,665px);min-height:410px;object-fit:fill;touch-action:none}
 .bh20-hud-top,.bh20-hud-bottom{display:flex;gap:12px;align-items:center;justify-content:space-between;position:absolute;left:14px;right:14px;pointer-events:none;font-size:9px;letter-spacing:.08em;color:#a4b4ce;text-shadow:0 1px 4px #02020a}
 .bh20-hud-top{top:12px}.bh20-hud-bottom{bottom:11px}
 .bh20-hud-top>span:first-child{display:flex;align-items:center;gap:6px}

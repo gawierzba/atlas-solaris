@@ -1,6 +1,42 @@
-# ATLAS SOLARIS 19.0 — Podróż między gwiazdami
+# ATLAS SOLARIS 20.0 — Na granicy czarnej dziury
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **19.0** dodaje pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **20.0** dodaje laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 20.0 — Na granicy czarnej dziury
+
+**Uruchomienie:** na stronie głównej wybierz **◉ CZARNA DZIURA** w górnym pasku lub **◉ CZARNA DZIURA 20.0 · ZAKRZYWIENIE ŚWIATŁA** w menu. Pojawi się laboratorium z obrazem czarnej dziury, wyborem Sgr A* / M87* / przykładowej czarnej dziury o masie 10 Słońc i wykresem torów fotonów.
+
+**Efekty i sterowanie:**
+- Obraz generowany jest na żywo w WebGL2: **każdy piksel odpowiada promieniowi światła**, który biegnie od obserwatora, zakrzywia się w symetrycznej czasoprzestrzeni Schwarzschilda i albo spada pod horyzont \(r=2GM/c²\), przecina równikowy dysk akrecyjny, albo ucieka do sfery dalekiego tła.
+- Przybliżona fizycznie geometria cienkiego dysku: od stabilnej orbity \(r=6GM/c²\) do umownego zewnętrznego promienia \(r=32GM/c²\). Promień może po zakrzywieniu przeciąć dysk *za* czarną dziurą — to naturalny mechanizm powstawania zniekształconego wtórnego obrazu dysku.
+- Wybór odległości obserwatora \`9–90 r_g\` i nachylenia \`8–84°\`; regulacja pola widzenia \`30–90°\`, obrotu orientacji kamery palcem i przełączenie obrazu na wariant bez zakrzywienia toru światła (\(u''+u=0\)) dla porównania.
+- Włączanie i wyłączanie dysku, przybliżonego wzmocnienia jasności przez ruch orbitalny i grawitację, animacja struktury dysku. Tekstury dysku i barwy są **stylizowaną emisją**, nie symulacją widma plazmy ani obrazem Event Horizon Telescope.
+- Zegar sondy zawieszonej nieruchomo nad horyzontem: przy \(r>2r_g\) stosunek czasu własnego do czasu odległego obserwatora wynosi \(\sqrt{1-2r_g/r}\). Zobacz, ile z 60 minut daleko od czarnej dziury upływa na sondzie w odległości \`2.05–9 r_g\`.
+- Obliczanie promienia horyzontu, sfery fotonowej, krytycznego parametru zderzenia \(b_{crit}=3\sqrt3\,r_g\), kąta obserwowanego cienia, czasu kołowej orbity na ISCO \(r=6r_g\), przybliżonego gradientu pływowego na 2-metrowej sondzie.
+- Eksperyment ze śledzeniem trzech fotonów: \`b=4.7\` (pochłonięty), \`b=5.7\` i \`b=8\` (ugięte). Kliknięcie dowolnego piksela obrazu pokazuje w wykresie odpowiadającą mu trajektorię i jej wynik. Przyciskiem można animować drogę promieni.
+- Dostępne trzy tryby rozdzielczości obrazu; brak WebGL2 nie powoduje awarii całego atlasu — pozostają wykres geodezyjnych i wzory fizyczne.
+- Tło gwiazd z rzeczywistymi pozycjami J2000 z istniejącej wersji 19.0, wykorzystywane jako *scenograficzne odniesienie*, nie prawdziwe niebo widziane z sąsiedztwa Sgr A* czy M87*.
+
+**Matematyka:** używamy współrzędnych w jednostkach geometrycznych \(G=c=M=1\), \(r_g=GM/c²=M\). W płaszczyźnie promienia geodezyjna zerowa (światło) spełnia
+\[
+ \frac{d²u}{d\varphi²}+u=3u²,\quad u=1/r.
+\]
+Shader WebGL2 rozwiązuje tę równość na każdym pikselu metodą Rungego–Kutty 4, klasyfikuje pochłonięcie i ucieczkę oraz oblicza przecięcie z modelem dysku. Wstępny parametr zderzenia wyznaczany jest z kąta promienia względem lokalnego statycznego obserwatora i metrycznej funkcji \(\sqrt{1-2M/r}\). Wycieniowanej stronie dysku nadajemy przybliżony mnożnik grawitacyjno-Dopplerowski z prędkości kołowej \(v/c=\sqrt{M/(r-2M)}\); emisja w RGB jest obrazową funkcją odległości i nie jest rozwiązaniem radiatywnego transferu.
+
+**Przykładowe masy:** Sagittarius A*: \(\sim 4.0\times10^6 M_\odot\); M87*: \(\sim 6.5\times10^9 M_\odot\). W modelu Schwarzschilda, po wyrażeniu odległości w \(r_g\), kształt geometryczny jest taki sam dla obu mas; *fizyczne rozmiary i czas orbitalny różnią się proporcjonalnie do masy*. Rzeczywiste obiekty mogą mieć niezerowy spin i znacznie bardziej złożone przepływy plazmy, więc nie należy mylić tego z ich pomiarowym obrazem.
+
+**Ograniczenia naukowe:** model nierotujący (bez Kerra i ergosfery), cienki, umowny, nieprzezroczysty dysk, brak hydrodynamiki, polaryzacji, rozpraszania, transportu widma, wielokrotnego sumowania dyskowych obrazów i dokładnego rozwiązania geodezyjnej dla nieskończenie bliskich orbit fotonowych (ograniczona liczba kroków shaderów). Zegar statycznej sondy przy \(r=2.05r_g\) zakłada nierealistyczne dla człowieka podtrzymywanie położenia tuż nad horyzontem; nie opisuje swobodnie spadającego obserwatora. Gradient pływowy ma postać newtonowskiego przybliżenia lokalnego \(\Delta a\approx 2GM L/r³\). Symulacja nie odpowiada na pytanie, co jest za horyzontem.
+
+**Źródła:**
+- NASA, *Anatomy of a Black Hole*: https://science.nasa.gov/universe/black-holes/anatomy/
+- NASA, *Visual Distortions Near a Black Hole*: https://science.nasa.gov/apod/visual-distortions-near-a-black-hole-and-neutron-star/
+- NASA, *What Are Black Holes?*, informacja o M87*: https://www.nasa.gov/universe/what-are-black-holes/
+- EHT Collaboration, *First Sagittarius A* Results IV*, masa Sgr A*: https://doi.org/10.3847/2041-8213/ac6736
+- Podstawy geodezyjnych Schwarzschilda: https://gravity.univie.ac.at/fileadmin/user_upload/i_gravity_physics/material/teaching/rt2/SS_2012/2012-04-24.pdf
+
+**Pliki:** \`js/blackhole20-core.js\`, \`js/blackhole20-renderer.js\`, \`js/blackhole20-ui.js\`, \`css/blackhole20.css\`, \`tests/blackhole20.test.cjs\`. Test: \`node tests/blackhole20.test.cjs\`. Regresja wersji 17–19 zachowana w GitHub Actions.
+
+---
 
 ## Nowość 19.0 — Podróż między gwiazdami 3D
 

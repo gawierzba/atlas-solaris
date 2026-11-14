@@ -1,13 +1,141 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Od Ziemi do granic Wszechświata | ATLAS SOLARIS</title><meta name="description" content="Wielka podróż przez skale kosmosu: od Ziemi przez Układ Słoneczny i Drogę Mleczną aż po promień obserwowalnego Wszechświata.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="28" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 28 / Naukowe laboratoria</span><strong>Od Ziemi do granic Wszechświata</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY EKSPEDYCJĘ</strong><small>Budujemy most od Ziemi do obserwowalnego Wszechświata…</small></div><iframe id="stageFrame" title="Od Ziemi do granic Wszechświata — interaktywne laboratorium" src="../../laboratoria/granice-wszechswiata/index.html" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button> · <a href="../../laboratoria/granice-wszechswiata/index.html">Otwórz widok bezpośredni</a></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 28</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Od Ziemi do granic Wszechświata</h1><p class="stage-lead">Wielka podróż przez skale kosmosu</p><p>Przeleć od powierzchni Ziemi przez Układ Słoneczny, sąsiedztwo gwiazd, galaktyki i supergromady aż do granicy obserwowalnego Wszechświata. Laboratorium porównuje skale logarytmicznie oraz pokazuje czasy lotu przy różnych prędkościach.</p><p class="stage-info-note">To samodzielne laboratorium etapu 28. Portal 27.0 był przebudową architektury strony, dlatego numeracja doświadczeń zachowuje historyczny porządek rozwoju projektu.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript. <a href="../../laboratoria/granice-wszechswiata/index.html">Otwórz bezpośrednio laboratorium.</a></p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07182a">
+<title>Wyprawa poza wszystkie mapy — skale Wszechświata | ATLAS SOLARIS 28</title>
+<meta name="description" content="Zacznij od jednego metra nad Ziemią. Odkryj ogrom kosmosu, prawdziwe głębokie pole Hubble’a i zagadkę: dlaczego 13,8 miliarda lat historii daje 46,5 miliarda lat świetlnych promienia obserwowalnego Wszechświata?">
+<meta property="og:title" content="Wyprawa poza wszystkie mapy | ATLAS SOLARIS">
+<meta property="og:description" content="Dziennik niezwykłej ekspedycji od Ziemi do horyzontu tego, co możemy zaobserwować.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/universe28-cover.svg">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/universe28-story.css?v=28.1">
+<script src="../../portal/data.js" defer></script>
+<script src="../../portal/stage.js?v=32.5" defer></script>
+</head>
+<body data-route="28" data-kind="stage" class="u28-story-page">
+<a class="u28-skip" href="#dziennik">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 28 / WIELKIE SKALE</span><strong>Od Ziemi do granic Wszechświata</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main u28-story-main">
+<article class="u28-story" aria-labelledby="u28StoryTitle">
+<section class="u28-cover">
+<img class="u28-cover-art" src="../../portal/media/universe28-cover.svg" width="1600" height="900" fetchpriority="high" alt="Statyczna artystyczna ilustracja kosmicznej mapy: mała Ziemia wśród coraz większych kręgów skali, rozległa sieć galaktyk i symboliczny pierścień horyzontu obserwacji.">
+<div class="u28-cover-mask"></div>
+<div class="u28-cover-content">
+<div class="u28-cover-overline"><span class="u28-cursor"></span> ATLAS SOLARIS <i>/</i> DZIENNIK EKSPEDYCJI <i>/</i> MISJA 28</div>
+<div class="u28-cover-text">
+<span class="u28-eyebrow">EKSPEDYCJA OD 10⁰ DO 10²⁶ METRÓW</span>
+<h1 id="u28StoryTitle">Wyprawa poza <em>wszystkie mapy.</em></h1>
+<p>Zacznij od jednego metra. Potem zrób krok, który powiększa odległość dziesięciokrotnie. Jeszcze jeden. I jeszcze jeden. Po dwudziestu kilku takich krokach znane światy staną się niewidoczną drobiną. A to wciąż nie będzie koniec Wszechświata.</p>
+<div class="u28-cover-actions"><a class="u28-cover-primary" href="#dziennik">Rozpocznij ekspedycję <span aria-hidden="true">↓</span></a><a class="u28-cover-secondary" href="#laboratorium" id="stageLaunch">Przejdź do laboratorium <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="u28-cover-meta"><span>DZIENNIK POKŁADOWY / 15 PUNKTÓW ORIENTACYJNYCH</span><span>STATYCZNA ILUSTRACJA / NIE RZECZYWISTA MAPA</span></div>
+</div>
+</section>
+<div class="u28-ticker"><span>ODLEGŁOŚĆ NIE JEST TYM SAMYM CO CZAS</span><i></i><span>LOGARYTMICZNA MAPA</span><i></i><span>HORYZONT OBSERWACJI</span></div>
+<section class="u28-log-entry" id="dziennik">
+<div class="u28-rail"><span>WPIS 00 / START</span><small>1 METR OD NASZEGO ŚWIATA</small></div>
+<div class="u28-log-content">
+<p class="u28-section-overline">ZIEMIA · DZISIAJ</p>
+<h2>Najtrudniejsze w tej wyprawie jest <em>wyobrażenie sobie dystansu.</em></h2>
+<p class="u28-log-lead">Wyobraź sobie, że stoisz na Ziemi. Nie masz statku z napędem nadświetlnym, a jedynie sposób na zmienianie skali. Jeden ruch dłoni i odległość, którą oglądasz, zwiększa się dziesięć razy.</p>
+<p>Przy 100 kilometrach trafiasz w okolice umownej granicy kosmosu. Przy 384&nbsp;400 kilometrach pojawia się Księżyc. Kiedy porównujesz odległość Ziemia–Słońce, potrzebujesz już nowej jednostki: <strong>jednostki astronomicznej</strong>, równej dokładnie 149&nbsp;597&nbsp;870&nbsp;700 metrom. Przy Proximie Centauri przestają wystarczać nawet miliony kilometrów. Zaczynają się <strong>lata świetlne</strong>. <a class="u28-ref" href="#zrodla">[1, 2]</a></p>
+<p>Jeden rok świetlny jest odległością, a nie czasem: światło pokonuje ją w ciągu roku w próżni. Do najbliższej gwiazdy poza Słońcem jest około 4,24 roku świetlnego. Kiedy światło z Proximy dociera do Ziemi, widzimy tę gwiazdę taką, jaka była ponad cztery lata wcześniej.</p>
+<div class="u28-signal"><div><span>DYSPOZYCJA NAWIGATORA</span><strong>×10</strong></div><p>Każdy pełny krok na naszej mapie to kolejny rząd wielkości. Nie dodajemy dziesięciu kilometrów. <strong>Mnożymy odległość przez dziesięć.</strong> Dzięki temu 1 m, 1 AU i miliony lat świetlnych mogą zmieścić się na jednej osi.</p></div>
+</div></section>
+
+<section class="u28-scale-map" aria-label="Statyczna mapa kolejnych rzędów wielkości">
+<div class="u28-scale-header"><span>MAPA PORÓWNAWCZA / SKALA LOGARYTMICZNA</span><span>WARTOŚCI ZAOKRĄGLONE · NIE TRASA LOTU</span></div>
+<div class="u28-scale-axis" role="img" aria-label="Porównanie: metr, 100 kilometrów, odległość do Księżyca, jednostka astronomiczna, Proxima Centauri, Droga Mleczna, obserwowalny Wszechświat. Każdy punkt leży na osi logarytmicznej.">
+<div class="u28-scale-grid"><span>10⁰</span><span>10⁵</span><span>10¹⁰</span><span>10¹⁵</span><span>10²⁰</span><span>10²⁵</span></div>
+<div class="u28-scale-track">
+<div class="u28-axis-point first" style="--p:0%"><i></i><b>1 m</b></div>
+<div class="u28-axis-point above" style="--p:19%"><i></i><b>100 km</b></div>
+<div class="u28-axis-point" style="--p:32.3%"><i></i><b>Księżyc</b></div>
+<div class="u28-axis-point above" style="--p:42%"><i></i><b>1 AU</b></div>
+<div class="u28-axis-point" style="--p:62.3%"><i></i><b>Proxima</b></div>
+<div class="u28-axis-point above" style="--p:79.1%"><i></i><b>Droga Mleczna</b></div>
+<div class="u28-axis-point last" style="--p:100%"><i></i><b>Horyzont</b></div>
+</div>
+</div>
+<p>To zestawienie odległości i rozmiarów, nie astronomiczna mapa położeń. Nie wszystkie punkty oznaczają miejsce, do którego można polecieć wzdłuż jednej prostej.</p>
+</section>
+
+<section class="u28-journey" id="przystanki">
+<div class="u28-journey-top"><span>WPIS 01 / WIELKIE PRZEJŚCIA</span><h2>Kosmos zmienia się wraz ze <em>skalą patrzenia.</em></h2><p>Cztery przejścia, po których trudno wrócić do dawnych wyobrażeń.</p></div>
+<div class="u28-stops">
+<div class="u28-stop"><div class="u28-stop-id">01 / UKŁAD SŁONECZNY</div><div class="u28-stop-circle sun"><i></i></div><strong>Najpierw giną planety.</strong><p>Neptun obiega Słońce około 30 razy dalej niż Ziemia. Ale nawet po opuszczeniu orbit planetarnych wciąż nie kończy się wpływ Słońca. Heliopauza nie jest granicą całego jego grawitacyjnego otoczenia.</p><small>1 AU → dziesiątki i setki AU</small></div>
+<div class="u28-stop"><div class="u28-stop-id">02 / MIĘDZY GWIAZDAMI</div><div class="u28-stop-circle star"><i></i></div><strong>Potem ginie Słońce.</strong><p>Przy odległości do Proximy Centauri pojedyncza gwiazda staje się tylko pierwszym punktem międzygwiezdnej podróży. Lata świetlne lepiej opisują tę pustkę niż kilometry.</p><small>4,24 roku świetlnego</small></div>
+<div class="u28-stop"><div class="u28-stop-id">03 / GALAKTYKA</div><div class="u28-stop-circle galaxy"><i></i></div><strong>Potem ginie nasze sąsiedztwo.</strong><p>Droga Mleczna ma średnicę rzędu 100 tysięcy lat świetlnych. Słońce jest jednym z ogromnej liczby jej gwiazd. Andromeda — kolejna wielka galaktyka — leży około 2,5 miliona lat świetlnych od nas.</p><small>Od tysięcy do milionów lat świetlnych</small></div>
+<div class="u28-stop"><div class="u28-stop-id">04 / KOSMICZNA SIEĆ</div><div class="u28-stop-circle cosmic"><i></i></div><strong>Wreszcie giną całe galaktyki.</strong><p>Galaktyki skupiają się w grupach i gromadach, a te układają się we włókna i rozległe pustki. Wielkoskalowa struktura przypomina sieć, nie równomiernie rozsypane punkty.</p><small>Miliony i miliardy lat świetlnych</small></div>
+</div></section>
+
+<section class="u28-deepfield" id="hubble">
+<div class="u28-deep-head"><span>WPIS 02 / KIEDY SPOJRZANO W POZORNĄ PUSTKĘ</span><h2>W roku 2004 zobaczyliśmy, że <em>ciemność bywa pełna galaktyk.</em></h2><p>Astronomowie skierowali Kosmiczny Teleskop Hubble’a na bardzo mały fragment nieba. Po wielu godzinach zbierania słabego światła otrzymali obraz, który zmienił nasze wyobrażenie o odległym Wszechświecie.</p></div>
+<figure class="u28-hubble">
+<div class="u28-hubble-photo"><img src="https://assets.science.nasa.gov/content/dam/science/missions/hubble/releases/2006/09/STScI-01EVT7KG76K1KYW4P3KFEC8YS4.tif/jcr%3Acontent/renditions/2101x2100.jpg" width="1000" height="1000" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Prawdziwy obraz Hubble Ultra Deep Field: tysiące odległych galaktyk o różnych kształtach i barwach na ciemnym tle."><span>DANE Z TELESKOPU · NIE ILUSTRACJA</span></div>
+<figcaption><span>HUBBLE ULTRA DEEP FIELD</span><h3>Niemal 10&nbsp;000 galaktyk w skrawku nieba.</h3><p>Na fotografiach złożonych z 800 ekspozycji wykonanych w latach 2003–2004 pojawiły się galaktyki w różnych epokach ich historii. Najodleglejsze widzimy jako młode, bo światło potrzebowało miliardów lat, aby dotrzeć do naszego teleskopu. <a class="u28-ref" href="#zrodla">[3]</a></p><small>Obserwacja: NASA, ESA, S. Beckwith (STScI) i HUDF Team. Kompozycja barwna z filtrów optycznych. <a href="https://science.nasa.gov/asset/hubble/the-hubble-ultra-deep-field/" target="_blank" rel="noopener noreferrer">Zobacz oryginalny opis NASA</a>.</small></figcaption>
+</figure>
+<blockquote class="u28-deep-quote">Patrząc bardzo daleko, nie widzisz Wszechświata takim, jaki jest teraz. <em>Widzisz jego przeszłość.</em></blockquote>
+</section>
+
+<section class="u28-paradox" id="paradoks">
+<div class="u28-paradox-header"><span>WPIS 03 / ZAGADKA HORYZONTU</span><h2>Jak coś może być oddalone o <em>46,5 miliarda lat świetlnych</em>, skoro cały Wszechświat ma około <em>13,8 miliarda lat?</em></h2><p>Pierwsza intuicja podpowiada: to niemożliwe. Gdyby światło leciało przez nieruchomą przestrzeń przez 13,8 miliarda lat, pokonałoby 13,8 miliarda lat świetlnych. Ale przestrzeń nie jest nieruchoma.</p></div>
+<div class="u28-paradox-numbers"><div><span>WIEK WSZECHŚWIATA</span><strong>~13,8</strong><small>miliarda lat</small></div><div class="u28-paradox-neq">≠</div><div><span>PROMIEŃ OBSERWOWALNEJ CZĘŚCI</span><strong>~46,5</strong><small>miliarda lat świetlnych — odległość dzisiejsza</small></div></div>
+<div class="u28-paradox-text"><div><span>WYJAŚNIENIE</span><h3>W trakcie podróży światła <em>rosła sama przestrzeń.</em></h3></div><div><p>Światło, które dziś do nas dociera z bardzo dalekich obszarów, zostało wyemitowane, gdy dzieląca nas przestrzeń była znacznie mniejsza. Podczas jego podróży ekspansja zwiększała odległości między niepowiązanymi grawitacyjnie obszarami.</p><p>Dlatego <strong>czas podróży światła</strong> i <strong>dzisiejsza odległość do obszaru, z którego zostało wysłane</strong> nie są tym samym. W standardowym opisie kosmologicznym promień obserwowalnego Wszechświata wynosi około 46 miliardów lat świetlnych. NASA podaje średnicę rzędu 92 miliardów lat świetlnych. <a class="u28-ref" href="#zrodla">[4, 5]</a></p><p>Co ważne: to nie oznacza, że galaktyka porusza się przez swoją lokalną przestrzeń szybciej od światła. Ekspansja kosmiczna i lokalny ruch obiektu są różnymi rzeczami.</p></div></div>
+<div class="u28-paradox-footer"><span>TO JEST HORYZONT OBSERWOWALNOŚCI</span><p>Nie znamy całkowitego rozmiaru Wszechświata. Może być znacznie większy od obserwowalnej części. Nie wiemy, czy jest nieskończony. <strong>46,5 miliarda lat świetlnych nie oznacza jego fizycznej krawędzi.</strong></p></div>
+</section>
+
+<section class="u28-lastlight" id="ostatnie-swiatlo">
+<div class="u28-lastlight-head"><span>WPIS 04 / NAJSTARSZE ŚWIATŁO</span><h2>Nasze teleskopy widzą niemal początek. <em>Ale nie sam początek.</em></h2></div>
+<div class="u28-lastlight-body"><div><p>Przez pierwsze setki tysięcy lat po Wielkim Wybuchu materia była tak gorąca i gęsta, że światło nie mogło swobodnie pokonywać dużych dystansów. Dopiero gdy Wszechświat ochłodził się i stał przejrzysty, promieniowanie mogło podróżować niemal bez przeszkód.</p><p>Pozostałością tamtego momentu jest <strong>kosmiczne mikrofalowe promieniowanie tła (CMB)</strong> — najstarsze światło, które możemy badać bezpośrednio jako promieniowanie elektromagnetyczne. Pokazuje Wszechświat w wieku około <strong>380 tysięcy lat</strong>. Misja ESA Planck stworzyła niezwykle dokładną mapę drobnych różnic jego temperatury. <a class="u28-ref" href="#zrodla">[5, 6]</a></p><p>Ta granica jest inna niż horyzont odległości. W tym przypadku przeszkodą jest nie odległość, ale dawna nieprzezroczystość młodego Wszechświata.</p></div>
+<div class="u28-lastlight-card"><span>POZOSTAŁY SYGNAŁ</span><strong>380&nbsp;000 <small>lat</small></strong><p>Wiek Wszechświata, który odczytujemy z kosmicznego mikrofalowego promieniowania tła.</p><a href="https://www.esa.int/Science_Exploration/Space_Science/Planck/Planck_science_highlights" target="_blank" rel="noopener noreferrer">ESA / Misja Planck ↗</a></div></div>
+</section>
+
+<section class="u28-lab-intro">
+<div class="u28-lab-intro-top"><span>WPIS 05 / TERAZ TWOJA KOLEJ</span><h2>Przesuń jedną liczbę. <em>Przenieś się między skalami.</em></h2><p>W laboratorium możesz przeskakiwać między piętnastoma punktami orientacyjnymi, przesuwać logarytmiczną oś odległości i porównywać czasy pokonywania dystansów.</p></div>
+<div class="u28-missions">
+<div><span>01 / PIERWSZY SKOK</span><h3>Jak daleko jest Księżyc?</h3><p>Przejdź od 1 metra do odległości Ziemia–Księżyc. Odczytaj czas, którego światło potrzebuje na pokonanie tej drogi.</p></div>
+<div><span>02 / NIEWYOBRAŻALNA CISZA</span><h3>A gdyby lecieć do Proximy?</h3><p>Porównaj hipotetyczny statek lecący 1% c z prędkością Voyagera 1. Wykres pokazuje tylko porównanie d/v, bez realnej dynamiki lotu.</p></div>
+<div><span>03 / ZMIANA PERSPEKTYWY</span><h3>Zanurz się w skali galaktyk</h3><p>Znajdź Drogę Mleczną, Andromedę, Grupę Lokalną i Laniakeę. Zwróć uwagę, że porównujemy także rozmiary struktur, a nie wyłącznie odległości od Ziemi.</p></div>
+<div><span>04 / OSTATNI PUNKT</span><h3>Dotrzyj do horyzontu</h3><p>Wybierz „Wszechświat”. Sprawdź skalę 46,5 miliarda lat świetlnych, a następnie wyjaśnij, dlaczego czas d/c nie może tu oznaczać rzeczywistego czasu lotu fotonu.</p></div>
+</div>
+<p class="u28-lab-warning"><strong>Uwaga metodyczna:</strong> 15 punktów orientacyjnych miesza odległości do obiektów z rozmiarami struktur. Zawarte w laboratorium „czasy lotu” są prostym porównaniem d/v przy stałej prędkości, bez przyspieszania, grawitacji i ekspansji kosmicznej. W szczególności nie są prognozą podróży do horyzontu obserwowalności. Obrazy galaktyk i wielkiej sieci są ilustracyjne.</p>
+</section>
+</article>
+
+<section class="u28-laboratory" id="laboratorium" aria-label="Interaktywne laboratorium granic Wszechświata">
+<div class="u28-lab-head"><div><span>ATLAS SOLARIS / ETAP 28 / NAWIGATOR</span><h2>Otwórz mapę, <em>która nie ma końca.</em></h2><p>Twoja ekspedycja przez 27 rzędów wielkości. Symulator uruchamia się dopiero przy wejściu do tej części, a artykuł pozostaje lekki.</p></div><small>LABORATORIUM URUCHAMIANE NA ŻĄDANIE</small></div>
+<div id="stageViewport" class="stage-viewport">
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>PRZYGOTOWUJEMY MAPĘ WYPRAWY</strong><small>Od 1 metra do około 46,5 miliarda lat świetlnych</small></div>
+<iframe id="stageFrame" title="Od Ziemi do granic Wszechświata — interaktywne laboratorium skali logarytmicznej" data-lazy="true" data-src="../../laboratoria/granice-wszechswiata/index.html?v=28.1" allow="fullscreen; clipboard-write" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button type="button" id="stageReload">Spróbuj ponownie</button> · <a href="../../laboratoria/granice-wszechswiata/index.html">Otwórz bezpośrednio</a></div>
+<p class="u28-lab-foot">Obrazy skali są poglądowe, a nie geometrycznym modelem 3D Wszechświata. Czas i odległość porównuj z uwzględnieniem zastrzeżeń artykułu.</p>
+</section>
+
+<section class="u28-sources" id="zrodla">
+<div class="u28-sources-heading"><span>ANEKS NAUKOWY / SPRAWDŹ DANE</span><h2>Nie kończ wyprawy <em>na samym zachwycie.</em></h2><p>Wielkości i odkrycia w tej opowieści można zweryfikować u źródeł. Tam, gdzie podajemy przybliżenia lub posługujemy się schematem, wyraźnie je opisujemy.</p></div>
+<ol>
+<li><a href="https://www.nasa.gov/science-research/astrophysics/how-big-is-space-we-asked-a-nasa-expert-episode-61/" target="_blank" rel="noopener noreferrer">NASA — How Big Is Space? We Asked a NASA Expert (2025)</a><span>Skale kosmosu, Droga Mleczna, galaktyki, promień i średnica obserwowalnego Wszechświata oraz ekspansja.</span></li>
+<li><a href="https://science.nasa.gov/universe/" target="_blank" rel="noopener noreferrer">NASA Science — The Universe</a><span>Budowa Wszechświata, obiekty i ich rozmiary.</span></li>
+<li><a href="https://science.nasa.gov/asset/hubble/the-hubble-ultra-deep-field/" target="_blank" rel="noopener noreferrer">NASA / Hubble — The Hubble Ultra Deep Field</a><span>Prawdziwy obraz blisko 10&nbsp;000 galaktyk, 800 ekspozycji i opis filtrów.</span></li>
+<li><a href="https://science.nasa.gov/mission/hubble/science/universe-uncovered/hubble-deep-fields/" target="_blank" rel="noopener noreferrer">NASA — Hubble's Deep Fields</a><span>Historia obserwacji głębokiego nieba i patrzenia w przeszłość.</span></li>
+<li><a href="https://science.nasa.gov/universe/glossary/" target="_blank" rel="noopener noreferrer">NASA Science — Universe Glossary (CMB)</a><span>Definicja mikrofalowego promieniowania tła i jego związek z początkiem przejrzystości Wszechświata.</span></li>
+<li><a href="https://www.esa.int/Science_Exploration/Space_Science/Planck/Planck_science_highlights" target="_blank" rel="noopener noreferrer">ESA — Planck Science Highlights</a><span>Wiek Wszechświata około 13,8 miliarda lat, CMB i pomiary wczesnego kosmosu.</span></li>
+</ol>
+<p class="u28-editorial">ATLAS SOLARIS — opracowanie popularnonaukowe. Autorska grafika otwarcia i schemat skali są statyczne, nie stanowią mapy rzeczywistych położeń galaktyk. Obraz Hubble Ultra Deep Field jest prawdziwą obserwacją teleskopową, przedstawioną barwami złożonymi z pomiarów w kilku filtrach.</p>
+</section>
+<footer class="u28-last"><span>ATLAS SOLARIS / 28</span><span>IM DALEJ PATRZYSZ, TYM DAWNIEJ WIDZISZ.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></footer>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie">
+<div class="stage-info-head"><span>ATLAS SOLARIS / ETAP 28</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+<h2>Od Ziemi do granic Wszechświata</h2>
+<p class="stage-lead">Dziennik ekspedycji po skali kosmosu</p><p>Odkrywaj odległości i rozmiary: od metra, przez Księżyc i Proximę Centauri, po galaktyki i horyzont obserwowalności. Laboratorium pokazuje 15 punktów orientacyjnych i porównuje dystanse w skali logarytmicznej.</p>
+<p class="stage-info-note">To skala odległości i rozmiarów, nie rzeczywista trasa lotu. Dystans do horyzontu jest odległością współporuszającą się w modelu kosmologicznym, a nie prostym iloczynem czasu podróży światła i prędkości c.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Artykuł można czytać bez JavaScript. Do uruchomienia laboratorium potrzebny jest JavaScript.</p></noscript>
 </body></html>

@@ -1,5 +1,5 @@
 {
-  "version": "31.0",
+  "version": "32.0",
   "categories": {
     "planety": {
       "id": "planety",
@@ -276,6 +276,17 @@
       "path": "etapy/31/",
       "kind": "stage",
       "src": "laboratoria/soczewkowanie-grawitacyjne/index.html"
+    },
+    "32": {
+      "number": 32,
+      "title": "Pulsar. Kosmiczna latarnia",
+      "lead": "Radioteleskop na tropie gwiazdy neutronowej",
+      "description": "Obróć gwiazdę neutronową, skieruj wiązkę na radioteleskop, usłysz impulsy i samodzielnie zmierz okres ich powtarzania.",
+      "category": "gwiazdy",
+      "mode": "pulsar32",
+      "path": "etapy/32/",
+      "kind": "stage",
+      "src": "laboratoria/pulsar/index.html"
     },
     "01": {
       "number": 1,

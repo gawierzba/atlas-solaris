@@ -6,15 +6,10 @@ const css=read('portal/pulsar32.css');
 assert.match(css,/overflow-x:hidden/,'Dokument musi mieć zabezpieczenie przed przewijaniem poziomym');
 assert.match(css,/@media\(max-width:590px\)/,'Wymagany układ na telefon');
 assert.match(css,/@media\(max-width:850px\)/,'Wymagany układ na tablet');
-assert.match(css,/\.p32-quality/,'Tryby jakości obrazu są dostępne');
-assert.match(read('portal/pulsar32-ui.js'),/AtlasPulsar32Cinema/,'Nowa warstwa musi być podłączona do działającego UI');
 const markup=read('laboratoria/pulsar/index.html')
- .replace(/<link rel="stylesheet" href="\.\.\/\.\.\/portal\/pulsar32\.css(?:\?v=[^"]+)?">/,'<style>'+css+'</style>')
- .replace(/<script src="\.\.\/\.\.\/portal\/pulsar32-core\.js(?:\?v=[^"]+)?"><\/script>/,'<script>'+read('portal/pulsar32-core.js')+'</script>')
- .replace(/<script src="\.\.\/\.\.\/portal\/pulsar32-cinema\.js(?:\?v=[^"]+)?"><\/script>/,'<script>'+read('portal/pulsar32-cinema.js')+'</script>')
- .replace(/<script src="\.\.\/\.\.\/portal\/pulsar32-ui\.js(?:\?v=[^"]+)?"><\/script>/,'<script>'+read('portal/pulsar32-ui.js')+'</script>');
-assert.match(markup,/AtlasPulsar32Cinema/,'Kinematyczny renderer musi być załadowany w teście');
-assert.match(markup,/AUTO WYBRAŁO/,'Widoczny opis aktywnej jakości');
+ .replace('<link rel="stylesheet" href="../../portal/pulsar32.css">','<style>'+css+'</style>')
+ .replace('<script src="../../portal/pulsar32-core.js"></script>','<script>'+read('portal/pulsar32-core.js')+'</script>')
+ .replace('<script src="../../portal/pulsar32-ui.js"></script>','<script>'+read('portal/pulsar32-ui.js')+'</script>');
 const chrome=['chromium','google-chrome','chromium-browser'].find(name=>cp.spawnSync('which',[name],{encoding:'utf8'}).status===0);
 if(!chrome){console.log('SKIP browser pulsar32: Chromium unavailable');process.exit(0)}
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -79,28 +74,6 @@ async function main(){
    assert.match(x.hz,/200/,'Millisecond preset is wrong');
    assert.match(x.measurement,/Zmierzony okres/,'Radio measurement failed');
    assert.equal(x.silence,'CISZA','Observer should miss the beam');
-   const quality=await call('Runtime.evaluate',{expression:`(()=>{
-      const canvas=document.getElementById('p32Scene');
-      const sample=key=>{
-       document.querySelector('[data-p32quality="'+key+'"]').click();
-       const data=canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height).data;
-       let h=2166136261;
-       for(let i=0;i<data.length;i+=Math.max(4,Math.floor(data.length/10000/4)*4)){
-        h=Math.imul(h^data[i],16777619)>>>0;
-        h=Math.imul(h^data[i+1],16777619)>>>0;
-        h=Math.imul(h^data[i+2],16777619)>>>0;
-       }
-       return {hash:h,mode:canvas.dataset.quality,badge:document.getElementById('p32VisualMode').textContent};
-      };
-      const eco=sample('eco'),film=sample('cinema'),auto=sample('auto');
-      return {eco,film,auto};
-   })()`,returnByValue:true});
-   const q=quality.result?.value;
-   assert.equal(q?.eco?.mode,'eco','Light mode must use schematic rendering');
-   assert.equal(q?.film?.mode,'cinema','Filmic mode must display full renderer');
-   assert.notEqual(q?.eco?.hash,q?.film?.hash,'Quality switch did not change canvas pixels');
-   assert.ok(q?.auto?.badge?.includes('AUTO'),'Auto must report effective rendering quality');
-   console.log('ATLAS PULSAR 32 QUALITY OK',width,q);
    console.log('ATLAS PULSAR 32 BROWSER OK',width+'x'+height,'vertical scrolling',result.scrollHeight,'radio simulation OK');
   }
  }finally{

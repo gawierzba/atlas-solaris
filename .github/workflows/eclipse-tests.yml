@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — testy laboratoriów astronomicznych 17–19
+name: ATLAS SOLARIS — testy astronomii i czarnych dziur 17–20
 on:
   pull_request:
     branches: [main]
@@ -6,13 +6,16 @@ on:
       - 'js/eclipse*.js'
       - 'js/observatory18*.js'
       - 'js/interstellar19*.js'
+      - 'js/blackhole20*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
       - 'tests/interstellar19*.cjs'
+      - 'tests/blackhole20*.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
+      - 'css/blackhole20.css'
       - 'index.html'
       - '.github/workflows/eclipse-tests.yml'
   push:
@@ -21,10 +24,12 @@ on:
       - 'js/eclipse*.js'
       - 'js/observatory18*.js'
       - 'js/interstellar19*.js'
+      - 'js/blackhole20*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
       - 'tests/interstellar19*.cjs'
+      - 'tests/blackhole20*.cjs'
       - '.github/workflows/eclipse-tests.yml'
   workflow_dispatch:
 
@@ -60,6 +65,9 @@ jobs:
           node --check js/interstellar19-data.js
           node --check js/interstellar19-core.js
           node --check js/interstellar19-ui.js
+          node --check js/blackhole20-core.js
+          node --check js/blackhole20-renderer.js
+          node --check js/blackhole20-ui.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -74,3 +82,5 @@ jobs:
         run: node tests/observatory181.test.cjs
       - name: Test podróży między gwiazdami 19.0
         run: node tests/interstellar19.test.cjs
+      - name: Test czarnej dziury i geodezyjnych 20.0
+        run: node tests/blackhole20.test.cjs

@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — fale grawitacyjne i astronomia 17–23
+name: ATLAS SOLARIS — obserwatorium LIGO i astronomia 17–24
 on:
   pull_request:
     branches: [main]
@@ -10,6 +10,7 @@ on:
       - 'js/probe21*.js'
       - 'js/cockpit22*.js'
       - 'js/merger23*.js'
+      - 'js/ligo24*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
@@ -18,6 +19,7 @@ on:
       - 'tests/probe21*.cjs'
       - 'tests/cockpit22*.cjs'
       - 'tests/merger23*.cjs'
+      - 'tests/ligo24*.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
@@ -25,6 +27,7 @@ on:
       - 'css/probe21.css'
       - 'css/cockpit22.css'
       - 'css/merger23.css'
+      - 'css/ligo24.css'
       - 'index.html'
       - '.github/workflows/eclipse-tests.yml'
   push:
@@ -37,6 +40,7 @@ on:
       - 'js/probe21*.js'
       - 'js/cockpit22*.js'
       - 'js/merger23*.js'
+      - 'js/ligo24*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
@@ -45,6 +49,7 @@ on:
       - 'tests/probe21*.cjs'
       - 'tests/cockpit22*.cjs'
       - 'tests/merger23*.cjs'
+      - 'tests/ligo24*.cjs'
       - '.github/workflows/eclipse-tests.yml'
   workflow_dispatch:
 
@@ -93,6 +98,8 @@ jobs:
           node --check js/cockpit22-ui.js
           node --check js/merger23-core.js
           node --check js/merger23-ui.js
+          node --check js/ligo24-core.js
+          node --check js/ligo24-ui.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -127,3 +134,7 @@ jobs:
         run: node tests/merger23.test.cjs
       - name: Test przeglądarkowy symulacji GW150914 23.0
         run: node tests/merger23-browser.test.cjs
+      - name: Test fizyki interferometru i filtru dopasowanego LIGO 24.0
+        run: node tests/ligo24.test.cjs
+      - name: Test Chromium widoku LIGO i dwudetektorowej detekcji 24.0
+        run: node tests/ligo24-browser.test.cjs

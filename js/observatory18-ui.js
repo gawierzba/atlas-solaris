@@ -76,12 +76,13 @@ function init(){
   $('obs18MoonAlt').textContent=snapshot.moonAltitude===null?'Nie dotyczy':toNumber(snapshot.moonAltitude)+'°';
   $('obs18MoonPhase').textContent=site.world==='earth'?
    Math.round(snapshot.moonIllumination*100)+'%':'Z perspektywy Ziemi';
-  $('obs18DarkBadge').textContent=core.instantDescription(a).toLocaleUpperCase('pl-PL');
-  $('obs18DarkBadge').dataset.mode=core.darkness(a);
+  $('obs18DarkBadge').textContent=(site.world==='earth'?
+   core.instantDescription(a):(a<0?'SŁOŃCE POD HORYZONTEM':'SŁOŃCE NAD HORYZONTEM')).toLocaleUpperCase('pl-PL');
+  $('obs18DarkBadge').dataset.mode=site.world==='earth'?core.darkness(a):(a<0?'night':'day');
   const dark=state.plan.astronomicalDarkHours,night=state.plan.hasAstronomicalNight;
   let detail;
   if(site.world!=='earth'){
-   detail='Pokazujemy 24 godziny ziemskie w czasie UTC; długość doby i lokalny zmierzch na innych światach są inne.';
+   detail='Pokazujemy 24 godziny ziemskie w czasie UTC. Progi ziemskiego zmierzchu i oceny warunków są tu umowne: inna planeta może mieć inną atmosferę, a Księżyc nie ma jej praktycznie wcale.';
   }else if(!night){
    detail='W tym 24-godzinnym oknie nie występuje pełna noc astronomiczna (Słońce nie schodzi poniżej −18°). Obiekty można nadal rozpatrywać o zmierzchu.';
   }else{

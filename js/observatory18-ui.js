@@ -5,7 +5,7 @@
 (function(root){
 'use strict';
 const $=id=>document.getElementById(id);
-const core=root.ATLAS_OBSERVATORY18_CORE,api=root.ATLAS_MAIN_API;
+const core=root.ATLAS_OBSERVATORY18_CORE;
 const DAY=1,DEG=Math.PI/180,RAD=180/Math.PI;
 const jdToDate=jd=>new Date((jd-2440587.5)*86400000);
 const fmt=jd=>jdToDate(jd).toISOString().slice(11,16)+' UTC';
@@ -25,6 +25,7 @@ const cities={
 };
 function norm(v){return (v||'').toLocaleLowerCase('pl-PL').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l').trim();}
 function init(){
+ const api=root.ATLAS_MAIN_API;
  if(!core||!api||!$('obs18Board'))return;
  const dialog=$('observatoryDialog'),chart=$('obs18Timeline'),scope=$('obs18Scope'),field=$('obs18Time');
  const state={anchorJD:null,plan:null,planKey:'',selected:'moon',lastContext:null,

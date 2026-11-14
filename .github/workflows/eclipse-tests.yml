@@ -134,6 +134,10 @@ jobs:
           node --check portal/site.js
           node --check portal/stage.js
           node --check portal/embed.js
+      - name: Przygotuj klasyczny index.html dla testów silnika 17–26
+        run: |
+          cp index.html /tmp/atlas-solaris-portal27-home.html
+          cp atlas.html index.html
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -178,5 +182,7 @@ jobs:
         run: node tests/zodiac251.test.cjs
       - name: Test precesji ziemskiej Vondrak/ERFA 26.0
         run: node tests/time26.test.cjs
+      - name: Przywróć stronę portalu przed testem 27.0
+        run: cp /tmp/atlas-solaris-portal27-home.html index.html
       - name: Test katalogu 26 osobnych podstron portalu 27.0
         run: node tests/portal27.test.cjs

@@ -498,6 +498,7 @@ function init(){
    selectPreset:choosePreset,
    getState:()=>({spin:state.config.spin,preset:state.preset,tau:state.tau,
     playing:state.playing,reason:state.trail?.reason,hasGhost:!!state.ghost,
+    mass:state.mass,config:{...state.config},progress:progress(),
     current:live()})
   });
  }

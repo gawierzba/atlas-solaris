@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 21.0 — rzeczywiste trajektorie sondy w metryce Kerra, lot przez ergosferę, wleczenie czasoprzestrzeni i zegary relatywistyczne.">
-  <title>ATLAS SOLARIS 21.0 — Misja przez ergosferę</title>
+  <meta name="description" content="ATLAS SOLARIS 22.0 — kamera sondy przy czarnej dziurze Kerra: obrazy z geodezyjnych światła, lokalna aberracja, efekt Dopplera i relatywistyczne zegary.">
+  <title>ATLAS SOLARIS 22.0 — Kamera na pokładzie sondy</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -25,17 +25,18 @@
 <link rel="stylesheet" href="css/blackhole20.css">
 <link rel="stylesheet" href="css/blackhole201.css">
 <link rel="stylesheet" href="css/probe21.css">
+<link rel="stylesheet" href="css/cockpit22.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 21.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 22.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 21.0</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openProbe21Side" class="probe21-side-launch" type="button">🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 22.0</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openProbe21Side" class="probe21-side-launch" type="button">🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ</button><button id="openCockpit22Side" class="cockpit22-side-launch" type="button">◉ KAMERA NA POKŁADZIE 22.0 · WIDOK Z SONDY</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -47,10 +48,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openProbe21Top" class="probe21-top-launch" type="button" title="Misja 21.0: lot sondą w pobliżu ergosfery">🚀 <span>LOT PRZEZ ERGOSFERĘ</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openCockpit22Top" class="cockpit22-top-launch" type="button" title="Kamera sondy: co widać podczas lotu obok czarnej dziury Kerra">◉ <span>KAMERA SONDY</span></button><button id="openProbe21Top" class="probe21-top-launch" type="button" title="Misja 21.0: lot sondą w pobliżu ergosfery">🚀 <span>LOT PRZEZ ERGOSFERĘ</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V21.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V22.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -90,6 +91,115 @@
 
  
 
+
+
+<dialog id="cockpit22Dialog" class="cockpit22-dialog" aria-labelledby="cockpit22Title">
+ <div class="cockpit22-shell">
+  <header class="cockpit22-header">
+   <div>
+    <div class="cockpit22-eyebrow">ATLAS SOLARIS / MISJA 22.0 / OBSERWATOR W RUCHU</div>
+    <h2 id="cockpit22Title">Oczy <em>sondy.</em></h2>
+    <p>Światło z geodezyjnych Kerra · aberracja relatywistyczna · kamera poruszająca się po torze z etapu 21</p>
+   </div>
+   <button id="cockpit22Close" class="cockpit22-close" type="button" aria-label="Zamknij kamerę sondy">✕</button>
+  </header>
+  <div class="cockpit22-layout">
+   <section class="cockpit22-visual">
+    <div class="cockpit22-viewport">
+     <canvas id="cockpit22Canvas" width="1050" height="610" tabindex="0" aria-label="Relatywistyczny obraz czarnej dziury widziany przez kamerę lecącej sondy; przeciągnij, aby zmienić kierunek patrzenia"></canvas>
+     <div class="cockpit22-top-hud"><span><i class="cockpit22-hud-led"></i> KAMERA / WŁASNY UKŁAD SONDY</span><span id="cockpit22Phase">PRZED STARTEM / KERR</span></div>
+     <div class="cockpit22-center-reticle" aria-hidden="true"><span></span></div>
+     <div class="cockpit22-bottom-hud"><span id="cockpit22Heading">KIERUNEK: KU CZARNEJ DZIURZE</span><span id="cockpit22LiveQuality">RAY TRACING / KERR</span></div>
+     <div id="cockpit22Fallback" class="cockpit22-fallback" role="alert" hidden>WebGL2 jest niedostępny: pozostają obliczenia fizyki i radar trajektorii.</div>
+     <div id="cockpit22ErgoAlert" class="cockpit22-ergo-alert" hidden>◉ W ERGOSFERZE / RUCH WLECZONY</div>
+    </div>
+    <div class="cockpit22-metrics">
+     <div><small>ODLEGŁOŚĆ / r_g</small><strong id="cockpit22Radius">—</strong></div>
+     <div><small>PRĘDKOŚĆ WZGLĘDEM ZAMO</small><strong id="cockpit22Beta">— c</strong></div>
+     <div><small>CZAS SONDY τ</small><strong id="cockpit22TauClock">—</strong></div>
+     <div><small>CZAS ODLEGŁY t</small><strong id="cockpit22FarClock">—</strong></div>
+     <div><small>CZYNNIK DOPPLERA / ŚRODEK KAMERY</small><strong id="cockpit22Doppler">—×</strong></div>
+     <div><small>NA POKŁADZIE / 60 MIN DALEKO</small><strong id="cockpit22ClockRate">— min</strong></div>
+    </div>
+    <div class="cockpit22-lower">
+     <div class="cockpit22-radar-wrap">
+      <div class="cockpit22-block-heading"><small>NAWIGACJA / POŁOŻENIE</small><strong>Gdzie jest teraz sonda?</strong></div>
+      <canvas id="cockpit22Radar" width="700" height="290" aria-label="Radar trajektorii: pozycja sondy, horyzont i granica ergosfery na płaszczyźnie równikowej"></canvas>
+      <div class="cockpit22-radar-legend"><span><i class="cockpit22-radar-path"></i> Tor obliczony</span><span><i class="cockpit22-radar-erg"></i> Granica ergosfery</span><span><i class="cockpit22-radar-hor"></i> Horyzont</span></div>
+     </div>
+     <div class="cockpit22-optics">
+      <div class="cockpit22-block-heading"><small>LABORATORIUM / OPTYKA</small><strong>Co rejestruje kamera?</strong></div>
+      <div class="cockpit22-optic-row"><span>Własny czas / czas daleki</span><b id="cockpit22ClockRatio">—</b></div>
+      <div class="cockpit22-optic-row"><span>Współczynnik Lorentza γ</span><b id="cockpit22Gamma">—</b></div>
+      <div class="cockpit22-optic-row"><span>Grawitacyjny lapse α (ZAMO)</span><b id="cockpit22Lapse">—</b></div>
+      <div class="cockpit22-optic-row"><span>Wleczenie układu ZAMO ω</span><b id="cockpit22Omega">—</b></div>
+      <div class="cockpit22-optic-row"><span>Stała fotonu λ=Lz/E, promień centralny</span><b id="cockpit22Lambda">—</b></div>
+      <div class="cockpit22-optic-row"><span>Stała Cartera η=Q/E², promień centralny</span><b id="cockpit22Eta">—</b></div>
+      <div id="cockpit22OpticNote" class="cockpit22-optic-note">Czynnik Dopplera odnosi się do lokalnego porównania kamery sondy i obserwatora ZAMO, nie do całego przesunięcia częstotliwości z nieskończoności.</div>
+     </div>
+    </div>
+   </section>
+   <aside class="cockpit22-controls">
+    <div class="cockpit22-section-label">01 / WYBIERZ MISJĘ</div>
+    <label class="cockpit22-field" for="cockpit22Preset">Tor fizyczny sondy
+      <select id="cockpit22Preset">
+       <option value="infall" selected>Zbliżanie do horyzontu · przelot z zewnątrz</option>
+       <option value="ergo">Paradoks ergosfery · ujemna energia</option>
+       <option value="orbit">Stabilna orbita · wielokrotne okrążenia</option>
+       <option value="reverse">Przeciwny spin · tor ucieczki</option>
+       <option value="custom">Warunki przeniesione z misji 21.0</option>
+      </select>
+    </label>
+    <div class="cockpit22-route-info"><b id="cockpit22Destination">Lot przez ergosferę</b><span id="cockpit22RouteDetails">Start poza ergosferą, przelot w kierunku horyzontu</span></div>
+    <div class="cockpit22-section-label">02 / SKĄD PATRZYSZ?</div>
+    <div class="cockpit22-aim-grid">
+     <button id="cockpit22LookHole" type="button">◉ Czarna dziura</button>
+     <button id="cockpit22LookMotion" type="button">➤ Kierunek lotu</button>
+     <button id="cockpit22LookSky" type="button">✦ Zewnętrzne niebo</button>
+     <button id="cockpit22LookSide" type="button">◈ Wzdłuż orbity</button>
+    </div>
+    <p class="cockpit22-hint">Przeciągnij obraz palcem, aby obrócić kamerę. Kąt jest mierzony lokalnie względem sondy. Powiększenie zmienia pole widzenia.</p>
+    <label class="cockpit22-range-head" for="cockpit22Fov">Pole widzenia <b id="cockpit22FovValue">68°</b></label>
+    <input id="cockpit22Fov" type="range" min="32" max="100" step="2" value="68">
+    <div class="cockpit22-section-label">03 / EKSPERYMENT: CO ROBI RUCH?</div>
+    <label class="cockpit22-check"><input id="cockpit22Relativity" type="checkbox" checked><span><b>Aberracja szczególnej teorii względności</b><small>Oblicz kierunki promieni w układzie sondy i przelicz je do ZAMO</small></span></label>
+    <label class="cockpit22-check"><input id="cockpit22Shift" type="checkbox" checked><span><b>Wzmocnienie jasności przez Dopplera</b><small>Przybliżenie intensywności ∝ D³. Bez pełnego widma elektromagnetycznego</small></span></label>
+    <label class="cockpit22-check"><input id="cockpit22Disk" type="checkbox" checked><span><b>Modelowy dysk akrecyjny</b><small>Światło z przecięć promieni geodezyjnych z cienkim dyskiem</small></span></label>
+    <div class="cockpit22-section-label">04 / PRZEBIEG MISJI</div>
+    <div class="cockpit22-play-row">
+     <button id="cockpit22Play" type="button" class="cockpit22-primary">▶ ROZPOCZNIJ LOT</button>
+     <button id="cockpit22Reset" type="button" class="cockpit22-secondary">↺ Wróć do startu</button>
+    </div>
+    <label class="cockpit22-range-head" for="cockpit22Progress">Pozycja na torze geodezyjnym <b id="cockpit22ProgressText">0%</b></label>
+    <input id="cockpit22Progress" type="range" min="0" max="1000" value="0" step="1">
+    <label class="cockpit22-field" for="cockpit22Tempo">Tempo odtwarzania
+     <select id="cockpit22Tempo">
+      <option value="0.35">Spokojnie · 0,35 τ / s</option>
+      <option value="1" selected>Normalnie · 1 τ / s</option>
+      <option value="3">Szybko · 3 τ / s</option>
+      <option value="7">Błyskawicznie · 7 τ / s</option>
+     </select>
+    </label>
+    <label class="cockpit22-field" for="cockpit22Quality">Jakość obrazu / wydajność WebGL2
+     <select id="cockpit22Quality">
+      <option value="0.26">Oszczędna · telefon</option>
+      <option value="0.40" selected>Zrównoważona</option>
+      <option value="0.60">Wysoka · komputer</option>
+     </select>
+    </label>
+    <label class="cockpit22-field" for="cockpit22Mass">Masa czarnej dziury
+     <select id="cockpit22Mass">
+      <option value="sagittarius" selected>Sagittarius A* · 4 mln M☉</option>
+      <option value="m87">M87* · 6,5 mld M☉</option>
+      <option value="stellar">Model gwiazdowy · 10 M☉</option>
+     </select>
+    </label>
+    <div id="cockpit22Status" class="cockpit22-status" role="status">Start misji. Włącz/wyłącz aberrację, aby porównać widok nieba z punktu widzenia sondy i statycznego lokalnego układu ZAMO.</div>
+    <p class="cockpit22-disclaimer"><b>CO JEST NAUKOWE:</b> położenie i prędkość sondy z geodezyjnych Kerra; transformacja kierunków fotonów; dalsze ugięcie światła, horyzont i przecięcia z dyskiem w geometrii Kerra. <b>CO JEST ILUSTRACYJNE:</b> kolory i emisja dysku, katalogowe tło gwiazd (J2000, nie rzeczywiste tło wokół Sgr A*), aparat i ekspozycja. Używamy skończonej liczby kroków RK4. Nie symulujemy widma, pełnego transportu promieniowania, plazmy ani wnętrza horyzontu.</p>
+   </aside>
+  </div>
+ </div>
+</dialog>
 
 <dialog id="probe21Dialog" class="probe21-dialog" aria-labelledby="probe21Title">
  <div class="probe21-shell">
@@ -157,7 +267,7 @@
     <div class="probe21-section-title">03 / STEROWANIE PRZELOTEM</div>
     <div class="probe21-actions">
      <button id="probe21Play" type="button" class="probe21-go">▶ ROZPOCZNIJ MISJĘ</button>
-     <button id="probe21Reset" type="button" class="probe21-reset">↺ Nowy start</button>
+     <button id="probe21Reset" type="button" class="probe21-reset">↺ Nowy start</button><button id="probe21CockpitLaunch" type="button" class="probe21-reset">◉ Kamera na pokładzie 22.0</button>
     </div>
     <label class="probe21-range-head" for="probe21Progress">Pozycja na geodezyjnej <b id="probe21ProgressLabel">0%</b></label>
     <input id="probe21Progress" type="range" min="0" max="1000" step="1" value="0">
@@ -1426,5 +1536,8 @@
 <script src="js/blackhole201-ui.js"></script>
 <script src="js/probe21-core.js"></script>
 <script src="js/probe21-ui.js"></script>
+<script src="js/cockpit22-core.js"></script>
+<script src="js/cockpit22-renderer.js"></script>
+<script src="js/cockpit22-ui.js"></script>
 </body>
 </html>

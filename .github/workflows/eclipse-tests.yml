@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — astronomia i misja przez ergosferę 17–21
+name: ATLAS SOLARIS — naukowa kamera na pokładzie 17–22
 on:
   pull_request:
     branches: [main]
@@ -8,17 +8,20 @@ on:
       - 'js/interstellar19*.js'
       - 'js/blackhole20*.js'
       - 'js/probe21*.js'
+      - 'js/cockpit22*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
       - 'tests/interstellar19*.cjs'
       - 'tests/blackhole20*.cjs'
       - 'tests/probe21*.cjs'
+      - 'tests/cockpit22*.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
       - 'css/blackhole20*.css'
       - 'css/probe21.css'
+      - 'css/cockpit22.css'
       - 'index.html'
       - '.github/workflows/eclipse-tests.yml'
   push:
@@ -29,12 +32,14 @@ on:
       - 'js/interstellar19*.js'
       - 'js/blackhole20*.js'
       - 'js/probe21*.js'
+      - 'js/cockpit22*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
       - 'tests/interstellar19*.cjs'
       - 'tests/blackhole20*.cjs'
       - 'tests/probe21*.cjs'
+      - 'tests/cockpit22*.cjs'
       - '.github/workflows/eclipse-tests.yml'
   workflow_dispatch:
 
@@ -78,6 +83,9 @@ jobs:
           node --check js/blackhole201-ui.js
           node --check js/probe21-core.js
           node --check js/probe21-ui.js
+          node --check js/cockpit22-core.js
+          node --check js/cockpit22-renderer.js
+          node --check js/cockpit22-ui.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -104,3 +112,7 @@ jobs:
         run: node tests/probe21.test.cjs
       - name: Test przeglądarkowy misji przez ergosferę 21.0
         run: node tests/probe21-browser.test.cjs
+      - name: Test kamerowej fizyki Kerr i mostka 21–22
+        run: node tests/cockpit22.test.cjs
+      - name: Test przeglądarkowy kamery sondy 22.0
+        run: node tests/cockpit22-browser.test.cjs

@@ -7,7 +7,7 @@ const physics=require('../portal/pulsar32-core.js');
 const renderer=require('../portal/pulsar32-cinema.js');
 function fakeCanvas(){
  const stats={pixels:0,shapes:0,lines:0};
- function grad(){return {addColorStop(at,c){assert.ok(at>=0&&at<=1);assert.equal(typeof c,'string')}}}
+ function grad(...coords){assert.ok(coords.every(Number.isFinite),'Nonfinite coordinates passed into Canvas2D gradient: '+coords);return {addColorStop(at,c){assert.ok(at>=0&&at<=1);assert.equal(typeof c,'string')}}}
  const ctx={
   createImageData(w,h){stats.pixels+=w*h;return{data:new Uint8ClampedArray(w*h*4)}},
   putImageData(){},

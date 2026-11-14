@@ -34,3 +34,9 @@
 .stage-card--milestone .stage-number{color:#b0f3f1}
 .stage-card--milestone .stage-category{color:#a9e8e0}
 .stage-card--milestone:hover{border-color:#9bedeb}
+
+/* Etap 32 — kosmiczna latarnia w sekcji polecanych doświadczeń */
+.feature-card[data-art=pulsar] .feature-back{background:radial-gradient(ellipse at 50% 25%,#7cf6eb63,transparent 15%),radial-gradient(ellipse 75% 60% at 48% 45%,#4e8bdd36,transparent 75%),linear-gradient(135deg,#0a2638,#101128 75%)}
+.feature-card[data-art=pulsar] .feature-art{top:8%;left:21%;width:57%;aspect-ratio:1;border:2px solid #92e9f8a0;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f8ffff,#9ce5f0 28%,#5a73cc 60%,#141e4a 96%);box-shadow:0 0 25px #97f7fac9,0 0 85px #4f72ee88,inset -25px -17px 35px #141a4588;transform:rotate(-24deg)}
+.feature-card[data-art=pulsar] .feature-art:before{inset:-58% 34%;border:1px solid #86f9e3aa;border-radius:50%;transform:rotate(31deg);box-shadow:0 0 36px #7bfee75f;background:linear-gradient(90deg,transparent,#68e7de24,transparent)}
+.feature-card[data-art=pulsar] .feature-art:after{inset:-49% 37%;border:1px solid #c6b2ffa0;border-radius:50%;transform:rotate(-36deg);box-shadow:0 0 25px #b69cf54f}

@@ -84,3 +84,5 @@ jobs:
         run: node tests/interstellar19.test.cjs
       - name: Test czarnej dziury i geodezyjnych 20.0
         run: node tests/blackhole20.test.cjs
+      - name: Test shaderów WebGL2 w przeglądarce (jeżeli dostępna)
+        run: node tests/blackhole20-browser.test.cjs

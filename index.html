@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 22.0 — kamera sondy przy czarnej dziurze Kerra: obrazy z geodezyjnych światła, lokalna aberracja, efekt Dopplera i relatywistyczne zegary.">
-  <title>ATLAS SOLARIS 22.0 — Kamera na pokładzie sondy</title>
+  <meta name="description" content="ATLAS SOLARIS 23.0 — zderzenie dwóch czarnych dziur, spirala grawitacyjna, chirp, energetyka GW150914 i model drgań czarnej dziury końcowej.">
+  <title>ATLAS SOLARIS 23.0 — Zderzenie gigantów i fale grawitacyjne</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -26,17 +26,18 @@
 <link rel="stylesheet" href="css/blackhole201.css">
 <link rel="stylesheet" href="css/probe21.css">
 <link rel="stylesheet" href="css/cockpit22.css">
+<link rel="stylesheet" href="css/merger23.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 22.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 23.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 22.0</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openProbe21Side" class="probe21-side-launch" type="button">🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ</button><button id="openCockpit22Side" class="cockpit22-side-launch" type="button">◉ KAMERA NA POKŁADZIE 22.0 · WIDOK Z SONDY</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 23.0</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openProbe21Side" class="probe21-side-launch" type="button">🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ</button><button id="openCockpit22Side" class="cockpit22-side-launch" type="button">◉ KAMERA NA POKŁADZIE 22.0 · WIDOK Z SONDY</button><button id="openMerger23Side" class="merger23-side-launch" type="button">✦ ZDERZENIE GIGANTÓW 23.0 · FALE GRAWITACYJNE</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -48,10 +49,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openCockpit22Top" class="cockpit22-top-launch" type="button" title="Kamera sondy: co widać podczas lotu obok czarnej dziury Kerra">◉ <span>KAMERA SONDY</span></button><button id="openProbe21Top" class="probe21-top-launch" type="button" title="Misja 21.0: lot sondą w pobliżu ergosfery">🚀 <span>LOT PRZEZ ERGOSFERĘ</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openMerger23Top" class="merger23-top-launch" type="button" title="Zderzenie dwóch czarnych dziur i fala grawitacyjna">✦ <span>ZDERZENIE GIGANTÓW</span></button><button id="openCockpit22Top" class="cockpit22-top-launch" type="button" title="Kamera sondy: co widać podczas lotu obok czarnej dziury Kerra">◉ <span>KAMERA SONDY</span></button><button id="openProbe21Top" class="probe21-top-launch" type="button" title="Misja 21.0: lot sondą w pobliżu ergosfery">🚀 <span>LOT PRZEZ ERGOSFERĘ</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V22.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V23.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -92,6 +93,116 @@
  
 
 
+
+
+<dialog id="merger23Dialog" class="merger23-dialog" aria-labelledby="merger23Title">
+ <div class="merger23-shell">
+  <header class="merger23-header">
+   <div><div class="merger23-eyebrow">ATLAS SOLARIS 23.0 · OGÓLNA TEORIA WZGLĘDNOŚCI / FALA GRAWITACYJNA</div>
+    <h2 id="merger23Title">Zderzenie <em>gigantów.</em></h2>
+    <p>Dwie czarne dziury. Spirala grawitacyjna. Jedna fala, która przemierza Wszechświat.</p>
+   </div>
+   <button id="merger23Close" class="merger23-close" type="button" aria-label="Zamknij obserwatorium fal grawitacyjnych">✕</button>
+  </header>
+  <div class="merger23-layout">
+   <section class="merger23-stage">
+    <div class="merger23-viewport">
+     <canvas id="merger23Canvas" width="1280" height="740" aria-label="Artystyczna przestrzenna animacja dwóch czarnych dziur spiralnie zbliżających się do wspólnego horyzontu, z rozchodzącymi się falami geometrycznymi"></canvas>
+     <div class="merger23-canvas-hud">
+      <span><i class="merger23-hud-dot"></i> GRAVITATIONAL WAVE OBSERVATORY</span>
+      <span id="merger23Phase">INSPIRAL · ZBLIŻANIE</span>
+     </div>
+     <div class="merger23-viewport-bottom">
+      <span id="merger23SceneLabel">DWA HORYZONTY / SPIRALNY RUCH</span>
+      <span>RZUT MODELU / NIE DOSŁOWNA GEOMETRIA 3D</span>
+     </div>
+     <div id="merger23CollisionLabel" class="merger23-collision" hidden>POŁĄCZENIE HORYZONTÓW</div>
+     <div id="merger23Flash" class="merger23-flash" aria-hidden="true"></div>
+    </div>
+    <div class="merger23-stats">
+     <div><small>CZĘSTOTLIWOŚĆ FALI</small><strong id="merger23Frequency">— Hz</strong></div>
+     <div><small>ODLEGŁOŚĆ ŚRODKÓW</small><strong id="merger23Separation">— km</strong></div>
+     <div><small>CHARAKTERYSTYCZNA AMPLITUDA h</small><strong id="merger23Strain">—</strong></div>
+     <div><small>CZAS DO POŁĄCZENIA</small><strong id="merger23Countdown">— s</strong></div>
+    </div>
+    <div class="merger23-waveform-wrap">
+     <div class="merger23-wave-head">
+      <div><small>OBSERWATORIUM / FALA h₊ W MODELU QUADRUPOLOWYM</small><strong>Tak wygląda „śpiew” czasoprzestrzeni</strong></div>
+      <span id="merger23ChartNote">CZAS WŁASNY MODELU ŹRÓDŁA · s</span>
+     </div>
+     <canvas id="merger23Waveform" width="1240" height="335" aria-label="Wykres amplitudy fali grawitacyjnej h plus przed zderzeniem i wygaszania drgań czarnej dziury końcowej"></canvas>
+     <div class="merger23-chart-legend">
+      <span><i class="merger23-swatch-plus"></i> h₊ · rzeczywiste jednostki odkształcenia</span>
+      <span><i class="merger23-swatch-envelope"></i> obwiednia</span>
+      <span><i class="merger23-swatch-merge"></i> umowny moment połączenia</span>
+      <span id="merger23ChartUnits">Źródło: GW150914, model demonstracyjny</span>
+     </div>
+    </div>
+    <div class="merger23-ledger">
+     <div class="merger23-ledger-head"><small>BILANS / ENERGIA W FALACH GRAWITACYJNYCH</small><strong id="merger23MassBalance">36,2 + 29,1 → 62,3 M☉</strong></div>
+     <div class="merger23-balance-bar"><div id="merger23EnergyBar" class="merger23-energy-bar"></div></div>
+     <div class="merger23-ledger-bottom">
+      <div><small>MASA PRZED POŁĄCZENIEM</small><strong id="merger23Before">— M☉</strong></div>
+      <div><small>MASA KOŃCOWA</small><strong id="merger23After">— M☉</strong></div>
+      <div><small>ENERGIA WYPROMIENIOWANA</small><strong id="merger23Lost">— M☉c²</strong></div>
+     </div>
+     <p id="merger23EnergyExplanation">Wartości GW150914 pochodzą z oszacowań LIGO; etap inspiralu jest analityczny, a model połączenia i wygaszania przybliżony.</p>
+    </div>
+   </section>
+   <aside class="merger23-controls">
+    <div class="merger23-section-title">01 / WYBIERZ ZDARZENIE</div>
+    <label class="merger23-field" for="merger23Preset">Para czarnych dziur
+     <select id="merger23Preset">
+      <option value="gw150914" selected>GW150914 · rzeczywiste wykrycie LIGO</option>
+      <option value="equal">30 + 30 M☉ · eksperyment</option>
+      <option value="super">Supermasywne olbrzymy · eksperyment</option>
+      <option value="custom">Własne masy · eksperyment</option>
+     </select>
+    </label>
+    <div id="merger23PresetInfo" class="merger23-preset-info">14 września 2015 roku pierwszy raz bezpośrednio zarejestrowano fale grawitacyjne ze zderzenia dwóch czarnych dziur.</div>
+    <div class="merger23-section-title">02 / DOSTOSUJ EKSPERYMENT</div>
+    <label class="merger23-range-head" for="merger23Mass1">Masa pierwszej czarnej dziury <b id="merger23Mass1Text">36,2 M☉</b></label>
+    <input id="merger23Mass1" type="range" min="5" max="160" step="0.1" value="36.2">
+    <label class="merger23-range-head" for="merger23Mass2">Masa drugiej czarnej dziury <b id="merger23Mass2Text">29,1 M☉</b></label>
+    <input id="merger23Mass2" type="range" min="5" max="160" step="0.1" value="29.1">
+    <label class="merger23-range-head" for="merger23Distance">Odległość obserwatora <b id="merger23DistanceText">420 Mpc</b></label>
+    <input id="merger23Distance" type="range" min="50" max="1500" step="10" value="420">
+    <label class="merger23-range-head" for="merger23Tilt">Nachylenie obserwacji <b id="merger23TiltText">35°</b></label>
+    <input id="merger23Tilt" type="range" min="0" max="90" step="1" value="35">
+    <div class="merger23-section-title">03 / OBEJRZYJ ZDERZENIE</div>
+    <div class="merger23-buttons">
+      <button id="merger23Play" class="merger23-play" type="button">▶ URUCHOM ZDERZENIE</button>
+      <button id="merger23Replay" class="merger23-replay" type="button">↺ Od początku</button>
+    </div>
+    <label class="merger23-range-head" for="merger23Progress">Odtwarzanie w zwolnionym czasie <b id="merger23ProgressText">0%</b></label>
+    <input id="merger23Progress" type="range" min="0" max="1000" step="1" value="0">
+    <label class="merger23-field" for="merger23Tempo">Tempo pokazu (nie rzeczywisty upływ czasu)
+     <select id="merger23Tempo">
+      <option value="0.4">Powoli · 0,4×</option>
+      <option value="1" selected>Filmowo · 1×</option>
+      <option value="2">Szybko · 2×</option>
+      <option value="4">Bardzo szybko · 4×</option>
+     </select>
+    </label>
+    <label class="merger23-check"><input id="merger23Sound" type="checkbox"><span><b>Usłysz falę — sonifikacja</b><small>Syntetyczny dźwięk tworzony z częstotliwości modelu, nie nagranie LIGO. Wymaga włączenia dźwięku w przeglądarce</small></span></label>
+    <label class="merger23-check"><input id="merger23Ripples" type="checkbox" checked><span><b>Pokaż fale w przestrzeni</b><small>Widowiskowa ilustracja kwadrupolowych zaburzeń. Fale grawitacyjne nie są materialnymi pierścieniami</small></span></label>
+    <label class="merger23-check"><input id="merger23Traces" type="checkbox" checked><span><b>Świetlne ślady orbit</b><small>Wizualizacja spirali zbliżających się horyzontów</small></span></label>
+    <div class="merger23-section-title">04 / CO MÓWI FIZYKA?</div>
+    <div class="merger23-readings">
+      <div><small>MASA CHIRPU ℳ</small><b id="merger23ChirpMass">— M☉</b></div>
+      <div><small>SYMETRYCZNY STOSUNEK MAS η</small><b id="merger23Eta">—</b></div>
+      <div><small>CZAS INSPIRALU / ŹRÓDŁO</small><b id="merger23Duration">— s</b></div>
+      <div><small>ENERGIA WYPROMIENIOWANA / E</small><b id="merger23EnergyJ">— J</b></div>
+      <div><small>KOŃCOWA CZĘSTOTLIWOŚĆ DRGAŃ 2,2,0</small><b id="merger23RingFreq">— Hz</b></div>
+      <div><small>CZAS WYGASZANIA DRGAŃ τ</small><b id="merger23DampTime">— ms</b></div>
+      <div><small>MODEL / ETAP</small><b id="merger23ModelStage">—</b></div>
+    </div>
+    <div id="merger23Status" class="merger23-status" role="status">Gotowość. Uruchom pokaz i obserwuj narastanie częstotliwości fali aż do połączenia.</div>
+    <p class="merger23-disclaimer"><b>NAUKA:</b> ruch zbliżania i fala podczas inspiralu liczone są z wiodącego przybliżenia kwadrupolowego; masa chirpu, skale długości i energii mają rzeczywiste jednostki. <b>WIZUALIZACJA:</b> połączenie horyzontów, błysk, fale-pierścienie i wygaszanie są poglądowe. Nie rozwiązujemy pełnej nieliniowej teorii względności ani nie odtwarzamy surowego sygnału detektora LIGO. Fala grawitacyjna nie powoduje widzialnego optycznego błysku przy zwykłym łączeniu czarnych dziur.</p>
+   </aside>
+  </div>
+ </div>
+</dialog>
 
 <dialog id="cockpit22Dialog" class="cockpit22-dialog" aria-labelledby="cockpit22Title">
  <div class="cockpit22-shell">
@@ -1539,5 +1650,7 @@
 <script src="js/cockpit22-core.js"></script>
 <script src="js/cockpit22-renderer.js"></script>
 <script src="js/cockpit22-ui.js"></script>
+<script src="js/merger23-core.js"></script>
+<script src="js/merger23-ui.js"></script>
 </body>
 </html>

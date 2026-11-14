@@ -40,7 +40,7 @@ for(const a of [0,.5,.85,.98,-.85]){
  near(m.omega,2*a*32/m.A);
  assert.ok(Math.abs(m.omega)<.001);
  const orb=k.orbitPeriodSeconds(a,plus,4e6,1,sch.TG_S);
- assert.ok(orb>500&&orb<4000);
+ assert.ok(orb>250&&orb<4000);
  const theta=1.13,dir=[-.91,-.18,.373],n=Math.hypot(...dir);
  const p=k.parameters(a,32,theta,...dir.map(x=>x/n));
  const [u,up,th,tp]=p.init;

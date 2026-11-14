@@ -1,13 +1,151 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Taniec Gwiazd Podwójnych | ATLAS SOLARIS 30.0</title><meta name="description" content="Ruch orbitalny, obszary Roche’a, punkt L1, przelew materii i wykres zaćmieniowej krzywej blasku.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="30" data-kind="stage">
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071823">
+<title>Dwie gwiazdy. Jeden los. — Taniec gwiazd podwójnych | ATLAS SOLARIS 30</title>
+<meta name="description" content="Dlaczego Algol przygasa co 2,867 dnia? Poznaj historię Goodricke’a, paradoks Algola, granice Roche’a, przelew materii i prawdziwą krzywą blasku TESS. Na końcu zbuduj własny układ podwójny.">
+<meta property="og:title" content="Dwie gwiazdy. Jeden los. | ATLAS SOLARIS 30">
+<meta property="og:description" content="Historia gwiazdy, która przygasa, i dwóch gwiazd, które zmieniają wzajemnie swój los.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/binary30-cover.svg">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../../portal/stage.css"><link rel="stylesheet" href="../../portal/binary30-story.css?v=30.1">
+<script src="../../portal/data.js" defer></script><script src="../../portal/stage.js?v=32.5" defer></script>
+</head><body data-route="30" data-kind="stage" class="b30-article-page">
+<a class="b30-skip" href="#historia">Przejdź do artykułu</a>
 <header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 30 / Gwiazdy i ewolucja</span><strong>Taniec Gwiazd Podwójnych</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Równania Keplera · granice Roche’a · zaćmienia…</small></div><iframe id="stageFrame" title="Laboratorium gwiazd podwójnych — interaktywna fizyka" src="../../laboratoria/gwiazdy-podwojne/index.html" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button> · <a href="../../laboratoria/gwiazdy-podwojne/index.html">Otwórz bezpośrednio</a></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 30</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Taniec Gwiazd Podwójnych</h1><p class="stage-lead">Grawitacja, przelew materii i zaćmienia</p><p>Wybierz masy składników, separację i nachylenie orbity. Zobacz punkt L1, obszary Roche’a i przelew materii w układzie podwójnym. Zmiana geometrii wpływa na rzeczywiście obliczaną krzywą blasku.</p><p class="stage-info-note">Ruch kołowy i powierzchnie krytyczne obliczane są na podstawie modeli. Wizualizowane cząstki gazu oraz dysk akrecyjny są ilustracją; nie symulujemy transportu masy ani promieniowania.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript. <a href="../../laboratoria/gwiazdy-podwojne/index.html">Otwórz laboratorium bezpośrednio.</a></p></noscript>
+<div class="stage-crumb"><span>ETAP 30 / GWIAZDY I EWOLUCJA</span><strong>Taniec Gwiazd Podwójnych</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav></header>
+
+<main class="stage-main b30-article-main">
+<article class="b30-article" aria-labelledby="b30Title">
+<section class="b30-hero">
+<img src="../../portal/media/binary30-cover.svg" width="1600" height="900" fetchpriority="high" class="b30-hero-image" alt="Artystyczna ilustracja ciasnego układu dwóch gwiazd: większa czerwono-pomarańczowa gwiazda przekazuje strumień gazu mniejszej błękitnej, wokół której zarysowano dysk. Ilustracja, nie fotografia ani symulacja przepływu.">
+<div class="b30-hero-overlay"></div>
+<div class="b30-hero-inner">
+<div class="b30-hero-top"><span class="b30-hero-signal"></span> ATLAS SOLARIS <span>/</span> OPOWIEŚCI O GWIAZDACH <span>/</span> ROZDZIAŁ 30</div>
+<div class="b30-hero-copy">
+ <span class="b30-eyebrow">HISTORIA DWÓCH GWIAZD · JEDNEJ GRAWITACJI</span>
+ <h1 id="b30Title">Dwie gwiazdy.<br><em>Jeden los.</em></h1>
+ <p>Na niebie widzimy jeden punkt. W rzeczywistości mogą kryć się w nim dwa słońca. Krążą wokół siebie, zasłaniają się nawzajem, a czasem jedna gwiazda oddaje drugiej część własnej materii. Tak zaczyna się opowieść o kosmicznym tańcu, który potrafi odmienić całe życie gwiazdy.</p>
+ <div class="b30-hero-actions"><a class="b30-start" href="#historia">Zacznij opowieść <span aria-hidden="true">↓</span></a><a class="b30-skip-lab" id="stageLaunch" href="#laboratorium">Przejdź do eksperymentu <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="b30-hero-bottom"><span>ZAĆMIENIA / ORBITY / GRANICE ROCHE’A / EWOLUCJA</span><span>STATYCZNA ILUSTRACJA ARTYSTYCZNA</span></div>
+</div></section>
+
+<section class="b30-prologue" id="historia">
+<div class="b30-prologue-top"><span>PROLOG · NIEBO, KTÓRE ZMIENIA ZDANIE</span><span>GWIAZDOZBIÓR PERSEUSZA</span></div>
+<div class="b30-prologue-grid">
+<div class="b30-prologue-left"><div class="b30-chapter-marker">01 <span>/</span> OBSERWACJA</div><h2>Gwiazda, która <em>regularnie znikała.</em></h2></div>
+<div class="b30-prologue-copy">
+<p class="b30-dropcap">Przez większość nocy Algol wygląda jak zwykła, dość jasna gwiazda w gwiazdozbiorze Perseusza. Ale co około 2 dni i 21 godzin wyraźnie słabnie. Po kilku godzinach wraca do swojej zwyczajnej jasności. I powtarza to raz za razem.</p>
+<p>W tradycji astronomicznej Algol zyskał miano „Gwiazdy Demona”. Jego zmienność była tak osobliwa, że w XVII wieku zwrócił na nią uwagę Geminiano Montanari. W latach 1782–1783 młody astronom John Goodricke wraz z Edwardem Pigottem badał te spadki jasności i ustalił ich regularny rytm. Goodricke zaproponował, że przed jaśniejszą gwiazdą przechodzi inny obiekt i okresowo zasłania jej światło. <a href="#zrodla" class="b30-ref" aria-label="Źródło 1">[1]</a></p>
+<p>To był niezwykle ważny krok: <strong>zamiast uznać zmienność za kaprys gwiazdy, wyjaśniono ją ruchem dwóch ciał.</strong> Spektroskopia później potwierdziła, że Algol należy do układu gwiazd krążących wokół siebie. Dziś wiemy, że cały system jest potrójny, ale za słynne, szybkie zaćmienia odpowiada jego bliska para. <a href="#zrodla" class="b30-ref" aria-label="Źródła 1 i 2">[1, 2]</a></p>
+</div></div>
+<div class="b30-moment"><span>RYTM ALGOLA</span><strong>2,867 <small>dnia</small></strong><p>Odstęp między głębokimi spadkami jasności w ciasnej parze. To okres orbitalny, a nie czas „wyłączania się” gwiazdy.</p></div>
+</section>
+
+<section class="b30-chart-story" aria-labelledby="b30ChartTitle">
+<div class="b30-chart-head"><span>ARCHIWUM OBSERWACYJNE / NASA TESS</span><h2 id="b30ChartTitle">Nie musisz wierzyć opowieści.<br><em>Możesz zobaczyć pomiar.</em></h2><p>Na wykresie z danych kosmicznego teleskopu TESS regularnie powtarzają się wąskie spadki blasku Algola. To ślad rzeczywistych zaćmień, a nie ilustracja wymyślona do laboratorium.</p></div>
+<figure class="b30-tess-figure"><div class="b30-tess-image"><img src="https://nightsky.jpl.nasa.gov/media/Algol%20TESS%20light%20curve.png" width="502" height="375" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Rzeczywista krzywa blasku Algola z satelity TESS. Na osi dat listopad 2019; w regularnych odstępach około 2,867 dnia widać głębokie minima jasności."><span>ZAOBSERWOWANE · NIE SYMULOWANE</span></div><figcaption><strong>Algol (β Persei) — pomiary TESS, listopad 2019</strong><p>Pionowe spadki na wykresie oznaczają słabszy sygnał. W skali wielkości gwiazdowych większa liczba oznacza mniejszą jasność — dlatego minimum blasku występuje na wykresie niżej. To rzeczywista obserwacja, ale wciąż nie „zdjęcie dwóch gwiazd”.</p><small>NASA TESS / MAST, za NASA Night Sky Network; <a href="https://nightsky.jpl.nasa.gov/news/466/" target="_blank" rel="noopener noreferrer">opis obserwacji i autorstwa</a>. Jeśli obraz nie zostanie załadowany, <a href="https://nightsky.jpl.nasa.gov/media/Algol%20TESS%20light%20curve.png" target="_blank" rel="noopener noreferrer">otwórz oryginalny wykres</a>.</small></figcaption></figure>
+<div class="b30-chart-question"><span>PYTANIE DO CZYTELNIKA</span><p>Dlaczego niektóre zaćmienia są <strong>głębsze</strong>, a inne płytsze? Czy obie gwiazdy muszą mieć taką samą temperaturę i jasność?</p></div>
+</section>
+
+<section class="b30-explainer" id="taniec">
+<div class="b30-chapter-row"><span>02 / TANIEC</span><span>RUCH I GEOMETRIA</span></div>
+<div class="b30-explainer-grid"><div class="b30-explainer-lead"><p class="b30-kicker">NA NIEBIE JEDEN PUNKT — W PRZESTRZENI DWA ŚWIATY</p><h2>Nie ma gwiazdy, która tylko <em>stoi i czeka.</em></h2></div>
+<div class="b30-explainer-text"><p>Obie gwiazdy krążą wokół wspólnego środka masy. Ich ruch zależy od mas oraz odległości. Im ciaśniejsza orbita przy tej samej łącznej masie, tym krótszy okres obiegu. To jedna z konsekwencji praw Keplera.</p><p>Jeśli patrzymy niemal w płaszczyźnie ich orbity, jedna gwiazda może na chwilę zasłaniać drugą. Wtedy suma widzianego światła maleje. Gdy patrzymy bardziej z góry, gwiazdy na niebie mijają się obok siebie — i głębokich zaćmień może w ogóle nie być. <a href="#zrodla" class="b30-ref" aria-label="Źródło 3">[3]</a></p></div></div>
+<div class="b30-diagram" role="group" aria-label="Schemat faz zaćmienia w układzie podwójnym">
+<div class="b30-diagram-header"><strong>DLACZEGO JASNOŚĆ SPADA?</strong><span>SCHEMAT POGLĄDOWY · NIE RZECZYWISTE DANE ALGOLA</span></div>
+<div class="b30-eclipse-phases">
+<div><svg viewBox="0 0 300 180" role="img" aria-label="Dwie gwiazdy obok siebie, brak zaćmienia"><defs><radialGradient id="hotA"><stop stop-color="#fff7e3"/><stop offset=".5" stop-color="#f0a982"/><stop offset="1" stop-color="#9b4347"/></radialGradient><radialGradient id="coolB"><stop stop-color="#e9ffff"/><stop offset=".5" stop-color="#9ad3df"/><stop offset="1" stop-color="#367b94"/></radialGradient></defs><circle cx="112" cy="90" r="56" fill="url(#hotA)"/><circle cx="207" cy="90" r="38" fill="url(#coolB)"/></svg><span>FAZA 0,25</span><strong>Obie widoczne</strong><p>Blask dwóch gwiazd dociera do teleskopu.</p></div>
+<div><svg viewBox="0 0 300 180" role="img" aria-label="Chłodniejsza gwiazda przed jaśniejszą, głębokie minimum blasku"><circle cx="153" cy="90" r="63" fill="url(#hotA)"/><circle cx="145" cy="90" r="46" fill="url(#coolB)"/></svg><span>FAZA 0</span><strong>Głębokie minimum</strong><p>Chłodniejszy składnik zasłania część jaśniejszego.</p></div>
+<div><svg viewBox="0 0 300 180" role="img" aria-label="Jasna gwiazda przed chłodniejszą, płytszy spadek blasku"><circle cx="154" cy="90" r="47" fill="url(#coolB)"/><circle cx="158" cy="90" r="63" fill="url(#hotA)"/></svg><span>FAZA 0,5</span><strong>Płytsze minimum</strong><p>Zmienia się, którą gwiazdę widzimy z przodu.</p></div>
+</div>
+<div class="b30-diagram-footer">Jasności, proporcje i barwy na schemacie są umowne. Głębokość rzeczywistych minimów zależy m.in. od temperatur, promieni i nachylenia orbity.</div>
+</div>
+</section>
+
+<section class="b30-dark-chapter" id="granica">
+<div class="b30-dark-inner">
+<div class="b30-dark-index"><span>03 / GRANICA ROCHE’A</span><span>GDZIE GRAWITACJA ZMIENIA SIĘ W STRUMIEŃ MATERII</span></div>
+<div class="b30-dark-grid"><div><p class="b30-kicker">A TERAZ HISTORIA STAJE SIĘ JESZCZE CIEKAWSZA</p><h2>Czasem jedna gwiazda zaczyna <em>oddawać siebie drugiej.</em></h2></div><div><p>W ciasnym układzie grawitacja obu składników oraz ruch orbitalny wyznaczają obszary nazywane <strong>płatami Roche’a</strong>. To nie są niewidzialne szklane bańki, lecz granice opisujące efektywny potencjał grawitacyjny w układzie obracającym się razem z gwiazdami.</p><p>Kiedy gwiazda rozrasta się na tyle, że wypełnia swój płat Roche’a, gaz z jej zewnętrznych warstw może przepływać przez wewnętrzny punkt Lagrange’a — <strong>L1</strong> — w kierunku towarzysza. Część materii może trafić bezpośrednio na drugą gwiazdę, a w odpowiedniej geometrii utworzyć dysk akrecyjny. <a href="#zrodla" class="b30-ref">[4, 5]</a></p></div></div>
+<div class="b30-roche-panel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 430" role="img" aria-label="Poglądowy schemat dwóch płatów Roche’a spotykających się w punkcie L1. Czerwona duża gwiazda po lewej wypełnia swój płat, strumień gazu przechodzi ku niebieskiej mniejszej gwieździe po prawej.">
+<defs><linearGradient id="rocheLine"><stop stop-color="#eea58d"/><stop offset=".48" stop-color="#c3beb3"/><stop offset="1" stop-color="#8ce2e4"/></linearGradient><radialGradient id="rocheDonor"><stop stop-color="#ffdfc8"/><stop offset=".43" stop-color="#e49b7b"/><stop offset="1" stop-color="#813b4b"/></radialGradient><radialGradient id="rocheAcc"><stop stop-color="#f1ffff"/><stop offset=".4" stop-color="#95d6df"/><stop offset="1" stop-color="#245e7a"/></radialGradient></defs>
+<path d="M85 230 C100 105 260 50 407 118C490 159 510 204 547 217C510 238 485 298 414 337C272 406 97 353 85 230Z" stroke="#d89b8f" stroke-width="2" fill="#c8676940" stroke-dasharray="8 10"/>
+<path d="M547 217 C612 147 744 78 872 140C984 192 988 296 875 336C734 390 616 314 547 217Z" stroke="#90d9df" stroke-width="2" fill="#378ea329" stroke-dasharray="8 10"/>
+<circle cx="329" cy="220" r="106" fill="url(#rocheDonor)"/>
+<circle cx="765" cy="226" r="66" fill="url(#rocheAcc)"/>
+<path d="M440 219 Q512 200 552 217T694 215" fill="none" stroke="#a5e7e2" stroke-opacity=".34" stroke-width="25" stroke-linecap="round"/>
+<path d="M438 215 Q505 207 550 217T700 212" fill="none" stroke="url(#rocheLine)" stroke-width="6" stroke-linecap="round"/>
+<circle cx="547" cy="217" r="9" fill="#fff4df"/>
+<path d="M547 204v-45M547 159h40" fill="none" stroke="#e0f4f6" stroke-width="1.6" opacity=".8"/>
+<g font-family="system-ui,sans-serif" font-size="23" fill="#d8e7ef"><text x="585" y="161">L1</text><text x="289" y="381" fill="#efb29d">DONOR</text><text x="706" y="369" fill="#a3e6eb">TOWARZYSZ</text></g>
+</svg>
+<div class="b30-roche-desc"><span>JEDEN PUNKT MOŻE ZMIENIĆ HISTORIĘ DWÓCH GWIAZD</span><p>Strumień jest tu metaforą przepływu. Rzeczywisty transport gazu zależy od hydrodynamiki, temperatury i momentu pędu; płaty są poglądowymi przekrojami powierzchni ekwipotencjalnych.</p></div>
+</div>
+<div class="b30-rhetoric"><span>KLUCZOWA MYŚL</span><p>W takim układzie gwiazdy nie tylko się okrążają. Mogą <em>zmieniać wzajemnie swoje masy, rozmiary i przyszłość.</em></p></div>
+</div></section>
+
+<section class="b30-evolution" id="paradoks">
+<div class="b30-chapter-row"><span>04 / PARADOKS ALGOLA</span><span>EWOLUCJA TO NIE TYLKO WIEK</span></div>
+<div class="b30-evolution-grid"><div><span class="b30-kicker">COŚ NIE ZGADZAŁO SIĘ Z PODRĘCZNIKOWĄ INTUICJĄ</span><h2>Dlaczego mniejsza gwiazda wygląda <em>na starszą?</em></h2></div><div><p>W pojedynczych gwiazdach masywniejsze składniki zwykle szybciej zużywają paliwo jądrowe i wcześniej opuszczają ciąg główny. Tymczasem w bliskiej parze Algola chłodniejszy, dziś mniej masywny składnik jest już bardziej ewolucyjnie rozwinięty od gorętszego, obecnie masywniejszego towarzysza. <a href="#zrodla" class="b30-ref">[2, 6]</a></p><p>Rozwiązaniem jest <strong>historia wymiany materii</strong>. Gwiazda, która dawniej była masywniejsza, ewoluowała szybciej, rozrosła się i przekazała znaczną część materii drugiemu składnikowi. Po tej wymianie mas role odwróciły się. Z dzisiejszych mas nie można więc po prostu odczytać, która gwiazda miała większą masę na początku.</p><p>Algol nie jest dokładnym odpowiednikiem każdego układu podwójnego — i ma jeszcze dalszego, trzeciego towarzysza. Ale jego wewnętrzna para pięknie pokazuje, dlaczego w astrofizyce <strong>liczy się wspólna historia</strong>, a nie tylko pojedyncza gwiazda.</p></div></div>
+<div class="b30-before-after" aria-label="Porównanie historii transferu materii">
+<div class="b30-before"><span>DAWNIEJ</span><strong>Większa masa donora</strong><p>Szybsza ewolucja i rozszerzanie zewnętrznych warstw.</p><div class="b30-mini-binary"><i class="b30-sun big"></i><span>→</span><i class="b30-sun small"></i></div></div>
+<div class="b30-middle" aria-hidden="true">⇢</div>
+<div class="b30-after"><span>PO TRANSFERZE</span><strong>Masa zmienia właściciela</strong><p>Donor pozostaje bardziej wyewoluowany, mimo że jest lżejszy.</p><div class="b30-mini-binary"><i class="b30-sun small"></i><span>→</span><i class="b30-sun big"></i></div></div>
+</div>
+</section>
+
+<section class="b30-observatory" id="na-zywo">
+<div class="b30-observatory-head"><span>05 / WSPÓŁCZESNE OBSERWATORIA</span><h2>Nie jesteśmy skazani wyłącznie na domysły.</h2><p>Oprócz jasności mierzymy prędkości gwiazd, badamy widma i wykorzystujemy interferometrię. Tak można sprawdzić, jak naprawdę wygląda złożony układ, który z Ziemi wydaje się jednym punktem.</p></div>
+<div class="b30-observatory-cards">
+<div><span>NASA / TESS</span><h3>Zmierz rytm zaćmień</h3><p>Seria pomiarów jasności odkrywa regularne minima i okres obiegu. Algol zyskuje w ten sposób swoją „sygnaturę” w czasie.</p><a href="https://nightsky.jpl.nasa.gov/news/466/" target="_blank" rel="noopener noreferrer">Zobacz dane TESS</a></div>
+<div><span>CHARA ARRAY</span><h3>Zobacz gaz wokół gwiazd</h3><p>Interferometria pozwoliła rozdzielić składniki układu β Lyrae i zidentyfikować obszar dysku wokół gwiazdy przyjmującej materię.</p><a href="https://chara.gsu.edu/photos-videos/image-gallery/beta-lyrae" target="_blank" rel="noopener noreferrer">Zobacz obserwacje β Lyrae</a></div>
+<div><span>NASA / SVS</span><h3>Połącz orbitę z wykresem</h3><p>Wizualizacje NASA zestawiają geometrię hipotetycznych układów zaćmieniowych z ich krzywymi blasku.</p><a href="https://svs.gsfc.nasa.gov/5290/" target="_blank" rel="noopener noreferrer">Porównaj różne układy</a></div>
+</div>
+</section>
+
+<section class="b30-lab-intro">
+<div class="b30-chapter-row"><span>06 / TWOJA KOLEJ</span><span>LABORATORIUM ODKRYWCY</span></div>
+<div class="b30-lab-intro-grid"><div><p class="b30-kicker">ZAMIEŃ OPOWIEŚĆ W DOŚWIADCZENIE</p><h2>Zatrzymaj ten taniec.<br><em>Zmień jego zasady.</em></h2></div><div><p>W naszym laboratorium ustawiasz masy dwóch składników, odległość między nimi, charakter towarzysza, kąt widzenia i stopień wypełnienia płata Roche’a. Zobaczysz, jak zmienia się okres orbitalny, kiedy pojawiają się zaćmienia i przy jakim ustawieniu model pokazuje przelew materii.</p></div></div>
+<div class="b30-questions">
+<div><span>01 / GEOMETRIA</span><h3>Spraw, żeby zaćmienia zniknęły</h3><p>Zmniejsz nachylenie do obserwatora. Co stanie się z krzywą blasku, gdy oglądasz orbitę prawie z góry?</p></div>
+<div><span>02 / ROCHE</span><h3>Przekrocz granicę 100%</h3><p>Zmień „Wypełnienie Roche’a” z 90% na ponad 100%. Sprawdź stan układu i miejsce punktu L1.</p></div>
+<div><span>03 / KEPLER</span><h3>Rozsuń gwiazdy</h3><p>Przy tych samych masach zwiększ odległość środków. Czy okres orbitalny rośnie, czy maleje?</p></div>
+<div><span>04 / TOWARZYSZ</span><h3>Zmień naturę drugiej gwiazdy</h3><p>Porównaj zwykłą gwiazdę, białego karła i gwiazdę neutronową. Zwróć uwagę na ograniczenia wizualnego modelu.</p></div>
+</div>
+<p class="b30-model-limits">Uwaga naukowa: laboratorium oblicza kołowy ruch Keplera, położenie punktu L1, przybliżenie promienia Roche’a i geometryczne zmiany jasności. Animowany strumień i dysk nie są obliczeniami hydrodynamicznymi ani przewidywaniem rzeczywistego tempa transferu masy. Presety nie przedstawiają wiernych parametrów Algola.</p>
+</section>
+</article>
+
+<section class="b30-lab-wrapper" id="laboratorium" aria-label="Interaktywne laboratorium gwiazd podwójnych">
+<div class="b30-lab-head"><div><span>ATLAS SOLARIS · ETAP 30 / EKSPERYMENT</span><h2>Teraz to Ty <em>prowadzisz gwiazdy.</em></h2><p>Przetestuj prawdziwe zależności orbitalne w lekkim laboratorium. Jeśli chcesz tylko czytać artykuł, symulator nie obciąża urządzenia.</p></div><span class="b30-lab-status">SYMULATOR ŁADOWANY DOPIERO TUTAJ</span></div>
+<div id="stageViewport" class="stage-viewport">
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Orbity · punkt L1 · zaćmienia · krzywa blasku</small></div>
+<iframe id="stageFrame" title="Laboratorium gwiazd podwójnych — orbity, Roche i zaćmienia" data-lazy="true" data-src="../../laboratoria/gwiazdy-podwojne/index.html?v=30.1" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button type="button" id="stageReload">Spróbuj ponownie</button> · <a href="../../laboratoria/gwiazdy-podwojne/index.html">Otwórz bezpośrednio</a></div>
+<p class="b30-lab-foot">To model dydaktyczny; czas animacji nie musi odpowiadać rzeczywistej długości okresu orbitalnego. Obliczenia i granice modelu opisano w laboratorium.</p>
+</section>
+
+<section class="b30-sources" id="zrodla"><div class="b30-sources-head"><span>ŹRÓDŁA / DO DALSZEGO ODKRYWANIA</span><h2>Nauka pozwala<br><em>sprawdzić każdą opowieść.</em></h2><p>Od pierwszych obserwacji zmienności Algola po współczesne krzywe blasku i interferometryczne obrazy układów przekazujących materię.</p></div>
+<ol>
+<li><a href="https://aas.org/posts/news/2018/07/month-astronomical-history-0" target="_blank" rel="noopener noreferrer">American Astronomical Society — Algol: the Star of Frequent Changes</a><small>Historia Montanariego, Goodricke’a i Pigotta, rytm zaćmień i potwierdzenie spektroskopowe.</small></li>
+<li><a href="https://academic.oup.com/mnras/article/451/4/4150/1121327" target="_blank" rel="noopener noreferrer">Monthly Notices RAS — Spectroscopically resolving the Algol triple system</a><small>Potrójny układ Algola, okres 2,867 dnia i wypełnianie Roche’a przez mniej masywny składnik.</small></li>
+<li><a href="https://svs.gsfc.nasa.gov/5290/" target="_blank" rel="noopener noreferrer">NASA Scientific Visualization Studio — Eclipsing Star Systems using Light Curves</a><small>Jak ustawienie gwiazd zmienia otrzymywaną krzywą blasku.</small></li>
+<li><a href="https://doi.org/10.1016/j.rinp.2024.107568" target="_blank" rel="noopener noreferrer">Results in Physics (2024) — Compact objects in close orbits</a><small>Mechanika płatów Roche’a, punkt L1 i warunki transferu materii.</small></li>
+<li><a href="https://chara.gsu.edu/photos-videos/image-gallery/beta-lyrae" target="_blank" rel="noopener noreferrer">CHARA Array — β Lyrae</a><small>Obrazowanie składników zaćmieniowego układu z rozległym dyskiem i przepływem materii.</small></li>
+<li><a href="https://nightsky.jpl.nasa.gov/news/466/" target="_blank" rel="noopener noreferrer">NASA Night Sky Network — Spooky Stargazing (2026)</a><small>Rzeczywista krzywa blasku Algola z misji TESS oraz wskazówki obserwacyjne.</small></li>
+<li><a href="https://www.nasa.gov/image-article/illustration-of-delta-orionis/" target="_blank" rel="noopener noreferrer">NASA — Illustration of Delta Orionis</a><small>Przykład zaćmieniowego układu podwójnego, który stanowi część układu potrójnego.</small></li>
+</ol>
+<p class="b30-sources-note">Opracowanie popularnonaukowe ATLAS SOLARIS. Otwierająca ilustracja gwiazd i schematy są autorskimi, statycznymi wyobrażeniami zjawiska. Wykres TESS jest prawdziwym zbiorem pomiarów prezentowanym przez NASA Night Sky Network. Schematy nie przedstawiają rzeczywistych proporcji Algola.</p></section>
+
+<footer class="b30-last"><span>ATLAS SOLARIS / 30</span><span>W KOSMOSIE NAWET GWIAZDY MAJĄ WSPÓLNĄ HISTORIĘ.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></footer>
+</main>
+
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ATLAS SOLARIS / ETAP 30</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+<h2>Taniec gwiazd podwójnych</h2><p class="stage-lead">Od zmienności Algola do granicy Roche’a</p><p>Przeczytaj, jak odkryto zaćmienia w gwiazdach podwójnych. Dowiedz się, dlaczego składniki mogą wymieniać masę i czym jest paradoks Algola, a potem samodzielnie zmień parametry układu.</p>
+<p class="stage-info-note">Symulator przedstawia orbity Keplera, geometrię zaćmień i płaty Roche’a w uproszczeniu. Nie modeluje rzeczywistego przepływu gazu ani długookresowej ewolucji gwiazd.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Artykuł jest dostępny bez JavaScript; do laboratorium potrzebny jest JavaScript.</p></noscript>
 </body></html>

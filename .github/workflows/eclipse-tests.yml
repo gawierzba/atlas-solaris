@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — testy astronomii i zodiaku 17–25.1
+name: ATLAS SOLARIS — testy astronomii 17–26.0
 on:
   pull_request:
     branches: [main]
@@ -12,6 +12,7 @@ on:
       - 'js/merger23*.js'
       - 'js/ligo24*.js'
       - 'js/zodiac25*.js'
+      - 'js/time26*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
@@ -22,6 +23,7 @@ on:
       - 'tests/merger23*.cjs'
       - 'tests/ligo24*.cjs'
       - 'tests/zodiac25*.cjs'
+      - 'tests/time26*.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
@@ -31,6 +33,7 @@ on:
       - 'css/merger23.css'
       - 'css/ligo24.css'
       - 'css/zodiac25*.css'
+      - 'css/time26*.css'
       - 'index.html'
       - '.github/workflows/eclipse-tests.yml'
   push:
@@ -45,6 +48,7 @@ on:
       - 'js/merger23*.js'
       - 'js/ligo24*.js'
       - 'js/zodiac25*.js'
+      - 'js/time26*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
@@ -55,6 +59,7 @@ on:
       - 'tests/merger23*.cjs'
       - 'tests/ligo24*.cjs'
       - 'tests/zodiac25*.cjs'
+      - 'tests/time26*.cjs'
       - '.github/workflows/eclipse-tests.yml'
   workflow_dispatch:
 
@@ -110,6 +115,8 @@ jobs:
           node --check js/zodiac251-bounds.js
           node --check js/zodiac251-core.js
           node --check js/zodiac251-ui.js
+          node --check js/time26-core.js
+          node --check js/time26-ui.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -152,3 +159,5 @@ jobs:
         run: node tests/zodiac25.test.cjs
       - name: Test prawdziwych granic IAU i paralaksy 25.1
         run: node tests/zodiac251.test.cjs
+      - name: Test precesji ziemskiej Vondrak/ERFA 26.0
+        run: node tests/time26.test.cjs

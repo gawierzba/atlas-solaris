@@ -1,0 +1,70 @@
+/* ATLAS SOLARIS 21.0 · Equatorial Kerr probe / midnight ultramarine + plasma teal */
+.probe21-side-launch,.probe21-top-launch{border:1px solid #437f8e;border-radius:9px;background:linear-gradient(102deg,#123d58,#17454a);color:#d8faff;font:750 11px/1.3 system-ui;cursor:pointer}
+.probe21-side-launch{display:block;width:100%;text-align:left;padding:13px;margin:9px 0;letter-spacing:.03em}
+.probe21-top-launch{padding:10px 12px}
+.probe21-side-launch:hover,.probe21-top-launch:hover{background:#176276;border-color:#80eee5}
+.probe21-dialog{margin:auto;max-width:99vw;width:min(1580px,99vw);max-height:98dvh;border:1px solid #3c8095;border-radius:16px;padding:0;background:linear-gradient(120deg,#060f20,#0e1a31 56%,#0a202c);color:#e6f6ff;box-shadow:0 15px 105px #000c;overflow:auto;scrollbar-color:#2f5b7a transparent}
+.probe21-dialog::backdrop{background:#010614e8;backdrop-filter:blur(10px)}
+.probe21-shell{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.probe21-header{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:20px 23px 18px;border-bottom:1px solid #2a5269}
+.probe21-eyebrow{font:760 9px/1.5 system-ui;letter-spacing:.13em;color:#86c7df}
+.probe21-header h2{font-size:clamp(23px,3vw,36px);line-height:1.08;letter-spacing:-.055em;font-weight:620;margin:5px 0}
+.probe21-header h2 em{font-style:normal;color:#9bfff2}
+.probe21-header p{font-size:11px;color:#9bb6c8;margin:6px 0 0;line-height:1.5}
+.probe21-close{cursor:pointer;border-radius:8px;background:#17314a;border:1px solid #537286;color:#d9f9fa;padding:9px 12px}
+.probe21-layout{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(300px,.83fr)}
+.probe21-stage{padding:15px;min-width:0}
+.probe21-viewport{position:relative;background:#030b18;border:1px solid #376d91;border-radius:13px;overflow:hidden;min-height:365px}
+#probe21Canvas{display:block;width:100%;height:min(63dvh,675px);min-height:365px;touch-action:none;cursor:grab}
+#probe21Canvas:active{cursor:grabbing}
+.probe21-viewport-top,.probe21-viewport-bottom{position:absolute;left:12px;right:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:#8fb0c8;font:740 9px/1.35 system-ui;letter-spacing:.08em;pointer-events:none;text-shadow:0 1px 4px #030a16}
+.probe21-viewport-top{top:11px}.probe21-viewport-bottom{bottom:11px;font-weight:550;letter-spacing:0}
+#probe21Phase{color:#9bfbeb;text-align:right}
+#probe21FlightLabel{text-align:right}
+.probe21-ergo-alert{position:absolute;top:46px;left:50%;transform:translateX(-50%);background:#6c3d26ef;border:1px solid #ffc18c;color:#fff2dc;padding:9px 12px;border-radius:8px;text-align:center;font-size:10px;line-height:1.4;font-weight:790;letter-spacing:.045em;width:min(92%,520px);box-shadow:0 3px 24px #0009;pointer-events:none}
+.probe21-ergo-alert[hidden]{display:none}
+.probe21-telemetry{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:11px 0 13px}
+.probe21-telemetry>div{padding:12px 10px;border:1px solid #2a5971;background:#101f35;border-radius:9px;min-width:0}
+.probe21-telemetry small{display:block;font-size:8px;letter-spacing:.08em;color:#8eb5ca;line-height:1.3}
+.probe21-telemetry strong{display:block;font-size:clamp(12px,1.55vw,18px);font-weight:660;color:#d9f9f1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:7px;font-variant-numeric:tabular-nums}
+.probe21-science{padding:13px;border:1px solid #315b73;background:linear-gradient(135deg,#102338,#10182d);border-radius:12px}
+.probe21-science-header{display:flex;align-items:end;justify-content:space-between;gap:9px;margin-bottom:10px}
+.probe21-science-header small{display:block;font-size:9px;color:#80c5d4;letter-spacing:.1em;font-weight:700}
+.probe21-science-header strong{display:block;font-size:13px;color:#e5f6fa;margin-top:4px;font-weight:660}
+#probe21PlotMessage{font-size:10px;color:#8eb2c3;text-align:right}
+#probe21Plot{display:block;width:100%;height:190px;background:#07152a;border:1px solid #254660;border-radius:8px}
+.probe21-plot-legend{display:flex;flex-wrap:wrap;gap:7px 16px;margin-top:9px}
+.probe21-plot-legend span{display:flex;gap:6px;align-items:center;color:#9fbccc;font-size:10px}
+.probe21-plot-legend i{width:13px;height:3px;display:inline-block;border-radius:3px}
+.probe21-legend-r{background:#8ee9eb}.probe21-legend-phi{background:#e7b7ff}.probe21-legend-ergo{background:#f2a578}
+.probe21-command{min-width:0;padding:18px 17px 24px;border-left:1px solid #315772;background:linear-gradient(140deg,#101d34,#0d2332)}
+.probe21-section-title{font-size:9px;color:#87d2d9;letter-spacing:.12em;font-weight:780;margin:7px 0 12px}
+.probe21-command .probe21-section-title:not(:first-child){margin-top:19px}
+.probe21-field{display:flex;flex-direction:column;gap:8px;color:#a4c3d5;font-size:10px}
+.probe21-field select{padding:11px 8px;color:#f0faff;background:#172f47;border:1px solid #41728d;border-radius:8px;font:12px system-ui;max-width:100%;min-width:0}
+.probe21-scenario{border-left:3px solid #84cfd0;background:#132e41;padding:10px 11px;color:#b4dbdd;font-size:10px;line-height:1.55;margin-top:10px}
+.probe21-range-head{display:flex;justify-content:space-between;align-items:baseline;gap:7px;font-size:10px;color:#a3c0d2;margin:13px 0 7px}
+.probe21-range-head b{color:#a9fff0;font-size:13px;font-variant-numeric:tabular-nums}
+.probe21-command input[type=range]{display:block;width:100%;accent-color:#66d9d1;cursor:pointer;margin:8px 0 5px}
+.probe21-range-caption{display:flex;justify-content:space-between;gap:8px;color:#729bb5;font-size:8px}
+.probe21-actions{display:flex;gap:8px;flex-wrap:wrap}
+.probe21-actions button{font:740 11px/1.3 system-ui;padding:12px 8px;border-radius:8px;cursor:pointer;flex:1 1 140px}
+.probe21-go{border:1px solid #b9fff5;background:linear-gradient(112deg,#72dfd7,#a2eeff);color:#072d37}
+.probe21-reset{background:#23384c;color:#dfebff;border:1px solid #58788a}
+.probe21-actions button:hover{filter:brightness(1.1)}
+.probe21-compare{display:flex;gap:10px;align-items:flex-start;padding:11px;background:#152c40;border:1px solid #385f7a;border-radius:8px;cursor:pointer;margin-top:12px}
+.probe21-compare input{width:16px;height:16px;accent-color:#9fd3ff;flex:none}
+.probe21-compare b{display:block;font-size:11px;color:#d0edf9}
+.probe21-compare small{display:block;color:#8aacc0;font-size:9px;line-height:1.55;margin-top:4px}
+.probe21-physics{border:1px solid #315770;border-radius:9px;padding:0 11px;background:#10273b;margin-bottom:15px}
+.probe21-physics>div{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #26465c}
+.probe21-physics>div:last-child{border:0}
+.probe21-physics small{color:#88aec2;line-height:1.35;font-size:9px;max-width:64%}
+.probe21-physics b{font-size:11px;font-weight:700;color:#c8f8ec;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.probe21-status{padding:11px;border-left:3px solid #7fd4be;color:#c5eef1;background:#123a47;font-size:11px;line-height:1.6;margin:15px 0}
+.probe21-disclaimer{font-size:9px;line-height:1.7;color:#89a7bd;margin:12px 0 0}
+.probe21-disclaimer b{color:#b5e2e0}
+@media(max-width:1130px){.probe21-layout{grid-template-columns:minmax(0,1.45fr) minmax(285px,.85fr)}.probe21-stage{padding:10px}.probe21-telemetry{grid-template-columns:repeat(2,minmax(0,1fr))}#probe21Canvas{height:55dvh}.probe21-viewport{min-height:300px}}
+@media(max-width:850px){.probe21-layout{grid-template-columns:1fr}.probe21-command{border-left:0;border-top:1px solid #315772}.probe21-dialog{max-height:99dvh;width:99vw;max-width:99vw;border-radius:10px}#probe21Canvas{height:49dvh;min-height:270px}.probe21-viewport{min-height:270px}.probe21-science-header{align-items:flex-start;flex-direction:column}}
+@media(max-width:580px){.probe21-header{padding:14px}.probe21-header h2{font-size:24px}.probe21-header p{font-size:10px}.probe21-top-launch span{display:none}.probe21-top-launch{padding:8px 9px}#probe21Canvas{height:44dvh;min-height:255px}.probe21-viewport{min-height:255px}.probe21-viewport-top,.probe21-viewport-bottom{left:8px;right:8px;font-size:8px}.probe21-telemetry{gap:6px}.probe21-telemetry>div{padding:10px 8px}.probe21-telemetry strong{font-size:14px}#probe21Plot{height:155px}.probe21-command{padding:13px}.probe21-scenario{font-size:10px}.probe21-ergo-alert{top:34px;font-size:9px;padding:7px}}
+@media(prefers-reduced-motion:reduce){.probe21-viewport{transition:none}}

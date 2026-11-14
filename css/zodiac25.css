@@ -1,0 +1,64 @@
+/* ATLAS SOLARIS 25.0 — dark celestial cartography / deliberately isolated selector scope */
+.z25-dialog{position:fixed;inset:0;margin:auto;width:min(1580px,98vw);max-width:none;max-height:min(97vh,1200px);padding:0;border:1px solid rgba(133,161,219,.26);border-radius:22px;background:#060c1b;color:#eaf2ff;box-shadow:0 45px 140px #000d;overflow:auto;overscroll-behavior:contain;font-family:inherit}
+.z25-dialog::backdrop{background:rgba(1,3,12,.89);backdrop-filter:blur(13px)}
+.z25-dialog *{box-sizing:border-box}
+.z25-dialog button,.z25-dialog select,.z25-dialog input{font:inherit}
+.z25-shell{position:relative;min-height:100%;background:radial-gradient(ellipse 67% 38% at 65% -7%,rgba(61,67,151,.25),transparent 80%),radial-gradient(ellipse 32% 46% at 99% 56%,rgba(27,78,123,.14),transparent 85%),#060c1b}
+.z25-head{position:relative;display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:32px 35px 23px;border-bottom:1px solid #ffffff12}
+.z25-eyebrow{display:flex;gap:9px;align-items:center;color:#a5bedf;font-size:10px;letter-spacing:2.1px;font-weight:700}
+.z25-pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#8acfff;box-shadow:0 0 13px #8acfff;animation:z25pulse 2s infinite}
+@keyframes z25pulse{50%{opacity:.33;box-shadow:0 0 2px #8acfff}}
+.z25-head h2{font-size:clamp(28px,3.1vw,49px);line-height:1.06;letter-spacing:-1.7px;font-weight:650;margin:15px 0 9px;color:#f7f9ff}
+.z25-head h2 em{font-style:normal;background:linear-gradient(115deg,#82dbff,#c5afff 55%,#f4f0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.z25-head p{font-size:13px;line-height:1.6;color:#9daecb;margin:0}
+.z25-close{width:42px;height:42px;flex-shrink:0;border:1px solid #ffffff25;color:#d9e9ff;background:#ffffff0a;border-radius:13px;cursor:pointer}
+.z25-close:hover{background:#ffffff1b}
+.z25-telemetry{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:0 35px;background:#0d1726a1;border-bottom:1px solid #ffffff11}
+.z25-telemetry>div{padding:19px 18px 17px 0;min-width:0}.z25-telemetry>div+div{padding-left:21px;border-left:1px solid #ffffff10}
+.z25-telemetry small,.z25-time-head small,.z25-explore-heading small,.z25-wheel-head small,.z25-discovery small,.z25-statline small,.z25-stage-bar small{color:#749ac1;letter-spacing:1.55px;font-size:9px;font-weight:750;display:block}
+.z25-telemetry strong{display:block;font-size:clamp(17px,1.7vw,25px);letter-spacing:-.5px;font-weight:550;color:#f3f6fe;margin:6px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
+.z25-telemetry span{display:block;color:#7288a5;font-size:10px}
+.z25-body{display:grid;grid-template-columns:minmax(0,1.66fr) minmax(310px,.94fr);gap:0}
+.z25-main{min-width:0;padding:25px 22px 30px 35px;border-right:1px solid #ffffff11}
+.z25-right{min-width:0;padding:27px 32px 25px 28px}
+.z25-stage-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px;flex-wrap:wrap}
+.z25-stage-bar strong,.z25-wheel-head strong,.z25-explore-heading strong{display:block;color:#f1f4ff;font-size:17px;font-weight:550;margin-top:5px}
+.z25-stage-actions{display:flex;gap:7px;flex-wrap:wrap}
+.z25-stage-actions button,.z25-time-buttons button{border:1px solid #ffffff24;border-radius:9px;padding:8px 11px;background:#ffffff09;color:#b4c8e5;font-size:11px;cursor:pointer}
+.z25-stage-actions button:hover,.z25-time-buttons button:hover{border-color:#84c8ff77;color:#fff}
+.z25-stage-actions button[aria-pressed=false]{opacity:.48}
+.z25-sky-frame{position:relative;overflow:hidden;border:1px solid #4b70984d;background:#020814;border-radius:14px;box-shadow:inset 0 0 100px #05283c44}
+#z25Sky{width:100%;height:clamp(290px,31vw,490px);min-height:290px;display:block;cursor:grab;touch-action:pan-y}
+#z25Sky:active{cursor:grabbing}
+#z25Sky:focus-visible,#z25Wheel:focus-visible{outline:2px solid #a5dfff;outline-offset:-2px}
+.z25-sky-corner{position:absolute;top:13px;left:15px;max-width:calc(100% - 25px);pointer-events:none;color:#70aacb;font-size:9px;letter-spacing:1.2px;font-weight:700;text-shadow:0 1px 8px #000}
+.z25-sky-corner i{display:inline-block;width:4px;height:4px;border-radius:50%;background:#61bddd;vertical-align:middle;margin:0 5px}
+.z25-sky-legend{position:absolute;top:31px;left:15px;display:flex;flex-wrap:wrap;gap:15px;color:#d1dff3;font-size:10px;text-shadow:0 1px 5px #000;pointer-events:none}
+.z25-sky-legend span{display:flex;align-items:center;gap:6px}.z25-sky-legend i{display:inline-block;width:9px;height:9px;border-radius:50%}.z25-legend-sun{background:#f7f0df;box-shadow:0 0 10px 3px #96cdff88}.z25-legend-planet{background:#93bfff}.z25-legend-ecl{background:#74dcd7;height:2px!important;border-radius:0!important}
+.z25-sky-tip{position:absolute;bottom:12px;right:15px;color:#7d9ab8;font-size:9px;letter-spacing:1.0px;pointer-events:none;text-shadow:0 1px 5px #000}
+.z25-timeline{padding:18px 2px 13px;border-bottom:1px solid #ffffff18}
+.z25-time-head{display:flex;justify-content:space-between;gap:8px;align-items:end;flex-wrap:wrap}
+.z25-time-head strong{display:block;margin-top:5px;font-size:17px;font-weight:500;font-variant-numeric:tabular-nums}
+.z25-time-buttons{display:flex;gap:7px}.z25-time-buttons button:last-child{border-color:#86baff55;color:#d7e6ff}
+.z25-time-control{margin-top:14px;display:flex;align-items:center;gap:10px}.z25-time-control input[type=range]{flex:1;min-width:30px;accent-color:#8ecaff}.z25-time-control input[type=date],.z25-time-control select{background:#0e1c32;color:#d6e7f9;border:1px solid #ffffff25;border-radius:8px;padding:8px 6px;font-size:11px;max-width:140px;color-scheme:dark}
+.z25-play{width:39px;height:39px;flex-shrink:0;background:#97d3f6;color:#061628;border:0;border-radius:11px;font-size:17px;cursor:pointer;box-shadow:0 0 20px #70c3ff38}.z25-play:hover{background:#d1eaff}
+.z25-months{display:flex;justify-content:space-between;color:#6584a6;letter-spacing:1px;font-size:9px;padding:9px 194px 0 48px}
+.z25-explore{padding-top:24px}.z25-explore-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:13px}.z25-explore-heading>small{max-width:260px;line-height:1.6;letter-spacing:0;font-weight:400;text-align:right;font-size:10px;color:#8ca3bc}
+.z25-constellation-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.z25-constellation-list button{min-width:0;display:flex;align-items:center;justify-content:flex-start;gap:8px;background:#ffffff06;border:1px solid #ffffff15;border-radius:9px;color:#b2c2d8;padding:10px 9px;font-size:11px;cursor:pointer;text-align:left;transition:border-color .18s,background .18s}
+.z25-constellation-list button:hover{background:#85b5ed16;border-color:#83bff866;color:#fff}.z25-constellation-list button.active{border-color:#9fd7ff;background:linear-gradient(120deg,#2b608a68,#333c7250);color:#fff;box-shadow:inset 0 0 12px #689cc620}
+.z25-constellation-list button span{font-size:19px;line-height:1;color:#c8d7ff}.z25-constellation-list button.special{border-color:#8291dc62}.z25-constellation-list button.special span{color:#c6b7fa}
+.z25-wheel-head strong{margin:6px 0 10px}.z25-wheel-wrap{max-width:460px;margin:6px auto 1px;position:relative}
+#z25Wheel{display:block;width:100%;height:auto;aspect-ratio:1;cursor:pointer;touch-action:manipulation}
+.z25-ring-key{display:flex;gap:10px 20px;justify-content:center;flex-wrap:wrap;color:#8da5be;font-size:9px;letter-spacing:.7px;margin-top:2px}
+.z25-ring-key span{display:flex;align-items:center;gap:7px}.z25-ring-key i{width:12px;height:5px;background:#77bbf3;display:inline-block;border-radius:2px}.z25-ring-key span+span i{background:#aaa2db}
+.z25-discovery{margin-top:25px;padding:18px;border:1px solid #7bb4ed42;border-radius:14px;background:linear-gradient(130deg,#12305065,#1c204050)}
+.z25-discovery strong{display:block;font-size:18px;margin:7px 0;line-height:1.3;font-weight:600}.z25-discovery p{color:#9daec8;font-size:12px;line-height:1.6;min-height:55px;margin:0 0 14px}
+.z25-statline{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #ffffff1b;padding-top:14px;gap:8px}.z25-statline b{display:block;color:#e6f5ff;font-size:17px;margin-top:6px;font-variant-numeric:tabular-nums;font-weight:500}
+.z25-truth{margin-top:14px;border-top:1px solid #ffffff16;padding-top:18px}.z25-truth strong{color:#e0eaff;font-size:13px;font-weight:600}.z25-truth p{color:#8fa5c0;font-size:11px;line-height:1.75;margin:8px 0 0}.z25-truth b{color:#c2d6ec}
+.z25-footer{padding:17px 35px 23px;border-top:1px solid #ffffff13;display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;font-size:10px;color:#7892ac;line-height:1.65}.z25-footer span{flex:1;min-width:260px}.z25-footer strong{color:#a2bedc}.z25-footer a{color:#9ddcfc;text-decoration:none;white-space:nowrap}
+.z25-side-launch,.z25-top-launch{border:1px solid rgba(141,186,240,.35)!important;background:linear-gradient(115deg,#192e50aa,#20395675)!important;color:#e3f4ff!important}
+.z25-side-launch:hover,.z25-top-launch:hover{border-color:#95d6ff!important}
+@media(max-width:1100px){.z25-body{grid-template-columns:1fr}.z25-main{padding:23px 24px;border-right:0}.z25-right{border-top:1px solid #ffffff20;padding:25px 24px;display:grid;grid-template-columns:minmax(200px,1fr) minmax(250px,1fr);gap:12px 25px}.z25-wheel-head,.z25-wheel-wrap,.z25-ring-key{grid-column:1}.z25-wheel-wrap{width:100%;max-width:380px}.z25-discovery,.z25-truth{grid-column:2}.z25-discovery{grid-row:1/span 2;margin-top:0}.z25-truth{grid-row:3}.z25-telemetry{padding:0 24px}.z25-telemetry>div{padding-right:9px}}
+@media(max-width:700px){.z25-dialog{width:100vw;max-height:100dvh;border-radius:0;border:0}.z25-head{padding:20px 16px 16px}.z25-head h2{letter-spacing:-.8px}.z25-head p{font-size:11px}.z25-eyebrow{font-size:8px;letter-spacing:1px}.z25-close{width:37px;height:37px}.z25-telemetry{padding:8px 16px;grid-template-columns:1fr 1fr;gap:2px 13px}.z25-telemetry>div,.z25-telemetry>div+div{border:0;padding:9px 0}.z25-telemetry strong{font-size:17px}.z25-telemetry small{font-size:8px;letter-spacing:1px}.z25-telemetry span{font-size:9px}.z25-main{padding:19px 12px 25px}.z25-stage-bar strong,.z25-wheel-head strong,.z25-explore-heading strong{font-size:15px}.z25-stage-actions button{font-size:10px;padding:7px}.z25-sky-corner{font-size:7px;letter-spacing:.5px}.z25-sky-legend{gap:9px;font-size:9px}.z25-sky-tip{font-size:7px}.z25-time-control{flex-wrap:wrap;gap:8px}.z25-time-control input[type=range]{min-width:calc(100% - 65px)}.z25-time-control input[type=date]{flex:1;max-width:none}.z25-time-control select{max-width:none}.z25-months{padding-right:0;padding-left:0}.z25-time-buttons button{font-size:10px}.z25-constellation-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.z25-constellation-list button{padding:9px 6px;font-size:10px;gap:4px}.z25-constellation-list button span{font-size:18px}.z25-explore-heading>small{text-align:left}.z25-right{display:block;padding:19px 15px 25px}.z25-wheel-wrap{margin:0 auto;max-width:420px}.z25-discovery{margin-top:20px}.z25-truth{margin-top:15px}.z25-footer{padding:18px 16px}.z25-sky-frame #z25Sky{height:360px}}
+@media(prefers-reduced-motion:reduce){.z25-pulse{animation:none}}

@@ -1,12 +1,15 @@
-name: ATLAS SOLARIS — testy laboratoriów zaćmień
+name: ATLAS SOLARIS — testy astronomii i obserwatorium
 on:
   pull_request:
     branches: [main]
     paths:
       - 'js/eclipse*.js'
+      - 'js/observatory18*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
+      - 'tests/observatory18*.cjs'
       - 'css/eclipse*.css'
+      - 'css/observatory18.css'
       - 'index.html'
       - '.github/workflows/eclipse-tests.yml'
   push:
@@ -23,7 +26,7 @@ permissions:
 
 jobs:
   eclipses:
-    name: Testy geometrii i symulacji
+    name: Testy geometrii i obserwatorium
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -42,6 +45,8 @@ jobs:
           node --check js/eclipse17-map-ui.js
           node --check js/eclipse17-motion.js
           node --check js/eclipse17-motion-ui.js
+          node --check js/observatory18-core.js
+          node --check js/observatory18-ui.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -50,3 +55,5 @@ jobs:
         run: node tests/eclipse17-map.test.cjs
       - name: Test animacji wędrówki cienia 17.3
         run: node tests/eclipse17-motion.test.cjs
+      - name: Test żywego obserwatorium 18.0
+        run: node tests/observatory18.test.cjs

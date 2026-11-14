@@ -13,9 +13,9 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 function darkness(sunAltitude){
  if(!Number.isFinite(sunAltitude))return 'unknown';
  if(sunAltitude>=0)return 'day';
- if(sunAltitude>=-6)return 'civil';
- if(sunAltitude>=-12)return 'nautical';
- if(sunAltitude>=-18)return 'astronomical';
+ if(sunAltitude> -6)return 'civil';
+ if(sunAltitude> -12)return 'nautical';
+ if(sunAltitude> -18)return 'astronomical';
  return 'night';
 }
 function rank(record,target){
@@ -40,7 +40,8 @@ function plan({startJD,hours=24,stepMinutes=20,sample}){
    throw new TypeError('Nieprawidłowa efemeryda obserwatorium.');
   const record={jd,offsetMinutes:offset,sunAltitude:value.sunAltitude,
    moonAltitude:value.moonAltitude??null,moonIllumination:value.moonIllumination??null,
-   phase:darkness(value.sunAltitude),targetCount:value.targets.length};
+   phase:darkness(value.sunAltitude),targetCount:value.targets.length,
+   targets:value.targets};
   records.push(record);
   for(const target of value.targets){
    if(!target||typeof target.id!=='string'||!Number.isFinite(target.altitude))continue;

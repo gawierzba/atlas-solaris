@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const ROOT=path.join(__dirname,'..');
+const read=p=>fs.readFileSync(path.join(ROOT,p),'utf8');
+const sandbox={}; vm.runInNewContext(read('portal/data.js'),{window:sandbox}); const data=sandbox.ATLAS_PORTAL_DATA;
+assert.equal(data.version,'30.0');
+assert.equal(Object.keys(data.stages).length,29);
+assert.ok(data.stages['29']);
+assert.equal(data.stages['29'].src,'laboratoria/ewolucja-gwiazdy/index.html');
+assert.match(read('etapy/29/index.html'),/ewolucja-gwiazdy\/index\.html/);
+assert.match(read('laboratoria/ewolucja-gwiazdy/index.html'),/ATLAS SOLARIS 29\.0/);
+assert.match(read('portal/star29.js'),/Ciąg główny|Gwiazda neutronowa|Czarna dziura/);
+assert.match(read('portal/site.js'),/featureCard\(29,'star'\)/);
+assert.match(read('portal/stage.js'),/orderedStageKeys/);
+console.log('ATLAS SOLARIS 29 · stellar evolution stage OK');

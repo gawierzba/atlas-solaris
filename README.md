@@ -1,6 +1,20 @@
-# ATLAS SOLARIS 28.0 — Od Ziemi do granic obserwowalnego Wszechświata
+# ATLAS SOLARIS 30.0 — Taniec Gwiazd Podwójnych
 
 ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **24.0** dodaje obserwatorium dwóch laserowych interferometrów LIGO, detekcję syntetycznych sygnałów GW150914 w niezależnych szumach i interaktywny filtr dopasowany. Wersja **23.0** dodała obserwatorium fal grawitacyjnych z widowiskową wizualizacją zderzenia dwóch czarnych dziur, fizyką inspiralu i przybliżonym wygaszaniem drgań Kerra. Wersja **22.0** dodała kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 30.0 — Taniec Gwiazd Podwójnych (oraz publikacja etapu 29)
+
+**Etap 30:** `/etapy/30/` — niezależna podstrona laboratoryjna. **Etap 29:** `/etapy/29/` — Narodziny i śmierć gwiazdy, opublikowany razem z etapem 30.
+
+Etap 30: regulowane masy gwiazd, odstęp w układzie podwójnym, stopień wypełnienia Roche’a i nachylenie orbity. Pięć scenariuszy: układ z przelewem Roche’a na białego karła, układ zaćmieniowy, z gwiazdą neutronową, z czarną dziurą i oderwany. Obie gwiazdy obiegają wspólny środek masy. Okres obiegu liczony jest z prawa Keplera; promień płata Roche’a z formuły Eggletona (1983); położenie pierwszego punktu Lagrange’a L1 rozwiązywane jest numerycznie, a kontury krytycznego potencjału w płaszczyźnie orbity liczone na siatce. Krzywa blasku wynika z dokładnej geometrii nakładania się tarcz o jednorodnej jasności powierzchniowej.
+
+**Granice modelu:** strumień materii i dysk akrecyjny są ilustracją, nie symulacją hydrodynamiki; jasność dysku jest przyjętym parametrem. Nie liczymy ewolucji mas w czasie ani stabilności przelewu. W modelu zakładamy orbity kołowe i nieruchome gwiazdowe masy. Wizualne rozmiary zwartych obiektów są zwiększone; nie oznaczają ich promieni fizycznych. Obliczenia zaćmień zakładają jednorodne tarcze bez poczerwienienia brzegowego. Zob. [Eggleton (1983)](https://ui.adsabs.harvard.edu/abs/1983ApJ...268..368E/abstract), [BINSTAR (A&A, 2013)](https://doi.org/10.1051/0004-6361/201220327).
+
+**Etap 29:** masa gwiazdy 0,1–40 M☉, modelowane fazy od protogwiazdy po biały karzeł, gwiazdę neutronową lub czarną dziurę oraz uproszczony wykres HR. Ta wersja ma charakter dydaktyczny, nie jest obliczeniem z kodu MESA; niskomasowe gwiazdy mogą żyć dłużej niż obecny wiek Wszechświata, a rozróżnienie końca ewolucji wprost po masie początkowej jest schematem.
+
+Zachowane wszystkie dawne laboratoria, `atlas.html` i strony 01–28. **Katalog:** 29 głównych doświadczeń (01–26, 28–30), ponieważ wersja 27.0 była przebudową strony głównej i nie stanowi osobnej podstrony z eksperymentem. Kopia bezpieczeństwa: `backup-v28-before-binaries30`.
+
+Testy `node tests/portal29.test.cjs`, `node tests/binary30.test.cjs`. Dokumentacja `README_ETAP29.md`, `README_ETAP30.md`.
 
 ## Nowość 28.0 — Od Ziemi do granic obserwowalnego Wszechświata
 

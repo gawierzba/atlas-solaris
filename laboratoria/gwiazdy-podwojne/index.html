@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+ <meta name="theme-color" content="#060b15">
+ <title>Taniec gwiazd podwójnych — ATLAS SOLARIS 30.0</title>
+ <meta name="description" content="Naukowe laboratorium gwiazd podwójnych: symulacja orbity, obszarów Roche’a, przepływu materii i zaćmieniowej krzywej blasku.">
+ <link rel="stylesheet" href="../../portal/binary30.css">
+</head>
+<body>
+<div class="b30-app">
+ <header class="b30-header">
+  <div><div class="b30-eyebrow"><span class="b30-live-dot"></span> ATLAS SOLARIS / ETAP 30.0 / ASTROFIZYKA</div>
+   <h1>Dwie gwiazdy. <em>Jedna grawitacja.</em></h1>
+   <p>Odkryj taniec układu podwójnego. Zmień masy, odległość i nachylenie orbity, a potem przekrocz granicę Roche’a — i zobacz, co dzieje się z materią gwiazdy.</p>
+  </div>
+  <div class="b30-header-metrics" aria-label="Parametry obliczane na żywo">
+   <div><span>OKRES ORBITALNY</span><strong id="b30Period">—</strong></div>
+   <div><span>STAN UKŁADU</span><strong id="b30Condition">—</strong></div>
+   <div><span>PUNKT L1</span><strong id="b30L1">—</strong></div>
+  </div>
+ </header>
+ <main class="b30-layout">
+  <section class="b30-stagecol" aria-label="Wizualizacja i pomiar jasności">
+   <div class="b30-scene-wrap">
+    <canvas id="b30Scene" aria-label="Wizualizacja orbit dwóch gwiazd, krytycznej powierzchni Roche'a i strumienia materii"></canvas>
+    <div class="b30-overlay b30-overlay-top"><span class="b30-topline">OBSERWATORIUM / WIDOK PRZESTRZENNY</span><strong id="b30SceneTitle">Przelew przez L1</strong><small id="b30SceneSub">Przelew materii • ilustracyjna hydrodynamika</small></div>
+    <div class="b30-overlay b30-overlay-bottom"><div class="b30-phase-line"><span>FAZA ORBITALNA</span><strong id="b30Phase">0,00</strong></div><div class="b30-phase-bar"><i id="b30PhaseBar"></i></div><div class="b30-phase-action"><button type="button" id="b30Pause" aria-label="Zatrzymaj lub uruchom animację">Ⅱ PAUZA</button><button type="button" id="b30Restart" aria-label="Wróć do początku orbity">↺ RESTART</button><label><span>PRĘDKOŚĆ</span><select id="b30Speed"><option value="0.14">Wolno</option><option value="0.34" selected>Normalnie</option><option value="0.9">Szybko</option></select></label></div></div>
+    <div class="b30-scene-legend"><span><i class="b30-legend-donor"></i> Donor</span><span><i class="b30-legend-companion"></i> Towarzysz</span><span><i class="b30-legend-roche"></i> Ekwipotencjał Roche’a</span><span><i class="b30-legend-l1"></i> Punkt L1</span></div>
+    <div class="b30-scene-corner" id="b30CameraNote">Kamera 3D — schematyczna perspektywa 55°</div>
+   </div>
+   <div class="b30-curve-wrap">
+    <div class="b30-curve-head"><div><span>SYNTETYCZNA KRZYWA BLASKU</span><h2 id="b30CurveHeading">Jak zobaczy nas to teleskop?</h2></div><div class="b30-flux-stat"><span>JASNOŚĆ W TEJ CHWILI</span><strong id="b30Flux">—</strong></div></div>
+    <canvas id="b30Curve" aria-label="Wykres względnej jasności układu w funkcji fazy orbitalnej z zaćmieniami"></canvas>
+    <div class="b30-chart-footer"><span>0,0 — pierwsza koniunkcja</span><span>0,5 — druga koniunkcja</span><span>1,0 — pełny obieg</span></div>
+   </div>
+  </section>
+  <aside class="b30-sidebar">
+   <div class="b30-panel b30-controls">
+    <div class="b30-panel-head"><span>01 / PARAMETRY EKSPERYMENTU</span><strong>Zbuduj własny układ</strong></div>
+    <label class="b30-select-label" for="b30Type">CHARAKTER TOWARZYSZA</label>
+    <select id="b30Type" class="b30-type"><option value="white-dwarf">Biały karzeł</option><option value="star">Zwykła gwiazda</option><option value="neutron-star">Gwiazda neutronowa</option><option value="black-hole">Czarna dziura</option></select>
+    <div class="b30-slider-list">
+     <label for="b30M1"><span>Masa donora <small>M₁</small></span><strong id="b30M1Val">1,5 M☉</strong><input id="b30M1" type="range" min="0.6" max="10" step="0.1" value="1.5"></label>
+     <label for="b30M2"><span>Masa towarzysza <small>M₂</small></span><strong id="b30M2Val">0,9 M☉</strong><input id="b30M2" type="range" min="0.5" max="1.38" step="0.01" value="0.9"></label>
+     <label for="b30A"><span>Odległość środków <small>a</small></span><strong id="b30AVal">8,0 R☉</strong><input id="b30A" type="range" min="4" max="50" step="0.2" value="8"></label>
+     <label for="b30Fill"><span>Wypełnienie Roche’a <small>R₁ / R<sub>L1</sub></small></span><strong id="b30FillVal">104%</strong><input id="b30Fill" type="range" min="0.4" max="1.3" step="0.01" value="1.04"></label>
+     <label for="b30Incl"><span>Nachylenie do obserwatora <small>i</small></span><strong id="b30InclVal">85°</strong><input id="b30Incl" type="range" min="0" max="90" step="1" value="85"></label>
+    </div>
+    <div class="b30-presets-title">GOTOWE SCENARIUSZE</div>
+    <div id="b30Presets" class="b30-presets"></div>
+    <div class="b30-toggle-row"><label class="b30-check"><input id="b30Roche" type="checkbox" checked> Pokaż krytyczną powierzchnię Roche’a</label><label class="b30-check"><input id="b30Cam" type="checkbox"> Kamera zgodna z nachyleniem obserwatora</label></div>
+   </div>
+   <div class="b30-panel b30-analysis"><div class="b30-panel-head"><span>02 / FIZYKA UKŁADU</span><strong id="b30StatusTitle">Przelew materii</strong></div><p id="b30StatusText" class="b30-body">Donor wypełnia obszar Roche’a. Materia może przepływać przez punkt L1 do kompaktowego towarzysza.</p><div id="b30Metrics" class="b30-metrics"></div><div class="b30-interpret" id="b30Interpret">Nawet niewielkie przekroczenie granicy Roche’a może uruchomić transfer materii.</div></div>
+   <div class="b30-panel b30-facts"><div class="b30-panel-head"><span>03 / CO JEST OBLICZANE?</span><strong>Fakty kontra ilustracja</strong></div><p><b>Model:</b> kołowe orbity Keplera, przybliżenie Eggletona, krytyczna powierzchnia Roche’a, punkt L1 i geometryczne zaćmienia.</p><p><b>Wizualizacja:</b> smuga gazu, wirujący dysk i jego przyjęta jasność są poglądowe. Nie rozwiązujemy równań hydrodynamiki, promieniowania ani wieloletniej ewolucji mas.</p></div>
+  </aside>
+ </main>
+ <footer class="b30-footer">Źródła: Eggleton (1983), Roche model i równanie Keplera. Powierzchnia Roche’a pokazuje potencjał układu w obracającym się układzie odniesienia, a promienie Roche’a są ekwiwalentami objętościowymi. Przykładowe układy są scenariuszami edukacyjnymi, nie katalogami zaobserwowanych gwiazd.</footer>
+</div>
+<script src="../../portal/binary30-core.js"></script>
+<script src="../../portal/binary30-ui.js"></script>
+</body></html>

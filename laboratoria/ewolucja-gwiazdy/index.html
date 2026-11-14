@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d17">
+  <title>ATLAS SOLARIS 29.0 — Narodziny i śmierć gwiazdy</title>
+  <meta name="description" content="Interaktywne laboratorium ewolucji gwiazd: wybór masy, linia życia, wykres HR i końcowe stadium — biały karzeł, gwiazda neutronowa albo czarna dziura.">
+  <link rel="stylesheet" href="../../portal/star29.css">
+</head>
+<body>
+<div class="s29-app">
+  <header class="s29-topbar">
+    <div>
+      <p class="s29-eyebrow">ATLAS SOLARIS 29.0 / ASTROFIZYKA GWIAZD</p>
+      <h1>Narodziny i śmierć gwiazdy</h1>
+      <p class="s29-subtitle">Wybierz masę gwiazdy i obserwuj jej drogę od protogwiazdy przez ciąg główny aż po końcowe stadium. Model upraszcza złożoną fizykę, ale zachowuje najważniejszą zależność: <strong>masa decyduje o wszystkim</strong>.</p>
+    </div>
+    <div class="s29-kpis">
+      <div><strong id="kpiMass">1,0 M☉</strong><span>masa gwiazdy</span></div>
+      <div><strong id="kpiLife">10 mld lat</strong><span>czas życia w przybliżeniu</span></div>
+      <div><strong id="kpiRemnant">biały karzeł</strong><span>końcowe stadium</span></div>
+    </div>
+  </header>
+
+  <main class="s29-grid">
+    <section class="s29-visual-panel">
+      <canvas id="s29StarCanvas" aria-label="Wizualizacja aktualnej fazy życia gwiazdy"></canvas>
+      <div class="s29-phase-overlay">
+        <span id="phaseLabel">FAZA</span>
+        <strong id="phaseName">Protogwiazda</strong>
+        <small id="phaseAge">Początek ewolucji</small>
+      </div>
+      <div class="s29-stage-strip" id="stageStrip" aria-label="Etapy życia gwiazdy"></div>
+    </section>
+
+    <aside class="s29-panel">
+      <section class="s29-card">
+        <div class="s29-head"><p>STEROWANIE</p><h2>Parametry gwiazdy</h2></div>
+        <label class="s29-control">
+          <span>Masa gwiazdy: <strong id="massLabel">1,0 masy Słońca</strong></span>
+          <input id="massRange" type="range" min="0.1" max="40" step="0.1" value="1.0">
+        </label>
+        <div class="s29-presets" id="massPresets"></div>
+        <label class="s29-control">
+          <span>Pozycja na osi życia: <strong id="lifeLabel">0%</strong></span>
+          <input id="lifeRange" type="range" min="0" max="1000" step="1" value="0">
+        </label>
+        <div class="s29-buttons">
+          <button type="button" id="playBtn">▶ Odtwarzaj ewolucję</button>
+          <button type="button" id="resetBtn">↺ Powrót do narodzin</button>
+        </div>
+      </section>
+
+      <section class="s29-card">
+        <div class="s29-head compact"><p>AKTUALNA FAZA</p><h2 id="currentStageTitle">Protogwiazda</h2></div>
+        <p id="stageLead" class="s29-lead">Zagęszczający się obłok gazu i pyłu zaczyna świecić głównie dzięki grawitacyjnemu zapadaniu.</p>
+        <p id="stageDesc">Jeszcze nie zachodzi stabilna fuzja wodoru w jądrze. Gwiazda buduje temperaturę i ciśnienie potrzebne do wejścia na ciąg główny.</p>
+        <div class="s29-stats" id="stageStats"></div>
+      </section>
+
+      <section class="s29-card">
+        <div class="s29-head compact"><p>WYKRES HR</p><h2>Temperatura i jasność</h2></div>
+        <canvas id="hrCanvas" class="s29-hr" aria-label="Uproszczony wykres Hertzsprunga-Russella"></canvas>
+        <p class="s29-note">To schemat dydaktyczny, nie pełne ścieżki z profesjonalnych modeli ewolucji gwiazd. Oś temperatury maleje w prawo, jak na klasycznym diagramie HR.</p>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="s29-footer">
+    <strong>Ograniczenia modelu:</strong> uproszczone zależności masa–jasność–promień i orientacyjne czasy trwania faz. Nie modelujemy metaliczności, rotacji, układów podwójnych ani szczegółowej nukleosyntezy. Etap ma pokazać logikę ewolucji, a nie zastąpić kodów takich jak MESA.
+  </footer>
+</div>
+<script src="../../portal/star29.js"></script>
+</body>
+</html>

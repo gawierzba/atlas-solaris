@@ -1,5 +1,5 @@
 {
-  "version": "28.0",
+  "version": "30.0",
   "categories": {
     "planety": {
       "id": "planety",
@@ -321,6 +321,28 @@
       "path": "etapy/28/",
       "kind": "stage",
       "src": "laboratoria/granice-wszechswiata/index.html"
+    },
+    "29": {
+      "number": 29,
+      "title": "Narodziny i śmierć gwiazdy",
+      "lead": "Interaktywna ewolucja gwiazd",
+      "description": "Wybierz masę gwiazdy i obserwuj jej drogę od obłoku gazu, przez ciąg główny, aż po biały karzeł, gwiazdę neutronową lub czarną dziurę.",
+      "category": "gwiazdy",
+      "mode": "star29",
+      "path": "etapy/29/",
+      "kind": "stage",
+      "src": "laboratoria/ewolucja-gwiazdy/index.html"
+    },
+    "30": {
+      "number": 30,
+      "title": "Taniec Gwiazd Podwójnych",
+      "lead": "Dwie gwiazdy, jedna grawitacja",
+      "description": "Zbuduj układ podwójny, zobacz krytyczne powierzchnie Roche’a, punkt L1, przepływ materii i zaćmieniową krzywą blasku.",
+      "category": "gwiazdy",
+      "mode": "binary30",
+      "path": "etapy/30/",
+      "kind": "stage",
+      "src": "laboratoria/gwiazdy-podwojne/index.html"
     }
   },
   "bonuses": {

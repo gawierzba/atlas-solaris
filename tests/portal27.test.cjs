@@ -3,7 +3,7 @@ const ROOT=path.join(__dirname,'..');
 const html=p=>fs.readFileSync(path.join(ROOT,p),'utf8');
 const global={};const vm=require('node:vm');
 vm.runInNewContext(html('portal/data.js'),{window:global});const data=global.ATLAS_PORTAL_DATA;
-assert.equal(Object.keys(data.stages).length,27);
+assert.equal(Object.keys(data.stages).length,29);
 assert.equal(Object.keys(data.bonuses).length,6);
 assert.equal(Object.keys(data.categories).length,6);
 for(const [key,item] of Object.entries(data.stages)){

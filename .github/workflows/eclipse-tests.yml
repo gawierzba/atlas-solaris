@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — testy astronomii 17–28.0
+name: ATLAS SOLARIS — testy astronomii 17–30.0
 on:
   pull_request:
     branches: [main]
@@ -32,6 +32,8 @@ on:
       - 'tests/time26*.cjs'
       - 'tests/portal27.test.cjs'
       - 'tests/portal28.test.cjs'
+      - 'tests/portal29.test.cjs'
+      - 'tests/binary30.test.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
@@ -76,6 +78,8 @@ on:
       - 'tests/time26*.cjs'
       - 'tests/portal27.test.cjs'
       - 'tests/portal28.test.cjs'
+      - 'tests/portal29.test.cjs'
+      - 'tests/binary30.test.cjs'
       - '.github/workflows/eclipse-tests.yml'
   workflow_dispatch:
 
@@ -134,6 +138,9 @@ jobs:
           node --check js/time26-core.js
           node --check js/time26-ui.js
           node --check portal/site.js
+          node --check portal/star29.js
+          node --check portal/binary30-core.js
+          node --check portal/binary30-ui.js
           node --check portal/stage.js
           node --check portal/embed.js
       - name: Przygotuj klasyczny index.html dla testów silnika 17–26
@@ -190,3 +197,7 @@ jobs:
         run: node tests/portal27.test.cjs
       - name: Test nowego laboratorium skali Wszechświata 28.0
         run: node tests/portal28.test.cjs
+      - name: Test laboratorium ewolucji gwiazd 29.0
+        run: node tests/portal29.test.cjs
+      - name: Test fizyki Roche’a, Keplera i zaćmień 30.0
+        run: node tests/binary30.test.cjs

@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050917">
-<title>Pulsar — kosmiczna latarnia | ATLAS SOLARIS 32.3</title><meta name="description" content="Interaktywna gwiazda neutronowa, model wiązki promieniowania, radioteleskop, rejestracja impulsów i pomiar okresu.">
-<link rel="stylesheet" href="../../portal/pulsar32.css?v=32.3"></head>
+<title>Pulsar — kosmiczna latarnia | ATLAS SOLARIS 32.0</title><meta name="description" content="Interaktywna gwiazda neutronowa, model wiązki promieniowania, radioteleskop, rejestracja impulsów i pomiar okresu.">
+<link rel="stylesheet" href="../../portal/pulsar32.css?v=32.4-lite"></head>
 <body><div class="p32-app">
 <header class="p32-header"><div>
- <div class="p32-kicker">ATLAS SOLARIS / ETAP 32.3 / ASTROFIZYKA</div>
+ <div class="p32-kicker">ATLAS SOLARIS / ETAP 32.0 / ASTROFIZYKA</div>
  <h1>Latarnia na końcu <em>życia gwiazdy.</em></h1>
  <p>Gwiazda neutronowa obraca się, a jej oś magnetyczna nie musi pokrywać się z osią obrotu. Ustaw radioteleskop na drodze wiązki, odbierz sygnał i spróbuj zmierzyć okres pulsara.</p>
 </div><div class="p32-metrics" aria-label="Parametry pulsara">
@@ -16,7 +16,7 @@
 <div class="p32-left">
  <section class="p32-scene" aria-label="Trójwymiarowa projekcja pulsara">
   <canvas id="p32Scene" role="img" aria-label="Przestrzenny model obracającej się gwiazdy neutronowej, osi magnetycznej, wiązek radiowych i kierunku radioteleskopu. Przeciągnięcie obraca kamerę."></canvas>
-  <div class="p32-scene-tag" aria-hidden="true"><span class="p32-scene-led"></span> <span id="p32VisualMode">AUTO · ZRÓWNOWAŻONA</span><small> / GEOMETRIA NA ŻYWO</small></div><div class="p32-scene-top"><span>01 / KOSMICZNA LATARNIA · WIZUALIZACJA 3D</span><strong id="p32State">Wiązka omija obserwatora</strong><small>Przeciągnij, by obrócić kamerę. Prędkość animacji jest umowna.</small></div>
+  <div class="p32-scene-top"><span>01 / OBIEKT 3D · MODEL POGLĄDOWY</span><strong id="p32State">Wiązka omija obserwatora</strong><small>Przeciągnij, by obrócić kamerę. Prędkość animacji jest umowna.</small></div>
   <div class="p32-scene-foot"><div class="p32-legend"><span><i class="rot"></i>Oś obrotu</span><span><i class="mag"></i>Oś magnetyczna</span><span><i class="ray"></i>Wiązki</span><span><i class="obs"></i>Radioteleskop</span></div><span class="p32-drag">PRZECIĄGNIJ / OBRÓĆ WIDOK</span></div>
  </section>
  <div class="p32-under">
@@ -38,13 +38,7 @@
   <div class="p32-control"><label for="p32Period"><span>Okres gwiazdy P</span><output id="p32PeriodVal">33 ms</output></label><input type="range" id="p32Period" min="-2.80" max=".25" step=".001" value="-1.481"><small>Skala logarytmiczna: od ~1,6 ms do ~1,8 s</small></div>
   <div class="p32-control"><label for="p32Tempo"><span>Tempo animacji</span><output id="p32TempoVal">1×</output></label><input type="range" id="p32Tempo" min=".15" max="3.5" step=".05" value="1"><small>Spowolniona wizualizacja — nie rzeczywiste tempo 200 obrotów/s</small></div>
   <div class="p32-control"><label for="p32Noise"><span>Szum odbiornika</span><output id="p32NoiseVal">8%</output></label><input type="range" id="p32Noise" min="0" max=".30" step=".005" value=".075"></div>
-  <div class="p32-quality" role="group" aria-label="Jakość wizualizacji pulsara">
- <span>JAKOŚĆ OBRAZU</span>
- <button type="button" data-p32quality="auto" aria-pressed="true">Auto</button>
- <button type="button" data-p32quality="cinema" aria-pressed="false">Filmowa</button>
- <button type="button" data-p32quality="eco" aria-pressed="false">Lekka · schemat</button>
-</div><p id="p32QualityStatus" class="p32-quality-status" role="status" aria-live="polite">AUTO WYBRAŁO: ZRÓWNOWAŻONA — wyważony obraz i mniejsze obciążenie.</p>
-<div class="p32-buttonrow"><button type="button" id="p32Play" aria-pressed="true">Ⅱ PAUZA</button><button type="button" id="p32Sound" aria-pressed="false" class="secondary">♪ WŁĄCZ DŹWIĘK</button><button type="button" id="p32Camera" class="secondary">↺ KAMERA</button></div>
+  <div class="p32-buttonrow"><button type="button" id="p32Play" aria-pressed="true">Ⅱ PAUZA</button><button type="button" id="p32Sound" aria-pressed="false" class="secondary">♪ WŁĄCZ DŹWIĘK</button><button type="button" id="p32Camera" class="secondary">↺ KAMERA</button></div>
  </section>
  <section class="p32-panel"><div class="p32-eyebrow">02 / LABORATORIUM ODKRYWCY</div><h2>Odszyfruj okres obrotu</h2>
   <p>Uruchom cyfrowy pomiar korelacyjny na sygnale z odbiornika. Odczytaj okres i porównaj go z ustawioną wartością.</p>
@@ -60,4 +54,4 @@
  </section>
 </aside></main>
 <footer class="p32-footer"><strong>Co jest obliczeniem?</strong> Kąt między osiami, profil wiązki, okres, częstotliwość, syntetyczny sygnał i analiza autokorelacji. <strong>Co jest ilustracją?</strong> Wielkość gwiazdy, linie pola, barwy, stożki promieniowania i efekty świetlne. Model nie symuluje magnetosfery, emisji plazmowej, polaryzacji ani propagacji radiowej. Presety 33 ms i 89 ms są porównywalne z okresem pulsarów Krab i Vela, lecz ich geometria i sygnał w tym laboratorium są fikcyjne. Dźwięk jest sonifikacją, nie nagraniem teleskopowym. Zobacz <a href="https://imagine.gsfc.nasa.gov/science/objects/neutron_stars1.html" target="_blank" rel="noopener noreferrer">NASA — Pulsars</a> i <a href="https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-pulsars/" target="_blank" rel="noopener noreferrer">NASA — science behind pulsars</a>.</footer>
-</div><script src="../../portal/pulsar32-core.js?v=32.3"></script><script src="../../portal/pulsar32-cinema.js?v=32.3"></script><script src="../../portal/pulsar32-ui.js?v=32.3"></script></body></html>
+</div><script src="../../portal/pulsar32-core.js?v=32.4-lite"></script><script src="../../portal/pulsar32-ui.js?v=32.4-lite"></script></body></html>

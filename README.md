@@ -1,6 +1,52 @@
-# ATLAS SOLARIS 20.1 — Wirująca czasoprzestrzeń Kerra
+# ATLAS SOLARIS 21.0 — Misja przez ergosferę
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **21.0** dodaje pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 21.0 — Misja przez ergosferę
+
+**Uruchomienie:** przycisk 🚀 **LOT PRZEZ ERGOSFERĘ** na górnym pasku albo **🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ** w menu bocznym.
+
+To samodzielny **symulator swobodnego ruchu sondy** w równikowej płaszczyźnie metryki Kerra (\(\theta=\pi/2,\;Q=0\)). W odróżnieniu od 20.0/20.1, gdzie śledzimy promienie świetlne, tutaj całkujemy **geodezyjną czasopodobną** masywnej sondy (\(ds^2<0\)) i uwzględniamy upływ jej czasu własnego \(\tau\).
+
+**Eksperymenty:**
+- **Paradoks ergosfery:** spin \(a_*=+0.92\), promień startowy \(r_0=1.80 r_g\), radialna prędkość względem ZAMO \(v_{\hat r}=-0.12c\), azymutalna \(v_{\hat\phi}=-0.70c\). Mimo lokalnego ruchu przeciwnie do obrotu, sonda wewnątrz ergosfery ma *dodatnie* \(d\phi/dt\). To rzeczywisty skutek wleczenia czasoprzestrzeni. Zachowana energia Killinga \(E\) może w tej strefie być ujemna — zjawisko umożliwiające proces Penrose’a, ale **sama sonda nie przeprowadza procesu Penrose’a**.
+- **Lot przez granicę:** przy \(a_*=0.92\), \(r_0=5.20 r_g\) z ujemnymi składowymi radialną i azymutalną, sonda zaczyna poza ergosferą, mija jej równikową granicę \(r=2r_g\) i kieruje się w stronę horyzontu \(r_+=1+\sqrt{1-a_*^2}\).
+- **Kołowa orbita stabilna:** start \(r=6.50 r_g\) przy prędkości lokalnej wyznaczonej z dokładnej częstotliwości orbity kołowej \(\Omega=1/(r^{3/2}+a)\) oraz tetrady ZAMO, bez sztucznego utrzymywania promienia ani dopisywania przyspieszenia silnikami.
+- **Spin odwrócony:** przy \(a_*=-0.92\) i niezmienionych znakach składowych lokalnej prędkości trajektoria staje się drastycznie inna; pozwala porównać różnicę między ruchem zgodnym i przeciwnym do rotacji.
+
+**Sterowanie:** zmiana \(a_*\) od −0.98 do +0.98, promienia \(r_0\) i lokalnych \(v_{\hat r}\), \(v_{\hat\phi}\). Model pilnuje \(v<c\) i tego, aby sonda startowała poza horyzontem. Wybrać można masę Sgr A* (około 4 mln mas Słońca), M87* (6,5 mld) lub model 10 \(M_\odot\): w *geometrycznych* jednostkach trajektoria jest taka sama, ale zmienia się fizyczny czas. Po starcie sonda nie włącza silników. Interaktywny ekran zawiera obracaną kamerę, suwak przewijania trajektorii, odtwarzanie i trzy zakresy szybkości odtwarzania \(\tau\) — **tempo odtwarzania nie jest prędkością statku**.
+
+**Wizualizacje:** droga \((x=r\cos\phi,y=r\sin\phi)\) w ortograficznym rzucie odchylonej płaszczyzny, współrzędnościowy horyzont, siatka powierzchni statyczności \(r_E(\theta)=1+\sqrt{1-a_*^2\cos^2\theta}\), scenograficzny dysk akrecyjny i opcjonalnie *kontrastowy tor sondy dla spinu \(a_*=0\)* z zachowaniem tego samego \(r_0,v_{\hat r},v_{\hat\phi}\) względem lokalnego ZAMO. Tor porównawczy nie jest możliwy przy startach wewnątrz horyzontu Schwarzschilda \(r_0\le 2r_g\) — wówczas pozostaje ukryty. Wykres naukowy pokazuje promień i azymut sondy w funkcji jej czasu własnego, wraz z granicą ergosfery.
+
+**Równania:** zachowane \(E=-u_t\) i \(L_z=u_\phi\) uzyskujemy z ortonormalnego układu lokalnego ZAMO:
+\[
+\gamma=(1-v_{\hat r}^2-v_{\hat\phi}^2)^{-1/2},\quad
+E=\gamma\alpha+\omega L_z,\quad
+L_z=\gamma\sqrt{g_{\phi\phi}}\,v_{\hat\phi}.
+\]
+Dla geodezyjnej równikowej o masie spoczynkowej sondy (jednostkowej) zachodzi
+\[
+R(r)=\left[E(r^2+a^2)-aL_z\right]^2-
+ \Delta\left[r^2+(L_z-aE)^2\right],\qquad
+\left(\frac{dr}{d\tau}\right)^2=R(r)/r^4.
+\]
+Integrator wykorzystuje równoważne równanie drugiego rzędu
+\[
+\frac{d^2r}{d\tau^2}=\frac{R'(r)}{2r^4}-\frac{2R(r)}{r^5},
+\]
+wraz z obliczonymi geodezyjnymi \(dt/d\tau\) i \(d\phi/d\tau\), całkowanymi metodą RK4. W ten sposób przechodzimy także przez radialne punkty zwrotne. Rzeczywiste sekundy z odległego zegara \(t\) i czasu sondy \(\tau\) otrzymujemy mnożąc jednostki geometryczne przez \(t_g=GM/c^3\). Numeryczny błąd wiązania radialnego \(v_r^2-R/r^4\) podajemy na panelu.
+
+**Bezpieczeństwo interpretacji:** wizualizacja to rzut współrzędnych Boyera–Lindquista; nie jest dokładnym odwzorowaniem ich **odległości własnych** ani symulacją wyglądu otoczenia z kamery na pokładzie. Efekty kolorystyczne, tło i postać statku są ilustracyjne. Nie liczymy ruchu poza płaszczyzną równikową, manewrów silnikowych, reakcji zwrotnej sondy na masę czarnej dziury, plazmy, tarcia ani emisji fotonów z kamery. Czas współrzędnościowy \(t\) w tej parametryzacji rośnie bez ograniczenia w pobliżu horyzontu, więc **integrację kończymy jeszcze na zewnątrz horyzontu**. Nie oznacza to, że pokładowy czas własny przestaje płynąć.
+
+**Źródła naukowe:**
+- Opracowanie równań geodezyjnych Kerra i pierwszych całek: <https://academic.oup.com/ptep/article/2026/7/073E04/8722630>
+- P. Giudice, rozprawa doktorska, *Kerr spacetime* (ruch czasopodobny i równikowy), University of Southampton: <https://eprints.soton.ac.uk/429746/1/Paco_Giudice.pdf>
+- ZAMO i ograniczenia obserwatorów statycznych w ergosferze: <https://www.roma1.infn.it/teongrav/onde19_20/kerr.pdf>
+- Max Planck Institute for Gravitational Physics — *Black Holes* (wleczenie, ergosfera, ISCO): <https://imprs-lectures.aei.mpg.de/2023-astrophysics-of-compact-objects/wp-content/uploads/sites/8/2023/05/lecture02.pdf>
+
+**Nowe pliki:** \`js/probe21-core.js\`, \`js/probe21-ui.js\`, \`css/probe21.css\`, \`tests/probe21.test.cjs\`. Regresja: poprzednie testy 17–20.1 oraz nowy test całkowania, zachowania stałych i symulowanego uruchomienia interfejsu. GitHub Pages publikuje zmiany na \`main\` przez workflow \`.github/workflows/deploy-pages.yml\`.
+
+---
 
 ## Nowość 20.1 — Obracająca się czarna dziura Kerra
 

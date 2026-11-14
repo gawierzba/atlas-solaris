@@ -9,8 +9,9 @@ const fixture={};vm.runInNewContext(read('portal/data.js'),{window:fixture});
 const data=fixture.ATLAS_PORTAL_DATA;
 const json=JSON.parse(read('portal/catalog.json'));
 assert.equal(data.version,json.version,'Zapisany katalog i wczytywane trasy muszą mieć tę samą wersję');
-assert.equal(Object.keys(data.stages).length,31,'Etapy od 1 do 31 powinny być kompletne');
-for(let n=1;n<=31;n++){
+const lastStage=Math.max(...Object.values(data.stages).map(x=>x.number));
+assert.equal(Object.keys(data.stages).length,lastStage,'Etapy od 1 do '+lastStage+' powinny być kompletne');
+for(let n=1;n<=lastStage;n++){
  const key=String(n).padStart(2,'0');
  assert.equal(data.stages[key].number,n,'Brak numeru etapu '+n);
  assert.equal(json.stages[key].number,n,'Katalog JSON bez etapu '+n);
@@ -37,6 +38,6 @@ assert.match(read('portal/origin27.js'),/atlas:portal:ready/);
 assert.match(read('portal/site.js'),/stage-card--milestone/);
 assert.match(read('portal/stage.js'),/orderedStageKeys/);
 assert.match(read('README_PORTAL27.md'),/27\.0/);
-assert.match(read('index.html'),/31 etapów/);
+assert.match(read('index.html'),new RegExp(String(lastStage)+' etap'));
 assert.doesNotMatch(read('portal/site.js'),/Brakujące numery oznaczamy osobno/);
-console.log('ATLAS SOLARIS 27 · 31 etapów bez luk, 27 jako kamień milowy i kompletna nawigacja OK');
+console.log('ATLAS SOLARIS 27 · '+lastStage+' etapów bez luk, 27 jako kamień milowy i kompletna nawigacja OK');

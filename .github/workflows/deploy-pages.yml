@@ -18,6 +18,7 @@ on:
       - 'legal/**'
       - 'atlas.html'
       - '404.html'
+      - 'tests/binary30-story.test.cjs'
       - 'tests/lens31-story.test.cjs'
       - 'tests/pulsar32-story.test.cjs'
       - 'tests/pulsar32.test.cjs'
@@ -56,6 +57,9 @@ jobs:
           test -f .nojekyll
           test -s portal/data.js
           test -s portal/stage.js
+          test -s portal/binary30-story.css
+          test -s portal/media/binary30-cover.svg
+          test -s etapy/30/index.html
           test -s portal/lens31-story.css
           test -s portal/media/lens31-cover.svg
           test -s portal/pulsar32-story.css
@@ -68,7 +72,7 @@ jobs:
           node --check portal/stage.js
           node --check portal/pulsar32-core.js
           node --check portal/pulsar32-ui.js
-          node --test tests/lens31.test.cjs tests/lens31-story.test.cjs tests/pulsar32.test.cjs tests/pulsar32-story.test.cjs
+          node --test tests/binary30.test.cjs tests/binary30-story.test.cjs tests/lens31.test.cjs tests/lens31-story.test.cjs tests/pulsar32.test.cjs tests/pulsar32-story.test.cjs
           node tests/pulsar32-browser.test.cjs
           node --check js/app.js
           node --check js/blackhole201-core.js
@@ -79,6 +83,9 @@ jobs:
         run: |
           mkdir -p _site
           rsync -a --exclude='.git/' --exclude='.github/' --exclude='_site/' --exclude='tests/' --exclude='scripts/' --exclude='*.md' --exclude='*.py' ./ _site/
+          test -s _site/etapy/30/index.html
+          test -s _site/portal/binary30-story.css
+          test -s _site/portal/media/binary30-cover.svg
           test -s _site/etapy/31/index.html
           test -s _site/portal/lens31-story.css
           test -s _site/portal/media/lens31-cover.svg

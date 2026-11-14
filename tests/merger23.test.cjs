@@ -61,7 +61,7 @@ for(const config of Object.values(F.PRESETS)){
  assert.ok(start.distanceKm>0&&end.distanceKm===0);
  const coord=start.positions,comX=coord.one.x*model.m1+coord.two.x*model.m2;
  const comY=coord.one.y*model.m1+coord.two.y*model.m2;
- close(comX,0);close(comY,0);
+ close(comX,0,1e-7);close(comY,0,1e-7);
 }
 const alt=F.model({...g,m1:72.4,m2:58.2,mf:124.6,lowerHz:16});
 assert.ok(alt.seconds>m.seconds*1.9&&alt.seconds<m.seconds*2.1);

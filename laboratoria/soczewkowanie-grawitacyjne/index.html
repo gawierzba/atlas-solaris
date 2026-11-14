@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050a15">
+<title>Soczewkowanie grawitacyjne — ATLAS SOLARIS 31.0</title>
+<meta name="description" content="Interaktywny eksperyment soczewkowania grawitacyjnego: pierścień Einsteina, dwa obrazy odległej galaktyki, promień Einsteina i przejście źródła.">
+<link rel="stylesheet" href="../../portal/lens31.css">
+</head>
+<body>
+<div class="l31-app">
+<header class="l31-header">
+ <div>
+  <div class="l31-eyebrow l31-inline"><span class="l31-live-dot"></span> ATLAS SOLARIS / ETAP <b>31.0</b> / GRAWITACJA I ŚWIATŁO</div>
+  <h1>Grawitacja <em>maluje światłem.</em></h1>
+  <p>Ogromna masa zmienia drogę światła odległej galaktyki. Przesuwaj źródło, steruj masą soczewki i obserwuj, jak z jednego obiektu rodzą się dwa obrazy albo świetlisty pierścień Einsteina.</p>
+ </div>
+ <div class="l31-head-metrics" aria-label="Obliczenia na żywo">
+  <div class="l31-stat"><span>PROMIEŃ EINSTEINA</span><strong id="l31Theta">—</strong><small>kąt na niebie</small></div>
+  <div class="l31-stat"><span>POWIĘKSZENIE μ</span><strong id="l31Magnification">—</strong><small>źródło punktowe</small></div>
+  <div class="l31-stat"><span>ODSTĘP OBRAZÓW</span><strong id="l31Separation">—</strong><small>kąt na niebie</small></div>
+ </div>
+</header>
+<main class="l31-layout">
+ <section class="l31-visual" aria-label="Eksperyment soczewkowania">
+  <div class="l31-scene">
+   <canvas id="l31Canvas" role="img" aria-label="Obraz odległej galaktyki po soczewkowaniu grawitacyjnym, wyliczony z równania soczewki punktowej"></canvas>
+   <div class="l31-scene-top"><span>01 / TELEKOP OPTYCZNY — SYMULACJA</span><strong id="l31Status">Pierścień Einsteina</strong><small>Model cienkiej soczewki · bez teleskopu i obserwacyjnych danych</small></div>
+   <div class="l31-scene-bottom">
+    <div class="l31-legend"><span><i class="ring"></i>Promień Einsteina</span><span><i class="lens"></i>Soczewka</span><span><i class="img"></i>Obrazy A i B</span></div>
+    <span class="l31-scene-notice">Źródło rozciągłe · punktowa masa</span>
+   </div>
+  </div>
+  <div class="l31-under">
+   <div class="l31-box">
+    <div class="l31-box-top">02 / GALAKTYKA BEZ SOCZEWKI</div><h2>Przesuwaj odległe źródło</h2>
+    <p>Dotknij lub przeciągnij galaktykę na tym małym niebie. Krzyżyk pokazuje środek źródła, zanim ugnie się jego światło.</p>
+    <canvas id="l31Source" class="l31-source-canvas" aria-label="Widok oryginalnej galaktyki bez soczewkowania; przeciągnięcie zmienia jej położenie" role="img"></canvas>
+   </div>
+   <div class="l31-box">
+    <div class="l31-box-top">03 / WYKRES ZJAWISKA</div><h2>Krzywa powiększenia</h2>
+    <p>Uproszczone powiększenie punktowego źródła dla przelotu w odległości <strong id="l31U">0,00</strong> θE od środka soczewki.</p>
+    <canvas id="l31Curve" class="l31-curve-canvas" role="img" aria-label="Krzywa powiększenia punktowego źródła podczas przejścia blisko soczewki"></canvas>
+    <div class="l31-curve-legend"><span>Pozycja źródła x / θE</span><span>Linia: μ(x) · punkt: teraz</span></div>
+   </div>
+  </div>
+ </section>
+ <aside class="l31-aside">
+  <div class="l31-panel">
+   <div class="l31-panel-eyebrow">01 / STEROWANIE EKSPERYMENTEM</div>
+   <h2>Zmień geometrię kosmosu</h2>
+   <div class="l31-presets" role="group" aria-label="Scenariusze soczewkowania">
+    <button type="button" data-l31preset="ring" aria-pressed="true">◎ Pierścień Einsteina</button>
+    <button type="button" data-l31preset="arcs">◕ Dwa obrazy i łuki</button>
+    <button type="button" data-l31preset="weak">✧ Słabsze soczewkowanie</button>
+    <button type="button" data-l31preset="flyby">↗ Przelot źródła</button>
+   </div>
+   <div class="l31-control"><label for="l31Mass" class="l31-control-label"><span>Masa soczewki</span><strong id="l31MassValue">10^12 M☉</strong></label><input id="l31Mass" type="range" min="11" max="12.7" step="0.05" value="12"><small>Efektywna masa punktowa w masach Słońca</small></div>
+   <div class="l31-control"><label for="l31Dl" class="l31-control-label"><span>Odległość soczewki Dₗ</span><strong id="l31DlValue">0,80 Gpc</strong></label><input id="l31Dl" type="range" min=".2" max="2.4" step=".05" value=".8"></div>
+   <div class="l31-control"><label for="l31Ds" class="l31-control-label"><span>Odległość źródła Dₛ</span><strong id="l31DsValue">2,00 Gpc</strong></label><input id="l31Ds" type="range" min=".7" max="5" step=".05" value="2"></div>
+   <div class="l31-control"><label for="l31Field" class="l31-control-label"><span>Pole widzenia</span><strong id="l31FieldValue">10″</strong></label><input id="l31Field" type="range" min="5" max="20" step=".5" value="10"><small>W sekundach kątowych; zmiana masy zmienia rozmiar pierścienia</small></div>
+   <hr class="l31-sep">
+   <div class="l31-control"><label for="l31X" class="l31-control-label"><span>Przesunięcie źródła X</span><strong id="l31XValue">0,00 θE</strong></label><input id="l31X" type="range" min="-2.8" max="2.8" step=".01" value="0"></div>
+   <div class="l31-control"><label for="l31Y" class="l31-control-label"><span>Przesunięcie źródła Y</span><strong id="l31YValue">0,00 θE</strong></label><input id="l31Y" type="range" min="-1.5" max="1.5" step=".01" value="0"></div>
+   <div class="l31-buttons"><button id="l31Play" type="button" aria-pressed="false">▶ URUCHOM PRZELOT</button><button id="l31Reset" type="button" class="l31-secondary">↺ RESET</button></div>
+  </div>
+  <div class="l31-panel">
+   <div class="l31-panel-eyebrow">02 / CO OZNACZA TEN OBRAZ?</div>
+   <h2>Światło zdradza niewidzialną masę</h2>
+   <p id="l31Interpret">O idealnym ustawieniu decyduje pozycja źródła za soczewką.</p>
+   <div class="l31-values">
+    <div><span>JEDNOSTKA KĄTOWA</span><strong>1″ = 1/3600°</strong></div>
+    <div><span>GEOMETRIA MODELU</span><strong>Dₗ &lt; Dₛ</strong></div>
+   </div>
+   <div class="l31-note">To <b>model cienkiej soczewki punktowej</b>, a nie pełne odwzorowanie rzeczywistej galaktyki. Rzeczywiste halo ciemnej materii, przesunięcie ku czerwieni i kosmologia zmieniają obraz oraz odległości kątowe.</div>
+  </div>
+  <div class="l31-panel">
+   <div class="l31-panel-eyebrow">03 / CO LICZYMY NAPRAWDĘ?</div>
+   <p><b>Obliczamy:</b> promień Einsteina z masy i odległości, dwa obrazy punktowego źródła i ich powiększenia; dla rozciągłej galaktyki odwzorowujemy każdy piksel równaniem soczewki.</p>
+   <p><b>Upraszczamy:</b> zastępujemy masę punktem, przyjmujemy geometryczne Dₗₛ = Dₛ − Dₗ (bez kosmologii FLRW), nie rozwiązujemy ogólnej teorii względności w pełnej czasoprzestrzeni. Jasność i kształt galaktyki są ilustracyjne.</p>
+  </div>
+ </aside>
+</main>
+<footer class="l31-foot">Podstawy: równanie cienkiej soczewki punktowej, promień Einsteina θE = √[(4GM/c²)·Dₗₛ/(DₗDₛ)] oraz wzmocnienie punktowego źródła μ = (u²+2)/(u√(u²+4)). W idealnym ustawieniu wzór punktowy jest osobliwy, ale skończone źródło nie świeci nieskończenie jasno. Dokumentacja i bibliografia: <a href="../../README_ETAP31.md">README_ETAP31.md</a>.</footer>
+</div>
+<script src="../../portal/lens31-core.js"></script>
+<script src="../../portal/lens31-ui.js"></script>
+</body></html>

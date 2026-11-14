@@ -1,6 +1,28 @@
-# ATLAS SOLARIS 17.3 — Wędrówka cienia po Ziemi
+# ATLAS SOLARIS 18.0 — Żywe Obserwatorium
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **17.3** rozbudowuje mapę zaćmień o ruchomy ślad cienia, obliczaną prędkość przelotu, kierunek oraz sterowanie pełną animacją. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **18.0** rozbudowuje Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 18.0 — Żywe Obserwatorium
+
+**Uruchomienie:** na stronie głównej kliknij **OBSERWATORIUM**. Obok dotychczasowej azymutalnej mapy nieba, listy gwiazd HYG i narzędzia wschodów/zachodów znajduje się teraz panel *Twoja noc pod gwiazdami*.
+
+**Co dodaliśmy:**
+- Wybrana godzina UTC z rzeczywistym modelem dla lat 1800–2050. Przyciski: Teraz, −/+ 1 dzień i przejście do momentu, gdy geometryczny środek Słońca jest najniżej w wybranym oknie.
+- Miejsca: Gdańsk, Warszawa, Kraków, Londyn, Luksor i Sydney; lub dowolne współrzędne w starych polach. Dotychczasowy widok z powierzchni Ziemi, Księżyca, Marsa, Merkurego i Wenus pozostaje dostępny.
+- Wykres 24-godzinny: wysokość Słońca, Księżyca i wybranego obiektu, podkład cywilnego, żeglarskiego i astronomicznego zmierzchu. Dotknij wykresu lub użyj strzałek na klawiaturze, aby przesunąć zegar całej symulacji.
+- Animacja całej doby: przycisk „Odtwórz noc” / „Pauza” z czterema prędkościami (5, 15, 30 albo 60 minut symulacji na sekundę rzeczywistą). Mapa horyzontu, wykres i cyfrowy okular reagują na przesuwanie zegara. Odtwarzanie kończy się po 24 godzinach od wybranego momentu UTC.
+- Planer i wyszukiwarka jasnych nazwanych gwiazd z istniejącego katalogu HYG J2000 oraz planet i Księżyca. Dla każdego obiektu przewidywany jest optymalny moment w wybranym oknie 24 h, a podana wysokość i ocena warunków uwzględniają wysokość Słońca (nie pogodę ani jasność tła od Księżyca).
+- Okular cyfrowy: centra pozycji w prawdziwych współrzędnych topocentrycznych, pola widzenia 0,1°, 0,5°, 1°, 5°, 15°, 40°; przy obiektach Układu Słonecznego średnice kątowe obliczane z odległości. Gwiazdy są geometrycznymi punktami katalogu HYG, planety schematycznymi tarczami kolorystycznymi. Dwa przyciski przenoszą do najlepszej godziny i kierują istniejącą kamerę powierzchniową w dany azymut/wysokość.
+
+**Definicje:** zmierzch cywilny (Słońce od 0° do −6°), żeglarski (−6° do −12°), astronomiczny (−12° do −18°), noc astronomiczna poniżej −18°. Współrzędne odnoszą się do geometrycznego środka Słońca, według definicji US Naval Observatory: https://aa.usno.navy.mil/faq/RST_defs.
+
+**Ograniczenia:** to edukacyjne narzędzie planowania geometrii nieba bez pobierania aktualnej pogody, zachmurzenia, jakości atmosfery, lokalnych przeszkód terenowych, obliczeń ekstynkcji ani precyzyjnej refrakcji. Model korzysta ze starych efemeryd przybliżonych (JPL 1800–2050), uproszczonej teorii Księżyca i katalogu jasnych gwiazd HYG J2000, bez precesji i ruchu własnego. Sam okular nie jest astrofotografią ani realistycznym symulatorem optyki: nie zawiera szczegółów powierzchni, a schemat pierścieni Saturna ma charakter symboliczny. Dla innych ciał niebieskich wykres nadal obejmuje 24 **ziemskie** godziny UTC; nie stanowi pełnego lokalnego dnia marsjańskiego czy księżycowego.
+
+**Bezpieczeństwo:** nie obserwuj Słońca przez teleskop ani lornetkę bez odpowiedniego certyfikowanego filtra słonecznego; obiekt Słońce jest celowo wyłączony z listy celów okularu.
+
+Pliki: js/observatory18-core.js, js/observatory18-ui.js, css/observatory18.css, tests/observatory18.test.cjs. Test automatyczny: node tests/observatory18.test.cjs. Regresja wersji 17.0–17.3 zachowana.
+
+---
 
 ## Nowość 17.3 — animacja przelotu pasa centralnego
 

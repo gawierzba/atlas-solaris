@@ -1,5 +1,5 @@
 {
-  "version": "30.0",
+  "version": "31.0",
   "categories": {
     "planety": {
       "id": "planety",
@@ -51,96 +51,6 @@
     }
   },
   "stages": {
-    "01": {
-      "number": 1,
-      "title": "Od Słońca do planet",
-      "lead": "Pierwszy krok do Układu Słonecznego",
-      "description": "Odkryj planety w działającym planetarium 3D. To współczesna odsłona pierwszych eksperymentów, nie archiwalna wersja kodu.",
-      "category": "planety",
-      "mode": "solar",
-      "path": "etapy/01/",
-      "kind": "stage"
-    },
-    "02": {
-      "number": 2,
-      "title": "Orbity i upływ czasu",
-      "lead": "Układ Słoneczny w ruchu",
-      "description": "Zmieniaj tempo symulacji, odczytuj datę i obserwuj ruch planet po orbitach.",
-      "category": "planety",
-      "mode": "solar",
-      "path": "etapy/02/",
-      "kind": "stage"
-    },
-    "03": {
-      "number": 3,
-      "title": "Przestrzeń 3D",
-      "lead": "Odkryj skalę planet i odległości",
-      "description": "Obracaj kamerę, przybliżaj i porównuj obiekty na scenie planetarium.",
-      "category": "planety",
-      "mode": "solar",
-      "path": "etapy/03/",
-      "kind": "stage"
-    },
-    "04": {
-      "number": 4,
-      "title": "Ziemia z kosmosu",
-      "lead": "Nasza planeta widziana z zewnątrz",
-      "description": "Podejdź bliżej do Ziemi i zobacz jej miejsce w systemie planetarnym.",
-      "category": "planety",
-      "mode": "earth",
-      "path": "etapy/04/",
-      "kind": "stage"
-    },
-    "05": {
-      "number": 5,
-      "title": "Księżyc i Ziemia",
-      "lead": "Dwa powiązane światy",
-      "description": "Poznaj wzajemny ruch Ziemi i Księżyca oraz współczesny model nieba.",
-      "category": "planety",
-      "mode": "moon",
-      "path": "etapy/05/",
-      "kind": "stage"
-    },
-    "06": {
-      "number": 6,
-      "title": "Niebo z powierzchni",
-      "lead": "Zmień punkt obserwacji",
-      "description": "Obserwuj niebo z Ziemi. Orientację i położenia obiektów oblicza silnik Atlasu.",
-      "category": "planety",
-      "mode": "earthsky",
-      "path": "etapy/06/",
-      "kind": "stage"
-    },
-    "07": {
-      "number": 7,
-      "title": "Nauka i dokładność",
-      "lead": "Skąd biorą się obliczenia?",
-      "description": "Poznaj źródła danych, zastosowane uproszczenia i ograniczenia modeli astronomicznych.",
-      "category": "nauka",
-      "mode": "method",
-      "path": "etapy/07/",
-      "kind": "stage"
-    },
-    "08": {
-      "number": 8,
-      "title": "Światy Jowisza",
-      "lead": "Cztery księżyce Galileuszowe",
-      "description": "Przenoś się wokół Jowisza i obserwuj Io, Europę, Ganimedesa oraz Kallisto.",
-      "category": "planety",
-      "mode": "jupiter",
-      "path": "etapy/08/",
-      "kind": "stage"
-    },
-    "09": {
-      "number": 9,
-      "title": "Geometria zaćmień",
-      "lead": "Światło, cień i ustawienie ciał",
-      "description": "Zobacz, jak Słońce, Ziemia i Księżyc tworzą zjawiska na niebie.",
-      "category": "zjawiska",
-      "mode": "eclipse",
-      "path": "etapy/09/",
-      "kind": "stage"
-    },
     "10": {
       "number": 10,
       "title": "Centrum Misji",
@@ -343,6 +253,107 @@
       "path": "etapy/30/",
       "kind": "stage",
       "src": "laboratoria/gwiazdy-podwojne/index.html"
+    },
+    "31": {
+      "number": 31,
+      "title": "Soczewkowanie grawitacyjne",
+      "lead": "Kiedy masa zakrzywia światło",
+      "description": "Zmień masę soczewki, przesuń odległą galaktykę i obserwuj powstawanie dwóch obrazów, łuków i pierścienia Einsteina. Zbadaj krzywą powiększenia.",
+      "category": "relatywistyka",
+      "mode": "lens31",
+      "path": "etapy/31/",
+      "kind": "stage",
+      "src": "laboratoria/soczewkowanie-grawitacyjne/index.html"
+    },
+    "01": {
+      "number": 1,
+      "title": "Od Słońca do planet",
+      "lead": "Pierwszy krok do Układu Słonecznego",
+      "description": "Odkryj planety w działającym planetarium 3D. To współczesna odsłona pierwszych eksperymentów, nie archiwalna wersja kodu.",
+      "category": "planety",
+      "mode": "solar",
+      "path": "etapy/01/",
+      "kind": "stage"
+    },
+    "02": {
+      "number": 2,
+      "title": "Orbity i upływ czasu",
+      "lead": "Układ Słoneczny w ruchu",
+      "description": "Zmieniaj tempo symulacji, odczytuj datę i obserwuj ruch planet po orbitach.",
+      "category": "planety",
+      "mode": "solar",
+      "path": "etapy/02/",
+      "kind": "stage"
+    },
+    "03": {
+      "number": 3,
+      "title": "Przestrzeń 3D",
+      "lead": "Odkryj skalę planet i odległości",
+      "description": "Obracaj kamerę, przybliżaj i porównuj obiekty na scenie planetarium.",
+      "category": "planety",
+      "mode": "solar",
+      "path": "etapy/03/",
+      "kind": "stage"
+    },
+    "04": {
+      "number": 4,
+      "title": "Ziemia z kosmosu",
+      "lead": "Nasza planeta widziana z zewnątrz",
+      "description": "Podejdź bliżej do Ziemi i zobacz jej miejsce w systemie planetarnym.",
+      "category": "planety",
+      "mode": "earth",
+      "path": "etapy/04/",
+      "kind": "stage"
+    },
+    "05": {
+      "number": 5,
+      "title": "Księżyc i Ziemia",
+      "lead": "Dwa powiązane światy",
+      "description": "Poznaj wzajemny ruch Ziemi i Księżyca oraz współczesny model nieba.",
+      "category": "planety",
+      "mode": "moon",
+      "path": "etapy/05/",
+      "kind": "stage"
+    },
+    "06": {
+      "number": 6,
+      "title": "Niebo z powierzchni",
+      "lead": "Zmień punkt obserwacji",
+      "description": "Obserwuj niebo z Ziemi. Orientację i położenia obiektów oblicza silnik Atlasu.",
+      "category": "planety",
+      "mode": "earthsky",
+      "path": "etapy/06/",
+      "kind": "stage"
+    },
+    "07": {
+      "number": 7,
+      "title": "Nauka i dokładność",
+      "lead": "Skąd biorą się obliczenia?",
+      "description": "Poznaj źródła danych, zastosowane uproszczenia i ograniczenia modeli astronomicznych.",
+      "category": "nauka",
+      "mode": "method",
+      "path": "etapy/07/",
+      "kind": "stage"
+    },
+    "08": {
+      "number": 8,
+      "title": "Światy Jowisza",
+      "lead": "Cztery księżyce Galileuszowe",
+      "description": "Przenoś się wokół Jowisza i obserwuj Io, Europę, Ganimedesa oraz Kallisto.",
+      "category": "planety",
+      "mode": "jupiter",
+      "path": "etapy/08/",
+      "kind": "stage"
+    },
+    "09": {
+      "number": 9,
+      "title": "Geometria zaćmień",
+      "lead": "Światło, cień i ustawienie ciał",
+      "description": "Zobacz, jak Słońce, Ziemia i Księżyc tworzą zjawiska na niebie.",
+      "category": "zjawiska",
+      "mode": "eclipse",
+      "path": "etapy/09/",
+      "kind": "stage"
     }
   },
   "bonuses": {

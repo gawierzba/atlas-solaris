@@ -30,7 +30,7 @@ assert.ok(read('README_ETAP27.md').length>500,'Pierwotna dokumentacja musi pozos
 const story=read(stage.src);
 assert.match(story,/Przed i po|PRZED I PO/);
 assert.match(story,/Sześć kierunków/);
-assert.match(story,/README_PORTAL27.md/);
+assert.doesNotMatch(story,/<a[^>]*href=[\"'][^\"']*README/i,'Opowieść nie może linkować do plików technicznych');
 assert.match(story,/o27Before/);
 assert.match(story,/o27After/);
 assert.match(read('portal/origin27.js'),/atlas:portal:ready/);

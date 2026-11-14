@@ -1,6 +1,48 @@
-# ATLAS SOLARIS 21.0 — Misja przez ergosferę
+# ATLAS SOLARIS 22.0 — Oczy sondy: kamera podczas lotu w pobliżu czarnej dziury
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **21.0** dodaje pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **22.0** dodaje kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 22.0 — Oczy sondy: kamera w ruchu przy czarnej dziurze
+
+**Uruchomienie:** przycisk **◉ KAMERA SONDY** w górnym pasku, **◉ KAMERA NA POKŁADZIE 22.0** w menu bocznym lub przycisk **„Kamera na pokładzie 22.0”** w oknie misji 21.0. Przy przejściu bezpośrednio z misji 21.0 przenosimy **jej dokładne warunki startowe, chwilę lotu i wybraną masę**; nie rozpoczynamy od nowa niezależnego pokazu.
+
+**Najważniejsze funkcje:**
+- **Kamera fizycznie dołączona do geodezyjnej sondy**. Dla każdego kroku bierzemy jej aktualne współrzędne Boyera–Lindquista \(r,\phi\) oraz czteroprędkość \(u^\mu\), wynikające z niezależnie przetestowanego silnika 21.0.
+- **Rozdzielenie grawitacji od ruchu kamery.** W układzie lokalnego obserwatora ZAMO (zero angular momentum observer) wyznaczamy zmierzone składowe prędkości sondy. Następnie promień biegnący z wybranego piksela kamery w jej własnym układzie Lorentzowskim jest transformowany do ZAMO, po czym śledzimy jego **zerową geodezyjną w metryce Kerra**, numerycznie, metodą RK4 dla rozdzielonych równań Cartera (moduł 20.1).
+- **Aberracja światła:** przełącznik włącza/wyłącza transformację kierunków światła, pozwalając w *tym samym punkcie czasoprzestrzeni* porównać obraz statycznego względem ZAMO instrumentu i instrumentu lecącego z sondą. Opcja kontrolna nie oznacza, że pojazd zmienił tor.
+- **Współczynnik Dopplera w osi kamery:** \(D=\nu_{\text{sonda}}/\nu_{\mathrm{ZAMO}}=1/[\gamma(1-\mathbf v\cdot\mathbf n_{\text{sonda}})]\), gdzie \(\mathbf v\) i kierunek do źródła \(\mathbf n\) są mierzone lokalnie w jednostkach \(c=1\). Opcjonalna zmiana jasności według \(D^3\) to uproszczenie z transformacji intensywności; nie daje prawdziwej spektroskopii.
+- **Dokąd patrzy kamera:** na czarną dziurę, zgodnie z bieżącą prędkością sondy, na zewnętrzne niebo albo wzdłuż kierunku \(+\phi\); swobodne przeciąganie i zoom FOV \`32–100°\`.
+- **Cztery scenariusze z 21.0:** swobodny spadek przez ergosferę, start wewnątrz ergosfery, stabilna kołowa orbita i odwrócony spin. Przewijanie trajektorii po czasie własnym, pauza i tempo odtwarzania **nie wpływają na fizyczne prędkości**.
+- **Przyrządy naukowe:** promień \(r\), prędkość sondy względem ZAMO \(v/c\), współczynnik \(\gamma\), \(\alpha\), \(\omega\), \(d\tau/dt=\alpha/\gamma\), czasy w sekundach według wybranej masy, czynnik Dopplera \(D\) dla centralnego piksela, a także jego stałe Kerr \(L_z/E\) i \(Q/E^2\). Radar pokazuje *współrzędnościowy* ślad sondy, horyzont \(r_+\) i równikową granicę ergosfery \(r=2r_g\).
+- **Optymalizacja telefonów:** bez bibliotek CDN, skalowana rozdzielczość WebGL2, odtwarzanie animacji z ograniczeniem odświeżania najcięższego ray tracingu, tryb oszczędny. Brak WebGL2 nie wyłącza pozostałego atlasu ani wskazań fizycznych. Interaktywny obraz GPU jest ograniczony skończonym budżetem całkowania, dlatego bardzo blisko niektórych orbit fotonowych możliwe są obszary numerycznie nierozstrzygnięte.
+
+**Równania układów lokalnych.** Metryka Kerra ma \(\Delta=r^2-2Mr+a^2\), \(\Sigma=r^2+a^2\cos^2\theta\), \(A=(r^2+a^2)^2-a^2\Delta\sin^2\theta\). Dla biegunowo stacjonarnego obserwatora ZAMO \(\alpha=\sqrt{\Delta\Sigma/A}\) i \(\omega=2Mar/A\). Ponieważ sonda w wersji 21.0 porusza się po równiku, \(g_{rr}=r^2/\Delta\). Zmierzona przez ZAMO prędkość ma składowe
+\[
+ \gamma=\alpha u^t,\quad
+ v^{\hat r}=\frac{\sqrt{g_{rr}}u^r}{\gamma},\quad
+ v^{\hat\phi}=\frac{\sqrt{g_{\phi\phi}}(u^\phi-\omega u^t)}{\gamma}.
+\]
+Dla kierunku \(\mathbf n_S\) *od kamery ku źródłu* i wektora \(\mathbf v\) sondy względem ZAMO, kierunek potrzebny do śledzenia w lokalnym ZAMO otrzymujemy przez odwrotne przekształcenie optycznego kierunku:
+\[
+ \mathbf n_Z=\frac{\mathbf n_S+
+ \left[\frac{(\gamma-1)(\mathbf v\cdot\mathbf n_S)}{|\mathbf v|^2}-\gamma\right]\mathbf v}
+ {\gamma(1-\mathbf v\cdot\mathbf n_S)}.
+\]
+Następnie używamy tetrady ZAMO, stałych Cartera i równań Kerra dla światła. Testy numeryczne sprawdzają \(|\mathbf n|=1\), odwracalność transformacji i poprawność przesunięć \(\gamma(1\pm \beta)\) dla promieni patrzących na wprost/do tyłu. Używamy jednostek \(G=c=M=1\) wewnątrz symulacji i fizycznego \(t_g=GM/c^3\) do konwersji na sekundy.
+
+**Ograniczenia interpretacyjne:** obraz powstaje w prawdziwej geometrii geodezyjnych Kerra w stacjonarnej metryce i poprawnej lokalnej transformacji SR, ale **nie jest fotograficznym, pełnym rozwiązaniem obserwacyjnym**. Kamera jest idealnym obserwatorem z hipotetycznym sensorem; nie liczy transferu promieniowania, opóźnień zmiennego źródła ani rzeczywistego widma. Jasność dysku, kolory, tekstury i sztuczny katalog gwiazd J2000 są ilustracyjne. Zastosowano **cienki modelowy dysk o wewnętrznej granicy co najmniej \(8r_g\)**, tak aby kamera nie znalazła się wewnątrz nieprzezroczystej materii; nie jest to dynamicznie wyznaczona krawędź akrecji konkretnego Sgr A* ani M87*. Zależnie od misji wewnętrzna granica może być przesunięta dalej, aby utrzymać idealizowaną pustą przestrzeń kamery. Przy horyzoncie symulacja jest zatrzymywana przed osobliwością współrzędnych Boyera–Lindquista. Nie pokazujemy wnętrza horyzontu ani nie obiecujemy dokładnych obrazów EHT.
+
+**Weryfikacja:** \`node tests/cockpit22.test.cjs\` sprawdza fizykę ZAMO, lokalną aberrację, kierunek odwrotny, relację dwóch zegarów i integrację DOM. \`node tests/cockpit22-browser.test.cjs\` uruchamia shader WebGL2 w prawdziwym Chromium i weryfikuje obraz, różnicę między optyką sondy a optyką ZAMO, zmianę obrazu w innym punkcie toru i radar. Pełna regresja etapów 17–21 pozostaje aktywna.
+
+**Źródła i opracowania:**
+- Bardeen, Press, Teukolsky (1972), *Rotating Black Holes: Locally Nonrotating Frames, Energy Extraction, and Scalar Synchrotron Radiation*: https://ui.adsabs.harvard.edu/abs/1972ApJ...178..347B/abstract
+- Black Hole Perturbation Toolkit, równania geodezyjnych Kerra: https://bhptoolkit.org/KerrGeodesics/
+- KerrGeoPy, parametry i trajektorie w czasoprzestrzeni Kerra: https://kerrgeopy.readthedocs.io/en/stable/
+- Materiały edukacyjne NASA o wizualizacji soczewkowania światła przez czarne dziury: https://science.nasa.gov/universe/black-holes/
+
+**Pliki:** \`js/cockpit22-core.js\`, \`js/cockpit22-renderer.js\`, \`js/cockpit22-ui.js\`, \`css/cockpit22.css\`, \`tests/cockpit22.test.cjs\`, \`tests/cockpit22-browser.test.cjs\`. Przejście z misji 21.0 wspierane przez rozszerzone \`ATLAS_PROBE21.getState()\`, bez zmiany istniejących równań ruchu.
+
+---
 
 ## Nowość 21.0 — Misja przez ergosferę
 

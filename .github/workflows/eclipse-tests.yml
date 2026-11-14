@@ -91,5 +91,5 @@ jobs:
         run: node tests/blackhole20-browser.test.cjs
       - name: Test metryki Kerra i wleczenia czasoprzestrzeni 20.1
         run: node tests/blackhole201.test.cjs
-      - name: Test GPU: obrazy obracającej się czarnej dziury Kerra
+      - name: Test GPU obrazów obracającej się czarnej dziury Kerra
         run: node tests/blackhole201-browser.test.cjs

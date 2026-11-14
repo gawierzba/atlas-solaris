@@ -1,0 +1,377 @@
+{
+  "version": "27.0",
+  "categories": {
+    "planety": {
+      "id": "planety",
+      "title": "Światy i orbity",
+      "description": "Ziemia, Księżyc, planety i ich ruch.",
+      "symbol": "◌",
+      "color": "#60baff",
+      "path": "dzialy/planety/"
+    },
+    "misje": {
+      "id": "misje",
+      "title": "Misje kosmiczne",
+      "description": "Trajektorie, asysty grawitacyjne, odkrywcze wyprawy.",
+      "symbol": "↗",
+      "color": "#68ddd0",
+      "path": "dzialy/misje/"
+    },
+    "zjawiska": {
+      "id": "zjawiska",
+      "title": "Zjawiska na niebie",
+      "description": "Zaćmienia, światło, geometria cienia.",
+      "symbol": "◉",
+      "color": "#fbab8e",
+      "path": "dzialy/zjawiska/"
+    },
+    "gwiazdy": {
+      "id": "gwiazdy",
+      "title": "Gwiazdy i czas",
+      "description": "Obserwatorium, konstelacje, ekliptyka.",
+      "symbol": "✦",
+      "color": "#b4a1ff",
+      "path": "dzialy/gwiazdy/"
+    },
+    "relatywistyka": {
+      "id": "relatywistyka",
+      "title": "Czarne dziury",
+      "description": "Horyzonty, fale grawitacyjne, LIGO.",
+      "symbol": "◎",
+      "color": "#d5a0f7",
+      "path": "dzialy/relatywistyka/"
+    },
+    "nauka": {
+      "id": "nauka",
+      "title": "Naukowe laboratoria",
+      "description": "Modelowanie, pomiary, precyzja i dane.",
+      "symbol": "⌁",
+      "color": "#8bdab6",
+      "path": "dzialy/nauka/"
+    }
+  },
+  "stages": {
+    "01": {
+      "number": 1,
+      "title": "Od Słońca do planet",
+      "lead": "Pierwszy krok do Układu Słonecznego",
+      "description": "Odkryj planety w działającym planetarium 3D. To współczesna odsłona pierwszych eksperymentów, nie archiwalna wersja kodu.",
+      "category": "planety",
+      "mode": "solar",
+      "path": "etapy/01/",
+      "kind": "stage"
+    },
+    "02": {
+      "number": 2,
+      "title": "Orbity i upływ czasu",
+      "lead": "Układ Słoneczny w ruchu",
+      "description": "Zmieniaj tempo symulacji, odczytuj datę i obserwuj ruch planet po orbitach.",
+      "category": "planety",
+      "mode": "solar",
+      "path": "etapy/02/",
+      "kind": "stage"
+    },
+    "03": {
+      "number": 3,
+      "title": "Przestrzeń 3D",
+      "lead": "Odkryj skalę planet i odległości",
+      "description": "Obracaj kamerę, przybliżaj i porównuj obiekty na scenie planetarium.",
+      "category": "planety",
+      "mode": "solar",
+      "path": "etapy/03/",
+      "kind": "stage"
+    },
+    "04": {
+      "number": 4,
+      "title": "Ziemia z kosmosu",
+      "lead": "Nasza planeta widziana z zewnątrz",
+      "description": "Podejdź bliżej do Ziemi i zobacz jej miejsce w systemie planetarnym.",
+      "category": "planety",
+      "mode": "earth",
+      "path": "etapy/04/",
+      "kind": "stage"
+    },
+    "05": {
+      "number": 5,
+      "title": "Księżyc i Ziemia",
+      "lead": "Dwa powiązane światy",
+      "description": "Poznaj wzajemny ruch Ziemi i Księżyca oraz współczesny model nieba.",
+      "category": "planety",
+      "mode": "moon",
+      "path": "etapy/05/",
+      "kind": "stage"
+    },
+    "06": {
+      "number": 6,
+      "title": "Niebo z powierzchni",
+      "lead": "Zmień punkt obserwacji",
+      "description": "Obserwuj niebo z Ziemi. Orientację i położenia obiektów oblicza silnik Atlasu.",
+      "category": "planety",
+      "mode": "earthsky",
+      "path": "etapy/06/",
+      "kind": "stage"
+    },
+    "07": {
+      "number": 7,
+      "title": "Nauka i dokładność",
+      "lead": "Skąd biorą się obliczenia?",
+      "description": "Poznaj źródła danych, zastosowane uproszczenia i ograniczenia modeli astronomicznych.",
+      "category": "nauka",
+      "mode": "method",
+      "path": "etapy/07/",
+      "kind": "stage"
+    },
+    "08": {
+      "number": 8,
+      "title": "Światy Jowisza",
+      "lead": "Cztery księżyce Galileuszowe",
+      "description": "Przenoś się wokół Jowisza i obserwuj Io, Europę, Ganimedesa oraz Kallisto.",
+      "category": "planety",
+      "mode": "jupiter",
+      "path": "etapy/08/",
+      "kind": "stage"
+    },
+    "09": {
+      "number": 9,
+      "title": "Geometria zaćmień",
+      "lead": "Światło, cień i ustawienie ciał",
+      "description": "Zobacz, jak Słońce, Ziemia i Księżyc tworzą zjawiska na niebie.",
+      "category": "zjawiska",
+      "mode": "eclipse",
+      "path": "etapy/09/",
+      "kind": "stage"
+    },
+    "10": {
+      "number": 10,
+      "title": "Centrum Misji",
+      "lead": "Zaplanuj lot między planetami",
+      "description": "Wybierz start, cel i parametry misji w interaktywnym laboratorium.",
+      "category": "misje",
+      "mode": "missions",
+      "path": "etapy/10/",
+      "kind": "stage"
+    },
+    "11": {
+      "number": 11,
+      "title": "Laboratorium Trajektorii",
+      "lead": "Kiedy najlepiej wystartować?",
+      "description": "Analizuj okna startowe, energię C3 oraz mapy czasu i kosztu transferów.",
+      "category": "misje",
+      "mode": "porkchop",
+      "path": "etapy/11/",
+      "kind": "stage"
+    },
+    "12": {
+      "number": 12,
+      "title": "Laboratorium Grawitacji",
+      "lead": "Punkty Lagrange’a i trzy ciała",
+      "description": "Eksperymentuj z dynamiką orbitalną i obszarami równowagi grawitacyjnej.",
+      "category": "nauka",
+      "mode": "gravity",
+      "path": "etapy/12/",
+      "kind": "stage"
+    },
+    "13": {
+      "number": 13,
+      "title": "Asysty grawitacyjne",
+      "lead": "Energia ukryta w przelocie",
+      "description": "Sprawdź, jak sonda może zmienić prędkość dzięki spotkaniu z planetą.",
+      "category": "misje",
+      "mode": "assist",
+      "path": "etapy/13/",
+      "kind": "stage"
+    },
+    "14": {
+      "number": 14,
+      "title": "Archiwum Misji",
+      "lead": "Śladami Voyagera i Cassini",
+      "description": "Zobacz historyczne trajektorie sond na podstawie próbek danych NASA/JPL.",
+      "category": "misje",
+      "mode": "archive",
+      "path": "etapy/14/",
+      "kind": "stage"
+    },
+    "15": {
+      "number": 15,
+      "title": "Łowca Egzoplanet",
+      "lead": "Odkryj planetę światłem gwiazdy",
+      "description": "Wygeneruj krzywą blasku i rozpoznaj tranzyt egzoplanety.",
+      "category": "gwiazdy",
+      "mode": "exo",
+      "path": "etapy/15/",
+      "kind": "stage"
+    },
+    "16": {
+      "number": 16,
+      "title": "Asteroidy i komety",
+      "lead": "Bliskie spotkania z Ziemią",
+      "description": "Oglądaj dane o małych ciałach Układu Słonecznego i ich orbitalne wizualizacje.",
+      "category": "nauka",
+      "mode": "neo",
+      "path": "etapy/16/",
+      "kind": "stage"
+    },
+    "17": {
+      "number": 17,
+      "title": "Laboratorium Zaćmień",
+      "lead": "Od syzygii do cienia",
+      "description": "Eksperymentuj z geometrią stożków cienia i obliczeniami zaćmień.",
+      "category": "zjawiska",
+      "mode": "geometry",
+      "path": "etapy/17/",
+      "kind": "stage"
+    },
+    "18": {
+      "number": 18,
+      "title": "Żywe Obserwatorium",
+      "lead": "Planer obserwacji nocnego nieba",
+      "description": "Sprawdzaj wysokości obiektów, godziny obserwacji i katalog Messiera.",
+      "category": "gwiazdy",
+      "mode": "observatory",
+      "path": "etapy/18/",
+      "kind": "stage"
+    },
+    "19": {
+      "number": 19,
+      "title": "Podróż między gwiazdami",
+      "lead": "Ponad 7400 gwiazd w przestrzeni",
+      "description": "Zmień miejsce obserwacji w rzeczywistym układzie współrzędnych 3D.",
+      "category": "gwiazdy",
+      "mode": "interstellar",
+      "path": "etapy/19/",
+      "kind": "stage"
+    },
+    "20": {
+      "number": 20,
+      "title": "Czarna dziura",
+      "lead": "Na granicy czasoprzestrzeni",
+      "description": "Zobacz ugięcie światła, cień horyzontu i geometrię wirującej czarnej dziury.",
+      "category": "relatywistyka",
+      "mode": "blackhole",
+      "path": "etapy/20/",
+      "kind": "stage"
+    },
+    "21": {
+      "number": 21,
+      "title": "Misja przez ergosferę",
+      "lead": "Lot sondy w pobliżu horyzontu",
+      "description": "Symuluj trajektorie w czasoprzestrzeni Kerra i odczytuj zegary.",
+      "category": "relatywistyka",
+      "mode": "probe",
+      "path": "etapy/21/",
+      "kind": "stage"
+    },
+    "22": {
+      "number": 22,
+      "title": "Kamera sondy",
+      "lead": "Oczy obserwatora w relatywistyce",
+      "description": "Zobacz niebo i dysk czarnej dziury z pokładu poruszającej się sondy.",
+      "category": "relatywistyka",
+      "mode": "cockpit",
+      "path": "etapy/22/",
+      "kind": "stage"
+    },
+    "23": {
+      "number": 23,
+      "title": "Zderzenie gigantów",
+      "lead": "Narodziny fali grawitacyjnej",
+      "description": "Połącz dwie czarne dziury i obserwuj sygnał inspiralu oraz wygaszania.",
+      "category": "relatywistyka",
+      "mode": "merger",
+      "path": "etapy/23/",
+      "kind": "stage"
+    },
+    "24": {
+      "number": 24,
+      "title": "Obserwatorium LIGO",
+      "lead": "Wykryj sygnał ukryty w szumie",
+      "description": "Przeprowadź eksperyment detekcji fali grawitacyjnej w dwóch detektorach.",
+      "category": "relatywistyka",
+      "mode": "ligo",
+      "path": "etapy/24/",
+      "kind": "stage"
+    },
+    "25": {
+      "number": 25,
+      "title": "Atlas Zodiaku",
+      "lead": "Dwanaście znaków i trzynaście gwiazdozbiorów",
+      "description": "Odkryj ekliptykę, Wężownika oraz rzeczywiste granice astronomicznych konstelacji.",
+      "category": "gwiazdy",
+      "mode": "zodiac",
+      "path": "etapy/25/",
+      "kind": "stage"
+    },
+    "26": {
+      "number": 26,
+      "title": "Maszyna Czasu Nieba",
+      "lead": "Podróż przez 28 tysięcy lat",
+      "description": "Obserwuj precesję ziemskiej osi, wędrówkę bieguna niebieskiego i równonocy.",
+      "category": "gwiazdy",
+      "mode": "time",
+      "path": "etapy/26/",
+      "kind": "stage"
+    }
+  },
+  "bonuses": {
+    "zywe-konstelacje": {
+      "slug": "zywe-konstelacje",
+      "title": "Żywe Konstelacje 25.1",
+      "description": "Podróż 3D między gwiazdami zodiaku; zmiana perspektywy i umowne figury konstelacji.",
+      "category": "gwiazdy",
+      "mode": "living",
+      "parent": 25,
+      "path": "laboratoria/zywe-konstelacje/",
+      "kind": "bonus"
+    },
+    "kalendarz-zacmien": {
+      "slug": "kalendarz-zacmien",
+      "title": "Kalendarz Zaćmień 17.1",
+      "description": "Automatyczne wyszukiwanie zaćmień na podstawie syzygii i geometrii cienia.",
+      "category": "zjawiska",
+      "mode": "calendar",
+      "parent": 17,
+      "path": "laboratoria/kalendarz-zacmien/",
+      "kind": "bonus"
+    },
+    "mapa-cienia": {
+      "slug": "mapa-cienia",
+      "title": "Mapa Cienia 17.2–17.3",
+      "description": "Widok Ziemi i położenia cienia Księżyca podczas zaćmienia.",
+      "category": "zjawiska",
+      "mode": "eclipsemap",
+      "parent": 17,
+      "path": "laboratoria/mapa-cienia/",
+      "kind": "bonus"
+    },
+    "obserwatorium-messiera": {
+      "slug": "obserwatorium-messiera",
+      "title": "Atlas Messiera 18.1",
+      "description": "Sto dziesięć obiektów Messiera, figury gwiazdozbiorów i planowanie obserwacji.",
+      "category": "gwiazdy",
+      "mode": "observatory",
+      "parent": 18,
+      "path": "laboratoria/obserwatorium-messiera/",
+      "kind": "bonus"
+    },
+    "czasoprzestrzen-kerra": {
+      "slug": "czasoprzestrzen-kerra",
+      "title": "Czarna Dziura Kerra 20.1",
+      "description": "Obrót, ergosfera i wleczenie czasoprzestrzeni w rozszerzonym laboratorium.",
+      "category": "relatywistyka",
+      "mode": "blackhole",
+      "parent": 20,
+      "path": "laboratoria/czasoprzestrzen-kerra/",
+      "kind": "bonus"
+    },
+    "ziemia-z-kosmosu": {
+      "slug": "ziemia-z-kosmosu",
+      "title": "Ziemia z Kosmosu",
+      "description": "Geograficzny widok Ziemi i oświetlenia powierzchni.",
+      "category": "planety",
+      "mode": "globe",
+      "parent": 4,
+      "path": "laboratoria/ziemia-z-kosmosu/",
+      "kind": "bonus"
+    }
+  }
+}

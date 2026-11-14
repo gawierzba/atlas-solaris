@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — testy astronomii 17–26.0
+name: ATLAS SOLARIS — testy astronomii 17–27.0
 on:
   pull_request:
     branches: [main]
@@ -13,6 +13,12 @@ on:
       - 'js/ligo24*.js'
       - 'js/zodiac25*.js'
       - 'js/time26*.js'
+      - 'portal/**'
+      - 'etapy/**'
+      - 'dzialy/**'
+      - 'laboratoria/**'
+      - 'o-projekcie/**'
+      - 'atlas.html'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
@@ -24,6 +30,7 @@ on:
       - 'tests/ligo24*.cjs'
       - 'tests/zodiac25*.cjs'
       - 'tests/time26*.cjs'
+      - 'tests/portal27.test.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
@@ -49,6 +56,12 @@ on:
       - 'js/ligo24*.js'
       - 'js/zodiac25*.js'
       - 'js/time26*.js'
+      - 'portal/**'
+      - 'etapy/**'
+      - 'dzialy/**'
+      - 'laboratoria/**'
+      - 'o-projekcie/**'
+      - 'atlas.html'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
@@ -60,6 +73,7 @@ on:
       - 'tests/ligo24*.cjs'
       - 'tests/zodiac25*.cjs'
       - 'tests/time26*.cjs'
+      - 'tests/portal27.test.cjs'
       - '.github/workflows/eclipse-tests.yml'
   workflow_dispatch:
 
@@ -117,6 +131,9 @@ jobs:
           node --check js/zodiac251-ui.js
           node --check js/time26-core.js
           node --check js/time26-ui.js
+          node --check portal/site.js
+          node --check portal/stage.js
+          node --check portal/embed.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -161,3 +178,5 @@ jobs:
         run: node tests/zodiac251.test.cjs
       - name: Test precesji ziemskiej Vondrak/ERFA 26.0
         run: node tests/time26.test.cjs
+      - name: Test katalogu 26 osobnych podstron portalu 27.0
+        run: node tests/portal27.test.cjs

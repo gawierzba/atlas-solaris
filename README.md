@@ -1,6 +1,20 @@
-# ATLAS SOLARIS 26.0 — Maszyna Czasu Nieba
+# ATLAS SOLARIS 27.0 — Portal Astronomiczny
 
 ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **24.0** dodaje obserwatorium dwóch laserowych interferometrów LIGO, detekcję syntetycznych sygnałów GW150914 w niezależnych szumach i interaktywny filtr dopasowany. Wersja **23.0** dodała obserwatorium fal grawitacyjnych z widowiskową wizualizacją zderzenia dwóch czarnych dziur, fizyką inspiralu i przybliżonym wygaszaniem drgań Kerra. Wersja **22.0** dodała kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 27.0 — Portal Astronomiczny, 26 osobnych podstron
+
+**Strona główna** `/`: sześć działów, wyróżnione doświadczenia, wyszukiwarka wszystkich 26 etapów, płynna dekoracyjna animacja orbit i responsywny układ.
+
+**Każdy etap otrzymał adres:** `/etapy/01/` do `/etapy/26/`; sześć rozszerzeń `/laboratoria/...` (Żywe Konstelacje 25.1, Kalendarz Zaćmień 17.1, Mapa Cienia 17.2–17.3, Messier 18.1, Kerr 20.1, Ziemia z Kosmosu). Dodatkowo `/dzialy/...` i `/o-projekcie/`.
+
+**Dotychczasowy Atlas 26.0 w całości zachowany pod `/atlas.html`.** Podstrony są niezależnymi adresami, ale korzystają ze wspólnego silnika 26.0 przez wewnętrzną ramkę tej samej domeny. Mostek `portal/embed.js` otwiera laboratorium w pełnym ekranie bez wyglądu modalnego okna i przekierowuje między modułami na ich własne adresy. To etap migracji: technicznie pozostawiono wewnętrzne komponenty HTML `dialog` z zachowanymi funkcjami, ale zewnętrzny interfejs jest stroną z paskiem nawigacji. Poszczególne podstrony wczytują wciąż zasoby 26.0, dlatego niezależne budowanie bibliotek i optymalizacja ładowania mogą zostać wykonane później.
+
+**Wersje 1–9:** nie są archiwalnymi kopiami historycznych programów; ich strony prowadzą do odpowiednich tematycznych widoków aktualnego silnika. Wersje 10–26 prowadzą do konkretnych laboratoriów.
+
+**Ważne:** animacja planet na stronie głównej jest dekoracyjna. Obliczenia astronomiczne znajdują się we właściwych laboratoriach i mają opisane tam zakresy dokładności.
+
+**Test:** `node tests/portal27.test.cjs`. Kopia poprzedniego stanu repozytorium: `backup-v26-before-portal27`. Szczegółowe instrukcje i architektura: `README_PORTAL27.md`.
 
 ## Nowość 26.0 — Maszyna Czasu Nieba: 28 tysięcy lat precesji Ziemi
 

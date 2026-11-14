@@ -9,6 +9,15 @@ on:
       - 'css/**'
       - 'js/**'
       - 'data/**'
+      - 'portal/**'
+      - 'etapy/**'
+      - 'dzialy/**'
+      - 'laboratoria/**'
+      - 'o-projekcie/**'
+      - 'opowiesc/**'
+      - 'legal/**'
+      - 'atlas.html'
+      - '404.html'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -41,6 +50,15 @@ jobs:
           test -d js
           test -d data
           test -f .nojekyll
+          test -s portal/data.js
+          test -s portal/pulsar32-ui.js
+          test -s laboratoria/pulsar/index.html
+          test -s etapy/32/index.html
+          node --check portal/data.js
+          node --check portal/site.js
+          node --check portal/pulsar32-core.js
+          node --check portal/pulsar32-ui.js
+          node --test tests/pulsar32.test.cjs
           node --check js/app.js
           node --check js/blackhole201-core.js
           node --check js/blackhole201-renderer.js
@@ -49,7 +67,9 @@ jobs:
         shell: bash
         run: |
           mkdir -p _site
-          cp -a index.html .nojekyll css js data _site/
+          rsync -a --exclude='.git/' --exclude='.github/' --exclude='_site/' --exclude='tests/' --exclude='scripts/' --exclude='*.md' --exclude='*.py' ./ _site/
+          test -s _site/etapy/32/index.html
+          test -s _site/laboratoria/pulsar/index.html
           echo "Publishing commit: ${GITHUB_SHA}"
           echo "Published title:"
           grep -m 1 -o '<title>[^<]*</title>' _site/index.html

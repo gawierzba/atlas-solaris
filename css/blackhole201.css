@@ -30,3 +30,5 @@
  .bh201-pairs b{font-size:11px}
  #bh201Geometry{min-height:150px}
 }
+/* Preserve the hidden state when the ray legend changes from Schwarzschild to Kerr. */
+.bh20-ray-key[hidden]{display:none!important}

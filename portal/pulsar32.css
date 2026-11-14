@@ -84,3 +84,14 @@
  .p32-quality>span{width:100%;margin:4px 0 3px 4px}
  .p32-quality button{flex:1}
 }
+
+/* 32.2: the quality selector reports the actual render mode, not merely a pressed button. */
+.p32-quality-status{font-size:11px;line-height:1.65;margin:2px 0 13px!important;padding:10px 12px;
+ border:1px solid #34566d;background:linear-gradient(110deg,#0c283a,#111d31);
+ border-radius:9px;color:#b5dfeb!important;min-height:52px}
+.p32-quality button{white-space:nowrap}
+.p32-quality button[aria-pressed=true]{box-shadow:0 0 0 1px #88f7ec44,inset 0 1px 0 #d3ffff22}
+.p32-scene[data-quality=eco]{border-color:#49617d91}
+.p32-scene[data-quality=cinema]{border-color:#78adc998;box-shadow:0 16px 100px #000d,0 0 92px #245fd82c,inset 0 1px 0 #d2ffff30}
+.p32-scene[data-quality=cinema] .p32-scene-led{background:#f2faff;box-shadow:0 0 15px #98f7ff,0 0 28px #89a6ff}
+@media(max-width:590px){.p32-quality button{font-size:9px;min-width:0;padding:9px 5px}.p32-quality-status{font-size:10px}}

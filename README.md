@@ -1,6 +1,22 @@
-# ATLAS SOLARIS 24.0 — Obserwatorium LIGO: wykrywanie niewidzialnej fali
+# ATLAS SOLARIS 25.0 — Atlas Zodiaku: 13 gwiazdozbiorów na niebie
 
 ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **24.0** dodaje obserwatorium dwóch laserowych interferometrów LIGO, detekcję syntetycznych sygnałów GW150914 w niezależnych szumach i interaktywny filtr dopasowany. Wersja **23.0** dodała obserwatorium fal grawitacyjnych z widowiskową wizualizacją zderzenia dwóch czarnych dziur, fizyką inspiralu i przybliżonym wygaszaniem drgań Kerra. Wersja **22.0** dodała kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 25.0 — Atlas Zodiaku i wędrówka Słońca przez 13 gwiazdozbiorów
+
+**Wejście:** przycisk „✧ ATLAS ZODIAKU 25” na górnym pasku lub „✧ ATLAS ZODIAKU 25.0 · 13 GWIAZDOZBIORÓW” w menu bocznym. Zachowane zostały wszystkie laboratoria 1.0–24.0.
+
+- Panorama ekliptyki oparta na katalogowych współrzędnych gwiazd J2000 z już istniejącego HYG i figurach z d3-celestial/Celestial Data (figury umowne, nie oficjalne obrysy IAU).
+- Dwa koncentryczne pierścienie: **13 nierównych odcinków konstelacji astronomicznych** i **12 równych 30-stopniowych sektorów tradycyjnego zodiaku tropikalnego**. Wężownik (Ophiuchus) znajduje się między Skorpionem i Strzelcem.
+- Pozycje Słońca przybliżone algorytmem Meeusa/NOAA, odczyt długości ekliptycznej i deklinacji. Rzeczywiste kierunki planet i Księżyca wyprowadzane z dostępnego już silnika Atlasu (przybliżenia JPL i efemerydy Księżyca).
+- Wybór daty 2024–2040, suwak dni roku, odtwarzanie 3/10/25 dni na sekundę, klikane gwiazdozbiory i koło, przesuwanie i przybliżanie panoramy, synchronizacja daty z główną sceną.
+- Tryb mobilny, brak bibliotek zewnętrznych i dodatkowych żądań sieciowych.
+
+**Istotne ograniczenie naukowe:** wyświetlane sektory 13 konstelacji nie są pełnymi wielokątami oficjalnych granic IAU. Wyznaczono je z przybliżonych przejść Słońca przez granice w roku 2026 oraz małej poprawki precesyjnej dla lat bliskich 2026. Daty kolejnych przejść w module są orientacyjne, nie precyzyjnymi chwilami ingressu. Tło gwiazd jest oparte na J2000; brak pełnej korekty precesji/nutacji, aberracji i refrakcji. Słabe punkty dekoracyjne w panoramie nie są obiektami katalogowymi. **Moduł opisuje astronomię, nie przewiduje przyszłości ani charakteru ludzi na podstawie daty urodzenia.**
+
+**Źródła:** [OpenStax — The Sky Above](https://openstax.org/books/astronomy/pages/2-1-the-sky-above), [NASA/JPL — Constellations of the Zodiac](https://nightsky.jpl.nasa.gov/documents/344/0SolSysManual.pdf), [NASA/JPL — Approximate positions](https://ssd.jpl.nasa.gov/planets/approx_pos.html), d3-celestial/Celestial Data (zachowane licencje poprzednich etapów).
+
+**Test:** `node tests/zodiac25.test.cjs`.
 
 ## Nowość 24.0 — Obserwatorium LIGO: naprawdę wykryj falę w szumie
 

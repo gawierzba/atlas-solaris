@@ -1,6 +1,73 @@
-# ATLAS SOLARIS 22.0 — Oczy sondy: kamera podczas lotu w pobliżu czarnej dziury
+# ATLAS SOLARIS 23.0 — Zderzenie gigantów i fale grawitacyjne
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **22.0** dodaje kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **23.0** dodaje obserwatorium fal grawitacyjnych z widowiskową wizualizacją zderzenia dwóch czarnych dziur, fizyką inspiralu i przybliżonym wygaszaniem drgań Kerra. Wersja **22.0** dodała kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 23.0 — Zderzenie gigantów / fale grawitacyjne
+
+**Start:** przycisk **✦ ZDERZENIE GIGANTÓW** na górnym pasku lub **✦ ZDERZENIE GIGANTÓW 23.0 · FALE GRAWITACYJNE** w menu. Otwiera osobne laboratorium, bez usuwania poprzednich modułów atlasu.
+
+### Co jest naukowe, a co widowiskowe?
+
+W pierwszej fazie, **inspiral**, ruch dwóch punktowych mas po quasi-kołowych orbitach jest wyznaczany z wiodącego przybliżenia kwadrupolowego emisji fal grawitacyjnych. Masy \`m1\`, \`m2\`, odległość \`D\`, stosunek mas \`η\`, masa chirpu \`ℳ\` i fizyczny czas (sekundy układu źródła) są prawdziwymi parametrami wejściowymi wzorów. Rozdzielenie orbity maleje, częstotliwość rośnie, a waveform h+ oraz h× są obliczane liczbowo z analitycznych zależności. Ich wykres jest zsynchronizowany z obrazem. Przyjęte **zakończenie inspiralu przy \`r=5.3 GM/c²\` to umowny próg modelu** — nie wynik pełnych równań nieliniowych i nie dokładna geometria powstawania wspólnego horyzontu.
+
+W drugiej fazie, po umownym momencie połączenia, liczymy **fenomenologiczny ringdown**: sinusoidę z tłumieniem wykładniczym, z częstotliwością fundamentalnego modu \`l=m=2, n=0\` obliczoną z masy i spinu końcowej czarnej dziury. Model zachowuje ciągłość fazy i amplitudy w miejscu zmiany faz, ale częstotliwość nie jest tam wygładzona pełnym rozwiązaniem inspiral–merger–ringdown. Takie pełne, dokładne rozwiązanie wymagałoby m.in. numerycznej względności.
+
+**Warstwa wizualna** to przestrzenny *rzut współrzędnościowy* z dwoma czarnymi dziurami, świecącymi śladami orbity, siatką i falami-kręgami. Te kręgi oraz błysk „połączenia” są **scenografią**, nie materialnymi falami w przestrzeni, nie obrazem rzeczywistego zakrzywienia geometrii 3D i nie elektromagnetycznym błyskiem generowanym przez czarne dziury. Nie symulujemy akrecji gazu ani zachowania fotonów z pełnej czasoprzestrzeni dwóch ciał.
+
+### Eksperymenty i parametry
+
+- **GW150914:** historyczne pierwsze bezpośrednie wykrycie fal grawitacyjnych z połączenia dwóch czarnych dziur 14 września 2015 r. Wartości wybrane ze współczesnej tabeli GWOSC: **36,2 M☉ + 29,1 M☉ → 62,3 M☉**, spin końcowy około **0,68**, dystans jasności około **420 Mpc** i energia **3,0 M☉c²**. To pomiary/oszacowania LIGO, **ale waveform i animacja są nowym modelem** — nie odtwarzają surowych danych LIGO.
+- **Dwie jednakowe:** 30+30 M☉, orientacyjna masa końcowa 57,4 M☉ i spin 0,69: model eksperymentalny, nie konkretne wykrycie.
+- **Supermasywne olbrzymy:** milion M☉ oraz 800 tys. M☉, masa końcowa 1,72 mln M☉, spin 0,72. Pokazuje jak znacząco zmieniają się skale czasu, częstotliwości i fizycznego rozmiaru. To także przykład hipotetyczny, nie rzeczywiste zdarzenie.
+- **Własne parametry:** suwak mas \`m1\`, \`m2\`, dystansu \`D\` i nachylenia obserwacji; masa końcowa dla danych wpisanych ręcznie przyjmuje **umowną utratę 4,7% masy** i spin \`a_f=0,68\`. Wyniki nie mogą być interpretowane jako pomiary.
+- **Odtwarzanie:** 17-sekundowy filmowy pokaz, przyspieszanie/spowalnianie, ręczne przewijanie, pauza i ponowne odtworzenie. To *kompresja lub rozciąganie czasu na ekranie*: w panelu wyświetlany jest **rzeczywisty czas źródła** z równań modelu. Około 80% pokazu przypada na inspiral, 20% na ringdown.
+- **Sonifikacja:** opcjonalny, lokalnie syntetyzowany dźwięk, którego częstotliwość jest proporcjonalna do częstości fizycznego modelu (z ograniczeniami słyszalności). Nie używa utworu muzycznego, pliku dźwiękowego, źródła zewnętrznego ani nagrania LIGO. Dźwięk jest wyłączony domyślnie i wymaga działania Web Audio oraz zgody użytkownika w przeglądarce.
+
+### Równania
+
+Niech \(\eta=m_1m_2/(m_1+m_2)^2\), \(M=m_1+m_2\), \(r_g=GM/c^2\), \(t_g=GM/c^3\), \(\mathcal M=(m_1m_2)^{3/5}/M^{1/5}\). Dla bezwymiarowego rozdzielenia \(\rho=r/r_g\) (wiodący rząd dla orbity quasi-kołowej):
+\[
+\frac{d\rho}{d(t/t_g)}=-\frac{64\eta}{5\rho^3},\qquad
+\rho^4(t)=\rho_{\text{merge}}^4+\frac{256\eta}{5}\frac{-t}{t_g},
+\]
+gdzie \(t=0\) jest umowną chwilą zakończenia inspiralu. Częstotliwość fali \(f_{\text{GW}}=2f_{\text{orbit}}\) wynosi
+\[
+f_{\text{GW}}=\frac{1}{\pi t_g\rho^{3/2}},\qquad
+\phi_{\text{orb}}(\rho)=\frac{\rho_0^{5/2}-\rho^{5/2}}{32\eta}.
+\]
+Dla lokalnych ram źródła, dystansu obserwatora \(D\) i kąta inklinacji \(\iota\), przy amplitudzie \(A=4\eta r_g/(D\rho)\), przybliżone polaryzacje są
+\[
+h_+ = A\,\frac{1+\cos^2\iota}{2}\cos(2\phi_{\text{orb}}),\quad
+h_\times=A\cos\iota\,\sin(2\phi_{\text{orb}}).
+\]
+Powyższe jest **wzorem modelowym leading-order i nie uwzględnia m.in. przesunięcia kosmologicznego**. W szczególności prezentowane częstotliwości i czasy są w *układzie źródła*. Wartość z katalogu obserwacji LIGO należy pod względem redshiftu rozumieć odrębnie.
+
+Dla końcowego spinu bezwymiarowego \(a_f\) i końcowej masy \(M_f\) przyjmujemy znany fit Berti–Cardoso–Will do dominującego quasi-normalnego modu Kerra:
+\[
+\omega_{220} M_f\simeq 1.5251-1.1568(1-a_f)^{0.1292},\quad
+Q\simeq 0.7000+1.4187(1-a_f)^{-0.4990},
+\]
+\[
+f_{\text{ring}}=\omega_{220}/(2\pi t_{g,f}),\quad
+\tau_{\text{ring}}=Q/(\pi f_{\text{ring}}),\quad
+h_\text{ring}\propto e^{-t/\tau_{\text{ring}}}
+ \cos(2\pi f_{\text{ring}}t+2\phi_{\text{orb}}(t=0)).
+\]
+Dzięki temu model oblicza np. dla GW150914 częstotliwość tonu ringdown około **273 Hz** i czas zanikania około **3,7 ms** (źródłowe, przy parametrach katalogowych).
+
+**Bilans mas i energii:** \(\Delta M=m_1+m_2-M_f\), \(E_{\text{GW}}=\Delta M\,M_\odot c^2\). Dla GW150914 jest to około \(5.36\times10^{47}\) J. Nie jest to energia obliczona przez całkowanie przybliżonego waveformu w symulatorze — energia jest **osobno zaczerpnięta z estymacji parametrów zdarzenia**.
+
+### Źródła
+
+- [LIGO Scientific Collaboration: GW150914 science summary](https://ligo.org/science-summaries/GW150914/).
+- [Gravitational Wave Open Science Center: GW150914 — estimated source parameters](https://gwosc.org/events/GW150914/).
+- [Peters & Mathews, *Gravitational Radiation from Point Masses in a Keplerian Orbit* (1963)](https://doi.org/10.1103/PhysRev.131.435).
+- [Berti, Cardoso & Will, quasi-normal mode fits (2006)](https://doi.org/10.1103/PhysRevD.73.064030).
+- [GW150914 waveform educational example](https://cpoli.github.io/physicskit/api/gallery/relativity/gravitational_waves/plot_binary_merger_chirp.html).
+
+**Pliki:** \`js/merger23-core.js\`, \`js/merger23-ui.js\`, \`css/merger23.css\`, \`tests/merger23.test.cjs\`, \`tests/merger23-browser.test.cjs\`. Regresja 17–22 niezmieniona i wykonywana wraz z nowymi testami 23.0 w GitHub Actions. Publikacja przez istniejący \`.github/workflows/deploy-pages.yml\`.
+
+---
 
 ## Nowość 22.0 — Oczy sondy: kamera w ruchu przy czarnej dziurze
 

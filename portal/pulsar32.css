@@ -16,3 +16,71 @@
 @media(max-width:850px){.p32-layout{grid-template-columns:1fr}.p32-right{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.p32-right>.p32-panel:first-child{grid-row:span 2}.p32-under{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:590px){.p32-app{padding:14px 11px}.p32-header h1{font-size:39px}.p32-metrics{gap:5px}.p32-metric{padding:10px 7px}.p32-metric span{font-size:8px}.p32-metric strong{font-size:17px}.p32-scene{height:415px;border-radius:14px}.p32-scene-top{left:12px;top:12px}.p32-scene-foot{bottom:8px;left:8px;right:8px;padding:9px}.p32-drag{display:none}.p32-legend{gap:9px;font-size:9px}.p32-under,.p32-right{display:flex;flex-direction:column}.p32-card,.p32-panel{padding:14px}.p32-card canvas{height:170px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ATLAS SOLARIS 32.1 — cinematic visual direction: spectral teal, violet and mineral midnight.
+   Layout remains vertical/scrollable inside its portal iframe. */
+:root{--p32-bg:#030612;--p32-panel:#0a1425;--p32-line:#294961;--p32-ink:#f1faff;--p32-mute:#a3bed0;--p32-ice:#91fcf3}
+.p32-app{background:radial-gradient(ellipse 54% 26% at 6% 0%,#074a5473,transparent 86%),radial-gradient(ellipse 47% 24% at 90% 1%,#44347b7a,transparent 82%),linear-gradient(#050b1a,#020612 78%)}
+.p32-header h1{font-weight:680;letter-spacing:-.072em;text-shadow:0 5px 42px #0007}
+.p32-header h1 em{background-image:linear-gradient(110deg,#deffff 8%,#78d9ea 44%,#c7a8ff 90%)}
+.p32-kicker:before{box-shadow:0 0 21px #76fff7,0 0 4px #efffff}
+.p32-metric{background:linear-gradient(140deg,#152a4096,#0b182dad);border-color:#4260787d;box-shadow:inset 0 1px 0 #d4ffff0d,0 15px 35px #02040e42;backdrop-filter:blur(14px)}
+.p32-metric strong{font-weight:700;color:#f0faff}
+.p32-metric:first-child strong{color:#aefcf7}
+.p32-scene{height:clamp(485px,69vh,780px);border-radius:24px;border-color:#52758d85;background:#030916;box-shadow:0 12px 90px #000b,0 0 80px #2953b81b,inset 0 1px 0 #b3ffff1d}
+.p32-scene:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:linear-gradient(180deg,#0a17251a 0%,transparent 24%,transparent 75%,#02060b72 100%)}
+.p32-scene:after{box-shadow:inset 0 0 100px #010411b3;z-index:1}
+.p32-scene canvas{position:relative;z-index:0}
+.p32-scene-top{z-index:3;top:25px;left:24px;right:155px}
+.p32-scene-top span{font-size:10px;color:#8edfee;letter-spacing:.2em}
+.p32-scene-top strong{font-size:clamp(18px,2.25vw,27px);font-weight:680;letter-spacing:-.02em}
+.p32-scene-top small{color:#a7c3d6}
+.p32-scene-tag{position:absolute;right:20px;top:21px;z-index:4;border:1px solid #4f7a9369;background:#091a2dd9;box-shadow:0 8px 35px #0005,inset 0 1px 0 #baffff15;border-radius:7px;padding:10px 11px;color:#c6e6f2;display:flex;align-items:center;gap:7px;font-size:9px;font-weight:800;letter-spacing:.11em;backdrop-filter:blur(16px)}
+.p32-scene-tag small{color:#7faabc;font-weight:550;font-size:9px}
+.p32-scene-led{width:6px;height:6px;border-radius:50%;background:#85f5de;box-shadow:0 0 12px #87ffed}
+.p32-scene-foot{z-index:3;bottom:16px;left:16px;right:16px;padding:14px 16px;background:linear-gradient(105deg,#061326e6,#0c1e31d9);border-color:#58758a75;border-radius:12px;box-shadow:0 12px 34px #0006}
+.p32-legend{color:#cce4f2;font-size:11px}
+.p32-drag{color:#9cbcd2;letter-spacing:.06em}
+.p32-card,.p32-panel{background:linear-gradient(145deg,#101e31ef 0%,#081323fa 75%);border-color:#35516c91;border-radius:20px;box-shadow:inset 0 1px 0 #d4eeff0c,0 18px 35px #0003}
+.p32-card h2,.p32-panel h2{color:#ecfaff;font-weight:675}
+.p32-card{padding:21px}
+.p32-panel{padding:21px}
+.p32-eyebrow{color:#8fddd9;letter-spacing:.19em}
+.p32-card canvas{height:185px;border-color:#42627a78;background:linear-gradient(#071527,#041020);box-shadow:inset 0 0 35px #1b598322}
+.p32-presets button{background:linear-gradient(135deg,#122840,#101c33);border-color:#445e7899;transition:transform .18s,border-color .18s,box-shadow .18s}
+.p32-presets button:hover{transform:translateY(-1px);border-color:#a8ebf3;box-shadow:0 0 23px #6ddde41b}
+.p32-presets button[aria-pressed=true]{background:linear-gradient(135deg,#195361,#28325c);border-color:#97fff1;box-shadow:inset 0 0 0 1px #bafff126,0 0 25px #72ead22b}
+.p32-control label{font-weight:580}
+.p32-control output{color:#a5fff5}
+.p32-control input[type=range]{accent-color:#95f3e9}
+.p32-control small{color:#8faec5}
+.p32-buttonrow button{background:linear-gradient(110deg,#c9fff7,#95e8f2);border-color:#a4fff6;color:#06253b;box-shadow:0 6px 22px #53d7dc20;transition:transform .15s,filter .15s}
+.p32-buttonrow button:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.p32-buttonrow button.secondary{background:#152a42;border-color:#456681;color:#e5f4fa;box-shadow:none}
+.p32-readout>div{background:#0d2235;border-color:#335269}
+.p32-result{background:linear-gradient(115deg,#16424a70,#0f233c40);border-color:#95f9e8;border-radius:0 9px 9px 0}
+.p32-note{background:#211a376b}
+.p32-quality{margin:16px 0 12px;padding:7px;display:flex;align-items:center;gap:5px;border:1px solid #35536a;border-radius:11px;background:#08192b}
+.p32-quality>span{margin:0 auto 0 4px;font-size:9px;font-weight:780;letter-spacing:.12em;color:#8caec4}
+.p32-quality button{border:1px solid transparent;background:transparent;color:#96b5c6;border-radius:7px;padding:8px 9px;font-size:10px;font-weight:750;min-width:48px}
+.p32-quality button:hover{color:#fff;background:#1c344b}
+.p32-quality button[aria-pressed=true]{background:#1e5060;border-color:#65c1c3;color:#d5fffc;box-shadow:inset 0 1px 0 #d3ffff22}
+.p32-footer{margin-top:25px;border-top:1px solid #2944568c;padding-top:19px;color:#9bb6cc}
+@media(max-width:1130px){.p32-scene{height:570px}}
+@media(max-width:850px){.p32-scene{height:clamp(470px,62vh,630px)}}
+@media(max-width:590px){
+ .p32-scene{height:455px;border-radius:15px}
+ .p32-scene-top{top:13px;left:12px;right:15px}
+ .p32-scene-top span{font-size:8px;letter-spacing:.1em}
+ .p32-scene-top strong{font-size:17px;max-width:240px}
+ .p32-scene-top small{font-size:9px;max-width:265px}
+ .p32-scene-tag{top:auto;bottom:60px;right:9px;padding:7px 9px;font-size:8px}
+ .p32-scene-tag small{display:none}
+ .p32-scene-foot{left:8px;right:8px;bottom:7px;padding:9px 10px}
+ .p32-legend{font-size:9px;gap:8px}
+ .p32-card,.p32-panel{padding:15px;border-radius:15px}
+ .p32-card canvas{height:180px}
+ .p32-quality{flex-wrap:wrap}
+ .p32-quality>span{width:100%;margin:4px 0 3px 4px}
+ .p32-quality button{flex:1}
+}

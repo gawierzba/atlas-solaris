@@ -1,0 +1,43 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const article=read('etapy/32/index.html');
+const shell=read('portal/stage.js');
+const styles=read('portal/pulsar32-story.css');
+const lab=read('laboratoria/pulsar/index.html');
+const graphic=read('portal/media/pulsar32-cover.svg');
+test('Stage 32 is a substantive sourced Polish editorial before the live lab',()=>{
+ assert.match(article,/<html lang="pl">/);
+ assert.match(article,/<article class="p32-story"/);
+ assert.match(article,/Jocelyn Bell/);
+ assert.match(article,/1,337 sekundy/);
+ assert.match(article,/28 listopada 1967/);
+ assert.match(article,/chandra.harvard.edu\/photo\/2008\/crab/);
+ assert.match(article,/cam.ac.uk\/stories\/journeysofdiscovery-pulsars/);
+ assert.match(article,/id="laboratorium"/);
+ assert.match(article,/id="stageViewport"/);
+ assert.match(article,/data-lazy="true"/);
+ assert.match(article,/id="stageFrame"[^>]*data-lazy="true"/);
+ assert.ok(article.indexOf('id="historia"')<article.indexOf('id="laboratorium"'));
+ assert.ok(article.indexOf('id="obserwacje"')<article.indexOf('id="laboratorium"'));
+ assert.ok(article.indexOf('id="laboratorium"')<article.indexOf('id="zrodla"'));
+ assert.doesNotMatch(article,/pulsar32-cinema/);
+ assert.doesNotMatch(lab,/pulsar32-cinema/);
+});
+test('The hero is local, static and light, without runtime WebGL or animation',()=>{
+ assert.match(graphic,/<svg/);
+ assert.match(graphic,/viewBox="0 0 1600 900"/);
+ assert.doesNotMatch(graphic,/<script|<animate|<animateTransform|<foreignObject|filter=/i);
+ assert.ok(Buffer.byteLength(graphic,'utf8')<40000,'Cover unexpectedly large');
+ assert.match(article,/portal\/media\/pulsar32-cover.svg/);
+ assert.match(styles,/overflow-y:auto/);
+ assert.match(styles,/@media\(max-width:650px\)/);
+});
+test('General stage shell still supports all previous stages and optional lazy laboratory',()=>{
+ assert.match(shell,/const lazyLab=iframe\?\.dataset\.lazy==='true'/);
+ assert.match(shell,/if\(lazyLab\)/);
+ assert.match(shell,/IntersectionObserver/);
+ assert.match(shell,/else startLab\(\)/);
+ assert.match(shell,/atlas:portal:ready/);
+ assert.match(shell,/stageReload/);
+});

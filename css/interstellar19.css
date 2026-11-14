@@ -1,0 +1,71 @@
+/* ATLAS SOLARIS 19.0 — Interstellar Flight / visual identity: deep ink, ultraviolet, ion cyan. */
+.inter19-top-entry,.inter19-side-entry{font:720 11px/1.3 system-ui,sans-serif;cursor:pointer;color:#dcf5ff;border:1px solid #4e79a7;background:linear-gradient(110deg,#173c60,#203a65);border-radius:9px;padding:9px 11px}
+.inter19-top-entry:hover,.inter19-side-entry:hover{border-color:#9ae6ff;background:#22587a}
+.inter19-side-entry{display:block;width:100%;margin:9px 0;padding:13px;text-align:left;letter-spacing:.045em;background:linear-gradient(98deg,#1a4569,#263b67)}
+.inter19-dialog{width:min(1570px,98vw);max-width:98vw;max-height:96dvh;min-height:75dvh;border:1px solid #477aa1;border-radius:15px;padding:0;margin:auto;color:#e6f3ff;background:linear-gradient(132deg,#091726,#070e22 58%,#111a2e);box-shadow:0 26px 120px #010711c7;overflow:auto;scrollbar-color:#365778 transparent}
+.inter19-dialog::backdrop{background:rgba(1,5,15,.89);backdrop-filter:blur(9px)}
+.inter19-shell{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:400}
+.inter19-header{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;padding:20px 25px 17px;border-bottom:1px solid #2d4661}
+.inter19-eyebrow{letter-spacing:.14em;color:#8ac0e1;font-size:9px;font-weight:750}
+.inter19-header h2{margin:6px 0;font-size:clamp(22px,3vw,37px);letter-spacing:-.055em;line-height:1.05;font-weight:590}
+.inter19-header h2 em{font-style:normal;color:#92e5f5}
+.inter19-header p{font-size:11px;color:#94b4cd;line-height:1.5;margin:8px 0 0}
+.inter19-close{background:#1b3049;color:#d9eef6;border:1px solid #4f6b85;border-radius:9px;padding:10px 13px;cursor:pointer}
+.inter19-layout{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(295px,.8fr);min-width:0}
+.inter19-scene{min-width:0;overflow:hidden;padding:16px 17px 20px}
+.inter19-scene-frame{position:relative;min-width:0;overflow:hidden;background:#030b1a;border:1px solid #39698e;border-radius:11px;box-shadow:0 0 48px rgba(25,92,156,.13) inset}
+#inter19Canvas{display:block;width:100%;height:min(64dvh,680px);min-height:365px;max-height:690px;touch-action:none;cursor:grab}
+#inter19Canvas:active{cursor:grabbing}
+.inter19-scene-top,.inter19-scene-bottom{position:absolute;left:15px;right:15px;display:flex;gap:12px;align-items:center;justify-content:space-between;pointer-events:none}
+.inter19-scene-top{top:13px}.inter19-scene-bottom{bottom:13px}
+.inter19-ship-code{font-size:10px;letter-spacing:.12em;color:#8bb3d8;font-weight:740}
+#inter19Phase{color:#88f2e1;font-size:9px;text-align:right;letter-spacing:.04em}
+#inter19HeadingTxt{font-size:10px;color:#d3eaff}
+.inter19-controls-hint{font-size:9px;color:#7d9bb1;text-align:right}
+.inter19-readouts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
+.inter19-readouts>div{padding:13px 10px;background:#101e34;border:1px solid #2e4c6a;border-radius:9px;min-width:0}
+.inter19-readouts small{font-size:8px;letter-spacing:.085em;color:#79a6c5;display:block;line-height:1.5}
+.inter19-readouts strong{font-weight:620;display:block;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(13px,1.5vw,19px);font-variant-numeric:tabular-nums;color:#d6f5f7}
+.inter19-comparison{border:1px solid #304e6b;border-radius:10px;background:linear-gradient(135deg,#0c1b30,#111936);margin-top:13px;padding:12px}
+.inter19-compare-head{display:flex;align-items:flex-end;justify-content:space-between;gap:9px;margin-bottom:8px}
+.inter19-compare-head small{display:block;font-size:9px;color:#77bcd8;letter-spacing:.10em}
+.inter19-compare-head strong{font-weight:660;font-size:13px;display:block;margin-top:4px}
+#inter19OrionInfo{font-size:10px;color:#9ad8d4;text-align:right}
+#inter19Compare{display:block;width:100%;height:190px;border:1px solid #203d62;border-radius:8px;background:#081324}
+.inter19-command{border-left:1px solid #29445d;background:linear-gradient(165deg,#111d31,#0a1425);padding:16px 17px 24px;min-width:0}
+.inter19-panel-label{font-size:9px;letter-spacing:.13em;color:#76b6d7;margin:7px 0 11px;font-weight:730}
+.inter19-field{font-size:10px;color:#a9bfd6;display:flex;flex-direction:column;gap:8px}
+.inter19-field select{background:#142b47;color:#f1fbff;border:1px solid #456f92;border-radius:8px;font:12px system-ui;padding:12px 9px;width:100%;max-width:100%;min-width:0}
+.inter19-destination-info{padding:12px 11px;border:1px solid #3f617e;border-radius:8px;background:linear-gradient(94deg,#182f52,#15233e);margin:12px 0 19px}
+.inter19-destination-info b{display:block;font-size:16px;font-weight:620}
+.inter19-destination-info span{display:block;color:#85b8c8;font-size:11px;margin-top:5px}
+.inter19-speed-value{display:flex;align-items:baseline;justify-content:space-between;margin-top:2px}
+.inter19-speed-value strong{font-size:30px;font-weight:570;letter-spacing:-.06em;color:#baf5f4}
+.inter19-speed-value span{font-size:12px;color:#9cb6ce}
+#inter19Beta,#inter19Progress{display:block;width:100%;accent-color:#63d5e9;margin:11px 0 2px;cursor:pointer}
+.inter19-range-labels{display:flex;justify-content:space-between;font-size:9px;color:#7c9bb3;margin-bottom:15px}
+.inter19-toggle{display:flex;gap:11px;align-items:flex-start;background:#132743;border:1px solid #3b5c81;border-radius:8px;padding:11px;margin-bottom:19px;cursor:pointer}
+.inter19-toggle input{accent-color:#6ccadd;flex:0 0 auto;width:17px;height:17px;margin:2px 0}
+.inter19-toggle b{font-size:11px;font-weight:720;display:block}
+.inter19-toggle small{font-size:10px;color:#88adc7;line-height:1.5;display:block;margin-top:4px}
+.inter19-main-actions{display:flex;gap:7px;flex-wrap:wrap}
+.inter19-main-actions button{border-radius:8px;padding:12px 8px;font:750 11px system-ui;cursor:pointer}
+.inter19-action-primary{flex:1 1 160px;color:#061c27;border:1px solid #b3f5f7;background:linear-gradient(105deg,#75d8f3,#9dffe6)}
+.inter19-action-primary:hover{filter:brightness(1.13)}
+.inter19-action-secondary{flex:1 1 125px;background:#1b304c;color:#c6daed;border:1px solid #577391}
+.inter19-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:9px;font-weight:730;letter-spacing:.08em;color:#93b6d4;margin-top:17px}
+.inter19-progress-label strong{font-size:12px;color:#bff2f2;letter-spacing:normal}
+.inter19-look-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:13px 0 20px}
+.inter19-look-actions button{font:680 10px system-ui;color:#c7e3f3;background:#152e49;border:1px solid #416b84;border-radius:7px;padding:11px 3px;cursor:pointer}
+.inter19-look-actions button:hover{border-color:#9bc7e9;background:#214664}
+.inter19-physics{border:1px solid #304e6d;border-radius:9px;padding:4px 10px;background:#0c2136}
+.inter19-physics>div{display:flex;gap:9px;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #27445d}
+.inter19-physics>div:last-child{border:0}
+.inter19-physics small{font-size:9px;color:#83a9c8;max-width:70%;line-height:1.4}
+.inter19-physics b{font-size:12px;color:#c8eef0;white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.inter19-status{margin-top:15px;font-size:11px;line-height:1.55;background:#13334a;color:#bde8e7;border-left:3px solid #7accd9;padding:10px}
+.inter19-science-note{font-size:9px;line-height:1.7;color:#809fb9;margin:16px 0 0}
+@media(max-width:1100px){.inter19-layout{grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr)}.inter19-scene{padding:11px}#inter19Canvas{height:52dvh}.inter19-readouts{grid-template-columns:repeat(2,minmax(0,1fr))}.inter19-controls-hint{display:none}}
+@media(max-width:840px){.inter19-layout{grid-template-columns:1fr}.inter19-command{border-left:0;border-top:1px solid #29445d}.inter19-dialog{max-height:99dvh;width:99vw;max-width:99vw;border-radius:10px}.inter19-scene{padding:9px}#inter19Canvas{height:48dvh;min-height:290px}.inter19-header{padding:14px 15px}.inter19-header h2{font-size:25px}.inter19-command{padding:16px}.inter19-compare-head{align-items:flex-start;flex-direction:column;gap:3px}#inter19OrionInfo{text-align:left}}
+@media(max-width:600px){.inter19-top-entry{padding:7px}.inter19-top-entry span{display:none}.inter19-header{gap:5px}.inter19-header h2{font-size:21px}.inter19-header p{font-size:10px}.inter19-eyebrow{font-size:8px}#inter19Canvas{height:43dvh;min-height:250px}.inter19-scene-top,.inter19-scene-bottom{left:9px;right:9px}.inter19-ship-code{font-size:8px}#inter19Phase{font-size:8px}.inter19-readouts{gap:5px}.inter19-readouts>div{padding:9px 8px}.inter19-readouts strong{font-size:14px}.inter19-readouts small{font-size:8px}#inter19Compare{height:155px}.inter19-comparison{padding:9px}.inter19-look-actions button{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.inter19-action-primary{transition:none}}

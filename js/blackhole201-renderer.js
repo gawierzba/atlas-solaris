@@ -47,7 +47,7 @@ function create(canvas,skyCanvas){
   const quality=o.quality??.47;
   const w=Math.min(1080,Math.max(180,Math.round(rect.width*quality))),
    h=Math.min(700,Math.max(100,Math.round(rect.height*quality)));
-  if(w!==lastW||h!==lastH){canvas.width=w;canvas.height=h;lastW=w;lastH=h;gl.viewport(0,0,w,h);}
+  if(w!==lastW||h!==lastH||canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;lastW=w;lastH=h;gl.viewport(0,0,w,h);}
   gl.useProgram(program);gl.bindVertexArray(vao);
   gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);
   gl.uniform2f(uniforms.uResolution,w,h);

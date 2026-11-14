@@ -102,3 +102,5 @@ jobs:
         run: node tests/blackhole201-browser.test.cjs
       - name: Test lotu sondy przez ergosferę 21.0
         run: node tests/probe21.test.cjs
+      - name: Test przeglądarkowy misji przez ergosferę 21.0
+        run: node tests/probe21-browser.test.cjs

@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 20.1 — obracająca się czarna dziura Kerra, wleczenie czasoprzestrzeni, ergosfera, asymetryczny cień i geodezyjne fotonów.">
-  <title>ATLAS SOLARIS 20.1 — Wirująca czasoprzestrzeń Kerra</title>
+  <meta name="description" content="ATLAS SOLARIS 21.0 — rzeczywiste trajektorie sondy w metryce Kerra, lot przez ergosferę, wleczenie czasoprzestrzeni i zegary relatywistyczne.">
+  <title>ATLAS SOLARIS 21.0 — Misja przez ergosferę</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -24,17 +24,18 @@
 <link rel="stylesheet" href="css/interstellar19.css">
 <link rel="stylesheet" href="css/blackhole20.css">
 <link rel="stylesheet" href="css/blackhole201.css">
+<link rel="stylesheet" href="css/probe21.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 20.1</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 21.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 20.1</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 21.0</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.1 · WIRUJĄCA CZASOPRZESTRZEŃ</button><button id="openProbe21Side" class="probe21-side-launch" type="button">🚀 MISJA 21.0 · LOT PRZEZ ERGOSFERĘ</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -46,10 +47,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openProbe21Top" class="probe21-top-launch" type="button" title="Misja 21.0: lot sondą w pobliżu ergosfery">🚀 <span>LOT PRZEZ ERGOSFERĘ</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V20.1</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V21.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -88,6 +89,110 @@
  </div>
 
  
+
+
+<dialog id="probe21Dialog" class="probe21-dialog" aria-labelledby="probe21Title">
+ <div class="probe21-shell">
+  <header class="probe21-header">
+   <div><div class="probe21-eyebrow">ATLAS SOLARIS 21.0 / RELATYWISTYCZNA MISJA BEZZAŁOGOWA</div>
+    <h2 id="probe21Title">Lot przez <em>ergosferę.</em></h2>
+    <p>Swobodny lot sondy · geodezyjne czasopodobne Kerra · wleczenie czasoprzestrzeni</p>
+   </div>
+   <button id="probe21Close" class="probe21-close" type="button" aria-label="Zamknij misję">✕</button>
+  </header>
+  <div class="probe21-layout">
+   <section class="probe21-stage">
+    <div class="probe21-viewport">
+     <canvas id="probe21Canvas" width="1280" height="720" tabindex="0" aria-label="Przestrzenny rzut sondy poruszającej się po geodezyjnej Kerra nad płaszczyzną równikową. Przeciągnij, aby obrócić kamerę."></canvas>
+     <div class="probe21-viewport-top">
+      <span>◈ ATLAS / KERR FLIGHT CONTROL</span>
+      <span id="probe21Phase">GOTOWOŚĆ / PRZED STARTEM</span>
+     </div>
+     <div class="probe21-viewport-bottom">
+      <span id="probe21CamHint">Przeciągnij: kamera · kółko: zbliżenie</span>
+      <span id="probe21FlightLabel">SONDA / GEODEZYJNA SWOBODNA</span>
+     </div>
+     <div id="probe21ErgoAlert" class="probe21-ergo-alert" hidden>◉ SONDA WEWNĄTRZ ERGOSFERY — BRAK MOŻLIWOŚCI STATYCZNEGO POSTOJU</div>
+    </div>
+    <div class="probe21-telemetry">
+     <div><small>ODLEGŁOŚĆ OD CENTRUM</small><strong id="probe21Radius">— r_g</strong></div>
+     <div><small>CZAS WŁASNY NA POKŁADZIE</small><strong id="probe21Tau">—</strong></div>
+     <div><small>CZAS W UKŁADZIE DALEKIM</small><strong id="probe21FarTime">—</strong></div>
+     <div><small>AZYMUT SONDY</small><strong id="probe21Azimuth">—°</strong></div>
+    </div>
+    <div class="probe21-science">
+     <div class="probe21-science-header">
+      <div><small>FIZYKA MISJI / OBSERWACJA</small><strong>Zbliżanie do horyzontu i wleczenie azymutu</strong></div>
+      <span id="probe21PlotMessage">Rzeczywisty promień r(τ) i kąt φ(τ)</span>
+     </div>
+     <canvas id="probe21Plot" width="1100" height="260" aria-label="Wykres promienia r oraz narastającego kąta azymutu φ w funkcji czasu własnego sondy"></canvas>
+     <div class="probe21-plot-legend"><span><i class="probe21-legend-r"></i> Promień / r_g</span><span><i class="probe21-legend-phi"></i> Kąt azymutu / °</span><span><i class="probe21-legend-ergo"></i> Granica ergosfery (r=2r_g)</span></div>
+    </div>
+   </section>
+   <aside class="probe21-command">
+    <div class="probe21-section-title">01 / SCENARIUSZ MISJI</div>
+    <label class="probe21-field" for="probe21Preset">Wybierz doświadczenie
+      <select id="probe21Preset">
+       <option value="ergo">Paradoks ergosfery — lot wbrew obrotowi</option>
+       <option value="infall">Zbliżenie od zewnątrz — wleczenie</option>
+       <option value="orbit">Stabilna orbita zgodna z obrotem</option>
+       <option value="reverse">Odwrócony spin — porównaj trajektorie</option>
+       <option value="custom">Własne warunki startowe</option>
+      </select>
+    </label>
+    <div id="probe21Scenario" class="probe21-scenario">Sonda rusza przeciwko rotacji, ale jej azymut może zmieniać się w kierunku spinu czarnej dziury.</div>
+    <div class="probe21-section-title">02 / USTAW WARUNKI STARTOWE</div>
+    <label class="probe21-range-head" for="probe21Spin">Spin Kerra a* <b id="probe21SpinText">+0,92</b></label>
+    <input id="probe21Spin" type="range" min="-98" max="98" step="1" value="92">
+    <div class="probe21-range-caption"><span>−0,98</span><span>0</span><span>+0,98</span></div>
+    <label class="probe21-range-head" for="probe21StartR">Odległość startowa <b id="probe21StartRText">1,80 r_g</b></label>
+    <input id="probe21StartR" type="range" min="155" max="2000" step="5" value="180">
+    <div class="probe21-range-caption"><span id="probe21HorizonInfo">Poza horyzontem</span><span>20 r_g</span></div>
+    <label class="probe21-range-head" for="probe21Radial">Prędkość radialna (ZAMO) <b id="probe21RadialText">−0,12 c</b></label>
+    <input id="probe21Radial" type="range" min="-85" max="35" step="1" value="-12">
+    <div class="probe21-range-caption"><span>−c: ku czarnej dziurze</span><span>+c: od czarnej dziury</span></div>
+    <label class="probe21-range-head" for="probe21Tangential">Prędkość azymutalna (ZAMO) <b id="probe21TangentialText">−0,70 c</b></label>
+    <input id="probe21Tangential" type="range" min="-90" max="90" step="1" value="-70">
+    <div class="probe21-range-caption"><span>−φ</span><span>+φ</span></div>
+    <div class="probe21-section-title">03 / STEROWANIE PRZELOTEM</div>
+    <div class="probe21-actions">
+     <button id="probe21Play" type="button" class="probe21-go">▶ ROZPOCZNIJ MISJĘ</button>
+     <button id="probe21Reset" type="button" class="probe21-reset">↺ Nowy start</button>
+    </div>
+    <label class="probe21-range-head" for="probe21Progress">Pozycja na geodezyjnej <b id="probe21ProgressLabel">0%</b></label>
+    <input id="probe21Progress" type="range" min="0" max="1000" step="1" value="0">
+    <label class="probe21-field" for="probe21Tempo">Tempo odtwarzania (nie fizyczna prędkość)
+     <select id="probe21Tempo">
+      <option value="0.35">Spokojnie · 0,35 jednostki τ / s</option>
+      <option value="1" selected>Normalnie · 1 jednostka τ / s</option>
+      <option value="3">Szybko · 3 jednostki τ / s</option>
+      <option value="10">Błyskawicznie · 10 jednostek τ / s</option>
+     </select>
+    </label>
+    <label class="probe21-compare"><input type="checkbox" id="probe21Ghost" checked><span><b>Pokaż tor bez rotacji</b><small>Przerywana linia dla spinu a*=0, jeśli start jest poza horyzontem Schwarzschilda</small></span></label>
+    <div class="probe21-section-title">04 / DIAGNOSTYKA FIZYCZNA</div>
+    <div class="probe21-physics">
+     <div><small>HORYZONT KERRA</small><b id="probe21Horizon">—</b></div>
+     <div><small>GRANICA ERGOSFERY NA RÓWNIKU</small><b>2,000 r_g</b></div>
+     <div><small>ENERGIA ZACHOWANA / E</small><b id="probe21Energy">—</b></div>
+     <div><small>MOMENT PĘDU ZACHOWANY / Lz</small><b id="probe21Momentum">—</b></div>
+     <div><small>OBRÓT LOKALNEGO UKŁADU ZAMO / ω</small><b id="probe21Omega">—</b></div>
+     <div><small>RUCH SONDY W UKŁADZIE DALEKIM / dφ/dt</small><b id="probe21Angular">—</b></div>
+     <div><small>NUMERYCZNY BŁĄD WIĘZU RADIALNEGO</small><b id="probe21Constraint">—</b></div>
+    </div>
+    <label class="probe21-field" for="probe21Mass">Masa czarnej dziury (skala czasu)
+     <select id="probe21Mass">
+      <option value="sagittarius">Sagittarius A* · 4 mln M☉</option>
+      <option value="m87">M87* · 6,5 mld M☉</option>
+      <option value="stellar">Model gwiazdowy · 10 M☉</option>
+     </select>
+    </label>
+    <div id="probe21Status" class="probe21-status" role="status">Sonda gotowa do lotu. Sprawdź, dlaczego nie może stać nieruchomo w ergosferze.</div>
+    <p class="probe21-disclaimer">MODEL: swobodny ruch cząstki testowej w płaszczyźnie równikowej Kerra, bez silników i bez oddziaływania na masę czarnej dziury. Widok 3D to rzut współrzędnych Boyera–Lindquista, <b>nie dosłowny kształt zakrzywionej przestrzeni</b>. Tło i dysk są ilustracyjne. Symulacja kończy się tuż nad horyzontem, gdzie czas współrzędnościowy t staje się osobliwy. Nie symulujemy przejścia przez horyzont.</p>
+   </aside>
+  </div>
+ </div>
+</dialog>
 
 <dialog id="bh20Dialog" class="bh20-dialog" aria-labelledby="bh20Heading">
  <div class="bh20-shell">
@@ -1319,5 +1424,7 @@
 <script src="js/blackhole201-core.js"></script>
 <script src="js/blackhole201-renderer.js"></script>
 <script src="js/blackhole201-ui.js"></script>
+<script src="js/probe21-core.js"></script>
+<script src="js/probe21-ui.js"></script>
 </body>
 </html>

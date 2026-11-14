@@ -48,8 +48,8 @@ const noiseOnly=C.generate({scenario:'null',seed:240914});
 assert.ok(noiseOnly.cleanL1.every(x=>x===0));
 assert.ok(noiseOnly.cleanH1.every(x=>x===0));
 for(let i of [0,20,500,1200,3400,6143]){
- assert.equal(noiseOnly.l1[i],data.l1[i]-data.cleanL1[i]);
- assert.equal(noiseOnly.h1[i],data.h1[i]-data.cleanH1[i]);
+ close(noiseOnly.l1[i],data.l1[i]-data.cleanL1[i],1e-10);
+ close(noiseOnly.h1[i],data.h1[i]-data.cleanH1[i],1e-10);
 }
 console.log('OK: reproducible independently sampled noise, time delay and hidden additive GW signal.');
 

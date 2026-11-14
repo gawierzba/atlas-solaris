@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — testy astronomii i czarnych dziur 17–20
+name: ATLAS SOLARIS — testy astronomii i czarnych dziur 17–20.1
 on:
   pull_request:
     branches: [main]
@@ -15,7 +15,7 @@ on:
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
-      - 'css/blackhole20.css'
+      - 'css/blackhole20*.css'
       - 'index.html'
       - '.github/workflows/eclipse-tests.yml'
   push:
@@ -68,6 +68,9 @@ jobs:
           node --check js/blackhole20-core.js
           node --check js/blackhole20-renderer.js
           node --check js/blackhole20-ui.js
+          node --check js/blackhole201-core.js
+          node --check js/blackhole201-renderer.js
+          node --check js/blackhole201-ui.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -86,3 +89,7 @@ jobs:
         run: node tests/blackhole20.test.cjs
       - name: Test shaderów WebGL2 w przeglądarce (jeżeli dostępna)
         run: node tests/blackhole20-browser.test.cjs
+      - name: Test metryki Kerra i wleczenia czasoprzestrzeni 20.1
+        run: node tests/blackhole201.test.cjs
+      - name: Test GPU: obrazy obracającej się czarnej dziury Kerra
+        run: node tests/blackhole201-browser.test.cjs

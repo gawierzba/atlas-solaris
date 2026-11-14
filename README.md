@@ -1,6 +1,40 @@
-# ATLAS SOLARIS 20.0 — Na granicy czarnej dziury
+# ATLAS SOLARIS 20.1 — Wirująca czasoprzestrzeń Kerra
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **20.0** dodaje laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 20.1 — Obracająca się czarna dziura Kerra
+
+**Uruchomienie:** na stronie wybierz **CZARNA DZIURA 20.1**. Poprzednie laboratorium 20.0 stało się jednym z dwóch trybów — przy \`a*=0\` obrazy i obliczenia generuje dotychczasowy silnik Schwarzschilda, a przy \`a*≠0\` obraz jest liczony nowym rendererem Kerra, nie poziomym przesunięciem starego pierścienia. Ustaw domyślny spin \`+0.85\`, przełącz go na \`−0.90\` i zwróć uwagę na zmianę asymetrii oraz zakrzywienie trajektorii fotonów.
+
+**Nowe funkcje:**
+- Suwak spinu \`a* = Jc/(GM²)\` od **−0,98 do +0,98**, szybkie nastawy 0 / +0,50 / +0,90 / −0,90. W tym modelu znak oznacza kierunek spinu wobec ustalonej osi \`+φ\` i ruchu dysku. Zakres ograniczono przed wartością ekstremalną 1, aby uniknąć niestabilnego numerycznego całkowania dokładnie na osobliwych granicach współrzędnych.
+- **Ray tracing w WebGL2 z metryką Kerra:** na podstawie lokalnego kierunku fotonu względem obserwatora ZAMO wyznaczane są całki geodezyjne \`E\`, \`Lz\` i stała Cartera \`Q\`. Równania w czasie Mino są numerycznie całkowane metodą Rungego–Kutty czwartego rzędu dla \`u=1/r\`, \`θ\` i \`φ\`. Promienie są klasyfikowane jako pochłonięte przez horyzont, trafiające w model dysku lub uciekające ku tłu.
+- **Horyzont Kerra i ergosfera:** promień zewnętrznego horyzontu \`r₊=1+√(1−a*²)\` i granica statyczności \`r_E(θ)=1+√(1−a*² cos²θ)\`, w jednostkach \`r_g=GM/c²\`; horyzont nie pokrywa się z powierzchnią granicy statyczności poza biegunami. Przy spinie zerowym oba promienie wynoszą 2 \`r_g\`.
+- **ISCO zgodna/przeciwna:** wyznaczenie najbliższych stabilnych orbit kołowych \`+φ\` i \`−φ\` wzorem Bardeena–Pressa–Teukolsky'ego. Dla \`a*=0\` obie leżą przy \`r=6 r_g\`; dla \`a*=+0.85\` wartości to około **2,632 \`r_g\`** i **8,575 \`r_g\`**.
+- **Wleczenie czasoprzestrzeni:** lokalna prędkość kątowa obserwatorów o zerowym momencie pędu (ZAMO), \`ω=2ar/A\`, i okres obrotu takiego układu względem odległego obserwatora (w czasie \`t\` Boyera–Lindquista), z fizyczną masą wybranej czarnej dziury.
+- **Wykres asymetrycznych torów fotonów** w rzucie na płaszczyznę równikową. W tym samym układzie odniesienia promienie biegnące po dwóch stronach czarnej dziury mogą mieć różne losy. Kliknięcie obrazu wyznacza parametry Cartera \`λ=Lz/E\`, \`η=Q/E²\` i pokazuje obliczoną trajektorię.
+- **Przekrój ergosfery i porównanie orbit** — diagram ma znaczenie współrzędnościowe, nie przedstawia odległości własnych. Spin 0 automatycznie przełącza na sprawdzony shader Schwarzschilda.
+- **Bieg zegara ZAMO:** przy spinie niezerowym porównanie tempa zegara układu lokalnie nierotującego (który jest wleczony przez geometrię) z dalekim zegarem: \`dτ/dt = α = √(ΔΣ/A)\`. Nie jest to zegar nieruchomo zawieszonego obserwatora wewnątrz ergosfery — taki obserwator nie może istnieć.
+
+**Wzory i jednostki:** geometria Kerra ma \`Δ=r²−2r+a²\`, \`Σ=r²+a²cos²θ\`, \`A=(r²+a²)²−a²Δ sin²θ\`. Foton ma stałe \`E\`, \`Lz\`, \`Q\`. W czasie Mino \`γ\`, gdzie \`dγ ∝ dλ/Σ\`, rozdziela się ruch radialny i biegunowy; dla \`u=1/r\`, zmiennej \`ψ=bγ\`, \`b=√(λ²+η)\`, radialna część spełnia
+\[
+\frac{d²u}{dψ²}
+=\frac{\bigl[2(a²-aλ)-K\bigr]u+3Ku²+2\bigl[(a²-aλ)²-a²K\bigr]u³}{b²},
+\quad K=\eta+(\lambda-a)².
+\]
+Ruch \`θ\` i \`φ\` wynika z rozdzielonych równań Cartera. Renderowane promienie są obliczane numerycznie, a nie generowane przez ozdobną deformację obrazu.
+
+**Ważne ograniczenia:** to **naukowy model geometrii Kerra**, lecz nie obraz konkretnej rzeczywistej czarnej dziury zmierzony przez EHT. Dysk jest cienki, umowny, optycznie nieprzezroczysty i na stałe wiruje w kierunku \`+φ\`; promień jego wewnętrznej krawędzi przyjmuje ISCO tej orientacji. Barwy i struktura emisji są ilustracyjne; przesunięcie fotometryczne ma uproszczony lokalny czynnik Dopplera i grawitacyjny, ale nie rozwiązuje hydrodynamiki magnetycznej, transportu promieniowania, polaryzacji ani obserwacji z różnych epok. Liczba iteracji shaderów jest skończona, szczególnie blisko niestabilnych orbit fotonowych. Widok tła gwiazd jest odniesieniem katalogowym J2000 z atlasu, nie rzeczywistą astrometrią okolic Sgr A* ani M87*. Obserwator to hipotetyczny ZAMO na ustalonym promieniu i kolatytudzie, nie statek na swobodnie spadającej trajektorii. Model dotyczy zewnętrznej geometrii; nie przedstawia fizyki wnętrza horyzontu.
+
+**Źródła fizyki:**
+- KerrGeoPy — rozdzielone równania geodezyjnych Kerra i czas Mino: https://kerrgeopy.readthedocs.io/en/stable/notebooks/Trajectory.html
+- D. Bardeen, W. H. Press, S. A. Teukolsky (1972), *Rotating Black Holes: Locally Nonrotating Frames, Energy Extraction, and Scalar Synchrotron Radiation*, Astrophysical Journal 178, 347–370.
+- Max Planck Institute for Gravitational Physics — wykłady o ergosferze i wleczeniu czasoprzestrzeni: https://imprs-gw-lectures.aei.mpg.de/2023-astrophysics-of-compact-objects/wp-content/uploads/sites/8/2023/05/lecture02.pdf
+- Dokumentacja obliczania ISCO: https://cpoli.github.io/physicskit/api/gallery/relativity/kerr/plot_ergosphere_and_penrose.html
+
+**Testy:** \`node tests/blackhole201.test.cjs\` (horyzont, ergosfera, ISCO, niezmienniki Cartera, asymetria torów, integracja UI), \`node tests/blackhole201-browser.test.cjs\` (rzeczywista kompilacja WebGL2, render obrazu dla przeciwnych znaków spinu), pełna regresja 17.0–20.0. Nowe pliki: \`js/blackhole201-core.js\`, \`js/blackhole201-renderer.js\`, \`js/blackhole201-ui.js\`, \`css/blackhole201.css\`, \`tests/blackhole201*.test.cjs\`.
+
+---
 
 ## Nowość 20.0 — Na granicy czarnej dziury
 

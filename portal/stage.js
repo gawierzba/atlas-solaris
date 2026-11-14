@@ -30,9 +30,32 @@ related.innerHTML=`<nav class="stage-related" aria-label="Powiązane doświadcze
 let settled=false;
 function ready(){if(settled)return;settled=true;error.hidden=true;loader.classList.add('is-loaded');setTimeout(()=>{loader.hidden=true},500)}
 function fail(message){if(settled)return;settled=true;loader.hidden=true;error.hidden=false;if(message)console.warn('[ATLAS portal]',message)}
-const stageSrc=item.src ? new URL(item.src,root).href : new URL('atlas.html?portal='+encodeURIComponent(item.mode),root).href;
-if(iframe && !iframe.getAttribute('src')) iframe.src=stageSrc;
-const timeout=setTimeout(()=>fail('Laboratorium nie zgłosiło gotowości'),23000);
+// Stage 32 articles can defer costly laboratory startup until the reader arrives.
+const lazyLab=iframe?.dataset.lazy==='true';
+const stageSrc=iframe?.dataset.src
+ ? new URL(iframe.dataset.src,location.href).href
+ : item.src ? new URL(item.src,root).href : new URL('atlas.html?portal='+encodeURIComponent(item.mode),root).href;
+let timeout=null,started=false;
+function startLab(){
+ if(started||!iframe)return;
+ started=true;
+ if(!iframe.getAttribute('src'))iframe.src=stageSrc;
+ timeout=setTimeout(()=>fail('Laboratorium nie zgłosiło gotowości'),23000);
+}
+if(lazyLab){
+ const launch=document.getElementById('stageLaunch');
+ launch?.addEventListener('click',startLab);
+ const target=document.getElementById('stageViewport');
+ if('IntersectionObserver' in window && target){
+  const observer=new IntersectionObserver(entries=>{
+   if(entries.some(e=>e.isIntersecting)){observer.disconnect();startLab()}
+  },{rootMargin:'120px 0px'});
+  observer.observe(target);
+ }else{
+  const onScroll=()=>{if(target?.getBoundingClientRect().top<innerHeight+120){window.removeEventListener('scroll',onScroll);startLab()}};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+ }
+}else startLab();
 window.addEventListener('message',event=>{
  if(event.source!==iframe.contentWindow)return;
  if(event.origin!==location.origin)return;
@@ -51,5 +74,9 @@ iframe.addEventListener('load',()=>{
  // In rare cases the browser loads a pre-cached document before it posts ready.
  setTimeout(()=>{if(!settled){try{iframe.contentWindow.postMessage({type:'atlas:portal:ping'},location.origin)}catch(_){}}},1500);
 });
-document.getElementById('stageReload').addEventListener('click',()=>{settled=false;error.hidden=true;loader.hidden=false;loader.classList.remove('is-loaded');iframe.src=stageSrc});
+document.getElementById('stageReload').addEventListener('click',()=>{
+ clearTimeout(timeout);settled=false;started=true;
+ error.hidden=true;loader.hidden=false;loader.classList.remove('is-loaded');
+ iframe.src=stageSrc;timeout=setTimeout(()=>fail('Laboratorium nie zgłosiło gotowości'),23000);
+});
 })();

@@ -29,7 +29,12 @@ function localVelocity(release,position){
  const metric=Kerr.metric(a,r,PI/2),st=[r,position.vr,position.phi,position.t];
  const [, ,phidot,tdot]=Probe.rates(release,st);
  const gamma=metric.lapse*tdot;
- const radial=(r/Math.sqrt(metric.delta))*position.vr/gamma;
+ // The integrated second-order radial velocity has a small RK4 truncation
+ // error near r+. Reimpose the exact conserved radial first integral when
+ // transforming into the observer tetrad to keep u·u=-1 and gamma consistent.
+ const R=Math.max(0,Probe.potential(release,r).R);
+ const radialProper=Math.sign(position.vr)*Math.sqrt(R)/(r*r);
+ const radial=(r/Math.sqrt(metric.delta))*radialProper/gamma;
  const azimuthal=Math.sqrt(metric.gpp)*(phidot-metric.omega*tdot)/gamma;
  const beta2=radial*radial+azimuthal*azimuthal;
  if(!(gamma>=1-1e-6)||beta2>=1+.0005||!Number.isFinite(beta2)){

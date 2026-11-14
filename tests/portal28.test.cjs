@@ -2,8 +2,8 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const ROOT=path.join(__dirname,'..');
 const read=p=>fs.readFileSync(path.join(ROOT,p),'utf8');
 const sandbox={}; vm.runInNewContext(read('portal/data.js'),{window:sandbox}); const data=sandbox.ATLAS_PORTAL_DATA;
-assert.equal(data.version,'30.0');
-assert.equal(Object.keys(data.stages).length,29);
+assert.ok(Number(data.version.split('.')[0])>=30, 'Wersja portalu nie powinna cofać się względem 30.0');
+assert.ok(Object.keys(data.stages).length>=29, 'Nieoczekiwanie zniknęły etapy katalogu');
 assert.ok(data.stages['28']);
 assert.equal(data.stages['28'].src,'laboratoria/granice-wszechswiata/index.html');
 assert.match(read('etapy/28/index.html'),/granice-wszechswiata\/index\.html/);

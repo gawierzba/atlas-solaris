@@ -159,7 +159,7 @@ function init(){
   $('merger23After').textContent=compact(m.mf)+' M☉';
   $('merger23Lost').textContent=compact(m.energySolar)+' M☉ c²';
   $('merger23EnergyBar').style.width=Math.max(2,(m.energySolar/m.total)*100)+'%';
-  $('merger23ChartUnits').textContent=m.observed?'GW150914: masy z LIGO · fala modelowa':'SCENARIUSZ MODELowy · nie rzeczywiste zdarzenie';
+  $('merger23ChartUnits').textContent=m.observed?'GW150914: masy z LIGO · fala modelowa':'SCENARIUSZ MODELOWY · nie rzeczywiste zdarzenie';
   $('merger23EnergyExplanation').textContent=m.observed?
    'Szacunkowa energia około 3 M☉c² odpowiada rzeczywistym parametrom źródła GW150914. Pokazana spirala i fala h₊ to uproszczony model kwadrupolowy, a finał to przybliżenie drgań połączonej czarnej dziury.':
    'Wartości masy końcowej i energii w tej konfiguracji są założeniami modelowymi. Nie są wynikami obserwacji.';
@@ -380,6 +380,9 @@ function init(){
   ctx.fillStyle='#e2fdff';ctx.beginPath();ctx.arc(markerX,sy(current.hp),3.5,0,TAU);ctx.fill();
   ctx.fillStyle='#9baece';ctx.font='11px system-ui';ctx.textAlign='left';
   ctx.fillText('h₊',8,mid+5);
+  ctx.font='10px system-ui';
+  ctx.fillText('+'+maxAmplitude.toExponential(1),left+6,top+12);
+  ctx.fillText('−'+maxAmplitude.toExponential(1),left+6,bottom-6);
   ctx.fillText('0',left,bottom+17);
   ctx.fillText('−'+sec(m.seconds),left,top+10);
   ctx.textAlign='center';ctx.fillText('CZAS / SEKUNDY ŹRÓDŁA',W*.5,H-8);

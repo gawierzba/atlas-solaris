@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 18.0 — żywe obserwatorium, plan nocy, celowanie teleskopem, mapa nieba, astronomia i zaćmienia.">
-  <title>ATLAS SOLARIS 18.0 — Żywe Obserwatorium Astronomiczne</title>
+  <meta name="description" content="ATLAS SOLARIS 18.1 — atlas gwiazdozbiorów J2000, 110 obiektów Messiera i planer najlepszych nocy obserwacji.">
+  <title>ATLAS SOLARIS 18.1 — Gwiazdozbiory i 110 obiektów Messiera</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -20,17 +20,18 @@
 <link rel="stylesheet" href="css/eclipse17-map.css">
 <link rel="stylesheet" href="css/eclipse17-motion.css">
 <link rel="stylesheet" href="css/observatory18.css">
+<link rel="stylesheet" href="css/observatory181.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 18.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 18.1</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 18.0</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Żywe Obserwatorium 18.0 · plan nocy</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 18.1</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -45,7 +46,7 @@
     <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V18.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V18.1</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -84,13 +85,13 @@
  </div>
 
  <dialog id="observatoryDialog" class="observatory-dialog" aria-label="Obserwatorium: mapa nieba i wschody Słońca">
-  <div class="obs-head"><div><div class="obs-eyebrow">ATLAS SOLARIS / MODUŁ ASTRONOMICZNY</div><h2>Żywe Obserwatorium <em>18.0</em></h2><p>Rzeczywista geometria horyzontu · dowolny moment symulacji · kliknij ciało niebieskie, aby spojrzeć w jego kierunku.</p></div><button id="closeObservatory" class="obs-close" title="Zamknij">✕</button></div>
+  <div class="obs-head"><div><div class="obs-eyebrow">ATLAS SOLARIS / MODUŁ ASTRONOMICZNY</div><h2>Żywe Obserwatorium <em>18.1</em></h2><p>Rzeczywista geometria horyzontu · dowolny moment symulacji · kliknij ciało niebieskie, aby spojrzeć w jego kierunku.</p></div><button id="closeObservatory" class="obs-close" title="Zamknij">✕</button></div>
   <div class="obs-settings"><label>CIAŁO OBSERWATORA<select id="obsWorld"><option value="earth">Ziemia</option><option value="moon">Księżyc</option><option value="mars">Mars</option><option value="mercury">Merkury</option><option value="venus">Wenus (chmury)</option></select></label>
   <label>SZEROKOŚĆ °<input id="obsLatitude" type="number" min="-90" max="90" step="0.01" value="54.35"></label><label>DŁUGOŚĆ E °<input id="obsLongitude" type="number" min="-180" max="180" step="0.01" value="18.65"></label>
   <div class="obs-time"><small>DATA SYMULACJI (UTC)</small><b id="obsDate">—</b></div></div>
 
-  <section id="obs18Board" class="obs18-board" aria-label="Żywe Obserwatorium 18.0">
-    <header class="obs18-header"><div><small>ATLAS SOLARIS 18.0 / PLANER NIEBA</small><h3>Twoja noc pod gwiazdami</h3><p>Rzeczywiste kierunki obiektów i zmierzch astronomiczny, bez pobierania prognozy pogody.</p></div>
+  <section id="obs18Board" class="obs18-board" aria-label="Żywe Obserwatorium 18.1">
+    <header class="obs18-header"><div><small>ATLAS SOLARIS 18.1 / PLANER NIEBA</small><h3>Twoja noc pod gwiazdami</h3><p>Rzeczywiste kierunki obiektów i zmierzch astronomiczny, bez pobierania prognozy pogody.</p></div>
       <div class="obs18-location"><label>LOKALIZACJA <select id="obs18Preset">
         <option value="manual">Współrzędne własne</option><option value="gdansk">Gdańsk</option>
         <option value="warszawa">Warszawa</option><option value="krakow">Kraków</option>
@@ -128,7 +129,22 @@
         <p id="obs18NightSummary" class="obs18-night-summary">Obliczanie warunków nocy…</p>
         <div class="obs18-list-head"><strong>Obiekty do obserwacji</strong><span>Sortowane według warunków w ciągu 24 h</span></div>
         <label class="obs18-search-label" for="obs18Search"><span>WYSZUKAJ OBIEKT</span><input id="obs18Search" type="search" autocomplete="off" placeholder="np. Jowisz, Saturn, Syriusz, Wega…"></label>
-        <div id="obs18Targets" class="obs18-targets" aria-live="polite">Wczytywanie katalogu…</div>
+        <div class="obs181-categories" role="group" aria-label="Filtry obiektów nieba">
+   <button type="button" data-obs181="all" class="active" aria-pressed="true">Wszystkie</button>
+   <button type="button" data-obs181="body" aria-pressed="false">Planety</button>
+   <button type="button" data-obs181="star" aria-pressed="false">Gwiazdy</button>
+   <button type="button" data-obs181="dso" aria-pressed="false">Messier 110</button>
+ </div>
+ <div id="obs18Targets" class="obs18-targets" aria-live="polite">Wczytywanie katalogu…</div>
+ <section class="obs181-catalog-card" aria-label="Informacje o wybranym obiekcie">
+  <div class="obs181-catalog-head"><small>ATLAS OBIEKTÓW GŁĘBOKIEGO NIEBA</small><strong id="obs181ObjectName">Wybierz obiekt</strong></div>
+  <div id="obs181ObjectData" class="obs181-data">Typ · rektascensja · deklinacja · jasność</div>
+  <div class="obs181-night-head"><strong>Najlepsza noc w ciągu 30 dni</strong><small>Wysokość celu, noc astronomiczna, położenie Księżyca</small></div>
+  <button type="button" id="obs181Scan">✦ Znajdź pięć najlepszych nocy</button>
+  <div id="obs181ScanStatus" role="status">Wybierz obiekt i uruchom analizę kolejnych 30 nocy.</div>
+  <div id="obs181Nights" class="obs181-night-list" aria-live="polite"></div>
+  <p class="obs181-method">Ranking orientacyjny: Słońce poniżej −18°, obiekt co najmniej 20° nad horyzontem, preferowane mniejsze oświetlenie Księżyca nad horyzontem. Bez pogody i łuny świetlnej. Obliczenia dla obserwatora na Ziemi.</p>
+ </section>
       </section>
       <section class="obs18-instrument">
         <div class="obs18-instrument-head"><div><small>OKULAR CYFROWY / RZUT GEOMETRYCZNY</small><strong id="obs18ScopeName">Wybierz obiekt</strong></div><label>POLE WIDZENIA <select id="obs18Fov">
@@ -146,7 +162,10 @@
   </section>
 
   <div class="obs-layout"><section class="obs-skycol"><div class="obs-section-title">MAPA NIEBA <small>RZUT ZENITALNY · N ↑ / E →</small></div>
-  <div class="star-options"><label><input id="obsStarsToggle" type="checkbox" checked> Gwiazdy katalogowe</label><label><input id="obsNamesToggle" type="checkbox" checked> Nazwy jasnych gwiazd</label><label><input id="obsTrianglesToggle" type="checkbox" checked> Trójkąty nieba</label></div>
+  <div class="star-options"><label><input id="obsStarsToggle" type="checkbox" checked> Gwiazdy katalogowe</label><label><input id="obsNamesToggle" type="checkbox" checked> Nazwy jasnych gwiazd</label><label><input id="obsTrianglesToggle" type="checkbox" checked> Trójkąty nieba</label>
+  <label><input id="obs181Figures" type="checkbox" checked> Figury gwiazdozbiorów</label>
+  <label><input id="obs181Names" type="checkbox" checked> Nazwy gwiazdozbiorów</label>
+  <label><input id="obs181MessierMap" type="checkbox" checked> Obiekty Messiera</label></div>
   <canvas id="skyMap" width="540" height="540" aria-label="Rysunek widocznego nieba z położeniami planet"></canvas>
   <div id="obsCompass" class="obs-compass">Horyzont: 0° · zenit: +90°. Pozycje pod horyzontem podano na liście obok.</div>
   <div class="obs-action-row"><button id="obsSurfaceGo" class="obs-main-action">◉ Przejdź na powierzchnię</button><button id="obsSunriseFind" class="obs-secondary-action">☀ Policz wschód / zachód</button></div>
@@ -1078,5 +1097,8 @@
 <script src="js/eclipse17-motion-ui.js"></script>
 <script src="js/observatory18-core.js"></script>
 <script src="js/observatory18-ui.js"></script>
+<script src="js/observatory181-catalog.js"></script>
+<script src="js/observatory181-core.js"></script>
+<script src="js/observatory181-ui.js"></script>
 </body>
 </html>

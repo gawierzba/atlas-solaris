@@ -48,7 +48,7 @@ function updateUI(){ const idx=nearestIndex(state.log), item=M[idx], p=phaseFor(
  els.stats.innerHTML=stats.map(([label,val,note])=>`<div class="u28-stat"><strong>${val}</strong><span>${label}</span><small>${note}</small></div>`).join('');
  document.querySelectorAll('.u28-chip').forEach((b,i)=>b.classList.toggle('active', i===idx || b.dataset.idx==idx));
  }
-function resize(){ const rect=canvas.getBoundingClientRect(); DPR=Math.min(2,devicePixelRatio||1); canvas.width=Math.round(rect.width*DPR); canvas.height=Math.round(rect.height*DPR); ctx.setTransform(DPR,0,0,DPR,0,0); }
+function resize(){ const rect=canvas.getBoundingClientRect(); DPR=Math.min(rect.width<700?1.25:1.5,devicePixelRatio||1); canvas.width=Math.round(rect.width*DPR); canvas.height=Math.round(rect.height*DPR); ctx.setTransform(DPR,0,0,DPR,0,0); }
 function logX(log,w,pad){ return pad + (log-minLog)/(maxLog-minLog)*(w-pad*2); }
 function drawBackground(w,h,t){ const grad=ctx.createLinearGradient(0,0,0,h); grad.addColorStop(0,'#07111f'); grad.addColorStop(.6,'#091322'); grad.addColorStop(1,'#0a1526'); ctx.fillStyle=grad; ctx.fillRect(0,0,w,h); for(const s of stars){ ctx.globalAlpha=s.a; ctx.fillStyle='#d9efff'; ctx.beginPath(); const tw=(reduced?0:Math.sin(t*.0005+s.x*8+s.y*5)*.5); ctx.arc(s.x*w,s.y*h,s.r+tw*.35,0,7); ctx.fill(); } ctx.globalAlpha=1; }
 function drawScale(w,h){ const pad=52, lineY=h*.72; ctx.lineWidth=2; ctx.strokeStyle='rgba(134,185,219,.22)'; ctx.beginPath(); ctx.moveTo(pad,lineY); ctx.lineTo(w-pad,lineY); ctx.stroke();
@@ -76,17 +76,35 @@ function drawScene(w,h,t){ const idx=nearestIndex(state.log), item=M[idx]; const
  ctx.restore();
  }
 function draw(t){ const w=canvas.width/DPR,h=canvas.height/DPR; drawBackground(w,h,t); drawScene(w,h,t); drawScale(w,h); }
-function loop(ts){ if(state.playing){ if(!state.last) state.last=ts; const dt=(ts-state.last)/1000; state.last=ts; state.log += dt*(reduced?0.45:0.45); if(state.log>=maxLog){ state.log=maxLog; state.playing=false; els.play.textContent='▶ Autopilot'; els.play.classList.remove('is-playing'); } els.range.value=state.log.toFixed(3); updateUI(); }
- draw(ts); requestAnimationFrame(loop); }
+// Draw only on interaction or on an active autopilot frame. The default
+// static lab does not need a perpetual 60 fps canvas animation.
+let loopHandle=0,lastDrawTs=0;
+function scheduleLoop(){ if(state.playing&&!loopHandle)loopHandle=requestAnimationFrame(loop); }
+function loop(ts){
+ loopHandle=0;if(!state.playing)return;
+ if(!state.last)state.last=ts;
+ const dt=Math.min(.15,Math.max(0,(ts-state.last)/1000));state.last=ts;
+ state.log+=dt*.45;
+ if(state.log>=maxLog){
+  state.log=maxLog;state.playing=false;
+  els.play.textContent='▶ Autopilot';
+  els.play.classList.remove('is-playing');
+ }
+ els.range.value=state.log.toFixed(3);
+ if(!state.playing||ts-lastDrawTs>=(reduced?100:50)){
+  lastDrawTs=ts;updateUI();draw(ts);
+ }
+ if(state.playing)scheduleLoop();
+}
 function makeJumps(){ els.jumps.innerHTML=M.map((m,i)=>`<button type="button" class="u28-chip" data-idx="${i}">${m.jump}</button>`).join(''); els.jumps.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>jumpTo(Number(b.dataset.idx)))); }
 function post(type,extra={}){ try{ parent!==window && parent.postMessage({type,...extra},'*'); }catch(_){ } }
 function init(){ resize(); makeJumps();
  els.range.min=minLog.toFixed(3); els.range.max=maxLog.toFixed(3);
  els.range.addEventListener('input',e=>{ state.log=Number(e.target.value); state.target=state.log; state.playing=false; els.play.textContent='▶ Autopilot'; els.play.classList.remove('is-playing'); updateUI(); draw(performance.now()); });
- els.play.addEventListener('click',()=>{ state.playing=!state.playing; state.last=0; els.play.textContent=state.playing?'❚❚ Zatrzymaj':'▶ Autopilot'; els.play.classList.toggle('is-playing',state.playing); });
+ els.play.addEventListener('click',()=>{ state.playing=!state.playing; state.last=0; els.play.textContent=state.playing?'❚❚ Zatrzymaj':'▶ Autopilot'; els.play.classList.toggle('is-playing',state.playing); scheduleLoop(); });
  els.prev.addEventListener('click',()=>jumpTo(nearestIndex(state.log)-1)); els.next.addEventListener('click',()=>jumpTo(nearestIndex(state.log)+1));
  window.addEventListener('resize',()=>{resize(); draw(performance.now());});
  window.addEventListener('message',ev=>{ const msg=ev.data||{}; if(msg.type==='atlas:portal:ping') post('atlas:portal:ready'); });
- jumpTo(0); requestAnimationFrame(loop); post('atlas:portal:ready'); }
+ jumpTo(0); post('atlas:portal:ready'); }
  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
 })();

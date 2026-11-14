@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — obserwatorium LIGO i astronomia 17–24
+name: ATLAS SOLARIS — testy astronomii i zodiaku 17–25.1
 on:
   pull_request:
     branches: [main]
@@ -11,6 +11,7 @@ on:
       - 'js/cockpit22*.js'
       - 'js/merger23*.js'
       - 'js/ligo24*.js'
+      - 'js/zodiac25*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
@@ -20,6 +21,7 @@ on:
       - 'tests/cockpit22*.cjs'
       - 'tests/merger23*.cjs'
       - 'tests/ligo24*.cjs'
+      - 'tests/zodiac25*.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
@@ -28,6 +30,7 @@ on:
       - 'css/cockpit22.css'
       - 'css/merger23.css'
       - 'css/ligo24.css'
+      - 'css/zodiac25*.css'
       - 'index.html'
       - '.github/workflows/eclipse-tests.yml'
   push:
@@ -41,6 +44,7 @@ on:
       - 'js/cockpit22*.js'
       - 'js/merger23*.js'
       - 'js/ligo24*.js'
+      - 'js/zodiac25*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
@@ -50,6 +54,7 @@ on:
       - 'tests/cockpit22*.cjs'
       - 'tests/merger23*.cjs'
       - 'tests/ligo24*.cjs'
+      - 'tests/zodiac25*.cjs'
       - '.github/workflows/eclipse-tests.yml'
   workflow_dispatch:
 
@@ -100,6 +105,11 @@ jobs:
           node --check js/merger23-ui.js
           node --check js/ligo24-core.js
           node --check js/ligo24-ui.js
+          node --check js/zodiac25-core.js
+          node --check js/zodiac25-ui.js
+          node --check js/zodiac251-bounds.js
+          node --check js/zodiac251-core.js
+          node --check js/zodiac251-ui.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -138,3 +148,7 @@ jobs:
         run: node tests/ligo24.test.cjs
       - name: Test Chromium widoku LIGO i dwudetektorowej detekcji 24.0
         run: node tests/ligo24-browser.test.cjs
+      - name: Test dwóch zodiaków 25.0
+        run: node tests/zodiac25.test.cjs
+      - name: Test prawdziwych granic IAU i paralaksy 25.1
+        run: node tests/zodiac251.test.cjs

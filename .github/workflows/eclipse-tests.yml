@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — testy astronomii i czarnych dziur 17–20.1
+name: ATLAS SOLARIS — astronomia i misja przez ergosferę 17–21
 on:
   pull_request:
     branches: [main]
@@ -7,15 +7,18 @@ on:
       - 'js/observatory18*.js'
       - 'js/interstellar19*.js'
       - 'js/blackhole20*.js'
+      - 'js/probe21*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
       - 'tests/interstellar19*.cjs'
       - 'tests/blackhole20*.cjs'
+      - 'tests/probe21*.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
       - 'css/blackhole20*.css'
+      - 'css/probe21.css'
       - 'index.html'
       - '.github/workflows/eclipse-tests.yml'
   push:
@@ -25,11 +28,13 @@ on:
       - 'js/observatory18*.js'
       - 'js/interstellar19*.js'
       - 'js/blackhole20*.js'
+      - 'js/probe21*.js'
       - 'js/app.js'
       - 'tests/eclipse*.cjs'
       - 'tests/observatory18*.cjs'
       - 'tests/interstellar19*.cjs'
       - 'tests/blackhole20*.cjs'
+      - 'tests/probe21*.cjs'
       - '.github/workflows/eclipse-tests.yml'
   workflow_dispatch:
 
@@ -71,6 +76,8 @@ jobs:
           node --check js/blackhole201-core.js
           node --check js/blackhole201-renderer.js
           node --check js/blackhole201-ui.js
+          node --check js/probe21-core.js
+          node --check js/probe21-ui.js
       - name: Test klasyfikacji zaćmień 17.0
         run: node tests/eclipse17.test.cjs
       - name: Test kalendarza zaćmień 17.1
@@ -93,3 +100,7 @@ jobs:
         run: node tests/blackhole201.test.cjs
       - name: Test GPU obrazów obracającej się czarnej dziury Kerra
         run: node tests/blackhole201-browser.test.cjs
+      - name: Test lotu sondy przez ergosferę 21.0
+        run: node tests/probe21.test.cjs
+      - name: Test przeglądarkowy misji przez ergosferę 21.0
+        run: node tests/probe21-browser.test.cjs

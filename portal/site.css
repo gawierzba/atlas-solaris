@@ -28,3 +28,9 @@
 .feature-card[data-art=lens] .feature-art{top:-22%;left:7%;width:86%;border:2px solid #aedffc9e;box-shadow:0 0 16px #a5e0ffb0,inset 0 0 40px #a38af755,0 0 70px #a885fa8e;background:radial-gradient(circle,#0b1429 0 9%,#a495e544 11%,#faf1ff22 17%,transparent 18%)}
 .feature-card[data-art=lens] .feature-art:before{inset:9%;border:11px solid #8caaff55;transform:none;filter:blur(6px);box-shadow:0 0 40px #a08fff99}
 .feature-card[data-art=lens] .feature-art:after{inset:21%;border:1px solid #98eff8aa;transform:none;box-shadow:0 0 30px #a1b4ff73}
+
+/* Kamień milowy 27.0 — odróżniony od symulacji bez zmiany chronologii */
+.stage-card--milestone{background:radial-gradient(ellipse 75% 65% at 94% 6%,#366f8278,transparent 71%),radial-gradient(ellipse at 8% 92%,#3c3a694d,transparent 76%),#0d2030;border-color:#5fabb299}
+.stage-card--milestone .stage-number{color:#b0f3f1}
+.stage-card--milestone .stage-category{color:#a9e8e0}
+.stage-card--milestone:hover{border-color:#9bedeb}

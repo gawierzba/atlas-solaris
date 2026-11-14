@@ -38,6 +38,26 @@ test('Cinematic renderer draws full-quality and lightweight scene without affect
   assert.deepEqual(geometryAfter,geometryBefore,'Graphics must not mutate scientific results');
  }finally{global.document=old}
 });
+test('Quality resolver visibly differentiates lightweight, auto-balanced and filmic scenes',()=>{
+ assert.equal(renderer.resolveQuality('eco',980),'eco');
+ assert.equal(renderer.resolveQuality('cinema',320),'cinema');
+ assert.equal(renderer.resolveQuality('auto',980),'balanced');
+ assert.equal(renderer.resolveQuality('auto',380),'eco');
+ const old=global.document;global.document={createElement:()=>fakeCanvas()};
+ try{
+  const state={alpha:38,zeta:43,rho:11,phase:.23,camYaw:-.72,camPitch:.34};
+  const stats={};
+  for(const mode of ['eco','balanced','cinema']){
+   const cv=fakeCanvas();
+   renderer.draw(cv.ctx,860,530,state,physics,mode);
+   stats[mode]={...cv.stats};
+  }
+  assert.ok(stats.cinema.shapes>stats.balanced.shapes*1.3,
+   'Full movie view must visibly add layers: '+JSON.stringify(stats));
+  assert.ok(stats.balanced.shapes>stats.eco.shapes,
+   'Balanced rendering must have more layers than the lightweight projection');
+ }finally{global.document=old}
+});
 test('Different line of sight and zero magnetic tilt are safe to render',()=>{
  const canvas=fakeCanvas();const old=global.document;
  global.document={createElement:()=>fakeCanvas()};

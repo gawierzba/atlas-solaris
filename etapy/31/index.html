@@ -1,20 +1,173 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050a15">
-<title>Soczewkowanie grawitacyjne | ATLAS SOLARIS 31.0</title>
-<meta name="description" content="Zakrzywienie światła, soczewka grawitacyjna, pierścienie Einsteina i obrazy odległych galaktyk. Etap 31 ATLAS SOLARIS.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="31" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 31 / Czarne dziury i relatywistyka</span><strong>Soczewkowanie grawitacyjne</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport">
-<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Równanie soczewki · promień Einsteina · zakrzywienie światła…</small></div>
-<iframe id="stageFrame" title="Soczewkowanie grawitacyjne — interaktywne laboratorium" src="../../laboratoria/soczewkowanie-grawitacyjne/index.html" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button> · <a href="../../laboratoria/soczewkowanie-grawitacyjne/index.html">Otwórz bezpośrednio</a></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 31</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
-<h1>Soczewkowanie grawitacyjne</h1><p class="stage-lead">Jak masa zakrzywia światło i tworzy pierścienie Einsteina</p>
-<p>Przesuwaj galaktykę za soczewką, zmieniaj masę i odległości. Porównuj obraz bez soczewki z obrazem wyliczonym z równania grawitacyjnego. Obserwuj pierścienie, podwójne obrazy i krzywą powiększenia źródła.</p>
-<p class="stage-info-note">Model jest naukowo wyprowadzony dla punktowej masy i cienkiej soczewki w uproszczonej geometrii euklidesowej. Nie symuluje rozkładu masy rzeczywistej galaktyki ani kosmologii rozszerzającego się Wszechświata.</p><div id="stageRelated"></div>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b1a">
+<title>Jedna galaktyka. Wiele obrazów. Soczewkowanie grawitacyjne | ATLAS SOLARIS 31</title>
+<meta name="description" content="Dlaczego ta sama galaktyka pojawia się na niebie kilka razy? Historia testu Einsteina, podwójnego kwazara i pierścieni grawitacyjnych. Zdjęcie Webba, źródła i własny eksperyment.">
+<meta property="og:title" content="Jedna galaktyka. Wiele obrazów. | ATLAS SOLARIS">
+<meta property="og:description" content="Detektywistyczna opowieść o soczewkowaniu grawitacyjnym i laboratorium Einsteina.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/lens31-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/lens31-story.css?v=31.1">
+<script src="../../portal/data.js" defer></script>
+<script src="../../portal/stage.js?v=32.5" defer></script>
+</head>
+<body data-route="31" data-kind="stage" class="l31-story-page">
+<a class="l31-skip" href="#zagadka">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 31 / RELATYWISTYKA</span><strong>Soczewkowanie grawitacyjne</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu">
+<a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a>
+<button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button>
+<a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a>
+</nav></header>
+<main class="stage-main l31-story-main">
+<article class="l31-article" aria-labelledby="l31Title">
+<section class="l31-hero">
+<img class="l31-cover" src="../../portal/media/lens31-cover.svg" width="1600" height="900" fetchpriority="high" alt="Artystyczna statyczna ilustracja: światło odległej galaktyki rozciągnięte w błękitne i fioletowe łuki wokół bliższej galaktyki.">
+<div class="l31-hero-dark"></div>
+<div class="l31-hero-content">
+<div class="l31-hero-top"><span class="l31-dot"></span> ATLAS SOLARIS <span aria-hidden="true">/</span> AKTA NIEZWYKŁEGO WSZECHŚWIATA <span aria-hidden="true">/</span> NR 31</div>
+<div class="l31-hero-copy">
+<span class="l31-eyebrow">ZAGADKA ASTRONOMICZNA · ETAP 31</span>
+<h1 id="l31Title">Jedna galaktyka.<br><em>Wiele obrazów.</em></h1>
+<p>Wyobraź sobie zdjęcie, na którym jeden odległy obiekt pojawia się w dwóch miejscach naraz. Albo układa się w świetlisty pierścień. To nie błąd aparatu. To grawitacja, która zmienia drogę światła.</p>
+<div class="l31-hero-actions">
+<a class="l31-main-action" href="#zagadka">Rozwiąż zagadkę <span>↓</span></a>
+<a class="l31-ghost-action" href="#laboratorium" id="stageLaunch">Przejdź do laboratorium <span>↗</span></a>
+</div>
+</div>
+<div class="l31-hero-caption"><span>ILUSTRACJA ARTYSTYCZNA · NIE OBSERWACJA TELESKOPOWA</span><span>GRAWITACJA / ŚWIATŁO / CZASOPRZESTRZEŃ</span></div>
+</div></section>
+<div class="l31-strip"><span>OBRAZ 01 / CO WIDZIMY</span><span>OBRAZ 02 / CO ISTNIEJE NAPRAWDĘ</span><span>JAK ODRÓŻNIĆ JEDNO OD DRUGIEGO?</span></div>
+
+<section class="l31-case" id="zagadka">
+<div class="l31-label">AKTA 01 <i></i> FOTOGRAFIA, KTÓRA KŁAMIE</div>
+<div class="l31-reading">
+<p class="l31-kicker">NAJPIERW PRZYJRZYJ SIĘ DOWODOWI</p>
+<h2>Czy na tym zdjęciu są <em>dwie galaktyki?</em></h2>
+<p class="l31-intro">W centrum widać jasną galaktykę. Wokół niej — niemal idealny świetlisty okrąg, w którym można rozpoznać rozciągnięte struktury innego obiektu. Wygląda tak, jakby kosmos nie potrafił zdecydować, gdzie powinien umieścić ten drugi świat.</p>
+<p>27 marca 2025 roku ESA opublikowała obraz wykonany przez Kosmiczny Teleskop Jamesa Webba. To układ, w którym <strong>galaktyka bliższa nam leży niemal dokładnie na linii widzenia do galaktyki dalszej</strong>. Światło tej drugiej dociera do teleskopu różnymi drogami, odchylonymi przez grawitację pierwszej. To, co widzimy jako łuki, należy do jednego odległego źródła. <a href="#zrodla" class="l31-cite">[1]</a></p>
+<figure class="l31-photo">
+<div class="l31-photo-display">
+<img src="https://cdn.esawebb.org/archives/images/screen/potm2503a.jpg" loading="lazy" decoding="async" width="1000" height="1000" alt="Prawdziwe zdjęcie układu soczewkowania: jasna galaktyka na pierwszym planie otoczona błękitnymi i czerwonawymi łukami dalekiej galaktyki, obraz z obserwacji Webba i Hubble’a." referrerpolicy="no-referrer">
+<span class="l31-photo-tag">DOWÓD OBSERWACYJNY / 2025</span>
+</div>
+<figcaption>
+<span class="l31-photo-overline">PRAWDZIWE DANE Z TELESKOPÓW</span>
+<h3>Jedno zdjęcie. Dwa różne dystanse.</h3>
+<p>Jasny obiekt w centrum to bliższa galaktyka — soczewka. Okrągłe łuki pokazują rozciągnięty obraz galaktyki leżącej dalej. Obraz łączy obserwacje w świetle widzialnym i podczerwieni; kolory są opracowanym przedstawieniem danych.</p>
+<small>ESA/Webb, NASA &amp; CSA, G. Mahler; M. A. McDonald. Obraz: <a href="https://esawebb.org/images/potm2503a/" target="_blank" rel="noopener noreferrer">ESA/Webb — „Spying a spiral through a cosmic lens”</a>.</small>
+</figcaption>
+</figure>
+<p>Soczewka nie jest zrobiona ze szkła. Nie trzeba także czarnej dziury. Wystarczy odpowiednio duże skupisko masy: gwiazda, galaktyka lub gromada galaktyk. To ona zmienia geometrię czasoprzestrzeni i w rezultacie trajektorie światła.</p>
+</div></section>
+
+<section class="l31-time" id="historia">
+<div class="l31-time-title"><span>AKTA 02 / SPRAWA MA PONAD STO LAT</span><h2>Najpierw zakrzywiły się <em>pozycje gwiazd.</em></h2><p>Historia zaczęła się znacznie wcześniej, niż powstały kosmiczne teleskopy.</p></div>
+<div class="l31-time-grid">
+<div class="l31-time-item"><strong>1915</strong><h3>Einstein przewiduje</h3><p>Ogólna teoria względności opisuje grawitację jako geometrię czasoprzestrzeni. Światło biegnie po drogach wyznaczonych przez tę geometrię.</p></div>
+<div class="l31-time-item"><strong>1919</strong><h3>Zaćmienie staje się eksperymentem</h3><p>29 maja astronomowie mierzą położenia gwiazd blisko tarczy Słońca podczas całkowitego zaćmienia. Wyniki ekspedycji do Sobral i na Wyspę Książęcą wspierają przewidywania Einsteina; późniejsze pomiary doprecyzowują ten test. <a href="#zrodla" class="l31-cite">[2]</a></p></div>
+<div class="l31-time-item"><strong>1979</strong><h3>Kwazar ma sobowtóra</h3><p>Odkryto dwa bardzo podobne obrazy kwazara QSO 0957+561. Nie były to dwa niezależne kwazary: grawitacyjna soczewka pokazała jeden obiekt dwa razy. <a href="#zrodla" class="l31-cite">[3]</a></p></div>
+<div class="l31-time-item"><strong>2025</strong><h3>Pełny pierścień Webba</h3><p>Dokładna geometria układu galaktyk na obrazie ESA/Webb pozwoliła zobaczyć spektakularny pierścień Einsteina i strukturę galaktyki tła. <a href="#zrodla" class="l31-cite">[1]</a></p></div>
+</div>
+</section>
+
+<section class="l31-case l31-case-theory" id="fizyka">
+<div class="l31-label">AKTA 03 <i></i> GDZIE PODZIAŁO SIĘ ŚWIATŁO?</div>
+<div class="l31-reading">
+<p class="l31-kicker">ROZWIĄZANIE BEZ SZTUCIKÓW</p>
+<h2>To nie galaktyka się wygina. <em>Wygina się jej obraz.</em></h2>
+<p>Gdy światło dalekiego obiektu przechodzi obok dużej masy, jego droga zmienia kierunek. Do obserwatora mogą dotrzeć promienie biegnące po różnych stronach soczewki. Teleskop interpretuje ich kierunki jako różne pozorne położenia <strong>tego samego źródła</strong>.</p>
+<div class="l31-geometry" role="img" aria-label="Schemat: odległe źródło, pośrodku galaktyka-soczewka i obserwator. Dwie drogi promieniowania omijają soczewkę i zbiegają się u obserwatora.">
+<div class="l31-geometry-head"><span>ŹRÓDŁO</span><span>MASA / SOCZEWKA</span><span>OBSERWATOR</span></div>
+<svg viewBox="0 0 760 270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+<defs><radialGradient id="lensF"><stop stop-color="#deeaff"/><stop offset=".21" stop-color="#a4a0db"/><stop offset="1" stop-color="#3d487b" stop-opacity=".12"/></radialGradient></defs>
+<path d="M80 135 Q340 -80 680 135" fill="none" stroke="#9be4ef" stroke-width="3.5"/>
+<path d="M80 135 Q340 350 680 135" fill="none" stroke="#c5a5fc" stroke-width="3.5"/>
+<path d="M80 135H680" fill="none" stroke="#99a4bc" stroke-width="1" stroke-dasharray="4 8" opacity=".4"/>
+<circle cx="80" cy="135" r="11" fill="#eef7fc"/><circle cx="340" cy="135" r="58" fill="url(#lensF)"/>
+<circle cx="340" cy="135" r="58" fill="none" stroke="#9b9acc" stroke-opacity=".2"/>
+<circle cx="680" cy="135" r="14" fill="#d3e7ff" opacity=".85"/>
+<circle cx="680" cy="135" r="4" fill="#11162c"/>
+<path d="M666 135l-14 -9m14 9 -14 9" fill="none" stroke="#11162c" stroke-width="2"/>
+<circle cx="340" cy="50" r="3" fill="#d4eaff"/><circle cx="340" cy="220" r="3" fill="#d4eaff"/>
+</svg>
+<div class="l31-geometry-foot">DWA RÓŻNE TORY ŚWIATŁA <strong>→ JEDNO RZECZYWISTE ŹRÓDŁO</strong></div>
+</div>
+<p>Kiedy źródło, soczewka i obserwator układają się niemal w jednej linii, obrazy wydłużają się w łuki. Przy idealnej osiowej symetrii pojawia się <strong>pierścień Einsteina</strong>. Jeśli przesuniemy źródło, pierścień może rozdzielić się na dwa obrazy albo zakrzywione fragmenty. <a href="#zrodla" class="l31-cite">[4]</a></p>
+<blockquote class="l31-thought">Soczewkowanie nie przesuwa galaktyki w przestrzeni. <em>Zmienia drogę, którą jej światło dociera do naszych oczu.</em></blockquote>
+<h3>Jest w tym coś jeszcze bardziej niezwykłego</h3>
+<p>Gdy grawitacja zmienia bieg promieni, może również zwiększyć jasność obserwowanego źródła. Ogromne galaktyki bywają więc naturalnymi teleskopami, przez które badamy jeszcze odleglejszy Wszechświat. Ale taki kosmiczny obiektyw zniekształca obraz: jego powiększenie i deformacje zależą od rozkładu masy, geometrii oraz położenia obserwowanego obiektu.</p>
+<p>Sama nazwa „soczewka” jest użytecznym porównaniem. Szkło załamuje światło dzięki własnościom materiału, a soczewka grawitacyjna odchyla je w zakrzywionej czasoprzestrzeni.</p>
+</div></section>
+
+<section class="l31-interlude"><div><span>WAŻNE PYTANIE</span><h2>Skoro grawitacja potrafi<br>powielić obraz…</h2><p>…czy z samych zniekształceń można odtworzyć masę obiektu, który je spowodował?</p></div><span class="l31-interlude-mark" aria-hidden="true">◎</span></section>
+
+<section class="l31-case" id="ciemna-materia">
+<div class="l31-label">AKTA 04 <i></i> TO, CZEGO NIE WIDAĆ</div>
+<div class="l31-reading">
+<p class="l31-kicker">SOCZEWKA JAKO WAGA KOSMICZNA</p>
+<h2>Światło opowiada również o <em>niewidzialnej materii.</em></h2>
+<p>Soczewkowanie zależy od całkowitego wpływu grawitacyjnego materii — nie tylko tej, która świeci. Analizując kształty łuków i położenia wielu obrazów, astronomowie mogą szacować, jak rozłożona jest masa w galaktyce lub gromadzie. Także ta przypisywana <strong>ciemnej materii</strong>. Nie oznacza to, że sam pojedynczy łuk daje jednoznaczną mapę całej masy; potrzebne są modele i dodatkowe obserwacje. <a href="#zrodla" class="l31-cite">[5]</a></p>
+<div class="l31-evidence">
+<div><span>TO WIDZIMY</span><strong>Świetlne łuki</strong><p>Obrazy, których położenia i kształty zmieniła grawitacja.</p></div>
+<div><span>Z TEGO WNIOSKUJEMY</span><strong>Rozkład masy</strong><p>Również składnik niewidoczny bezpośrednio w obrazach optycznych.</p></div>
+</div>
+<p>To dlatego soczewkowanie grawitacyjne jest czymś więcej niż efektowną ciekawostką. Zjawisko pozwala testować modele grawitacji, wykrywać rozkład masy i zaglądać do bardzo odległych galaktyk. Nawet niepozorne wygięcie kształtu na zdjęciu teleskopowym potrafi stać się informacją naukową.</p>
+</div></section>
+<section class="l31-lab-intro" aria-labelledby="l31LabTitle">
+<div class="l31-label">AKTA 05 <i></i> SPRAWDŹ HIPOTEZĘ</div>
+<div class="l31-reading">
+<p class="l31-kicker">TY JESTEŚ TERAZ ASTRONOMEM</p>
+<h2 id="l31LabTitle">Przesuń galaktykę. <em>Zmień obraz nieba.</em></h2>
+<p>Nasze laboratorium zaczyna się od sytuacji, w której obiekt tła jest idealnie ustawiony za soczewką. Masz do dyspozycji masę, odległości i położenie źródła. Sprawdź trzy scenariusze:</p>
+<div class="l31-task-list">
+<div><span>01 / PIERŚCIEŃ</span><h3>Ustaw wszystko w jednej linii</h3><p>Wybierz „Pierścień Einsteina”. Sprawdź, co wyznacza jego rozmiar. Zwiększ masę soczewki — co dzieje się z promieniem?</p></div>
+<div><span>02 / SOBOWTÓR</span><h3>Zburz idealną symetrię</h3><p>Wybierz „Dwa obrazy i łuki”. Przesuwaj pozycję X oraz Y. Obserwuj, jak zmieniają się dwa obrazy jednego źródła.</p></div>
+<div><span>03 / ZBLIŻENIE</span><h3>Prześledź powiększenie</h3><p>Uruchom „Przelot źródła”. Porównaj zmiany obrazu i krzywej powiększenia. Czy maksimum przypada blisko osi soczewki?</p></div>
+</div>
+<p class="l31-model-warning"><strong>Uczciwe ograniczenie:</strong> w etapie 31 używamy cienkiej soczewki punktowej i umownie euklidesowych odległości. Rzeczywista galaktyka ma rozłożoną masę, a w kosmologii odległości kątowe nie sprowadzają się zwykle do prostego odejmowania Dₛ − Dₗ. Symulator pokazuje zasadę, nie rekonstruuje konkretnego zdjęcia z Webba.</p>
+</div>
+</section>
+</article>
+
+<section class="l31-lab-block" id="laboratorium" aria-label="Interaktywne laboratorium soczewkowania grawitacyjnego">
+<div class="l31-lab-head"><div><span>ATLAS SOLARIS / PRACOWNIA NR 31</span><h2>Nie patrz tylko na obraz.<br><em>Zmień jego przyczynę.</em></h2><p>Przesuń źródło za soczewką, reguluj masę i odkryj, kiedy pojawia się pierścień Einsteina. To uproszczony eksperyment fizyczny, nie ciężki silnik graficzny.</p></div><small>LABORATORIUM ŁADOWANE DOPIERO TUTAJ</small></div>
+<div id="stageViewport" class="stage-viewport">
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY EKSPERYMENT</strong><small>Równanie soczewki · promień Einsteina · dwa obrazy</small></div>
+<iframe id="stageFrame" title="Soczewkowanie grawitacyjne — interaktywne laboratorium" data-lazy="true" data-src="../../laboratoria/soczewkowanie-grawitacyjne/index.html?v=31.1" allow="fullscreen" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button> · <a href="../../laboratoria/soczewkowanie-grawitacyjne/index.html">Otwórz bezpośrednio</a></div>
+<p class="l31-lab-footnote">Część artykułowa pozostaje statyczna. Symulacja uruchamia się dopiero po przejściu do eksperymentu. Wszystkie obrazy w laboratorium są generowane z uproszczonego równania soczewkowania.</p>
+</section>
+
+<section class="l31-sources" id="zrodla">
+<div class="l31-label">BIBLIOGRAFIA <i></i> NAUKA ZAMIAST DOMYSŁÓW</div>
+<div class="l31-reading">
+<h2>Sprawdź źródła.</h2>
+<p>Historia, mechanizm i prawdziwy obraz teleskopowy mają swoje źródła. Ilustracja na początku jest artystyczną interpretacją, a fotografia Webba — obrazem opracowanym z obserwacji naukowych.</p>
+<ol>
+<li><a href="https://esawebb.org/images/potm2503a/" target="_blank" rel="noopener noreferrer">ESA/Webb — Spying a spiral through a cosmic lens (27.03.2025)</a><span>Obraz, mechanizm pierścienia, opis bliższej i dalszej galaktyki.</span></li>
+<li><a href="https://www.esa.int/Science_Exploration/Space_Science/Relativity_and_the_1919_eclipse" target="_blank" rel="noopener noreferrer">ESA — Relativity and the 1919 eclipse</a><span>Historyczny test odchylenia światła podczas zaćmienia 29 maja 1919 roku.</span></li>
+<li><a href="https://science.nasa.gov/missions/hubble/hubble-hubble-seeing-double/" target="_blank" rel="noopener noreferrer">NASA/Hubble — Hubble, Hubble, Seeing Double!</a><span>Podwójny kwazar QSO 0957+561 i odkrycie pierwszej soczewki grawitacyjnej.</span></li>
+<li><a href="https://www.esa.int/media/einstein-ring-explained" target="_blank" rel="noopener noreferrer">ESA — Einstein ring explained</a><span>Geometria soczewkowania, pierścień i rola ustawienia obserwatora.</span></li>
+<li><a href="https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-gravitational-lenses/" target="_blank" rel="noopener noreferrer">NASA Science — Hubble Gravitational Lenses</a><span>Soczewkowanie, ciemna materia, wczesna historia i znaczenie naukowe.</span></li>
+</ol>
+<p class="l31-sources-note">Artykuł popularnonaukowy ATLAS SOLARIS. Schemat trajektorii jest ideowy; rzeczywiste promienie światła poruszają się po geodezyjnych w zakrzywionej czasoprzestrzeni. Zdjęcie z ESA/Webb jest zewnętrznym zasobem ilustracyjnym, opatrzonym podpisem i autorstwem.</p>
+</div>
+</section>
+<div class="l31-end"><span>ATLAS SOLARIS / 31</span><span>TO, CO WIDZIMY, NIE ZAWSZE JEST TYM, CO ISTNIEJE.</span><a href="../../#etapy">Powrót do katalogu etapów ↑</a></div>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie">
+<div class="stage-info-head"><span>ATLAS SOLARIS / ETAP 31</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+<h2>Soczewkowanie grawitacyjne</h2>
+<p class="stage-lead">Artykuł o złudzeniach kosmosu i interaktywny eksperyment</p>
+<p>Odkryj, dlaczego grawitacja może podzielić światło odległej galaktyki na wiele obrazów, poznaj test Einsteina z 1919 roku i dowiedz się, jak astronomowie mierzą niewidzialną masę.</p>
+<p class="stage-info-note">Laboratorium pokazuje model cienkiej soczewki punktowej. Rzeczywista grawitacja galaktyk jest znacznie bardziej złożona.</p>
+<div id="stageRelated"></div>
 </aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript. <a href="../../laboratoria/soczewkowanie-grawitacyjne/index.html">Otwórz laboratorium bezpośrednio.</a></p></noscript>
+<noscript><p class="stage-nojs">Artykuł jest dostępny bez JavaScript. Do działania laboratorium potrzebny jest JavaScript.</p></noscript>
 </body></html>

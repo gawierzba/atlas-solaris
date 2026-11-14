@@ -42,12 +42,13 @@ function model(config={},options={}){
  const ringHz=omegaDimless/(2*Math.PI*TG*mf);
  const ringTau=quality/(Math.PI*ringHz);
  const ringDuration=ringTau*8;
+ const mergeOrbitalPhase=(rStart**2.5-rMerge**2.5)/(32*eta);
  const geomG=RG*total/(distance*MPC);
  const orient=+(options.inclination??35)*Math.PI/180;
  const plusAngle=(1+Math.cos(orient)**2)/2;
  const crossAngle=Math.cos(orient);
  return Object.freeze({m1,m2,mf,af,total,eta,tg,rStart,rMerge,
-  distance,fStart,fMerge,seconds,chirp,ringHz,ringTau,ringDuration,
+  distance,fStart,fMerge,seconds,chirp,ringHz,ringTau,ringDuration,mergeOrbitalPhase,
   energySolar:eLoss,energyJ:eJ,energyEJ:eJ/1e18,
   waveScale:4*eta*geomG,plusAngle,crossAngle,orient,
   observed:!!config.observed,title:config.title||'Dwie czarne dziury',
@@ -79,7 +80,7 @@ function positions(m,r,phase){
 function ringdown(m,t){
  // Phase continuity with inspiral at t=0; different approximated mode frequency.
  const v=Math.max(0,t),a0=m.waveScale/m.rMerge;
- const env=a0*Math.exp(-v/m.ringTau),angle=2*Math.PI*m.ringHz*v;
+ const env=a0*Math.exp(-v/m.ringTau),angle=2*m.mergeOrbitalPhase+2*Math.PI*m.ringHz*v;
  return {stage:'ringdown',r:0,phase:0,orbitalPhase:0,
   freq:m.ringHz,frequency:m.ringHz,amplitude:env,
   hp:env*m.plusAngle*Math.cos(angle),

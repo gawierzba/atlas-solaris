@@ -1,0 +1,44 @@
+name: ATLAS SOLARIS — artykul o zyciu gwiazd 29
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/29/**'
+      - 'portal/star29-story.css'
+      - 'portal/media/star29-cover.svg'
+      - 'portal/stage.js'
+      - 'tests/star29-story.test.cjs'
+      - 'tests/star29-story-browser.test.cjs'
+      - '.github/workflows/star29-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  biography:
+    name: Rzetelnosc, urzadzenia mobilne i test laboratorium
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test redakcyjny i obliczeniowy
+        run: |
+          node --check portal/stage.js
+          node --check portal/star29.js
+          node --test tests/star29-story.test.cjs
+      - name: Install browser for real visual testing
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Test article, three screens, deferred lab and sliders
+        run: node tests/star29-story-browser.test.cjs
+      - name: Record previews for visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-star29-article-preview
+          path: _star29_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

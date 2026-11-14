@@ -1,0 +1,34 @@
+/* ATLAS SOLARIS 20.1 / Kerr observatory */
+.bh201-spin-panel{border:1px solid #6683a8;border-radius:10px;background:linear-gradient(145deg,#192943,#172238);padding:13px;margin:12px 0 18px;box-shadow:inset 3px 0 0 #74d3d0}
+.bh201-spin-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bh201-spin-header small{font-size:9px;letter-spacing:.12em;color:#84ccd4;display:block;font-weight:700}
+#bh201SpinText{font-size:23px;color:#d4fbfa;font-weight:630;display:block;margin-top:4px;letter-spacing:-.03em}
+#bh201KerrBadge{font-size:9px;color:#b6fff0;border:1px solid #528b9c;background:#20495a;border-radius:20px;padding:5px 8px;font-weight:720}
+.bh201-spin-panel .bh20-range-head{align-items:center}
+#bh201SpinNote{font-size:9px;font-weight:500;color:#7da6bf;text-align:right;max-width:55%}
+#bh201Spin{accent-color:#8cf0db;width:100%;margin:12px 0;cursor:pointer}
+.bh201-spin-presets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.bh201-spin-presets button{background:#1c4056;color:#b6dfea;border:1px solid #4b6b83;border-radius:7px;padding:9px 4px;cursor:pointer;font:700 10px system-ui;min-width:0}
+.bh201-spin-presets button[aria-pressed="true"]{background:#206b70;color:#e1fff7;border-color:#8cedd7}
+.bh201-spin-presets button:hover{background:#2a596f}
+.bh201-spin-panel p{font-size:10px;color:#8aafc3;line-height:1.6;margin:12px 0 0}
+.bh201-diagnostics{margin-top:16px;border:1px solid #46677b;border-radius:10px;background:linear-gradient(145deg,#11253b,#12182c);padding:13px}
+.bh201-metric-heading{font-size:9px;letter-spacing:.11em;color:#8de4d7;font-weight:750;margin-bottom:11px}
+.bh201-pairs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.bh201-pairs>div{padding:9px 8px;border:1px solid #314d65;background:#102238;border-radius:7px;min-width:0}
+.bh201-pairs small{display:block;font-size:8px;color:#91b3cd;line-height:1.35}
+.bh201-pairs b{display:block;margin-top:5px;font-size:12px;color:#d1f4f5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
+.bh201-geometry-head{display:flex;justify-content:space-between;gap:8px;color:#91b9ce;font-size:8px;letter-spacing:.07em;margin:14px 0 7px}
+#bh201Geometry{width:100%;height:auto;display:block;aspect-ratio:640 / 280;border:1px solid #314f6b;background:#080f20;border-radius:8px}
+#bh201ScienceNote{color:#9fbed0;font-size:9px;line-height:1.65;margin:12px 0 0}
+.bh20-experiment #bh201RayTitle{transition:color .2s}
+@media(max-width:500px){
+ .bh201-spin-panel{padding:11px}
+ #bh201SpinText{font-size:20px}
+ .bh201-spin-presets{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .bh201-spin-presets button{font-size:11px}
+ .bh201-pairs b{font-size:11px}
+ #bh201Geometry{min-height:150px}
+}
+/* Preserve the hidden state when the ray legend changes from Schwarzschild to Kerr. */
+.bh20-ray-key[hidden]{display:none!important}

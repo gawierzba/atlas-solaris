@@ -51,7 +51,7 @@ function create(canvas,skyCanvas){
   const quality=o.quality??.65;
   const w=Math.max(160,Math.min(1200,Math.round(rect.width*quality)));
   const h=Math.max(100,Math.min(800,Math.round(rect.height*quality)));
-  if(w!==lastW||h!==lastH){
+  if(w!==lastW||h!==lastH||canvas.width!==w||canvas.height!==h){
    canvas.width=w;canvas.height=h;lastW=w;lastH=h;gl.viewport(0,0,w,h);
   }
   gl.useProgram(program);gl.bindVertexArray(vao);

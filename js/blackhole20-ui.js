@@ -108,6 +108,7 @@ function init(){
     'Ugięcie światła jest liczone ze Schwarzschilda. Dotknij obrazu, aby zbadać promień przechodzący przez wybrany piksel.':
     'TRYB PORÓWNAWCZY: sztucznie wyłączono krzywiznę torów światła. Obraz nie jest fizycznym modelem rzeczywistej czarnej dziury.';
   }
+  root.ATLAS_KERR201?.updateStats?.(state,mass);
  }
  function fallback(error){
   state.webglError=error?.message||String(error);
@@ -117,16 +118,19 @@ function init(){
   $('bh20RenderMode').textContent='WEBGL2 NIEDOSTĘPNY';
   state.animate=false;$('bh20Animate').disabled=true;
  }
+ let skyTexture=null;
  function ensureWebGL(){
   if(state.webgl||state.webglError)return;
-  try{state.webgl=rendererEngine.create(canvas,skyCanvas());}
+  try{skyTexture=skyCanvas();state.webgl=rendererEngine.create(canvas,skyTexture);}
   catch(error){console.error('ATLAS BLACK HOLE 20 WebGL2',error);fallback(error);}
  }
  function drawScene(){
   if(!dialog.open)return;
   if(state.webgl){
-   try{state.webgl.render(drawOptions());}
-   catch(error){console.error('ATLAS BLACK HOLE 20 render',error);fallback(error);}
+   try{
+    const handled=root.ATLAS_KERR201?.render?.(canvas,skyTexture,drawOptions(),state);
+    if(handled!==true)state.webgl.render(drawOptions());
+   }catch(error){console.error('ATLAS BLACK HOLE 20 render',error);fallback(error);}
   }
  }
  function photonTraces(){
@@ -147,6 +151,7 @@ function init(){
   return cachedTraces;
  }
  function drawRays(){
+  if(root.ATLAS_KERR201?.drawRays?.(raysCanvas,state))return;
   const c=raysCanvas,ctx=c.getContext('2d'),W=c.width,H=c.height;
   ctx.clearRect(0,0,W,H);
   ctx.fillStyle='#080f21';ctx.fillRect(0,0,W,H);
@@ -214,7 +219,7 @@ function init(){
   }
   if(state.dirty||state.animate){
    // Ray-traced WebGL2 is expensive; ~10 fps is sufficient for the disk.
-   if(ts-state.lastRender>90||state.dirty){
+   if(ts-state.lastRender>(root.ATLAS_KERR201?.active?.()?180:90)||state.dirty){
     state.lastRender=ts;updateStats();drawScene();state.dirty=false;
    }
   }
@@ -319,6 +324,7 @@ function init(){
   canvas.addEventListener('pointerup',e=>{
    const drag=state.drag;state.drag=null;
    if(!drag||drag.moved>9)return;
+   if(root.ATLAS_KERR201?.inspect?.(e,canvas,state))return;
    const rect=canvas.getBoundingClientRect();
    const xx=(e.clientX-rect.left-rect.width/2)/rect.height;
    const yy=(rect.height/2-(e.clientY-rect.top))/rect.height;
@@ -351,7 +357,9 @@ function init(){
   });
   updateStats();drawRays();
   root.ATLAS_BLACKHOLE20=Object.freeze({
-   open,close,getState:()=>({
+   open,close,
+   refresh:()=>{cachedTraces=null;state.inspected=null;updateStats();drawRays();schedule();},
+   getState:()=>({
     preset:state.preset,distance:state.distance,inclination:state.inclination,
     lensing:state.lensing,animate:state.animate,
     webglAvailable:!!state.webgl,webglError:state.webglError

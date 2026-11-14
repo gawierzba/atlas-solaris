@@ -66,7 +66,7 @@ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'atlas-star29-layout-'));
 const filepath=path.join(dir,'index.html');fs.writeFileSync(filepath,html);
 const uri='file://'+filepath;
 try{
- for(const [width,height] of [[1440,800],[1024,768],[390,844],[320,650]]){
+ for(const [width,height] of [[1440,800],[1024,768]]){
   const result=cp.spawnSync(chrome,[
     '--headless=new','--disable-gpu','--no-sandbox','--disable-dev-shm-usage','--hide-scrollbars=false',
     '--disable-background-networking','--disable-features=Translate',
@@ -86,3 +86,93 @@ try{
   console.log('ATLAS 29 UI OK',width+'x'+height,'viewport='+r.width+'x'+r.height,'document='+r.total,'chips='+r.stageChips);
  }
 }finally{fs.rmSync(dir,{recursive:true,force:true})}
+
+
+/* Chromium wymusza minimalne okno 500px w trybie --window-size.
+   Dla rzeczywistych 390/320 CSS px używamy protokołu Chrome DevTools. */
+async function testMobileViewports(){
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'atlas-star29-cdp-'));
+ const page=path.join(dir,'index.html');
+ fs.writeFileSync(page,html);
+ const proc=cp.spawn(chrome,[
+  '--headless=new','--disable-gpu','--no-sandbox','--disable-dev-shm-usage',
+  '--disable-background-networking','--no-first-run','--remote-debugging-port=0',
+  '--user-data-dir='+path.join(dir,'profile'),'about:blank'
+ ],{stdio:'ignore'});
+ const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+ let socket;
+ try{
+  let port=0;
+  for(let i=0;i<55;i++){
+   try{
+    port=Number(fs.readFileSync(path.join(dir,'profile/DevToolsActivePort'),'utf8').split('\n')[0]);
+    if(port>0)break;
+   }catch(_){}
+   await sleep(130);
+  }
+  assert.ok(port,'Chromium nie uruchomił portu diagnostycznego DevTools');
+  const pages=await (await fetch('http://127.0.0.1:'+port+'/json')).json();
+  const tab=pages.find(x=>x.type==='page');
+  assert.ok(tab?.webSocketDebuggerUrl,'Brak karty Chromium do testów mobilnych');
+  socket=new WebSocket(tab.webSocketDebuggerUrl);
+  await new Promise((resolve,reject)=>{
+   socket.addEventListener('open',resolve,{once:true});
+   socket.addEventListener('error',reject,{once:true});
+  });
+  let sequence=0;
+  const pending=new Map();
+  socket.addEventListener('message',e=>{
+   const msg=JSON.parse(e.data);
+   if(!pending.has(msg.id))return;
+   const item=pending.get(msg.id);pending.delete(msg.id);
+   msg.error?item.reject(new Error(msg.error.message)):item.resolve(msg.result);
+  });
+  const call=(method,params={})=>new Promise((resolve,reject)=>{
+   const id=++sequence;
+   pending.set(id,{resolve,reject});
+   socket.send(JSON.stringify({id,method,params}));
+  });
+  await call('Page.enable');
+  await call('Runtime.enable');
+  const script=`(()=>{
+   const root=document.scrollingElement,doc=document.documentElement;
+   const last=document.querySelector('.s29-footer'),scene=document.querySelector('.s29-visual-panel');
+   const strip=document.getElementById('stageStrip');
+   if(!last||!scene||!strip)return{ready:false};
+   if(!document.getElementById('massRange')||!document.getElementById('hrCanvas')||strip.children.length<3)return{ready:false};
+   const total=root.scrollHeight,view=root.clientHeight;
+   const stripBottom=strip.getBoundingClientRect().bottom,sceneBottom=scene.getBoundingClientRect().bottom;
+   root.scrollTop=total;
+   return{
+    ready:true,width:innerWidth,height:innerHeight,total,view,chipCount:strip.children.length,
+    scrollable:total>view+20,
+    bottomReached:root.scrollTop+view>=total-3&&last.getBoundingClientRect().bottom<=innerHeight+5,
+    noHorizontalOverflow:Math.max(doc.scrollWidth,document.body.scrollWidth)<=innerWidth+5,
+    stripContained:stripBottom<=sceneBottom+5
+   };
+  })()`;
+  for(const [width,height] of [[390,844],[320,650]]){
+   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
+   await call('Page.navigate',{url:'file://'+page});
+   let result;
+   for(let i=0;i<45;i++){
+    const response=await call('Runtime.evaluate',{expression:script,returnByValue:true});
+    if(response.result?.value?.ready){result=response.result.value;break}
+    await sleep(130);
+   }
+   assert.ok(result,'Nie udało się wczytać mobilnego laboratorium: '+width+'px');
+   assert.equal(result.width,width,'Nie udało się wymusić prawdziwej szerokości mobile viewport');
+   assert.ok(result.scrollable,'Brak przewijania na telefonie: '+JSON.stringify(result));
+   assert.ok(result.bottomReached,'Nie można dotrzeć do stopki na telefonie: '+JSON.stringify(result));
+   assert.ok(result.noHorizontalOverflow,'Poziomy wyciek układu na telefonie: '+JSON.stringify(result));
+   assert.ok(result.stripContained,'Kafelki faz wychodzą poza panel: '+JSON.stringify(result));
+   console.log('ATLAS 29 MOBILE OK',width+'x'+height,'document='+result.total,'chips='+result.chipCount);
+  }
+ }finally{
+  try{socket?.close()}catch(_){}
+  proc.kill('SIGTERM');
+  await new Promise(resolve=>proc.once('exit',resolve));
+  fs.rmSync(dir,{recursive:true,force:true,maxRetries:8,retryDelay:100});
+ }
+}
+testMobileViewports().catch(e=>{console.error(e.stack||e);process.exitCode=1});

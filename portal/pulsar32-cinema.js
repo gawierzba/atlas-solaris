@@ -26,6 +26,14 @@ const particles=Array.from({length:240},()=>({
  phase:random(),a:.3+random()*.7,scale:.3+random()*1.45
 }));
 const texCache={};
+function resolveQuality(request,w=900){
+ if(request==='cinema')return 'cinema';
+ if(request==='eco')return 'eco';
+ if(request==='balanced')return 'balanced';
+ const reduced=typeof matchMedia!=='undefined'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const lowMemory=typeof navigator!=='undefined'&&navigator.deviceMemory&&navigator.deviceMemory<4;
+ return w<570||reduced||lowMemory?'eco':'balanced';
+}
 function atmosphereTexture(size){
  if(texCache[size])return texCache[size];
  const c=document.createElement('canvas');c.width=size;c.height=size;
@@ -99,14 +107,14 @@ function background(ctx,w,h,state,quality,phase){
  ];
  for(const [x,y,r,stops] of glows){ctx.fillStyle=gradient(ctx,x,y,r,stops);ctx.fillRect(0,0,w,h)}
  ctx.save();ctx.globalCompositeOperation='screen';
- const dCount=quality==='cinema'?dust.length:100;
+ const dCount=quality==='cinema'?dust.length:quality==='balanced'?120:60;
  for(let i=0;i<dCount;i++){
   const d=dust[i],x=d.x*w,y=d.y*h;
   ctx.fillStyle=i%3===0?'rgba(104,174,245,'+d.a+')':'rgba(162,122,235,'+d.a+')';
   ctx.fillRect(x,y,d.s,d.s);
  }
  const yaw=state.camYaw,pitch=state.camPitch;
- const count=quality==='cinema'?stars.length:220;
+ const count=quality==='cinema'?stars.length:quality==='balanced'?220:120;
  for(let i=0;i<count;i++){
   const s=stars[i],x=((s.x+(yaw*.012*s.depth))%1+1)%1*w,
    y=((s.y+(pitch*.014*s.depth))%1+1)%1*h;
@@ -135,8 +143,8 @@ function background(ctx,w,h,state,quality,phase){
 function fieldLines(ctx,P,m,layer,quality,phase){
  const [e1,e2]=basis(m),proj=P.point;
  ctx.save();ctx.globalCompositeOperation='screen';
- const steps=quality==='cinema'?66:38;
- const azCount=quality==='cinema'?9:6;
+ const steps=quality==='cinema'?66:quality==='balanced'?38:26;
+ const azCount=quality==='cinema'?9:quality==='balanced'?6:4;
  for(const theta0 of [.37,.52,.66]){
   for(let j=0;j<azCount;j++){
    const az=TAU*j/azCount,ca=Math.cos(az),sa=Math.sin(az);
@@ -188,7 +196,7 @@ function beamPaint(ctx,P,dir,intensity,rho,quality,phase,frontLayer){
  const alpha=(frontLayer?1:.57)*intensity;
  ctx.save();ctx.globalCompositeOperation='screen';
  // Six layered nested volumes give a soft-emission look instead of a flat triangle.
- const passes=quality==='cinema'?6:4;
+ const passes=quality==='cinema'?6:quality==='balanced'?3:2;
  for(let l=passes;l>=1;l--){
   const expand=.5+.42*l,opacity=alpha*(l===1?.082:.018+.010*(passes-l));
   for(let sector=0;sector<8;sector++){
@@ -210,7 +218,7 @@ function beamPaint(ctx,P,dir,intensity,rho,quality,phase,frontLayer){
   }
  }
  // Filaments follow the beam expansion, so they change with the beam width.
- const n=quality==='cinema'?11:6;
+ const n=quality==='cinema'?11:quality==='balanced'?5:3;
  for(let i=0;i<n;i++){
   const angle=TAU*i/n,pts=[];
   const radiusScale=.28+.61*((i*7)%11)/11;
@@ -224,7 +232,7 @@ function beamPaint(ctx,P,dir,intensity,rho,quality,phase,frontLayer){
   stroke(ctx,pts,style,i%3?.82:1.4,i%3?0:12);
  }
  // Energetic streaks are illustrative particles, not propagating radio waves.
- const limit=quality==='cinema'?115:34;
+ const limit=quality==='cinema'?115:quality==='balanced'?12:5;
  for(let i=0;i<limit;i++){
   const p=particles[i+(!frontLayer?115:0)];
   if(!p)continue;
@@ -262,7 +270,7 @@ function neutronStar(ctx,P,m,phase,quality){
  ctx.restore();
  ctx.save();
  ctx.shadowColor='#5fdff5';ctx.shadowBlur=quality==='cinema'?39:23;
- const tex=atmosphereTexture(quality==='cinema'?390:250);
+ const tex=atmosphereTexture(quality==='cinema'?390:quality==='balanced'?200:130);
  ctx.drawImage(tex,cx-r,cy-r,r*2,r*2);
  ctx.shadowBlur=0;
  const rim=ctx.createRadialGradient(cx,cy,r*.78,cx,cy,r*1.09);
@@ -324,14 +332,52 @@ function observerHud(ctx,P,obs,core,state,quality){
  ctx.save();ctx.fillStyle=hot?'#b5fff0':'#c0e5ff';ctx.textAlign='center';ctx.font='800 10px ui-sans-serif,system-ui';
  ctx.fillText('RADIO',clamp(end.x,31,P.cx*2-31),clamp(end.y-18,72,P.cy*2-65));ctx.restore();
 }
+function cinematicHalo(ctx,P,phase){
+ const cx=P.cx,cy=P.cy,r=P.scale*.67;
+ ctx.save();ctx.globalCompositeOperation='screen';
+ const backdrop=gradient(ctx,cx,cy,r*3.4,[
+  [0,'rgba(107,235,255,.12)'],[.27,'rgba(73,146,232,.13)'],
+  [.56,'rgba(74,57,184,.11)'],[1,'rgba(0,0,0,0)']]);
+ ctx.fillStyle=backdrop;ctx.fillRect(cx-r*3.4,cy-r*3.4,r*6.8,r*6.8);
+ // Multiple magnetospheric arcs in projection. These are illustrative,
+ // not geodesics or a physical accretion disk.
+ for(let j=0;j<4;j++){
+  const rot=phase*TAU*.20+j*.45;
+  ctx.save();ctx.translate(cx,cy);ctx.rotate(rot);
+  const rr=r*(1.38+j*.29);
+  ctx.beginPath();ctx.ellipse(0,0,rr,rr*(.48+j*.065),-.17+j*.39,.12,Math.PI*1.83);
+  ctx.lineWidth=1.1+j*.2;ctx.strokeStyle=j%2?
+   'rgba(156,136,255,.22)':'rgba(116,231,255,.25)';
+  ctx.shadowBlur=19;ctx.shadowColor=ctx.strokeStyle;ctx.stroke();ctx.restore();
+ }
+ ctx.restore();
+}
+function cinematicFlare(ctx,P,phase){
+ const {cx,cy,scale}=P;const r=scale*.54;
+ ctx.save();ctx.globalCompositeOperation='screen';
+ const y=cy-r*.18;
+ const g=ctx.createLinearGradient(cx-r*2.7,y,cx+r*2.7,y);
+ g.addColorStop(0,'rgba(94,173,255,0)');
+ g.addColorStop(.31,'rgba(93,225,255,.09)');
+ g.addColorStop(.49,'rgba(210,249,255,.37)');
+ g.addColorStop(.51,'rgba(172,245,255,.29)');
+ g.addColorStop(.71,'rgba(73,184,255,.07)');
+ g.addColorStop(1,'rgba(73,184,255,0)');
+ stroke(ctx,[{x:cx-r*2.7,y},{x:cx+r*2.7,y}],g,1.4,18);
+ const tw=1+.12*Math.sin(phase*TAU*2);
+ ctx.fillStyle=gradient(ctx,cx,cy-r*.35,r*1.8*tw,[
+  [0,'rgba(198,245,255,.26)'],[.2,'rgba(111,230,255,.10)'],
+  [.6,'rgba(88,116,248,.045)'],[1,'rgba(0,0,0,0)']]);
+ ctx.beginPath();ctx.arc(cx,cy-r*.35,r*1.8*tw,0,TAU);ctx.fill();
+ ctx.restore();
+}
 function draw(ctx,w,h,state,core,quality='auto'){
  if(!ctx||!(w>0)||!(h>0))return;
- const isReduced=typeof matchMedia!=='undefined'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
- const lowDevice=(w<570)||(typeof navigator!=='undefined'&&navigator.deviceMemory&&navigator.deviceMemory<4);
- const mode=quality==='auto'?(isReduced||lowDevice?'eco':'cinema'):quality;
+ const mode=resolveQuality(quality,w);
  const phase=state.phase||0;
  background(ctx,w,h,state,mode,phase);
  const P=projection(w,h,state),angle=state.alpha*DEG,spin=TAU*phase;
+ if(mode==='cinema')cinematicHalo(ctx,P,phase);
  const m=V(Math.sin(angle)*Math.cos(spin),Math.cos(angle),Math.sin(angle)*Math.sin(spin));
  const z=state.zeta*DEG,obs=V(Math.sin(z),Math.cos(z),0);
  const cones=[{v:m,p:1},{v:mul(m,-1),p:.48}];
@@ -343,9 +389,10 @@ function draw(ctx,w,h,state,core,quality='auto'){
  neutronStar(ctx,P,m,phase,mode);
  for(const c of front)beamPaint(ctx,P,c.v,c.p,state.rho,mode,phase,true);
  fieldLines(ctx,P,m,1,mode,phase);
+ if(mode==='cinema')cinematicFlare(ctx,P,phase);
  observerHud(ctx,P,obs,core,state,mode);
 }
-const api=Object.freeze({draw,atmosphereTexture});
+const api=Object.freeze({draw,atmosphereTexture,resolveQuality});
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 root.AtlasPulsar32Cinema=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

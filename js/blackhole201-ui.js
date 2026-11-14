@@ -40,6 +40,12 @@ function init(){
   }
  }
  function change(next){
+  if(renderFailure){
+   spin=0;$('bh201Spin').value='0';spinUI();
+   $('bh20Status').textContent='Tryb Kerra niedostępny na tym urządzeniu: '+
+    renderFailure+'. Pozostaje model Schwarzschilda.';
+   return;
+  }
   spin=core.clamp(Number(next),-.98,.98);
   $('bh201Spin').value=String(Math.round(spin*100));
   chosen=null;rayCache=null;lastCacheKey='';
@@ -56,6 +62,9 @@ function init(){
    renderFailure=String(error.message||error);
    console.error('ATLAS KERR 20.1 WebGL2',error);
    spin=0;$('bh201Spin').value='0';spinUI();
+   $('bh201KerrBadge').textContent='KERR / BRAK GPU';
+   $('bh201ScienceNote').textContent='Na tym urządzeniu shader Kerra jest niedostępny: '+
+    renderFailure+'. Bezpiecznie działa dotychczasowy renderer Schwarzschilda.';
    $('bh20Status').textContent='Shader Kerra nie uruchomił się: '+renderFailure+
     '. Automatycznie przywrócono obraz Schwarzschilda 20.0.';
    return false;
@@ -105,6 +114,11 @@ function init(){
    $('bh201RayTitle').textContent='Schwarzschild: fotony i sfera fotonowa';
   }
   drawGeometry();
+  if(renderFailure){
+   $('bh201KerrBadge').textContent='KERR / BRAK GPU';
+   $('bh201ScienceNote').textContent='WebGL2 Kerr niedostępny: '+renderFailure+
+    '. Przełączono na zgodny model Schwarzschilda.';
+  }
  }
  function drawGeometry(){
   const cvs=$('bh201Geometry'),ctx=cvs.getContext('2d');

@@ -1,0 +1,42 @@
+name: ATLAS SOLARIS — artykul o soczewkowaniu 31
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/31/**'
+      - 'portal/lens31-story.css'
+      - 'portal/media/lens31-cover.svg'
+      - 'portal/stage.js'
+      - 'tests/lens31-story.test.cjs'
+      - 'tests/lens31-story-browser.test.cjs'
+      - '.github/workflows/lens31-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  visual:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Scientific and editorial tests
+        run: |
+          node --check portal/stage.js
+          node --test tests/lens31.test.cjs tests/lens31-story.test.cjs
+      - name: Install test browser
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Real desktop and phone rendering, delayed laboratory startup
+        run: node tests/lens31-story-browser.test.cjs
+      - name: Save visual previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-lens31-editorial-preview
+          path: _lens31_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

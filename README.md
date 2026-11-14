@@ -1,6 +1,27 @@
-# ATLAS SOLARIS 18.0 — Żywe Obserwatorium
+# ATLAS SOLARIS 18.1 — Messier i gwiazdozbiory
 
-ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **18.0** rozbudowuje Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **18.1** rozszerza Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 18.1 — Gwiazdozbiory i katalog Messiera
+
+**Uruchomienie:** wybierz przycisk „Obserwatorium 18.1 · Messier i gwiazdozbiory”. W istniejącej mapie nieba można włączać/wyłączać figury gwiazdozbiorów, ich nazwy i punktowe znaczniki katalogu Messiera. Na liście obiektów przełącz zakładkę **Messier 110**, wyszukaj np. M31 lub „Galaktyka Andromedy”, kliknij obiekt i ustaw najlepszą godzinę w ciągu najbliższych 24 godzin. Przycisk kierowania kamery na cel działa również dla obiektów Messiera.
+
+**Rzeczywiste dane:** 110 obiektów z pozycjami J2000 (rektascensja i deklinacja), przybliżoną jasnością wizualną oraz katalogowymi rozmiarami kątowymi, gdy są znane. Obejmuje M1–M110. 89 rekordów ilustracyjnych łączy tradycyjne figury 88 gwiazdozbiorów (jedna figura ma dwa odrębne fragmenty). Linie figur nie są oficjalnymi granicami gwiazdozbiorów określonymi przez IAU. Dla każdej klatki kierunki są przeliczane z J2000 na istniejący horyzont obserwatora.
+
+**Najlepsze noce:** po wybraniu obiektu i miejsca na Ziemi kliknij „Znajdź pięć najlepszych nocy”. Lokalny, niezależny od Internetu algorytm przelicza kolejne 30 dób z próbkowaniem co godzinę i odrzuca chwile, gdy środek Słońca znajduje się powyżej −18° lub cel jest niżej niż 20° nad geometrycznym horyzontem. Wyżej oceniane są duże wysokości nad horyzontem i Księżyc pod horyzontem / słabiej oświetlony. Wynik to pięć najwyżej ocenionych nocy i orientacyjne chwile UTC, które można otworzyć jednym kliknięciem. Nie jest to przewidywanie zachmurzenia, seeingu, łuny miejskiej, jasności powierzchniowej galaktyk ani parametrów teleskopu. Ranking jest **heurystyczny**. Analiza 30 nocy jest przeznaczona dla Ziemi (nie Marsa i Księżyca). Pełna noc astronomiczna według USNO występuje przy geometrycznej wysokości Słońca poniżej −18°.
+
+**Okular:** obiekty Messiera są prezentowane jako kontury ich przybliżonych rozmiarów kątowych, nie jako sztucznie wymyślone zdjęcia galaktyk i mgławic. Widoczność zależy również od jasności powierzchniowej obiektu i sprzętu; samo położenie powyżej horyzontu i niska jasność nieba nie gwarantują obserwacji.
+
+**Źródła i prawa do danych:**
+- Diego Hernangómez / Olaf Frohn, *Celestial Data* (dataset J2000, BSD-3-Clause), DOI 10.5281/zenodo.7561601 — https://github.com/dieghernan/celestial_data; dane obiektów Messiera pochodzą z katalogu H. Frommerta/SEDS, zaś figury gwiazdozbiorów z d3-celestial.
+- IAU, definicja 88 gwiazdozbiorów i rozróżnienie granic/figur: https://www.iau.org/IAU/Astronomy-FAQs/Constellations.aspx
+- U.S. Naval Observatory, definicje zmierzchu: https://aa.usno.navy.mil/faq/RST_defs
+
+**Ograniczenia:** kąty katalogowe pozostają przybliżonymi współrzędnymi J2000, bez precesji, ruchów własnych, nutacji i refrakcji. Katalog zawiera wyłącznie 110 obiektów Messiera oraz istniejący wyciąg jasnych gwiazd, nie wszystkie znane obiekty głębokiego nieba. Animacja i planowanie bazują na uproszczonych efemerydach projektu i czasie UTC. Rozmiary kątowe są informacją katalogową, nie fotometrią powierzchniową.
+
+Pliki wersji: js/observatory181-catalog.js, js/observatory181-core.js, js/observatory181-ui.js, css/observatory181.css, tests/observatory181.test.cjs. Test: node tests/observatory181.test.cjs.
+
+---
 
 ## Nowość 18.0 — Żywe Obserwatorium
 

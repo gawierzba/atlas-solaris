@@ -50,6 +50,9 @@ const CATALOG=Object.freeze(FMT.map((item,i)=>Object.freeze({
 })));
 const SIGNS=Object.freeze(['Baran','Byk','Bliźnięta','Rak','Lew','Panna','Waga','Skorpion','Strzelec','Koziorożec','Wodnik','Ryby']);
 function sectors(year=2026){
+ const official=root.ATLAS_ZODIAC251_CORE?.yearSectors?.(year);
+ if(official)return official;
+ // Otherwise use 25.0 approximate fallback.
  // Equinox moves ~50.29 arcsec/y with respect to J2000 star background.
  // Small correction allows nearby years without implying exact IAU crossing times.
  const prec=(Number(year)-2026)*50.29/3600;

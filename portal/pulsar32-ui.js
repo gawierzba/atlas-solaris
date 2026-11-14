@@ -16,6 +16,12 @@ const sliders={alpha:byId('p32Alpha'),zeta:byId('p32Zeta'),rho:byId('p32Rho'),pe
 const scene=byId('p32Scene'),profile=byId('p32Profile'),scope=byId('p32Scope');
 const state={...preset.crab,phase:0,playing:true,sound:false,camYaw:-.72,camPitch:.34,activePreset:'crab'};
 let trace=null,last=0,lastDraw=0,previousGain=0,audio=null,lastAudio=0,drag=null;
+let renderQuality='auto';
+document.querySelectorAll('[data-p32quality]').forEach(button=>button.addEventListener('click',()=>{
+ renderQuality=button.dataset.p32quality;
+ document.querySelectorAll('[data-p32quality]').forEach(x=>x.setAttribute('aria-pressed',String(x===button)));
+ drawScene();
+}));
 const stars=[];
 let seed=32731;const rnd=()=>{seed=(Math.imul(1664525,seed)+1013904223)>>>0;return seed/4294967296};
 for(let i=0;i<210;i++)stars.push({x:rnd(),y:rnd(),r:.3+rnd()*.95,a:.12+rnd()*.5});
@@ -47,7 +53,7 @@ function drawLine(ctx,pts,color,width=1,dash=null){
  for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i].x,pts[i].y);
  ctx.stroke();ctx.restore();
 }
-function drawScene(){
+function drawSceneLegacy(){
  const {ctx,w,h}=sizeCanvas(scene);
  ctx.clearRect(0,0,w,h);
  const cx=w*.5,cy=h*.49,S=Math.min(w,h)*.275,{right,up,front}=orientation();
@@ -125,6 +131,14 @@ function drawScene(){
  const upper=point(v(0,2.55,0));
  ctx.font='800 10px system-ui';ctx.fillStyle='#ffbb91';
  ctx.fillText('ROT',clamp(upper.x,28,w-28),clamp(upper.y-10,60,h-42));
+}
+function drawScene(){
+ const {ctx,w,h}=sizeCanvas(scene);
+ if(window.AtlasPulsar32Cinema){
+  window.AtlasPulsar32Cinema.draw(ctx,w,h,state,core,renderQuality);
+ }else{
+  drawSceneLegacy();
+ }
 }
 function drawGraph(canvas,scopeMode){
  const {ctx,w,h}=sizeCanvas(canvas),pad={l:34,r:12,t:15,b:25},pw=w-pad.l-pad.r,ph=h-pad.t-pad.b;

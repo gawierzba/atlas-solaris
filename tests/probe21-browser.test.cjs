@@ -75,7 +75,7 @@ const html='<!doctype html><html><meta charset="UTF-8"><body>'+
  '#probe21Dialog input,#probe21Dialog button,#probe21Dialog select{display:inline-block}</style>'+
  '<script>window.ATLAS_MAIN_API={getPlaying:()=>false,setPlaying:()=>{}};</script>'+
  scripts.map(x=>'<script>'+x.replaceAll('</script','<\\/script')+'</script>').join('')+
- '<script>('+verify.toString()+')();</script></body></html>';
+ '<script>document.addEventListener("DOMContentLoaded",()=>('+verify.toString()+')());</script></body></html>';
 fs.writeFileSync(page,html,'utf8');
 const args=['--headless=new','--no-sandbox','--disable-dev-shm-usage',
  '--enable-unsafe-swiftshader','--ignore-gpu-blocklist',

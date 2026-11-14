@@ -35,6 +35,7 @@ on:
       - 'tests/origin27.test.cjs'
       - 'tests/portal28.test.cjs'
       - 'tests/portal29.test.cjs'
+      - 'tests/star29-layout.test.cjs'
       - 'tests/binary30.test.cjs'
       - 'tests/lens31.test.cjs'
       - 'css/eclipse*.css'
@@ -84,6 +85,7 @@ on:
       - 'tests/origin27.test.cjs'
       - 'tests/portal28.test.cjs'
       - 'tests/portal29.test.cjs'
+      - 'tests/star29-layout.test.cjs'
       - 'tests/binary30.test.cjs'
       - 'tests/lens31.test.cjs'
       - '.github/workflows/eclipse-tests.yml'
@@ -210,6 +212,8 @@ jobs:
         run: node tests/portal28.test.cjs
       - name: Test laboratorium ewolucji gwiazd 29.0
         run: node tests/portal29.test.cjs
+      - name: Test przewijania i układu etapu 29.0 (Chromium)
+        run: node tests/star29-layout.test.cjs
       - name: Test fizyki Roche’a, Keplera i zaćmień 30.0
         run: node tests/binary30.test.cjs
       - name: Test soczewkowania i promienia Einsteina 31.0

@@ -10,7 +10,7 @@ const V=(x,y,z)=>({x,y,z});
 const add=(a,b)=>V(a.x+b.x,a.y+b.y,a.z+b.z);
 const mul=(a,k)=>V(a.x*k,a.y*k,a.z*k);
 const dot=(a,b)=>a.x*b.x+a.y*b.y+a.z*b.z;
-const cross=(a,b)=>V(a.y*b.z-a.z*b.y,a.z*b.x-a.x*b.z);
+const cross=(a,b)=>V(a.y*b.z-a.z*b.y,a.z*b.x-a.x*b.z,a.x*b.y-a.y*b.x);
 const unit=(a)=>mul(a,1/(Math.hypot(a.x,a.y,a.z)||1));
 let seed=962184;
 function random(){seed=(Math.imul(1664525,seed)+1013904223)>>>0;return seed/4294967296}
@@ -208,13 +208,6 @@ function beamPaint(ctx,P,dir,intensity,rho,quality,phase,frontLayer){
    const tipA=boundary(3.8,ang1),tipB=boundary(3.8,ang2);
    const baseA=boundary(.5,ang1),baseB=boundary(.5,ang2);
    const px=(tipA.x+tipB.x)/2,py=(tipA.y+tipB.y)/2;
-   if(![origin.x,origin.y,px,py].every(Number.isFinite)){
-    if(!root.__atlasPulsarNanReported){
-     root.__atlasPulsarNanReported=true;
-     console.warn('PULSAR 32 diagnostic: projected beam coordinates',JSON.stringify({dir,u,v,rho,phase,pt:origin,tipA,tipB,P:{cx:P.cx,cy:P.cy,scale:P.scale},quality}));
-    }
-    continue;
-   }
    let grad=ctx.createLinearGradient(origin.x,origin.y,px,py);
    grad.addColorStop(0,'rgba(184,252,255,'+opacity*.5+')');
    grad.addColorStop(.26,'rgba(72,226,251,'+opacity+')');

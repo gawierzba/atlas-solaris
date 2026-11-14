@@ -207,7 +207,15 @@ function beamPaint(ctx,P,dir,intensity,rho,quality,phase,frontLayer){
    };
    const tipA=boundary(3.8,ang1),tipB=boundary(3.8,ang2);
    const baseA=boundary(.5,ang1),baseB=boundary(.5,ang2);
-   let grad=ctx.createLinearGradient(origin.x,origin.y,(tipA.x+tipB.x)/2,(tipA.y+tipB.y)/2);
+   const px=(tipA.x+tipB.x)/2,py=(tipA.y+tipB.y)/2;
+   if(![origin.x,origin.y,px,py].every(Number.isFinite)){
+    if(!root.__atlasPulsarNanReported){
+     root.__atlasPulsarNanReported=true;
+     console.warn('PULSAR 32 diagnostic: projected beam coordinates',JSON.stringify({dir,u,v,rho,phase,pt:origin,tipA,tipB,P:{cx:P.cx,cy:P.cy,scale:P.scale},quality}));
+    }
+    continue;
+   }
+   let grad=ctx.createLinearGradient(origin.x,origin.y,px,py);
    grad.addColorStop(0,'rgba(184,252,255,'+opacity*.5+')');
    grad.addColorStop(.26,'rgba(72,226,251,'+opacity+')');
    grad.addColorStop(.72,'rgba(64,132,255,'+opacity*.65+')');

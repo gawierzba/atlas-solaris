@@ -10,7 +10,7 @@ function einsteinRadians(massSolar,dlGpc,dsGpc){
  return Math.sqrt(4*G*massSolar*MS/(C*C)*dls/(dl*ds));
 }
 function einsteinArcseconds(massSolar,dlGpc,dsGpc){return einsteinRadians(massSolar,dlGpc,dsGpc)*ARCSEC}
-function mapImageToSource(x,y){const r2=x*x+y*y;if(r2<1e-18)return{x:0,y:0,critical:true};return{x:x-x/r2,y:y-y/r2,critical:false}}
+function mapImageToSource(x,y){const r2=x*x+y*y;if(r2<1e-18)return{x:Infinity,y:Infinity,critical:true};return{x:x-x/r2,y:y-y/r2,critical:false}}
 function images(bx,by){
  const u=Math.hypot(bx,by);
  if(u<1e-9)return{ring:true,radius:1,separation:2,magnification:Infinity,primary:null,secondary:null};

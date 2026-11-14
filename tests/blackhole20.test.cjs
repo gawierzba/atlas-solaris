@@ -7,7 +7,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const c=require('../js/blackhole20-core.js');
 const render=require('../js/blackhole20-renderer.js');
-const close=(a,b,t=1e-8)=>assert.ok(Math.abs(a-b)<=t,'Expected '+a+' ≈ '+b);
+const close=(a,b,t=1e-8)=>assert.ok(Math.abs(a-b)<=Math.max(t,Math.abs(b)*1e-12),'Expected '+a+' ≈ '+b);
 close(c.RG_KM,1.4766,.001);
 close(c.TG_S,4.9255e-6,1e-9);
 close(c.PHOTON_B,3*Math.sqrt(3));

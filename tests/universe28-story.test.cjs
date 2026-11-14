@@ -1,0 +1,48 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const html=read('etapy/28/index.html'),css=read('portal/universe28-story.css');
+const svg=read('portal/media/universe28-cover.svg'),lab=read('laboratoria/granice-wszechswiata/index.html');
+const app=read('portal/universe28.js'),shell=read('portal/stage.js');
+test('Scientific article has 15-landmark story, model limitations and verifiable references',()=>{
+ for(const word of ['Wyprawa poza','Kármána','Proxim','Droga Mleczna','Andromed','Hubble Ultra Deep Field','13,8','46,5','380 tysięcy','logarytmiczn','współporuszającą'])assert.ok(html.includes(word),'Missing '+word);
+ for(const id of ['dziennik','przystanki','hubble','paradoks','ostatnie-swiatlo','laboratorium','zrodla'])assert.ok(html.includes('id="'+id+'"'),'Missing section '+id);
+ assert.ok(html.indexOf('id="dziennik"')<html.indexOf('id="laboratorium"'));
+ assert.ok(html.indexOf('id="paradoks"')<html.indexOf('id="laboratorium"'));
+ assert.ok(html.indexOf('id="laboratorium"')<html.indexOf('id="zrodla"'));
+ assert.match(html,/id="stageFrame"[^>]*data-lazy="true"/);
+ assert.match(html,/id="stageLaunch"/);
+ assert.match(html,/id="stageRelated"/);
+ assert.match(html,/id="stageAbout"/);
+ assert.match(html,/id="stageReload"/);
+ assert.match(html,/id="stageLoading"/);
+ assert.match(lab,/id="u28Canvas"/);
+ assert.match(lab,/id="u28Jumps"/);
+ assert.match(lab,/id="u28Range"/);
+ assert.match(lab,/id="u28Play"/);
+ for(const source of ['nasa.gov/science-research/astrophysics/how-big-is-space','science.nasa.gov/asset/hubble/the-hubble-ultra-deep-field','esa.int/Science_Exploration/Space_Science/Planck/Planck_science_highlights'])assert.ok(html.includes(source),'Missing source '+source);
+});
+test('Article graphics are lightweight; science images are labelled and deferred',()=>{
+ assert.match(svg,/<svg/);
+ assert.match(svg,/viewBox="0 0 1600 900"/);
+ assert.ok(Buffer.byteLength(svg,'utf8')<50000);
+ assert.doesNotMatch(svg,/<script|<animate|<foreignObject|filter=/i);
+ assert.match(html,/portal\/media\/universe28-cover\.svg/);
+ assert.match(html,/loading="lazy"/);
+ assert.match(html,/NASA, ESA, S\. Beckwith/);
+ assert.doesNotMatch(html,/pulsar32-cinema|three(?:\.min)?\.js|WebGLRenderingContext/);
+ assert.match(css,/overflow-y:auto/);
+ assert.match(css,/@media\(max-width:650px\)/);
+ assert.match(css,/@media\(max-width:350px\)/);
+});
+test('The existing experiment is lazy-loaded, still navigable and no longer renders endlessly when idle',()=>{
+ assert.match(shell,/const lazyLab=iframe\?\.dataset\.lazy==='true'/);
+ assert.match(shell,/IntersectionObserver/);
+ assert.match(shell,/else startLab\(\)/);
+ assert.match(app,/scheduleLoop/);
+ assert.match(app,/DPR=Math\.min\(rect\.width<700\?1\.25:1\.5/);
+ assert.doesNotMatch(app,/draw\(ts\); requestAnimationFrame\(loop\)/);
+ assert.doesNotMatch(app,/jumpTo\(0\); requestAnimationFrame\(loop\)/);
+ assert.match(app,/const M=\[/);
+ assert.equal((app.slice(app.indexOf('const M=['),app.indexOf('];',app.indexOf('const M=['))).match(/\{name:/g)||[]).length,15);
+});

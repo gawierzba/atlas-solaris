@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050b16">
-  <meta name="description" content="ATLAS SOLARIS 19.0 — podróż 3D między gwiazdami, autentyczne odległości, paralaksa, zmienne gwiazdozbiory i relatywistyka.">
-  <title>ATLAS SOLARIS 19.0 — Podróż między gwiazdami 3D</title>
+  <meta name="description" content="ATLAS SOLARIS 20.0 — naukowa symulacja czarnej dziury Schwarzschilda, zakrzywianie światła, dysk akrecyjny i dylatacja czasu.">
+  <title>ATLAS SOLARIS 20.0 — Na granicy czarnej dziury</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/jupiter.css">
 <link rel="stylesheet" href="css/missions.css">
@@ -22,17 +22,18 @@
 <link rel="stylesheet" href="css/observatory18.css">
 <link rel="stylesheet" href="css/observatory181.css">
 <link rel="stylesheet" href="css/interstellar19.css">
+<link rel="stylesheet" href="css/blackhole20.css">
 </head>
 <body>
  <div id="app">
   <aside id="sidebar" class="sidebar">
    <div class="brand"><div class="brand-mark"><span class="brand-core"></span><span class="brand-orbit"></span></div><div><div class="brand-title">ATLAS <em>SOLARIS</em></div><div class="brand-caption">EKSPEDYCJA ASTRONOMICZNA</div></div></div>
-   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 19.0</span></div>
+   <div class="sidebar-section-head">NAWIGACJA <span>ATLAS 20.0</span></div>
    <button class="nav-planet active" data-target="solar"><span class="nav-icon solar-icon">◎</span><span class="nav-text"><strong>Cały Układ</strong><small>Widok heliocentryczny</small></span><span class="nav-arrow">↗</span></button>
    <div class="sidebar-section-head secondary-head">CIAŁA NIEBIESKIE <span>10 OBIEKTÓW</span></div>
    <nav id="planetList" aria-label="Wybierz ciało niebieskie"></nav>
-   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 19.0</span></div>
-   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
+   <section class="mission-side"><div class="sidebar-section-head" style="padding:0 0 9px">EKSPEDYCJE <span>ATLAS 20.0</span></div>
+   <button id="openEclipses17Side" class="e17-entry">◉ Laboratorium Zaćmień 17.0 · silnik naukowy</button><button id="openEclipses17CalendarSide" class="e17c-launch">◷ Kalendarz zaćmień · znajdź daty 2024–2040</button><button id="openEclipseMap17Side" class="e17m-side-entry">🌍 Mapa zaćmień 17.3 · wędrówka cienia</button><button id="openObservatory18Side" class="obs18-side-entry">🔭 Obserwatorium 18.1 · Messier i gwiazdozbiory</button><button id="openInterstellar19Side" class="inter19-side-entry">🚀 PODRÓŻ MIĘDZY GWIAZDAMI 19.0</button><button id="openBlackHole20Side" class="bh20-side-launch">◉ CZARNA DZIURA 20.0 · ZAKRZYWIENIE ŚWIATŁA</button><button id="openNeoSide" class="neo-side-launch">☄ Asteroidy, komety i bliskie zbliżenia</button><button id="openExoplanetsSide" class="exo-side-launch">✴ Łowca Egzoplanet · tranzyty i fotometria</button><button id="openArchiveSide" class="archive-side-launch">✧ Archiwum Misji · Voyager i Cassini</button><button id="openAssistSide" class="assist-side-launch">☄ Asysty grawitacyjne · przeloty sond</button><button id="openGravitySide" class="gravity-side-launch">✺ Laboratorium Grawitacji · punkty L1–L5</button><button id="openPorkchopSide" class="porkchop-side-launch">◈ Laboratorium Trajektorii · C3 i okna startowe</button><button id="openMissionsSide" class="mission-side-launch">✦ Centrum Misji · loty międzyplanetarne</button><div class="mission-side-grid"><button id="openJupiterSide" class="jov-side-shortcut" onclick="document.getElementById('openJupiter').click()">♃ Jowisz · 4 księżyce</button><button data-mission="earthsky">🌍 Ziemia · niebo</button><button data-mission="moonsky">🌒 Księżyc · Ziemia</button><button data-mission="marssky">🔴 Mars · zachód</button><button data-mission="saturn">🪐 Saturn · pierścienie</button><button data-mission="venus">◌ Wenus · rotacja</button><button data-mission="solar">◎ Cały Układ</button></div>
    </section><div class="sidebar-footer">
     <div class="signal"><span class="signal-dot"></span> SILNIK ASTRONOMICZNY <span>AKTYWNY</span></div>
     <p>Model pozycji planet: NASA/JPL. Orientacja osi: uproszczone elementy IAU. Data i odległości pozostają odczytywalne niezależnie od skali graficznej.</p>
@@ -44,10 +45,10 @@
    <div class="canvas-vignette" aria-hidden="true"></div>
    <header class="topbar">
     <div class="top-left"><button class="mobile-menu" id="toggleMenu" title="Otwórz nawigację" aria-label="Otwórz nawigację">☰</button><div class="heading"><small>ATLAS / SYSTEM SŁONECZNY</small><strong id="pageHeading">Cały Układ Słoneczny</strong></div></div>
-    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
+    <div class="top-toolbar"><button id="openNeo" title="Asteroidy, komety, zbliżenia Ziemi i niepewności JPL">☄ <span>ASTEROIDY I KOMETY</span></button><button id="openExoplanets" title="Wykryj egzoplanetę analizując tranzyt i krzywą jasności gwiazdy">✴ <span>ŁOWCA EGZOPLANET</span></button><button id="openArchive" title="Historyczne trasy Voyagerów i Cassini z NASA/JPL">✧ <span>ARCHIWUM MISJI</span></button><button id="openAssist" title="Eksperymenty z asystami grawitacyjnymi i prędkością sondy">☄ <span>ASYSTY GRAWITACYJNE</span></button><button id="openGravity" title="Model trzech ciał, punkty Lagrange’a i stała Jacobiego">✺ <span>LABORATORIUM GRAWITACJI</span></button><button id="openPorkchop" title="Naukowa mapa okien startowych i energii C3">◈ <span>LABORATORIUM TRAJEKTORII</span></button><button id="openMissions" title="Planuj loty międzyplanetarne i okna startowe">✦ <span>CENTRUM MISJI</span></button><button class="jupiter-trigger" id="openJupiter" title="Księżyce Galileuszowe i ich cienie">♃ <span>ŚWIATY JOWISZA</span></button><button id="openEclipses17Top" class="e17-entry e17-entry-top" title="Naukowe laboratorium zaćmień 17.0">☀ <span>ZAĆMIENIA 17</span></button><button id="openGeometry" class="geometry-trigger" title="Stożki cienia Słońce–Księżyc–Ziemia">◈ <span>GEOMETRIA 3D</span></button><button id="openGlobe" class="globe-trigger" title="Ziemia z kosmosu i cień Księżyca">🌍 <span>ZIEMIA Z KOSMOSU</span></button><button id="openEclipses" class="eclipse-trigger" title="Interaktywne zaćmienia Słońca i Księżyca">☀ <span>ZAĆMIENIA</span></button><button id="openBlackHole20Top" class="bh20-top-launch" type="button" title="Na granicy czarnej dziury">◉ <span>CZARNA DZIURA</span></button><button id="openInterstellar19Top" class="inter19-top-entry" title="Podróż międzygwiezdna 3D">🚀 <span>LOT MIĘDZYGWIEZDNY</span></button><button id="openObservatory" class="obs-trigger" title="Otwórz interaktywną mapę nieba">◉ <span>OBSERWATORIUM</span></button>
 <div class="top-status"><span class="status-led"></span><span class="hide-small">MODEL ORBITALNY</span><b>JPL 1800—2050</b></div></div>
    </header>
-   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V19.0</strong> · ZAĆMIENIA</div></div>
+   <div class="viewport-top-left"><span class="micro-label">KAMERA <span class="line"></span> <span id="cameraMode">WIDOK PRZESTRZENNY</span></span><div class="intro-title" id="introTitle">Odkrywaj kosmos.</div><div class="intro-desc" id="introDesc">Przeciągnij, aby obrócić widok. Przybliżaj rolką lub gestem szczypania.</div><div class="atlas-v2-tag">ATLAS SOLARIS <strong>V20.0</strong> · ZAĆMIENIA</div></div>
    <div class="labels" id="labels" aria-hidden="false"></div>
    <div class="view-controls">
     <button id="homeView" title="Powrót do widoku całego układu">⌂</button>
@@ -86,6 +87,97 @@
  </div>
 
  
+
+<dialog id="bh20Dialog" class="bh20-dialog" aria-labelledby="bh20Heading">
+ <div class="bh20-shell">
+  <header class="bh20-header">
+   <div class="bh20-title-group">
+    <div class="bh20-eyebrow">ATLAS SOLARIS / LABORATORIUM FIZYKI 20.0</div>
+    <h2 id="bh20Heading">Na granicy <em>czarnej dziury</em></h2>
+    <p>Równanie geodezyjnych promieni świetlnych · Schwarzschild · bez obrotu czarnej dziury</p>
+   </div>
+   <button type="button" id="bh20Close" class="bh20-close" aria-label="Zamknij laboratorium czarnej dziury">✕</button>
+  </header>
+  <div class="bh20-layout">
+   <section class="bh20-stage" aria-label="Symulacja czarnej dziury w WebGL2">
+    <div class="bh20-viewport">
+     <canvas id="bh20Canvas" width="1000" height="620" aria-label="Śledzenie promieni świetlnych w czasoprzestrzeni Schwarzschilda; obraz czarnej dziury i dysku akrecyjnego"></canvas>
+     <div class="bh20-hud-top"><span><i class="bh20-hud-led"></i> RELATYWISTYCZNE ŚLEDZENIE PROMIENI</span><span id="bh20RenderMode">WEBGL2 · GEODEZYJNE</span></div>
+     <div class="bh20-hud-bottom"><span id="bh20Field">Równanie: u″ + u = 3Mu²</span><span id="bh20ViewInfo">r = 32 r_g · i = 64°</span></div>
+     <div id="bh20Fallback" class="bh20-fallback" hidden role="alert">Twoja przeglądarka nie obsługuje WebGL2. Model obliczeniowy i wykres trajektorii pozostają dostępne, ale symulacja obrazu nie może być uruchomiona.</div>
+    </div>
+    <div class="bh20-metrics">
+     <div><small>PROMIEŃ HORYZONTU</small><strong id="bh20Horizon">— km</strong></div>
+     <div><small>SFERA FOTONOWA</small><strong id="bh20Photon">3 r_g</strong></div>
+     <div><small>OBSERWATOR / PROMIEŃ</small><strong id="bh20Observer">— r_s</strong></div>
+     <div><small>GRAWITACYJNY BIEG ZEGARA</small><strong id="bh20TimeRatio">—</strong></div>
+    </div>
+    <div class="bh20-experiment">
+     <div class="bh20-graph-head">
+      <div><small>EKSPERYMENT NAUKOWY / GEODEZYJNE NULL</small><h3>Co dzieje się z promieniem światła?</h3></div>
+      <button id="bh20RayPlay" type="button">▶ Animuj promienie</button>
+     </div>
+     <canvas id="bh20Rays" width="900" height="330" aria-label="Przekrój torów promieni światła o różnych parametrach zderzenia, wyliczony równaniem geodezyjnych Schwarzschilda"></canvas>
+     <div class="bh20-ray-key">
+      <span><i style="background:#fc9d65"></i> b = 4,7 r_g · pochłonięty</span>
+      <span><i style="background:#91ddf8"></i> b = 5,7 r_g · ugięty</span>
+      <span><i style="background:#aaa6f6"></i> b = 8 r_g · ugięty</span>
+     </div>
+     <div class="bh20-lab-notes">
+      <span id="bh20Critical">Krytyczny parametr zderzenia b = 3√3 r_g</span>
+      <span id="bh20Tide">Gradient pływowy / 2 m: —</span>
+     </div>
+    </div>
+   </section>
+   <aside class="bh20-panel">
+    <div class="bh20-group-title">01 / WYBIERZ CZARNĄ DZIURĘ</div>
+    <label class="bh20-field" for="bh20Preset">Obiekt astrofizyczny
+     <select id="bh20Preset">
+      <option value="sagittarius" selected>Sagittarius A* · centrum Drogi Mlecznej</option>
+      <option value="m87">M87* · Galaktyka Messier 87</option>
+      <option value="stellar">Model gwiazdowy · 10 mas Słońca</option>
+     </select>
+    </label>
+    <div class="bh20-mass-details"><strong id="bh20Mass">4 000 000 M☉</strong><span id="bh20MassLocation">Centrum Drogi Mlecznej</span></div>
+    <div class="bh20-group-title">02 / STERUJ WIDOKIEM</div>
+    <label class="bh20-range-head" for="bh20Distance">Odległość obserwatora <strong id="bh20DistanceValue">32 r_g</strong></label>
+    <input id="bh20Distance" type="range" min="9" max="90" value="32" step="1">
+    <div class="bh20-range-label"><span>9 r_g · blisko</span><span>90 r_g · daleko</span></div>
+    <label class="bh20-range-head" for="bh20Incline">Nachylenie dysku <strong id="bh20InclineValue">64°</strong></label>
+    <input id="bh20Incline" type="range" min="8" max="84" value="64" step="1">
+    <div class="bh20-range-label"><span>8° · z góry</span><span>84° · z krawędzi</span></div>
+    <label class="bh20-range-head" for="bh20Fov">Pole widzenia <strong id="bh20FovValue">50°</strong></label>
+    <input id="bh20Fov" type="range" min="30" max="90" value="50" step="2">
+    <div class="bh20-range-label"><span>30° · zbliżenie</span><span>90° · szeroko</span></div>
+    <div class="bh20-group-title">03 / WŁĄCZ FIZYKĘ</div>
+    <label class="bh20-switch"><input type="checkbox" id="bh20Lensing" checked><span><b>Ogólna teoria względności</b><small>Śledzenie geodezyjnych w czasoprzestrzeni Schwarzschilda</small></span></label>
+    <label class="bh20-switch"><input type="checkbox" id="bh20Disk" checked><span><b>Model dysku akrecyjnego</b><small>Geodezyjne przecięcia z dyskiem od r = 6M do 32M</small></span></label>
+    <label class="bh20-switch"><input type="checkbox" id="bh20Doppler" checked><span><b>Przesunięcie Dopplera i jasność</b><small>Modelowe wzmocnienie grawitacyjne i ruch orbitalny materii</small></span></label>
+    <div class="bh20-group-title">04 / EKSPERYMENTUJ</div>
+    <div class="bh20-buttons">
+     <button type="button" id="bh20Animate" class="bh20-primary">▶ Uruchom dysk</button>
+     <button type="button" id="bh20Compare" class="bh20-secondary">◈ Porównaj bez ugięcia</button>
+    </div>
+    <label class="bh20-field" for="bh20Quality">Wydajność renderowania
+     <select id="bh20Quality">
+      <option value="0.45">Oszczędna · telefon</option>
+      <option value="0.65" selected>Zrównoważona</option>
+      <option value="0.85">Wysoka · komputer</option>
+     </select>
+    </label>
+    <div class="bh20-readings">
+      <div><small>MASA GRAWITACYJNA</small><b id="bh20MassSolar">— M☉</b></div>
+      <div><small>OKRES ORBITY NA GRANICY ISCO</small><b id="bh20OrbitPeriod">—</b></div>
+      <div><small>KĄTOWY PROMIEŃ CIENIA</small><b id="bh20ShadowAngle">—°</b></div>
+      <div><small>OBSERWATOR / CZAS WŁASNY</small><b id="bh20ClockExplain">—</b></div>
+    </div>
+    <div id="bh20Status" class="bh20-status" role="status">Wybierz masę, odległość i nachylenie. Zobacz ugięcie światła oraz drogę promieni blisko horyzontu.</div>
+    <p class="bh20-disclaimer">MODEL: nierotująca czarna dziura Schwarzschilda. <b>To nie jest zdjęcie z Event Horizon Telescope.</b> Orbity świetlne i ugięcie promieni są obliczane; barwy, struktury i dynamika dysku są ilustracyjne. Nie symulujemy przepływów plazmy, pola magnetycznego, pełnych widm ani czarnej dziury Kerra. Tło gwiazdowe pochodzi z ziemskiego katalogu J2000.</p>
+   </aside>
+  </div>
+ </div>
+</dialog>
+
 <dialog id="inter19Dialog" class="inter19-dialog" aria-labelledby="inter19Heading">
  <div class="inter19-shell">
   <header class="inter19-header">
@@ -1190,5 +1282,8 @@
 <script src="js/interstellar19-data.js"></script>
 <script src="js/interstellar19-core.js"></script>
 <script src="js/interstellar19-ui.js"></script>
+<script src="js/blackhole20-core.js"></script>
+<script src="js/blackhole20-renderer.js"></script>
+<script src="js/blackhole20-ui.js"></script>
 </body>
 </html>

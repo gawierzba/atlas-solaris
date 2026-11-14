@@ -1,6 +1,24 @@
-# ATLAS SOLARIS 25.0 — Atlas Zodiaku: 13 gwiazdozbiorów na niebie
+# ATLAS SOLARIS 25.1 — Żywe Konstelacje: zodiak w przestrzeni 3D
 
 ATLAS SOLARIS to interaktywny atlas Układu Słonecznego. Wersja **24.0** dodaje obserwatorium dwóch laserowych interferometrów LIGO, detekcję syntetycznych sygnałów GW150914 w niezależnych szumach i interaktywny filtr dopasowany. Wersja **23.0** dodała obserwatorium fal grawitacyjnych z widowiskową wizualizacją zderzenia dwóch czarnych dziur, fizyką inspiralu i przybliżonym wygaszaniem drgań Kerra. Wersja **22.0** dodała kamerę poruszającą się wraz z sondą po geodezyjnej Kerra i przelicza widok nieba oraz dysku z uwzględnieniem lokalnej aberracji relatywistycznej. Wersja **21.0** dodała pilotażową ekspedycję: geodezyjny ruch sondy w równikowej czasoprzestrzeni Kerra, porównanie zegarów, wleczenie azymutu i wizualizację wejścia do ergosfery. Wersja **20.1** rozbudowuje laboratorium o rzeczywistą geometrię Kerra (obrót, ergosfera, wleczenie i geodezyjne Cartera), zachowując fizykę Schwarzschilda przy spinie zerowym. Wersja **20.0** dodała laboratorium czarnej dziury: per-pixel WebGL2 śledzenie promieni Schwarzschilda, fizykę horyzontu, model dysku akrecyjnego i grawitacyjne zegary. Wersja **19.0** dodała pełnoekranową, interaktywną nawigację międzygwiezdną opartą na przestrzennych pozycjach ponad 7400 gwiazd i relatywistyce szczególnej. Wersja **18.1** rozszerzyła Obserwatorium o 110 obiektów Messiera, figury gwiazdozbiorów i wyszukiwarkę pięciu najlepszych nocy w ciągu 30 dni. Wersja **18.0** rozbudowała Obserwatorium 6.0 o naukowy planer 24 godzin, wyszukiwanie obiektów, wykres wysokości i cyfrowy okular o regulowanym polu widzenia. Zachowuje zaćmienia 17.x, misje, egzoplanety i wcześniejsze funkcje atlasu. Zachowuje mapę 17.2, kontakty C1–C4 i kalendarz 17.1. Zachowuje istniejące laboratoria astronomiczne, w tym moduł asteroid i komet z wersji 16.0.
+
+## Nowość 25.1 — Żywe Konstelacje, paralaksa 3D i rzeczywiste granice IAU
+
+**Uruchomienie:** przycisk „✦ ŻYWE KONSTELACJE 25.1” na pasku i w menu bocznym lub „✦ ŻYWE KONSTELACJE · LOT 3D” w istniejącym Atlasie Zodiaku 25.0. Wszystkie etapy do 25.0 są zachowane, a przed aktualizacją utworzono gałąź `backup-v25-before-living-constellations`.
+
+- **13 rzeczywistych wielokątów IAU J2000** z d3-celestial i klasyfikacją Słońca na sferze niebieskiej, włącznie z Wężownikiem. Zastępują dawne przybliżone granice na zewnętrznym kole etapu 25.0.
+- **Wyszukiwanie kolejnego przekroczenia** wielokąta Słońca w okresie 2024–2040 z uwzględnieniem precesji układu współrzędnych z daty do J2000. Algorytm używa przybliżonych wzorów Meeusa/NOAA, dlatego czas przekroczenia nie jest certyfikowaną efemerydą.
+- **Prawdziwa geometria 3D** z katalogu ok. 7 400 gwiazd w `js/interstellar19-data.js`. Lot do wybranej gwiazdy, ręczny suwak, sterowanie kamerą, przybliżenie, kolory gwiazd, ich odległości i umowne figury na niebie. Linie zmieniają kształt dlatego, że widzimy gwiazdy z innego punktu w przestrzeni.
+- **Interaktywny ekran** zoptymalizowany do smartfonów i komputerów. Z widoku przestrzennego można wrócić do koła zodiaku 25.0 i przekazać datę do głównego silnika Atlasu.
+- **Granice nie są ścianami w przestrzeni**: wyświetlamy je tylko przy widoku z Układu Słonecznego. Pełen katalog 88 gwiazdozbiorów nie jest częścią tego etapu.
+
+### Naukowe ograniczenia etapu 25.1
+
+Katalog 3D korzysta z dotychczasowych odległości Hipparcos/Yale oraz lokalnych źródeł RECONS, **nie** z najnowszego katalogu Gaia. Gwiazdy z oszacowanymi odległościami są oznaczane. Ruchy własne gwiazd, czas propagacji fotonów i efekty relatywistyczne nie są uwzględnione. Lot jest wizualizacją zmiany miejsca obserwacji (0–95% odległości do celu), nie realistyczną symulacją napędu. Poświaty i tempo przelotu są artystyczne. Gwiazdozbiorowe figury są umowne, natomiast wielokąty granic to geometra IAU w J2000; błędy klasyfikacji mogą wystąpić w pobliżu granic z uwagi na przybliżony model słoneczny oraz pominięte małe poprawki astrometryczne.
+
+**Testy:** `node tests/zodiac251.test.cjs` i `node tests/zodiac25.test.cjs`.
+
+**Źródła:** [IAU — Constellations](https://www.iau.org/IAU/IAU/Astronomy-FAQs/Constellations.aspx), [Olaf Frohn / d3-celestial — constellations.bounds.json, BSD 3-Clause](https://github.com/ofrohn/d3-celestial), [HYG Database v4.1 / Astronexus, CC BY-SA 4.0](https://github.com/astronexus/HYG-Database). Szczegółowe pochodzenie odległości: `js/interstellar19-data.js`.
 
 ## Nowość 25.0 — Atlas Zodiaku i wędrówka Słońca przez 13 gwiazdozbiorów
 

@@ -1,0 +1,46 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const html=read('etapy/30/index.html'),css=read('portal/binary30-story.css'),cover=read('portal/media/binary30-cover.svg'),lab=read('laboratoria/gwiazdy-podwojne/index.html'),shell=read('portal/stage.js');
+test('Stage 30 is substantive Polish story tied to actual Algol and Roche laboratory',()=>{
+ assert.match(html,/<html lang="pl">/);
+ assert.match(html,/Dwie gwiazdy/);
+ assert.match(html,/2,867/);
+ assert.match(html,/Goodricke/);
+ assert.match(html,/Montanari/);
+ assert.match(html,/paradoks Algola/i);
+ assert.match(html,/L1/);
+ assert.match(html,/Eggleton/);
+ assert.match(html,/czas.*orbitaln|okres orbitalny/i);
+ for(const id of ['historia','taniec','granica','paradoks','na-zywo','laboratorium','zrodla'])assert.match(html,new RegExp('id="'+id+'"'));
+ assert.ok(html.indexOf('id="historia"')<html.indexOf('id="laboratorium"'),'Lab must come after article');
+ assert.ok(html.indexOf('id="granica"')<html.indexOf('id="laboratorium"'),'Roche chapter must come before simulator');
+ assert.ok(html.indexOf('id="laboratorium"')<html.indexOf('id="zrodla"'),'Citations must be available below the simulator');
+ assert.match(html,/id="stageFrame"[^>]*data-lazy="true"/);
+ assert.match(html,/id="stageLaunch"/);
+ assert.match(html,/id="stageRelated"/);
+ assert.match(html,/id="stageInfo"/);
+ assert.match(html,/id="stageReload"/);
+ assert.match(html,/id="stageLoading"/);
+ assert.match(html,/nightsky\.jpl\.nasa\.gov\/media\/Algol%20TESS%20light%20curve\.png/);
+ for(const src of ['aas.org/posts/news/2018/07/month-astronomical-history-0','svs.gsfc.nasa.gov/5290/','chara.gsu.edu/photos-videos/image-gallery/beta-lyrae','nightsky.jpl.nasa.gov/news/466/'])assert.ok(html.includes(src),'missing citation: '+src);
+ assert.match(lab,/id="b30Scene"/);assert.match(lab,/id="b30Curve"/);
+ assert.match(lab,/id="b30Fill"/);assert.match(lab,/id="b30Incl"/);
+});
+test('Static illustrated chapter avoids high-cost renderers and keeps browser scrollable',()=>{
+ assert.match(cover,/<svg/);
+ assert.match(cover,/viewBox="0 0 1600 900"/);
+ assert.ok(Buffer.byteLength(cover,'utf8')<50000,'Cover is unexpectedly large');
+ assert.doesNotMatch(cover,/<script|<animate|<animateTransform|<foreignObject|filter=/i);
+ assert.match(css,/overflow-y:auto/);
+ assert.match(css,/@media\(max-width:650px\)/);
+ assert.doesNotMatch(html,/pulsar32-cinema|three(?:\.min)?\.js|webgl/i);
+ assert.match(html,/portal\/media\/binary30-cover\.svg/);
+ assert.match(html,/<svg/);
+});
+test('Shared portal supports deliberately deferred laboratory without other stage regressions',()=>{
+ assert.match(shell,/const lazyLab=iframe\?\.dataset\.lazy==='true'/);
+ assert.match(shell,/IntersectionObserver/);
+ assert.match(shell,/else startLab\(\)/);
+ assert.match(shell,/atlas:portal:ready/);
+});

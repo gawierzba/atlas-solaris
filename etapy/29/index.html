@@ -1,13 +1,166 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Narodziny i śmierć gwiazdy | ATLAS SOLARIS</title><meta name="description" content="Interaktywne laboratorium ewolucji gwiazd: wybierz masę i zobacz, czy gwiazda skończy jako biały karzeł, gwiazda neutronowa czy czarna dziura.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="29" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 29 / Gwiazdy i ewolucja</span><strong>Narodziny i śmierć gwiazdy</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY EWOLUCJĘ GWIAZDY</strong><small>Budujemy ścieżkę od obłoku molekularnego do końcowego stadium…</small></div><iframe id="stageFrame" title="Narodziny i śmierć gwiazdy — interaktywne laboratorium" src="../../laboratoria/ewolucja-gwiazdy/index.html" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button> · <a href="../../laboratoria/ewolucja-gwiazdy/index.html">Otwórz widok bezpośredni</a></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 29</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Narodziny i śmierć gwiazdy</h1><p class="stage-lead">Interaktywna ewolucja gwiazd</p><p>Wybierz masę gwiazdy i obserwuj kolejne fazy: protogwiazdę, ciąg główny, czerwonego olbrzyma lub nadolbrzyma, supernową i końcowe stadium. Ten etap pokazuje najważniejszą prawidłowość astrofizyki gwiazd: większa masa oznacza większą jasność, krótsze życie i bardziej dramatyczny finał.</p><p class="stage-info-note">Model jest dydaktyczny. Uproszczenia dotyczą m.in. czasu trwania faz, metaliczności, utraty masy, rotacji i ewolucji w układach podwójnych.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript. <a href="../../laboratoria/ewolucja-gwiazdy/index.html">Otwórz bezpośrednio laboratorium.</a></p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071020">
+<title>Biografia gwiazdy. Wszystko zaczyna się od masy | ATLAS SOLARIS 29</title>
+<meta name="description" content="Jedna liczba zmienia cały los gwiazdy. Poznaj jej narodziny, miliardy lat życia i możliwe zakończenia: biały karzeł, gwiazda neutronowa lub czarna dziura. Prawdziwe zdjęcia Webba, źródła i laboratorium.">
+<meta property="og:title" content="Biografia gwiazdy. Wszystko zaczyna się od masy | ATLAS SOLARIS">
+<meta property="og:description" content="Od narodzin w obłoku do ostatniego rozdziału: wyrusz w podróż przez życie gwiazdy.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/star29-cover.svg">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/star29-story.css?v=29.1">
+<script src="../../portal/data.js" defer></script>
+<script src="../../portal/stage.js?v=32.5" defer></script>
+</head>
+<body data-route="29" data-kind="stage" class="s29-story-page">
+<a href="#prolog" class="s29-skip">Przejdź do opowieści</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 29 / GWIAZDY I EWOLUCJA</span><strong>Narodziny i śmierć gwiazdy</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main s29-story-main">
+<article class="s29-story" aria-labelledby="s29Title">
+<section class="s29-cover" aria-label="Biografia gwiazdy">
+<img class="s29-cover-art" src="../../portal/media/star29-cover.svg" width="1600" height="900" fetchpriority="high" alt="Autorska statyczna ilustracja gwiezdnego obłoku, z którego wyłania się różowa protogwiazda; obok w świetlistych pierścieniach inna, jasna gwiazda — symbol różnych epok życia, nie zdjęcie rzeczywistego obiektu.">
+<div class="s29-cover-shade"></div>
+<div class="s29-cover-inner">
+ <div class="s29-cover-top"><span class="s29-live-dot"></span> ATLAS SOLARIS <i>/</i> KRONIKA ŚWIATŁA <i>/</i> XXIX</div>
+ <div class="s29-cover-copy">
+  <p class="s29-eyebrow">ŻYCIE GWIAZDY · HISTORIA NAPISANA PRZEZ FIZYKĘ</p>
+  <h1 id="s29Title">Wszystko zaczyna się <em>od jednej liczby.</em></h1>
+  <p>Gdybyś mógł poznać tylko jeden szczegół o nowo narodzonej gwieździe, zapytaj o jej masę. Ta jedna liczba pozwoli przewidzieć zaskakująco wiele: kolor, blask, długość życia i możliwy finał.</p>
+  <div class="s29-cover-actions"><a class="s29-first-button" href="#prolog">Otwórz biografię <span aria-hidden="true">↓</span></a><a class="s29-second-button" id="stageLaunch" href="#laboratorium">Wybierz los gwiazdy <span aria-hidden="true">↗</span></a></div>
+ </div>
+ <div class="s29-cover-foot"><span>OD OBŁOKU MOLEKULARNEGO DO OSTATNIEGO ŚWIATŁA</span><span>GRAFIKA AUTORSKA · NIE FOTOGRAFIA</span></div>
+</div>
+</section>
+
+<div class="s29-progress-strip"><span>PROLOG</span><i></i><span>NARODZINY</span><i></i><span>ŻYCIE</span><i></i><span>ROZWIDLENIE</span><i></i><span>EKSPERYMENT</span></div>
+
+<section class="s29-prolog" id="prolog">
+<div class="s29-chapter-index"><span>00 / ZANIM ZAPŁONIE ŚWIATŁO</span><em>PYTANIE, KTÓRE ZMIENIA CAŁĄ HISTORIĘ</em></div>
+<div class="s29-prolog-grid">
+<div class="s29-prolog-title"><span class="s29-kicker">LIST Z PRZYSZŁOŚCI</span><h2>Wyobraź sobie gwiazdę, <em>której jeszcze nie ma.</em></h2></div>
+<div class="s29-reading">
+<p class="s29-lead">W pewnym zakątku Galaktyki unosi się zimny obłok wodoru, helu i pyłu. Nikt nie wie, że niewielka część tej materii kiedyś rozbłyśnie i przez miliony albo miliardy lat będzie odmierzać czas własnym światłem.</p>
+<p>Gdy gęstszy fragment obłoku zaczyna zapadać się pod wpływem grawitacji, rodzi się zalążek gwiazdy. Ale zanim w centrum na dobre rozpocznie się fuzja wodoru, los obiektu już w znacznym stopniu zależy od <strong>masy, którą zdoła zgromadzić</strong>. <a class="s29-ref" href="#zrodla" aria-label="Źródła 1 i 2">[1, 2]</a></p>
+<p>Gwiazda mała może świecić tak oszczędnie, że przeżyje obecny wiek Wszechświata wielokrotnie. Gwiazda bardzo masywna będzie świecić olśniewająco, lecz jej życie może skończyć się po zaledwie kilku milionach lat. <strong>Najjaśniejsza nie znaczy najtrwalsza.</strong> <a class="s29-ref" href="#zrodla" aria-label="Źródło 1">[1]</a></p>
+</div>
+</div>
+<div class="s29-one-question"><span>WYOBRAŹ SOBIE DWIE GWIAZDY</span><p>Jedna otrzymuje <strong>0,2 masy Słońca</strong>, druga <strong>25 mas Słońca</strong>. Która z nich będzie świeciła dłużej?</p><small>Odpowiedź znajdziesz w kolejnych rozdziałach — i sprawdzisz ją w laboratorium.</small></div>
+</section>
+
+<section class="s29-nursery" id="narodziny">
+<div class="s29-nursery-head"><div><span class="s29-section-no">01 / POCZĄTEK</span><h2>Gwiazdy rodzą się <em>w ciemności.</em></h2></div><p>Najpiękniejsze obłoki na zdjęciach teleskopowych nie są gotowymi gwiazdami. To miejsca, w których nowa gwiazda może dopiero powstawać.</p></div>
+<figure class="s29-cosmic-photo">
+<div class="s29-photo-wrap"><img src="https://cdn.esawebb.org/archives/images/screen/weic2216a.jpg" width="1200" height="1200" loading="lazy" decoding="async" alt="Prawdziwe zdjęcie Filarów Stworzenia z Kosmicznego Teleskopu Jamesa Webba: kolumny gazu i pyłu z młodymi gwiazdami, obraz w barwach przypisanych obserwacjom podczerwieni."><span>OBSERWACJA WEBBA / 2022</span></div>
+<figcaption><span>FOTOGRAFIA NAUKOWA · PODCZERWIEŃ</span><h3>Filary Stworzenia. Tu zaczynają się nowe historie.</h3><p>Te olbrzymie struktury w Mgławicy Orzeł, około 6500 lat świetlnych od Ziemi, są obszarem formowania młodych gwiazd. Webb pozwala zajrzeć w pył dzięki obserwacjom podczerwonym. Jasne czerwonawe punkty mogą wskazywać młode gwiazdy. <a class="s29-ref" href="#zrodla">[3]</a></p>
+<small>Obraz: NASA, ESA, CSA, STScI; J. DePasquale, A. Koekemoer, A. Pagan (STScI). <a href="https://esawebb.org/images/weic2216a/" target="_blank" rel="noopener noreferrer">Pełny opis i pochodzenie zdjęcia</a>. Kolory są opracowaniem danych z różnych filtrów podczerwonych.</small></figcaption>
+</figure>
+<div class="s29-nursery-foot"><div><span>01</span><strong>Grawitacja zbiera gaz</strong><p>Gęstszy fragment obłoku może zacząć kurczyć się, jeśli działanie grawitacji przeważy nad siłami podtrzymującymi obłok.</p></div><div><span>02</span><strong>Powstaje protogwiazda</strong><p>Materia opada ku centrum. Obiekt nagrzewa się i może rosnąć, zbierając dalszy gaz.</p></div><div><span>03</span><strong>Zapala się stabilna fuzja</strong><p>Po osiągnięciu odpowiednich warunków w jądrze energia fuzji wodoru wspiera równowagę gwiazdy.</p></div></div>
+</section>
+
+<section class="s29-life" id="zycie">
+<div class="s29-life-head"><span class="s29-section-no">02 / DŁUGA CISZA</span><h2>Przez większość życia gwiazda robi <em>coś pozornie nudnego.</em></h2><p>Astronomowie nazywają ten okres <strong>ciągiem głównym</strong>. W jądrze wodór zmienia się w hel, a ciśnienie gorącej materii przeciwdziała grawitacji. Gwiazda może pozostawać w takim stanie przez bardzo długi czas. <a class="s29-ref" href="#zrodla">[1]</a></p></div>
+<div class="s29-life-contrast">
+<div class="s29-life-small"><span>MAŁA MASA · CZERWONY KARZEŁ</span><div class="s29-mini-star red"></div><strong>Powoli i długo.</strong><p>Niewielkie gwiazdy są słabsze, chłodniejsze i mogą oszczędnie zużywać wodór przez setki miliardów, a nawet biliony lat. Nie znamy jeszcze żadnego czerwonego karła, który zdążył umrzeć ze starości — Wszechświat jest na to za młody.</p></div>
+<div class="s29-life-large"><span>DUŻA MASA · GWIAZDA MASYWNA</span><div class="s29-mini-star blue"></div><strong>Jasno i krótko.</strong><p>Olbrzymia masa ściska jądro tak mocno, że fuzja przebiega bardzo intensywnie. Gwiazda może być tysiące lub miliony razy jaśniejsza od Słońca, lecz spalanie paliwa trwa znacznie krócej.</p></div>
+</div>
+<div class="s29-hertz">
+<div class="s29-hertz-head"><span>PRACOWNIA ASTRONOMA / DIAGRAM HR</span><h3>Dlaczego czerwony olbrzym bywa chłodniejszy, ale jaśniejszy?</h3><p>Bo jasność zależy nie tylko od temperatury powierzchni, lecz także od rozmiarów gwiazdy. Na diagramie Hertzsprunga–Russella zestawiamy temperaturę i jasność. Położenie gwiazdy zdradza jej stan ewolucyjny.</p></div>
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Uproszczony diagram Hertzsprunga–Russella z temperaturą malejącą w prawo. Ciąg główny biegnie z lewego górnego do prawego dolnego rogu, czerwone olbrzymy leżą u góry po prawej, białe karły na dole po lewej.">
+<defs><linearGradient id="hrmain" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9fe3f6"/><stop offset=".52" stop-color="#e5edf4"/><stop offset="1" stop-color="#f2a7a8"/></linearGradient></defs>
+<rect x="68" y="38" width="754" height="342" fill="#0c1b30" stroke="#50617a" stroke-width="1"/>
+<g stroke="#526981" opacity=".36" stroke-width="1"><path d="M68 99H822M68 160H822M68 221H822M68 282H822M68 343H822"/><path d="M190 38V380M310 38V380M430 38V380M550 38V380M670 38V380M790 38V380"/></g>
+<path d="M139 71C262 118 318 168 444 220C546 263 639 318 759 357" stroke="url(#hrmain)" stroke-width="15" stroke-opacity=".16" fill="none"/>
+<path d="M139 71C262 118 318 168 444 220C546 263 639 318 759 357" stroke="url(#hrmain)" stroke-width="4.2" fill="none"/>
+<g fill="#b8dcf5"><circle cx="145" cy="76" r="7"/><circle cx="325" cy="162" r="6"/><circle cx="449" cy="223" r="5"/><circle cx="626" cy="306" r="5"/></g>
+<g fill="#f5afab"><circle cx="669" cy="100" r="20" opacity=".28"/><circle cx="669" cy="100" r="9"/><circle cx="715" cy="141" r="7"/></g>
+<g fill="#e2efff"><circle cx="208" cy="341" r="10" opacity=".27"/><circle cx="208" cy="341" r="4"/><circle cx="277" cy="357" r="4"/></g>
+<g fill="#d6e7f0" font-family="system-ui,sans-serif" font-size="16">
+<text x="520" y="195" transform="rotate(29 520 195)">CIĄG GŁÓWNY</text>
+<text x="604" y="75">CZERWONE OLBRZYMY</text><text x="136" y="321">BIAŁE KARŁY</text>
+<text x="82" y="26" font-size="13">WIĘKSZA JASNOŚĆ ↑</text>
+<text x="224" y="422" font-size="14">GORĘCEJ ← TEMPERATURA POWIERZCHNI → CHŁODNIEJ</text>
+</g>
+</svg>
+<p class="s29-hertz-note">To statyczny schemat rozmieszczenia populacji, nie rzeczywisty pomiar ani ścieżka jednego konkretnego obiektu. W laboratorium 29 znajduje się osobny, obliczany diagram HR dla wybranej masy.</p>
+</div>
+</section>
+
+<section class="s29-branch" id="rozdroze">
+<div class="s29-branch-top"><span class="s29-section-no">03 / ROZDROŻE</span><h2>Żadna gwiazda nie świeci wiecznie. <em>Ale nie wszystkie umierają tak samo.</em></h2><p>O przyszłości decyduje przede wszystkim masa — a przy końcu życia także utrata materii, obrót, skład chemiczny oraz obecność towarzysza. To dlatego prosta granica między białym karłem, gwiazdą neutronową i czarną dziurą jest w rzeczywistości rozmyta. <a class="s29-ref" href="#zrodla">[1, 2]</a></p></div>
+<div class="s29-fate-paths">
+<div class="s29-fate path-quiet"><span class="s29-fate-number">A / DŁUGIE POŻEGNANIE</span><div class="s29-fate-symbol white">✦</div><h3>Biały karzeł</h3><p>Gwiazda o masie zbliżonej do Słońca może rozrosnąć się w czerwonego olbrzyma, odrzucić zewnętrzne warstwy i pozostawić gorące, gęste jądro. Tak kończy swoją ewolucję bez wybuchu supernowej z kolapsem jądra.</p><small>Ścieżka gwiazd o małej i pośredniej masie. Bardzo małe czerwone karły przeżyją jeszcze niezwykle długo.</small></div>
+<div class="s29-fate path-neutron"><span class="s29-fate-number">B / ZAŁAMANIE JĄDRA</span><div class="s29-fate-symbol neutron">✺</div><h3>Gwiazda neutronowa</h3><p>W pewnych masywnych gwiazdach jądro zapada się pod własnym ciężarem. Materia staje się ekstremalnie gęsta. Jeśli pozostałość nie jest zbyt ciężka, może powstać gwiazda neutronowa.</p><small>To nie jest automatyczny los każdej gwiazdy powyżej jednej sztywnej masy początkowej.</small></div>
+<div class="s29-fate path-black"><span class="s29-fate-number">C / HORYZONT ZDARZEŃ</span><div class="s29-fate-symbol black"><i></i></div><h3>Czarna dziura</h3><p>Jeżeli zapadające się jądro nie może utrzymać równowagi, może utworzyć czarną dziurę. Niektóre bardzo masywne gwiazdy zapadają się z towarzyszącą eksplozją, a inne mogą kolapsować bez jasnej supernowej.</p><small>Wynik zależy od przebiegu ewolucji i masy końcowego jądra, nie wyłącznie od suwaka masy początkowej.</small></div>
+</div>
+</section>
+
+<section class="s29-photographic" id="koniec">
+<div class="s29-photographic-head"><span class="s29-section-no">04 / DOWÓD, ŻE KONIEC TEŻ MOŻE ŚWIECIĆ</span><h2>Widzimy nie tylko narodziny. <em>Widzimy także pozostałości.</em></h2><p>Najważniejsza różnica między piękną ilustracją a astronomią? Teleskopy dostarczają danych. Oto ślad prawdziwej eksplozji masywnej gwiazdy.</p></div>
+<figure class="s29-observation">
+<div class="s29-observation-image"><img src="https://cdn.esawebb.org/archives/images/screen/weic2311a.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Prawdziwe zdjęcie pozostałości supernowej Cassiopeia A z teleskopu Jamesa Webba w podczerwieni: pierścienie i włókna wyrzuconego przez gwiazdę gazu oraz pyłu, z kolorami przypisanymi danym naukowym."><span>OBSERWACJA WEBBA / CASSIOPEIA A</span></div>
+<figcaption><span>OBRAZ ASTRONOMICZNY · INSTRUMENT MIRI · 2023</span><h3>Materia po wybuchu ma własną historię.</h3><p>Cassiopeia A to pozostałość supernowej w gwiazdozbiorze Kasjopei. Na obrazie Webba widać rozległe struktury wyrzuconej materii i pyłu, które oddziałują z otoczeniem. Jej centralna gwiazda neutronowa jest rozpoznawana dzięki innym obserwacjom. <a class="s29-ref" href="#zrodla">[4]</a></p><small>Zdjęcie: NASA, ESA, CSA, D. Milisavljevic, T. Temim, I. De Looze, J. DePasquale (STScI). <a href="https://esawebb.org/images/weic2311a/" target="_blank" rel="noopener noreferrer">Opis naukowy i autorstwo w ESA/Webb</a>. Barwy przypisano emisji w różnych pasmach podczerwieni.</small></figcaption>
+</figure>
+<div class="s29-whisper"><span>WIESZ, CO JEST W TYM NAJPIĘKNIEJSZE?</span><p>Gwiazda może umrzeć, ale materia, którą oddaje przestrzeni, <em>może wejść w skład przyszłych gwiazd i planet.</em></p><small>Nie każdy pierwiastek powstaje wyłącznie w supernowych; kosmiczne pochodzenie materii obejmuje wiele procesów, w tym wcześniejszą nukleosyntezę gwiazdową.</small></div>
+</section>
+
+<section class="s29-science-honesty">
+<div class="s29-honesty-label">05 / CO POTRAFI MODEL — A CZEGO NIE MOŻNA MU POWIERZYĆ</div>
+<div class="s29-honesty-grid">
+<div><h2>Gwiazdy to nie <em>przepowiednie z automatu.</em></h2></div>
+<div><p>Nasze laboratorium pokazuje ważną zasadę: masa jest jednym z najpotężniejszych parametrów sterujących ewolucją gwiazdy. Dzięki niej można porównać orientacyjne długości życia, temperaturę, jasność, fazy i potencjalne pozostałości.</p>
+<p>Ale prawdziwa ewolucja nie ma tylko jednej zmiennej. Metaliczność, wiatr gwiazdowy, rotacja, transfer masy w układzie podwójnym oraz szczegóły kolapsu mogą zmienić finał. W rzeczywistych badaniach używa się znacznie dokładniejszych modeli numerycznych.</p>
+<p>**Bardzo ważne:** symulator pokazuje hipotetyczny finał także dla gwiazd o masie 0,1–0,2 Słońca. To przyszłość tak odległa, że żaden podobny czerwony karzeł nie zdążył jeszcze przejść całej ewolucji. Dla gwiazd masywnych model stosuje uproszczone przedziały mas, a nie pewną prognozę supernowej, gwiazdy neutronowej czy czarnej dziury.</p>
+</div></div>
+</section>
+
+<section class="s29-lab-intro">
+<div class="s29-chapter-index"><span>06 / TWOJE LABORATORIUM</span><em>TY DECYDUJESZ O WIELKOŚCI GWIAZDY</em></div>
+<div class="s29-lab-intro-grid"><div><p class="s29-kicker">MASZ W RĘKU JEDEN PARAMETR</p><h2>Zmień masę. <em>Przeczytaj inną biografię.</em></h2></div><div><p>Laboratorium rozpoczyna się od formowania gwiazdy. Wybierz masę, przesuwaj suwak czasu, porównaj fazy życia i punkt na diagramie Hertzsprunga–Russella. Następnie sprawdź, jak odmienny finał zobaczysz dla znacznie masywniejszej gwiazdy.</p></div></div>
+<div class="s29-tasks">
+<div><span>01 / CZERWONY KARZEŁ</span><h3>Gwiazda, której zabraknie czasu</h3><p>Wybierz 0,2 M☉. Jak długo ma trwać jej modelowe życie? Czy Wszechświat jest już na tyle stary, by taką gwiazdę widzieć w ostatniej fazie?</p></div>
+<div><span>02 / LOS SŁOŃCA</span><h3>Bez supernowej</h3><p>Wybierz 1 M☉, przesuń oś czasu i przejdź przez czerwonego olbrzyma do białego karła.</p></div>
+<div><span>03 / GWIAZDA MASYWNA</span><h3>Jasno, ale krótko</h3><p>Wybierz 12 M☉. Porównaj jej czas życia z czasem życia Słońca, a potem odszukaj fazę supernowej.</p></div>
+<div><span>04 / EKSTREMALNA MASA</span><h3>Czy czarna dziura jest nieunikniona?</h3><p>Wybierz 25 M☉. Zobacz finał wskazany przez model i przeczytaj, dlaczego w prawdziwej astrofizyce wynik nie jest tak prosty.</p></div>
+</div>
+<p class="s29-model-note">Przewijanie osi życia w laboratorium nie odpowiada równomiernemu upływowi czasu obserwowanego przez teleskop. Temperatury, jasności, czasy faz i granice końcowych stadiów są dydaktycznymi przybliżeniami, nie szczegółowymi ścieżkami obliczonymi przez kod ewolucji gwiazd.</p>
+</section>
+</article>
+
+<section class="s29-lab-section" id="laboratorium" aria-label="Interaktywne laboratorium ewolucji gwiazdy">
+<div class="s29-lab-head"><div><span>ATLAS SOLARIS / ETAP 29 / PRACOWNIA EWOLUCJI</span><h2>Życie gwiazdy. <em>Teraz w Twoich rękach.</em></h2><p>Wybierz masę i obejrzyj możliwą historię gwiazdy na ekranie. Symulator ładuje się dopiero po przewinięciu do tej części.</p></div><strong>OSZCZĘDNE ŁADOWANIE</strong></div>
+<div id="stageViewport" class="stage-viewport">
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>OTWIERAMY BIOGRAFIĘ GWIAZDY</strong><small>Fazy · okresy życia · diagram HR · końcowe stadium</small></div>
+<iframe id="stageFrame" title="Narodziny i śmierć gwiazdy — interaktywne laboratorium" data-lazy="true" data-src="../../laboratoria/ewolucja-gwiazdy/index.html?v=29.1" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button> · <a href="../../laboratoria/ewolucja-gwiazdy/index.html">Otwórz laboratorium bezpośrednio</a></div>
+<p class="s29-lab-endnote">Strona artykułu nie uruchamia symulatora podczas czytania. Wszystkie wykresy i animacje w laboratorium są uproszczonymi modelami, nie odtworzeniem obserwacji jednej gwiazdy.</p>
+</section>
+
+<section class="s29-sources" id="zrodla">
+<div class="s29-sources-head"><span>07 / BIBLIOTEKA ASTRONOMA</span><h2>Skąd znamy <em>historię gwiazd?</em></h2><p>Nie obserwujemy jednej gwiazdy przez miliardy lat. Budujemy wiedzę na podstawie populacji gwiazd w różnych stadiach, pomiarów widm, jasności, mas i modeli fizycznych. Te źródła pozwolą sprawdzić szczegóły.</p></div>
+<ol>
+<li><a href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener noreferrer">NASA Science — Stars</a><span>Powstawanie gwiazd, ciąg główny, znaczenie masy i różne zakończenia ewolucji.</span></li>
+<li><a href="https://assets.science.nasa.gov/content/dam/science/hpd/heat/heat-pdfs/Journey%20to%20the%20Stars%20-%20Educator%27s%20Guide.pdf" target="_blank" rel="noopener noreferrer">NASA — Journey to the Stars: Educator’s Guide</a><span>Wyjaśnienie cyklu życia gwiazd, masa a długość życia i końcowe stadia.</span></li>
+<li><a href="https://esawebb.org/images/weic2216a/" target="_blank" rel="noopener noreferrer">ESA/Webb — Filary Stworzenia (2022)</a><span>Prawdziwe obserwacje obszaru, w którym formują się młode gwiazdy. Autorstwo i filtry barwne.</span></li>
+<li><a href="https://esawebb.org/images/weic2311a/" target="_blank" rel="noopener noreferrer">ESA/Webb — Cassiopeia A (2023)</a><span>Obraz podczerwony pozostałości po supernowej, ze szczegółowym opisem emisji.</span></li>
+<li><a href="https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-caldwell-catalog/caldwell-63/" target="_blank" rel="noopener noreferrer">NASA/Hubble — Caldwell 63: Mgławica Ślimak</a><span>Przykład mgławicy planetarnej i losu gwiazdy zbliżonej masą do Słońca.</span></li>
+<li><a href="https://science.nasa.gov/asset/webb/cassiopeia-a-nircam-image/" target="_blank" rel="noopener noreferrer">NASA/Webb — Cassiopeia A w kamerze NIRCam</a><span>Drugi obraz pozostałości supernowej i analiza wyrzuconych pierwiastków.</span></li>
+</ol>
+<p class="s29-editorial">ATLAS SOLARIS. Autorski artykuł popularnonaukowy. Grafika otwierająca i diagram HR są ilustracjami statycznymi; zdjęcia Webba to rzeczywiste obserwacje, przedstawione w kolorach przypisanych różnym pasmom podczerwieni. Szczegółowe parametry końca życia pojedynczej gwiazdy wymagają modeli uwzględniających wiele zmiennych, nie tylko masę początkową.</p>
+</section>
+<footer class="s29-last"><span>ATLAS SOLARIS / 29</span><span>W KOSMOSIE ŻYCIE GWIAZDY ZACZYNA SIĘ OD GRAWITACJI.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></footer>
+</main>
+
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie">
+<div class="stage-info-head"><span>ATLAS SOLARIS / ETAP 29</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+<h2>Narodziny i śmierć gwiazdy</h2><p class="stage-lead">Popularnonaukowa biografia gwiazdy i interaktywny model</p>
+<p>Prześledź narodziny, ciąg główny i możliwe losy gwiazd. W laboratorium wybierz masę i pozycję na osi życia, porównaj jasność, temperaturę i przyszłość gwiazdy.</p>
+<p class="stage-info-note">To model dydaktyczny: przyszłość czerwonych karłów oraz granice pozostałości masywnych gwiazd są mocno uproszczone. Prawdziwa ewolucja zależy również od składu, rotacji, utraty masy i układów podwójnych.</p><div id="stageRelated"></div>
+</aside>
+<noscript><p class="stage-nojs">Artykuł można czytać bez JavaScript. Do uruchomienia laboratorium potrzebny jest JavaScript.</p></noscript>
 </body></html>

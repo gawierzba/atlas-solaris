@@ -1,4 +1,4 @@
-name: ATLAS SOLARIS — testy astronomii 17–30.0
+name: ATLAS SOLARIS — testy astronomii 17–31.0
 on:
   pull_request:
     branches: [main]
@@ -34,6 +34,7 @@ on:
       - 'tests/portal28.test.cjs'
       - 'tests/portal29.test.cjs'
       - 'tests/binary30.test.cjs'
+      - 'tests/lens31.test.cjs'
       - 'css/eclipse*.css'
       - 'css/observatory18*.css'
       - 'css/interstellar19.css'
@@ -141,6 +142,8 @@ jobs:
           node --check portal/star29.js
           node --check portal/binary30-core.js
           node --check portal/binary30-ui.js
+          node --check portal/lens31-core.js
+          node --check portal/lens31-ui.js
           node --check portal/stage.js
           node --check portal/embed.js
       - name: Przygotuj klasyczny index.html dla testów silnika 17–26
@@ -201,3 +204,5 @@ jobs:
         run: node tests/portal29.test.cjs
       - name: Test fizyki Roche’a, Keplera i zaćmień 30.0
         run: node tests/binary30.test.cjs
+      - name: Test soczewkowania i promienia Einsteina 31.0
+        run: node tests/lens31.test.cjs

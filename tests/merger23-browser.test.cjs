@@ -33,7 +33,7 @@ function verify(){
      const r=pixels[i],g=pixels[i+1],b=pixels[i+2];
      const max=Math.max(r,g,b);
      if(max>55)bright++;
-     if(max<24)dark++;
+     if(max<44)dark++;
      if(b>100&&b>r*1.25)blue++;
      if(r>85&&r>g*1.13)coral++;
     }

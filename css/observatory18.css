@@ -62,3 +62,6 @@
 #obs18Speed{border:1px solid #477c86;border-radius:7px;background:#0e2c3c;color:#e3f5f4;padding:7px;font:11px system-ui}
 #obs18Playback{color:#a5c7cb;font-size:10px;flex:1;text-align:right}
 @media(max-width:480px){.obs18-playbar{gap:8px;padding:9px}#obs18Play{padding:10px 12px}.obs18-playbar label{flex:1}#obs18Playback{flex:1 0 100%;text-align:left}}
+
+.obs18-side-entry{display:block;width:100%;text-align:left;border:1px solid #478587;border-radius:9px;margin:7px 0;background:linear-gradient(95deg,#174f50,#0b2b3d);color:#daf8f5;padding:11px 12px;cursor:pointer;font:670 12px/1.35 system-ui,sans-serif}
+.obs18-side-entry:hover{border-color:#a5e5de;background:#206363}

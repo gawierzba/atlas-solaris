@@ -9,6 +9,6 @@ assert.equal(data.stages['29'].src,'laboratoria/ewolucja-gwiazdy/index.html');
 assert.match(read('etapy/29/index.html'),/ewolucja-gwiazdy\/index\.html/);
 assert.match(read('laboratoria/ewolucja-gwiazdy/index.html'),/ATLAS SOLARIS 29\.0/);
 assert.match(read('portal/star29.js'),/Ciąg główny|Gwiazda neutronowa|Czarna dziura/);
-assert.match(read('portal/site.js'),/featureCard\(29,'star'\)/);
+assert.equal(data.stages['29'].path,'etapy/29/');
 assert.match(read('portal/stage.js'),/orderedStageKeys/);
 console.log('ATLAS SOLARIS 29 · stellar evolution stage OK');

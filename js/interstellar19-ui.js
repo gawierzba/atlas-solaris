@@ -356,7 +356,7 @@ function init(){
   $('inter19EarthTime').textContent=years(f.earthYears);
   $('inter19ShipTime').textContent=years(f.shipYears);
   $('inter19Signal').textContent=years(f.signalLagYears);
-  $('inter19Duration').textContent=years(f.fullShipYears)+' / '+nfmt(f.distanceLy,1)+' ly';
+  $('inter19Duration').textContent=nfmt(f.distanceLy,1)+' ly / '+years(f.fullShipYears);
   const dr=core.aberrate(f.direction,f.direction,state.beta);
   $('inter19Doppler').textContent='×'+nfmt(dr.doppler,2);
   $('inter19HeadingTxt').textContent='Kurs: '+t.name+' · '+nfmt(t.d,2)+' ly · J2000';

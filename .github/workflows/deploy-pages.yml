@@ -59,6 +59,7 @@ jobs:
           node --check portal/pulsar32-core.js
           node --check portal/pulsar32-ui.js
           node --test tests/pulsar32.test.cjs
+          node tests/pulsar32-browser.test.cjs
           node --check js/app.js
           node --check js/blackhole201-core.js
           node --check js/blackhole201-renderer.js

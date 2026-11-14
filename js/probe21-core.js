@@ -119,11 +119,16 @@ function interpolate(trajectory,tau){
  out.nearHorizon=out.r<=trajectory.release.horizon+.07;
  return out;
 }
+function circularVelocity(spin,r,direction=1){
+ if(!(r>=k.isco(spin,direction)))throw new RangeError('Orbita kołowa poniżej ISCO jest niestabilna.');
+ const m=k.metric(spin,r,Math.PI/2),omega=k.orbitOmega(spin,r,direction);
+ return (omega-m.omega)*Math.sqrt(m.gpp)/m.lapse;
+}
 function physicalTime(massSolar,geometricSeconds,rgSeconds=4.925639893961039e-6){
  return massSolar*rgSeconds*geometricSeconds;
 }
 root.ATLAS_PROBE21_CORE=Object.freeze({
- release,potential,rates,rk4,position,integrate,interpolate,physicalTime,clamp,RAD
+ release,potential,rates,rk4,position,integrate,interpolate,physicalTime,circularVelocity,clamp,RAD
 });
 if(typeof module!=='undefined'&&module.exports)module.exports=root.ATLAS_PROBE21_CORE;
 })(typeof window!=='undefined'?window:globalThis);

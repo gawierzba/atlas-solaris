@@ -16,30 +16,6 @@ const sliders={alpha:byId('p32Alpha'),zeta:byId('p32Zeta'),rho:byId('p32Rho'),pe
 const scene=byId('p32Scene'),profile=byId('p32Profile'),scope=byId('p32Scope');
 const state={...preset.crab,phase:0,playing:true,sound:false,camYaw:-.72,camPitch:.34,activePreset:'crab'};
 let trace=null,last=0,lastDraw=0,previousGain=0,audio=null,lastAudio=0,drag=null;
-let renderQuality='auto';
-function effectiveQuality(){
- if(renderQuality==='eco'||cinemaBroken||!window.AtlasPulsar32Cinema)return 'eco';
- const w=scene.getBoundingClientRect().width;
- return window.AtlasPulsar32Cinema.resolveQuality(renderQuality,w);
-}
-function updateQualityDisplay(){
- const effective=effectiveQuality();
- const qualityName=effective==='cinema'?'FILMOWA':effective==='balanced'?'ZRÓWNOWAŻONA':'NAUKOWA / LEKKA';
- const details=effective==='cinema'
-  ?'Pełna poświata, świetlne łuki, bogata magnetosfera i strumienie cząstek.'
-  :effective==='balanced'
-  ?'Wyważony obraz: tekstura gwiazdy, delikatniejsze światło i mniej efektów.'
-  :'Czytelny schemat geometryczny: proste wiązki, ograniczone efekty i mniejsze obciążenie.';
- const status=byId('p32QualityStatus'),tag=byId('p32VisualMode');
- if(status)status.textContent=(renderQuality==='auto'?'AUTO WYBRAŁO: ':'AKTYWNY TRYB: ')+qualityName+' — '+details;
- if(tag)tag.textContent=cinemaBroken?'TRYB AWARYJNY':(renderQuality==='auto'?'AUTO · ':'')+qualityName;
- scene.dataset.quality=effective;
-}
-document.querySelectorAll('[data-p32quality]').forEach(button=>button.addEventListener('click',()=>{
- renderQuality=button.dataset.p32quality;
- document.querySelectorAll('[data-p32quality]').forEach(x=>x.setAttribute('aria-pressed',String(x===button)));
- drawScene();updateQualityDisplay();
-}));
 const stars=[];
 let seed=32731;const rnd=()=>{seed=(Math.imul(1664525,seed)+1013904223)>>>0;return seed/4294967296};
 for(let i=0;i<210;i++)stars.push({x:rnd(),y:rnd(),r:.3+rnd()*.95,a:.12+rnd()*.5});
@@ -57,7 +33,7 @@ function orientation(){
  return {right,up,front};
 }
 function sizeCanvas(c){
- const r=c.getBoundingClientRect(),w=Math.max(1,r.width),h=Math.max(1,r.height),dpr=Math.min(c===scene?(effectiveQuality()==='eco'?1.15:effectiveQuality()==='balanced'?1.5:2):2,window.devicePixelRatio||1);
+ const r=c.getBoundingClientRect(),w=Math.max(1,r.width),h=Math.max(1,r.height),dpr=Math.min(w<600?1.3:1.75,window.devicePixelRatio||1);
  const pxw=Math.round(w*dpr),pxh=Math.round(h*dpr);
  if(c.width!==pxw||c.height!==pxh){c.width=pxw;c.height=pxh}
  const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -71,7 +47,7 @@ function drawLine(ctx,pts,color,width=1,dash=null){
  for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i].x,pts[i].y);
  ctx.stroke();ctx.restore();
 }
-function drawSceneLegacy(){
+function drawScene(){
  const {ctx,w,h}=sizeCanvas(scene);
  ctx.clearRect(0,0,w,h);
  const cx=w*.5,cy=h*.49,S=Math.min(w,h)*.275,{right,up,front}=orientation();
@@ -149,21 +125,6 @@ function drawSceneLegacy(){
  const upper=point(v(0,2.55,0));
  ctx.font='800 10px system-ui';ctx.fillStyle='#ffbb91';
  ctx.fillText('ROT',clamp(upper.x,28,w-28),clamp(upper.y-10,60,h-42));
-}
-let cinemaBroken=false;
-function drawScene(){
- const {ctx,w,h}=sizeCanvas(scene);
- if(effectiveQuality()!=='eco'){
-  try{
-   window.AtlasPulsar32Cinema.draw(ctx,w,h,state,core,renderQuality);
-   return;
-  }catch(err){
-   cinemaBroken=true;
-   console.warn('ATLAS 32: uruchomiono bezpieczny widok naukowy',err);
-   updateQualityDisplay();
-  }
- }
- drawSceneLegacy();
 }
 function drawGraph(canvas,scopeMode){
  const {ctx,w,h}=sizeCanvas(canvas),pad={l:34,r:12,t:15,b:25},pw=w-pad.l-pad.r,ph=h-pad.t-pad.b;
@@ -299,7 +260,7 @@ scene.addEventListener('pointermove',e=>{
  if(!state.playing)drawScene();
 });
 const endDrag=()=>{drag=null};scene.addEventListener('pointerup',endDrag);scene.addEventListener('pointercancel',endDrag);scene.addEventListener('lostpointercapture',endDrag);
-window.addEventListener('resize',()=>{drawScene();drawGraph(profile,false);drawGraph(scope,true);updateQualityDisplay()});
+window.addEventListener('resize',()=>{drawScene();drawGraph(profile,false);drawGraph(scope,true)});
 document.addEventListener('visibilitychange',()=>{last=0;if(document.hidden&&audio&&audio.state==='running')audio.suspend().catch(()=>{})});
 function loop(now){
  const dt=last?Math.min(.09,(now-last)/1000):0;last=now;
@@ -309,7 +270,7 @@ function loop(now){
   if(signal>.46&&previousGain<=.46)beep(signal);
   previousGain=signal;
  }
- if(now-lastDraw>(effectiveQuality()==='cinema'?33:effectiveQuality()==='balanced'?48:64)&&!document.hidden){
+ if(now-lastDraw>(scene.clientWidth<600?50:40)&&!document.hidden){
   drawScene();drawGraph(profile,false);drawGraph(scope,true);
   const status=byId('p32State'),peak=core.pulseAtPhase(TAU*state.phase,state).gain;
   status.textContent=peak>.45?'Wiązka trafia w obserwatora':'Wiązka poza linią widzenia';
@@ -319,5 +280,5 @@ function loop(now){
 }
 function reportReady(){try{if(window.parent!==window)window.parent.postMessage({type:'atlas:portal:ready'},location.origin)}catch(_e){}}
 window.addEventListener('message',e=>{if(e.origin===location.origin&&e.data?.type==='atlas:portal:ping')reportReady()});
-usePreset('crab');updateQualityDisplay();requestAnimationFrame(loop);reportReady();
+usePreset('crab');requestAnimationFrame(loop);reportReady();
 })();

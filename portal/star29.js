@@ -47,7 +47,8 @@ function buildTrack(m){const set=massSet(m).map(stage=>({...stage}));const total
 function stageAt(track,pct){ const age=track.total*pct; let idx=track.stages.findIndex(s=>age<=s.end); if(idx<0) idx=track.stages.length-1; const stage=track.stages[idx]; return {stage,idx,age} }
 function current(){ const track=buildTrack(state.mass); return {track,...stageAt(track,state.life)} }
 function typeFinal(m){return buildTrack(m).final}
-function drawStrip(track,idx){ el.stageStrip.innerHTML=track.stages.map((s,i)=>`<button type="button" class="s29-chip ${i===idx?'active':''}" data-i="${i}" style="flex:${Math.max(.5,s.years/track.total*10)}"><span>${String(i+1).padStart(2,'0')}</span><strong>${s.name}</strong><small>${formatYears(s.years)}</small></button>`).join(''); el.stageStrip.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.i),st=track.stages[i]; state.life=(st.fracStart+st.fracEnd)/2; syncUI(); })); }
+let stripStateKey='';
+function drawStrip(track,idx){ const key=state.mass.toFixed(2)+':'+idx; if(key===stripStateKey)return; stripStateKey=key; el.stageStrip.innerHTML=track.stages.map((s,i)=>`<button type="button" class="s29-chip ${i===idx?'active':''}" data-i="${i}" style="flex:${Math.max(.5,s.years/track.total*10)}"><span>${String(i+1).padStart(2,'0')}</span><strong>${s.name}</strong><small>${formatYears(s.years)}</small></button>`).join(''); el.stageStrip.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.i),st=track.stages[i]; state.life=(st.fracStart+st.fracEnd)/2; syncUI(); })); }
 function updateInfo(){ const {track,stage,idx,age}=current();
  el.massLabel.textContent=`${f1(state.mass)} masy Słońca`; el.kpiMass.textContent=`${f1(state.mass)} M☉`; el.kpiLife.textContent=formatYears(track.total); el.kpiRemnant.textContent=track.stages[track.stages.length-1].name.toLowerCase(); el.lifeLabel.textContent=`${Math.round(state.life*100)}%`; el.lifeRange.value=Math.round(state.life*1000); el.currentStageTitle.textContent=stage.name; el.stageLead.textContent=stage.lead; el.stageDesc.textContent=stage.desc; el.phaseLabel.textContent=idx===0?'NARODZINY':idx===track.stages.length-1?'KOŃCOWE STADIUM':'EWOLUCJA'; el.phaseName.textContent=stage.name; el.phaseAge.textContent=`Wiek modelowy: ${formatYears(age)} z ${formatYears(track.total)}`;
  const lum=stage.lumVal,temp=stage.tempVal,rad=stage.radVal; const final = track.stages[track.stages.length-1].name;
@@ -81,6 +82,34 @@ function setMass(m){ state.mass=Math.max(0.1,Math.min(40,m)); el.massRange.value
 function setup(){ PRESETS.forEach(m=>{ const b=document.createElement('button'); b.type='button'; b.className='s29-preset'; b.dataset.m=m; b.textContent=`${String(m).replace('.',',')} M☉`; b.addEventListener('click',()=>setMass(m)); el.presets.appendChild(b); });
  el.massRange.addEventListener('input',e=>{ state.mass=Number(e.target.value); state.life=0; syncUI(); }); el.lifeRange.addEventListener('input',e=>{ state.life=Number(e.target.value)/1000; syncUI(); }); el.playBtn.addEventListener('click',()=>{ state.playing=!state.playing; state.last=0; el.playBtn.textContent=state.playing?'❚❚ Zatrzymaj':'▶ Odtwarzaj ewolucję'; el.playBtn.classList.toggle('playing',state.playing); }); el.resetBtn.addEventListener('click',()=>{ state.life=0; state.playing=false; el.lifeRange.value=0; el.playBtn.textContent='▶ Odtwarzaj ewolucję'; el.playBtn.classList.remove('playing'); syncUI(); });
  window.addEventListener('resize',()=>{resize(); syncUI();}); window.addEventListener('message',ev=>{ const msg=ev.data||{}; if(msg.type==='atlas:portal:ping'){ try{ parent.postMessage({type:'atlas:portal:ready'},'*'); }catch(_){} } }); resize(); syncUI(); try{ parent!==window && parent.postMessage({type:'atlas:portal:ready'},'*'); }catch(_){} requestAnimationFrame(loop); }
-function loop(ts){ if(state.playing){ if(!state.last)state.last=ts; const dt=(ts-state.last)/1000; state.last=ts; state.life += dt*(reduced?.04:.065); if(state.life>=1){ state.life=1; state.playing=false; el.playBtn.textContent='▶ Odtwarzaj ewolucję'; el.playBtn.classList.remove('playing'); } el.lifeRange.value=Math.round(state.life*1000); syncUI(); } else{ updateInfo(); } requestAnimationFrame(loop); }
+/* Płynność przewijania: rysuj animację w każdej klatce, lecz aktualizuj
+   elementy DOM najwyżej co 75 ms podczas odtwarzania. Gdy animacja jest
+   zatrzymana, nie przebudowuj pasków faz ani statystyk 60 razy na sekundę. */
+let lastUiUpdate=0;
+function loop(ts){
+ if(state.playing){
+  if(!state.last)state.last=ts;
+  const dt=Math.min(.1,Math.max(0,(ts-state.last)/1000));
+  state.last=ts;
+  state.life+=dt*(reduced?.04:.065);
+  if(state.life>=1){
+   state.life=1;state.playing=false;
+   el.playBtn.textContent='▶ Odtwarzaj ewolucję';
+   el.playBtn.classList.remove('playing');
+  }
+  if(!state.playing||ts-lastUiUpdate>=75){
+   el.lifeRange.value=Math.round(state.life*1000);
+   syncUI();
+   lastUiUpdate=ts;
+  }else{
+   const {track,stage,idx}=current();
+   drawStar(track,stage,idx);
+  }
+ }else{
+  const {track,stage,idx}=current();
+  drawStar(track,stage,idx);
+ }
+ requestAnimationFrame(loop);
+}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true}); else setup();
 })();

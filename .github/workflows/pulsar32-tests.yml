@@ -1,0 +1,22 @@
+name: Pulsar 32 — scientific regression tests
+on:
+  push:
+    paths:
+      - 'portal/pulsar32-core.js'
+      - 'tests/pulsar32.test.cjs'
+      - '.github/workflows/pulsar32-tests.yml'
+  pull_request:
+    paths:
+      - 'portal/pulsar32-core.js'
+      - 'tests/pulsar32.test.cjs'
+      - '.github/workflows/pulsar32-tests.yml'
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/pulsar32.test.cjs

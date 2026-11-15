@@ -1,13 +1,164 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Od Słońca do planet | ATLAS SOLARIS</title><meta name="description" content="Odkryj planety w działającym planetarium 3D. To współczesna odsłona pierwszych eksperymentów, nie archiwalna wersja kodu.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="01" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 01 / Światy i orbity</span><strong>Od Słońca do planet</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Od Słońca do planet — interaktywne laboratorium" src="../../atlas.html?portal=solar" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 01</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Od Słońca do planet</h1><p class="stage-lead">Pierwszy krok do Układu Słonecznego</p><p>Odkryj planety w działającym planetarium 3D. To współczesna odsłona pierwszych eksperymentów, nie archiwalna wersja kodu.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071826">
+<title>To nie niebo krąży wokół nas — Od Słońca do planet | ATLAS SOLARIS 01</title>
+<meta name="description" content="Pierwszy rozdział ATLAS SOLARIS. Historia zmiany naszego miejsca we Wszechświecie — Kopernik, Galileusz, osiem planet, grawitacja i zdjęcie Pale Blue Dot. Na końcu odkryjesz planetarium 3D.">
+<meta property="og:title" content="To nie niebo krąży wokół nas | ATLAS SOLARIS 01">
+<meta property="og:description" content="Przesuń Ziemię z centrum mapy i odkryj, co naprawdę porusza planety.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/solar01-cover.svg">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/solar01-story.css?v=01.1">
+<script defer src="../../portal/data.js"></script>
+<script defer src="../../portal/stage.js?v=32.6"></script>
+</head>
+<body class="s1-story-page" data-route="01" data-kind="stage">
+<a class="s1-skip" href="#wprowadzenie">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 01 / ŚWIATY I ORBITY</span><strong>Od Słońca do planet</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu">
+<a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a>
+</nav></header>
+<main class="stage-main s1-main">
+<article class="s1-article" aria-labelledby="s1Title">
+<section class="s1-hero">
+<img class="s1-hero-art" src="../../portal/media/solar01-cover.svg" width="1600" height="900" fetchpriority="high" alt="Autorska nieruchoma mapa heliocentryczna inspirowana dawnymi atlasami: Słońce otoczone ośmioma eliptycznymi orbitami i planetami. Średnice i odległości nie są w skali.">
+<div class="s1-hero-shade"></div>
+<div class="s1-hero-inner">
+<div class="s1-hero-top"><span class="s1-diamond" aria-hidden="true">✳</span> ATLAS SOLARIS <i>—</i> PIERWSZY ROZDZIAŁ <i>—</i> I / XXXII</div>
+<div class="s1-hero-content">
+<p class="s1-hero-eyebrow">NOTATKI Z HISTORII WIELKIEJ ZMIANY PERSPEKTYWY</p>
+<h1 id="s1Title">To nie niebo <em>krąży wokół nas.</em></h1>
+<p>Przez stulecia Słońce wschodziło, planety wędrowały, gwiazdy zataczały kręgi. Wszystko wyglądało tak, jakby Ziemia była nieruchomym środkiem świata. A potem ktoś odważył się narysować niebo inaczej.</p>
+<div class="s1-hero-actions">
+<a class="s1-action-primary" href="#wprowadzenie">Otwórz pierwszy rozdział <span aria-hidden="true">↓</span></a>
+<a class="s1-action-secondary" href="#laboratorium" id="stageLaunch">Przejdź do planetarium <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<div class="s1-hero-foot"><span>OD SPOJRZENIA W NIEBO DO MODELU ORBIT PLANET</span><span>ILUSTRACJA AUTORSKA · ORBITY NIE W SKALI</span></div>
+</div>
+</section>
+
+<div class="s1-opening-line"><span>ŚWIAT NIE ZMIENIŁ SIĘ, GDY POZNALIŚMY PRAWDĘ O RUCHU PLANET.</span><span>ZMIENIŁ SIĘ NASZ SPOSÓB PATRZENIA.</span></div>
+
+<section class="s1-first" id="wprowadzenie">
+<div class="s1-paper-label"><span>ROZDZIAŁ I</span><span>PYTANIE, KTÓRE ZACZĘŁO REWOLUCJĘ</span></div>
+<div class="s1-prologue-grid">
+<div><span class="s1-kicker">POPATRZ NA WIECZORNE NIEBO</span><h2>Dlaczego Mars czasem <em>zawraca?</em></h2><div class="s1-ink-stroke"></div></div>
+<div class="s1-prose"><p class="s1-dropcap">Noc po nocy obserwatorzy zauważali, że większość gwiazd zachowuje względem siebie prawie niezmienne położenia, lecz kilka jasnych punktów powoli przesuwa się na ich tle. To planety — dawniej nazywane „wędrowcami”.</p>
+<p>Niektóre z nich, jak Mars, od czasu do czasu <strong>pozornie zawracają</strong>. Widziane z Ziemi zaczynają przesuwać się po niebie w przeciwną stronę, by później wrócić do zwykłego kierunku ruchu. Przez długi czas uczeni budowali geometryczne sposoby przewidywania tych pętli.</p>
+<p>Ale wyobraź sobie prostszą sytuację: dwa pojazdy jadą w tym samym kierunku, a jeden wyprzedza drugi. Podczas wyprzedzania wolniejszy pojazd może wydawać się cofać względem odległego krajobrazu. **Planeta nie musi zawracać na swojej orbicie — zmienia się nasz punkt obserwacji.** <a class="s1-cite" href="#zrodla">[1]</a></p></div>
+</div>
+<figure class="s1-retrograde">
+<div class="s1-retro-head"><span>Z NOTATNIKA OBSERWATORA</span><span>RUCH POZORNY · SCHEMAT IDEOWY</span></div>
+<svg viewBox="0 0 1050 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Szkic pozornego ruchu wstecznego Marsa: długa linia tworzy niewielką pętlę względem gwiazd w tle.">
+<defs><pattern id="rg" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#66827e" stroke-width="1" opacity=".15"/></pattern></defs><rect x="0" y="0" width="1050" height="320" fill="url(#rg)"/>
+<g fill="#a6b9ae" opacity=".65"><circle cx="96" cy="73" r="2.5"/><circle cx="224" cy="179" r="2"/><circle cx="342" cy="90" r="2.8"/><circle cx="458" cy="239" r="2.5"/><circle cx="610" cy="62" r="2"/><circle cx="810" cy="110" r="2.7"/><circle cx="915" cy="230" r="2"/></g>
+<path d="M48 202 C191 185 318 140 423 160 C518 179 550 254 632 232 C740 205 602 96 526 131 C468 158 506 204 590 185 C698 161 854 151 1009 118" fill="none" stroke="#a65e56" stroke-width="5" stroke-linecap="round"/>
+<path d="M538 178l-13-13m13 13 5-19M917 136l-16-7m16 7-12 14" fill="none" stroke="#a65e56" stroke-width="4"/>
+<g font-family="Georgia,serif" fill="#5d6e68" font-size="20"><text x="71" y="242">WCZEŚNIEJ</text><text x="880" y="99">PÓŹNIEJ</text><text x="453" y="288" font-style="italic">pozorna pętla</text></g>
+</svg>
+<figcaption><strong>Planeta nie zatacza takiej pętli w przestrzeni.</strong> To schemat pozycji Marsa obserwowanych na tle dalekich gwiazd podczas okresu ruchu wstecznego; rzeczywisty kształt i długość łuku zależą od dat.</figcaption>
+</figure>
+</section>
+
+<section class="s1-history" id="kopernik">
+<div class="s1-history-intro"><span>ROZDZIAŁ II / ZMIANA ŚRODKA MAPY</span><h2>Najpierw trzeba było <em>przesunąć Ziemię.</em></h2><p>To nie była jedna noc ani jedno genialne spojrzenie przez teleskop. Zmiana modelu Układu Słonecznego zajęła pokolenia: od pomysłu przez obserwacje aż po prawa ruchu.</p></div>
+<div class="s1-history-lines">
+<div class="s1-history-item"><span class="s1-history-date">1543</span><div><span class="s1-history-type">MIKOŁAJ KOPERNIK</span><h3>Ziemia przestaje być nieruchoma.</h3><p>W dziele <em>De revolutionibus orbium coelestium</em> Kopernik przedstawił system, w którym Ziemia obraca się wokół osi i wraz z innymi planetami okrąża Słońce. Nie był to jeszcze współczesny model orbit — posługiwał się głównie ruchami kołowymi. <a class="s1-cite" href="#zrodla">[1]</a></p></div></div>
+<div class="s1-history-item"><span class="s1-history-date">1609–1619</span><div><span class="s1-history-type">JOHANNES KEPLER</span><h3>Koło ustępuje elipsie.</h3><p>Kepler, analizując bardzo dokładne obserwacje planet, opisał ich orbity elipsami i odkrył, że planety nie poruszają się po nich ze stałą prędkością. To geometria, która zaczęła znacznie lepiej zgadzać się z pomiarami. <a class="s1-cite" href="#zrodla">[1]</a></p></div></div>
+<div class="s1-history-item"><span class="s1-history-date">1610</span><div><span class="s1-history-type">GALILEUSZ</span><h3>Nie wszystko okrąża Ziemię.</h3><p>Galileusz obserwował cztery duże księżyce Jowisza, a także fazy Wenus. Te odkrycia podważyły prosty geocentryczny obraz świata i wsparły nowe rozumienie układu planetarnego. Same fazy Wenus nie rozstrzygały jednak wszystkich konkurencyjnych modeli astronomicznych. <a class="s1-cite" href="#zrodla">[1]</a></p></div></div>
+<div class="s1-history-item"><span class="s1-history-date">1687</span><div><span class="s1-history-type">IZAAK NEWTON</span><h3>Wreszcie znamy przyczynę.</h3><p>Newton połączył ruch planet i spadanie ciał za pomocą prawa powszechnego ciążenia. Zamiast samych reguł opisujących orbity otrzymaliśmy teorię, która wyjaśnia, dlaczego taki ruch jest możliwy. <a class="s1-cite" href="#zrodla">[1]</a></p></div></div>
+</div>
+<p class="s1-history-footnote">Uwaga historyczna: model heliocentryczny miał również starożytnych prekursorów, m.in. Arystarcha z Samos. Powstanie nowoczesnej astronomii było procesem zbiorowym — nie jednym odkryciem przypisanym jednemu człowiekowi.</p>
+</section>
+
+<section class="s1-orbits" id="planety">
+<div class="s1-orbits-intro"><span>ROZDZIAŁ III / NOWA MAPA</span><h2>Jedna gwiazda. <em>Osiem różnych światów.</em></h2><p>Nasz układ planetarny jest rodziną obiektów utrzymywanych przez grawitację Słońca. Nie ma w nim ośmiu identycznych kulek krążących w równych odstępach. Różnią się wielkością, temperaturą, atmosferami, czasem obiegu i budową. <a class="s1-cite" href="#zrodla">[2]</a></p></div>
+<div class="s1-orbits-data">
+<div class="s1-data-heading"><span>KOLEJNOŚĆ OD SŁOŃCA</span><span>ŚREDNIA ODLEGŁOŚĆ ORBITALNA I OKRES OBIEGU · WARTOŚCI PRZYBLIŻONE</span></div>
+<div class="s1-planet-grid">
+<div class="s1-planet"><span>01</span><i class="p-mercury"></i><h3>Merkury</h3><p>Skalisty posłaniec</p><small>0,39 AU · 88 dni</small></div>
+<div class="s1-planet"><span>02</span><i class="p-venus"></i><h3>Wenus</h3><p>Świat pod chmurami</p><small>0,72 AU · 225 dni</small></div>
+<div class="s1-planet"><span>03</span><i class="p-earth"></i><h3>Ziemia</h3><p>Nasz dom</p><small>1,00 AU · 365 dni</small></div>
+<div class="s1-planet"><span>04</span><i class="p-mars"></i><h3>Mars</h3><p>Czerwony sąsiad</p><small>1,52 AU · 687 dni</small></div>
+<div class="s1-planet"><span>05</span><i class="p-jupiter"></i><h3>Jowisz</h3><p>Olbrzym gazowy</p><small>5,20 AU · 11,9 roku</small></div>
+<div class="s1-planet"><span>06</span><i class="p-saturn"></i><h3>Saturn</h3><p>Władca pierścieni</p><small>9,58 AU · 29,4 roku</small></div>
+<div class="s1-planet"><span>07</span><i class="p-uranus"></i><h3>Uran</h3><p>Olbrzym lodowy</p><small>19,2 AU · 84 lata</small></div>
+<div class="s1-planet"><span>08</span><i class="p-neptune"></i><h3>Neptun</h3><p>Odległy błękit</p><small>30,1 AU · 165 lat</small></div>
+</div>
+<p class="s1-orbits-note">AU to jednostka astronomiczna: dokładnie 149 597 870 700 metrów. Przybliżone odległości odpowiadają wielkim półosiom orbit. Planety nie przebywają cały czas w jednej stałej odległości od Słońca. Ilustracje powyżej nie zachowują proporcji średnic. <a class="s1-cite" href="#zrodla">[2, 3]</a></p></div>
+<div class="s1-cosmic-rule"><span>JEDNA JEDNOSTKA, WIELE ŚWIATÓW</span><p>Światło ze Słońca leci do Ziemi przeciętnie około <strong>8 minut i 19 sekund</strong>. Do odległości odpowiadającej orbicie Neptuna — ponad cztery godziny.</p></div>
+</section>
+
+<section class="s1-gravity" id="grawitacja">
+<div class="s1-gravity-grid"><div><span>ROZDZIAŁ IV / CO TRZYMA TEN UKŁAD RAZEM?</span><h2>Planety nie wiszą na niewidzialnych sznurkach. <em>One nieustannie spadają.</em></h2></div>
+<div><p>Wciąż istnieje pokusa, by myśleć, że planeta przemieszcza się do przodu, a grawitacja przyciąga ją w bok. W przybliżeniu Newtonowskim to użyteczne wyjaśnienie: ciało ma prędkość, a grawitacja nieustannie zmienia kierunek jej wektora. W ten sposób planeta może krążyć po orbicie zamiast spadać prosto na Słońce.</p>
+<p><strong>Orbita jest ruchem swobodnym w polu grawitacyjnym.</strong> W Układzie Słonecznym planety nie krążą po idealnych okręgach. Ich tory są w pierwszym przybliżeniu eliptyczne, a dodatkowe oddziaływania innych planet nieznacznie je zaburzają. <a class="s1-cite" href="#zrodla">[3, 4]</a></p>
+<p>Nawet „Słońce w centrum” jest uproszczeniem: Słońce również porusza się pod wpływem planet, a cały układ krąży wokół wspólnego środka masy. Dla pierwszej podróży wygodnie jednak przyjąć widok heliocentryczny.</p></div>
+</div>
+<div class="s1-gravity-conclusion"><span>ZAPAMIĘTAJ</span><p>W astronomii zmiana punktu widzenia może zmienić obraz. <em>Nie zmienia jednak praw fizyki.</em></p></div>
+</section>
+
+<section class="s1-pale" id="blekitny-punkt">
+<div class="s1-pale-top"><span>ROZDZIAŁ V / SPOJRZENIE WSTECZ</span><h2>W 1990 roku zobaczyliśmy <em>własne miejsce na mapie.</em></h2><p>14 lutego 1990 roku sonda Voyager 1 odwróciła kamerę ku wewnętrznym obszarom Układu Słonecznego. Z odległości około 6 miliardów kilometrów od Słońca wykonała fotografię, na której Ziemia zajmuje mniej niż jeden piksel. <a class="s1-cite" href="#zrodla">[5]</a></p></div>
+<figure class="s1-voyager">
+<div class="s1-voyager-photo"><img src="https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia23/pia23645/PIA23645.jpg" loading="lazy" decoding="async" width="1000" height="1000" referrerpolicy="no-referrer" alt="Prawdziwa fotografia Ziemi z sondy Voyager 1 z 14 lutego 1990 roku: maleńki bladoniebieski punkt w smudze rozproszonego światła Słońca na ciemnym tle kosmosu."><span>DANE Z SONDY / VOYAGER 1 / 14.02.1990</span></div>
+<figcaption><span>PALE BLUE DOT / NASZA PLANETA</span><h3>Ta kropka to cały nasz świat.</h3><p>Wszystkie oceany, kontynenty i ludzkie historie mieszczą się na tym zdjęciu w maleńkim punkcie. To nie artystyczna wizja, lecz zdjęcie z rzeczywistej misji kosmicznej. Widzimy wersję ponownie opracowaną w 2020 roku na podstawie obserwacji z 1990 roku.</p>
+<small>NASA/JPL-Caltech · opracowanie obrazu: Kevin M. Gill, przy udziale planistów oryginalnych obserwacji. <a href="https://science.nasa.gov/mission/voyager/voyager-1s-pale-blue-dot/" target="_blank" rel="noopener noreferrer">Poznaj historię fotografii i jej źródło w NASA</a>.</small></figcaption>
+</figure>
+<div class="s1-pale-line"><span>NAJWAŻNIEJSZE NIE JEST TO, ŻE ZIEMIA JEST MAŁA</span><p>Najważniejsze jest to, że możemy <em>zrozumieć, gdzie się znajduje.</em></p></div>
+</section>
+
+<section class="s1-lab-intro">
+<div class="s1-lab-intro-top"><span>ROZDZIAŁ VI / TWOJA PIERWSZA OBSERWACJA</span><h2>Teraz nie musisz wierzyć na słowo. <em>Możesz zmienić perspektywę.</em></h2><p>Na końcu rozdziału znajduje się działające planetarium ATLAS SOLARIS. Poruszaj kamerą, wybieraj planety, zmieniaj datę i obserwuj, jak Układ Słoneczny wygląda przy różnych ustawieniach. Przygotowałem cztery zadania na pierwszą wyprawę.</p></div>
+<div class="s1-task-grid">
+<div><span>01 / PORZĄDEK</span><h3>Odnajdź osiem planet</h3><p>Zacznij od widoku „Cały Układ”. Wybierz Ziemię, a potem Merkurego i Neptuna. Porównaj ich położenia i odległości od Słońca.</p></div>
+<div><span>02 / ZMIANA PERSPEKTYWY</span><h3>Zbliż się do wybranego świata</h3><p>Użyj listy ciał i kamery. Spróbuj spojrzeć na planetę z innej strony, a potem wróć do widoku całego układu.</p></div>
+<div><span>03 / CZAS</span><h3>Przesuń rok do przodu</h3><p>Zmień tempo symulacji na 1 rok na sekundę. Porównaj ruch Merkurego i Neptuna. Który z nich szybciej kończy obieg?</p></div>
+<div><span>04 / SKALA</span><h3>Sprawdź, dlaczego obrazy mogą mylić</h3><p>Wypróbuj przełącznik skali 1:1, jeśli pozwala na to urządzenie. Przekonaj się, jak trudno pokazać prawdziwe odległości i rozmiary na jednym ekranie.</p></div>
+</div>
+<p class="s1-model-note"><strong>Ograniczenia:</strong> planetarium korzysta z przybliżonych elementów orbitalnych NASA/JPL do obliczania pozycji planet w latach 1800–2050. To narzędzie edukacyjne, nie efemeryda do nawigacji statków kosmicznych ani przewidywania precyzyjnych zakryć. Rozmiary planet, odległości i pole widzenia mogą być przedstawiane w różnych skalach. Pełna scena 3D wymaga GPU — dlatego uruchamiasz ją dopiero świadomym kliknięciem.</p>
+</section>
+</article>
+
+<section class="s1-lab" id="laboratorium" aria-label="Interaktywne planetarium Układu Słonecznego">
+<div class="s1-lab-head"><div><span>ATLAS SOLARIS / 01 / PLANETARIUM 3D</span><h2>Tu zaczyna się <em>Twoja własna podróż.</em></h2><p>Pełne planetarium ma osiem planet, Księżyc, kamerę przestrzenną i sterowanie czasem. Nie uruchamia się podczas czytania artykułu — to Ty decydujesz, kiedy wejść do środka.</p></div><small>RĘCZNY START · BEZ OBCIĄŻENIA PODCZAS LEKTURY</small></div>
+<div id="stageViewport" class="stage-viewport">
+<div class="s1-lab-placeholder" id="s1LabPlaceholder">
+<div class="s1-lab-symbol" aria-hidden="true"><span></span></div>
+<h3>Odkrywaj kosmos we własnym tempie.</h3>
+<p>Planetarium 3D korzysta z procesora graficznego i może obciążać starsze telefony. Artykuł możesz czytać bez uruchamiania symulacji.</p>
+<button type="button" id="stageStartLab">Uruchom planetarium 3D <span aria-hidden="true">↗</span></button>
+<small>Silnik zostanie pobrany dopiero po kliknięciu.</small>
+</div>
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY PLANETARIUM</strong><small>Wczytywanie silnika orbit i sceny 3D…</small></div>
+<iframe id="stageFrame" title="Od Słońca do planet — interaktywne planetarium 3D" data-lazy="true" data-manual="true" data-src="../../atlas.html?portal=solar" allow="fullscreen; clipboard-write" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić planetarium. <button id="stageReload" type="button">Spróbuj ponownie</button> · <a href="../../atlas.html?portal=solar">Otwórz bezpośrednio</a></div>
+<p class="s1-lab-foot">Tryb 3D jest wymagający. Jeśli korzystasz z telefonu, możesz najpierw pozostać przy statycznych ilustracjach i obserwacjach zamieszczonych w artykule.</p>
+</section>
+
+<section class="s1-sources" id="zrodla">
+<div class="s1-sources-head"><span>ANEKS DO PIERWSZEGO ROZDZIAŁU</span><h2>Niebo nie prosi o wiarę. <em>Można je badać.</em></h2><p>Historia rewolucji kopernikańskiej, planety i współczesne modele orbit są udokumentowane. Ilustracje w artykule są umowne, a zdjęcie Voyagera jest autentyczną obserwacją.</p></div>
+<ol>
+<li><a href="https://science.nasa.gov/earth/earth-observatory/planetary-motion/" target="_blank" rel="noopener noreferrer">NASA Earth Observatory — Planetary Motion: The History of an Idea</a><span>Kopernik (1543), Galileusz (1610), Kepler (1609–1619), Newton (1687), obserwacje i zmiana modelu planetarnego.</span></li>
+<li><a href="https://science.nasa.gov/solar-system/planets/" target="_blank" rel="noopener noreferrer">NASA Science — About the Planets</a><span>Osiem planet Układu Słonecznego, ich kolejność i podział na grupy.</span></li>
+<li><a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html" target="_blank" rel="noopener noreferrer">NASA/JPL — Approximate Positions of the Planets</a><span>Przybliżone elementy orbit do modelowania pozycji planet; główne źródło danych używanych w silniku Atlasu.</span></li>
+<li><a href="https://science.nasa.gov/solar-system/solar-system-facts/" target="_blank" rel="noopener noreferrer">NASA Science — Solar System Facts</a><span>Budowa Układu Słonecznego, Słońce, planety i mniejsze obiekty.</span></li>
+<li><a href="https://science.nasa.gov/mission/voyager/voyager-1s-pale-blue-dot/" target="_blank" rel="noopener noreferrer">NASA/JPL — Voyager 1’s Pale Blue Dot</a><span>Fotografia z 14 lutego 1990 roku, oryginalne dane i ponowne opracowanie z 2020 roku.</span></li>
+<li><a href="https://science.nasa.gov/solar-system/planets/planet-sizes-and-locations-in-our-solar-system/" target="_blank" rel="noopener noreferrer">NASA Science — Planet Sizes and Locations</a><span>Wielkości i odległości planet, porządek od Słońca oraz rzeczywiste proporcje.</span></li>
+</ol>
+<p class="s1-editorial">Artykuł popularnonaukowy ATLAS SOLARIS. Mapa na początku, schemat ruchu wstecznego i ikony planet to autorskie grafiki statyczne, nie wizerunki z instrumentów. Orbity na grafice otwarcia nie są narysowane w prawdziwych proporcjach ani dla jednej epoki. Zdjęcie „Pale Blue Dot” pochodzi z obserwacji NASA/JPL-Caltech.</p>
+</section>
+<footer class="s1-footer"><span>ATLAS SOLARIS · ROZDZIAŁ 01</span><span>PIERWSZY KROK NIE PROWADZI W PRZESTRZEŃ. PROWADZI DO NOWEGO SPOSOBU MYŚLENIA.</span><a href="../../#etapy">Odkryj następne rozdziały ↑</a></footer>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie">
+<div class="stage-info-head"><span>ATLAS SOLARIS / ETAP 01</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+<h2>Od Słońca do planet</h2><p class="stage-lead">Pierwszy rozdział: od dawnej mapy nieba do planetarium 3D</p>
+<p>Jak pozorny ruch planet doprowadził do rewolucji w astronomii? Poznaj historię Kopernika, Galileusza i Keplera. Porównaj osiem planet, zobacz prawdziwą Ziemię sfotografowaną przez Voyagera 1 i uruchom współczesny model orbit.</p>
+<p class="stage-info-note">Pełne planetarium ładuje się tylko po wyraźnym naciśnięciu przycisku; artykuł pozostaje lekki na telefonie. Etapy 01–09 wykorzystują współczesny silnik Atlasu, nie archiwalne wersje pierwszych wydań.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Artykuł jest dostępny bez JavaScript. Do uruchomienia planetarium 3D potrzebny jest JavaScript.</p></noscript>
 </body></html>

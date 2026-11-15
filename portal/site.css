@@ -40,3 +40,7 @@
 .feature-card[data-art=pulsar] .feature-art{top:8%;left:21%;width:57%;aspect-ratio:1;border:2px solid #92e9f8a0;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f8ffff,#9ce5f0 28%,#5a73cc 60%,#141e4a 96%);box-shadow:0 0 25px #97f7fac9,0 0 85px #4f72ee88,inset -25px -17px 35px #141a4588;transform:rotate(-24deg)}
 .feature-card[data-art=pulsar] .feature-art:before{inset:-58% 34%;border:1px solid #86f9e3aa;border-radius:50%;transform:rotate(31deg);box-shadow:0 0 36px #7bfee75f;background:linear-gradient(90deg,transparent,#68e7de24,transparent)}
 .feature-card[data-art=pulsar] .feature-art:after{inset:-49% 37%;border:1px solid #c6b2ffa0;border-radius:50%;transform:rotate(-36deg);box-shadow:0 0 25px #b69cf54f}
+
+/* ATLAS SOLARIS 33 — featured magnetar card */
+.feature-card[data-art=magnetar] .feature-back{background:linear-gradient(180deg,rgba(4,8,21,.08),rgba(4,7,19,.97)),url('media/magnetar33-cover.svg') center center/cover no-repeat}
+.feature-card[data-art=magnetar] .feature-art{display:none}

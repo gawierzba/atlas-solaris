@@ -1,13 +1,190 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Geometria zaćmień | ATLAS SOLARIS</title><meta name="description" content="Zobacz, jak Słońce, Ziemia i Księżyc tworzą zjawiska na niebie.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="09" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 09 / Zjawiska na niebie</span><strong>Geometria zaćmień</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Geometria zaćmień — interaktywne laboratorium" src="../../atlas.html?portal=eclipse" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 09</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Geometria zaćmień</h1><p class="stage-lead">Światło, cień i ustawienie ciał</p><p>Zobacz, jak Słońce, Ziemia i Księżyc tworzą zjawiska na niebie.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090e19">
+<title>Dzień, w którym Słońce zniknęło — geometria zaćmień | ATLAS SOLARIS 09</title>
+<meta name="description" content="Zaćmienia Słońca i Księżyca: cień, półcień, obrączka, czerwony Księżyc i węzły orbity. Odkryj niezwykłą historię 1919 roku i uruchom interaktywne laboratorium.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dzień, w którym Słońce zniknęło | ATLAS SOLARIS 09">
+<meta property="og:description" content="Trzy ciała niebieskie. Jedna linia. I cień, który zmienia całe niebo. Opowieść o zaćmieniach z interaktywnym doświadczeniem.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/eclipse09-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/eclipse09-story.css?v=09.1">
+<script src="../../portal/data.js" defer></script>
+<script src="../../portal/stage.js?v=32.6" defer></script>
+<script src="../../portal/eclipse09-story.js?v=09.1" defer></script>
+</head><body class="e9-page" data-route="09" data-kind="stage">
+<a class="e9-skip" href="#opowiesc">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 09 / ZJAWISKA NA NIEBIE</span><strong>Geometria zaćmień</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button id="stageAbout" type="button" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main" id="main"><article class="e9-story" aria-labelledby="e9Title">
+<section class="e9-hero">
+<img class="e9-cover" src="../../portal/media/eclipse09-cover.svg" width="1600" height="900" alt="Artystyczna panorama zaćmienia: ciemna tarcza na tle korony słonecznej, miedziany horyzont i symboliczny czerwony Księżyc. Kompozycja nie przedstawia rzeczywistej jednoczesnej konfiguracji ciał niebieskich." fetchpriority="high">
+<div class="e9-hero-inner"><div class="e9-hero-top"><i aria-hidden="true"></i> ATLAS SOLARIS / KRONIKI NIEBA / TOM IX</div>
+<div class="e9-hero-copy">
+<p class="e9-hero-label">ROZDZIAŁ 09 · ŚWIATŁO, CIEŃ I NIEZWYKŁA GEOMETRIA</p>
+<h1 id="e9Title">Dzień, w którym <em>Słońce zniknęło.</em></h1>
+<p class="e9-hero-lead">W środku dnia zapada zmierzch. Ptaki cichną. Na czarnym niebie pojawia się świetlista korona gwiazdy, której nie da się oglądać na co dzień. Nie zgasło Słońce. To mały Księżyc znalazł się dokładnie tam, gdzie musiał.</p>
+<div class="e9-hero-actions"><a href="#opowiesc" class="e9-btn primary">Wejdź w cień <span aria-hidden="true">↓</span></a><a href="#obserwatorium" class="e9-btn secondary">Zbadaj zaćmienie <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="e9-hero-bottom"><span>NOW / 2017 / 1919 · CIEŃ, KTÓRY ODSŁANIA PRAWA KOSMOSU</span><span>OKŁADKA AUTORSKA · INTERPRETACJA ARTYSTYCZNA</span></div></div>
+</section>
+<div class="e9-meta e9-wide"><span>ATLAS SOLARIS / WIELKIE ZJAWISKA</span><span>ARTYKUŁ POPULARNONAUKOWY · OK. 9 MIN CZYTANIA</span></div>
+
+<section class="e9-chapter e9-opening" id="opowiesc"><div class="e9-wrap">
+<div class="e9-section-index"><span>01 / PRZEZ KILKA MINUT ŚWIAT JEST INNY</span><span>ZAĆMIENIE CAŁKOWITE SŁOŃCA</span></div>
+<div class="e9-columns"><div><p class="e9-eyebrow">ZJAWISKO, KTÓRE WYGLĄDA JAK NIEMOŻLIWE</p><h2>W pewnym momencie <em>dzień przestaje być dniem.</em></h2></div>
+<div class="e9-copy">
+<p class="e9-lead e9-drop">Wyobraź sobie słoneczne popołudnie. Na chodniku leżą ostre cienie drzew. Rozmawiają ludzie, przejeżdżają samochody. A jednak światło zaczyna się zmieniać. Najpierw tak powoli, że trudno to zauważyć. Potem coraz wyraźniej.</p>
+<p>Na niebie Słońce wygląda, jakby ktoś odgryzał z niego niewielki fragment. Powoli ubywa jasnej tarczy. Świat nabiera dziwnych, przygaszonych barw. Gdy cień Księżyca w końcu obejmie obserwatora w wąskim pasie całkowitości, pojawia się ciemność podobna do zmierzchu. Tam, gdzie przed chwilą była oślepiająca gwiazda, pozostaje czarny krąg otoczony delikatną koroną.</p>
+<p>Nie jest to awaria Słońca. <strong>Nie znika ani jeden promień wysyłany przez jego powierzchnię.</strong> Zmienia się tylko droga światła do konkretnego miejsca na Ziemi. Księżyc, oddalony od nas o setki tysięcy kilometrów, na chwilę staje na tej drodze.</p>
+<p>8 kwietnia 2024 roku miliony ludzi w Ameryce Północnej mogły obserwować jedno z takich widowisk. Jednak najbardziej fascynujące pytanie brzmi nie „jak to wygląda?”, lecz <strong>„dlaczego zdarza się tak rzadko i tylko w określonych miejscach?”</strong></p>
+</div></div>
+<p class="e9-pullquote">Trzy zwyczajne ciała niebieskie. Jedno nadzwyczajne ustawienie. I nagle widzimy fragment Słońca, którego blask na co dzień nie pozwala nam dostrzec.</p>
+<div class="e9-ribbon"><div><strong>400 ×</strong><span>Słońce ma mniej więcej 400 razy większą średnicę niż Księżyc.</span></div><div><strong>400 ×</strong><span>Jest zarazem w przybliżeniu 400 razy dalej od nas.</span></div><div><strong>~5°</strong><span>O tyle płaszczyzna orbity Księżyca jest nachylona do ekliptyki.</span></div></div>
+</div></section>
+
+<section class="e9-chapter e9-shadow-chapter" id="cienie"><div class="e9-wide">
+<div class="e9-section-index"><span>02 / DWIE STRONY TEGO SAMEGO CIENIA</span><span>ŚWIATŁO MA GEOMETRIĘ</span></div>
+<div class="e9-center"><span class="e9-eyebrow">ZACZNIJMY OD JEDNEGO PYTANIA</span><h2>Kto zasłania kogo? <em>To zmienia wszystko.</em></h2><p>W zaćmieniu nie ma magii ani niezwykłych sił. Jest źródło światła, przeszkoda i miejsce, do którego światło nie może dotrzeć. Zmiana kolejności ciał zmienia całe widowisko.</p></div>
+<div class="e9-shadow-pair">
+<div class="e9-shadow-panel">
+<span class="e9-eyebrow">ZAĆMIENIE SŁOŃCA · NÓW</span><h3>Księżyc rzuca cień na Ziemię.</h3>
+<p>Słońce świeci z jednej strony, a Księżyc przechodzi przed nim. Tylko ludzie znajdujący się na obszarze, do którego dociera księżycowy cień, zobaczą zaćmienie. Poza tym obszarem Słońce może wyglądać zupełnie zwyczajnie.</p>
+<svg class="e9-shadow-fig" viewBox="0 0 560 150" role="img" aria-label="Schemat: Słońce po lewej, Księżyc w środku i Ziemia po prawej. Cień Księżyca biegnie w kierunku Ziemi.">
+<defs><radialGradient id="e9-sun-a"><stop stop-color="#ffe2ae"/><stop offset="1" stop-color="#bb685b"/></radialGradient><radialGradient id="e9-earth-a"><stop stop-color="#aed5db"/><stop offset="1" stop-color="#284d6b"/></radialGradient></defs>
+<path d="M240 65L449 39 449 112 240 86Z" fill="#a6bdcb" opacity=".14"/><path d="M240 67L449 73 449 79 240 83Z" fill="#101323" stroke="#bd998b" stroke-width="1"/><circle cx="60" cy="75" r="39" fill="url(#e9-sun-a)"/><circle cx="240" cy="75" r="14" fill="#778ba1"/><circle cx="449" cy="75" r="40" fill="url(#e9-earth-a)"/><g fill="#d2d5d9" font-size="15" font-family="system-ui,sans-serif"><text x="60" y="139" text-anchor="middle">SŁOŃCE</text><text x="240" y="139" text-anchor="middle">KSIĘŻYC</text><text x="449" y="139" text-anchor="middle">ZIEMIA</text></g></svg>
+<small>Umowna geometria. Rozmiary ciał, odległości i kąty nie są zachowane w skali.</small>
+</div>
+<div class="e9-shadow-panel">
+<span class="e9-eyebrow">ZAĆMIENIE KSIĘŻYCA · PEŁNIA</span><h3>Ziemia rzuca cień na Księżyc.</h3>
+<p>Nasza planeta zajmuje miejsce między Słońcem a Księżycem. Gdy Księżyc wchodzi w cień Ziemi, jego jasna powierzchnia ciemnieje. Przy zaćmieniu całkowitym może przybrać odcień miedzi i głębokiej czerwieni.</p>
+<svg class="e9-shadow-fig" viewBox="0 0 560 150" role="img" aria-label="Schemat: Słońce po lewej, Ziemia w środku i Księżyc po prawej. Cień Ziemi pada na Księżyc.">
+<defs><radialGradient id="e9-sun-b"><stop stop-color="#ffe3ab"/><stop offset="1" stop-color="#bb6a5d"/></radialGradient><radialGradient id="e9-earth-b"><stop stop-color="#aed5db"/><stop offset="1" stop-color="#284d6b"/></radialGradient></defs>
+<path d="M240 45L510 73 510 78 240 105Z" fill="#040916" stroke="#9c94a0" stroke-width="1"/><path d="M240 45L510 12 510 140 240 105Z" fill="#8193a5" opacity=".12"/><circle cx="60" cy="75" r="39" fill="url(#e9-sun-b)"/><circle cx="240" cy="75" r="33" fill="url(#e9-earth-b)"/><circle cx="448" cy="75" r="16" fill="#a44d4d"/><g fill="#d2d5d9" font-size="15" font-family="system-ui,sans-serif"><text x="60" y="139" text-anchor="middle">SŁOŃCE</text><text x="240" y="139" text-anchor="middle">ZIEMIA</text><text x="448" y="139" text-anchor="middle">KSIĘŻYC</text></g></svg>
+<small>Umowny przekrój. Narysowane cienie służą wyjaśnieniu zjawiska, nie obliczaniu efemeryd.</small>
+</div></div>
+</div></section>
+
+<section class="e9-chapter e9-kinds" id="rodzaje"><div class="e9-wide">
+<div class="e9-section-index"><span>03 / NIE KAŻDE ZAĆMIENIE WYGLĄDA TAK SAMO</span><span>CAŁKOWITE · OBRĄCZKOWE · CZĘŚCIOWE</span></div>
+<div class="e9-center"><p class="e9-eyebrow">WIELKOŚĆ POZORNA MA ZNACZENIE</p><h2>Dlaczego czasem zostaje <em>pierścień ognia?</em></h2><p>Słońce i Księżyc wyglądają na niebie jak tarcze o podobnej średnicy kątowej. Ale odległości między ciałami zmieniają się w czasie. Kilka procent różnicy wystarcza, by całkowite zniknięcie Słońca zamieniło się w świetlistą obrączkę.</p></div>
+<div class="e9-kind-grid">
+<div class="e9-kind"><div class="e9-disc" aria-hidden="true"></div><span class="e9-eyebrow">I / CAŁKOWITE</span><h3>Korona gwiazdy</h3><p>Pozorna tarcza Księżyca całkowicie przykrywa jasną tarczę Słońca. Tylko na wąskim pasie całkowitości można zobaczyć koronę słoneczną bez blasku fotosfery.</p></div>
+<div class="e9-kind"><div class="e9-disc" aria-hidden="true"></div><span class="e9-eyebrow">II / OBRĄCZKOWE</span><h3>Pierścień ognia</h3><p>Księżyc wygląda na nieco mniejszy od Słońca, dlatego jego ciemny krąg nie zasłania całej tarczy. Wokół pozostaje jasna obrączka światła słonecznego.</p></div>
+<div class="e9-kind"><div class="e9-disc" aria-hidden="true"></div><span class="e9-eyebrow">III / CZĘŚCIOWE</span><h3>Ugryzione Słońce</h3><p>Dla danego obserwatora tylko część tarczy Słońca jest zasłonięta. Nawet jeśli gdzieś na Ziemi trwa faza całkowita, kilkaset kilometrów dalej zjawisko może być tylko częściowe.</p></div>
+</div></div></section>
+
+<section class="e9-chapter e9-nodes" id="wezly"><div class="e9-wrap">
+<div class="e9-section-index"><span>04 / DLACZEGO NIE CO MIESIĄC?</span><span>WĘZŁY I SEZONY ZAĆMIEŃ</span></div>
+<div class="e9-columns">
+<div><span class="e9-eyebrow">RZADKOŚĆ UKRYTA W NACHYLENIU</span><h2>Nów jest co miesiąc. <em>Zaćmienie — nie.</em></h2></div>
+<div class="e9-copy"><p class="e9-lead">Gdyby orbita Księżyca leżała dokładnie w płaszczyźnie ruchu Ziemi wokół Słońca, świat zaćmień wyglądałby inaczej. Przy każdym nowiu pojawiałaby się możliwość zaćmienia Słońca, a przy każdej pełni — Księżyca.</p>
+<p>Tymczasem płaszczyzna orbity Księżyca jest nachylona do ekliptyki o około <strong>5,1°</strong>. Przez większość miesięcy Księżyc podczas nowiu przechodzi z naszego punktu widzenia ponad Słońcem lub pod nim, a podczas pełni mija ziemski cień.</p>
+<p>Dwa punkty, w których orbita Księżyca przecina płaszczyznę ekliptyki, nazywamy <strong>węzłami</strong>. Zaćmienia mogą pojawiać się wówczas, gdy nów albo pełnia wypadają dostatecznie blisko jednego z tych węzłów. Okresy takich możliwości nazywamy sezonami zaćmień.</p></div></div>
+<figure class="e9-node-figure">
+<svg viewBox="0 0 1100 420" role="img" aria-labelledby="e9NTitle e9NDesc"><title id="e9NTitle">Węzły orbity Księżyca</title><desc id="e9NDesc">Niebieska elipsa reprezentuje płaszczyznę ekliptyki, a miedziana — nachyloną do niej orbitę Księżyca. Przecinają się w dwóch węzłach. Schemat nie jest zachowany w przestrzennej skali.</desc>
+<defs><radialGradient id="e9EarthGrad"><stop stop-color="#c1e4e4"/><stop offset=".55" stop-color="#6495ac"/><stop offset="1" stop-color="#294d71"/></radialGradient></defs>
+<ellipse cx="551" cy="208" rx="425" ry="116" fill="#385d79" opacity=".1"/>
+<ellipse cx="551" cy="208" rx="425" ry="116" fill="none" stroke="#83b2d5" stroke-width="3"/>
+<path d="M 127 256 C 290 40 799 55 975 169 C 840 355 325 370 127 256 Z" fill="none" stroke="#efb198" stroke-width="3.5" stroke-dasharray="12 8" opacity=".95"/>
+<ellipse cx="551" cy="208" rx="38" ry="38" fill="url(#e9EarthGrad)"/>
+<circle cx="165" cy="224" r="8" fill="#f6d1b2"/><circle cx="941" cy="197" r="8" fill="#f6d1b2"/>
+<g fill="#dae2e8" font-size="20" font-family="system-ui,sans-serif"><text x="551" y="267" text-anchor="middle">ZIEMIA</text><text x="165" y="205" text-anchor="middle">WĘZEŁ I</text><text x="941" y="175" text-anchor="middle">WĘZEŁ II</text></g>
+<g font-size="17" font-family="system-ui,sans-serif"><text x="730" y="345" fill="#efb198">ORBITA KSIĘŻYCA · NACHYLONA</text><text x="282" y="78" fill="#9dbdd7">EKLIPTYKA · PŁASZCZYZNA ODNIESIENIA</text></g>
+</svg>
+<figcaption>Rycina poglądowa: dwie umowne płaszczyzny orbity. W rzeczywistości są to płaszczyzny w przestrzeni, a ich linia przecięcia wyznacza kierunki węzłów. Rozmiary i kształty nie są tożsame z rzeczywistymi orbitami.</figcaption></figure>
+</div></section>
+
+<section class="e9-chapter e9-moon" id="czerwony-ksiezyc"><div class="e9-wrap">
+<div class="e9-section-index"><span>05 / DRUGA STRONA CUDU</span><span>CAŁKOWITE ZAĆMIENIE KSIĘŻYCA</span></div>
+<div class="e9-columns">
+<div><span class="e9-eyebrow">ZIEMSKA ATMOSFERA MALUJE KSIĘŻYC</span><h2>Dlaczego Księżyc <em>zmienia się w miedź?</em></h2><div class="e9-bloodmoon" role="img" aria-label="Artystyczny symbol czerwonego Księżyca podczas zaćmienia całkowitego."></div><span class="e9-portrait-label">CZERWONY KSIĘŻYC / ILUSTRACJA ARTYSTYCZNA</span></div>
+<div class="e9-copy"><p class="e9-lead">W zaćmieniu Księżyca niebo nie musi ciemnieć. To sam Księżyc powoli wchodzi w cień naszej planety. A kiedy cały skrywa się w cieniu, nie znika. Czasem płonie czerwienią.</p>
+<p>Światło Słońca docierające do granic ziemskiej atmosfery składa się z wielu barw. Krótsze fale — zwłaszcza niebieskie — znacznie łatwiej rozpraszają się w powietrzu. Czerwone i pomarańczowe przechodzą przez atmosferę skuteczniej; część światła załamuje się i trafia nawet do obszaru ziemskiego cienia.</p>
+<p>Podczas całkowitego zaćmienia Księżyc jest więc oświetlany nie bezpośrednim światłem słonecznym, ale <strong>światłem przefiltrowanym przez obrzeża atmosfery Ziemi</strong>. W pewnym sensie jego powierzchnię rozświetlają jednocześnie wszystkie ziemskie wschody i zachody Słońca.</p>
+<p>Kolor nie zawsze jest taki sam. Obecność pyłu, chmur i aerozoli w atmosferze wpływa na jasność oraz odcień zaćmionego Księżyca. To fizyka, a nie zwiastun nadzwyczajnych wydarzeń.</p>
+<p>Zaćmienie Księżyca może być <strong>całkowite</strong>, <strong>częściowe</strong> albo <strong>półcieniowe</strong>. Oglądanie go gołym okiem jest bezpieczne — inaczej niż obserwacja zaćmienia Słońca.</p></div>
+</div></div></section>
+
+<section class="e9-interactive" id="obserwatorium"><div class="e9-wide">
+<div class="e9-center"><span class="e9-eyebrow">06 / EKSPERYMENT, KTÓRY MOŻNA POWTÓRZYĆ</span><h2>Przesuń jeden obiekt. <em>Zmień całe zjawisko.</em></h2><p>Przełącz się między zaćmieniem Słońca a Księżyca. Ustaw wyidealizowane wyrównanie albo odsuń jedno z ciał od osi. Wynik zmieni się od razu: całkowite, obrączkowe, częściowe, półcieniowe — lub brak zaćmienia.</p></div>
+<div class="e9-console" aria-label="Interaktywne laboratorium geometrii zaćmień">
+<div class="e9-console-head"><div><strong>ATLAS CIENIA / PROSTE LABORATORIUM 2D</strong><small>Przekrój poglądowy · bez pobierania danych i bez WebGL</small></div>
+<div class="e9-mode-tabs" role="group" aria-label="Rodzaj zaćmienia"><button type="button" id="e9SolarBtn" aria-pressed="true">Zaćmienie Słońca</button><button type="button" id="e9LunarBtn" aria-pressed="false">Zaćmienie Księżyca</button></div></div>
+<div class="e9-console-grid">
+<div class="e9-skybox">
+<svg id="e9SkyView" viewBox="0 0 900 540" role="img" aria-labelledby="e9SkyTitle e9SkyDesc"><title id="e9SkyTitle">Widok tarcz podczas zaćmienia</title><desc id="e9SkyDesc">Interaktywna ilustracja zachodzenia na siebie tarcz Słońca i Księżyca albo przesuwania Księżyca przez umowny przekrój cienia Ziemi. Wymiar kątowy i odległości w ilustracji nie odpowiadają bieżącej rzeczywistości.</desc>
+<defs><radialGradient id="e9SunGlow"><stop stop-color="#ffeed0"/><stop offset=".56" stop-color="#fec18c"/><stop offset=".85" stop-color="#d47c72"/><stop offset="1" stop-color="#b66062"/></radialGradient><radialGradient id="e9RedMoon" cx=".25" cy=".27"><stop stop-color="#dc9979"/><stop offset=".68" stop-color="#a34b51"/><stop offset="1" stop-color="#482637"/></radialGradient><radialGradient id="e9PaleMoon" cx=".24" cy=".22"><stop stop-color="#f1f0df"/><stop offset=".67" stop-color="#b4b6bb"/><stop offset="1" stop-color="#535f73"/></radialGradient><radialGradient id="e9Penumbra"><stop stop-color="#78869a" stop-opacity=".09"/><stop offset=".72" stop-color="#62677e" stop-opacity=".16"/><stop offset="1" stop-color="#78869a" stop-opacity="0"/></radialGradient></defs>
+<g opacity=".65" fill="#d8e8ed"><circle cx="104" cy="65" r="1.9"/><circle cx="784" cy="90" r="2"/><circle cx="200" cy="394" r="1.4"/><circle cx="732" cy="432" r="1.1"/><circle cx="375" cy="64" r="1.2"/><circle cx="616" cy="105" r="1.6"/><circle cx="71" cy="285" r="1"/><circle cx="845" cy="308" r="1.4"/></g>
+<g id="e9SolarArt"><circle cx="450" cy="260" r="168" fill="#daa789" opacity=".11"/><circle cx="450" cy="260" r="143" fill="none" stroke="#e9b19c" stroke-width="3" opacity=".5"/><circle cx="450" cy="260" r="121" fill="url(#e9SunGlow)" stroke="#fff0ce" stroke-width="2"/><circle id="e9SolarMoon" cx="450" cy="260" r="132" fill="#070f1d" stroke="#6c737b" stroke-width="1.4"/><text x="450" y="508" text-anchor="middle" fill="#b6c6d6" font-family="system-ui,sans-serif" font-size="18" letter-spacing="2">TARCZA SŁOŃCA / ZASŁANIAJĄCY JĄ KSIĘŻYC</text></g>
+<g id="e9LunarArt" style="display:none"><circle cx="450" cy="260" r="225" fill="url(#e9Penumbra)" stroke="#8395aa" stroke-opacity=".6" stroke-dasharray="8 9"/><circle cx="450" cy="260" r="165" fill="#050917" stroke="#d38d80" stroke-opacity=".65" stroke-width="2"/><g id="e9LunarMoon" transform="translate(0,0)"><circle id="e9LunarMoonFill" cx="450" cy="260" r="68" fill="url(#e9RedMoon)" stroke="#efb49d" stroke-opacity=".65"/><circle cx="432" cy="242" r="15" stroke="#4e2c3b" fill="none" stroke-width="6" opacity=".34"/><circle cx="479" cy="279" r="9" stroke="#4e2c3b" fill="none" stroke-width="4" opacity=".36"/></g><text x="450" y="508" text-anchor="middle" fill="#b6c6d6" font-family="system-ui,sans-serif" font-size="18" letter-spacing="2">PRZEKRÓJ CIENIA ZIEMI / RUCH KSIĘŻYCA</text></g>
+</svg>
+<svg class="e9-geometry-view" viewBox="0 0 900 340" role="img" aria-labelledby="e9GeoTitle e9GeoDesc"><title id="e9GeoTitle">Boczny przekrój ustawienia ciał</title><desc id="e9GeoDesc">Schematyczne ustawienie Słońca, Ziemi i Księżyca w dwóch możliwych kolejnościach. Pokazany stożek cienia nie jest wymiarowym modelem fizycznym.</desc>
+<rect width="900" height="340" fill="#0c1a2a"/>
+<g id="e9GeoSolar"><polygon id="e9GeoSolarPenumbra" points="400,148 400,172 742,272 742,48" fill="#78909b" opacity=".19"/><polygon id="e9GeoSolarUmbra" points="400,148 400,172 742,167 742,153" fill="#030914" opacity=".82"/><circle cx="110" cy="160" r="49" fill="#e8ac83"/><circle id="e9GeoSolarMoon" cx="400" cy="160" r="13" fill="#789ab0" stroke="#d8e1e6" stroke-width="1"/><circle cx="742" cy="160" r="36" fill="#517f9a" stroke="#aac7d2"/><g fill="#c7d1d9" font-size="18" font-family="system-ui,sans-serif"><text x="110" y="236" text-anchor="middle">SŁOŃCE</text><text x="400" y="236" text-anchor="middle">KSIĘŻYC</text><text x="742" y="236" text-anchor="middle">ZIEMIA</text></g></g>
+<g id="e9GeoLunar" style="display:none"><polygon points="400,123 400,197 810,177 810,143" fill="#050911" stroke="#bd7774" stroke-opacity=".55"/><polygon points="400,123 400,197 850,290 850,30" fill="#7990a3" opacity=".16"/><circle cx="110" cy="160" r="49" fill="#e8ac83"/><circle cx="400" cy="160" r="36" fill="#517f9a" stroke="#aac7d2"/><circle id="e9GeoLunarMoon" cx="742" cy="160" r="16" fill="#bb6b62"/><g fill="#c7d1d9" font-size="18" font-family="system-ui,sans-serif"><text x="110" y="236" text-anchor="middle">SŁOŃCE</text><text x="400" y="236" text-anchor="middle">ZIEMIA</text><text x="742" y="236" text-anchor="middle">KSIĘŻYC</text></g></g>
+<text x="450" y="318" text-anchor="middle" fill="#849cad" font-size="16" font-family="system-ui,sans-serif" letter-spacing="2">PRZEKRÓJ SYMBOLICZNY · BEZ SKALI ODLEGŁOŚCI</text>
+</svg></div>
+<div class="e9-controlbox">
+<div id="e9SizeWrap"><label class="e9-controls-label" for="e9Size">POZORNA ŚREDNICA KSIĘŻYCA</label>
+<select id="e9Size"><option value="near">Większa od Słońca — możliwe całkowite</option><option value="far">Mniejsza od Słońca — możliwe obrączkowe</option></select></div>
+<label class="e9-controls-label" for="e9Offset">WYCHYLENIE OD OSI · UMOWNA SKALA</label>
+<input type="range" id="e9Offset" min="0" max="100" step="1" value="0"><div class="e9-scale"><span>Idealne wyrównanie</span><span id="e9OffsetValue">0 / 100</span><span>Daleko od osi</span></div>
+<div class="e9-mode-tabs e9-presets" role="group" aria-label="Przykładowe ustawienia"><button type="button" data-e9-preset="0">Na osi</button><button type="button" data-e9-preset="27">Częściowe</button><button type="button" data-e9-preset="85">Bez zaćmienia</button></div>
+<div class="e9-verdict" aria-live="polite" aria-atomic="true"><small>WYNIK MODELU</small><strong id="e9Verdict">Zaćmienie całkowite</strong><p id="e9Explain">Księżyc całkowicie przesłania tarczę Słońca.</p></div>
+<button class="e9-reset" id="e9Reset" type="button">↺ Przywróć ustawienia początkowe</button>
+</div></div>
+<div class="e9-console-foot">Ważne: model służy zrozumieniu nakładania się tarcz i jakościowych różnic między cieniem a półcieniem. Rozmiary, przebieg stożków, odchylenie i fazy orbitalne są umowne. Model nie prognozuje zaćmień ani nie wyznacza miejsc widoczności. Zaćmienie częściowe w widoku Słońca opisuje jednego obserwatora, a nie całą Ziemię.</div>
+</div>
+</div></section>
+
+<section class="e9-chapter e9-history" id="historia"><div class="e9-wrap">
+<div class="e9-section-index"><span>07 / NOC, W KTÓREJ PRZETESTOWANO EINSTEINA</span><span>29 MAJA 1919</span></div>
+<div class="e9-columns"><div><span class="e9-eyebrow">KOSMICZNA GEOMETRIA POMAGA MIERZYĆ GRAWITACJĘ</span><h2>Cień, który pomógł <em>zobaczyć zakrzywienie światła.</em></h2></div>
+<div class="e9-copy"><p class="e9-lead">W 1919 roku nie chodziło tylko o zachwyt. Zaćmienie stało się narzędziem pozwalającym sprawdzić jedną z najbardziej śmiałych teorii w dziejach fizyki.</p>
+<p>Ogólna teoria względności Einsteina przewidywała, że światło odległych gwiazd przechodzące blisko Słońca zmieni kierunek wskutek zakrzywienia czasoprzestrzeni. Problem? W zwykły dzień blask Słońca uniemożliwia obserwowanie gwiazd na tle nieba w jego bezpośrednim sąsiedztwie.</p>
+<p>Podczas całkowitego zaćmienia <strong>29 maja 1919 roku</strong> zespoły obserwacyjne pracowały między innymi na wyspie Príncipe i w brazylijskim Sobral. Arthur Eddington był jedną z centralnych postaci wyprawy. Fotografie gwiazd pozwoliły porównać ich pozorne położenia z wcześniejszymi pomiarami.</p>
+<p>Ogłoszone wyniki uznano za ważne poparcie teorii Einsteina. Współcześni historycy nauki zwracają uwagę na ograniczenia ówczesnych pomiarów i późniejsze, dokładniejsze potwierdzenia. Mimo to był to jeden z tych momentów, kiedy <strong>cień Księżyca otworzył okno na nowe rozumienie Wszechświata.</strong></p></div>
+</div>
+<div class="e9-history-line"><strong>1919</strong><p>W cieniu Księżyca astronomowie mogli badać zjawisko, którego nie byliby w stanie zobaczyć na jasnym dziennym niebie: drobne przesunięcia pozornych pozycji gwiazd na skutek ugięcia ich światła przez grawitację Słońca.</p></div>
+</div></section>
+
+<section class="e9-chapter e9-safety" id="bezpieczenstwo"><div class="e9-wrap">
+<div class="e9-section-index"><span>08 / PATRZ MĄDRZE</span><span>BEZPIECZNE OBSERWACJE</span></div>
+<div class="e9-columns"><div><span class="e9-eyebrow">NAJWAŻNIEJSZA ZASADA TEJ WYPRAWY</span><h2>Piękne zjawisko. <em>Prawdziwe ryzyko dla oczu.</em></h2></div>
+<div class="e9-copy"><p>Podczas zaćmienia częściowego i obrączkowego <strong>nigdy nie patrz bezpośrednio na Słońce bez prawidłowej ochrony</strong>. Zwykłe okulary przeciwsłoneczne nie wystarczą. Potrzebne są specjalne filtry do obserwacji Słońca, zgodne z odpowiednimi wymaganiami normy ISO 12312-2.</p>
+<p>Gołym okiem można obserwować Słońce tylko w krótkiej fazie całkowitego zaćmienia, gdy jasna fotosfera jest w całości zakryta — i wyłącznie z miejsca rzeczywistej całkowitości. Gdy choć fragment jasnej tarczy ponownie się ukaże, ochronę należy natychmiast założyć.</p>
+<div class="e9-safety-callout"><strong>Nigdy nie patrz przez teleskop, lornetkę ani obiektyw aparatu w kierunku Słońca bez specjalistycznego filtra zamontowanego przed układem optycznym.</strong> Skupione światło może spowodować ciężkie uszkodzenie wzroku. Zaćmienie Księżyca można bezpiecznie obserwować bez takich filtrów.</div></div></div>
+</div></section>
+
+<section class="e9-lab" id="laboratorium"><div class="e9-wide">
+<div class="e9-lab-head"><div><span class="e9-eyebrow">09 / PEŁNE LABORATORIUM ATLASU</span><h2>A teraz zobacz cień <em>w trzech wymiarach.</em></h2></div><p>Rysunki pomagają zrozumieć zasadę. Istniejący moduł ATLAS SOLARIS pozwala wejść w przestrzenną geometrię Słońca, Ziemi i Księżyca. Nie zmieniamy jego silnika: uruchamia się dopiero na Twoje polecenie, pod artykułem.</p></div>
+<div id="stageViewport" class="stage-viewport">
+<div class="e9-gate"><div class="e9-gate-art" aria-hidden="true"></div><h3>Laboratorium Zaćmień</h3><p>Przejdź od literackiej opowieści do przestrzennego eksperymentu. Zbadaj ustawienie trzech ciał i geometrię cienia w pełnym module Atlasu.</p><button type="button" id="stageStartLab">Uruchom laboratorium 3D ↗</button></div>
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>OTWIERAMY LABORATORIUM ZAĆMIEŃ</strong><small>Uruchamianie silnika astronomicznego…</small></div>
+<iframe id="stageFrame" title="ATLAS SOLARIS — laboratorium geometrii zaćmień 3D" data-lazy="true" data-manual="true" data-src="../../atlas.html?portal=eclipse" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button type="button" id="stageReload">Spróbuj ponownie</button></div>
+<p class="e9-lab-note">Oryginalne laboratorium działa we wspólnym silniku Atlasu. Etap 09 jest jego nową oprawą redakcyjną, nie kopią historycznego wydania. Symulacja nie zastępuje oficjalnych efemeryd przy planowaniu obserwacji.</p>
+</div></section>
+
+<section class="e9-sources" id="zrodla"><div class="e9-wrap">
+<span class="e9-eyebrow">ANEKS / FAKTY ZAMIAST DOMYSŁÓW</span><h2>Oto źródła <em>naszego cienia.</em></h2>
+<p>Wszystkie podstawowe wyjaśnienia, ostrzeżenia i fakty historyczne opierają się na materiałach NASA. Interaktywne rysunki i panoramiczna okładka są autorskimi schematami, a nie fotografiami czy efemerydami.</p>
+<ol>
+<li><a href="https://science.nasa.gov/eclipses/geometry/" target="_blank" rel="noopener noreferrer">NASA — Why Do Eclipses Happen?</a><small>Cień, półcień, antycień, typy zaćmień Słońca, wielkość pozorna i nachylenie orbity Księżyca.</small></li>
+<li><a href="https://science.nasa.gov/moon/eclipses/" target="_blank" rel="noopener noreferrer">NASA — Eclipses and the Moon</a><small>Zaćmienia Księżyca, czerwona barwa, typy zjawisk oraz wpływ atmosfery Ziemi.</small></li>
+<li><a href="https://science.nasa.gov/eclipses/history/" target="_blank" rel="noopener noreferrer">NASA — History of Eclipses</a><small>Historyczne znaczenie zaćmień, obserwacje z 1919 roku i pomiary ugięcia światła.</small></li>
+<li><a href="https://science.nasa.gov/eclipses/safety/" target="_blank" rel="noopener noreferrer">NASA — Eclipse Viewing Safety</a><small>Bezpieczne obserwacje Słońca, okulary zaćmieniowe, filtry optyczne i wyjątek krótkiej fazy całkowitości.</small></li>
+<li><a href="https://eclipse.gsfc.nasa.gov/LEcat5/appearance.html" target="_blank" rel="noopener noreferrer">NASA GSFC — Visual Appearance of Lunar Eclipses</a><small>Przyczyny zmiennej jasności i czerwonego koloru Księżyca podczas zaćmienia.</small></li>
+</ol>
+<p class="e9-note">ATLAS SOLARIS / ETAP 09. Obraz tytułowy łączy symbolikę całkowitego zaćmienia Słońca i czerwonego Księżyca: nie jest astronomicznie możliwą jednoczesną sceną ani zapisem obserwacji. Grafiki i laboratorium 2D są ilustracjami dydaktycznymi bez prawdziwej skali. Opis doświadczenia z 1919 roku oddziela znaczenie historyczne od precyzji współczesnych dowodów. Pełne laboratorium 3D wykorzystuje własne założenia modelu ATLAS SOLARIS.</p>
+</div></section>
+<footer class="e9-footer"><span>ATLAS SOLARIS / KRONIKI NIEBA 09</span><span>CIEŃ NIE ODBIERA ŚWIATŁA. CZASEM POZWALA ZOBACZYĆ WIĘCEJ.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></footer>
+</article></main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 09 / ATLAS CIENIA</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h2>Geometria zaćmień</h2><p class="stage-lead">Dzień, w którym Słońce zniknęło.</p><p>Historia i nauka zaćmień Słońca i Księżyca, węzły orbity, czerwony Księżyc, eksperyment w 1919 roku i dwa laboratoria — lekki przekrój 2D oraz pełny moduł 3D.</p><p class="stage-info-note">Schematy są dydaktyczne. Laboratorium 3D uruchamia się ręcznie; do wyznaczania terminów obserwacji potrzebne są dokładne efemerydy.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Cały artykuł pozostaje dostępny bez JavaScript. Interaktywny przekrój zaćmień i pełne laboratorium 3D wymagają JavaScript.</p></noscript>
 </body></html>

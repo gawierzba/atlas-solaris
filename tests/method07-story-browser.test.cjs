@@ -53,7 +53,7 @@ async function run(){
    await page.locator('button[data-e=".0167"]').click();
    assert.equal(await page.locator('#m7Ratio').textContent(),'1,03×');
    assert.equal(await page.locator('#m7Peri').textContent(),'0,9833 a');
-   await ecc.fill('.0934');
+   await ecc.fill('0.0934');
    assert.equal(await page.locator('#m7Apo').textContent(),'1,0934 a');
    assert.equal(await page.locator('button[data-e=".0934"]').getAttribute('aria-pressed'),'true');
    assert.equal(await page.locator('#stageFrame').getAttribute('src'),null,'Orbit widget should not launch 3D');

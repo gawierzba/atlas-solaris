@@ -1,13 +1,151 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Nauka i dokładność | ATLAS SOLARIS</title><meta name="description" content="Poznaj źródła danych, zastosowane uproszczenia i ograniczenia modeli astronomicznych.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="07" data-kind="stage">
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1e2b">
+<title>Najpierw była liczba. Potem planeta. | Nauka i dokładność — ATLAS SOLARIS 07</title>
+<meta name="description" content="Jak nauka przewidziała Neptuna? Poznaj JPL, równanie Keplera, czas lotu światła, niepewność i uczciwe granice symulacji ATLAS SOLARIS. Dwa interaktywne doświadczenia bez 3D.">
+<meta property="og:type" content="article"><meta property="og:title" content="Najpierw była liczba. Potem planeta. — ATLAS SOLARIS 07">
+<meta property="og:description" content="Od matematycznego odkrycia Neptuna po prawdziwą anatomię modelu nieba."><meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/method07-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css"><link rel="stylesheet" href="../../portal/method07-story.css?v=07.1">
+<script defer src="../../portal/data.js"></script><script defer src="../../portal/stage.js?v=32.6"></script><script defer src="../../portal/method07-story.js?v=07.1"></script>
+</head><body class="m7-page" data-route="07" data-kind="stage">
+<a class="m7-skip" href="#opowiesc">Przejdź do artykułu</a>
 <header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 07 / Naukowe laboratoria</span><strong>Nauka i dokładność</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Nauka i dokładność — interaktywne laboratorium" src="../../atlas.html?portal=method" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 07</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Nauka i dokładność</h1><p class="stage-lead">Skąd biorą się obliczenia?</p><p>Poznaj źródła danych, zastosowane uproszczenia i ograniczenia modeli astronomicznych.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<div class="stage-crumb"><span>ETAP 07 / NAUKOWE LABORATORIA</span><strong>Nauka i dokładność</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav></header>
+<main class="stage-main m7-main">
+<article class="m7-story" aria-labelledby="m7Title">
+<section class="m7-hero">
+<img class="m7-hero-art" src="../../portal/media/method07-cover.svg" width="1600" height="900" fetchpriority="high" alt="Autorska rycina naukowa przedstawiająca siatkę obliczeń, koncentryczne linie orbit i artystyczny dysk Neptuna. To symboliczna ilustracja, nie prawdziwa efemeryda ani fotografia.">
+<div class="m7-hero-cover"></div><div class="m7-hero-inner">
+<div class="m7-hero-label"><span class="m7-emblem">⌁</span> ATLAS SOLARIS / KSIĘGA OBLICZEŃ <i>·</i> DOSSIER 07</div>
+<div class="m7-hero-copy"><p class="m7-hero-overline">NAJWIĘKSZE ODKRYCIA CZĘSTO ZACZYNAJĄ SIĘ OD NIEZGODNOŚCI</p>
+<h1 id="m7Title">Najpierw była liczba. <em>Potem planeta.</em></h1>
+<p>Na nocnym niebie coś nie pasowało do obliczeń. Zamiast poprawić rysunek, astronomowie poprawili model świata. A potem znaleźli Neptuna. Oto opowieść o tym, dlaczego można zaufać nauce — właśnie dlatego, że pozwala sprawdzać swoje błędy.</p>
+<div class="m7-hero-actions"><a href="#opowiesc" class="m7-start">Rozpocznij śledztwo <span aria-hidden="true">↓</span></a><a href="#dokumentacja" class="m7-document">Pełna dokumentacja <span aria-hidden="true">↗</span></a></div></div>
+<div class="m7-hero-foot"><span>1846 — NEPTUN / 2026 — ATLAS SOLARIS</span><span>OKŁADKA AUTORSKA · RYCINA, NIE EFEMERYDA</span></div>
+</div></section>
+
+<section class="m7-discovery" id="opowiesc">
+<div class="m7-chapter-rule"><span>01 / HISTORIA PRAWDZIWA</span><span>BERLIN / 23 WRZEŚNIA 1846</span></div>
+<div class="m7-discovery-grid"><div><p class="m7-eyebrow">SPRAWA: NIEWIDZIALNY ŚWIAT</p><h2>Uran <em>nie zachowywał się tak, jak powinien.</em></h2></div>
+<div class="m7-copy"><p class="m7-lead">Znasz to uczucie, kiedy coś powinno znaleźć się dokładnie w jednym miejscu, ale za każdym razem widzisz to nieco gdzie indziej?</p>
+<p>Astronomowie XIX wieku dysponowali prawami Newtona i wieloletnimi obserwacjami Urana. Jego ruch wykazywał jednak odchylenia od przewidywań. Może w rachunkach tkwił błąd? A może dalej, za Uranem, istniała jeszcze jedna planeta, której grawitacja zaburzała jego orbitę?</p>
+<p><strong>Urbain Le Verrier</strong> we Francji i <strong>John Couch Adams</strong> w Anglii niezależnie badali ten problem. Le Verrier podał przewidywany obszar nieba. W nocy z <strong>23 na 24 września 1846 roku</strong> Johann Galle i Heinrich d’Arrest w berlińskim obserwatorium odnaleźli Neptuna około jednego stopnia od przewidzianej pozycji. Nieco wcześniej obiekt był już obserwowany, ale nie rozpoznano go jako nowej planety. <a href="#zrodla" class="m7-cite">[1, 2]</a></p>
+<p>Ta historia nie mówi, że każda prognoza astronomów jest doskonała. Pokazuje coś znacznie ważniejszego: <strong>dobry model można skonfrontować ze światem i poprawić, kiedy świat mówi „nie”.</strong></p></div></div>
+<div class="m7-statement"><span>AKTA SPRAWY / NR 1846</span><p>Najpierw wykryto <em>różnicę między rachunkiem a obserwacją.</em> Dopiero potem znaleziono nowy świat.</p></div>
+</section>
+
+<section class="m7-neptune" id="neptun">
+<div class="m7-neptune-card">
+<div class="m7-neptune-photo"><img loading="lazy" decoding="async" src="https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia00/pia00046/PIA00046.jpg/jcr%3Acontent/renditions/cq5dam.thumbnail.319.319.png" width="319" height="319" alt="Rzeczywisty obraz pełnej tarczy Neptuna wykonany przez sondę Voyager 2 w 1989 roku, NASA/JPL. Widoczne jasnoniebieskie pasma chmur."><span>NASA/JPL / VOYAGER 2 / PIA00046</span></div>
+<div class="m7-neptune-prose"><span>02 / OD PRZEWIDYWANIA DO FOTOGRAFII</span><h2>Rok 1846: punkt na mapie. <em>Rok 1989: prawdziwa planeta.</em></h2>
+<p>143 lata po odkryciu sonda Voyager 2 przeleciała obok Neptuna, dostarczając zdjęć jego chmur i burz. Ten prawdziwy obraz tarczy powstał w sierpniu 1989 roku. NASA zaznacza, że zdjęcie poddano obróbce w celu uwidocznienia szczegółów atmosfery, kosztem części wierności kolorów.</p>
+<p>To doskonały przykład różnicy między <strong>danymi obserwacyjnymi</strong>, <strong>przetworzonym obrazem</strong> i <strong>symulacją komputerową</strong>. Wszystkie trzy są użyteczne, ale nie wolno ich mylić. <a href="#zrodla" class="m7-cite">[3]</a></p><small>Oryginalne zdjęcie NASA/JPL, Voyager 2, seria PIA00046. To nie jest wygenerowana ilustracja.</small></div>
+</div></section>
+
+<section class="m7-process" id="jak-powstaje-model">
+<div class="m7-section-head"><span>03 / ANATOMIA JEDNEGO OBRAZU</span><h2>Zanim planeta pojawi się na ekranie, <em>przechodzi przez pięć etapów.</em></h2><p>W ATLAS SOLARIS nie ma jednego magicznego „wyświetl planetę”. Istnieje łańcuch od danych źródłowych, przez obliczenia i założenia, aż po obraz dla człowieka. Każde ogniwo odpowiada na inne pytanie.</p></div>
+<div class="m7-process-grid">
+<div><span>01 / ŚLAD W RZECZYWISTOŚCI</span><h3>Obserwacja</h3><p>Fotografia, odczyt teleskopu lub precyzyjny pomiar odległości. Obserwacja też wymaga kalibracji i oceny niepewności.</p></div>
+<div><span>02 / ZAPIS W LICZBACH</span><h3>Dane</h3><p>Współrzędne, czas, jednostki, masy i parametry orbit. Bez jednoznacznych definicji można obliczyć coś zupełnie innego niż zamierzono.</p></div>
+<div><span>03 / REGUŁY RUCHU</span><h3>Model</h3><p>Równania Keplera, grawitacja, orientacja osi i układy odniesienia. Model jest świadomym uproszczeniem, a nie całą przyrodą.</p></div>
+<div><span>04 / WYNIK W DANEJ CHWILI</span><h3>Obliczenie</h3><p>Pozycję wylicza się dla konkretnego czasu i układu współrzędnych. W tym momencie istotne stają się także zaokrąglenia i przybliżenia.</p></div>
+<div><span>05 / OBRAZ NA EKRANIE</span><h3>Wizualizacja</h3><p>Kolor, kamera, powiększenie planet i tekstury mają uczynić astronomię zrozumiałą. Nie wszystkie są danymi pomiarowymi.</p></div>
+</div>
+<div class="m7-process-note"><span>PODSTAWOWA RÓŻNICA</span><p><strong>Dokładność fizyczna</strong> mówi, jak blisko prawdy znajduje się wynik. <strong>Precyzja zapisu</strong> mówi, ile cyfr pokazano. Dziesięć miejsc po przecinku nie zamienia uproszczonego modelu w precyzyjną efemerydę.</p></div>
+</section>
+
+<section class="m7-jpl" id="jpl">
+<div class="m7-jpl-top"><span>04 / GDZIE ATLAS BIERZE POZYCJE PLANET?</span><h2>To nie są zgadywane orbity. <em>Ale nie są też pełnymi efemerydami.</em></h2><p>Główny silnik Atlasu korzysta z tabeli 1 opracowania <strong>NASA/JPL Solar System Dynamics — Approximate Positions of the Planets</strong>, przygotowanej dla przedziału <strong>1800–2050</strong>. Dla każdej planety tabela podaje elementy orbity i ich powolne zmiany; na tej podstawie silnik rozwiązuje iteracyjnie równanie Keplera i wylicza położenie geometryczne. JPL podaje również typowe rozbieżności własnej aproksymacji. <a class="m7-cite" href="#zrodla">[4]</a></p></div>
+<div class="m7-ledger">
+<div class="m7-ledger-heading"><span>REJESTR APROKSYMACJI JPL / 1800–2050</span><span>NOMINALNE BŁĘDY SAMEJ TABELI 1, NIE GWARANCJA DLA ATLASU</span></div>
+<table><thead><tr><th>Obiekt</th><th>Odchylenie długości heliocentrycznej</th><th>Odchylenie odległości od Słońca</th></tr></thead><tbody>
+<tr><td>Merkury</td><td>15″</td><td>1 tys. km</td></tr><tr><td>Mars</td><td>40″</td><td>25 tys. km</td></tr><tr><td>Jowisz</td><td>400″</td><td>600 tys. km</td></tr><tr><td>Saturn</td><td>600″</td><td>1 500 tys. km</td></tr><tr><td>Neptun</td><td>10″</td><td>200 tys. km</td></tr></tbody></table>
+<div class="m7-ledger-foot"><p><strong>Ważne:</strong> to wartości nominalne opublikowane przez JPL dla konkretnej metody i układu heliocentrycznego, a nie uniwersalne przedziały błędów. Nie opisują całkowitego błędu obrazu widzianego z Ziemi, wpływu Księżyca ani wszystkich dodatkowych uproszczeń Atlasu.</p><p>Zapis <strong>″</strong> oznacza sekundę łuku (1/3600 stopnia). „25 tys. km” to 25 tysięcy kilometrów, a nie 25 kilometrów.</p></div></div>
+<div class="m7-jpl-coda"><span>ROZWIĄZANIE PROFESJONALNE</span><p>Jeżeli potrzebujesz dokładnego położenia do obserwacji naukowych lub nawigacji, zamiast uproszczonej tabeli należy użyć właściwego rozwiązania, np. <strong>JPL Horizons</strong> z odpowiednim czasem, obserwatorem, układem odniesienia i poprawkami. <a href="#zrodla" class="m7-cite">[5]</a></p></div>
+</section>
+
+<section class="m7-orbit" id="doswiadczenie-orbita">
+<div class="m7-orbit-head"><span>05 / DOŚWIADCZENIE: JEDNA LICZBA ZMIENIA KSZTAŁT ORBITY</span><h2>Okrąg jest prosty. <em>Przyroda wybiera elipsy.</em></h2><p>Zmień mimośród <strong>e</strong>. Jeśli e = 0, orbita jest kołem. Wraz ze wzrostem mimośrodu powstaje coraz bardziej wydłużona elipsa. Słońce znajduje się w jednym z jej ognisk, a nie w geometrycznym środku. To zaledwie jeden z parametrów prawdziwego modelu Keplera.</p></div>
+<div class="m7-orbit-widget" id="m7OrbitWidget">
+<div class="m7-widget-controls"><span>ORBITA / TEST A</span><label for="m7Eccentricity">Mimośród orbity <em>e</em></label><div class="m7-range-row"><input id="m7Eccentricity" type="range" min="0" max=".60" value=".2056" step=".0001" aria-describedby="m7OrbitScope"><output id="m7EccValue">0,2056</output></div>
+<div class="m7-e-preset" role="group" aria-label="Wybierz przykład mimośrodu"><button type="button" data-e="0">Okrąg</button><button type="button" data-e=".0167">Ziemia</button><button type="button" data-e=".0934">Mars</button><button type="button" data-e=".2056" aria-pressed="true">Merkury</button><button type="button" data-e=".50">Hipotetyczna</button></div>
+<div class="m7-orbit-values"><div><span>PERIHELIUM / r = a(1 − e)</span><strong id="m7Peri">0,7944 a</strong></div><div><span>APHELIUM / r = a(1 + e)</span><strong id="m7Apo">1,2056 a</strong></div><div><span>STOSUNEK APHELIUM / PERIHELIUM</span><strong id="m7Ratio">1,52×</strong></div></div>
+<p id="m7OrbitScope">Wszystkie orbity na tej rycinie mają tę samą umowną półoś wielką a. Przykłady nazwane planetami używają ich mimośrodów z tabeli JPL, ale <strong>nie odwzorowują prawdziwych rozmiarów orbit ani pozycji planet w konkretnej dacie.</strong></p></div>
+<div class="m7-orbit-chart"><div class="m7-chart-head"><span>PRZEKRÓJ ORBITY / JEDNOLITA PÓŁOŚ</span><small>SCHEMAT W UKŁADZIE ORBITY</small></div>
+<svg id="m7OrbitSvg" viewBox="0 0 650 440" role="img" aria-label="Orbita eliptyczna o mimośrodzie 0,2056. Słońce w lewym ognisku; perihelion i aphelium po dwóch przeciwnych stronach orbity.">
+<defs><radialGradient id="m7sunG"><stop stop-color="#fff4d4"/><stop offset=".7" stop-color="#eab185"/><stop offset="1" stop-color="#c37853"/></radialGradient></defs>
+<g stroke="#aebfc8" stroke-opacity=".15" fill="none"><path d="M30 220H620M325 45V395"/><circle cx="325" cy="220" r="162" stroke-dasharray="4 8"/></g>
+<ellipse id="m7OrbitEllipse" cx="358.31" cy="220" rx="162" ry="158.54" fill="none" stroke="#e9bfa4" stroke-width="3"/>
+<path id="m7PeriLine" d="M325 220L196.31 220" stroke="#c6e2df" stroke-opacity=".7" stroke-dasharray="5 7" stroke-width="2"/>
+<path id="m7ApoLine" d="M325 220L520.31 220" stroke="#e0ba9e" stroke-opacity=".6" stroke-dasharray="5 7" stroke-width="2"/>
+<circle cx="325" cy="220" r="13" fill="url(#m7sunG)"/><circle cx="325" cy="220" r="21" fill="none" stroke="#e7c5a7" stroke-opacity=".25"/>
+<circle id="m7PeriPoint" cx="196.31" cy="220" r="6" fill="#aee5e1"/><circle id="m7ApoPoint" cx="520.31" cy="220" r="6" fill="#e8baa4"/>
+<g fill="#c7d9e3" font-family="system-ui,sans-serif" letter-spacing="1.3" font-size="12"><text x="312" y="260">SŁOŃCE / OGNISKO</text><text id="m7PeriLabel" x="196.31" y="202" text-anchor="middle">PERIHELIUM</text><text id="m7ApoLabel" x="520.31" y="202" text-anchor="middle">APHELIUM</text></g>
+</svg><p>Uwaga: rysunek pokazuje geometrię elipsy, nie czas ani prędkość ruchu. Rzeczywiste planety poruszają się po trajektoriach zaburzanych grawitacyjnie i nie są idealnymi izolowanymi orbitami Keplera.</p></div></div>
+<div class="m7-math-strip"><span>RÓWNANIE, KTÓRE NAPĘDZA MODEL</span><p><code>M = E − e sin E</code></p><p>Równanie Keplera wiąże anomalię średnią M z mimośrodem e i anomalią mimośrodową E. Sam kształt orbity nie wystarcza do ustalenia położenia planety w czasie — potrzebujemy również epoki i pozostałych elementów orbitalnych. <a class="m7-cite" href="#zrodla">[4]</a></p></div>
+</section>
+
+<section class="m7-light" id="doswiadczenie-swiatlo">
+<div class="m7-light-head"><span>06 / DOŚWIADCZENIE: WIDZIMY PRZESZŁOŚĆ</span><h2>Na ekranie wszystko jest „teraz”. <em>Światło nigdy nie jest natychmiast.</em></h2><p>Jeden z ważnych podziałów w astronomii dotyczy <strong>położenia geometrycznego</strong> i <strong>położenia obserwowanego</strong>. Światło potrzebuje czasu, aby dotrzeć od obiektu do obserwatora. Jeżeli obiekt się porusza, kierunek, z którego widzimy jego światło, może różnić się od jego geometrycznej pozycji „w tej chwili”. JPL Horizons potrafi uwzględniać tę i inne poprawki. <a class="m7-cite" href="#zrodla">[5, 6]</a></p></div>
+<div class="m7-light-widget" id="m7LightWidget">
+<div class="m7-light-controls"><span>CZAS ŚWIATŁA / TEST B</span><label for="m7Distance">Ustaw odległość sygnału</label>
+<input id="m7Distance" type="range" min="0" max="100" step="1" value="49" aria-describedby="m7LightScope"/>
+<div class="m7-light-preset" role="group" aria-label="Wybierz dystans dla światła">
+<button type="button" data-km="384400">Średnia odległość do Księżyca</button>
+<button type="button" data-km="149597870.7" aria-pressed="true">Jedna jednostka astronomiczna</button>
+<button type="button" data-au="5">5 au / przykład</button>
+<button type="button" data-au="30">30 au / przykład</button></div>
+<p id="m7LightScope">Obliczamy wyłącznie drogę jednego sygnału w próżni, <strong>nie całkowite opóźnienie transmisji sondy i nie bieżącą odległość konkretnej planety</strong>. Odległości 5 au i 30 au są umownymi przykładami.</p></div>
+<div class="m7-light-readouts" aria-live="polite" aria-atomic="true">
+<div><span>DROGA SYGNAŁU</span><output id="m7DistanceKm">149 597 870,7 km</output><small id="m7DistanceAu">1,00000 au</small></div>
+<div><span>JEDNOKIERUNKOWY CZAS LOTU ŚWIATŁA</span><output id="m7LightTime">8 min 19 s</output><small id="m7LightSeconds">499,00 sekundy</small></div>
+<div class="m7-light-rail"><span>OBIEKT / EMISJA</span><svg viewBox="0 0 560 92" role="img" aria-label="Nieruchomy schemat kierunku przepływu informacji od obiektu do odbiornika."><path d="M32 46H528" stroke="#d3d9db" stroke-opacity=".24" stroke-width="2" stroke-dasharray="4 10"/><circle cx="49" cy="46" r="16" fill="#e0aa87"/><circle cx="515" cy="46" r="18" fill="#8bb9cb"/><path d="M110 46H445" stroke="#f2c49d" stroke-width="2.5"/><path d="m435 35 15 11-15 11" stroke="#f2c49d" stroke-width="2" fill="none"/><g fill="#b6cbd0" font-family="system-ui,sans-serif" font-size="12" letter-spacing="2"><text x="224" y="30">c = 299 792 458 m/s</text></g></svg><span>OBSERWATOR / ODBIÓR</span></div></div></div>
+<p class="m7-light-foot"><strong>Stałe z NASA/JPL:</strong> 1 au = 149 597 870 700 m, c = 299 792 458 m/s, stąd czas lotu na odległość jednej au wynosi dokładnie około 499,0048 s. Stała prędkość światła w próżni jest zdefiniowana dokładnie; wynik czasowy zaokrąglamy do czytelnej postaci. Odległość Ziemia–Słońce nie jest zawsze równa dokładnie 1 au, a dystans Ziemia–Księżyc zmienia się podczas obiegu. <a class="m7-cite" href="#zrodla">[7]</a></p>
+</section>
+
+<section class="m7-limits" id="co-atlas-obiecuje">
+<div class="m7-limits-head"><span>07 / UMOWA Z CZYTELNIKIEM</span><h2>To, co Atlas potrafi, jest fascynujące. <em>To, czego nie potrafi, musi być jawne.</em></h2><p>Przyjrzałem się obecnemu silnikowi <code>js/app.js</code> i zapisowi metody w oryginalnym laboratorium etapu 07. Poniższa karta opisuje rzeczywiste przybliżenia tej wersji Atlasu, a nie hipotetyczne możliwości silnika NASA.</p></div>
+<div class="m7-truth-grid">
+<div><span>01 / POZYCJE PLANET</span><h3>Dobre do poznawania orbit.</h3><p>Podstawą planet jest tabela NASA/JPL 1800–2050 oraz równanie Keplera. To <strong>pozycje geometryczne</strong>, nie kompletna efemeryda obserwacyjna z poprawkami na czas lotu światła, aberrację i refrakcję.</p><small>MODEL / PRZYBLIŻENIE</small></div>
+<div><span>02 / ZIEMIA I KSIĘŻYC</span><h3>Ruch jest bardziej złożony niż jedna elipsa.</h3><p>Atlas koryguje położenie Ziemi względem barycentrum i używa przybliżonej teorii Księżyca. Dla wybranych geometrii zaćmień 2024–2040 wykorzystuje dodatkowe dane Słońca i Księżyca próbkowane co 6 godzin z interpolacją.</p><small>MODEL / PRZYBLIŻENIE I DODATKOWE DANE</small></div>
+<div><span>03 / GRAFIKA I SKALA</span><h3>Duża planeta nie znaczy bliska planeta.</h3><p>W typowym widoku rozmiary planet są celowo powiększone dla czytelności. Niektóre odległości w widokach zbliżeniowych również bywają zmienione. Rzeczywistych wymiarów szukaj w danych liczbowych lub odpowiednio oznaczonym trybie skali.</p><small>WIZUALIZACJA / NIE POMIAR</small></div>
+<div><span>04 / TEKSTURY I OBSERWACJE</span><h3>Nie każda powierzchnia pochodzi z teleskopu.</h3><p>Podstawowa mapa Ziemi wywodzi się z NASA Blue Marble Next Generation; jest kompozycją statyczną, nie pogodą na żywo. Część innych planet ma ilustracyjne tekstury proceduralne. Model horyzontu nie uwzględnia wiernie lokalnego terenu.</p><small>DANE + ILUSTRACJA / WYRAŹNIE ROZDZIELONE</small></div>
+</div>
+<div class="m7-limits-no"><span>TO NIE JEST NARZĘDZIE DO…</span><p>planowania rzeczywistych manewrów sond, określania dokładnych kontaktów zaćmień, nawigacji, bezpiecznego obserwowania Słońca lub wyznaczania precyzyjnych efemeryd. W takich przypadkach korzystaj z wyspecjalizowanych danych i procedur, między innymi JPL Horizons.</p></div>
+</section>
+
+<section class="m7-precision" id="pewnosc">
+<div class="m7-precision-inner"><span>08 / NAUKA, KTÓRA NIE BOI SIĘ KONTROLI</span><h2>Najpiękniejsza część astronomii? <em>Możesz nie uwierzyć na słowo.</em></h2><p>Możesz zmierzyć, skąd wychodzi Słońce. Możesz porównać obliczoną pozycję planety z niezależną efemerydą. Możesz podać dokładną datę, miejsce obserwacji i definicję użytego czasu. Możesz sprawdzić, czy poprawienie modelu zbliżyło go do obserwacji.</p><p>Tak działa dobra nauka: nie chroni modelu przed błędem. <strong>Używa błędu, by odkrywać więcej.</strong></p></div>
+</section>
+</article>
+
+<section class="m7-lab" id="dokumentacja" aria-label="Oryginalna dokumentacja metody i ograniczeń silnika Atlas">
+<div class="m7-lab-intro"><div><span>09 / ARCHIWUM TECHNICZNE SILNIKA ATLAS SOLARIS</span><h2>A teraz wszystkie karty <em>na stół.</em></h2><p>Oryginalna dokumentacja etapu 07 pozostaje dostępna w pełnej postaci: źródła, układy odniesienia, modele Ziemi i Księżyca, skalowanie sceny i ograniczenia. Zachowałem istniejący moduł, zamiast zastępować go artykułem. Wczytanie całego silnika i jego dokumentacji następuje dopiero po kliknięciu.</p></div><small>TRYB PEŁNEJ DOKUMENTACJI / RĘCZNY START</small></div>
+<div id="stageViewport" class="stage-viewport">
+<div class="m7-lab-placeholder"><div class="m7-doc-icon" aria-hidden="true"><i></i></div><h3>Otwórz dokumentację źródłową.</h3><p>Zobacz oryginalne techniczne wyjaśnienia zapisane we wspólnym silniku ATLAS SOLARIS. To cięższy moduł niż lekki artykuł i oba doświadczenia powyżej.</p><button type="button" id="stageStartLab">Uruchom dokumentację silnika <span aria-hidden="true">↗</span></button><small>Żadnego automatycznego pobierania podczas przewijania.</small></div>
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>OTWIERAMY ARCHIWUM ATLASU</strong><small>Wczytywanie oryginalnego modułu metody…</small></div>
+<iframe id="stageFrame" title="ATLAS SOLARIS — pełna dokumentacja metody i ograniczeń" data-lazy="true" data-manual="true" data-src="../../atlas.html?portal=method" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<div id="stageError" hidden role="alert">Nie udało się otworzyć dokumentacji. <button id="stageReload" type="button">Spróbuj ponownie</button></div>
+<p class="m7-lab-note">Pełna dokumentacja jest umieszczona w historycznie zachowanym module „ATLAS SOLARIS 7.0 — metoda i ograniczenia”. Zachowuje opisy kolejnych rozszerzeń, które mogły być wbudowane później. Etap 07 jest przewodnikiem do tej dokumentacji, nie jej zamiennikiem.</p>
+</section>
+
+<section class="m7-sources" id="zrodla"><div class="m7-sources-header"><span>ANEKS / CZEGO UŻYLIŚMY W RACHUNKACH?</span><h2>Źródła, które można <em>sprawdzić samodzielnie.</em></h2><p>Linki prowadzą do oryginalnych dokumentów NASA/JPL i publikacji historycznych. Liczby w doświadczeniach wynikają ze wskazanych stałych oraz prostych wzorów, a nie z pobieranej na żywo efemerydy.</p></div>
+<ol>
+<li><a href="https://www.nasa.gov/history/175-years-ago-astronomers-discover-neptune-the-eighth-planet/" target="_blank" rel="noopener noreferrer">NASA — 175 Years Ago: Astronomers Discover Neptune</a><small>Odkrycie z nocy 23–24 września 1846 r., przewidywania Le Verriera i Adamsa, Galle i d’Arrest.</small></li>
+<li><a href="https://www.aps.org/apsnews/2020/08/neptunes-existence-confirmed" target="_blank" rel="noopener noreferrer">American Physical Society — Neptune’s Existence Observationally Confirmed</a><small>Historyczny przebieg niezależnych rachunków i obserwacji oraz około jednego stopnia rozbieżności.</small></li>
+<li><a href="https://science.nasa.gov/photojournal/neptune-full-disk/" target="_blank" rel="noopener noreferrer">NASA/JPL Photojournal — Neptune Full Disk, PIA00046</a><small>Prawdziwy przetworzony obraz z Voyagera 2 z 16–17 sierpnia 1989 roku.</small></li>
+<li><a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html" target="_blank" rel="noopener noreferrer">NASA/JPL SSD — Approximate Positions of the Planets</a><small>Tabela 1 z lat 1800–2050, elementy orbitalne i nominalne błędy heliocentryczne.</small></li>
+<li><a href="https://ssd.jpl.nasa.gov/horizons/manual.html" target="_blank" rel="noopener noreferrer">NASA/JPL Horizons — System Manual</a><small>Pozycje geometryczne, astrometryczne i pozorne, definicja obserwatora oraz szczegóły korekcji.</small></li>
+<li><a href="https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/req/abcorr.html" target="_blank" rel="noopener noreferrer">NASA/JPL NAIF — Aberration Corrections Required Reading</a><small>Czas przelotu światła i aberracja a geometria obserwowanego kierunku.</small></li>
+<li><a href="https://ssd.jpl.nasa.gov/astro_par.html" target="_blank" rel="noopener noreferrer">NASA/JPL SSD — Astrodynamic Parameters</a><small>Dokładne 1 au = 149 597 870 700 m, c = 299 792 458 m/s i 499,004783836 s na au.</small></li>
+<li><a href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/" target="_blank" rel="noopener noreferrer">NASA — Blue Marble: Next Generation</a><small>Źródło globalnej mapy Ziemi wykorzystywanej przez Atlas w uproszczonej wizualizacji.</small></li>
+<li><a href="https://github.com/astronexus/HYG-Database" target="_blank" rel="noopener noreferrer">Astronexus — HYG Database</a><small>Katalog gwiazd użyty w wybranych częściach obserwatorium; RA, Dec i wielkości gwiazdowe.</small></li>
+</ol><p class="m7-editorial">ATLAS SOLARIS / ETAP 07. Okładka i wizualizacje dwóch eksperymentów są nieruchomymi, autorskimi schematami, nie zapisami obserwacji. Fotografia Neptuna jest prawdziwym obrazem NASA/JPL, przetworzonym przez zespół misji. Dane orbit z tabeli JPL mają określony zakres lat i nominalne błędy; nie należy utożsamiać ich z całkowitym błędem portalu. Wyniki doświadczeń Keplera i prędkości światła są dydaktyczne — nie przedstawiają obecnych pozycji planet.</p>
+</section>
+<footer class="m7-footer"><span>ATLAS SOLARIS / DOSSIER 07</span><span>KAŻDE DOBRE ODKRYCIE ZACZYNA SIĘ OD PYTANIA.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></footer>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ATLAS SOLARIS / 07</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h2>Nauka i dokładność</h2><p class="stage-lead">Najpierw była liczba. Potem planeta.</p><p>Historia odkrycia Neptuna, pięć etapów budowy symulacji, rzeczywiste dane NASA/JPL, elipsa Keplera i czas lotu światła. Pełna dokumentacja silnika zachowana i dostępna ręcznie.</p><p class="stage-info-note">Miniobserwatoria nie uruchamiają WebGL. Pełny moduł metodologiczny działa dopiero po świadomym kliknięciu. Wspólny silnik powstawał etapami; niektóre komponenty mają dokładniejsze modele szczególne.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Treść naukowa i schematy pozostają dostępne bez JavaScript. Oba interaktywne doświadczenia i techniczny moduł dokumentacji wymagają włączonego JavaScript.</p></noscript>
 </body></html>

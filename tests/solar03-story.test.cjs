@@ -9,7 +9,7 @@ test('Etap 03: osiemdziesiat procent pracy to porzadne wyjasnienie a nie render'
  assert.ok(html.indexOf('id="ziemia-ksiezyc"')<html.indexOf('id="laboratorium"'));
  assert.ok(html.indexOf('id="fotografia"')<html.indexOf('id="laboratorium"'));
  assert.ok(html.indexOf('id="laboratorium"')<html.indexOf('id="zrodla"'));
- assert.match(html,/skali.*pikselach/);
+ assert.match(html,/w pikselach, nie rzeczywistych centymetrach/);
  assert.match(html,/średnią wartość 384&nbsp;400 km/);
  assert.match(html,/nie służy do samodzielnego pomiaru/);
  for(const src of ['jpl.nasa.gov/edu/resources/project/make-a-scale-solar-system/','science.nasa.gov/moon/by-the-numbers/','science.nasa.gov/resource/osiris-rex-pictures-of-earth-and-the-moon/','science.nasa.gov/solar-system/planets/planet-sizes-and-locations-in-our-solar-system/'])assert.ok(html.includes(src),'Brak źródła '+src);

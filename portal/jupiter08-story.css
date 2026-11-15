@@ -1,0 +1,141 @@
+/* ATLAS SOLARIS · ETAP 08 — cztery światy Jowisza */
+html:has(body.j8-page),body.j8-page{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
+.j8-page{--j8-ink:#f1ede8;--j8-sub:#b3c4ce;--j8-line:#365263;--j8-orange:#e5a879;--j8-ice:#9dd7e9;--j8-earth:#bec5e2;--j8-night:#08131f;background:#07121f;color:var(--j8-ink)}
+.j8-page .stage-nav{position:sticky;top:0;background:rgba(7,19,30,.97);backdrop-filter:blur(14px);height:66px}
+.j8-page .stage-main{height:auto;min-height:0;background:#07121f}
+.j8-page .stage-info{position:fixed}
+.j8-page *{box-sizing:border-box}
+.j8-page a:focus-visible,.j8-page button:focus-visible,.j8-page input:focus-visible{outline:2px solid #a0dcea;outline-offset:4px}
+.j8-page h1,.j8-page h2,.j8-page h3,.j8-page p{margin-top:0}
+.j8-page .j8-story{width:100%;overflow:hidden}
+.j8-page .j8-eyebrow{display:block;font-size:11px;letter-spacing:.18em;font-weight:750;text-transform:uppercase;color:#c2d9dd}
+.j8-page .j8-hero{position:relative;min-height:min(820px,calc(100svh - 66px));display:flex;align-items:center;isolation:isolate;overflow:hidden;background:#070f1b}
+.j8-page .j8-hero-image{position:absolute;width:100%;height:100%;inset:0;object-fit:cover;object-position:center}
+.j8-page .j8-hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,12,22,.95) 0%,rgba(4,12,22,.88) 28%,rgba(4,12,22,.40) 65%,rgba(4,12,22,.05) 100%),linear-gradient(0deg,rgba(5,14,24,.88),transparent 32%);z-index:0}
+.j8-page .j8-hero-body{position:relative;z-index:1;width:min(1310px,calc(100% - 96px));margin:0 auto;display:flex;flex-direction:column;justify-content:space-between;min-height:min(790px,calc(100svh - 90px));padding:48px 0 34px}
+.j8-page .j8-cover-mark{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.17em;font-weight:760;color:#d9dfdf}
+.j8-page .j8-cover-mark i{display:block;width:7px;height:7px;border-radius:50%;background:#c6e6ed;box-shadow:0 0 17px #79d6ec}
+.j8-page .j8-hero-copy{max-width:700px;padding:75px 0 96px}
+.j8-page .j8-hero-kicker{color:#e7b991;font-size:12px;letter-spacing:.22em;font-weight:780}
+.j8-page .j8-hero h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(54px,6.25vw,108px);line-height:1.025;letter-spacing:-.055em;margin:20px 0 26px;text-wrap:balance}
+.j8-page .j8-hero h1 em{color:#d6edf0;font-weight:400}
+.j8-page .j8-hero-copy>p:not(.j8-hero-kicker){font-size:clamp(17px,1.4vw,21px);line-height:1.7;color:#d4dde2;max-width:595px}
+.j8-page .j8-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:34px}
+.j8-page .j8-btn{display:inline-flex;align-items:center;justify-content:center;gap:13px;border:1px solid #accdd1;text-decoration:none;border-radius:3px;padding:15px 20px;font-size:13px;font-weight:730;transition:background .2s,transform .2s}
+.j8-page .j8-btn:hover{transform:translateY(-2px)}
+.j8-page .j8-btn-primary{background:#d6e9e8;color:#102530}
+.j8-page .j8-btn-primary:hover{background:#f0f6f3}
+.j8-page .j8-btn-secondary{background:#12263799;color:#e7f1f1}
+.j8-page .j8-btn-secondary:hover{background:#214053}
+.j8-page .j8-cover-foot{display:flex;justify-content:space-between;gap:20px;color:#b9c6cc;font-size:10px;letter-spacing:.10em;line-height:1.7}
+.j8-page .j8-meta{max-width:1300px;margin:auto;display:flex;justify-content:space-between;gap:24px;padding:28px 0;border-bottom:1px solid #284353;color:#9eb3be;font-size:10px;letter-spacing:.14em}
+.j8-page .j8-wrap{max-width:1150px;margin:0 auto;padding:0 32px}
+.j8-page .j8-wide{max-width:1300px;margin:0 auto;padding:0 32px}
+.j8-page .j8-chapter{padding:105px 0;border-bottom:1px solid #213848}
+.j8-page .j8-rule{display:flex;align-items:center;gap:24px;margin-bottom:37px;color:#9cb6bf;font-size:10px;letter-spacing:.18em;font-weight:730}
+.j8-page .j8-rule:after{content:'';display:block;height:1px;flex:1;background:#355060}
+.j8-page .j8-grid-copy{display:grid;grid-template-columns:.9fr 1fr;gap:clamp(36px,6.7vw,106px)}
+.j8-page .j8-chapter h2,.j8-page .j8-section-heading h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(39px,4.3vw,67px);line-height:1.11;font-weight:400;letter-spacing:-.045em;text-wrap:balance}
+.j8-page h2 em{color:#a6d6e1;font-weight:400}
+.j8-page .j8-text{font-size:16px;line-height:1.87;color:#c2d0d5}
+.j8-page .j8-text p{margin-bottom:20px}
+.j8-page .j8-text strong{color:#f0f2ed;font-weight:660}
+.j8-page .j8-lead{font-size:20px!important;line-height:1.64!important;color:#e9f0ee!important}
+.j8-page .j8-drop:first-letter{font-family:Georgia,serif;font-size:4.5em;float:left;line-height:.75;padding:13px 10px 2px 0;color:#e0aa84}
+.j8-page .j8-history{position:relative;background:radial-gradient(ellipse at 90% 25%,#172d39 0%,#07121f 58%)}
+.j8-page .j8-quote{margin:38px 0;padding:30px 35px;border-left:2px solid #d7a57a;background:#102332;color:#e5e6e0;font-family:Georgia,serif;font-size:clamp(23px,2.4vw,34px);line-height:1.45}
+.j8-page .j8-mini-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#345061;margin-top:65px;border:1px solid #345061}
+.j8-page .j8-mini-facts>div{padding:27px 25px;background:#0a1b2a}
+.j8-page .j8-mini-facts strong{display:block;font-size:clamp(28px,3vw,42px);font-weight:550;color:#e7eef0}
+.j8-page .j8-mini-facts span{display:block;font-size:11px;line-height:1.55;color:#97b3c1;margin-top:8px}
+.j8-page .j8-worlds{padding:105px 0 95px;background:#0a1927}
+.j8-page .j8-section-heading{max-width:850px;margin:0 auto 52px;text-align:center}
+.j8-page .j8-section-heading h2{margin:17px 0 22px}
+.j8-page .j8-section-heading p{color:#b9cbd1;font-size:17px;line-height:1.75}
+.j8-page .j8-moons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.j8-page .j8-moon{position:relative;min-height:410px;padding:36px 38px 32px;border:1px solid #2d4b5d;background:linear-gradient(160deg,#132b39,#0a1825 66%);overflow:hidden;isolation:isolate}
+.j8-page .j8-moon:before{content:'';position:absolute;right:-76px;top:-110px;width:330px;height:330px;border-radius:50%;z-index:-1;opacity:.95;box-shadow:0 0 72px #0005}
+.j8-page .j8-moon--io:before{background:radial-gradient(circle at 27% 28%,#ffe9b5,#d09a5b 45%,#875341 74%,#25334a)}
+.j8-page .j8-moon--eu:before{background:radial-gradient(circle at 25% 26%,#fffefd,#bfcfd2 47%,#7996a8 72%,#243b57)}
+.j8-page .j8-moon--ga:before{background:radial-gradient(circle at 25% 25%,#c8ccd4,#8f98aa 50%,#53627a 76%,#26394a)}
+.j8-page .j8-moon--ca:before{background:radial-gradient(circle at 25% 27%,#c6b9b0,#827b7a 44%,#535667 77%,#2d3548)}
+.j8-page .j8-moon-number{display:block;font-size:11px;letter-spacing:.15em;font-weight:740;color:#b4c7cb;margin-bottom:80px}
+.j8-page .j8-moon h3{font-family:Georgia,serif;font-size:51px;line-height:1;font-weight:400;letter-spacing:-.03em;margin:0 0 11px}
+.j8-page .j8-moon-theme{display:block;color:#b8d9d9;font-size:12px;letter-spacing:.14em;font-weight:740;margin-bottom:20px}
+.j8-page .j8-moon p{font-size:15px;line-height:1.78;color:#c2d1d6;max-width:460px}
+.j8-page .j8-moon-foot{margin-top:23px;padding-top:19px;display:flex;gap:24px;border-top:1px solid #426173;color:#a6c3ca;font-size:12px;line-height:1.6;flex-wrap:wrap}
+.j8-page .j8-moon-foot strong{color:#eaf2f1;font-weight:690}
+.j8-page .j8-orbit-section{padding:110px 0;background:radial-gradient(ellipse at 50% 30%,#1b2f41 0%,#081523 66%)}
+.j8-page .j8-orbit-head{text-align:center;max-width:780px;margin:0 auto 40px}
+.j8-page .j8-orbit-head h2{font-family:Georgia,serif;font-size:clamp(39px,4.4vw,68px);font-weight:400;letter-spacing:-.05em;line-height:1.1}
+.j8-page .j8-orbit-head p{color:#b7cdd5;font-size:16px;line-height:1.75}
+.j8-page .j8-observatory{border:1px solid #3d5c6b;background:#0a1928;box-shadow:0 18px 80px #0004}
+.j8-page .j8-observatory-top{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:24px 30px;border-bottom:1px solid #2d485b;flex-wrap:wrap}
+.j8-page .j8-observatory-top>div strong{display:block;color:#eff4f0;font-size:14px;letter-spacing:.09em}
+.j8-page .j8-observatory-top>div span{display:block;color:#a0bfc8;font-size:12px;margin-top:7px}
+.j8-page .j8-observatory-top button{background:#d5e9e8;border:1px solid #d5e9e8;color:#122b37;font-weight:750;font-size:12px;padding:11px 17px;min-width:125px;border-radius:3px}
+.j8-page .j8-observatory-top button:hover{background:#f2f7f3}
+.j8-page .j8-orbit-svg{display:block;width:100%;height:auto;max-height:530px;background:radial-gradient(ellipse at center,#182f42 0%,#0b1a2a 51%,#071321 90%)}
+.j8-page .j8-orbit-svg .j8-ring{fill:none;stroke:#42677a;stroke-width:1.15;stroke-dasharray:3 8}
+.j8-page .j8-orbit-svg .j8-mark{fill:#e0ecef;font-size:14px;font-family:system-ui,sans-serif;font-weight:680;letter-spacing:2px}
+.j8-page .j8-orbit-svg .j8-jupiter{fill:#d6b29a;stroke:#f3cbb4;stroke-width:1.5}
+.j8-page .j8-orbit-svg .j8-jupiter-shade{stroke:#8b625b;stroke-width:9;opacity:.48;fill:none;stroke-linecap:round}
+.j8-page .j8-orbit-controls{padding:21px 30px 30px;border-top:1px solid #2d485b}
+.j8-page .j8-time-line{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:15px}
+.j8-page .j8-time-line label{font-size:12px;letter-spacing:.1em;color:#d7e6e7;font-weight:700}
+.j8-page .j8-time-line output{font-variant-numeric:tabular-nums;font-size:23px;color:#e9b58a}
+.j8-page .j8-orbit-controls input[type=range]{display:block;width:100%;accent-color:#d6ac88;cursor:pointer;touch-action:pan-y}
+.j8-page .j8-time-ticks{display:flex;justify-content:space-between;color:#7e9eac;font-size:11px;margin-top:9px}
+.j8-page .j8-orbit-warning{color:#9ab7c3;font-size:12px;line-height:1.7;margin-top:18px}
+.j8-page .j8-cadence{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid #35576a;border-top:none;background:#102536}
+.j8-page .j8-cadence>div{padding:20px 23px;border-right:1px solid #35576a}
+.j8-page .j8-cadence>div:last-child{border-right:0}
+.j8-page .j8-cadence span{display:block;color:#9dbfc9;font-size:11px;letter-spacing:.13em}
+.j8-page .j8-cadence strong{font-size:27px;font-weight:570;color:#e7eeed;display:block;margin-top:6px}
+.j8-page .j8-cadence small{color:#809eae;font-size:11px}
+.j8-page .j8-resonance{padding:110px 0;background:#091926}
+.j8-page .j8-resonance-number{font-family:Georgia,serif;color:#e4b48e;font-size:clamp(64px,10vw,145px);line-height:1;letter-spacing:.08em;margin:17px 0 24px}
+.j8-page .j8-resonance-card{background:#102b39;border-left:2px solid #a6d6e1;padding:26px 30px;margin-top:30px;color:#d0e1df;font-size:15px;line-height:1.8}
+.j8-page .j8-light{padding:100px 0;background:linear-gradient(110deg,#172e3b,#0f2533 48%,#142b39)}
+.j8-page .j8-light-quote{font-family:Georgia,serif;font-size:clamp(32px,4vw,62px);line-height:1.2;letter-spacing:-.04em;max-width:1000px;margin:0 auto 20px;text-align:center;color:#edf0ec}
+.j8-page .j8-light-sub{text-align:center;color:#a2cbd0;font-size:12px;letter-spacing:.12em}
+.j8-page .j8-missions{padding:100px 0;background:#071521}
+.j8-page .j8-mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.j8-page .j8-mission{padding:35px;border:1px solid #365567;background:#102433}
+.j8-page .j8-mission small{display:block;color:#adc9d1;letter-spacing:.14em;font-size:11px;margin-bottom:19px}
+.j8-page .j8-mission h3{font-family:Georgia,serif;font-size:35px;font-weight:400;margin:0 0 13px}
+.j8-page .j8-mission p{color:#c3d3d8;font-size:15px;line-height:1.85}
+.j8-page .j8-mission strong{color:#e6b995}
+.j8-page .j8-lab{padding:108px 0;background:#0a1d2b}
+.j8-page .j8-lab-intro{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:end;margin-bottom:37px}
+.j8-page .j8-lab-intro h2{font-family:Georgia,serif;font-size:clamp(43px,4.2vw,64px);font-weight:400;line-height:1.13;letter-spacing:-.04em}
+.j8-page .j8-lab-intro p{color:#acc5ce;line-height:1.8;font-size:15px}
+.j8-page .j8-lab .stage-viewport{height:clamp(490px,76svh,850px);border:1px solid #335769;background:#081726}
+.j8-page .j8-lab .stage-loader{display:none}
+.j8-page .j8-lab .stage-viewport.is-started .stage-loader:not(.is-loaded){display:flex}
+.j8-page .j8-lab .stage-viewport iframe{display:none}
+.j8-page .j8-lab .stage-viewport.is-started iframe{display:block}
+.j8-page .j8-lab-gate{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;padding:22px;background:radial-gradient(circle at 50% 40%,#173e4f,#071422 73%)}
+.j8-page .stage-viewport.is-started .j8-lab-gate{display:none}
+.j8-page .j8-lab-gate .j8-gate-symbol{width:155px;height:155px;border-radius:50%;border:1px solid #7199a9;display:grid;place-items:center;position:relative;margin-bottom:25px}
+.j8-page .j8-gate-symbol:before{content:'';position:absolute;inset:24px;border:1px dashed #668d9e;border-radius:50%}
+.j8-page .j8-gate-symbol:after{content:'';width:36px;height:36px;border-radius:50%;background:linear-gradient(120deg,#ecc5a2,#86655c);box-shadow:0 0 35px #b7967c88}
+.j8-page .j8-lab-gate h3{font-family:Georgia,serif;font-size:37px;font-weight:400;margin:0 0 15px}
+.j8-page .j8-lab-gate p{max-width:550px;color:#b3cbd5;font-size:14px;line-height:1.75}
+.j8-page .j8-lab-gate button{border:1px solid #bbd8df;background:#d5e6e8;color:#102e3b;padding:14px 20px;margin-top:17px;border-radius:3px;font-weight:750}
+.j8-page .j8-lab-note{color:#90acba;font-size:12px;line-height:1.7;margin-top:16px}
+.j8-page .j8-sources{padding:95px 0;border-top:1px solid #3b5364;background:#06111c}
+.j8-page .j8-sources h2{font-family:Georgia,serif;font-size:clamp(37px,4vw,59px);font-weight:400;letter-spacing:-.04em;margin:15px 0 26px}
+.j8-page .j8-sources-intro{max-width:800px;font-size:15px;line-height:1.8;color:#b9cdd6}
+.j8-page .j8-sources ol{padding:0;counter-reset:sources;list-style:none;margin:42px 0 0}
+.j8-page .j8-sources li{counter-increment:sources;padding:22px 0 22px 54px;border-top:1px solid #2d4353;position:relative}
+.j8-page .j8-sources li:before{content:counter(sources,decimal-leading-zero);position:absolute;left:0;top:24px;color:#d9ac8a;font-size:11px;font-weight:760;letter-spacing:.09em}
+.j8-page .j8-sources a{display:block;color:#d1ebed;font-size:15px;text-decoration:underline;text-decoration-color:#608999;text-underline-offset:4px}
+.j8-page .j8-sources a:hover{color:#fff}
+.j8-page .j8-sources small{color:#91aebc;font-size:12px;line-height:1.7;display:block;margin-top:8px}
+.j8-page .j8-editorial{font-size:12px;color:#89a4b2;line-height:1.85;border-top:1px solid #2d4353;padding-top:24px;margin-top:28px}
+.j8-page .j8-footer{padding:35px max(32px,calc((100vw - 1230px)/2));background:#07111b;border-top:1px solid #294253;display:flex;justify-content:space-between;align-items:center;gap:20px;color:#a5c0c8;font-size:11px;letter-spacing:.1em;flex-wrap:wrap}
+.j8-page .j8-footer a{color:#d9e9e9;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:850px){.j8-page .j8-hero-body{width:calc(100% - 54px)}.j8-page .j8-meta{margin:0 27px}.j8-page .j8-grid-copy{grid-template-columns:1fr;gap:13px}.j8-page .j8-moon{padding:29px;min-height:430px}.j8-page .j8-moon:before{width:260px;height:260px;right:-96px}.j8-page .j8-moon-number{margin-bottom:80px}.j8-page .j8-lab-intro{grid-template-columns:1fr;gap:10px}.j8-page .j8-cadence>div{padding:15px}.j8-page .j8-cadence strong{font-size:22px}}
+@media(max-width:650px){.j8-page .stage-nav{height:62px}.j8-page .j8-hero{min-height:690px}.j8-page .j8-hero-image{object-position:65% center}.j8-page .j8-hero-scrim{background:linear-gradient(90deg,rgba(4,12,22,.94),rgba(4,12,22,.73) 65%,rgba(4,12,22,.32)),linear-gradient(0deg,#061320,transparent 35%)}.j8-page .j8-hero-body{width:calc(100% - 38px);min-height:690px;padding:24px 0 20px}.j8-page .j8-hero-copy{padding:65px 0 55px}.j8-page .j8-hero h1{font-size:clamp(47px,12vw,68px)}.j8-page .j8-hero-copy>p:not(.j8-hero-kicker){font-size:16px}.j8-page .j8-cover-mark{font-size:9px;letter-spacing:.1em}.j8-page .j8-cover-foot{font-size:9px}.j8-page .j8-cover-foot span:last-child{display:none}.j8-page .j8-meta{margin:0 19px;padding:18px 0;font-size:9px;flex-wrap:wrap;gap:7px}.j8-page .j8-wrap,.j8-page .j8-wide{padding:0 20px}.j8-page .j8-chapter,.j8-page .j8-worlds,.j8-page .j8-orbit-section,.j8-page .j8-resonance,.j8-page .j8-missions,.j8-page .j8-lab,.j8-page .j8-sources{padding-top:65px;padding-bottom:65px}.j8-page .j8-chapter h2,.j8-page .j8-section-heading h2{font-size:42px}.j8-page .j8-text{font-size:15px;line-height:1.83}.j8-page .j8-lead{font-size:18px!important}.j8-page .j8-quote{padding:23px;margin:25px 0;font-size:24px}.j8-page .j8-mini-facts{grid-template-columns:1fr;margin-top:34px}.j8-page .j8-mini-facts>div{padding:16px 22px}.j8-page .j8-mini-facts strong{font-size:32px}.j8-page .j8-moons,.j8-page .j8-mission-grid{grid-template-columns:1fr}.j8-page .j8-moon{min-height:360px}.j8-page .j8-moon-number{margin-bottom:65px}.j8-page .j8-section-heading{margin-bottom:30px}.j8-page .j8-cadence{grid-template-columns:repeat(2,1fr)}.j8-page .j8-cadence>div{border-bottom:1px solid #35576a}.j8-page .j8-cadence>div:nth-child(2){border-right:0}.j8-page .j8-observatory-top,.j8-page .j8-orbit-controls{padding:18px}.j8-page .j8-orbit-svg{height:310px}.j8-page .j8-resonance-number{font-size:70px}.j8-page .j8-light{padding:70px 20px}.j8-page .j8-lab .stage-viewport{height:clamp(520px,75svh,700px)}.j8-page .j8-lab-gate h3{font-size:30px}.j8-page .j8-sources li{padding-left:36px}.j8-page .j8-footer{padding:25px 20px}}
+@media(prefers-reduced-motion:reduce){.j8-page .j8-btn{transition:none}.j8-page .j8-btn:hover{transform:none}}

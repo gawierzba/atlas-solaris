@@ -39,7 +39,7 @@ test('Static illustrated chapter avoids high-cost renderers and keeps browser sc
  assert.match(html,/<svg/);
 });
 test('Shared portal supports deliberately deferred laboratory without other stage regressions',()=>{
- assert.match(shell,/const lazyLab=iframe\?\.dataset\.lazy==='true'/);
+ assert.match(shell,/const lazyLab=!!\(iframe&&iframe\.dataset\.lazy==='true'\)/);
  assert.match(shell,/IntersectionObserver/);
  assert.match(shell,/else startLab\(\)/);
  assert.match(shell,/atlas:portal:ready/);

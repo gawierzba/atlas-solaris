@@ -38,8 +38,8 @@ test('The first chapter is readable without GPU and photographs are explicitly l
  assert.match(css,/@media\(max-width:360px\)/);
 });
 test('Manual opt-in extends existing lazy shell without changing other stage behaviour',()=>{
- assert.match(shell,/const lazyLab=iframe\?\.dataset\.lazy==='true'/);
- assert.match(shell,/const manualLab=iframe\?\.dataset\.manual==='true'/);
+ assert.match(shell,/const lazyLab=!!\(iframe&&iframe\.dataset\.lazy==='true'\)/);
+ assert.match(shell,/const manualLab=!!\(iframe&&iframe\.dataset\.manual==='true'\)/);
  assert.match(shell,/stageStartLab/);
  assert.match(shell,/if\(manualLab\)/);
  assert.match(shell,/IntersectionObserver/);

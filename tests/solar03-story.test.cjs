@@ -46,7 +46,7 @@ test('Grafika plaska, dwa lekkie ekrany, kalkulator bez aktywnego renderingu',()
  assert.match(html,/id="stageRelated"/);
  assert.match(html,/id="stageInfo"/);
  assert.doesNotMatch(html,/<canvas|<script[^>]+three/);
- assert.match(shell,/const manualLab=iframe\?\.dataset\.manual==='true'/);
+ assert.match(shell,/const manualLab=!!\(iframe&&iframe\.dataset\.manual==='true'\)/);
  assert.match(engine,/id="trueScaleToggle"/);
  assert.match(engine,/Cały Układ/);
 });

@@ -1,0 +1,45 @@
+name: ATLAS SOLARIS — nauka i dokladnosc 07
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/07/**'
+      - 'portal/method07-story.css'
+      - 'portal/method07-story.js'
+      - 'portal/media/method07-cover.svg'
+      - 'portal/stage.js'
+      - 'tests/method07-story.test.cjs'
+      - 'tests/method07-story-browser.test.cjs'
+      - '.github/workflows/method07-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  method:
+    name: JPL Kepler predkosc swiatla, trzy telefony i dokumentacja na zadanie
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Metoda, wzory, zrodla i stala c
+        run: |
+          node --check portal/method07-story.js
+          node --check portal/stage.js
+          node --test tests/method07-story.test.cjs
+      - name: Uruchom prawdziwa przegladarke
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Przewijanie mobilne, testy 2 instrumentow i start dokumentacji
+        run: node tests/method07-story-browser.test.cjs
+      - name: Zachowaj podglady roznych szerokosci
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-method07-editorial-previews
+          path: _method07_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

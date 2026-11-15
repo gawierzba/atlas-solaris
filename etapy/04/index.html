@@ -1,13 +1,170 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Ziemia z kosmosu | ATLAS SOLARIS</title><meta name="description" content="Podejdź bliżej do Ziemi i zobacz jej miejsce w systemie planetarnym.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="04" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 04 / Światy i orbity</span><strong>Ziemia z kosmosu</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Ziemia z kosmosu — interaktywne laboratorium" src="../../atlas.html?portal=earth" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 04</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Ziemia z kosmosu</h1><p class="stage-lead">Nasza planeta widziana z zewnątrz</p><p>Podejdź bliżej do Ziemi i zobacz jej miejsce w systemie planetarnym.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05151f">
+<title>Po obu stronach światła — Ziemia z kosmosu | ATLAS SOLARIS 04</title>
+<meta name="description" content="Zobacz Ziemię tak, jak widzieli ją astronauci Apollo 8. Odkryj granicę dnia i nocy, prawdę o porach roku, oblicz długość dnia i wysokość Słońca, a potem uruchom planetarium 3D.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Po obu stronach światła | ATLAS SOLARIS 04">
+<meta property="og:description" content="Ziemia nie ma jednej twarzy. Odkryj dzień, noc, sezony i słynną fotografię Earthrise.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/earth04-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/earth04-story.css?v=04.1">
+<script src="../../portal/data.js" defer></script>
+<script src="../../portal/stage.js?v=32.6" defer></script>
+<script src="../../portal/earth04-story.js?v=04.1" defer></script>
+</head>
+<body class="e4-page" data-route="04" data-kind="stage">
+<a class="e4-skip" href="#prolog">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 04 / ŚWIATY I ORBITY</span><strong>Ziemia z kosmosu</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main e4-main">
+<article class="e4-story" aria-labelledby="e4Title">
+<section class="e4-hero">
+<img class="e4-hero-art" src="../../portal/media/earth04-cover.svg" width="1600" height="900" fetchpriority="high" alt="Autorska nieruchoma ilustracja Ziemi z kosmosu. Pół planety spowija noc, druga połowa tonie w błękitnym świetle dnia, a pomiędzy rozciąga się umowna linia zmierzchu. Kompozycja nie przedstawia rzeczywistej daty.">
+<div class="e4-hero-shade"></div>
+<div class="e4-hero-inner">
+<div class="e4-hero-ident"><span class="e4-record-dot"></span> ATLAS SOLARIS / NOTATKI OBSERWATORA <i>·</i> ROZDZIAŁ IV</div>
+<div class="e4-hero-message">
+<p class="e4-eyebrow">JEDNA PLANETA · JEDNO SŁOŃCE · DWIE STRONY NARAZ</p>
+<h1 id="e4Title">Po obu stronach <em>światła.</em></h1>
+<p>Kiedy stoisz na Ziemi, widzisz wschód albo zachód Słońca. Z kosmosu możesz zobaczyć oba zjawiska jednocześnie. I dopiero wtedy rozumiesz, że na naszej planecie dzień i noc nie następują po sobie — istnieją zawsze obok siebie.</p>
+<div class="e4-hero-actions"><a class="e4-hero-go" href="#prolog">Wejdź na orbitę <span aria-hidden="true">↓</span></a><a class="e4-hero-lab" href="#laboratorium" id="stageLaunch">Otwórz widok 3D <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="e4-hero-bottom"><span>ZAPIS OBSERWACJI / PLANETA ZIEMIA</span><span>ILUSTRACJA STATYCZNA · NIE ZDJĘCIE SATELITARNE</span></div>
+</div>
+</section>
+
+<section class="e4-prolog" id="prolog">
+<div class="e4-numbering"><span>01 / ZMIANA POŁOŻENIA</span><span>GŁOS Z ORBITY</span></div>
+<div class="e4-prolog-columns">
+<div><span class="e4-overline">WYOBRAŹ SOBIE</span><h2>W tym samym momencie ktoś mówi <em>„dzień dobry”</em>, a ktoś inny <em>„dobranoc”.</em></h2></div>
+<div class="e4-text"><p class="e4-lead">Przyzwyczajeni jesteśmy do obserwowania świata od środka. Wschód Słońca wydaje się wydarzeniem, które przychodzi do nas; zachód — wydarzeniem, które odchodzi.</p>
+<p>Jednak Słońce nie obiega Ziemi raz na dobę. To <strong>obrót naszej planety</strong> kolejno zwraca różne miejsca ku Słońcu i odwraca je od jego światła. Jedno pełne obrócenie Ziemi względem odległych gwiazd trwa około 23 godzin i 56 minut; przeciętna doba słoneczna, według której organizujemy życie, trwa 24 godziny. Ta drobna różnica wynika z równoczesnego ruchu Ziemi wokół Słońca. <a href="#zrodla" class="e4-cite">[1, 2]</a></p>
+<p>Widziana z oddali Ziemia jest nieustannie podzielona na stronę oświetloną i ciemną. Zmienia się to, <strong>które miejsca na powierzchni</strong> znajdują się po każdej ze stron.</p></div>
+</div>
+<div class="e4-observer-quote"><span>OBSERWACJA NR 01</span><p>Na powierzchni planeta ma wiele wschodów. <em>Z oddali ma jedną granicę światła.</em></p></div>
+</section>
+
+<section class="e4-terminator" id="terminator">
+<div class="e4-terminator-top"><span>02 / LINIA, KTÓRĄ TWORZY GEOMETRIA</span><h2>Granica między dniem a nocą ma własną nazwę. <em>Terminator.</em></h2><p>W astronomii terminatorem nazywamy granicę między oświetloną i nieoświetloną częścią ciała niebieskiego. Na uproszczonej kulistej Ziemi, oświetlanej z bardzo daleka, przebiega ona wzdłuż wielkiego koła. W rzeczywistości obserwowana granica zmierzchu nie jest ostrą kreską: atmosfera rozprasza światło i wydłuża zmierzch.</p></div>
+<div class="e4-terminator-plate">
+<div class="e4-plate-header"><span>PRZEKRÓJ ZIEMI / OŚWIETLENIE SCHEMATYCZNE</span><span>ILUSTRACJA / BRAK ANIMACJI</span></div>
+<svg viewBox="0 0 1080 440" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="e4DiagramTitle e4DiagramDesc">
+<title id="e4DiagramTitle">Schemat dnia, nocy i terminatora</title>
+<desc id="e4DiagramDesc">Po lewej promienie światła Słońca biegną równolegle do Ziemi. Lewa połowa jej przekroju jest oświetlona, prawa pogrążona w cieniu. Pionowa granica dzieli dzień i noc.</desc>
+<defs><linearGradient id="e4ray"><stop stop-color="#f3d4c2" stop-opacity=".7"/><stop offset="1" stop-color="#cee6e8" stop-opacity=".25"/></linearGradient><clipPath id="e4circle"><circle cx="744" cy="208" r="150"/></clipPath><radialGradient id="e4planet" cx=".23" cy=".28" r=".78"><stop stop-color="#d1f3f5"/><stop offset=".37" stop-color="#82cbd7"/><stop offset="1" stop-color="#2c668d"/></radialGradient></defs>
+<g stroke="url(#e4ray)" stroke-width="3" stroke-linecap="round" fill="none">
+<path d="M53 93H571M53 149H571M53 208H571M53 265H571M53 323H571"/>
+</g>
+<g fill="#e6d0be"><path d="M562 85l17 8-17 8M562 141l17 8-17 8M562 200l17 8-17 8M562 257l17 8-17 8M562 315l17 8-17 8"/></g>
+<circle cx="744" cy="208" r="150" fill="url(#e4planet)" stroke="#c3f3ec" stroke-opacity=".33" stroke-width="2"/>
+<g clip-path="url(#e4circle)"><path d="M744 48H920V370H744Z" fill="#07182d" fill-opacity=".92"/><path d="M676 104Q704 88 717 131T711 217Q672 235 685 295" fill="#83bea9" fill-opacity=".3"/><path d="M783 93Q827 120 827 163T846 241" fill="none" stroke="#9cbcb8" stroke-opacity=".11" stroke-width="25"/><path d="M744 54V363" stroke="#b3ece4" stroke-width="2" stroke-dasharray="5 7" stroke-opacity=".76"/></g>
+<g fill="#b6d9db" font-family="system-ui,sans-serif" font-size="15" font-weight="620" letter-spacing="2"><text x="72" y="53">ŚWIATŁO SŁOŃCA</text><text x="611" y="411">DZIEŃ</text><text x="810" y="411">NOC</text></g>
+<path d="M744 49V27" stroke="#aee6dc" stroke-width="1.5"/><text x="744" y="21" fill="#b8e8df" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle" letter-spacing="2">TERMINATOR</text>
+</svg>
+<div class="e4-plate-footer"><span>NIE JEST TO MAPA AKTUALNEGO OŚWIETLENIA</span><span>SCHEMAT PŁASKIEGO PRZEKROJU, NIE GEOGRAFICZNEGO GLOBU</span></div></div>
+<div class="e4-terminator-bottom"><div><span>CO WIDAĆ Z KOSMOSU?</span><h3>Oświetlenie w jednej chwili.</h3><p>Zewnętrzny obserwator widzi jednocześnie stronę dzienną i nocną — jeśli kierunek obserwacji jest odpowiedni.</p></div><div><span>CO WIDZIMY NA ZIEMI?</span><h3>Zmierzch przez atmosferę.</h3><p>Światło jest rozpraszane w powietrzu. Nawet gdy środek tarczy Słońca schowa się pod horyzont, nie od razu zapada całkowita ciemność.</p></div><div><span>CO ZMIENIA SIĘ W CZASIE?</span><h3>Położenie granicy.</h3><p>Obrót Ziemi i nachylenie jej osi sprawiają, że terminator przesuwa się względem powierzchni oraz zmienia sezonowy przebieg.</p></div></div>
+</section>
+
+<section class="e4-earthrise" id="earthrise">
+<div class="e4-earthrise-intro"><span>03 / 24 GRUDNIA 1968 / APOLLO 8</span><h2>Nikt nie poleciał wtedy fotografować Ziemi. <em>A jednak powstało jedno z najważniejszych zdjęć.</em></h2><p>Frank Borman, Jim Lovell i William Anders znaleźli się na orbicie Księżyca. Podczas jednego z okrążeń za oknem statku zobaczyli Ziemię unoszącą się nad księżycowym horyzontem. Anders wykonał fotografię nazwaną później <em>Earthrise</em>. <a class="e4-cite" href="#zrodla">[3]</a></p></div>
+<figure class="e4-earthrise-photo">
+<div class="e4-photograph"><img loading="lazy" decoding="async" width="1280" height="1280" src="https://assets.science.nasa.gov/content/dam/science/missions/landsat/2022/07/apollo08_earthrise.jpg/jcr%3Acontent/renditions/cq5dam.web.1280.1280.jpeg" alt="Autentyczna fotografia Earthrise: mała niebiesko-biała Ziemia zawieszona ponad szarym księżycowym horyzontem na tle czerni kosmosu, wykonana z Apollo 8 24 grudnia 1968 roku.">
+<span>AS08-14-2383 / NASA / APOLLO 8</span></div>
+<figcaption><span>TO JEST PRAWDZIWA FOTOGRAFIA / NIE RENDER</span><h3>Ziemia weszła w kadr. <em>I zmieniła opowieść.</em></h3><p>Jedno zdjęcie pokazało całą naszą planetę jako niewielki, wspólny świat, widziany spoza niej. Na oryginalnej fotografii widać również granicę oświetlenia na Ziemi.</p>
+<p><strong>Ale jest tu drobna astronomiczna pułapka:</strong> z większości miejsc po widocznej stronie Księżyca Ziemia nie wschodzi codziennie tak jak Słońce u nas. Księżyc jest z Ziemią związany obrotem synchronicznym. Wrażenie „wschodu Ziemi” w tej sekwencji wynikało przede wszystkim z ruchu Apollo 8 po orbicie Księżyca. <a class="e4-cite" href="#zrodla">[3, 4]</a></p>
+<small>Fotografia NASA / Bill Anders, Apollo 8, 24 grudnia 1968 r. <a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/resource/apollo-8s-iconic-earthrise/">Poznaj opis oryginalnego zdjęcia</a>.</small>
+</figcaption></figure>
+</section>
+
+<section class="e4-axis" id="os-ziemi">
+<div class="e4-axis-heading"><span>04 / ZIEMIA NIE JEST PROSTOPADŁA</span><h2>Najważniejszy kąt naszych pór roku to tylko <em>23,4 stopnia.</em></h2><p>Oś obrotu Ziemi jest nachylona o około 23,4° względem kierunku prostopadłego do płaszczyzny jej orbity. Kiedy półkula północna jest zwrócona ku Słońcu, promienie padają tam bardziej pionowo, a dni są dłuższe. Po pół roku sytuacja się odwraca. <a class="e4-cite" href="#zrodla">[1]</a></p></div>
+<div class="e4-axis-truth"><span>TO NIE JEST PRAWDA</span><p>„Latem mamy ciepło, bo Ziemia jest wtedy bliżej Słońca”.</p><span>TO JEST PRAWDA</span><p>Zmiany pór roku wynikają głównie z <strong>nachylenia osi Ziemi</strong>, a nie z corocznych zmian odległości od Słońca. Gdy w Polsce jest lato, na południowej półkuli trwa zima.</p></div>
+<div class="e4-axis-stat"><div><span>NACHYLENIE OSI</span><strong>23,4<small>°</small></strong><p>Wartość przybliżona; powoli zmienia się w długich skalach czasu.</p></div><div><span>POŁUDNIE SŁONECZNE</span><strong>90<small>°</small></strong><p>Maksymalna możliwa geometryczna wysokość Słońca na niebie to zenit.</p></div></div>
+</section>
+
+<section class="e4-sunlab" id="obserwatorium">
+<div class="e4-sunlab-title"><span>05 / MAŁE OBSERWATORIUM ŚWIATŁA</span><h2>To samo Słońce. <em>Cztery miejsca i cztery pory roku.</em></h2><p>Wybierz szerokość geograficzną i równonoc albo przesilenie. Obliczymy geometryczną wysokość Słońca w lokalne południe słoneczne oraz przybliżoną długość dnia. Nie potrzebujesz GPU ani żadnej animacji.</p></div>
+<div class="e4-observer" id="e4Observer">
+<div class="e4-observer-controls">
+<div class="e4-observer-tag">01 / MIEJSCE OBSERWACJI</div>
+<label for="e4Latitude">Szerokość geograficzna</label>
+<select id="e4Latitude">
+<option value="0">Równik — 0°</option>
+<option value="54.35" selected>Gdańsk — 54,35° N</option>
+<option value="70">Północ — 70° N</option>
+<option value="-33.87">Sydney — 33,87° S</option>
+</select>
+<div class="e4-observer-tag e4-secondtag">02 / MOMENT W ROKU</div>
+<div class="e4-season-options" role="group" aria-label="Wybierz sezon"><button type="button" data-decl="0" data-name="Równonoc marcowa" aria-pressed="false">Marzec <small>równonoc</small></button><button type="button" data-decl="23.44" data-name="Przesilenie czerwcowe" aria-pressed="true">Czerwiec <small>przesilenie</small></button><button type="button" data-decl="0" data-name="Równonoc wrześniowa" aria-pressed="false">Wrzesień <small>równonoc</small></button><button type="button" data-decl="-23.44" data-name="Przesilenie grudniowe" aria-pressed="false">Grudzień <small>przesilenie</small></button></div>
+<p>Używamy idealnych równonocy (deklinacja 0°) i przesileń (±23,44°), a nie dokładnych efemeryd dla konkretnego roku.</p>
+</div>
+<div class="e4-observer-readout" aria-live="polite" aria-atomic="true">
+<div class="e4-readout-heading"><span>WYNIK MODELU GEOMETRYCZNEGO</span><strong id="e4SeasonName">Przesilenie czerwcowe</strong></div>
+<div class="e4-reading-main"><div><span>SŁOŃCE W POŁUDNIE</span><output id="e4SolarAlt">59,1°</output><small id="e4SolarAltComment">Nad horyzontem</small></div><div><span>DŁUGOŚĆ DNIA</span><output id="e4DayLength">17 h 06 min</output><small id="e4DayComment">Czas od geometrycznego wschodu do zachodu</small></div></div>
+<div class="e4-daybar"><div class="e4-daybar-top"><span>DZIEŃ</span><span>NOC</span></div><div id="e4DayStrip" class="e4-daystrip" role="img" aria-label="Pasek udziału dnia i nocy w dobie" style="--daypct:71.25%"><i></i></div><p id="e4GeometryNote">Odczyt dla Gdańska, bez refrakcji atmosferycznej.</p></div>
+</div>
+</div>
+<div class="e4-formula-foot"><strong>Co obliczamy?</strong> W lokalne południe słoneczne wysokość środka tarczy Słońca w modelu geometrycznym wynosi <code>h = 90° − |φ − δ|</code>, gdzie φ to szerokość geograficzna, a δ — deklinacja Słońca. Długość dnia wynika z zależności <code>cos H = −tan φ · tan δ</code>; w obszarach polarnych możliwy jest dzień lub noc trwające całą dobę. <a class="e4-cite" href="#zrodla">[5]</a></div>
+<p class="e4-observer-limits">Model celowo pomija załamanie światła w atmosferze, rozmiar kątowy tarczy Słońca, wysokość nad poziomem morza, lokalny horyzont, nieregularności orbity i dokładną datę równonocy. Wschody i zachody obserwowane w rzeczywistości mogą się od wyliczenia różnić. <strong>To doświadczenie z geometrią, nie lokalny kalendarz astronomiczny.</strong></p>
+</section>
+
+<section class="e4-blue" id="blekitna">
+<div class="e4-blue-heading"><span>06 / 7 GRUDNIA 1972 / APOLLO 17</span><h2>Potem nadeszło zdjęcie, na którym <em>nie było żadnej granicy państw.</em></h2><p>Załoga Apollo 17 wykonała słynną fotografię <em>The Blue Marble</em>. Na jednym kadrze znalazły się oceany, chmury, ogromna część Afryki i okolice bieguna południowego. To rzeczywista fotografia z misji, nie komputerowa mozaika satelitarna — choć późniejsze obrazy popularnie nazywane „Blue Marble” bywały składane z wielu pomiarów. <a class="e4-cite" href="#zrodla">[6, 7]</a></p></div>
+<div class="e4-blue-callout"><span>APOLLO 17 / AS17-148-22727</span><blockquote>Żadna planeta nie jest tak dobrze znana z powierzchni, a jednocześnie tak zaskakująca, kiedy widzi się ją całą.</blockquote><p>Fotografia „The Blue Marble” pozostaje jednym z najsłynniejszych obrazów Ziemi. <a href="https://science.nasa.gov/resource/the-blue-marble/" target="_blank" rel="noopener noreferrer">Otwórz oryginał w archiwum NASA</a>.</p></div>
+<div class="e4-blue-numbers"><div><span>OCEANY</span><strong>~71%</strong><small>powierzchni Ziemi pokrywa woda</small></div><div><span>DOBA SŁONECZNA</span><strong>24 h</strong><small>wartość średnia</small></div><div><span>ROK ORBITALNY</span><strong>365,25</strong><small>doby — przybliżenie</small></div></div>
+</section>
+
+<section class="e4-missions" id="zadania">
+<div class="e4-missions-head"><span>07 / WŁASNE OBSERWACJE</span><h2>W planetarium Ziemia nie będzie już tylko kulą. <em>Sprawdź, co ją ożywia.</em></h2><p>Po lekturze możesz uruchomić istniejący symulator 3D. Użyj kamery Ziemi i spróbuj powtórzyć cztery obserwacje.</p></div>
+<div class="e4-mission-grid">
+<div><span>01 / PÓŁKULE</span><h3>Odnajdź linię zmierzchu.</h3><p>Obróć kamerę wokół Ziemi. Zobacz, która część planety jest oświetlona i z której strony padają promienie Słońca.</p></div>
+<div><span>02 / NOWY DZIEŃ</span><h3>Przesuń datę o dobę.</h3><p>Sprawdź, jak zmienia się wygląd planety. Rozróżnij obrót Ziemi od obiegu wokół Słońca.</p></div>
+<div><span>03 / SKALA</span><h3>Oddal się od Ziemi.</h3><p>Wróć do całego Układu Słonecznego. Ile szczegółów atmosfery widać z odległości międzyplanetarnej?</p></div>
+<div><span>04 / DRUGI INSTRUMENT</span><h3>Przejdź do globu.</h3><p>Otwórz dodatkowe laboratorium geograficznego widoku Ziemi, by porównać oświetlenie powierzchni i dzień z nocą.</p></div>
+</div>
+<p class="e4-model-note"><strong>Ograniczenia symulatora:</strong> położenia planet wylicza przybliżony silnik orbitalny NASA/JPL, a obraz 3D jest wizualizacją z uproszczonym oświetleniem i grafiką powierzchni. Atmosfera, chmury, dokładne granice zmierzchu oraz bieżąca pogoda nie są odzwierciedlane jak na fotografiach satelitarnych. Etap 04 uruchamia silnik graficzny tylko na Twoje wyraźne żądanie.</p>
+</section>
+</article>
+
+<section class="e4-laboratory" id="laboratorium" aria-label="Laboratorium Ziemi z kosmosu">
+<div class="e4-lab-head"><div><span>ATLAS SOLARIS / 04 / OKNO OBSERWATORA</span><h2>Teraz spójrz <em>z zewnątrz.</em></h2><p>Rzeczywistą scenę 3D uruchomisz dopiero tutaj. Możesz czytać artykuł, sprawdzać Słońce i długość dnia bez pracy GPU — planetarium nie wczytuje się podczas przewijania.</p></div><small>WYŁĄCZONE AŻ DO KLIKNIĘCIA</small></div>
+<div id="stageViewport" class="stage-viewport">
+<div class="e4-lab-prompt" id="e4LabPrompt">
+<div class="e4-lab-symbol" aria-hidden="true"><i></i></div>
+<h3>Ziemia czeka po drugiej stronie szyby.</h3>
+<p>Wybierz przycisk, aby pobrać silnik i otworzyć kamerę orbitalną. Na starszym telefonie możesz pozostać przy lekkim artykule.</p>
+<button id="stageStartLab" type="button">Uruchom Ziemię 3D <span aria-hidden="true">↗</span></button>
+<small>Rozpoczęcie jest świadome — bez automatycznego renderingu.</small>
+</div>
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>OTWIERAMY OKNO NA ZIEMIĘ</strong><small>Wczytywanie planetarium 3D…</small></div>
+<iframe id="stageFrame" title="Etap 04 — Ziemia widziana z kosmosu, aktywna scena 3D" data-lazy="true" data-manual="true" data-src="../../atlas.html?portal=earth" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" role="alert" hidden>Nie udało się uruchomić Ziemi 3D. <button id="stageReload" type="button">Spróbuj ponownie</button></div>
+<div class="e4-lab-next"><span>DODATKOWY INSTRUMENT W ATLASIE</span><p>Jeśli interesuje Cię przede wszystkim powierzchnia, dostępny jest również <a href="../../laboratoria/ziemia-z-kosmosu/">geograficzny glob Ziemi z analizą oświetlenia</a>.</p></div>
+</section>
+
+<section class="e4-sources" id="zrodla">
+<div class="e4-sources-intro"><span>ANEKS / WERYFIKACJA OBSERWACJI</span><h2>Widzieliśmy. <em>Teraz sprawdźmy dlaczego.</em></h2><p>Każdy fragment tej historii ma źródło: od astronomii obrotu Ziemi i pór roku, po dokumentację oryginalnych fotografii Apollo.</p></div>
+<ol>
+<li><a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/earth/facts/">NASA — Facts About Earth</a><small>Obrót Ziemi, około 23,4° nachylenia osi, ruch wokół Słońca i przyczyny pór roku.</small></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/solar-system/">NASA — Solar System Exploration</a><small>Ziemia jako planeta i kontekst ruchu w Układzie Słonecznym.</small></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/resource/apollo-8s-iconic-earthrise/">NASA — Apollo 8’s Iconic Earthrise</a><small>Zdjęcie Billa Andersa z 24 grudnia 1968 roku, AS08-14-2383, i oryginalny opis z terminatorem na Ziemi.</small></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.nasa.gov/image-article/forty-fifth-anniversary-of-earthrise-image/">NASA — 45th Anniversary of Earthrise</a><small>Dlaczego Ziemia wydawała się wschodzić obserwatorom z poruszającego się Apollo 8.</small></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.weather.gov/media/epz/mesonet/CWOP-WMO8.pdf">WMO / National Weather Service — Guide to Meteorological Instruments (solar position)</a><small>Geometria deklinacji, wysokości Słońca i równania kąta godzinnego; wzór wykorzystany w miniobserwatorium.</small></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/resource/the-blue-marble/">NASA — The Blue Marble</a><small>Oryginalne zdjęcie Ziemi z załogowej misji Apollo 17, 7 grudnia 1972 roku.</small></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/earth/earth-observatory/history-of-the-blue-marble/">NASA Earth Observatory — History of the Blue Marble</a><small>Różnica między autentyczną fotografią Apollo 17 a późniejszymi kompozycjami obrazów satelitarnych.</small></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://ssd.jpl.nasa.gov/planets/approx_pos.html">NASA/JPL — Approximate Positions of the Planets</a><small>Dane źródłowe przybliżonego silnika planetarium.</small></li>
+</ol>
+<p class="e4-editorial">ATLAS SOLARIS / ETAP 04. Obraz tytułowy i ilustracja terminatora są autorskimi nieruchomymi schematami, a nie fotografiami ani mapą aktualnego oświetlenia. Zdjęcie Earthrise jest autentycznym zdjęciem misji Apollo 8. Miniobserwatorium oblicza wyłącznie geometrię dla czterech idealizowanych sezonów i wybranych szerokości geograficznych. Pełne laboratorium 3D ma odrębne założenia naukowe.</p>
+</section>
+<footer class="e4-footer"><span>ATLAS SOLARIS / ROZDZIAŁ 04</span><span>Z WIELKIEJ ODLEGŁOŚCI WSZYSTKIE NASZE W SCHODY I ZACHODY SĄ JEDNĄ HISTORIĄ.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></footer>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ATLAS SOLARIS / 04</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+<h2>Ziemia z kosmosu</h2><p class="stage-lead">Po obu stronach światła</p><p>Obejrzyj oświetloną i ciemną półkulę Ziemi z perspektywy orbitalnej, poznaj terminator, sprawdź długość dnia oraz prawdziwe zdjęcie Earthrise z Apollo 8.</p><p class="stage-info-note">Planetarium 3D uruchamia się wyłącznie ręcznie. Miniobserwatorium dnia i nocy ma uproszczony model geometrii, bez atmosfery i dokładnych dat. Etapy 01–09 bazują na aktualnym silniku Atlasu.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Artykuł i schematy są dostępne bez JavaScript. Zmiana parametrów miniobserwatorium oraz uruchomienie planetarium 3D wymagają JavaScript.</p></noscript>
 </body></html>

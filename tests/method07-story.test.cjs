@@ -29,7 +29,7 @@ test('Editorial is static, attributed and original technical dialog loads on dem
  assert.match(html,/data-lazy="true" data-manual="true"/);
  assert.match(html,/data-src="\.\.\/\.\.\/atlas\.html\?portal=method"/);
  for(const id of ['stageFrame','stageStartLab','stageViewport','stageAbout','stageLaunch','stageReload','stageLoading','stageInfo','stageRelated'])assert.ok(html.includes('id="'+id+'"'),'missing portal id '+id);
- assert.match(stage,/const manualLab=iframe\?\.dataset\.manual==='true'/);
+ assert.match(stage,/const manualLab=!!\(iframe&&iframe\.dataset\.manual==='true'\)/);
  assert.match(engine,/id="methodDialog"/);
  assert.match(css,/overflow-y:auto/);
  assert.match(css,/@media\(max-width:650px\)/);

@@ -49,7 +49,7 @@ test('Article is light and fully scrollable; 3D starts explicitly, not on scroll
  assert.match(css,/overflow-y:auto/);
  assert.match(css,/@media\(max-width:650px\)/);
  assert.match(css,/@media\(max-width:350px\)/);
- assert.match(shell,/const manualLab=iframe\?\.dataset\.manual==='true'/);
+ assert.match(shell,/const manualLab=!!\(iframe&&iframe\.dataset\.manual==='true'\)/);
  assert.match(shell,/stageStartLab/);
  assert.match(shell,/if\(manualLab\)/);
  assert.match(engine,/id="timeSlider"/);

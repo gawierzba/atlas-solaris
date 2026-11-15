@@ -18,6 +18,7 @@ on:
       - 'legal/**'
       - 'atlas.html'
       - '404.html'
+      - 'tests/moon05-story.test.cjs'
       - 'tests/earth04-story.test.cjs'
       - 'tests/solar03-story.test.cjs'
       - 'tests/solar02-story.test.cjs'
@@ -63,6 +64,10 @@ jobs:
           test -f .nojekyll
           test -s portal/data.js
           test -s portal/stage.js
+          test -s portal/moon05-story.css
+          test -s portal/moon05-story.js
+          test -s portal/media/moon05-cover.svg
+          test -s etapy/05/index.html
           test -s portal/earth04-story.css
           test -s portal/earth04-story.js
           test -s portal/media/earth04-cover.svg
@@ -97,6 +102,7 @@ jobs:
           node --check portal/data.js
           node --check portal/site.js
           node --check portal/stage.js
+          node --check portal/moon05-story.js
           node --check portal/earth04-story.js
           node --check portal/solar03-story.js
           node --check portal/solar02-story.js
@@ -104,7 +110,7 @@ jobs:
           node --check portal/star29.js
           node --check portal/pulsar32-core.js
           node --check portal/pulsar32-ui.js
-          node --test tests/earth04-story.test.cjs tests/solar03-story.test.cjs tests/solar02-story.test.cjs tests/solar01-story.test.cjs tests/universe28-story.test.cjs tests/star29-story.test.cjs tests/binary30.test.cjs tests/binary30-story.test.cjs tests/lens31.test.cjs tests/lens31-story.test.cjs tests/pulsar32.test.cjs tests/pulsar32-story.test.cjs
+          node --test tests/moon05-story.test.cjs tests/earth04-story.test.cjs tests/solar03-story.test.cjs tests/solar02-story.test.cjs tests/solar01-story.test.cjs tests/universe28-story.test.cjs tests/star29-story.test.cjs tests/binary30.test.cjs tests/binary30-story.test.cjs tests/lens31.test.cjs tests/lens31-story.test.cjs tests/pulsar32.test.cjs tests/pulsar32-story.test.cjs
           node tests/pulsar32-browser.test.cjs
           node --check js/app.js
           node --check js/blackhole201-core.js
@@ -115,6 +121,10 @@ jobs:
         run: |
           mkdir -p _site
           rsync -a --exclude='.git/' --exclude='.github/' --exclude='_site/' --exclude='tests/' --exclude='scripts/' --exclude='*.md' --exclude='*.py' ./ _site/
+          test -s _site/etapy/05/index.html
+          test -s _site/portal/moon05-story.css
+          test -s _site/portal/moon05-story.js
+          test -s _site/portal/media/moon05-cover.svg
           test -s _site/etapy/04/index.html
           test -s _site/portal/earth04-story.css
           test -s _site/portal/earth04-story.js

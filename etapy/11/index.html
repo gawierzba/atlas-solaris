@@ -1,13 +1,182 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Laboratorium Trajektorii | ATLAS SOLARIS</title><meta name="description" content="Analizuj okna startowe, energię C3 oraz mapy czasu i kosztu transferów.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="11" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 11 / Misje kosmiczne</span><strong>Laboratorium Trajektorii</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Laboratorium Trajektorii — interaktywne laboratorium" src="../../atlas.html?portal=porkchop" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 11</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Laboratorium Trajektorii</h1><p class="stage-lead">Kiedy najlepiej wystartować?</p><p>Analizuj okna startowe, energię C3 oraz mapy czasu i kosztu transferów.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#060d13">
+<title>Nie ma jednej drogi na Marsa. Laboratorium Trajektorii | ATLAS SOLARIS 11</title>
+<meta name="description" content="Dlaczego data startu bywa ważniejsza od mocy silnika? Poznaj mapy porkchop, energię C3, zagadnienie Lamberta i historię Curiosity. Eksperymentuj z trajektoriami lotu na Marsa.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nie ma jednej drogi na Marsa — ATLAS SOLARIS, etap 11">
+<meta property="og:description" content="Jedna planeta, tysiące możliwych lotów. Odkryj ukryty krajobraz energii i czasu.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/mission11-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/mission11-story.css?v=11.1">
+<script src="../../portal/mission11-story.js?v=11.1" defer></script>
+</head>
+<body class="m11-page" data-route="11" data-kind="stage">
+<a class="m11-skip" href="#historia">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 11 / MISJE KOSMICZNE</span><strong>Laboratorium Trajektorii</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu">
+<a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a>
+<a class="m11-nav-lab" href="#laboratorium">Otwórz laboratorium ↗</a>
+<button id="stageAbout" type="button" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button>
+<a class="stage-home" href="../../" aria-label="Strona główna">⌂</a>
+</nav>
+</header>
+<main id="main" class="m11-main">
+<article class="m11-article" aria-labelledby="m11-title">
+
+<section class="m11-hero">
+<img class="m11-cover" src="../../portal/media/mission11-cover.svg" width="1600" height="900" alt="Autorska wizja artystyczna: Ziemia i Mars, statek między planetami, świetliste łuki podróży i abstrakcyjne linie przypominające mapy trajektorii. Nie jest to rzeczywisty wykres orbitalny." fetchpriority="high">
+<div class="m11-hero-veil"></div>
+<div class="m11-hero-content">
+<div class="m11-hero-label"><span class="m11-live-dot" aria-hidden="true"></span> KRONIKI NAWIGATORÓW / ATLAS SOLARIS / XI</div>
+<div class="m11-hero-copy">
+<p class="m11-eyebrow">ROZDZIAŁ 11 · NIE WYSTARCZY ZNAĆ CELU</p>
+<h1 id="m11-title">Nie ma jednej drogi <em>na Marsa.</em></h1>
+<p class="m11-hero-deck">Jeden start, tysiące możliwych przylotów. Każda data rysuje inną drogę przez przestrzeń, a każda droga ma swoją cenę. Najważniejszym narzędziem nawigatora bywa więc nie silnik, lecz kalendarz.</p>
+<div class="m11-hero-actions"><a class="m11-button m11-button-primary" href="#historia">Zacznij czytać <span aria-hidden="true">↓</span></a><a class="m11-button m11-button-ghost" href="#mapa-energii">Odkryj mapę energii <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="m11-hero-foot"><span>ZIEMIA → MARS / KIEDY? / JAK SZYBKO? / ZA JAKĄ CENĘ?</span><span>GRAFIKA AUTORSKA — WIZJA ARTYSTYCZNA</span></div>
+</div>
+</section>
+<div class="m11-article-meta"><span>ATLAS SOLARIS / WIELKIE PODRÓŻE</span><span>POPULARNONAUKOWA OPOWIEŚĆ · OK. 11 MIN CZYTANIA</span></div>
+
+<section class="m11-chapter m11-first" id="historia">
+<div class="m11-container">
+<div class="m11-rule"><span>01 / NIEWIDZIALNE DROGI</span><span>JEDNA PLANETA, WIELE MOŻLIWOŚCI</span></div>
+<div class="m11-columns"><div><p class="m11-eyebrow">W CENTRUM KONTROLI LOTÓW</p><h2>Na ekranie jest Mars. <em>Ale gdzie jest droga?</em></h2></div>
+<div class="m11-text">
+<p class="m11-lead m11-drop">Wyobraź sobie pokój pełen monitorów. Na jednym widać Słońce, Ziemię i Marsa. Na drugim — nie fotografię, nie mapę gwiazd, lecz plamę o nieregularnym kształcie. Przez jej środek biegną zamknięte linie, podobne do poziomic na mapie górskiej.</p>
+<p>Gdybyś nie wiedział, na co patrzysz, mógłbyś uznać ją za dziwne zdjęcie z mikroskopu. Dla projektanta misji to jedna z najważniejszych map: pokazuje, które daty pozwalają polecieć na Marsa względnie łatwo, a które wymagają znacznie większej energii.</p>
+<p>W poprzednim etapie odkryliśmy, dlaczego nie celuje się tam, gdzie planeta znajduje się dziś. Teraz idziemy dalej. Zobaczymy, że nawet gdy znamy przyszłe położenie Marsa, <strong>nie istnieje tylko jeden możliwy lot</strong>. Można wystartować wcześniej, później, podróżować krócej albo dłużej. Za każdą z tych decyzji stoi inna trajektoria.</p>
+</div></div>
+<div class="m11-quotation">Dwie daty wyznaczają pytanie. <em>Grawitacja podpowiada możliwą drogę.</em></div>
+<div class="m11-threefacts">
+<div><span>01</span><strong>Dzień startu</strong><small>Ustala położenie i prędkość Ziemi.</small></div>
+<div><span>02</span><strong>Dzień przylotu</strong><small>Wyznacza przyszłe położenie Marsa.</small></div>
+<div><span>03</span><strong>Energia lotu</strong><small>Pomaga ocenić, czy plan ma sens.</small></div>
+</div>
+</div></section>
+
+<section class="m11-chapter m11-map-chapter" id="mapa-energii">
+<div class="m11-container">
+<div class="m11-rule"><span>02 / MAPA, KTÓRĄ MOŻNA CZYTAĆ</span><span>PORÓWNAJ TYSIĄCE TRAJEKTORII</span></div>
+<div class="m11-columns"><div><p class="m11-eyebrow">TAJEMNICZA NAZWA, PRECYZYJNY SENS</p><h2>Dlaczego nawigatorzy patrzą na <em>„porkchop plot”?</em></h2></div>
+<div class="m11-text">
+<p>Angielska nazwa „porkchop plot” brzmi niemal żartobliwie. Wzięła się od kształtu obszarów otoczonych liniami jednakowej energii — bywa, że przypominają kotlet. Pod zabawnym określeniem kryje się poważne narzędzie projektowania misji.</p>
+<p>Na jednej osi umieszcza się datę startu, na drugiej datę przybycia albo czas lotu. Następnie oblicza trajektorię dla każdej pary terminów. Kolor mówi, ile energii wymaga wybrany wariant, a poziomice łączą punkty o podobnym koszcie energetycznym. W ten sposób z ogromnej liczby możliwych podróży wyłania się dolina dogodnych rozwiązań.</p>
+<p>Mapy tej używa się nie tylko przy Marsie. Podobne diagramy pomagają badać loty do planetoid, komet i innych planet. Sama mapa nie wybiera jednak celu misji ani nie uwzględnia automatycznie wszystkich ograniczeń konstrukcyjnych.</p>
+</div></div>
+
+<div class="m11-experiment" aria-labelledby="m11-map-title">
+<div class="m11-experiment-header">
+<div><p class="m11-eyebrow"><span class="m11-live-dot" aria-hidden="true"></span> EKSPERYMENT / MODEL DWUCIAŁOWY</p><h3 id="m11-map-title">Znajdź <em>dolinę energii.</em></h3><p>Wybierz względny dzień startu i czas przelotu. Kolory przedstawiają obliczone <b>C3</b> w uproszczonym, heliocentrycznym modelu transferu Ziemia–Mars, opartym na zagadnieniu Lamberta.</p></div>
+<div class="m11-experiment-note">PARAMETRY MODELOWE <span>●</span> NIE RZECZYWISTE DATY STARTU</div>
+</div>
+<div class="m11-map-grid">
+<div class="m11-map-plot">
+<div class="m11-map-ylabel">CZAS LOTU / DNI ↑</div>
+<div class="m11-map-graphic" id="m11-map-area">
+<canvas id="m11-map" width="660" height="400" role="img" aria-label="Mapa energii startowej C3 dla modelu orbitalnego Ziemia–Mars; sterowanie dostępne za pomocą dwóch suwaków obok wykresu."></canvas>
+<div class="m11-map-fallback" id="m11-map-fallback">Rysowanie mapy energii…</div>
+<div class="m11-map-cross" id="m11-map-cross" aria-hidden="true"></div>
+</div>
+<div class="m11-map-xaxis"><span>–90 DNI</span><span>START REFERENCYJNY</span><span>+90 DNI</span></div>
+<div class="m11-map-legend"><span>MNIEJ ENERGII</span><div class="m11-map-ramp" aria-hidden="true"></div><span>WIĘCEJ ENERGII</span></div>
+</div>
+<div class="m11-map-controls">
+<div class="m11-selection"><span>WYBRANA TRAJEKTORIA</span><strong id="m11-quality">Korzystne okno</strong><small id="m11-status">Model oblicza wariant startu i przylotu.</small></div>
+<label for="m11-launch">Start względem okna referencyjnego <b id="m11-launch-value">0 dni</b></label>
+<input id="m11-launch" type="range" min="-90" max="90" step="1" value="0">
+<div class="m11-slider-range"><span>90 dni wcześniej</span><span>90 dni później</span></div>
+<label for="m11-flight">Czas lotu <b id="m11-flight-value">259 dni</b></label>
+<input id="m11-flight" type="range" min="170" max="380" step="1" value="259">
+<div class="m11-slider-range"><span>170 dni</span><span>380 dni</span></div>
+<div class="m11-readings">
+<div><span>ENERGIA C3</span><strong id="m11-c3">8,7</strong><small>km²/s²</small></div>
+<div><span>NADMIAR PRĘDKOŚCI PRZY ZIEMI</span><strong id="m11-vinf">2,9</strong><small>km/s</small></div>
+<div><span>PRĘDKOŚĆ PRZYBYCIA WZGLĘDEM MARSA</span><strong id="m11-arrival">2,6</strong><small>km/s</small></div>
+</div>
+<button id="m11-reset" class="m11-reset" type="button">Wróć do transferu referencyjnego ↺</button>
+<p class="m11-model-note">Wyświetlane C3 to <strong>v∞²</strong> względem Ziemi — nie paliwo ani całkowite Δv rakiety. Start referencyjny jest umowny: wykres nie podaje terminów misji NASA. Pomijamy mimośrody, nachylenia orbit, inne planety i rzeczywistą geometrię odlotu z Ziemi.</p>
+</div></div>
+</div>
+</div></section>
+
+<section class="m11-chapter m11-energy">
+<div class="m11-container">
+<div class="m11-rule"><span>03 / ENERGIA POD OBIEKTYWEM</span><span>CO NAPRAWDĘ ZNACZY C3?</span></div>
+<div class="m11-columns"><div><p class="m11-eyebrow">LICZBA, KTÓRA DECYDUJE O ŁADUNKU</p><h2>Nie chodzi o wielką prędkość. <em>Chodzi o właściwą.</em></h2></div>
+<div class="m11-text">
+<p>Rakieta nie tylko podnosi statek ponad atmosferę. Musi nadać mu taki ruch, aby po opuszczeniu otoczenia Ziemi sonda znalazła się na odpowiedniej orbicie wokół Słońca. W obliczeniach misji pojawia się wtedy parametr C3 — kwadrat prędkości nadmiarowej <i>v∞</i> względem Ziemi.</p>
+<p>Jeżeli C3 wynosi 9 km²/s², prędkość nadmiarowa wynosi 3 km/s. Nie jest to całkowita prędkość sondy ani przyrost prędkości, który silnik musi wykonać od powierzchni Ziemi. Start rakiety obejmuje dodatkowo pokonanie grawitacji, straty, budowę orbity parkingowej oraz manewr odlotowy.</p>
+<p>Dlaczego więc nawigatorzy tak uważnie śledzą C3? Ponieważ jego wzrost zwykle zmniejsza masę ładunku, którą rakieta może skierować na daną trajektorię. To parametr, który łączy elegancką geometrię orbit z bardzo praktycznym pytaniem: <strong>ile aparatury naukowej dotrze do celu?</strong></p>
+</div></div>
+<div class="m11-equation"><div><span>CHARAKTERYSTYCZNA ENERGIA ODLOTOWA</span><strong>C3 = v<sub>∞</sub><sup>2</sup></strong><small>Jednostka: km²/s² · v∞ — prędkość nadmiarowa po opuszczeniu pola Ziemi</small></div><div><span>PRZYKŁAD</span><p>v∞ = 3 km/s</p><strong>→ C3 = 9</strong><small>km²/s² · modelowy przykład, nie parametry konkretnej misji</small></div></div>
+</div></section>
+
+<section class="m11-chapter">
+<div class="m11-container">
+<div class="m11-rule"><span>04 / CENA POŚPIECHU</span><span>NAJKRÓTSZA DROGA NIE ZAWSZE WYGRYWA</span></div>
+<div class="m11-columns"><div><p class="m11-eyebrow">TRZY RÓŻNE PYTANIA</p><h2>Szybciej, taniej, bezpieczniej. <em>Wybierz dwa?</em></h2></div><div class="m11-text"><p>Najmniej energochłonny transfer nie musi być najszybszy. Aby skrócić podróż, często trzeba nadać sondzie większą prędkość początkową; czasem podnosi to również prędkość zbliżania do Marsa. Przy locie orbitalnym oznacza to trudniejsze hamowanie, a przy wejściu w atmosferę — inne obciążenia termiczne i aerodynamiczne.</p>
+<p>Z drugiej strony dłuższa podróż nie jest automatycznie lepsza. Statek musi przez wiele miesięcy utrzymywać łączność, orientację, zasilanie i sprawność urządzeń. Dla wypraw załogowych dochodzą ekspozycja na promieniowanie, zaopatrzenie oraz zdrowie załogi.</p>
+<p>Dlatego realny projekt misji przypomina sztukę kompromisu. Nie szuka się po prostu najniższej liczby na mapie. Poszukuje się rozwiązania, które mieści się w możliwościach rakiety, warunkach przybycia i celach naukowych całej ekspedycji.</p></div></div>
+<div class="m11-tradeoffs"><div><span>01 / ENERGIA</span><b>Co potrafi rakieta?</b><p>Wyższa wymagana energia odlotowa może oznaczać mniejszy dopuszczalny ładunek.</p></div><div><span>02 / CZAS</span><b>Ile potrwa lot?</b><p>Krótszy przelot zmienia geometrię i często zwiększa wymagania energetyczne.</p></div><div><span>03 / PRZYBYCIE</span><b>Jak bezpiecznie dotrzeć?</b><p>Prędkość przy Marsie wpływa na orbitę, hamowanie lub wejście w atmosferę.</p></div></div>
+</div></section>
+
+<section class="m11-chapter m11-lambert">
+<div class="m11-container">
+<div class="m11-rule"><span>05 / MATEMATYKA, KTÓRA ZNA PRZYSZŁOŚĆ</span><span>PROBLEM LAMBERTA</span></div>
+<div class="m11-columns"><div><p class="m11-eyebrow">DWA PUNKTY. JEDEN CZAS. PEWNA ORBITA.</p><h2>Jak obliczyć drogę, <em>która jeszcze nie istnieje?</em></h2></div>
+<div class="m11-text">
+<p>W XVIII wieku Johann Heinrich Lambert opisał właściwości ruchu orbitalnego, które pozwalają dziś rozwiązać jedno z podstawowych zadań nawigacji kosmicznej: znamy pozycję startową, przyszłą pozycję docelową oraz czas między nimi. Jakiej prędkości początkowej potrzeba, by połączyć te punkty orbitą?</p>
+<p>To zagadnienie Lamberta. W modelu dwóch ciał można wyznaczyć prędkości na obu końcach toru. Porównując je z prędkościami Ziemi i Marsa, obliczamy prędkości nadmiarowe, a stąd C3 i prędkość przybycia. Powtarzając obliczenie dla wielu par dat, otrzymujemy mapę widoczną wyżej.</p>
+<p>Prawdziwe programy nawigacyjne idą dalej: korzystają z precyzyjnych efemeryd, korekt, modeli wielu ciał i ograniczeń konkretnego statku. Nasze doświadczenie stosuje wersję uproszczoną — planety poruszają się po kołowych, współpłaszczyznowych orbitach. To dobry sposób na odkrycie sensu mapy, a nie zastępstwo oprogramowania kontroli lotów.</p></div></div>
+<div class="m11-pull">Odkrywanie kosmosu zaczyna się od pytania: <em>czy to, co chcemy zrobić, jest możliwe w wybranym czasie?</em></div>
+</div></section>
+
+<section class="m11-chapter m11-curiosity">
+<div class="m11-container">
+<div class="m11-rule"><span>06 / PRAWDZIWA MISJA</span><span>CURIOSITY / MARS SCIENCE LABORATORY</span></div>
+<div class="m11-history-grid">
+<div><p class="m11-eyebrow">ZIEMIA, 2011 → MARS, 2012</p><h2>Curiosity. <em>Dwie daty, które musiały się spotkać.</em></h2>
+<p>26 listopada 2011 roku z Florydy wystartowała rakieta Atlas V ze statkiem Mars Science Laboratory. Na pokładzie znajdował się łazik Curiosity. Przez kolejne miesiące pojazd podróżował po zaplanowanej trajektorii międzyplanetarnej, zmierzając do miejsca, w którym Mars miał się znaleźć podczas spotkania.</p>
+<p>6 sierpnia 2012 roku czasu UTC Curiosity wylądował w kraterze Gale. W Kalifornii był jeszcze wieczór 5 sierpnia — różnica dat wynika ze stref czasowych. W samym finale misji pojazd musiał precyzyjnie wejść w atmosferę, wytracić prędkość i skorzystać z niezwykłego systemu opuszczenia łazika na linach.</p>
+<p>Nie był to prosty „lot po linii” ani dokładne powtórzenie idealnej orbity Hohmanna. Był starannie dobranym wariantem pośród wielu możliwych rozwiązań: z uwzględnieniem startu, rejsu, korekt i warunków przybycia.</p></div>
+<div class="m11-history-panel"><div class="m11-history-star" aria-hidden="true">✳</div><span>WYPRAWA ZAPISANA W DANYCH</span><div class="m11-history-date">26 <small>LISTOPADA</small><strong>2011</strong></div><p>START / CAPE CANAVERAL</p><div class="m11-history-beam"></div><div class="m11-history-date">06 <small>SIERPNIA</small><strong>2012</strong></div><p>LĄDOWANIE / KRATER GALE · UTC</p><div class="m11-history-end">MARS SCIENCE LABORATORY / NASA</div></div>
+</div></div></section>
+
+<section class="m11-lab" id="laboratorium" aria-labelledby="m11-lab-title">
+<div class="m11-lab-container"><div class="m11-lab-head"><div><p class="m11-eyebrow">07 / TWOJE CENTRUM OBLICZEŃ</p><h2 id="m11-lab-title">Laboratorium <em>Trajektorii.</em></h2><p>Właściwe laboratorium Atlasu pozwala analizować terminy startu, czas transferu i energię lotu. Przejdź od naszej mapy dydaktycznej do rozbudowanego symulatora zachowanego z wcześniejszych etapów.</p></div><div class="m11-lab-mark">ATLAS / LABORATORIUM 11 <span>●</span></div></div>
+<div class="m11-lab-frame" id="m11-lab-frame">
+<div class="m11-lab-placeholder" id="m11-lab-placeholder">
+<div class="m11-lab-icon" aria-hidden="true"><div></div><span>✳</span></div>
+<h3>Otwórz przestrzeń możliwych podróży.</h3>
+<p>Symulator ładuje się po naciśnięciu przycisku, żeby artykuł działał płynnie również na urządzeniach mobilnych i starszych przeglądarkach.</p>
+<button id="m11-launch-lab" class="m11-button m11-button-primary" type="button">Uruchom laboratorium ↗</button>
+<p class="m11-direct">Eksperyment działa bezpośrednio w tej podstronie.</p>
+</div>
+<iframe id="stageFrame" title="ATLAS SOLARIS — Laboratorium Trajektorii" data-src="../../atlas.html?portal=porkchop" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin" hidden></iframe>
+</div></div>
+</section>
+
+<section class="m11-endnotes"><div class="m11-container">
+<div class="m11-rule"><span>ZA KULISAMI OBLICZEŃ</span><span>METODA / ŹRÓDŁA / OGRANICZENIA</span></div>
+<p class="m11-eyebrow">RZETELNOŚĆ JEST CZĘŚCIĄ ODKRYWANIA</p><h2>Co pokazuje nasza mapa, a czego nie?</h2>
+<p>Interaktywny wykres wykorzystuje stały promień kołowej orbity Ziemi (1 AU) i Marsa (około 1,524 AU), centralne pole grawitacyjne Słońca oraz jednoprzebiegowe, progradacyjne rozwiązanie zagadnienia Lamberta w dwóch wymiarach. Punkt odniesienia dobrano tak, aby modelowy transfer Hohmanna trwał około 259 dni. Poziome przesunięcie oznacza dni względem tego umownego punktu, a nie datę z kalendarza. C3 i prędkość przybycia są obliczane dla wybranego wariantu w tym modelu, nie dla konkretnej misji NASA. Nie liczymy startu z powierzchni, przechwycenia na orbicie Marsa ani wejścia atmosferycznego. W okolicach geometrycznie osobliwych stosujemy numeryczne przybliżenie.</p>
+<div class="m11-source-grid">
+<a href="https://science.nasa.gov/learn/basics-of-space-flight/chapter4-1/" target="_blank" rel="noopener noreferrer"><span>01 / NASA SCIENCE</span><b>Basics of Space Flight: Trajectories</b><small>Dlaczego potrzebne jest okno startowe ↗</small></a>
+<a href="https://trajbrowser.arc.nasa.gov/user_guide.php" target="_blank" rel="noopener noreferrer"><span>02 / NASA AMES</span><b>Trajectory Browser — User Guide</b><small>Zagadnienie Lamberta i mapy terminów ↗</small></a>
+<a href="https://www.jpl.nasa.gov/edu/resources/lesson-plan/lets-go-to-mars-calculating-launch-windows/" target="_blank" rel="noopener noreferrer"><span>03 / NASA JPL</span><b>Calculating Launch Windows</b><small>Transfer Hohmanna i czas lotu ↗</small></a>
+<a href="https://science.nasa.gov/mission/msl-curiosity/" target="_blank" rel="noopener noreferrer"><span>04 / NASA SCIENCE</span><b>Mars Science Laboratory: Curiosity</b><small>Daty historycznej wyprawy ↗</small></a>
+</div>
+<div class="m11-end-navigation"><a href="../10/">← Etap 10 · Centrum Misji</a><a href="../12/">Etap 12 · Laboratorium Grawitacji →</a></div>
+</div></section>
+</article></main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 11</span><button id="stageInfoClose" aria-label="Zamknij informacje" type="button">✕</button></div><h1>Laboratorium Trajektorii</h1><p class="stage-lead">Jedna planeta. Tysiące możliwych dróg.</p><p>Artykuł z interaktywną mapą energii C3, historią Curiosity i zachowanym laboratorium planowania lotu. Uproszczony model nie podaje rzeczywistych dat okien startowych.</p></aside>
+<noscript><p class="m11-noscript">Treść artykułu jest dostępna bez JavaScript. Interaktywna mapa i laboratorium wymagają obsługi skryptów. Uruchom obsługę JavaScript, aby korzystać z laboratorium.</p></noscript>
 </body></html>

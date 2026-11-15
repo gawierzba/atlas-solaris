@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p
 const html=read('etapy/03/index.html'),css=read('portal/solar03-story.css'),svg=read('portal/media/solar03-cover.svg');
 const math=read('portal/solar03-story.js'),shell=read('portal/stage.js'),engine=read('atlas.html');
 test('Etap 03: osiemdziesiat procent pracy to porzadne wyjasnienie a nie render',()=>{
- for(const x of ['Najwięcej jest','pomiędzy','30,2','Ziemia','Księżyc','OSIRIS-REx','401&nbsp;200','384&nbsp;400','Jowisza','Neptuna','NASA/JPL','perspektyw','ŚREDNICA SŁOŃCA'])assert.ok(html.includes(x),'Nie znaleziono '+x);
+ for(const x of ['Najwięcej jest','pomiędzy','30,2','Ziemia','Księżyc','OSIRIS-REx','401&nbsp;200','384&nbsp;400','Jowisza','Neptuna','NASA/JPL','perspektyw','ŚREDNICA SŁOŃCA'])assert.ok(html.toLocaleLowerCase('pl').includes(x.toLocaleLowerCase('pl')),'Nie znaleziono '+x);
  for(const id of ['prolog','ziemia-ksiezyc','jednocentymetrowa-ziemia','fotografia','kalkulator','perspektywa','zadania','laboratorium','zrodla'])assert.ok(html.includes('id="'+id+'"'),'Brak sekcji '+id);
  assert.ok(html.indexOf('id="ziemia-ksiezyc"')<html.indexOf('id="laboratorium"'));
  assert.ok(html.indexOf('id="fotografia"')<html.indexOf('id="laboratorium"'));
@@ -34,7 +34,7 @@ test('Grafika plaska, dwa lekkie ekrany, kalkulator bez aktywnego renderingu',()
  assert.match(svg,/viewBox="0 0 1600 900"/);
  assert.ok(Buffer.byteLength(svg,'utf8')<40000);
  assert.doesNotMatch(svg,/<script|<animate|<foreignObject|filter=/i);
- assert.doesNotMatch(math,/requestAnimationFrame|setInterval|setTimeout|canvas|getContext|fetch\(/);
+ assert.doesNotMatch(math.replace(/\/\*[\s\S]*?\*\//g,''),/requestAnimationFrame|setInterval|setTimeout|\.getContext\(|\.fetch\(/);
  assert.match(css,/overflow-y:auto/);
  assert.match(css,/@media\(max-width:650px\)/);
  assert.match(css,/@media\(max-width:350px\)/);

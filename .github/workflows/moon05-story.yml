@@ -1,0 +1,45 @@
+name: ATLAS SOLARIS — Ksiezyc i Ziemia 05
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/05/**'
+      - 'portal/moon05-story.css'
+      - 'portal/moon05-story.js'
+      - 'portal/media/moon05-cover.svg'
+      - 'portal/stage.js'
+      - 'tests/moon05-story.test.cjs'
+      - 'tests/moon05-story-browser.test.cjs'
+      - '.github/workflows/moon05-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  moon:
+    name: Selenografia, synchronizacja, cztery fazy i telefony
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Naukowy audyt danych NASA, artykulu i modelu
+        run: |
+          node --check portal/moon05-story.js
+          node --check portal/stage.js
+          node --test tests/moon05-story.test.cjs
+      - name: Przygotuj chromium-headless-shell
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Test artykulu, faz i 3 rozdzielczosci w Chromium
+        run: node tests/moon05-story-browser.test.cjs
+      - name: Zachowaj miniatury artykulu
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-moon05-article-preview
+          path: _moon05_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

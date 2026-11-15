@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p
 const html=read('etapy/07/index.html'),css=read('portal/method07-story.css'),art=read('portal/media/method07-cover.svg'),js=read('portal/method07-story.js'),stage=read('portal/stage.js'),engine=read('atlas.html'),core=read('js/app.js');
 test('History, scientific limitations, JPL accuracy and a technical source dialog',()=>{
  const lower=html.toLocaleLowerCase('pl');
- for(const subject of ['Najpierw była liczba','Neptuna','Uran','1846','Le Verrier','Adams','Galle','d’Arrest','NASA/JPL','1800–2050','2024–2040','6 godzin','Keplera','geometryczne','światła','Aberrac','barycentrum','wizualizac','geometrii','świadomym','nie jest narzędziem','precyzyjną efemerydę'])assert.ok(lower.includes(subject.toLocaleLowerCase('pl')),'Missing editorial theme '+subject);
+ for(const subject of ['Najpierw była liczba','Neptuna','Uran','1846','Le Verrier','Adams','Galle','d’Arrest','NASA/JPL','1800–2050','2024–2040','6 godzin','Keplera','geometryczne','światła','Aberrac','barycentrum','wizualizac','geometrii','świadomym','nie jest narzędzie','precyzyjną efemerydę'])assert.ok(lower.includes(subject.toLocaleLowerCase('pl')),'Missing editorial theme '+subject);
  for(const id of ['opowiesc','neptun','jak-powstaje-model','jpl','doswiadczenie-orbita','doswiadczenie-swiatlo','co-atlas-obiecuje','pewnosc','dokumentacja','zrodla'])assert.ok(html.includes('id="'+id+'"'),'Missing '+id);
  assert.ok(html.indexOf('id="opowiesc"')<html.indexOf('id="dokumentacja"'));
  assert.ok(html.indexOf('id="doswiadczenie-swiatlo"')<html.indexOf('id="dokumentacja"'));

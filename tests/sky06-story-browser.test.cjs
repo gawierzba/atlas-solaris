@@ -55,9 +55,9 @@ async function main(){
    await page.locator('#s6Star').selectOption('sirius');
    await hour.fill('-6');
    assert.equal(await page.locator('#s6Altitude').textContent(),'0,0°');
-   assert.equal(await page.locator('#s6Azimuth').textContent(),'90,0°');
+   assert.equal(await page.locator('#s6Azimuth').textContent(),'106,7°');
    await hour.fill('6');
-   assert.equal(await page.locator('#s6Azimuth').textContent(),'270,0°');
+   assert.equal(await page.locator('#s6Azimuth').textContent(),'253,3°');
    assert.equal(await page.locator('#stageFrame').getAttribute('src'),null,'Interactive compass must not start 3D');
    await page.locator('#s6Latitude').selectOption('54.35');
    await page.locator('#s6Star').selectOption('vega');await hour.fill('0');

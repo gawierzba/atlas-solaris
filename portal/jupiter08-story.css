@@ -1,5 +1,5 @@
 /* ATLAS SOLARIS · ETAP 08 — cztery światy Jowisza */
-html:has(body.j8-page),body.j8-page{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
+html,body.j8-page{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
 .j8-page{--j8-ink:#f1ede8;--j8-sub:#b3c4ce;--j8-line:#365263;--j8-orange:#e5a879;--j8-ice:#9dd7e9;--j8-earth:#bec5e2;--j8-night:#08131f;background:#07121f;color:var(--j8-ink)}
 .j8-page .stage-nav{position:sticky;top:0;background:rgba(7,19,30,.97);backdrop-filter:blur(14px);height:66px}
 .j8-page .stage-main{height:auto;min-height:0;background:#07121f}

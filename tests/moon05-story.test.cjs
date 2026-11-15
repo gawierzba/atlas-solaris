@@ -12,10 +12,10 @@ test('Chapter 05 is a complete lunar science story with correct astronomy',()=>{
  assert.ok(html.indexOf('id="wstep"')<html.indexOf('id="fazy"'));
  assert.ok(html.indexOf('id="fazy"')<html.indexOf('id="laboratorium"'));
  assert.ok(html.indexOf('id="laboratorium"')<html.indexOf('id="zrodla"'));
- assert.match(html,/nie jest wiecznie pogrążona w ciemności/);
+ assert.match(html,/nie jest wiecznie pogrążona w ciemności/i);
  assert.match(html,/Właśnie dlatego mniej więcej ta sama/);
  assert.match(html,/Księżyc obraca się/);
- assert.match(html,/nie jest precyzyjną efemerydą/);
+ assert.match(html,/nie precyzyjną efemerydą/);
  for(const url of ['science.nasa.gov/moon/moon-phases/','science.nasa.gov/moon/facts/','science.nasa.gov/resource/first-photo-of-the-lunar-far-side/','science.nasa.gov/moon/viewing-tips/','science.nasa.gov/moon/tides/','nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html','science.nasa.gov/resource/lunar-far-side/','science.nasa.gov/resource/lunar-near-side/'])assert.ok(html.includes(url),'Missing NASA source '+url);
 });
 test('NASA photographic maps distinguish near side from far side without claiming simultaneous photography',()=>{

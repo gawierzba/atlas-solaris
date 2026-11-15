@@ -32,24 +32,24 @@ function ready(){if(settled)return;settled=true;error.hidden=true;loader.classLi
 function fail(message){if(settled)return;settled=true;loader.hidden=true;error.hidden=false;if(message)console.warn('[ATLAS portal]',message)}
 // Editorial stages can defer laboratory startup; the most expensive 3D labs
 // can additionally require explicit user activation (data-manual='true').
-const lazyLab=iframe?.dataset.lazy==='true';
-const manualLab=iframe?.dataset.manual==='true';
-const stageSrc=iframe?.dataset.src
+const lazyLab=!!(iframe&&iframe.dataset.lazy==='true');
+const manualLab=!!(iframe&&iframe.dataset.manual==='true');
+const stageSrc=iframe && iframe.dataset.src
  ? new URL(iframe.dataset.src,location.href).href
  : item.src ? new URL(item.src,root).href : new URL('atlas.html?portal='+encodeURIComponent(item.mode),root).href;
 let timeout=null,started=false;
 function startLab(){
  if(started||!iframe)return;
  started=true;
- document.getElementById('stageViewport')?.classList.add('is-started');
+ const viewport=document.getElementById('stageViewport');if(viewport)viewport.classList.add('is-started');
  if(!iframe.getAttribute('src'))iframe.src=stageSrc;
  timeout=setTimeout(()=>fail('Laboratorium nie zgłosiło gotowości'),23000);
 }
 if(lazyLab){
  const launch=document.getElementById('stageLaunch');
- launch?.addEventListener('click',startLab);
+ if(launch)launch.addEventListener('click',startLab);
  const target=document.getElementById('stageViewport');
- document.getElementById('stageStartLab')?.addEventListener('click',startLab);
+ const stageStartLab=document.getElementById('stageStartLab');if(stageStartLab)stageStartLab.addEventListener('click',startLab);
  if(manualLab){ /* Reader chooses when the graphics processor starts. */ }
  else if('IntersectionObserver' in window && target){
   const observer=new IntersectionObserver(entries=>{
@@ -57,7 +57,7 @@ if(lazyLab){
   },{rootMargin:'120px 0px'});
   observer.observe(target);
  }else{
-  const onScroll=()=>{if(target?.getBoundingClientRect().top<innerHeight+120){window.removeEventListener('scroll',onScroll);startLab()}};
+  const onScroll=()=>{if(target&&target.getBoundingClientRect().top<innerHeight+120){window.removeEventListener('scroll',onScroll);startLab()}};
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
  }
 }else startLab();
@@ -82,7 +82,7 @@ iframe.addEventListener('load',()=>{
 document.getElementById('stageReload').addEventListener('click',()=>{
  clearTimeout(timeout);settled=false;started=true;
  error.hidden=true;loader.hidden=false;loader.classList.remove('is-loaded');
- document.getElementById('stageViewport')?.classList.add('is-started');
+ const viewport=document.getElementById('stageViewport');if(viewport)viewport.classList.add('is-started');
  iframe.src=stageSrc;timeout=setTimeout(()=>fail('Laboratorium nie zgłosiło gotowości'),23000);
 });
 })();

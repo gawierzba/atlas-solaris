@@ -14,7 +14,7 @@ test('Stage 06 tells a complete, properly sourced astronomy story',()=>{
  for(const u of ['spaceplace.nasa.gov/constellations/sp/','science.nasa.gov/learn/basics-of-space-flight/chapter2-1/','aa.usno.navy.mil/data/topocentric','www.eso.org/public/images/potw1253a/','science.nasa.gov/image-article/apod-2025-september-13-star-trails-over-one-mile-radio-telescope/','www.rmg.co.uk/stories/space-astronomy/how-long-day-on-mars','simbad.harvard.edu/simbad/sim-id?Ident=Polaris','www.aa.quae.nl/en/reken/hemelpositie.html'])assert.ok(html.includes(u),'Missing trusted source '+u);
  assert.match(html,/zdjęcie i oryginalny opis ESO/i);
  assert.match(html,/© ESO\/B\. Tafreshi/);
- assert.match(html,/kąt godzinny gwiazdy, a nie czasem cywilnym/);
+ assert.match(html,/kątem godzinnym gwiazdy, a nie czasem cywilnym/);
  assert.match(html,/nie lokalny zegar ani prognoza widoczności na dzisiejszą noc/);
 });
 test('Visuals are light, credited, with a separate manual laboratory',()=>{

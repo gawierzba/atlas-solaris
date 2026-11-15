@@ -1,13 +1,169 @@
-<!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Orbity i upływ czasu | ATLAS SOLARIS</title><meta name="description" content="Zmieniaj tempo symulacji, odczytuj datę i obserwuj ruch planet po orbitach.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="02" data-kind="stage">
+<!doctype html><html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1127">
+<title>Rok nie trwa rok — Orbity i upływ czasu | ATLAS SOLARIS 02</title>
+<meta name="description" content="Dlaczego na Merkurym rok trwa 88 dni, a na Neptunie 165 lat? Zrozum trzy prawa Keplera, sprawdź nierówną prędkość orbitalną, porównaj planetarne zegary i sam steruj czasem w planetarium.">
+<meta property="og:title" content="Rok nie trwa rok. | ATLAS SOLARIS 02">
+<meta property="og:description" content="Osiem planet, osiem zegarów. Odkryj, dlaczego czas orbitalny płynie w różnych rytmach.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/solar02-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css"><link rel="stylesheet" href="../../portal/solar02-story.css?v=02.1">
+<script src="../../portal/data.js" defer></script><script src="../../portal/stage.js?v=32.6" defer></script>
+<script src="../../portal/solar02-story.js?v=02.1" defer></script>
+</head><body class="s2-page" data-route="02" data-kind="stage">
+<a class="s2-skip" href="#poczatek">Przejdź do rozdziału</a>
 <header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 02 / Światy i orbity</span><strong>Orbity i upływ czasu</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Orbity i upływ czasu — interaktywne laboratorium" src="../../atlas.html?portal=solar" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 02</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Orbity i upływ czasu</h1><p class="stage-lead">Układ Słoneczny w ruchu</p><p>Zmieniaj tempo symulacji, odczytuj datę i obserwuj ruch planet po orbitach.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<div class="stage-crumb"><span>ETAP 02 / ŚWIATY I ORBITY</span><strong>Orbity i upływ czasu</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav></header>
+<main class="stage-main s2-main">
+<article class="s2-article" aria-labelledby="s2Title">
+<section class="s2-hero">
+<img class="s2-hero-image" src="../../portal/media/solar02-cover.svg" width="1600" height="900" fetchpriority="high" alt="Autorska statyczna ilustracja kosmicznego chronometru z ośmioma eliptycznymi orbitami, planetami i wskazówkami zegara. Położenia planet nie są obliczone dla żadnej daty.">
+<div class="s2-hero-fade"></div>
+<div class="s2-hero-inner">
+<div class="s2-topline"><span class="s2-tick">◷</span> ATLAS SOLARIS / CHRONOMETRIA NIEBA <span class="s2-overline-light">ZESZYT 02 · CZAS</span></div>
+<div class="s2-hero-text">
+<p class="s2-eyebrow">GODZINY, KTÓRYCH NIE ZNA ŻADEN ZEGAR NA ZIEMI</p>
+<h1 id="s2Title">Rok <em>nie trwa rok.</em></h1>
+<p>Na Merkurym rok mija po 88 ziemskich dniach. Na Neptunie — po prawie 165 ziemskich latach. Wszystkie te światy krążą wokół jednego Słońca, lecz każdy odmierza własny rytm. Skąd bierze się ta różnica?</p>
+<div class="s2-hero-actions"><a class="s2-primary" href="#poczatek">Odkryj zegary planet <span aria-hidden="true">↓</span></a><a class="s2-secondary" id="stageLaunch" href="#laboratorium">Steruj czasem w 3D <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="s2-hero-footer"><span>01 ROK / 08 PLANET / 03 PRAWA KEPLERA</span><span>STATYCZNA ILUSTRACJA · NIE SYMULACJA</span></div>
+</div>
+</section>
+
+<section class="s2-intro" id="poczatek">
+<div class="s2-section-flag"><span>ODCZYT 01 / ZIEMSKI PUNKT ODNIESIENIA</span><span>00:00:00 / CZAS UMOWNY</span></div>
+<div class="s2-intro-columns"><div><span class="s2-kicker">JAK ZMIERZYĆ ROK W KOSMOSIE?</span><h2>Nasze 365 dni <em>nie jest regułą Wszechświata.</em></h2></div><div class="s2-copy">
+<p class="s2-first-paragraph">Rok kojarzy się z kalendarzem, kolejnymi porami roku i powrotem do tej samej daty. Ale w astronomii trzeba najpierw zapytać: <strong>jakie zdarzenie ma zakończyć nasz pomiar?</strong></p>
+<p>Jeżeli mierzymy czas, w którym planeta obiega Słońce względem odległych gwiazd, otrzymujemy jej <strong>okres orbitalny</strong>, czyli rok gwiazdowy. Ziemi zajmuje to około 365,256 doby. Rok związany z porami roku jest nieco krótszy — to rok zwrotnikowy, około 365,242 doby — bo oś Ziemi powoli zmienia kierunek. <a class="s2-cite" href="#zrodla">[1, 2]</a></p>
+<p>Jest jeszcze doba, czyli okres związany z obrotem planety wokół osi. I jest doba słoneczna, niekoniecznie równa okresowi takiego obrotu. <strong>Rok, doba i pora roku opisują różne zjawiska.</strong> W tym rozdziale zajmujemy się ruchem wokół Słońca.</p></div></div>
+<div class="s2-two-clocks">
+<div><span>ZEGAR MERKUREGO</span><strong>88 <small>dni</small></strong><p>W przybliżeniu tyle ziemskich dób trwa jeden obieg Słońca.</p></div>
+<div class="s2-divider-clocks" aria-hidden="true">≠</div>
+<div><span>ZEGAR NEPTUNA</span><strong>165 <small>lat</small></strong><p>W przybliżeniu tyle ziemskich lat trwa jeden obieg Słońca.</p></div>
+</div>
+<p class="s2-smallnote">Wartości zaokrąglone; nie są okresami obrotu planet wokół własnej osi. Dla planet mówimy o czasie orbitalnym w ziemskich dobach lub latach.</p>
+</section>
+
+<section class="s2-records" id="osiem-zegarow">
+<div class="s2-records-header"><span>ODCZYT 02 / REJESTR OBROTÓW</span><h2>Osiem orbit. <em>Osiem innych kalendarzy.</em></h2><p>W jednym ziemskim roku Merkury zdąży wykonać ponad cztery obiegi Słońca. Mars nie zdąży nawet zakończyć jednego. Neptun wykona zaledwie ułamek procenta całego okrążenia. <a class="s2-cite" href="#zrodla">[1]</a></p></div>
+<div class="s2-table" role="group" aria-label="Porównanie okresów orbitalnych planet">
+<div class="s2-table-heading"><span>PLANETA</span><span>OKRES W CZASIE ZIEMSKIM</span><span>W CIĄGU 1 ROKU ZIEMSKIEGO</span></div>
+<div class="s2-record"><span><b>01</b> Merkury</span><strong>87,97 dnia</strong><small>4,15 obiegu</small></div>
+<div class="s2-record"><span><b>02</b> Wenus</span><strong>224,70 dnia</strong><small>1,63 obiegu</small></div>
+<div class="s2-record"><span><b>03</b> Ziemia</span><strong>365,26 dnia</strong><small>1,00 obiegu</small></div>
+<div class="s2-record"><span><b>04</b> Mars</span><strong>686,98 dnia</strong><small>0,53 obiegu</small></div>
+<div class="s2-record"><span><b>05</b> Jowisz</span><strong>11,86 roku</strong><small>0,084 obiegu</small></div>
+<div class="s2-record"><span><b>06</b> Saturn</span><strong>29,46 roku</strong><small>0,034 obiegu</small></div>
+<div class="s2-record"><span><b>07</b> Uran</span><strong>84,02 roku</strong><small>0,0119 obiegu</small></div>
+<div class="s2-record"><span><b>08</b> Neptun</span><strong>164,8 roku</strong><small>0,0061 obiegu</small></div>
+</div>
+<p class="s2-table-note">Zestawienie okresów gwiazdowych, wartości zaokrąglone do celów dydaktycznych. Jedna jednostka „rok ziemski” to tutaj około 365,256 doby, nie zawsze dokładnie 365 dni kalendarzowych. <a class="s2-cite" href="#zrodla">[1, 3]</a></p>
+</section>
+
+<section class="s2-kepler" id="kepler">
+<div class="s2-kepler-banner"><span>ODCZYT 03 / REGUŁA UKRYTA W RUCHU</span><h2>Planeta wcale nie porusza się <em>zawsze tak samo szybko.</em></h2><p>Przy tej samej planecie szybkość zmienia się nawet podczas jednego obiegu. To jedno z najbardziej eleganckich odkryć Johannesa Keplera: jego drugie prawo, zwane prawem równych pól. <a class="s2-cite" href="#zrodla">[1, 4]</a></p></div>
+<figure class="s2-kepler-figure">
+<div class="s2-kepler-diagram">
+<svg viewBox="0 0 1020 510" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Poglądowy diagram drugiego prawa Keplera. Elipsa o wysokim mimośrodzie, Słońce w lewym ognisku, dwa sektory o dokładnie takich samych polach odpowiadających jednakowemu odstępowi czasu.">
+<defs><pattern id="s2grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#d3e1ed" stroke-opacity=".09"/></pattern></defs>
+<rect x="0" y="0" width="1020" height="510" fill="url(#s2grid)"/>
+<path d="M 90 235 H 915" stroke="#b2c0db" stroke-opacity=".2" stroke-width="1.2" stroke-dasharray="5 7"/>
+<path d="M 312.8 235 L 199.4 181.5 L 198.7 184.1 L 198.0 186.8 L 197.3 189.5 L 196.7 192.1 L 196.2 194.8 L 195.6 197.5 L 195.1 200.1 L 194.7 202.8 L 194.2 205.5 L 193.8 208.2 L 193.5 210.8 L 193.2 213.5 L 192.9 216.2 L 192.7 218.9 L 192.5 221.6 L 192.3 224.2 L 192.2 226.9 L 192.1 229.6 L 192.0 232.3 L 192.0 235.0 L 192.0 237.7 L 192.1 240.4 L 192.2 243.1 L 192.3 245.8 L 192.5 248.4 L 192.7 251.1 L 192.9 253.8 L 193.2 256.5 L 193.5 259.2 L 193.8 261.8 L 194.2 264.5 L 194.7 267.2 L 195.1 269.9 L 195.6 272.5 L 196.2 275.2 L 196.7 277.9 L 197.3 280.5 L 198.0 283.2 L 198.7 285.9 L 199.4 288.5 Z" fill="#a4e6e4" fill-opacity=".39" stroke="#63b6bc" stroke-width="2"/><path d="M 312.8 235 L 734.0 412.1 L 741.0 406.5 L 747.9 400.6 L 754.7 394.3 L 761.5 387.7 L 768.1 380.8 L 774.5 373.5 L 780.8 365.8 L 786.8 357.8 L 792.6 349.4 L 798.1 340.6 L 803.3 331.4 L 808.1 321.8 L 812.5 311.9 L 816.5 301.6 L 819.9 291.0 L 822.7 280.2 L 825.0 269.1 L 826.7 257.8 L 827.7 246.4 L 828.0 235.0 L 827.7 223.6 L 826.7 212.2 L 825.0 200.9 L 822.7 189.8 L 819.9 179.0 L 816.5 168.4 L 812.5 158.1 L 808.1 148.2 L 803.3 138.6 L 798.1 129.4 L 792.6 120.6 L 786.8 112.2 L 780.8 104.2 L 774.5 96.5 L 768.1 89.2 L 761.5 82.3 L 754.7 75.7 L 747.9 69.4 L 741.0 63.5 L 734.0 57.9 Z" fill="#c9afe2" fill-opacity=".46" stroke="#ae8acf" stroke-width="2"/>
+<ellipse cx="510" cy="235" rx="318" ry="249.50" fill="none" stroke="#d0e6eb" stroke-opacity=".72" stroke-width="3"/>
+<circle cx="312.8" cy="235" r="19" fill="#f2c4b8"/><circle cx="312.8" cy="235" r="35" fill="none" stroke="#f2c4b8" stroke-opacity=".19" stroke-width="9"/>
+<circle cx="828.0" cy="235" r="8" fill="#bfa9ef"/><circle cx="192.0" cy="235" r="8" fill="#86ece3"/>
+<g font-family="system-ui,sans-serif" font-size="19" font-weight="650" fill="#dce8f7">
+<text x="277.8" y="301">SŁOŃCE</text><text x="143" y="60" fill="#c4b4f3">DALEJ: WOLNIEJ</text><text x="670" y="60" fill="#8ae6e2">BLIŻEJ: SZYBCIEJ</text>
+<text x="87" y="458" font-size="15" fill="#c5cddf">RÓWNY CZAS</text><text x="426" y="458" font-size="15" fill="#d4e6e7">=</text><text x="494" y="458" font-size="15" fill="#c5cddf">RÓWNE ZAKREŚLONE POLE</text>
+</g>
+</svg>
+</div>
+<figcaption><strong>Taką samą powierzchnię orbita „zakreśla” w takim samym czasie.</strong><p>Błękitny i fioletowy wycinek powstały z równych przedziałów czasu w obliczeniu elipsy Keplera. W pobliżu Słońca planeta musi przebyć dłuższy odcinek toru w tym samym czasie. Kształt tej elipsy jest celowo mocno wydłużony, by podkreślić efekt — większość planet ma znacznie mniej wydłużone orbity.</p></figcaption>
+</figure>
+<div class="s2-kepler-grid">
+<div><span>PRAWO I / GEOMETRIA</span><h3>Elipsa, nie idealne koło.</h3><p>Planety okrążają Słońce po orbitach zbliżonych do elips. Słońce znajduje się w jednym z ognisk, a nie dokładnie w środku geometrycznym elipsy.</p></div>
+<div><span>PRAWO II / PRĘDKOŚĆ</span><h3>Równe pola w równych czasach.</h3><p>Blisko peryhelium planeta porusza się szybciej, blisko aphelium — wolniej. Wynika to z zachowania momentu pędu w centralnym polu grawitacyjnym.</p></div>
+<div><span>PRAWO III / OKRES</span><h3>Im dalej, tym dłużej.</h3><p>Kwadrat czasu obiegu jest proporcjonalny do sześcianu wielkiej półosi orbity. Dlatego zewnętrzne planety mają znacznie dłuższe lata.</p></div>
+</div>
+</section>
+
+<section class="s2-equation" id="prawo-trzecie">
+<div class="s2-equation-inner">
+<div><span>ODCZYT 04 / JEDNA PROSTA ZALEŻNOŚĆ</span><h2>Odległość zmienia <em>rytm.</em></h2><p>Trzecie prawo Keplera można zapisać zwięźle, jeśli mierzymy okres w ziemskich latach gwiazdowych, a wielką półoś w jednostkach astronomicznych i traktujemy masy planet jako bardzo małe względem masy Słońca.</p></div>
+<div class="s2-formula"><span>ZWIĄZEK DLA PLANET UKŁADU SŁONECZNEGO</span><div><i>T</i><sup>2</sup> ≈ <i>a</i><sup>3</sup></div><p>T — okres w latach ziemskich; a — wielka półoś orbity w AU.</p><small>Dokładniejsze prawo Newtona uwzględnia sumę mas obu ciał. Model rzeczywisty wymaga także poprawek na wzajemne oddziaływania planet. <a href="#zrodla">[4]</a></small></div>
+</div>
+<div class="s2-example"><span>SPRAWDŹMY NA MARSIE</span><p>Mars ma wielką półoś orbity około <strong>1,524 AU</strong>. Zatem T ≈ √(1,524³) ≈ <strong>1,88 roku ziemskiego</strong>. To niemal dwa razy dłużej niż na Ziemi, choć Mars jest od Słońca tylko około półtora raza dalej.</p></div>
+</section>
+
+<section class="s2-clocklab" id="zegar">
+<div class="s2-clocklab-intro"><span>ODCZYT 05 / KIESZONKOWY CHRONOMETR</span><h2>Jedno przesunięcie. <em>Osiem różnych wyników.</em></h2><p>To najmniejszy eksperyment w całym rozdziale. Nie potrzebuje animacji ani procesora graficznego: wybierz, ile ziemskich lat upłynie, i zobacz liczbę obiegów na innych planetach. Każdy ma swój własny „rok”.</p></div>
+<div class="s2-clock-tool" id="s2ClockTool">
+<div class="s2-tool-control">
+<div><span>ODCZYT CZASU / ZIEMSKIE LATA GWIAZDOWE</span><output id="s2YearDisplay" for="s2Years">10 <small>lat</small></output></div>
+<label for="s2Years">Przesuń czas o 1–100 ziemskich lat:</label>
+<input id="s2Years" type="range" min="1" max="100" value="10" step="1" aria-describedby="s2ToolExplainer">
+<div class="s2-scale-marks"><span>1</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+<div class="s2-quickyears"><button type="button" data-year="1">1 rok</button><button type="button" data-year="10" aria-pressed="true">10 lat</button><button type="button" data-year="30">30 lat</button><button type="button" data-year="100">100 lat</button></div>
+</div>
+<div class="s2-orbit-readings" id="s2OrbitReadings" aria-live="polite" aria-atomic="true">
+<div class="s2-reading" data-orbit-days="87.969"><span class="s2-reading-name">MERKURY</span><span class="s2-reading-dial" aria-hidden="true"></span><strong data-result>41,52</strong><small>pełnych i niepełnych obiegów</small></div>
+<div class="s2-reading" data-orbit-days="224.701"><span class="s2-reading-name">WENUS</span><span class="s2-reading-dial" aria-hidden="true"></span><strong data-result>16,25</strong><small>pełnych i niepełnych obiegów</small></div>
+<div class="s2-reading" data-orbit-days="365.256"><span class="s2-reading-name">ZIEMIA</span><span class="s2-reading-dial" aria-hidden="true"></span><strong data-result>10,00</strong><small>pełnych i niepełnych obiegów</small></div>
+<div class="s2-reading" data-orbit-days="686.980"><span class="s2-reading-name">MARS</span><span class="s2-reading-dial" aria-hidden="true"></span><strong data-result>5,32</strong><small>pełnych i niepełnych obiegów</small></div>
+<div class="s2-reading" data-orbit-days="4332.59"><span class="s2-reading-name">JOWISZ</span><span class="s2-reading-dial" aria-hidden="true"></span><strong data-result>0,84</strong><small>pełnych i niepełnych obiegów</small></div>
+<div class="s2-reading" data-orbit-days="10759.2"><span class="s2-reading-name">SATURN</span><span class="s2-reading-dial" aria-hidden="true"></span><strong data-result>0,34</strong><small>pełnych i niepełnych obiegów</small></div>
+<div class="s2-reading" data-orbit-days="30688.5"><span class="s2-reading-name">URAN</span><span class="s2-reading-dial" aria-hidden="true"></span><strong data-result>0,12</strong><small>pełnych i niepełnych obiegów</small></div>
+<div class="s2-reading" data-orbit-days="60182"><span class="s2-reading-name">NEPTUN</span><span class="s2-reading-dial" aria-hidden="true"></span><strong data-result>0,06</strong><small>pełnych i niepełnych obiegów</small></div>
+</div>
+<p id="s2ToolExplainer" class="s2-tool-hint">Wskazówki pokazują jedynie część aktualnego okrążenia; liczby uwzględniają również pełne obiegi. Obliczenie to upływ czasu / średni okres orbitalny, bez modelowania zmieniających się położeń. Wszystkie wyniki są przybliżeniami. Nie jest to symulator dat kalendarzowych.</p>
+</div></section>
+
+<section class="s2-real-time" id="czas-w-symulatorze">
+<div class="s2-rt-header"><span>ODCZYT 06 / CZAS SYMULACJI ≠ CZAS RZECZYWISTY</span><h2>Możesz przyspieszyć Układ Słoneczny. <em>Nie przyspieszysz fizyki.</em></h2></div>
+<div class="s2-rt-grid"><div><h3>Jedna sekunda. Jeden dzień.</h3><p>W planetarium wybierzesz tempo <strong>1 dzień/s</strong>. Ziemskie planety przesuną się wtedy zauważalnie, choć ruch dalekich olbrzymów pozostanie niewielki. To przyspieszenie wyświetlania osi czasu, nie rzeczywiste przyspieszenie planet.</p></div>
+<div><h3>Jedna sekunda. Jeden rok.</h3><p>Przełącz na <strong>1 rok/s</strong>. Merkury zacznie obiegać Słońce wielokrotnie szybciej na ekranie niż Neptun. Nie porównuj jednak prędkości ruchu pikseli: odległości i rozmiary na ekranie mogą być przeskalowane.</p></div>
+<div><h3>A gdyby czas biegł wstecz?</h3><p>Wybierz <strong>−1 dzień/s</strong>. Pozycje planet będą pokazywane dla coraz wcześniejszych dat. Nie odwracamy prawa przyczynowości — tylko oglądamy model dla wcześniejszych chwil.</p></div>
+</div>
+<div class="s2-rt-warning"><span>WAŻNE ROZRÓŻNIENIE</span><p><strong>Daty i okresy</strong> określają położenia orbitalne; <strong>tempo symulacji</strong> to szybkość przewijania modelowanego czasu. Powrót o jeden ziemski rok nie ustawia wszystkich planet z powrotem w dokładnie tym samym układzie.</p></div>
+</section>
+
+<section class="s2-experiments">
+<div class="s2-experiments-head"><span>ODCZYT 07 / TWOJA ZMIANA NA KONSOLI</span><h2>W laboratorium sterujesz czasem. <em>Sprawdź cztery hipotezy.</em></h2><p>To ten sam aktualny silnik planetarium, który poznałeś w etapie 1. Nie rekonstruujemy historycznej wersji 2.0 — wykorzystujemy dzisiejsze obliczenia orbitalne.</p></div>
+<div class="s2-quests">
+<div><span>01 / SZYBKI MERKURY</span><h3>Rok kontra sekunda</h3><p>Włącz „Cały Układ”, ustaw tempo 1 rok/s i obserwuj Merkurego. Ile obiegów powinien wykonać przez 1 sekundę symulacji?</p></div>
+<div><span>02 / OŚ CZASU</span><h3>Dziesięć lat w obie strony</h3><p>Przesuń suwak czasu, następnie użyj przycisku „Teraz”. Czy model pozwala wrócić do wybranej daty?</p></div>
+<div><span>03 / MARSA NIE ZŁAPIESZ W ROK</span><h3>Dlaczego nie wraca?</h3><p>Ustaw różnicę około jednego ziemskiego roku. Sprawdź, jak mocno pozycja Marsa różni się od pozycji wyjściowej.</p></div>
+<div><span>04 / ODCZYT PLANET</span><h3>Wybierz dwa odległe światy</h3><p>Porównaj Merkurego i Neptuna w ciągu tej samej zmiany daty. Zwróć uwagę na prawie nieruchomy wygląd dalekiego olbrzyma.</p></div>
+</div>
+<p class="s2-model-note"><strong>Zakres modelu:</strong> ATLAS SOLARIS oblicza przybliżone położenia planet na podstawie elementów NASA/JPL, dopasowanych dla lat 1800–2050. Jest to model dydaktyczny. Nie należy go stosować do nawigacji kosmicznej ani przewidywania dokładnych obserwacji wymagających pełnych efemeryd. Sterowanie czasem nie odtwarza wszystkich skutków wielociałowej dynamiki z precyzją numerycznego modelu JPL Horizons. Pełne 3D wymaga GPU — uruchamia się wyłącznie na Twoje żądanie.</p>
+</section>
+</article>
+<section class="s2-lab" id="laboratorium" aria-label="Laboratorium orbit i upływu czasu">
+<div class="s2-lab-top"><div><span>ATLAS SOLARIS / 02 / STACJA CZASU</span><h2>Otwórz zegar <em>Układu Słonecznego.</em></h2><p>Wybierz planetę, zatrzymaj ruch, ustaw datę i zobacz, jak zmieniają się orbity. Laboratorium 3D pozostaje całkowicie wyłączone, dopóki nie poprosisz o jego uruchomienie.</p></div><small>RĘCZNY START · TELEFON W TRYBIE OSZCZĘDNYM</small></div>
+<div id="stageViewport" class="stage-viewport">
+<div class="s2-lab-placeholder" id="s2LabPlaceholder"><div class="s2-placeholder-clock" aria-hidden="true"><i></i></div><h3>W tej pracowni możesz zatrzymać rok.</h3><p>Model 3D korzysta z GPU. Pozostaje uśpiony, aby nie obciążać urządzenia podczas lektury. Uruchom go tylko wtedy, gdy masz ochotę eksperymentować.</p>
+<button type="button" id="stageStartLab">Uruchom planetarium czasu 3D <span aria-hidden="true">↗</span></button><small>Cały silnik zostanie pobrany dopiero po kliknięciu.</small></div>
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY STACJĘ CZASU</strong><small>Przygotowanie orbit i zegara symulacji…</small></div>
+<iframe id="stageFrame" title="Orbity i upływ czasu — planetarium 3D z regulacją daty i tempa" data-lazy="true" data-manual="true" data-src="../../atlas.html?portal=solar" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić planetarium. <button type="button" id="stageReload">Spróbuj ponownie</button></div>
+<p class="s2-lab-note">Na telefonie możesz zakończyć lekturę bez uruchamiania renderingu. Przyciski tempa i czasu znajdują się wewnątrz istniejącego planetarium ATLAS SOLARIS.</p>
+</section>
+<section class="s2-sources" id="zrodla"><div class="s2-sources-head"><span>ANEKS NAUKOWY / NOTATKI Z POMIARÓW</span><h2>Czas to pomiar. <em>Sprawdź, skąd znamy te wartości.</em></h2><p>Naukowe podstawy orbitalnych zegarów, prawa Keplera i dokumentacja danych wykorzystywanych do obliczeń w laboratorium.</p></div>
+<ol>
+<li><a href="https://science.nasa.gov/solar-system/orbits-and-keplers-laws/" target="_blank" rel="noopener noreferrer">NASA Science — Orbits and Kepler’s Laws</a><span>Trzy prawa Keplera, elipsa, zmiany prędkości i okresy orbitalne.</span></li>
+<li><a href="https://science.nasa.gov/earth/facts/" target="_blank" rel="noopener noreferrer">NASA Science — Earth Facts</a><span>Ruch Ziemi, nachylenie osi i podstawowe własności ziemskiego roku.</span></li>
+<li><a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html" target="_blank" rel="noopener noreferrer">NASA/JPL — Approximate Positions of the Planets</a><span>Przybliżone elementy orbitalne dla lat 1800–2050; materiał źródłowy silnika ATLAS SOLARIS.</span></li>
+<li><a href="https://science.nasa.gov/learn/basics-of-space-flight/chapter3-3/" target="_blank" rel="noopener noreferrer">NASA/JPL — Basics of Space Flight, Chapter 3: Gravity &amp; Mechanics</a><span>Prawa Keplera, okresy, prawa Newtona i zastosowanie w ruchu orbitalnym.</span></li>
+<li><a href="https://science.nasa.gov/resource/orbits-and-keplers-laws/" target="_blank" rel="noopener noreferrer">NASA — Film i transkrypcja: Orbits and Kepler’s Laws</a><span>Materiały edukacyjne wyjaśniające prawa Keplera z rzeczywistą narracją NASA.</span></li>
+</ol>
+<p class="s2-editorial">Opracowanie popularnonaukowe ATLAS SOLARIS. Ilustracja otwierająca, diagram równych pól i porównawcze zegary są autorskimi schematami, nie zdjęciami nieba ani rzeczywistymi mapami położeń. Lekki kalkulator porównuje stałe orientacyjne okresy orbitalne. Planetarium 3D wykorzystuje osobny przybliżony model pozycji i czas UTC.</p>
+</section>
+<footer class="s2-footer"><span>ATLAS SOLARIS / ETAP 02</span><span>NIE MIERZYMY CZASU TYLKO ZEGARAMI. MIERZYMY GO RÓWNIEŻ RUCHEM ŚWIATÓW.</span><a href="../../#etapy">Odkryj kolejne etapy ↑</a></footer>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ATLAS SOLARIS / ETAP 02</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+<h2>Orbity i upływ czasu</h2><p class="stage-lead">Każda planeta ma własny rok</p><p>Przyjrzyj się trzem prawom Keplera, porównaj okresy ośmiu planet, a potem sam zmieniaj tempo i datę w planetarium 3D.</p><p class="stage-info-note">Kalkulator porównuje orientacyjne okresy obiegu. Pełne planetarium 3D pobiera się dopiero na żądanie; model oparto na przybliżonych elementach orbitalnych JPL dla lat 1800–2050. Etapy 01–09 korzystają ze współczesnego silnika Atlasu.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Artykuł i orientacyjne wyniki zegara pozostają dostępne bez JavaScript. Suwak porównania okresów oraz pełne planetarium 3D wymagają włączonego JavaScript.</p></noscript>
 </body></html>

@@ -34,7 +34,7 @@ test('The hero is local, static and light, without runtime WebGL or animation',(
  assert.match(styles,/@media\(max-width:650px\)/);
 });
 test('General stage shell still supports all previous stages and optional lazy laboratory',()=>{
- assert.match(shell,/const lazyLab=iframe\?\.dataset\.lazy==='true'/);
+ assert.match(shell,/const lazyLab=!!\(iframe&&iframe\.dataset\.lazy==='true'\)/);
  assert.match(shell,/if\(lazyLab\)/);
  assert.match(shell,/IntersectionObserver/);
  assert.match(shell,/else startLab\(\)/);

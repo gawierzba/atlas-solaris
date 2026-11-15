@@ -1,13 +1,196 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Księżyc i Ziemia | ATLAS SOLARIS</title><meta name="description" content="Poznaj wzajemny ruch Ziemi i Księżyca oraz współczesny model nieba.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="05" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 05 / Światy i orbity</span><strong>Księżyc i Ziemia</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Księżyc i Ziemia — interaktywne laboratorium" src="../../atlas.html?portal=moon" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 05</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Księżyc i Ziemia</h1><p class="stage-lead">Dwa powiązane światy</p><p>Poznaj wzajemny ruch Ziemi i Księżyca oraz współczesny model nieba.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1226">
+<title>Zawsze ta sama twarz. Nigdy ten sam Księżyc. | ATLAS SOLARIS 05</title>
+<meta name="description" content="Dlaczego Księżyc pokazuje nam tę samą stronę, choć nieustannie się obraca? Odkryj dwa księżycowe zegary, cykl faz, daleką półkulę sfotografowaną przez NASA i samodzielne doświadczenie bez GPU.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zawsze ta sama twarz. Nigdy ten sam Księżyc. | ATLAS SOLARIS 05">
+<meta property="og:description" content="Dwa światy, jedna grawitacja. Dlaczego ten sam Księżyc nigdy nie świeci tak samo?">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/moon05-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/moon05-story.css?v=05.1">
+<script defer src="../../portal/data.js"></script>
+<script defer src="../../portal/stage.js?v=32.6"></script>
+<script defer src="../../portal/moon05-story.js?v=05.1"></script>
+</head>
+<body class="m5-page" data-route="05" data-kind="stage">
+<a href="#wstep" class="m5-skip">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 05 / ŚWIATY I ORBITY</span><strong>Księżyc i Ziemia</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main m5-main">
+<article class="m5-article" aria-labelledby="m5Title">
+
+<section class="m5-hero">
+<img class="m5-hero-art" src="../../portal/media/moon05-cover.svg" width="1600" height="900" fetchpriority="high" alt="Autorska nieruchoma grafika Srebrnego Globu, częściowo skąpanego w świetle i częściowo ukrytego w mroku, z małą Ziemią w tle. Kompozycja artystyczna, nie zdjęcie powierzchni ani rzeczywista faza.">
+<div class="m5-hero-wash"></div>
+<div class="m5-hero-in">
+<div class="m5-edition"><span>◌</span> ATLAS SOLARIS / KSIĘGA SREBRNEGO GLOBU <i>·</i> ROZDZIAŁ V</div>
+<div class="m5-hero-content">
+<p class="m5-hero-kicker">OPOWIEŚĆ O RUCHU, KTÓREGO NIE WIDAĆ</p>
+<h1 id="m5Title">Zawsze ta sama twarz. <em>Nigdy ten sam Księżyc.</em></h1>
+<p>Co noc wygląda trochę inaczej. Bywa cienkim sierpem, olśniewającą pełnią albo znika w blasku dnia. A mimo to przez całe życie patrzymy prawie na te same kratery. Jak to możliwe?</p>
+<div class="m5-hero-actions"><a class="m5-hero-read" href="#wstep">Odkryj tajemnicę <span aria-hidden="true">↓</span></a><a class="m5-hero-lab" href="#laboratorium" id="stageLaunch">Przejdź do laboratorium <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="m5-hero-foot"><span>ZIEMIA / KSIĘŻYC / GRAWITACJA</span><span>OKŁADKA AUTORSKA · GRAFIKA NIE W SKALI</span></div>
+</div>
+</section>
+
+<section class="m5-first" id="wstep">
+<div class="m5-chapter-rule"><span>01 / NAJWIĘKSZA ZAGADKA CODZIENNEGO NIEBA</span><span>OBSERVATIO · LUNA</span></div>
+<div class="m5-first-layout">
+<div><span class="m5-kicker">WYJRZYJ PRZEZ OKNO</span><h2>Dlaczego Księżyc <em>nie obraca się do nas plecami?</em></h2></div>
+<div class="m5-prose">
+<p class="m5-initial">Przypomnij sobie jasną pełnię. Widzisz na niej ciemniejsze plamy, które od dawna ludzie porównywali do twarzy, zwierząt i postaci. Za miesiąc możesz spojrzeć ponownie. Układ tych plam będzie prawie identyczny.</p>
+<p>Najprostsza odpowiedź wydaje się oczywista: <strong>Księżyc nie obraca się wokół własnej osi.</strong> Tyle że właśnie ta odpowiedź jest błędna.</p>
+<p>Księżyc obraca się. W czasie jednego okrążenia Ziemi wykonuje też jeden obrót wokół własnej osi. Właśnie dlatego mniej więcej ta sama jego półkula jest skierowana do nas przez cały czas. Ten szczególny układ nazywa się <strong>rotacją synchroniczną</strong>, związaną z długotrwałym oddziaływaniem pływowym. <a class="m5-ref" href="#zrodla">[1, 2]</a></p>
+<p>Gdyby nie obracał się w ogóle, podczas okrążenia odsłaniałby nam kolejno wszystkie strony. <strong>To obrót pozwala mu zachować tę samą twarz.</strong></p>
+</div></div>
+<div class="m5-pull"><span>ZAPAMIĘTAJ</span><p>On nie stoi nieruchomo. <em>On obraca się dokładnie w takim rytmie, jak trzeba.</em></p></div>
+</section>
+
+<section class="m5-tide-lock" id="synchronizacja">
+<div class="m5-lock-inner">
+<div class="m5-section-heading"><span>02 / JEDEN OBRÓT, JEDNO OKRĄŻENIE</span><h2>Wyobraź sobie, że <em>okrążasz stół</em> i przez cały czas patrzysz na jego środek.</h2><p>Zacznij od jednej strony stołu. Przejdź ćwierć okręgu, stale patrząc w środek: Twoje ciało obróci się o ćwierć obrotu. Przejdź dookoła cały stół — wykonasz cały obrót. Księżyc robi coś podobnego, choć oczywiście nie wybiera świadomie kierunku patrzenia.</p></div>
+<div class="m5-lock-stages">
+<div><span>00 / POCZĄTEK</span><svg viewBox="0 0 210 190" role="img" aria-label="Na początku Księżyc jest na prawo od Ziemi; znacznik na Księżycu wskazuje ku Ziemi."><circle cx="91" cy="95" r="34" fill="#6f9da7"/><path d="M91 95H172" stroke="#aebccc" stroke-dasharray="3 6"/><circle cx="170" cy="95" r="15" fill="#a6a6ba"/><circle cx="156" cy="95" r="4" fill="#e4afc3"/></svg><h3>Patrzy na Ziemię</h3><p>Widoczna strona skierowana jest ku środkowi układu.</p></div>
+<div><span>01 / ĆWIERĆ OBIEGU</span><svg viewBox="0 0 210 190" role="img" aria-label="Po jednej czwartej obiegu Księżyc jest nad Ziemią, a znacznik na Księżycu wskazuje w dół, ku Ziemi."><circle cx="91" cy="95" r="34" fill="#6f9da7"/><path d="M91 95V16" stroke="#aebccc" stroke-dasharray="3 6"/><circle cx="91" cy="16" r="15" fill="#a6a6ba"/><circle cx="91" cy="30" r="4" fill="#e4afc3"/></svg><h3>Obrócił się o 90°</h3><p>Mimo zmiany położenia cały czas pokazuje nam tę samą stronę.</p></div>
+<div><span>02 / PÓŁ OBIEGU</span><svg viewBox="0 0 210 190" role="img" aria-label="Po połowie obiegu Księżyc jest na lewo od Ziemi, a jego znacznik wskazuje w prawo, ku Ziemi."><circle cx="91" cy="95" r="34" fill="#6f9da7"/><path d="M91 95H10" stroke="#aebccc" stroke-dasharray="3 6"/><circle cx="13" cy="95" r="15" fill="#a6a6ba"/><circle cx="27" cy="95" r="4" fill="#e4afc3"/></svg><h3>Obrócił się o 180°</h3><p>W połowie drogi obrócił się także o pół obrotu.</p></div>
+<div><span>03 / CAŁY OBIEG</span><svg viewBox="0 0 210 190" role="img" aria-label="Po całym obiegu Księżyc wraca na prawo od Ziemi ze znacznikiem po stronie Ziemi."><circle cx="91" cy="95" r="34" fill="#6f9da7"/><path d="M91 95H172" stroke="#aebccc" stroke-dasharray="3 6"/><circle cx="170" cy="95" r="15" fill="#a6a6ba"/><circle cx="156" cy="95" r="4" fill="#e4afc3"/></svg><h3>Obrócił się o 360°</h3><p>Wrócił w to samo miejsce i w tym samym ustawieniu.</p></div>
+</div>
+<p class="m5-caption">Statyczny schemat czterech etapów rotacji synchronicznej, widziany umownie znad północnego bieguna Ziemi. Ciała i odległości nie są narysowane w skali. Rzeczywista orbita Księżyca jest eliptyczna, a jego widoczna orientacja nie jest doskonale stała.</p>
+</div>
+</section>
+
+<section class="m5-two-clocks" id="dwa-zegary">
+<div class="m5-clock-head"><span>03 / DWA ZEGARY JEDNEGO KSIĘŻYCA</span><h2>Jeden miesiąc trwa <em>27,3 dnia.</em> A drugi <em>29,5 dnia.</em></h2><p>Nie ma w tym sprzeczności. Około 27,3 dnia potrzeba, by Księżyc wrócił do tego samego położenia względem odległych gwiazd. Natomiast od nowiu do następnego nowiu mija średnio około 29,5 dnia. <a class="m5-ref" href="#zrodla">[1, 3]</a></p></div>
+<div class="m5-two-faces">
+<div><span>OBIEG WZGLĘDEM GWIAZD</span><strong>27,32 <small>dnia</small></strong><h3>Miesiąc gwiazdowy</h3><p>W tym czasie Księżyc wykonuje jeden obieg względem dalekich gwiazd i jeden obrót wokół własnej osi.</p></div>
+<div class="m5-clock-middle"><span>≠</span></div>
+<div><span>OD NOWIU DO NOWIU</span><strong>29,53 <small>dnia</small></strong><h3>Miesiąc synodyczny</h3><p>Ziemia w tym czasie również okrąża Słońce. Księżyc musi więc pokonać dodatkowy odcinek orbity, by ustawić się tak samo względem światła słonecznego.</p></div>
+</div>
+<p class="m5-clock-footnote">To średnie okresy. Konkretne odstępy między fazami różnią się nieznacznie wskutek geometrii i zmiennej prędkości orbitalnej.</p>
+</section>
+
+<section class="m5-back" id="druga-strona">
+<div class="m5-back-intro"><span>04 / 7 PAŹDZIERNIKA 1959</span><h2>Przez całą historię patrzyliśmy na znajomą stronę. <em>Aż sonda spojrzała za krawędź.</em></h2><p>Radziecka sonda Łuna 3 przesłała pierwsze obrazy niewidocznej z Ziemi półkuli Księżyca. Fotografie były niedoskonałe, ale ujawniły rzecz zdumiewającą: druga strona wygląda inaczej. Zamiast rozległych ciemnych mórz zastygłej lawy dominują tam jaśniejsze wyżyny, gęsto pokryte kraterami. <a class="m5-ref" href="#zrodla">[4]</a></p></div>
+<div class="m5-photo-pair">
+<figure>
+<div class="m5-moon-photo"><img loading="lazy" decoding="async" src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar/2023/09/l/lro_nearside.jpg" width="1024" height="1024" alt="Rzeczywista mapa fotograficzna bliższej półkuli Księżyca zestawiona z danych Lunar Reconnaissance Orbiter — widoczne rozległe ciemne morza bazaltowe."></div>
+<figcaption><span>HEMISPHAERIUM I</span><h3>Strona widoczna</h3><p>Ciemne obszary — *maria*, księżycowe morza — są równinami bazaltowymi, nie zbiornikami wody.</p></figcaption></figure>
+<figure>
+<div class="m5-moon-photo"><img loading="lazy" decoding="async" src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar/2023/09/l/lro_farside.jpg" width="1024" height="1024" alt="Rzeczywista mapa fotograficzna dalszej półkuli Księżyca zestawiona z danych Lunar Reconnaissance Orbiter — gęste kratery i niewiele ciemnych równin."></div>
+<figcaption><span>HEMISPHAERIUM II</span><h3>Strona niewidoczna</h3><p>Dominują tam rozległe kraterowe wyżyny. Dopiero misje kosmiczne pozwoliły sporządzić jej szczegółową mapę.</p></figcaption></figure>
+</div>
+<p class="m5-photo-credit">Oba obrazy to opracowania danych kamer <strong>Lunar Reconnaissance Orbiter</strong>, a nie fotografie wykonane jednocześnie z jednego punktu. NASA/GSFC/Arizona State University. Źródła: <a href="https://science.nasa.gov/resource/lunar-near-side/" target="_blank" rel="noopener noreferrer">strona bliższa</a> i <a href="https://science.nasa.gov/resource/lunar-far-side/" target="_blank" rel="noopener noreferrer">strona dalsza</a>.</p>
+<div class="m5-back-fact"><span>WAŻNE SPROSTOWANIE</span><p>„Ciemna strona Księżyca” to mylące określenie. <em>Daleka strona również ma dzień i noc.</em> Podczas nowiu jest nawet zwrócona ku Słońcu i w dużej części oświetlona. Nie jest wiecznie pogrążona w ciemności. <a class="m5-ref" href="#zrodla">[2]</a></p></div>
+</section>
+
+<section class="m5-phases" id="fazy">
+<div class="m5-phase-intro"><span>05 / TWOJE WŁASNE MAŁE OBSERWATORIUM</span><h2>Księżyc nie zmienia kształtu. <em>Zmienia się to, ile światła widzimy.</em></h2><p>Słońce niemal zawsze oświetla połowę księżycowej kuli. W miarę jak Księżyc obiega Ziemię, z naszej perspektywy widzimy różną część tej oświetlonej półkuli. Przesuń suwak, by zobaczyć fazy oraz położenie Księżyca względem Słońca. <a class="m5-ref" href="#zrodla">[1]</a></p></div>
+<div class="m5-phase-widget" id="m5PhaseWidget">
+<div class="m5-widget-controls"><div class="m5-tool-label">LUNARIS / 01 — MIESIĄC SYNODYCZNY</div>
+<label for="m5PhaseRange">Upływ miesiąca księżycowego</label>
+<input id="m5PhaseRange" type="range" min="0" max="100" value="25" step="1" aria-describedby="m5PhaseDescription">
+<div class="m5-range-ends"><span>0 dni / nów</span><span>29,53 dnia / kolejny nów</span></div>
+<div class="m5-phase-presets" role="group" aria-label="Wybierz główne fazy">
+<button type="button" data-phase="0" aria-pressed="false">Nów</button>
+<button type="button" data-phase="25" aria-pressed="true">I kwadra</button>
+<button type="button" data-phase="50" aria-pressed="false">Pełnia</button>
+<button type="button" data-phase="75" aria-pressed="false">III kwadra</button>
+</div>
+<div class="m5-phase-values"><div><span>FAZA</span><strong id="m5PhaseLabel">Pierwsza kwadra</strong></div>
+<div><span>OŚWIETLONA CZĘŚĆ TARCZY</span><strong id="m5Illumination">50,0%</strong></div>
+<div><span>UPŁYW CZASU</span><strong id="m5Elapsed">7,38 dnia</strong></div></div>
+</div>
+<div class="m5-widget-scene">
+<div class="m5-phase-sky">
+<div class="m5-sky-tag">JAK WIDZIMY KSIĘŻYC Z ZIEMI</div>
+<svg id="m5MoonDisk" viewBox="0 0 200 200" role="img" aria-label="W przybliżeniu pierwsza kwadra: prawa połowa tarczy Księżyca jest oświetlona, lewa ciemna."><defs><clipPath id="m5MoonClip"><circle cx="100" cy="100" r="84"/></clipPath><radialGradient id="m5MoonTone" cx=".38" cy=".27" r=".81"><stop stop-color="#f5f3ef"/><stop offset=".63" stop-color="#bbc1cd"/><stop offset="1" stop-color="#778298"/></radialGradient></defs>
+<circle cx="100" cy="100" r="84" fill="#141a2a" stroke="#6d768d" stroke-width="1.5"/>
+<path id="m5LitShape" d="M100 16 L100 184 A84 84 0 0 0 100 16Z" fill="url(#m5MoonTone)" clip-path="url(#m5MoonClip)"/>
+<g fill="#455066" clip-path="url(#m5MoonClip)" opacity=".17">
+<circle cx="115" cy="57" r="13"/><circle cx="144" cy="113" r="18"/><circle cx="112" cy="156" r="8"/><circle cx="73" cy="85" r="14"/><circle cx="151" cy="68" r="5"/>
+</g><circle cx="100" cy="100" r="84" stroke="#d4ddde" stroke-opacity=".27" fill="none" stroke-width="1.4"/></svg>
+<p>Orientacja tarczy jest umowna, typowa dla widoku z półkuli północnej z północą Księżyca ku górze.</p>
+</div>
+<div class="m5-orbit-view">
+<div class="m5-orbit-tag">WIDOK SCHEMATYCZNY ZNAD BIEGUNA ZIEMI</div>
+<svg id="m5OrbitSvg" viewBox="0 0 580 345" role="img" aria-label="Księżyc w pierwszej kwadrze znajduje się pod kątem prostym względem kierunku ku Słońcu. Znacznik na Księżycu jest stale zwrócony do Ziemi.">
+<defs><radialGradient id="m5EarthGrad" cx=".31" cy=".24" r=".85"><stop stop-color="#ddf9f7"/><stop offset=".42" stop-color="#80b7d2"/><stop offset="1" stop-color="#24497d"/></radialGradient></defs>
+<g fill="none" stroke="#71819b" stroke-opacity=".34"><circle cx="222" cy="177" r="121" stroke-width="1.5"/><path d="M35 177H409" stroke-dasharray="3 9"/><path d="M222 18V328" stroke-dasharray="3 9"/></g>
+<circle cx="222" cy="177" r="35" fill="url(#m5EarthGrad)"/><path d="M207 169q20-23 27 3-14 23-26 21z" fill="#9bbfaf" fill-opacity=".55"/>
+<g id="m5OrbitMoon"><circle id="m5MoonOrbitBody" cx="222" cy="56" r="17" fill="#b7b9c5" stroke="#dde4e5" stroke-opacity=".5"/><circle id="m5MoonFaceMarker" cx="222" cy="70" r="4" fill="#e0a5bb"/></g>
+<g font-family="system-ui,sans-serif" font-size="12" font-weight="660" letter-spacing="1.4" fill="#b9c7dc"><text x="222" y="228" text-anchor="middle">ZIEMIA</text><text x="465" y="36">SŁOŃCE →</text><text x="222" y="12" text-anchor="middle">KSIĘŻYC</text></g>
+<g stroke="#d1b5b8" stroke-width="2" opacity=".85"><path d="M468 104h77m-11-7 11 7-11 7M468 165h77m-11-7 11 7-11 7M468 226h77m-11-7 11 7-11 7"/></g>
+<circle cx="469" cy="283" r="4.5" fill="#e0a5bb"/><text x="482" y="288" font-family="system-ui,sans-serif" font-size="10" fill="#cfbdd2">znacznik strony ku Ziemi</text>
+</svg><p>Wykres nie jest w skali. Pozycja odpowiada umownemu kątowi względem Słońca, a nie pełnej efemerydzie. Kształt fazy wynika z kąta oświetlenia i patrzenia.</p>
+</div>
+</div></div>
+<p id="m5PhaseDescription" class="m5-tool-disclaimer"><strong>Zakres naukowy:</strong> to dydaktyczny model faz przy orbicie kołowej, stałym kierunku światła słonecznego i stałej orientacji widoku. Suwak obejmuje umowny średni miesiąc synodyczny 29,53 dnia. Pomija mimośród orbity, nachylenie do ekliptyki, librację, zmiany odległości i dokładne daty. W szczególności położenia nie służą do przewidywania zaćmień; węzły orbity zwykle pozwalają Księżycowi minąć linię Ziemia–Słońce powyżej lub poniżej niej.</p>
+</section>
+
+<section class="m5-gravity" id="grawitacja">
+<div class="m5-gravity-head"><span>06 / WIĘŹ NIEWIDOCZNA GOŁYM OKIEM</span><h2>To nie Ziemia trzyma Księżyc na sznurku. <em>Oba światy podlegają grawitacji.</em></h2><p>Ziemia i Księżyc krążą wokół wspólnego środka masy — barycentrum. Ponieważ Ziemia ma ponad 80 razy większą masę od Księżyca, barycentrum zwykle znajduje się około 4670 km od środka Ziemi, wewnątrz naszej planety. <a class="m5-ref" href="#zrodla">[5]</a></p></div>
+<div class="m5-gravity-facts">
+<div><span>ŚREDNI DYSTANS</span><strong>384 400 <small>km</small></strong><p>Odległość środków. W rzeczywistości stale zmienia się na eliptycznej orbicie.</p></div>
+<div><span>CZY KSIĘŻYC UCIEKA?</span><strong>3,8 <small>cm/rok</small></strong><p>O tyle mniej więcej rośnie średnia odległość Księżyca, mierzona między innymi laserowo. <a class="m5-ref" href="#zrodla">[6]</a></p></div>
+<div><span>WIDOCZNA POWIERZCHNIA</span><strong>~59 <small>%</small></strong><p>Dzięki libracji w różnych momentach widzimy nieco poza brzeg tej samej półkuli. <a class="m5-ref" href="#zrodla">[7]</a></p></div>
+</div>
+<div class="m5-gravity-bottom"><span>ZA TO WSZYSTKO ODPOWIADA CZĘŚCIOWO TA SAMA SIŁA</span><p>Przyciąganie Księżyca ma udział w powstawaniu pływów oceanicznych. <strong>Nie oznacza to jednak, że przypływ zawsze występuje dokładnie pod Księżycem.</strong> Kształt mórz, głębokość, obrót Ziemi i grawitacja Słońca sprawiają, że lokalne przypływy są znacznie bardziej złożone. <a class="m5-ref" href="#zrodla">[8]</a></p></div>
+</section>
+
+<section class="m5-conclusion" id="odkrycie">
+<div class="m5-conclusion-inner"><span>07 / MAŁE ODKRYCIE, KTÓRE ZMIENIA WIELKI OBRAZ</span>
+<h2>Nie ma dwóch Księżyców. <em>Jest jeden, który uczymy się oglądać inaczej.</em></h2>
+<p>Ziemia wyznacza nam miejsce obserwacji. Słońce rzeźbi światłem kolejne fazy. Grawitacja wiąże oba ciała, a delikatne ruchy Księżyca pozwalają stopniowo zajrzeć za krawędź znajomej tarczy. Gdy włączysz na końcu planetarium, nie patrz już tylko na kształt sierpa. Spróbuj zobaczyć w nim całą trójwymiarową geometrię.</p></div>
+</section>
+
+<section class="m5-quests" id="zadania">
+<div class="m5-quests-head"><span>08 / CZTERY EKSPERYMENTY W ATLASIE 3D</span><h2>Teraz sprawdź, <em>czy potrafisz przewidzieć to, co zobaczysz.</em></h2></div>
+<div class="m5-quest-grid">
+<div><span>01 / WIDOK Z ZIEMI</span><h3>Odnajdź znajomą tarczę.</h3><p>Wybierz Księżyc i zmień pozycję kamery. Poszukaj różnicy między wyglądem tarczy a położeniem obiektu na orbicie.</p></div>
+<div><span>02 / ZMIANA CZASU</span><h3>Przesuń się o tydzień.</h3><p>Porównaj ustawienie Słońce–Ziemia–Księżyc w odstępie około siedmiu dni. Sprawdź, skąd bierze się inna faza.</p></div>
+<div><span>03 / PRZESTRZEŃ 3D</span><h3>Spójrz znad orbity.</h3><p>Odwróć kamerę od Ziemi. Spróbuj wyobrazić sobie widok z jej drugiej strony i zwróć uwagę na położenie Słońca.</p></div>
+<div><span>04 / POWRÓT DO ZIEMI</span><h3>Pamiętasz terminator?</h3><p>Wróć do widoku Ziemi. Porównaj granicę dnia i nocy na naszej planecie z granicą oświetlenia na Księżycu.</p></div>
+</div>
+<p class="m5-quests-note"><strong>Granice symulatora:</strong> współczesny silnik ATLAS SOLARIS modeluje ruch planet przy użyciu przybliżonych elementów NASA/JPL i ma edukacyjne przybliżenia geometrii Księżyca. Widok 3D jest ilustracją, nie precyzyjną efemerydą, nie odwzorowuje szczegółowo libracji ani powierzchni Księżyca w pełnej rozdzielczości LRO. Ciężki renderer uruchomi się wyłącznie po kliknięciu przycisku.</p>
+</section>
+</article>
+
+<section class="m5-lab" id="laboratorium" aria-label="Laboratorium Księżyca i Ziemi">
+<div class="m5-lab-head"><div><span>ATLAS SOLARIS / 05 / OBSERWATORIUM KSIĘŻYCA</span><h2>Czas zobaczyć <em>dwa światy w ruchu.</em></h2><p>Zmieniaj kamerę i datę, by śledzić położenie Księżyca i Ziemi. Możesz ukończyć cały artykuł i eksperyment faz bez pobierania silnika 3D.</p></div><small>GRAFIKA 3D TYLKO NA ŻĄDANIE</small></div>
+<div id="stageViewport" class="stage-viewport">
+<div id="m5LabPrompt" class="m5-lab-prompt"><div class="m5-lab-glyph" aria-hidden="true"><i></i></div><h3>Jeden ruch. Dwa światy.</h3><p>Pełna scena 3D używa procesora graficznego. Na telefonie pozostaje wyłączona, dopóki nie zdecydujesz się jej uruchomić.</p>
+<button type="button" id="stageStartLab">Uruchom laboratorium 3D <span aria-hidden="true">↗</span></button><small>Silnik ładuje się dopiero po świadomym kliknięciu.</small></div>
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>OTWIERAMY WIDOK KSIĘŻYCA</strong><small>Wczytywanie pozycji i sceny 3D…</small></div>
+<iframe id="stageFrame" title="Księżyc i Ziemia — interaktywne planetarium 3D" data-lazy="true" data-manual="true" data-src="../../atlas.html?portal=moon" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" role="alert" hidden>Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div>
+<p class="m5-lab-note">Przewijanie strony samo nie uruchamia laboratorium. W przypadku starszego telefonu skorzystaj z lekkiego doświadczenia z fazami, które działa bez renderingu.</p>
+</section>
+
+<section class="m5-sources" id="zrodla"><div class="m5-sources-intro"><span>ANEKS NAUKOWY / ORYGINALNE OBSERWACJE I DANE</span><h2>Nic tutaj nie jest <em>kwestią wiary w obrazek.</em></h2><p>Źródła NASA i JPL pozwalają sprawdzić historię odkrycia dalekiej strony, oba księżycowe okresy, rzeczywiste fotografie, librację i wzajemny wpływ Ziemi oraz Księżyca.</p></div>
+<ol>
+<li><a href="https://science.nasa.gov/moon/moon-phases/" target="_blank" rel="noopener noreferrer">NASA Science — Moon Phases</a><small>Synchroniczna rotacja, 27,3 dnia obiegu i 29,5 dnia cyklu faz, geometria oświetlenia.</small></li>
+<li><a href="https://science.nasa.gov/moon/facts/" target="_blank" rel="noopener noreferrer">NASA Science — Moon Facts</a><small>Dlaczego niewidoczna strona nie jest wiecznie ciemna i co oznacza obrót synchroniczny.</small></li>
+<li><a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html" target="_blank" rel="noopener noreferrer">NASA NSSDC — Moon Fact Sheet</a><small>Średni okres gwiazdowy 27,3217 d, synodyczny 29,53 d, parametry Księżyca.</small></li>
+<li><a href="https://science.nasa.gov/resource/first-photo-of-the-lunar-far-side/" target="_blank" rel="noopener noreferrer">NASA — First Photo of the Lunar Far Side</a><small>Zdjęcia Łuny 3 z października 1959 r. i późniejsze mapy LRO.</small></li>
+<li><a href="https://planetarydata.jpl.nasa.gov/img/data/m3/CH1M3_0001/EXTRAS/LunConstantsModels_2005_jpl_d32296.pdf" target="_blank" rel="noopener noreferrer">NASA/JPL — Lunar Constants and Models</a><small>Położenie barycentrum układu Ziemia–Księżyc około 4670 km od środka Ziemi.</small></li>
+<li><a href="https://www.nasa.gov/missions/laser-beams-reflected-between-earth-and-moon-boost-science/" target="_blank" rel="noopener noreferrer">NASA — Laser Beams Reflected Between Earth and Moon</a><small>Laserowe pomiary odległości i przeciętny wzrost o około 3,8 cm rocznie.</small></li>
+<li><a href="https://science.nasa.gov/moon/viewing-tips/" target="_blank" rel="noopener noreferrer">NASA — Moon Viewing Tips</a><small>Libracja pozwala dostrzegać łącznie około 59% księżycowej powierzchni.</small></li>
+<li><a href="https://science.nasa.gov/moon/tides/" target="_blank" rel="noopener noreferrer">NASA — Tides</a><small>Grawitacja, pływy oceaniczne i czemu przypływy nie pokrywają się dokładnie z położeniem Księżyca.</small></li>
+<li><a href="https://science.nasa.gov/resource/lunar-near-side/" target="_blank" rel="noopener noreferrer">NASA LRO — Lunar Near Side</a><small>Dane obrazowe mapujące półkulę widoczną z Ziemi, NASA/GSFC/ASU.</small></li>
+<li><a href="https://science.nasa.gov/resource/lunar-far-side/" target="_blank" rel="noopener noreferrer">NASA LRO — Lunar Far Side</a><small>Dane obrazowe mapujące półkulę niewidoczną, NASA/GSFC/ASU.</small></li>
+</ol>
+<p class="m5-editorial">ATLAS SOLARIS / ETAP 05. Grafika otwierająca i cztery miniatury ruchu synchronicznego są autorskimi schematami. Obrazy LRO to opracowania rzeczywistych obserwacji NASA, a nie fotografie wykonane jednocześnie z jednego miejsca. Interaktywny model faz jest przybliżeniem geometrycznym, niezwiązanym z bieżącą datą ani rzeczywistą libracją. Planetarium stanowi oddzielny model edukacyjny.</p>
+</section>
+<footer class="m5-footer"><span>ATLAS SOLARIS / 05</span><span>TO NIE KSIĘŻYC ZMIENIA SWOJĄ TWARZ. ZMIENIA SIĘ NASZ WIDOK JEGO ŚWIATŁA.</span><a href="../../#etapy">Odkryj następne rozdziały ↑</a></footer>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ATLAS SOLARIS / 05</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+<h2>Księżyc i Ziemia</h2><p class="stage-lead">Zawsze ta sama twarz. Nigdy ten sam Księżyc.</p><p>Poznaj rotację synchroniczną, dwa księżycowe miesiące, różnicę między bliższą i dalszą półkulą, cykl faz i subtelną więź grawitacyjną obu światów.</p><p class="stage-info-note">Lekki model faz działa bez WebGL. Pełne planetarium uruchamia się tylko po wyraźnym kliknięciu. Etapy 01–09 wykorzystują aktualny silnik Atlasu.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Cały artykuł i schematy pozostają dostępne bez JavaScript. Interaktywny suwak faz i planetarium 3D wymagają włączonego JavaScript.</p></noscript>
 </body></html>

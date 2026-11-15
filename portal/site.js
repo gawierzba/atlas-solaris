@@ -11,7 +11,7 @@ const categories = Object.values(data.categories), stages = Object.values(data.s
 const stageNumbers = new Set(stages.map(stage=>stage.number));
 const unpublishedNumbers = Array.from({length:Math.max(0,...stages.map(stage=>stage.number))},(_,i)=>i+1).filter(number=>!stageNumbers.has(number));
 const etapForm = count=>count===1?'etap':count%10>=2&&count%10<=4&&(count%100<12||count%100>14)?'etapy':'etapów';
-const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const url = p => root + p;
 const catOf = id => data.categories[id];
 function brand(){return `<a href="${root}" class="brand" aria-label="ATLAS SOLARIS — strona główna"><span class="brand-symbol" aria-hidden="true"></span><span>ATLAS <b>SOLARIS</b></span></a>`}
@@ -31,8 +31,8 @@ function categoryPage(){const cat=catOf(selectedCategory);if(!cat){location.href
 const content=isCategory ? `${header()}${categoryPage()}${catalog()}${footer()}` : `${header()}${hero()}${categoryCards()}${features()}${catalog()}${statement()}${footer()}`;
 host.innerHTML=`<div class="portal-app"><div class="site-noise" aria-hidden="true"></div>${content}</div>`;
 const menu=document.getElementById('mobileNav'),panel=document.getElementById('mobilePanel');
-menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));panel.hidden=!open});
-panel?.addEventListener('click',e=>{if(e.target.closest('a')){panel.hidden=true;menu.setAttribute('aria-expanded','false')}});
+if(menu)menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));panel.hidden=!open});
+if(panel)panel.addEventListener('click',e=>{if(e.target.closest('a')){panel.hidden=true;menu.setAttribute('aria-expanded','false')}});
 const search=document.getElementById('stageSearch'),grid=document.getElementById('stageGrid'),counter=document.getElementById('catalogResult'),scope=document.getElementById('catalogScope'),empty=document.getElementById('noResults');
 let activeCategory=selectedCategory||'all';
 const normalize=text=>String(text).toLocaleLowerCase('pl').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
@@ -49,7 +49,7 @@ document.querySelectorAll('.catalog-tab').forEach(btn=>btn.addEventListener('cli
 search.addEventListener('input',drawCatalog);drawCatalog();
 function heroOrbit(){const canvas=document.getElementById('heroOrbit');if(!canvas)return;
  const context=canvas.getContext('2d');if(!context)return;
- const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const reduce=typeof window.matchMedia==='function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  let w=0,h=0,last=0,frame=null,hovered=false;
  let seed=11;const rand=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
  const stars=Array.from({length:170},()=>[rand(),rand(),rand()*.55+.1,rand()*.9+.1]);
@@ -70,9 +70,9 @@ function heroOrbit(){const canvas=document.getElementById('heroOrbit');if(!canva
   function paintPlanet(b){const g=context.createRadialGradient(b.x-b.radius*.3,b.y-b.radius*.38,.5,b.x,b.y,b.radius*1.1);g.addColorStop(0,'#fff9');g.addColorStop(.3,b.color);g.addColorStop(1,'#122a47');context.shadowBlur=Math.max(5,b.radius*2);context.shadowColor=b.color+'66';context.fillStyle=g;context.beginPath();context.arc(b.x,b.y,b.radius,0,7);context.fill();context.shadowBlur=0;if(b.name==='Ziemia'||b.name==='Jowisz'){context.font='9px system-ui';context.fillStyle='#a8cbdd';context.fillText(b.name.toUpperCase(),b.x+b.radius+6,b.y-b.radius-4)}}
  }
  function loop(t){frame=requestAnimationFrame(loop);if(t-last<32)return;last=t;draw(t)}
- const ro=new ResizeObserver(resize);ro.observe(canvas);resize();if(reduce)draw(0);else frame=requestAnimationFrame(loop);
+ if(typeof ResizeObserver==='function'){const ro=new ResizeObserver(resize);ro.observe(canvas)}else window.addEventListener('resize',resize);resize();if(reduce)draw(0);else frame=requestAnimationFrame(loop);
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&frame){cancelAnimationFrame(frame);frame=null}else if(!document.hidden&&!reduce&&!frame)frame=requestAnimationFrame(loop)});
 }
 if(!isCategory)heroOrbit();
-if(location.hash){requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelector(location.hash)?.scrollIntoView()))}
+if(location.hash){requestAnimationFrame(()=>requestAnimationFrame(()=>{const hashTarget=document.querySelector(location.hash);if(hashTarget)hashTarget.scrollIntoView()}))}
 })();

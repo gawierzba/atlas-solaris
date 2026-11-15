@@ -10,9 +10,14 @@ for(const [key,item] of Object.entries(data.stages)){
  assert.ok(item.number);assert.ok(item.title&&item.description&&item.mode);
  assert.ok(data.categories[item.category]);
  const page=html(item.path+'index.html');
- if(item.src) assert.ok(page.includes(item.src), `Missing custom src for \${key}`);
- else assert.match(page,new RegExp('portal='+item.mode));
- assert.match(page,/<iframe /);
+ if(item.mode==='magnetar33'){
+  assert.match(page,/<article\b/,'Magnetar ma wlasna opowiesc');
+  assert.match(page,/<canvas\b/,'Magnetar ma interaktywne laboratorium');
+ }else{
+  if(item.src) assert.ok(page.includes(item.src), `Missing custom src for \${key}`);
+  else assert.match(page,new RegExp('portal='+item.mode));
+  assert.match(page,/<iframe /);
+ }
  if(item.number===10){
   assert.match(page,/<article\b/,'Etap 10 zachowuje pelny artykul');
   assert.ok(page.includes('id="m10-launch"'),'Etap 10 zachowuje uruchamianie laboratorium');

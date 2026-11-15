@@ -36,7 +36,7 @@ test('Article graphics are lightweight; science images are labelled and deferred
  assert.match(css,/@media\(max-width:350px\)/);
 });
 test('The existing experiment is lazy-loaded, still navigable and no longer renders endlessly when idle',()=>{
- assert.match(shell,/const lazyLab=iframe\?\.dataset\.lazy==='true'/);
+ assert.match(shell,/const lazyLab=!!\(iframe&&iframe\.dataset\.lazy==='true'\)/);
  assert.match(shell,/IntersectionObserver/);
  assert.match(shell,/else startLab\(\)/);
  assert.match(app,/scheduleLoop/);

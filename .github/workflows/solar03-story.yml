@@ -1,0 +1,45 @@
+name: ATLAS SOLARIS — przestrzen i skala 03
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/03/**'
+      - 'portal/solar03-story.css'
+      - 'portal/solar03-story.js'
+      - 'portal/media/solar03-cover.svg'
+      - 'portal/stage.js'
+      - 'tests/solar03-story.test.cjs'
+      - 'tests/solar03-story-browser.test.cjs'
+      - '.github/workflows/solar03-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scale:
+    name: Audyt proporcji, mobilny i reczny start
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Geometria i fakty naukowe
+        run: |
+          node --check portal/solar03-story.js
+          node --check portal/stage.js
+          node --test tests/solar03-story.test.cjs
+      - name: Prawdziwy silnik Chromium
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Trzy ekrany, suwak skali i nieaktywny WebGL
+        run: node tests/solar03-story-browser.test.cjs
+      - name: Zapisz trzy podglady
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-solar03-scroll-previews
+          path: _solar03_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

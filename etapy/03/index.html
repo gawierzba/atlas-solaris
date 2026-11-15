@@ -1,13 +1,164 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Przestrzeń 3D | ATLAS SOLARIS</title><meta name="description" content="Obracaj kamerę, przybliżaj i porównuj obiekty na scenie planetarium.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="03" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 03 / Światy i orbity</span><strong>Przestrzeń 3D</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Przestrzeń 3D — interaktywne laboratorium" src="../../atlas.html?portal=solar" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 03</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Przestrzeń 3D</h1><p class="stage-lead">Odkryj skalę planet i odległości</p><p>Obracaj kamerę, przybliżaj i porównuj obiekty na scenie planetarium.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050f1b">
+<title>Najwięcej jest pomiędzy — Przestrzeń 3D | ATLAS SOLARIS 03</title>
+<meta name="description" content="Odkryj prawdziwe odległości w Układzie Słonecznym: proporcjonalną podróż Ziemia–Księżyc, modele z Ziemią wielkości ziarnka, zdjęcie OSIRIS-REx i laboratorium 3D uruchamiane dopiero na życzenie.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Najwięcej jest pomiędzy | ATLAS SOLARIS 03">
+<meta property="og:description" content="Przestrzeń między światami. Jeden rozdział, który zmienia nasze wyobrażenie o odległości.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/solar03-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/solar03-story.css?v=03.1">
+<script defer src="../../portal/data.js"></script><script defer src="../../portal/stage.js?v=32.6"></script><script defer src="../../portal/solar03-story.js?v=03.1"></script>
+</head>
+<body class="s3-story-page" data-route="03" data-kind="stage">
+<a href="#prolog" class="s3-skip">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 03 / ŚWIATY I ORBITY</span><strong>Przestrzeń 3D</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" aria-label="Strona główna" title="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main s3-main">
+<article class="s3-story" aria-labelledby="s3Title">
+<section class="s3-hero">
+<img class="s3-hero-art" src="../../portal/media/solar03-cover.svg" width="1600" height="900" fetchpriority="high" alt="Autorska, statyczna ilustracja: Ziemia i Księżyc oddzielone rozległą ciemną przestrzenią, z subtelnymi liniami pomiarowymi. Okładka jest kompozycją symboliczną, nie rysunkiem w skali.">
+<div class="s3-hero-mask"></div>
+<div class="s3-hero-inner">
+<div class="s3-hero-edition"><span class="s3-signal"></span> ATLAS SOLARIS / ROZDZIAŁ 03 <i>/</i> ATLAS ODLEGŁOŚCI</div>
+<div class="s3-hero-copy">
+<p class="s3-kicker">NAJTRUDNIEJ NARYSOWAĆ TO, CZEGO PRAWIE NIE WIDAĆ</p>
+<h1 id="s3Title">Najwięcej jest <em>pomiędzy.</em></h1>
+<p>Na obrazkach planety ustawiają się jedna przy drugiej. W rzeczywistości dzielą je odległości tak wielkie, że uczciwy rysunek zostawiłby nam przede wszystkim pustą kartkę.</p>
+<div class="s3-hero-actions"><a class="s3-start" href="#prolog">Zobacz, czego nie widać <span aria-hidden="true">↓</span></a><a id="stageLaunch" class="s3-skip-lab" href="#laboratorium">Otwórz przestrzeń 3D <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="s3-hero-foot"><span>PRZESTRZEŃ / ODLEGŁOŚĆ / PERSPEKTYWA</span><span>ILUSTRACJA AUTORSKA · OKŁADKA NIE W SKALI</span></div>
+</div>
+</section>
+
+<section class="s3-prolog" id="prolog">
+<div class="s3-chapter-line"><span>01 / MAŁE KŁAMSTWO, DUŻA POMOC</span><span>O OBRAZACH KOSMOSU</span></div>
+<div class="s3-prolog-grid">
+<div><p class="s3-section-overline">PATRZYSZ NA ZNANY OBRAZ</p><h2>Osiem planet. <em>Jedna ładna rodzinna fotografia.</em></h2></div>
+<div class="s3-body-copy">
+<p class="s3-lead">Merkury, Wenus, Ziemia, Mars, Jowisz, Saturn, Uran i Neptun. W podręcznikach widzimy je często ustawione obok siebie: wszystkie rozpoznawalne, wszystkie mieszczą się na jednej stronie.</p>
+<p>Ale takie zestawienie zwykle pokazuje <strong>rozmiary planet według jednej skali, a odległości między nimi według innej</strong>. Gdyby zachować tę samą skalę dla średnic i dla odległości, większość planet stałaby się drobinami zagubionymi w pustce. Nawet NASA wprost zwraca uwagę na ten problem przy budowaniu modeli Układu Słonecznego. <a class="s3-ref" href="#zrodla">[1]</a></p>
+<p>To nie musi być błąd autora ilustracji. Czasem trzeba celowo zmienić proporcje, żeby pokazać budowę planet lub układ orbit. <strong>Błędem byłoby jednak nie powiedzieć czytelnikowi, co zostało przeskalowane.</strong></p>
+</div>
+</div>
+<div class="s3-essay-rule"><span>JEDNA MYŚL NA POCZĄTEK</span><p>W astronomii piękny obraz może być prawdziwy w szczegółach, a jednocześnie <em>nieprawdziwy w proporcjach.</em></p></div>
+</section>
+
+<section class="s3-scale" id="ziemia-ksiezyc">
+<div class="s3-scale-heading"><span>02 / EKSPERYMENT Z PUSTĄ STRONĄ</span><h2>Sprawdzimy to na dwóch światach, <em>które znamy najlepiej.</em></h2><p>Średnica Ziemi wynosi około 12&nbsp;742 km. Księżyc jest mniej więcej 3,7 raza mniejszy, a średnia odległość między środkami obu ciał wynosi około 384&nbsp;400 km. <a class="s3-ref" href="#zrodla">[2]</a></p></div>
+<div class="s3-ratio-intro">
+<div><span>JEŚLI ZIEMIA MA ŚREDNICĘ</span><strong>1 <small>cm</small></strong></div>
+<div><span>ŚREDNICA KSIĘŻYCA</span><strong>2,7 <small>mm</small></strong></div>
+<div><span>ODLEGŁOŚĆ ŚRODKÓW</span><strong>30,2 <small>cm</small></strong></div>
+</div>
+<p class="s3-ratio-description">Poniżej zapraszam na osobliwy spacer. Ziemia i Księżyc mają rozmiary zachowane w <strong>tej samej proporcji co odległość między ich środkami</strong>. Celowo trzeba przewinąć długi fragment ekranu, zanim dotrzemy do Księżyca. Odległości na ekranie są wyrażone w pikselach, nie rzeczywistych centymetrach — liczy się proporcja.</p>
+<div class="s3-distance-exp" id="s3DistanceExp" role="group" aria-labelledby="s3DistanceTitle">
+<div class="s3-distance-header"><span id="s3DistanceTitle">ZIEMIA → KSIĘŻYC</span><span>PROPORCJE ZACHOWANE · 1 ŚREDNICA ZIEMI = 48 JEDNOSTEK EKRANU</span></div>
+<div class="s3-distance-shaft" id="s3DistanceShaft">
+<div class="s3-earth-dot" id="s3EarthDot" role="img" aria-label="Ziemia, średnica 48 jednostek"></div>
+<div class="s3-earth-caption"><strong>ZIEMIA</strong><span>1 średnica Ziemi</span></div>
+<div class="s3-void-marker"><span>TO NIE JEST BRAKUJĄCY OBRAZ.</span><p>To właśnie odległość.</p><small>Przewijaj dalej ↓</small></div>
+<div class="s3-moon-dot" id="s3MoonDot" role="img" aria-label="Księżyc, średnica około 13 jednostek"></div>
+<div class="s3-moon-caption"><strong>KSIĘŻYC</strong><span>30,17 średnic Ziemi od środka Ziemi</span></div>
+</div>
+<div class="s3-distance-footer"><span>RZECZYWISTA PROPORCJA ŚREDNIC I ODLEGŁOŚCI</span><span>TO PORÓWNANIE UŚREDNIONE · ORBITA KSIĘŻYCA NIE JEST IDEALNYM KOŁEM</span></div>
+</div>
+<div class="s3-aftermath"><span>WRESZCIE WIDAĆ KSIĘŻYC</span><h3>W całym tym odstępie <em>nie umieszczaliśmy niczego.</em></h3><p>A to dopiero przestrzeń między naszą planetą i jej naturalnym satelitą. Odległości planet od Słońca są o wiele większe. To właśnie dlatego fotografia z bliska, przekrój naukowy i model rzeczywistej skali mogą wyglądać tak niepodobnie.</p></div>
+</section>
+
+<section class="s3-model" id="jednocentymetrowa-ziemia">
+<div class="s3-model-heading"><span>03 / ZAMIEŃ ASTRONOMIĘ W SPACER</span><h2>Ziemia jest ziarnkiem. <em>Gdzie postawisz Słońce?</em></h2><p>Nie musimy wymyślać takiego doświadczenia: NASA/JPL proponuje budowanie własnych modeli odległości w tej samej skali co rozmiary ciał. Nasza wersja przyjmuje kulkę Ziemi o średnicy dokładnie 1 cm. <a class="s3-ref" href="#zrodla">[1]</a></p></div>
+<div class="s3-model-setup"><div class="s3-scale-disc"><span class="s3-disc-earth" aria-hidden="true"></span><div><small>PUNKT ODNIESIENIA</small><strong>ZIEMIA / 1 CM</strong></div></div>
+<div class="s3-model-data">
+<div><span>ŚREDNICA SŁOŃCA</span><strong>1,09 m</strong><small>większe niż duża piłka plażowa</small></div>
+<div><span>OD ZIEMI DO SŁOŃCA</span><strong>117 m</strong><small>prawie długość boiska piłkarskiego</small></div>
+<div><span>OD SŁOŃCA DO JOWISZA</span><strong>611 m</strong><small>ponad pół kilometra</small></div>
+<div><span>OD SŁOŃCA DO NEPTUNA</span><strong>3,53 km</strong><small>kilka kilometrów spaceru</small></div>
+</div></div>
+<p class="s3-model-note">To średnie odległości orbitalne, nie odległości między aktualnymi położeniami planet. Planety poruszają się po orbitach, więc prawdziwy dystans Ziemia–Jowisz i Ziemia–Neptun zmienia się w czasie. Dane bazują na średniej średnicy Ziemi i odległościach heliocentrycznych NASA. <a class="s3-ref" href="#zrodla">[3, 4]</a></p>
+</section>
+
+<section class="s3-realphoto" id="fotografia">
+<div class="s3-realphoto-intro"><span>04 / KIEDY SONDA PATRZY NA DWA ŚWIATY</span><h2>Tak wygląda przestrzeń, <em>kiedy aparat nie próbuje jej upiększać.</em></h2><p>25 września 2017 roku kamera nawigacyjna sondy OSIRIS-REx uchwyciła Ziemię i Księżyc w jednym czarno-białym kadrze. W chwili wykonania zdjęcia ciała te były od siebie oddalone o około 401&nbsp;200 km — nie o średnią wartość 384&nbsp;400 km. <a class="s3-ref" href="#zrodla">[5]</a></p></div>
+<figure class="s3-nasa-shot">
+<div class="s3-photo-frame">
+<img loading="lazy" decoding="async" width="2000" height="1000" src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/lunar-science/2023/09/osiris-rexearthmoon_rotated2.jpg?fit=clip&amp;w=1600&amp;h=800" alt="Autentyczne czarno-białe zdjęcie Ziemi i Księżyca wykonane przez OSIRIS-REx 25 września 2017 roku: dwa małe jasne obiekty rozdzielone szeroką czarną przestrzenią.">
+<span>NASA / OSIRIS-REX / 25.09.2017</span>
+</div><figcaption><strong>To nie jest wygenerowana grafika.</strong><p>Zdjęcie przedstawia rzeczywistą obserwację. Pozorna separacja na fotografii zależy od kierunku patrzenia sondy i perspektywy, dlatego nie służy do samodzielnego pomiaru rzeczywistego odstępu. NASA podaje odległość z danych misji.</p><small>Fotografia: NASA/Goddard/University of Arizona, kamera NavCam 1. <a href="https://science.nasa.gov/resource/osiris-rex-pictures-of-earth-and-the-moon/" target="_blank" rel="noopener noreferrer">Oryginał zdjęcia i opis NASA</a>. Jeśli zdjęcie nie załaduje się na urządzeniu, można otworzyć je z podanego źródła.</small></figcaption></figure>
+</section>
+
+<section class="s3-calculator" id="kalkulator">
+<div class="s3-calculator-heading"><span>05 / SKALA TO DECYZJA</span><h2>Teraz Ty wybierasz, <em>jak duży będzie cały świat.</em></h2><p>Zmiana jednego parametru nie powinna zmieniać samych proporcji. Wybierz średnicę Ziemi w modelu i zobacz, jak rosną pozostałe wielkości. To prosta kalkulacja, bez animacji, canvasu i obciążania GPU.</p></div>
+<div class="s3-calculator-shell" id="s3Calculator">
+<div class="s3-calculator-choose"><span>ŚREDNICA MODELOWEJ ZIEMI</span><div class="s3-calc-buttons" role="group" aria-label="Wybierz średnicę Ziemi"><button type="button" data-size-mm="1" aria-pressed="false">1 mm</button><button type="button" data-size-mm="10" aria-pressed="true">1 cm</button><button type="button" data-size-mm="100" aria-pressed="false">10 cm</button></div><p>Wszystkie odległości są przeliczane w jednej wspólnej skali.</p></div>
+<div class="s3-calculator-results" aria-live="polite" aria-atomic="true">
+<div><span>ŚREDNICA KSIĘŻYCA</span><output id="s3MoonSize">2,73 mm</output></div>
+<div><span>ŚREDNIA ODLEGŁOŚĆ ZIEMIA–KSIĘŻYC</span><output id="s3MoonDistance">30,17 cm</output></div>
+<div><span>ŚREDNICA SŁOŃCA</span><output id="s3SunSize">1,09 m</output></div>
+<div><span>ODLEGŁOŚĆ ZIEMIA–SŁOŃCE</span><output id="s3SunDistance">117,41 m</output></div>
+<div><span>OD SŁOŃCA DO JOWISZA</span><output id="s3JupiterDistance">610,6 m</output></div>
+<div><span>OD SŁOŃCA DO NEPTUNA</span><output id="s3NeptuneDistance">3,53 km</output></div>
+</div>
+</div>
+<p class="s3-calculator-foot">Wielkości odpowiadają średniej średnicy Ziemi 12 742 km, średnicy Księżyca 3 474,8 km, średnicy Słońca około 1 392 700 km oraz wybranym średnim odległościom orbit. Wyniki zaokrąglono. <a class="s3-ref" href="#zrodla">[2–4]</a></p>
+</section>
+
+<section class="s3-perception" id="perspektywa">
+<div class="s3-perception-header"><span>06 / TRZY OBRAZY TEGO SAMEGO WSZECHŚWIATA</span><h2>Dlaczego potrzebujemy <em>aż trzech rodzajów obrazów?</em></h2><p>Fotografia, schemat i planetarium nie robią tego samego. Każde narzędzie pomaga odpowiedzieć na inne pytanie.</p></div>
+<div class="s3-perception-grid">
+<div><span>01 / FOTOGRAFIA</span><strong>Co dotarło do aparatu?</strong><p>Zapisuje światło z określonego kierunku i chwili. Perspektywa, ekspozycja i optyka decydują, jak obiekty wyglądają na zdjęciu.</p></div>
+<div><span>02 / SCHEMAT</span><strong>Co chcemy porównać?</strong><p>Powiększa lub pomniejsza elementy tak, by ukazać budowę, kolejność lub różnice rozmiarów. Powinien jasno mówić, co nie jest w skali.</p></div>
+<div><span>03 / PRZESTRZEŃ 3D</span><strong>Co zmienia obserwator?</strong><p>Pozwala przesuwać kamerę i oglądać układ z różnych stron. Nie zwalnia jednak z decyzji o skali, perspektywie i polu widzenia.</p></div>
+</div>
+<div class="s3-perception-quote"><span>PAMIĘTAJ PRZED URUCHOMIENIEM LABORATORIUM</span><p>Model 3D nie jest automatycznie bardziej prawdziwy niż rysunek. <em>Jest innym sposobem zadawania pytań.</em></p></div>
+</section>
+
+<section class="s3-missions" id="zadania">
+<div class="s3-missions-head"><span>07 / PRZYGOTOWANIE DO OBSERWACJI</span><h2>Cztery sposoby, żeby <em>zobaczyć pustkę.</em></h2><p>Wszystkie doświadczenia przeprowadzisz w istniejącym planetarium. Silnika 3D nie uruchamiamy, dopóki go wyraźnie nie wybierzesz.</p></div>
+<div class="s3-mission-grid">
+<div><span>01 / WIDOK OGÓLNY</span><h3>Znajdź wszystkich, a potem się oddal.</h3><p>Wybierz „Cały Układ” i stopniowo oddalaj kamerę. Dlaczego planety znikają szybciej, niż oczekiwałbyś z podręcznikowego obrazka?</p></div>
+<div><span>02 / ZIEMIA I KSIĘŻYC</span><h3>Zmień punkt widzenia.</h3><p>Przenieś kamerę do Ziemi, a potem spróbuj znaleźć Księżyc. Porównaj z naszym długim schematem odległości.</p></div>
+<div><span>03 / SKALA 1:1</span><h3>Sprawdź ustawienia rozmiaru.</h3><p>Jeśli panel oferuje przełącznik skali 1:1, włącz go. Zobacz, co dzieje się z czytelnością planet przy zachowaniu proporcji.</p></div>
+<div><span>04 / PERSPEKTYWA</span><h3>Przesuń kamerę w bok.</h3><p>Zbliż się i oddal, obróć scenę, porównaj pozorną wielkość tych samych planet. Pomyśl, dlaczego położenie kamery zmienia odczyt obrazu.</p></div>
+</div>
+<p class="s3-limits"><strong>Uczciwie o naszym silniku:</strong> planetarium korzysta z przybliżonych pozycji orbitalnych NASA/JPL w zakresie 1800–2050 i grafiki czasu rzeczywistego. Średnice, promienie orbit, oświetlenie oraz pole widzenia mogą być przedstawione w różnych skalach i trybach. Nie traktuj widoku jako wiernego zdjęcia z konkretnego miejsca ani jako efemeryd do nawigacji. Wersja artykułowa nie uruchamia silnika podczas przewijania.</p>
+</section>
+</article>
+
+<section class="s3-lab" id="laboratorium" aria-label="Przestrzeń 3D — pełne planetarium">
+<div class="s3-lab-heading"><div><span>ATLAS SOLARIS / 03 / PRAWDZIWA PRZESTRZEŃ</span><h2>Teraz możesz wejść <em>pomiędzy światy.</em></h2><p>Porównaj odległości, rozmiary i perspektywę w interaktywnym planetarium. Na telefonie sam decydujesz, kiedy uruchomić grafikę.</p></div><small>PLANETARIUM ŁADOWANE NA ŻĄDANIE</small></div>
+<div id="stageViewport" class="stage-viewport">
+<div class="s3-placeholder" id="s3Placeholder"><div class="s3-placeholder-graphic" aria-hidden="true"><i></i><b></b></div>
+<h3>Pustka ma swoją skalę.</h3><p>Pełna scena 3D potrzebuje procesora graficznego. Jeżeli chcesz tylko czytać i porównywać odległości, niczego nie musisz uruchamiać.</p>
+<button id="stageStartLab" type="button">Uruchom planetarium 3D <span aria-hidden="true">↗</span></button><small>Pliki silnika zostaną pobrane dopiero po kliknięciu.</small></div>
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY PRZESTRZEŃ 3D</strong><small>Ładowanie kamer, orbit i obiektów…</small></div>
+<iframe id="stageFrame" title="Etap 03: Przestrzeń 3D — planetarium interaktywne" data-lazy="true" data-manual="true" data-src="../../atlas.html?portal=solar" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" role="alert" hidden>Nie udało się uruchomić laboratorium. <button type="button" id="stageReload">Spróbuj ponownie</button></div>
+<p class="s3-lab-note">Artykuł, skala Ziemia–Księżyc i kalkulator proporcji pozostają lekkie i użyteczne także bez uruchamiania planetarium.</p>
+</section>
+
+<section class="s3-sources" id="zrodla">
+<div class="s3-sources-intro"><span>ANEKS / DANE ZAMIAST DOMYSŁÓW</span><h2>W każdej skali <em>te same prawa.</em></h2><p>Źródła od NASA i JPL pozwalają samodzielnie sprawdzić wielkości, odległości oraz zasady tworzenia modeli. Opis prawdziwego zdjęcia sondy zawiera także informację o chwili i geometrii obserwacji.</p></div>
+<ol>
+<li><a href="https://www.jpl.nasa.gov/edu/resources/project/make-a-scale-solar-system/" target="_blank" rel="noopener noreferrer">NASA/JPL — Make a Scale Solar System (2024)</a><small>Jak zbudować model o wspólnej skali średnic i odległości; projekt dla uczniów i dorosłych.</small></li>
+<li><a href="https://science.nasa.gov/moon/by-the-numbers/" target="_blank" rel="noopener noreferrer">NASA Science — Compare Earth and the Moon</a><small>Odległość 384 400 km, wielkości Ziemi i Księżyca, porównania.</small></li>
+<li><a href="https://science.nasa.gov/resource/solar-system-sizes/" target="_blank" rel="noopener noreferrer">NASA/Lunar and Planetary Institute — Solar System Sizes</a><small>Średnie promienie planet, w tym średni promień Ziemi.</small></li>
+<li><a href="https://science.nasa.gov/solar-system/planets/planet-sizes-and-locations-in-our-solar-system/" target="_blank" rel="noopener noreferrer">NASA Science — Planet Sizes and Locations (2025)</a><small>Średnie odległości od Słońca, rozmiary i kolejność planet.</small></li>
+<li><a href="https://science.nasa.gov/resource/osiris-rex-pictures-of-earth-and-the-moon/" target="_blank" rel="noopener noreferrer">NASA — OSIRIS-REx Pictures of Earth and the Moon (2017)</a><small>Autentyczna fotografia obu ciał, wykonana 25 września 2017 roku, odległość 401 200 km w chwili ekspozycji.</small></li>
+<li><a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html" target="_blank" rel="noopener noreferrer">NASA/JPL — Approximate Positions of the Planets</a><small>Źródło przybliżonych elementów orbit używanych w silniku ATLAS SOLARIS.</small></li>
+</ol>
+<p class="s3-source-note">ATLAS SOLARIS / ETAP 03. Grafika otwarcia jest autorskim, statycznym obrazem symbolicznym. Sekcja z przewijaniem zachowuje proporcję rozmiarów i średniego odstępu środków Ziemi oraz Księżyca, ale nie fizyczną skalę centymetrów na wyświetlaczu. Zdjęcie OSIRIS-REx jest materiałem obserwacyjnym NASA. Kalkulator ma charakter edukacyjny.</p>
+</section>
+<footer class="s3-footer"><span>ATLAS SOLARIS / 03</span><span>NAJWIĘKSZE ODLEGŁOŚCI RZADKO WYGLĄDAJĄ NA OBRAZKACH TAK, JAK W RZECZYWISTOŚCI.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></footer>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ATLAS SOLARIS / 03</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div>
+<h2>Przestrzeń 3D</h2><p class="stage-lead">Najwięcej jest pomiędzy</p><p>Odkrywaj proporcje rozmiarów i odległości — najpierw podczas statycznej podróży od Ziemi do Księżyca, a potem w interaktywnym planetarium 3D. Przełączaj kamery, porównuj skalę i naucz się rozpoznawać uproszczenia.</p>
+<p class="stage-info-note">Planetarium 3D uruchamia się dopiero po kliknięciu. Przewijany model Ziemia–Księżyc zachowuje stosunki długości, ale nie skalę fizyczną ekranu. Pierwsze etapy są tematycznymi doświadczeniami korzystającymi z tego samego współczesnego silnika.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Artykuł i przewijana demonstracja działają bez JavaScript. Kalkulator wyboru skali oraz planetarium 3D wymagają włączonego JavaScript.</p></noscript>
 </body></html>

@@ -1,0 +1,45 @@
+name: ATLAS SOLARIS — Ziemia po obu stronach swiatla 04
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/04/**'
+      - 'portal/earth04-story.css'
+      - 'portal/earth04-story.js'
+      - 'portal/media/earth04-cover.svg'
+      - 'portal/stage.js'
+      - 'tests/earth04-story.test.cjs'
+      - 'tests/earth04-story-browser.test.cjs'
+      - '.github/workflows/earth04-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  earth:
+    name: Audyt naukowy, trzy ekrany i swiadomy start laboratorium
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Sprawdz okresy, geometrie Slonca i fakty NASA
+        run: |
+          node --check portal/earth04-story.js
+          node --check portal/stage.js
+          node --test tests/earth04-story.test.cjs
+      - name: Przygotuj Chromium
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Trzy ekrany, polarny dzien i reczny start 3D
+        run: node tests/earth04-story-browser.test.cjs
+      - name: Zapisz podglady otwarcia
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-earth04-editorial-previews
+          path: _earth04_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

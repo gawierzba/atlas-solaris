@@ -1,13 +1,126 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Światy Jowisza | ATLAS SOLARIS</title><meta name="description" content="Przenoś się wokół Jowisza i obserwuj Io, Europę, Ganimedesa oraz Kallisto.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="08" data-kind="stage">
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07121f">
+<title>Cztery światy Jowisza. Jeden olbrzym, cztery różne historie | ATLAS SOLARIS 08</title>
+<meta name="description" content="Io płonie, Europa ukrywa ocean, Ganimedes ma własne pole magnetyczne, a Kallisto pamięta miliardy lat. Odkryj cztery księżyce Jowisza, ich rytm orbitalny i laboratorium 3D.">
+<meta property="og:type" content="article"><meta property="og:title" content="Cztery światy Jowisza — ATLAS SOLARIS 08">
+<meta property="og:description" content="Cztery księżyce Galileuszowe, cztery oblicza jednego układu planetarnego. Historia odkrycia, fizyka, misje i interaktywne doświadczenia.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/jupiter08-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css"><link rel="stylesheet" href="../../portal/jupiter08-story.css?v=08.1">
+<script src="../../portal/data.js" defer></script><script src="../../portal/stage.js?v=32.6" defer></script><script src="../../portal/jupiter08-story.js?v=08.1" defer></script>
+</head>
+<body class="j8-page" data-route="08" data-kind="stage">
+<a class="j8-skip" href="#odkrycie" style="position:absolute;left:-9999px;top:auto">Przejdź do artykułu</a>
 <header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 08 / Światy i orbity</span><strong>Światy Jowisza</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Światy Jowisza — interaktywne laboratorium" src="../../atlas.html?portal=jupiter" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 08</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Światy Jowisza</h1><p class="stage-lead">Cztery księżyce Galileuszowe</p><p>Przenoś się wokół Jowisza i obserwuj Io, Europę, Ganimedesa oraz Kallisto.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<div class="stage-crumb"><span>ETAP 08 / ŚWIATY I ORBITY</span><strong>Światy Jowisza</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button id="stageAbout" type="button" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" aria-label="Strona główna">⌂</a></nav></header>
+
+<main class="stage-main"><article class="j8-story" aria-labelledby="j8Title">
+<section class="j8-hero" aria-label="Cztery światy Jowisza">
+<img class="j8-hero-image" src="../../portal/media/jupiter08-cover.svg" width="1600" height="900" fetchpriority="high" alt="Artystyczna ilustracja Jowisza z czterema księżycami: Io, Europą, Ganimedesem i Kallisto. Odległości i rozmiary nie są przedstawione w jednej skali.">
+<div class="j8-hero-scrim"></div>
+<div class="j8-hero-body">
+<div class="j8-cover-mark"><i aria-hidden="true"></i> ATLAS SOLARIS / PODRÓŻE PO UKŁADZIE SŁONECZNYM / VIII</div>
+<div class="j8-hero-copy">
+<p class="j8-hero-kicker">ROZDZIAŁ 08 · CZTERY KSIĘŻYCE GALILEUSZOWE</p>
+<h1 id="j8Title">Jeden olbrzym.<br><em>Cztery światy.</em></h1>
+<p>Wokół Jowisza krążą miejsca, które nie powinny być do siebie podobne. Jeden księżyc płonie od środka. Drugi skrywa ocean pod lodem. Trzeci jest większy od planety Merkury. Czwarty przechowuje blizny sprzed miliardów lat. Witaj w najniezwyklejszej rodzinie księżyców Układu Słonecznego.</p>
+<div class="j8-hero-actions"><a class="j8-btn j8-btn-primary" href="#odkrycie">Rozpocznij wyprawę <span aria-hidden="true">↓</span></a><a class="j8-btn j8-btn-secondary" href="#laboratorium" id="stageLaunch">Otwórz Jowisza 3D <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="j8-cover-foot"><span>1610 · ODKRYCIE / 2026 · MISJE PRZYSZŁOŚCI</span><span>ILUSTRACJA AUTORSKA · SYMBOLICZNA, NIE FOTOGRAFIA</span></div>
+</div></section>
+<div class="j8-meta"><span>ATLAS SOLARIS / BIBLIOTEKA ODKRYWCÓW</span><span>ARTYKUŁ POPULARNONAUKOWY · OKOŁO 8 MIN CZYTANIA</span></div>
+
+<section class="j8-chapter j8-history" id="odkrycie"><div class="j8-wrap">
+<div class="j8-rule"><span>01 / NOC, KTÓRA ZMIENIŁA WSZECHŚWIAT</span><span>PADWA · STYCZEŃ 1610</span></div>
+<div class="j8-grid-copy">
+<div><span class="j8-eyebrow">KIEDYŚ WIDZIANO TYLKO JOWISZA</span><h2>Małe punkty światła. <em>Wielka zmiana myślenia.</em></h2></div>
+<div class="j8-text"><p class="j8-lead j8-drop">7 stycznia 1610 roku Galileusz skierował swoją lunetę na Jowisza. Obok jasnej planety dostrzegł trzy maleńkie punkty. Wyglądały jak gwiazdy. Tyle że następnej nocy ich położenia były inne.</p>
+<p>Astronom obserwował dalej. Wkrótce rozróżnił cztery obiekty, które zmieniały pozycje względem Jowisza, ale stale pozostawały w jego pobliżu. Doszedł do wniosku, że nie ogląda zwykłych gwiazd. Odkrył ciała krążące wokół innego świata niż Ziemia.</p>
+<p><strong>To był cios w wyobrażenie, że wszystko na niebie musi obiegać Ziemię.</strong> Nie był jeszcze samodzielnym dowodem na każdy szczegół systemu heliocentrycznego, ale stanowił niezwykle mocny argument przeciw takiemu prostemu obrazowi kosmosu.</p>
+<p>Obecnie nazywamy je księżycami Galileuszowymi: <strong>Io, Europa, Ganimedes i Kallisto</strong>. Patrząc z Ziemi przez niewielki teleskop, wciąż można zobaczyć ten sam rodzaj spektaklu, który ponad cztery stulecia temu zmienił historię astronomii.</p></div></div>
+<blockquote class="j8-quote">Nie wystarczy patrzeć w niebo. Trzeba jeszcze odważyć się zapytać, dlaczego punkty światła nie stoją tam, gdzie wczoraj.</blockquote>
+<div class="j8-mini-facts"><div><strong>1610</strong><span>Rok pierwszych obserwacji księżyców Galileuszowych.</span></div><div><strong>4</strong><span>Duże światy, które można dostrzec nawet prostym teleskopem.</span></div><div><strong>1</strong><span>Planeta, która trzyma je razem potęgą swojej grawitacji.</span></div></div>
+</div></section>
+
+<section class="j8-worlds" id="swiaty"><div class="j8-wide">
+<div class="j8-section-heading"><span class="j8-eyebrow">02 / CZTERY PORTRETY</span><h2>Ta sama rodzina.<br><em>Żadnego podobieństwa.</em></h2><p>Każdy z czterech księżyców powstał w otoczeniu Jowisza, a jednak różnice między nimi przypominają podróż przez zupełnie różne rozdziały geologii i fizyki.</p></div>
+<div class="j8-moons">
+<section class="j8-moon j8-moon--io"><span class="j8-moon-number">JOWISZ I · NAJBLIŻSZY Z WIELKIEJ CZWÓRKI</span><h3>Io</h3><span class="j8-moon-theme">ŚWIAT OGNIA</span><p>Na Io ziemski wulkan wyglądałby jak skromny eksperyment. Setki wulkanów wyrzucają materię, a cała powierzchnia jest nieustannie odmładzana przez erupcje. To nie bliskość Słońca rozpala księżyc. Jowisz i sąsiednie księżyce rytmicznie odkształcają jego wnętrze grawitacją. Powstające tarcie rozgrzewa skały.</p><div class="j8-moon-foot"><span>Średnica <strong>ok. 3 643 km</strong></span><span>Obieg <strong>1,77 dnia</strong></span></div></section>
+<section class="j8-moon j8-moon--eu"><span class="j8-moon-number">JOWISZ II · POD LODOWĄ SKORUPĄ</span><h3>Europa</h3><span class="j8-moon-theme">ŚWIAT OCEANU</span><p>Jasna lodowa powierzchnia Europy pęka w długie, ciemniejsze linie. Pod nią najprawdopodobniej rozciąga się globalny ocean słonej, ciekłej wody. Czy są w nim warunki pozwalające istnieć życiu? To pytanie, nie odkrycie życia. Europa jest jednym z najważniejszych celów współczesnej astrobiologii.</p><div class="j8-moon-foot"><span>Średnica <strong>ok. 3 122 km</strong></span><span>Obieg <strong>3,55 dnia</strong></span></div></section>
+<section class="j8-moon j8-moon--ga"><span class="j8-moon-number">JOWISZ III · GIGANT WŚRÓD KSIĘŻYCÓW</span><h3>Ganimedes</h3><span class="j8-moon-theme">ŚWIAT WŁASNEGO POLA</span><p>Ganimedes jest największym księżycem Układu Słonecznego, większym pod względem średnicy od Merkurego. To jedyny księżyc z potwierdzonym własnym, globalnym polem magnetycznym. Pod lodową skorupą również mogą istnieć warstwy ciekłej wody. Jest księżycem, ale ma złożoność, którą zwykle kojarzymy z planetami.</p><div class="j8-moon-foot"><span>Średnica <strong>ok. 5 262 km</strong></span><span>Obieg <strong>7,16 dnia</strong></span></div></section>
+<section class="j8-moon j8-moon--ca"><span class="j8-moon-number">JOWISZ IV · ZEWNĘTRZNY ŚWIADEK</span><h3>Kallisto</h3><span class="j8-moon-theme">ŚWIAT PAMIĘCI</span><p>Powierzchnia Kallisto to zapis dawnych uderzeń. Krater leży obok krateru, a niektóre ślady przetrwały niewyobrażalnie długo. Niewiele wskazuje na intensywne współczesne przekształcanie powierzchni. A jednak pomiary sondy Galileo sugerują, że także pod tą starą skorupą może ukrywać się zasolony ocean.</p><div class="j8-moon-foot"><span>Średnica <strong>ok. 4 821 km</strong></span><span>Obieg <strong>16,69 dnia</strong></span></div></section>
+</div></div></section>
+
+<section class="j8-chapter j8-resonance" id="rezonans"><div class="j8-wrap">
+<div class="j8-rule"><span>03 / GRAWITACJA JAK PARTYTURA</span><span>REZONANS LAPACE’A</span></div>
+<div class="j8-grid-copy">
+<div><span class="j8-eyebrow">NIE TYLKO JOWISZ RZĄDZI TYM UKŁADEM</span><h2>Gdy jeden księżyc okrąża planetę, <em>inne liczą jego kroki.</em></h2><div class="j8-resonance-number" aria-label="Cztery do dwóch do jednego">4 : 2 : 1</div></div>
+<div class="j8-text"><p class="j8-lead">Io, Europa i Ganimedes są połączone niezwykłym rytmem. W czasie, gdy Ganimedes wykonuje około jednego okrążenia Jowisza, Europa obiega planetę dwa razy, a Io — cztery.</p>
+<p>To <strong>rezonans orbitalny</strong>, a nie przypadkowa zbieżność liczb. Powtarzające się oddziaływania grawitacyjne sprawiają, że orbity nie stają się idealnie kołowe. Jowisz raz nieco silniej, raz słabiej rozciąga księżyce. W ich wnętrzach powstaje ciepło pływowe.</p>
+<p>Właśnie dlatego Io nie jest zamarzniętą bryłą skał, choć znajduje się daleko od Słońca. A Europa może utrzymywać ciekłą wodę pod lodem. Nie jest to jednak prosta zasada, że każde ciało w rezonansie musi mieć ocean lub wulkany — znaczenie ma również budowa wnętrza i historia księżyca.</p>
+<p><strong>Kallisto nie należy do tego rezonansu 4:2:1.</strong> Jej dłuższy okres obiegu i odmienna historia dynamiczna czynią z niej interesujący punkt odniesienia dla trzech wewnętrznych światów.</p>
+<div class="j8-resonance-card">Wyobraź sobie trzy zegary. Pierwszy tyka cztery razy, drugi dwa, trzeci raz. Każdy ma własny rytm, ale wspólnie tworzą powtarzający się układ. W układzie Jowisza te „tyknięcia” są grawitacyjnymi oddziaływaniami, które przez ogromne przedziały czasu zmieniają wnętrza księżyców.</div>
+</div></div></div></section>
+
+<section class="j8-orbit-section" id="model"><div class="j8-wide">
+<div class="j8-orbit-head"><span class="j8-eyebrow">04 / OBSERWATORIUM ORBITALNE</span><h2>Uruchom <em>ruch księżyców.</em></h2><p>Przesuwaj czas albo uruchom animację. Zobaczysz, jak różne są okresy obiegu i jak szybko Io wyprzedza pozostałe światy. Nie potrzebujesz do tego silnika 3D.</p></div>
+<div class="j8-observatory" aria-label="Dydaktyczny model obiegu czterech księżyców">
+<div class="j8-observatory-top"><div><strong>LABORATORIUM / RYTM CZTERECH ORBIT</strong><span>Model poglądowy · ruch w umownych fazach startowych</span></div><button type="button" id="j8Play" aria-pressed="false">▶ Uruchom ruch</button></div>
+<svg id="j8OrbitMap" class="j8-orbit-svg" viewBox="0 0 900 550" role="img" aria-labelledby="j8SvgTitle j8SvgDesc"><title id="j8SvgTitle">Schemat obiegu księżyców Jowisza</title><desc id="j8SvgDesc">Cztery symboliczne eliptyczne orbity widziane w perspektywie. Ustawiona liczba dni decyduje o położeniu każdego księżyca. Model nie pokazuje rzeczywistych bieżących położeń ani zaćmień.</desc>
+<defs><radialGradient id="j8J" cx=".25" cy=".25"><stop stop-color="#f3d5b0"/><stop offset=".63" stop-color="#be9276"/><stop offset="1" stop-color="#71566c"/></radialGradient><radialGradient id="j8Io" cx=".2" cy=".2"><stop stop-color="#fbe3a1"/><stop offset="1" stop-color="#bc773c"/></radialGradient><radialGradient id="j8Eu" cx=".2" cy=".2"><stop stop-color="#eff7f4"/><stop offset="1" stop-color="#6d9bb4"/></radialGradient><radialGradient id="j8Ga" cx=".2" cy=".2"><stop stop-color="#cfd0d6"/><stop offset="1" stop-color="#62738d"/></radialGradient><radialGradient id="j8Ca" cx=".2" cy=".2"><stop stop-color="#bcb2a5"/><stop offset="1" stop-color="#555e77"/></radialGradient><clipPath id="j8PlanetClip"><circle cx="450" cy="274" r="45"/></clipPath></defs>
+<g><ellipse class="j8-ring" cx="450" cy="274" rx="118" ry="57"/><ellipse class="j8-ring" cx="450" cy="274" rx="189" ry="92"/><ellipse class="j8-ring" cx="450" cy="274" rx="274" ry="136"/><ellipse class="j8-ring" cx="450" cy="274" rx="364" ry="183"/></g>
+<circle class="j8-jupiter" cx="450" cy="274" r="45" fill="url(#j8J)"/><g clip-path="url(#j8PlanetClip)"><path class="j8-jupiter-shade" d="M396 248 Q451 265 507 247 M395 275 Q455 286 508 273 M400 303 Q456 289 505 307"/></g>
+<text x="450" y="338" text-anchor="middle" class="j8-mark" fill="#e9d6c3">JOWISZ</text>
+<circle id="j8Moonio" cx="560" cy="252" r="9" fill="url(#j8Io)"/><text id="j8Labelio" class="j8-mark" x="576" y="238">IO</text>
+<circle id="j8Mooneu" cx="550" cy="346" r="10" fill="url(#j8Eu)"/><text id="j8Labeleu" class="j8-mark" x="565" y="330">EUROPA</text>
+<circle id="j8Moonga" cx="385" cy="140" r="12" fill="url(#j8Ga)"/><text id="j8Labelga" class="j8-mark" x="365" y="122" text-anchor="end">GANIMEDES</text>
+<circle id="j8Moonca" cx="267" cy="432" r="11" fill="url(#j8Ca)"/><text id="j8Labelca" class="j8-mark" x="244" y="416" text-anchor="end">KALLISTO</text>
+</svg>
+<div class="j8-orbit-controls"><div class="j8-time-line"><label for="j8Time">CZAS SYMULACJI</label><output id="j8Days" for="j8Time">0,00 dnia</output></div><input type="range" id="j8Time" min="0" max="16.69" step=".01" value="0" aria-label="Przesuwanie czasu od zera do 16,69 dnia"><div class="j8-time-ticks"><span>Dzień 0</span><span>Dzień 8</span><span>Dzień 16,69</span></div>
+<p class="j8-orbit-warning">Uwaga naukowa: orbity na rysunku są umownymi elipsami perspektywicznymi, a wielkości księżyców i odległości nie są zachowane w skali. Okresy obiegu odpowiadają wartościom zaokrąglonym z danych DLR. Fazy początkowe wybrano ilustracyjnie. To demonstracja różnic tempa, nie aktualna mapa nieba ani precyzyjna symulacja perturbacji i rezonansu.</p></div>
+</div>
+<div class="j8-cadence" aria-label="Okresy obiegu"><div><span>IO</span><strong>1,77</strong><small>dnia ziemskiego</small></div><div><span>EUROPA</span><strong>3,55</strong><small>dnia ziemskiego</small></div><div><span>GANIMEDES</span><strong>7,16</strong><small>dnia ziemskiego</small></div><div><span>KALLISTO</span><strong>16,69</strong><small>dnia ziemskiego</small></div></div>
+</div></section>
+
+<section class="j8-light"><div class="j8-wrap"><p class="j8-light-quote">„Czasem największą tajemnicą planety nie jest sama planeta, lecz to, <em>co krąży wokół niej.</em>”</p><p class="j8-light-sub">ATLAS SOLARIS / MIĘDZY GRAWITACJĄ A MOŻLIWOŚCIĄ ŻYCIA</p></div></section>
+
+<section class="j8-missions" id="misje"><div class="j8-wide">
+<div class="j8-section-heading"><span class="j8-eyebrow">05 / PYTANIA, NA KTÓRE SZUKAMY ODPOWIEDZI</span><h2>Wyprawy do światów, <em>których jeszcze nie znamy.</em></h2><p>Galileusz miał lunetę. My wysyłamy laboratoria przez setki milionów kilometrów. Najważniejsza zmiana polega jednak na tym, że umiemy zadawać dokładniejsze pytania.</p></div>
+<div class="j8-mission-grid">
+<div class="j8-mission"><small>NASA / EUROPA CLIPPER</small><h3>Czy Europa może sprzyjać życiu?</h3><p>Sonda wystartowała <strong>14 października 2024 roku</strong>. Planowane dotarcie do układu Jowisza przypada na <strong>kwiecień 2030 roku</strong>. Statek ma wykonywać wielokrotne bliskie przeloty obok Europy, badając skorupę lodową, ocean i skład materii. Nie jest to misja ogłoszona jako bezpośrednie poszukiwanie żywych organizmów, lecz poszukiwanie warunków sprzyjających życiu.</p></div>
+<div class="j8-mission"><small>ESA / JUICE</small><h3>Jak działają lodowe światy olbrzyma?</h3><p>Europejski JUICE wyruszył <strong>14 kwietnia 2023 roku</strong>, a planowany przylot do Jowisza to <strong>lipiec 2031 roku</strong>. Misja zbada przede wszystkim Ganimedesa, Kallisto i Europę, ich wnętrza, środowisko magnetyczne i historię. Docelowo ma prowadzić także obserwacje z orbity Ganimedesa.</p></div>
+</div></div></section>
+
+<section class="j8-lab" id="laboratorium"><div class="j8-wide">
+<div class="j8-lab-intro"><div><span class="j8-eyebrow">06 / PEŁNE DOŚWIADCZENIE</span><h2>Teraz zbliż się <em>do Jowisza.</em></h2></div><p>Artykuł opowiada o świecie czterech księżyców. Oryginalne laboratorium ATLAS SOLARIS pozwala wejść w przestrzeń Jowisza i przełączać się między Io, Europą, Ganimedesem i Kallisto. Uruchomimy je dopiero wtedy, kiedy zechcesz — bez obciążania strony podczas czytania.</p></div>
+<div id="stageViewport" class="stage-viewport">
+<div class="j8-lab-gate"><div class="j8-gate-symbol" aria-hidden="true"></div><h3>Wyrusz na orbitę Jowisza.</h3><p>Otwórz pełne laboratorium 3D. Zmieniaj perspektywę i poznawaj cztery wielkie księżyce w aktualnym silniku Atlasu.</p><button id="stageStartLab" type="button">Uruchom laboratorium Jowisza ↗</button></div>
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY UKŁAD JOWISZA</strong><small>Wczytywanie silnika 3D…</small></div>
+<iframe id="stageFrame" title="ATLAS SOLARIS — światy Jowisza, laboratorium 3D" data-lazy="true" data-manual="true" data-src="../../atlas.html?portal=jupiter" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<div id="stageError" hidden role="alert">Laboratorium nie zgłosiło gotowości. <button id="stageReload" type="button">Spróbuj ponownie</button></div>
+<p class="j8-lab-note">Pełny silnik 3D działa jako odrębne doświadczenie. Wczesne etapy ATLAS SOLARIS wykorzystują tematyczne widoki aktualnego silnika, a nie archiwalne kopie pierwotnych wersji.</p>
+</div></section>
+
+<section class="j8-sources" id="zrodla"><div class="j8-wrap">
+<span class="j8-eyebrow">ANEKS / SPRAWDŹ ŹRÓDŁA</span><h2>Za zachwytem <em>stoją dane.</em></h2>
+<p class="j8-sources-intro">Historia, średnice, okresy obiegu i opis misji zostały oparte na opracowaniach agencji badawczych. Oddzielam obserwacje od hipotez: istnienie możliwych oceanów nie oznacza odkrycia życia.</p>
+<ol>
+<li><a href="https://science.nasa.gov/jupiter/jupiter-moons/" target="_blank" rel="noopener noreferrer">NASA — Jupiter Moons</a><small>Ogólny opis księżyców Galileuszowych, odkrycia z 1610 roku i ich różnic.</small></li>
+<li><a href="https://science.nasa.gov/jupiter/jupiter-moons/io/facts/" target="_blank" rel="noopener noreferrer">NASA — Io Facts</a><small>Aktywność wulkaniczna, grzanie pływowe i historia obserwacji.</small></li>
+<li><a href="https://science.nasa.gov/jupiter/jupiter-moons/europa/" target="_blank" rel="noopener noreferrer">NASA — Europa</a><small>Dowody na ocean pod lodem oraz naukowe pytania o warunki do życia.</small></li>
+<li><a href="https://science.nasa.gov/jupiter/jupiter-moons/ganymede/facts/" target="_blank" rel="noopener noreferrer">NASA — Ganymede Facts</a><small>Wielkość, własne pole magnetyczne i rezonans 4:2:1.</small></li>
+<li><a href="https://science.nasa.gov/jupiter/jupiter-moons/callisto/" target="_blank" rel="noopener noreferrer">NASA — Callisto</a><small>Stara, kraterowana powierzchnia i możliwy podpowierzchniowy ocean.</small></li>
+<li><a href="https://www.dlr.de/en/research-and-transfer/projects-and-missions/juice/the-large-moons-of-jupiter-galilean-moons" target="_blank" rel="noopener noreferrer">DLR — The large moons of Jupiter</a><small>Promienie, masy, gęstości, odległości i okresy orbitalne czterech księżyców.</small></li>
+<li><a href="https://science.nasa.gov/mission/europa-clipper/" target="_blank" rel="noopener noreferrer">NASA — Europa Clipper</a><small>Start 14 października 2024 r., cel badań i planowany przylot w 2030 r.</small></li>
+<li><a href="https://www.esa.int/Science_Exploration/Space_Science/Juice" target="_blank" rel="noopener noreferrer">ESA — Juice</a><small>Plan misji: start w kwietniu 2023 r., przylot do Jowisza w lipcu 2031 r.</small></li>
+</ol>
+<p class="j8-editorial">ATLAS SOLARIS / ETAP 08. Okładka i portrety księżyców są ilustracjami artystycznymi, nie fotografiami. Laboratorium orbitalne 2D wykorzystuje uproszczony ruch okresowy na schematycznych orbitach i nie oblicza efemeryd. Obecność oceanu na Europie ma mocne podstawy obserwacyjne; szczegóły jego struktury pozostają przedmiotem badań. Misje opisano według harmonogramów agencji dostępnych w listopadzie 2026 roku.</p>
+</div></section>
+
+<footer class="j8-footer"><span>ATLAS SOLARIS / OPOWIEŚĆ 08</span><span>CZTERY ŚWIATY. JEDNO NIEKOŃCZĄCE SIĘ PYTANIE.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></footer>
+</article></main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ATLAS SOLARIS / ETAP 08</span><button id="stageInfoClose" type="button" aria-label="Zamknij informacje">✕</button></div><h2>Światy Jowisza</h2><p class="stage-lead">Jeden olbrzym. Cztery światy.</p><p>Poznaj Io, Europę, Ganimedesa i Kallisto, zobacz rezonans orbitalny, uruchom lekki model ruchu oraz pełne laboratorium Jowisza 3D.</p><p class="stage-info-note">Animacja 2D jest schematem dydaktycznym, nie bieżącą efemerydą. Pełne laboratorium 3D ładuje się wyłącznie na żądanie.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Cały artykuł jest dostępny bez JavaScript. Animowany model orbitalny i laboratorium 3D wymagają JavaScript.</p></noscript>
 </body></html>

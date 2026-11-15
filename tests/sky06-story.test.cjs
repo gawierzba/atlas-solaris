@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p
 const html=read('etapy/06/index.html'),css=read('portal/sky06-story.css'),cover=read('portal/media/sky06-cover.svg');
 const sky=read('portal/sky06-story.js'),shell=read('portal/stage.js'),engine=read('atlas.html'),data=read('portal/data.js');
 test('Stage 06 tells a complete, properly sourced astronomy story',()=>{
- for(const subject of ['Niebo nie krąży','horyzont','sfera niebieska','Polaris','Wega','Syriusz','Kanopus','23 ','56 ','4 ','ALMA','Tafreshi','doba gwiazdowa','Gdańsk','zenit','azymut','refra','precesj','kąt godzinny']){
+ for(const subject of ['Niebo nie krąży','horyzont','sfery niebieskiej','Polaris','Wega','Syriusz','Kanopus','23 ','56 ','4 ','ALMA','Tafreshi','doba gwiazdowa','Gdańsk','zenit','azymut','refra','precesj','kąt godzinny']){
   assert.ok(html.toLocaleLowerCase('pl').includes(subject.toLocaleLowerCase('pl')),'Missing '+subject);
  }
  for(const id of ['poczatek','horyzont','slady-gwiazd','polarna','kompas-nieba','niebo-w-roku','zadania','laboratorium','zrodla'])assert.ok(html.includes('id="'+id+'"'),'Missing section '+id);

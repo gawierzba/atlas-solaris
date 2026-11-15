@@ -1,0 +1,60 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const html=read('etapy/02/index.html'),css=read('portal/solar02-story.css'),cover=read('portal/media/solar02-cover.svg');
+const clock=read('portal/solar02-story.js'),shell=read('portal/stage.js'),engine=read('atlas.html'),core=read('js/app.js');
+test('Chapter 02 is a complete, differentiated astronomy chronometry editorial',()=>{
+ for(const t of ['Rok nie trwa rok','Merkury','Neptun','Keplera','peryhelium','aphelium','rok gwiazdowy','zwrotnikowy','momentu pędu','365,256','88','165','JPL Horizons','−1 dzień/s','1 rok/s'])assert.ok(html.includes(t),'Missing '+t);
+ for(const id of ['poczatek','osiem-zegarow','kepler','prawo-trzecie','zegar','czas-w-symulatorze','laboratorium','zrodla'])assert.ok(html.includes('id="'+id+'"'),'Missing chapter '+id);
+ assert.ok(html.indexOf('id="poczatek"')<html.indexOf('id="zegar"'));
+ assert.ok(html.indexOf('id="zegar"')<html.indexOf('id="laboratorium"'));
+ assert.ok(html.indexOf('id="laboratorium"')<html.indexOf('id="zrodla"'));
+ for(const source of ['science.nasa.gov/solar-system/orbits-and-keplers-laws/','ssd.jpl.nasa.gov/planets/approx_pos.html','science.nasa.gov/learn/basics-of-space-flight/chapter3-3/','science.nasa.gov/resource/orbits-and-keplers-laws/'])assert.ok(html.includes(source),'Missing NASA source '+source);
+ assert.match(html,/data-lazy="true" data-manual="true"/);
+ assert.match(html,/data-src="\.\.\/\.\.\/atlas\.html\?portal=solar"/);
+ assert.match(html,/id="stageStartLab"/);
+ assert.match(html,/id="stageLaunch"/);
+ assert.match(html,/id="stageReload"/);
+ assert.match(html,/id="stageLoading"/);
+ assert.match(html,/id="stageRelated"/);
+ assert.match(html,/id="stageInfo"/);
+});
+test('All 8 orbital periods are present and astronomically ordered',()=>{
+ const values=[...html.matchAll(/class="s2-reading" data-orbit-days="([\d.]+)"/g)].map(m=>Number(m[1]));
+ assert.equal(values.length,8);
+ assert.deepEqual(values,[87.969,224.701,365.256,686.980,4332.59,10759.2,30688.5,60182]);
+ assert.equal((html.match(/class="s2-record"/g)||[]).length,8);
+ assert.equal((html.match(/class="s2-reading-name"/g)||[]).length,8);
+ assert.ok(values.every((v,i)=>i===0||v>values[i-1]));
+ assert.match(clock,/const siderealYear=365\.256/);
+ assert.match(clock,/revolutions=years\*siderealYear\/days/);
+ assert.doesNotMatch(clock,/requestAnimationFrame|setInterval|WebGL|localStorage|fetch\(/);
+});
+test('Scientific schematic really draws equal-area wedges from the correct focus',()=>{
+ const paths=[...html.matchAll(/<path d="(M 707\.2 235 L[^"]+)" fill="#(?:a4e6e4|c9afe2)"/g)].map(m=>m[1]);
+ assert.equal(paths.length,2,'Two swept-area wedges must be visible');
+ function polygonArea(src){const n=[...src.matchAll(/-?\d+(?:\.\d+)?/g)].map(m=>Number(m[0]));assert.equal(n.length%2,0);const p=[];for(let i=0;i<n.length;i+=2)p.push([n[i],n[i+1]]);let area=0;for(let i=0;i<p.length;i++){const a=p[i],b=p[(i+1)%p.length];area+=a[0]*b[1]-b[0]*a[1]}return Math.abs(area/2)}
+ const a=paths.map(polygonArea);
+ const relativeError=Math.abs(a[0]-a[1])/Math.max(...a);
+ assert.ok(relativeError<0.015,'The Kepler sectors are not equal in area: '+a+'; delta='+relativeError);
+ assert.match(html,/Słońce w prawym ognisku/);
+});
+test('Article is light and fully scrollable; 3D starts explicitly, not on scroll',()=>{
+ assert.match(cover,/<svg/);
+ assert.match(cover,/viewBox="0 0 1600 900"/);
+ assert.ok(Buffer.byteLength(cover,'utf8')<40000,'Static artwork too large');
+ assert.doesNotMatch(cover,/<script|<animate|<animateTransform|<foreignObject|filter=/i);
+ assert.match(html,/portal\/media\/solar02-cover\.svg/);
+ assert.doesNotMatch(html,/<canvas|three\.js|requestAnimationFrame/);
+ assert.match(css,/overflow-y:auto/);
+ assert.match(css,/@media\(max-width:650px\)/);
+ assert.match(css,/@media\(max-width:350px\)/);
+ assert.match(shell,/const manualLab=iframe\?\.dataset\.manual==='true'/);
+ assert.match(shell,/stageStartLab/);
+ assert.match(shell,/if\(manualLab\)/);
+ assert.match(engine,/id="timeSlider"/);
+ assert.match(engine,/id="speedSelect"/);
+ assert.match(engine,/value="365\.256"/);
+ assert.match(engine,/value="-1"/);
+ assert.match(core,/ssd\.jpl\.nasa\.gov\/planets\/approx_pos\.html/);
+});

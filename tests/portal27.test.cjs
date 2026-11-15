@@ -13,7 +13,10 @@ for(const [key,item] of Object.entries(data.stages)){
  if(item.src) assert.ok(page.includes(item.src), `Missing custom src for \${key}`);
  else assert.match(page,new RegExp('portal='+item.mode));
  assert.match(page,/<iframe /);
- assert.ok(page.includes('aria-controls="stageInfo"'));
+ if(item.number===10){
+  assert.match(page,/<article\b/,'Etap 10 zachowuje pelny artykul');
+  assert.ok(page.includes('id="m10-launch"'),'Etap 10 zachowuje uruchamianie laboratorium');
+ }else assert.ok(page.includes('aria-controls="stageInfo"'));
 }
 for(const item of Object.values(data.bonuses))assert.match(html(item.path+'index.html'),new RegExp('portal='+item.mode));
 for(const item of Object.values(data.categories))assert.match(html(item.path+'index.html'),new RegExp('data-category="'+item.id+'"'));

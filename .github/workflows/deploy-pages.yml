@@ -87,6 +87,10 @@ jobs:
           test -s portal/media/solar03-cover.svg
           test -s etapy/03/index.html
           test -s etapy/11/index.html
+          test -s etapy/12/index.html
+          test -s portal/gravity12-story.css
+          test -s portal/gravity12-story.js
+          test -s portal/media/gravity12-cover.jpg
           test -s portal/mission11-story.css
           test -s portal/mission11-story.js
           test -s portal/media/mission11-cover.svg
@@ -117,6 +121,8 @@ jobs:
           node --check portal/site.js
           node --check portal/stage.js
           node --check portal/mission11-story.js
+          node --check portal/gravity12-story.js
+          node --test tests/gravity12-story.test.cjs
           node --test tests/mission11-story.test.cjs
           node --check portal/method07-story.js
           node --check portal/sky06-story.js
@@ -157,6 +163,10 @@ jobs:
           test -s _site/portal/media/earth04-cover.svg
           test -s _site/etapy/03/index.html
           test -s _site/etapy/11/index.html
+          test -s _site/etapy/12/index.html
+          test -s _site/portal/gravity12-story.css
+          test -s _site/portal/gravity12-story.js
+          test -s _site/portal/media/gravity12-cover.jpg
           test -s _site/portal/mission11-story.css
           test -s _site/portal/mission11-story.js
           test -s _site/portal/media/mission11-cover.svg

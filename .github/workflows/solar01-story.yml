@@ -1,0 +1,44 @@
+name: ATLAS SOLARIS — pierwszy rozdzial 01
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/01/**'
+      - 'portal/solar01-story.css'
+      - 'portal/media/solar01-cover.svg'
+      - 'portal/stage.js'
+      - 'tests/solar01-story.test.cjs'
+      - 'tests/solar01-story-browser.test.cjs'
+      - '.github/workflows/solar01-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  introduction:
+    name: Czytelnosc, historia i świadomy start 3D
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Sprawdz logike i tekst popularnonaukowy
+        run: |
+          node --check portal/stage.js
+          node --check js/app.js
+          node --test tests/solar01-story.test.cjs
+      - name: Zainstaluj Chromium
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Otworz artykul na 3 ekranach oraz uruchom planetarium tylko na zyczenie
+        run: node tests/solar01-story-browser.test.cjs
+      - name: Miniatury do przegladu
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-solar01-editorial-previews
+          path: _solar01_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

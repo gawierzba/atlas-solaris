@@ -31,7 +31,7 @@ test('Visuals are light, credited, with a separate manual laboratory',()=>{
  assert.match(css,/overflow-y:auto/);
  assert.match(css,/@media\(max-width:650px\)/);
  assert.match(css,/@media\(max-width:350px\)/);
- assert.match(shell,/const manualLab=iframe\?\.dataset\.manual==='true'/);
+ assert.match(shell,/const manualLab=!!\(iframe&&iframe\.dataset\.manual==='true'\)/);
  assert.match(engine,/id="surfaceMode"/);
  assert.match(engine,/id="latitude"/);
  assert.match(engine,/id="sunAlt"/);

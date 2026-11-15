@@ -1,0 +1,45 @@
+name: ATLAS SOLARIS — niebo z powierzchni 06
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/06/**'
+      - 'portal/sky06-story.css'
+      - 'portal/sky06-story.js'
+      - 'portal/media/sky06-cover.svg'
+      - 'portal/stage.js'
+      - 'tests/sky06-story.test.cjs'
+      - 'tests/sky06-story-browser.test.cjs'
+      - '.github/workflows/sky06-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  horizon:
+    name: Kierunki nieba, mobilny atlas i manualne uruchomienie 3D
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Dane i geometria alt-az
+        run: |
+          node --check portal/sky06-story.js
+          node --check portal/stage.js
+          node --test tests/sky06-story.test.cjs
+      - name: Instalacja lekkiego Chromium
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Sprawdz trzy urzadzenia i odczyty astronomiczne
+        run: node tests/sky06-story-browser.test.cjs
+      - name: Zachowaj widoki do audytu
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-sky06-editorial-previews
+          path: _sky06_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

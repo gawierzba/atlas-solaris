@@ -84,3 +84,13 @@ body.m33-page .stage-info{position:fixed}
 @media(max-width:900px){.m33-workbench,.m33-lab-intro,.m33-two{grid-template-columns:1fr}.m33-two{gap:18px}.m33-hero{min-height:700px}.m33-display,.m33-display canvas{min-height:500px}}
 @media(max-width:630px){.m33-story{padding:8px 8px 40px}.m33-hero{min-height:680px;border-radius:14px}.m33-hero-art{object-position:57% center}.m33-hero-mask{background:linear-gradient(90deg,#060a1ce8,#060a1c99 68%,#05081645),linear-gradient(0deg,#050816ee,transparent 38%)}.m33-hero-body{padding:18px}.m33-hero-copy{padding:58px 0}.m33-hero h1{font-size:clamp(42px,11.6vw,68px)}.m33-hero-foot,.m33-meta{font-size:9px}.m33-chapter,.m33-lab{padding:45px 16px}.m33-rule{font-size:9px;gap:7px;flex-wrap:wrap}.m33-facts{grid-template-columns:1fr}.m33-bars{gap:20px}.m33-bar{grid-template-columns:1fr auto;gap:7px}.m33-bar>div{grid-column:1/-1;grid-row:2}.m33-bar b{text-align:right}.m33-console{padding:18px}.m33-readouts{gap:8px}.m33-readouts strong{font-size:13px}.m33-display,.m33-display canvas{min-height:440px}.m33-screen-top{font-size:9px;flex-wrap:wrap}.m33-display>p{font-size:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Chapter 04 → 05: original magnetar artwork */
+.m33-artwork{display:block;max-width:1210px;margin:clamp(28px,5vw,72px) auto clamp(22px,4vw,56px);padding:0 clamp(4px,2vw,26px)}
+.m33-artwork-frame{position:relative;overflow:hidden;border-radius:20px;border:1px solid rgba(170,170,247,.27);box-shadow:0 26px 70px rgba(1,1,14,.46)}
+.m33-artwork-frame img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.m33-artwork-frame:after{content:"";position:absolute;inset:60% 0 0;background:linear-gradient(0deg,rgba(3,6,21,.58),transparent);pointer-events:none}
+.m33-artwork-stamp{position:absolute;left:20px;bottom:18px;z-index:1;font-size:10px;letter-spacing:.17em;color:rgba(244,246,255,.94);font-weight:700;text-shadow:0 1px 10px #000}
+.m33-artwork figcaption{max-width:920px;margin:18px auto 0;display:grid;grid-template-columns:minmax(130px,190px) 1fr;gap:20px;border-top:1px solid rgba(168,175,231,.25);padding:15px 2px 0}
+.m33-artwork figcaption span{color:#b2a9ea;font-size:10px;letter-spacing:.14em;font-weight:700}
+.m33-artwork figcaption p{color:#aebbd2;font-size:13px;line-height:1.75;margin:0}
+@media(max-width:630px){.m33-artwork{padding:0 3px}.m33-artwork-frame{border-radius:12px}.m33-artwork-stamp{font-size:8px;left:12px;bottom:12px}.m33-artwork figcaption{display:block;padding:12px 4px 0}.m33-artwork figcaption p{margin-top:8px}}

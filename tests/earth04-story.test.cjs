@@ -30,7 +30,7 @@ test('There is no expensive rendering in editorial, the existing Earth and globe
  assert.match(html,/id="stageRelated"/);
  assert.match(html,/id="stageInfo"/);
  assert.match(html,/laboratoria\/ziemia-z-kosmosu\//);
- assert.match(shell,/const manualLab=iframe\?\.dataset\.manual==='true'/);
+ assert.match(shell,/const manualLab=!!\(iframe&&iframe\.dataset\.manual==='true'\)/);
  assert.match(engine,/id="openGlobe"/);
  assert.match(css,/overflow-y:auto/);
  assert.match(css,/@media\(max-width:650px\)/);

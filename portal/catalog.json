@@ -1,5 +1,5 @@
 {
-  "version": "32.0",
+  "version": "33.0",
   "categories": {
     "planety": {
       "id": "planety",
@@ -287,6 +287,16 @@
       "path": "etapy/32/",
       "kind": "stage",
       "src": "laboratoria/pulsar/index.html"
+    },
+    "33": {
+      "number": 33,
+      "title": "Magnetar. Potęga pola",
+      "lead": "Gwiazda, która nie zna umiaru",
+      "description": "Poznaj najbardziej namagnesowane gwiazdy neutronowe. Odkryj wielkie rozbłyski gamma, trzęsienia skorupy i uruchom interaktywne laboratorium pola magnetycznego.",
+      "category": "gwiazdy",
+      "mode": "magnetar33",
+      "path": "etapy/33/",
+      "kind": "stage"
     },
     "01": {
       "number": 1,

@@ -44,7 +44,9 @@ async function run(){
    assert.equal(labRequests.length,0,'No 3D engine should download during passive reading');
    assert.deepEqual(errors,[],'Article script errors');
    if(name==='desktop'){
+     const pendingRequest=page.waitForRequest(r=>r.url().includes('/atlas.html'),{timeout:15000});
      await page.locator('#stageStartLab').click();
+     await pendingRequest;
      await page.waitForFunction(()=>Boolean(document.querySelector('#stageFrame').getAttribute('src')),{timeout:10000});
      assert.equal(labRequests.length,1,'Expected exactly one 3D engine request after click');
      const frame=page.frameLocator('#stageFrame');

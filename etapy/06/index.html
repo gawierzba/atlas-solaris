@@ -1,13 +1,202 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Niebo z powierzchni | ATLAS SOLARIS</title><meta name="description" content="Obserwuj niebo z Ziemi. Orientację i położenia obiektów oblicza silnik Atlasu.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="06" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 06 / Światy i orbity</span><strong>Niebo z powierzchni</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Niebo z powierzchni — interaktywne laboratorium" src="../../atlas.html?portal=earthsky" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 06</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Niebo z powierzchni</h1><p class="stage-lead">Zmień punkt obserwacji</p><p>Obserwuj niebo z Ziemi. Orientację i położenia obiektów oblicza silnik Atlasu.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a1725">
+<title>Niebo nie krąży wokół ciebie — Niebo z powierzchni | ATLAS SOLARIS 06</title>
+<meta name="description" content="Naucz się czytać nocne niebo: ślady gwiazd, Polaris i horyzont, 23 godziny 56 minut doby gwiazdowej, astronomiczny azymut i wysokość. Sprawdź trzy gwiazdy na interaktywnej mapie nieba.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Niebo nie krąży wokół ciebie | ATLAS SOLARIS 06">
+<meta property="og:description" content="Zmień miejsce na Ziemi, a zmienisz całe niebo. Nauka patrzenia z powierzchni planety.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/sky06-cover.svg">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/sky06-story.css?v=06.1">
+<script src="../../portal/data.js" defer></script>
+<script src="../../portal/stage.js?v=32.6" defer></script>
+<script src="../../portal/sky06-story.js?v=06.1" defer></script>
+</head><body class="s6-page" data-route="06" data-kind="stage">
+<a class="s6-skip" href="#poczatek">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 06 / ŚWIATY I ORBITY</span><strong>Niebo z powierzchni</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" title="Strona główna" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main s6-main">
+<article class="s6-story" aria-labelledby="s6Title">
+
+<section class="s6-hero">
+<img class="s6-hero-art" src="../../portal/media/sky06-cover.svg" fetchpriority="high" width="1600" height="900" alt="Autorska statyczna grafika nocnego obserwatorium i łuków gwiazd nad górskim horyzontem. Nie jest rzeczywistą fotografią ani mapą nieba dla konkretnej lokalizacji.">
+<div class="s6-hero-overlay"></div>
+<div class="s6-hero-inside">
+<div class="s6-hero-top"><span class="s6-hero-mark">✶</span> ATLAS SOLARIS / NOTATNIK OBSERWATORA <span class="s6-hero-divider">/</span> ZESZYT VI</div>
+<div class="s6-hero-body">
+<span class="s6-kicker">WYSTARCZY ZOSTAĆ W JEDNYM MIEJSCU I PATRZEĆ DOSTATECZNIE DŁUGO</span>
+<h1 id="s6Title">Niebo nie krąży <em>wokół ciebie.</em></h1>
+<p>Wszystko nad głową zdaje się wędrować. Gwiazdy wschodzą, przesuwają się i znikają za horyzontem. A przecież to nie one okrążają nas każdej nocy. <strong>Pod naszymi stopami obraca się cała Ziemia.</strong></p>
+<div class="s6-hero-links"><a href="#poczatek" class="s6-read">Zacznij obserwację <span aria-hidden="true">↓</span></a><a href="#laboratorium" class="s6-to-lab" id="stageLaunch">Otwórz niebo 3D <span aria-hidden="true">↗</span></a></div>
+</div>
+<div class="s6-hero-bottom"><span>HORYZONT / BIEGUN / GODZINA GWIAZDOWA</span><span>OKŁADKA AUTORSKA · SCHEMAT, NIE FOTOGRAFIA</span></div>
+</div>
+</section>
+
+<section class="s6-opening" id="poczatek">
+<div class="s6-side-index"><span>01 / POCZĄTEK WYPRAWY</span><span>OBSERWACJA Z POWIERZCHNI</span></div>
+<div class="s6-opening-grid">
+<div><span class="s6-overline">WYJDŹ W CIEMNOŚĆ</span><h2>Nie potrzebujesz rakiety. <em>Wystarczy horyzont.</em></h2></div>
+<div class="s6-prose"><p class="s6-lead">Stań nocą na otwartej przestrzeni. Wyobraź sobie, że Ziemia pod Twoimi stopami jest ogromnym statkiem, który powoli obraca się wśród gwiazd. Nie czujesz tego ruchu — ale niebo daje Ci na niego dowód.</p>
+<p>Kiedy spoglądamy na niebo, wydaje się ono kopułą rozpiętą nad obserwatorem. To wygodny obraz, ale <strong>nie jest rzeczywistą ścianą, na której zawieszono gwiazdy</strong>. Obiekty znajdują się w zupełnie różnych odległościach, a my widzimy przede wszystkim kierunki, z których dociera ich światło.</p>
+<p>Astronomowie korzystają z wyobrażonej <strong>sfery niebieskiej</strong>, by opisywać te kierunki. To model geometryczny, a nie powłoka Wszechświata. Możemy nanieść na niego gwiazdy, bieguny niebieskie, równik niebieski oraz horyzont konkretnego miejsca. <a class="s6-ref" href="#zrodla">[1, 2]</a></p>
+</div></div>
+<div class="s6-quiet-quote"><span>PIERWSZA ZASADA OBSERWATORA</span><p>Nie patrzymy na cały Wszechświat. <em>Patrzymy z określonego miejsca, w określonym kierunku.</em></p></div>
+</section>
+
+<section class="s6-compass" id="horyzont">
+<div class="s6-compass-header"><span>02 / CZTERY STRONY ŚWIATA I JEDEN PUNKT NAD GŁOWĄ</span><h2>Zanim zapytasz „która to gwiazda?”, <em>zapytaj „gdzie patrzę?”.</em></h2><p>Na lokalnym niebie obowiązuje układ współrzędnych, który każdy może odczytać stojąc na Ziemi. Nie trzeba znać odległości do gwiazdy. Wystarczą dwa kąty: <strong>wysokość</strong> ponad horyzontem oraz <strong>azymut</strong> określający kierunek. <a class="s6-ref" href="#zrodla">[3]</a></p></div>
+<div class="s6-orientation">
+<div class="s6-orientation-diagram">
+<span class="s6-diagram-tag">ATLAS / HORYZONT LOKALNY</span>
+<svg viewBox="0 0 600 460" role="img" aria-label="Schemat horyzontu obserwatora. Azymut mierzy się po horyzoncie od północy przez wschód, południe i zachód. Wysokość mierzona jest od horyzontu ku zenitowi.">
+<defs><radialGradient id="s6Disk"><stop stop-color="#31445a"/><stop offset=".65" stop-color="#182b3e"/><stop offset="1" stop-color="#0b1c2b"/></radialGradient></defs>
+<ellipse cx="299" cy="263" rx="229" ry="100" fill="url(#s6Disk)" stroke="#93afbc" stroke-opacity=".55" stroke-width="2"/>
+<path d="M70 263Q298 60 528 263" stroke="#9abbc9" stroke-width="1.5" stroke-dasharray="6 8" fill="none" opacity=".57"/>
+<path d="M299 263V63" stroke="#e1b9a3" stroke-width="2.3" stroke-dasharray="6 8" opacity=".8"/>
+<path d="M299 263L426 144" stroke="#e0b69d" stroke-width="3"/>
+<circle cx="426" cy="144" r="8" fill="#f2dac8"/>
+<path d="M362 220Q368 189 393 177" fill="none" stroke="#e7c2aa" stroke-width="1.6"/>
+<circle cx="299" cy="263" r="6" fill="#c7ebed"/>
+<path d="M235 270a64 25 0 0 0 120 0" stroke="#aed4dc" stroke-width="2" fill="none" stroke-dasharray="5 6"/>
+<g font-family="system-ui,sans-serif" font-size="19" fill="#d6e6e9" font-weight="650"><text x="289" y="148">ZENIT</text><text x="284" y="366">S</text><text x="289" y="188" font-size="13" fill="#f2c7ac">h</text><text x="366" y="240" font-size="13" fill="#f2c7ac">A</text></g>
+<g font-family="system-ui,sans-serif" font-size="24" font-weight="750" fill="#cde5e9"><text x="288" y="150"> </text><text x="291" y="157" font-size="0"> </text><text x="287" y="60">↑</text><text x="285" y="424">S</text><text x="554" y="270">E</text><text x="22" y="270">W</text><text x="290" y="283">N</text></g>
+<g font-family="system-ui,sans-serif" font-size="12" letter-spacing="1.6" fill="#a5c0c9"><text x="372" y="123">GWIAZDA</text><text x="324" y="39">90° / WYSOKOŚĆ</text><text x="380" y="323">AZYMUT</text></g>
+</svg>
+<p>Rysunek poglądowy: umowne spłaszczenie kopuły nieba do schematu. Oznaczenia <strong>h</strong> i <strong>A</strong> odpowiadają wysokości i azymutowi.</p>
+</div>
+<div class="s6-orientation-steps">
+<div><span>01 / WYSOKOŚĆ</span><h3>0° to horyzont. 90° to zenit.</h3><p>Gwiazda na wysokości +30° jest nad horyzontem. Przy −10° znajduje się geometrycznie poniżej niego — nie zobaczysz jej na otwartym, płaskim horyzoncie.</p></div>
+<div><span>02 / AZYMUT</span><h3>0° północ, 90° wschód.</h3><p>W astronomicznym systemie używanym w Atlasie azymut liczymy zgodnie z ruchem wskazówek zegara: 180° to południe, 270° zachód.</p></div>
+<div><span>03 / ZENIT I NADIR</span><h3>Niebo ma górę, a Ziemia zasłania dół.</h3><p>Zenit leży dokładnie nad głową. Nadir — pod stopami. Niewidoczna połowa sfery niebieskiej znajduje się po drugiej stronie planety.</p></div>
+</div></div>
+</section>
+
+<section class="s6-trails" id="slady-gwiazd">
+<div class="s6-trails-head"><span>03 / ZDJĘCIE, NA KTÓRYM WIDAĆ CZAS</span><h2>Gdy zostawisz aparat nieruchomo, <em>gwiazdy zaczną pisać okręgi.</em></h2><p>Przez kilkadziesiąt minut gwiazdy przesuwają się na zdjęciach, tworząc charakterystyczne łuki. Taki obraz nie wymaga ruchu aparatu: aparat stoi, a my wraz z Ziemią obracamy się pod niebem. <a class="s6-ref" href="#zrodla">[4, 5]</a></p></div>
+<figure class="s6-eso-photo">
+<div class="s6-photo-frame">
+<img src="https://cdn.eso.org/images/screen/potw1253a.jpg" loading="lazy" decoding="async" width="1000" height="672" alt="Prawdziwa fotografia długoczasowa nad antenami radioteleskopów ALMA w Chile. Ślady gwiazd tworzą koncentryczne okręgi wokół południowego bieguna niebieskiego.">
+<div class="s6-photo-credit">ESO / B. TAFRESHI (TWANIGHT.ORG) · ALMA, CHILE</div>
+</div>
+<figcaption><span>TO NIE JEST RENDERING</span><h3>Niebo zostawiło podpis ruchu Ziemi.</h3><p>Zdjęcie Babaka Tafreshiego powstało nad siecią anten ALMA na płaskowyżu Chajnantor w chilijskich Andach. W centrum kręgów znajduje się południowy biegun niebieski — w południowej części nieba nie ma przy nim tak jasnego odpowiednika Polarnej jak na północy.</p><p>To prawdziwe ślady z rejestracji nieba, <strong>nie fizyczne linie pozostawiane w kosmosie przez gwiazdy</strong>. <a href="https://www.eso.org/public/images/potw1253a/" target="_blank" rel="noopener noreferrer">Zdjęcie i oryginalny opis ESO</a>.</p></figcaption>
+</figure>
+<div class="s6-clockstrip"><div><span>ZIEMSKA DOBA SŁONECZNA</span><strong>24 <small>godziny</small></strong></div><div class="s6-clock-not-equal">≠</div><div><span>DOBA GWIAZDOWA</span><strong>23 <small>h</small> 56 <small>min</small> 4 <small>s</small></strong></div></div>
+<p class="s6-clock-note">Pełny obrót Ziemi względem odległych gwiazd trwa około 23 h 56 min 4 s. Doba słoneczna jest średnio o blisko cztery minuty dłuższa, ponieważ Ziemia w tym samym czasie przemieszcza się również po orbicie wokół Słońca. <a class="s6-ref" href="#zrodla">[6]</a></p>
+</section>
+
+<section class="s6-polar" id="polarna">
+<div class="s6-polar-head"><span>04 / PÓŁNOC, KTÓRĄ MOŻNA ODNALEŹĆ</span><h2>Jedna gwiazda prawie się nie porusza. <em>To nie przypadek.</em></h2><p>Na północnym niebie znajduje się gwiazda Polarna — Polaris. Leży bardzo blisko kierunku wyznaczonego przez ziemską oś obrotu. Dlatego na długich zdjęciach kreśli tylko niewielki krąg, podczas gdy inne gwiazdy opisują większe łuki. <a class="s6-ref" href="#zrodla">[7]</a></p></div>
+<div class="s6-polar-facts">
+<div><span>GDY STOISZ NA RÓWNIKU</span><strong>0<small>°</small></strong><p>Północny biegun niebieski leży na północnym horyzoncie.</p></div>
+<div><span>GDY STOISZ NA SZEROKOŚCI 54°N</span><strong>54<small>°</small></strong><p>Północny biegun niebieski jest około 54° nad północnym horyzontem.</p></div>
+<div><span>GDY STOISZ NA BIEGUNIE PÓŁNOCNYM</span><strong>90<small>°</small></strong><p>Północny biegun niebieski jest dokładnie nad głową.</p></div>
+</div>
+<p class="s6-polar-foot">To wysokość <strong>samego bieguna niebieskiego</strong>, która w modelu geometrycznym równa się szerokości geograficznej obserwatora na północnej półkuli. Polaris leży obecnie około 0,74° od tego bieguna, więc jej wysokość delikatnie zmienia się podczas doby gwiazdowej. Nie pokazuje idealnie nieruchomego punktu. <a class="s6-ref" href="#zrodla">[7, 8]</a></p>
+<div class="s6-polar-question"><span>NAJPROSTSZY POMIAR ASTRONOMICZNY</span><p>Jeżeli wiesz, jak wysoko nad horyzontem jest biegun niebieski, możesz w przybliżeniu powiedzieć, <em>na jakiej szerokości geograficznej stoisz.</em></p></div>
+</section>
+
+<section class="s6-sky-lab" id="kompas-nieba">
+<div class="s6-sky-lab-head"><span>05 / MAŁE OBSERWATORIUM / BEZ JEDNEJ KLATKI ANIMACJI</span><h2>W tym samym momencie różni ludzie <em>mają zupełnie inne niebo.</em></h2><p>Wybierz miejsce na Ziemi, jedną z czterech gwiazd i <strong>kąt godzinny</strong> — czas odmierzany od jej przejścia przez miejscowy południk. Odczytasz rzeczywistą zależność geometryczną: wysokość i azymut gwiazdy względem lokalnego horyzontu. <a class="s6-ref" href="#zrodla">[3, 9]</a></p></div>
+<div class="s6-sky-tool" id="s6SkyTool">
+<div class="s6-tool-controls">
+<div class="s6-tool-heading"><span>OBSERVATORIUM / VI</span><strong>Twój kompas nieba.</strong></div>
+<div class="s6-control-part"><label for="s6Latitude">01 / Gdzie stoisz?</label><select id="s6Latitude">
+<option value="0">Równik — 0°</option>
+<option value="54.35" selected>Gdańsk — 54,35°N</option>
+<option value="70">Północna Skandynawia — 70°N</option>
+<option value="-33.87">Sydney — 33,87°S</option>
+</select></div>
+<div class="s6-control-part"><label for="s6Star">02 / Którą gwiazdę obserwujesz?</label><select id="s6Star">
+<option value="polaris">Polaris — +89,26°</option>
+<option value="vega" selected>Wega — +38,78°</option>
+<option value="sirius">Syriusz — −16,72°</option>
+<option value="canopus">Kanopus — −52,70°</option>
+</select></div>
+<div class="s6-control-part"><label for="s6Hour">03 / Kąt godzinny od górnej kulminacji</label><input type="range" id="s6Hour" min="-12" max="12" value="0" step=".5" aria-describedby="s6TimeHelp"><div class="s6-timelabels"><span>12 h przed</span><output id="s6HourOut">0 h</output><span>12 h po</span></div><p id="s6TimeHelp">0 h oznacza przejście gwiazdy przez górny południk obserwatora. Nie oznacza godziny 00:00 ani 12:00 na zegarku.</p></div>
+<div class="s6-shortcuts" role="group" aria-label="Szybkie porównania nieba">
+<button type="button" data-preset="vega">Wega / Gdańsk</button>
+<button type="button" data-preset="sirius">Syriusz / Gdańsk</button>
+<button type="button" data-preset="canopus">Kanopus / Gdańsk</button>
+<button type="button" data-preset="south">Polarna / Sydney</button>
+</div>
+</div>
+<div class="s6-tool-chart">
+<div class="s6-chart-top"><span>WIDOK NIEBA / BIEGUN NA GÓRZE</span><small>ZENIT W CENTRUM · HORYZONT NA OBWODZIE</small></div>
+<svg id="s6SkyMap" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Okrągła mapa widocznej półkuli niebieskiej. Wega nad południowym horyzontem w Gdańsku.">
+<defs><radialGradient id="s6SkyGrad"><stop stop-color="#304256"/><stop offset=".6" stop-color="#192d40"/><stop offset="1" stop-color="#102235"/></radialGradient><clipPath id="s6HorizonClip"><circle cx="300" cy="246" r="180"/></clipPath></defs>
+<circle cx="300" cy="246" r="180" fill="url(#s6SkyGrad)" stroke="#a6bdc8" stroke-width="1.5" stroke-opacity=".64"/>
+<g clip-path="url(#s6HorizonClip)" fill="none" stroke="#b1c4cf" stroke-opacity=".17"><circle cx="300" cy="246" r="60"/><circle cx="300" cy="246" r="120"/><path d="M120 246H480M300 66V426"/></g>
+<circle cx="300" cy="246" r="4" fill="#c0d5dc" opacity=".75"/>
+<path id="s6Track" d="" fill="none" stroke="#d6af90" stroke-width="2.5" stroke-dasharray="5 7" opacity=".63" clip-path="url(#s6HorizonClip)"/>
+<g id="s6StarGroup"><circle id="s6StarHalo" cx="300" cy="277" r="15" fill="#f0d1b5" opacity=".10"/><circle id="s6StarDot" cx="300" cy="277" r="5.5" fill="#ffe3c9"/></g>
+<g fill="#cedee4" font-family="system-ui,sans-serif" font-size="19" font-weight="730" text-anchor="middle"><text x="300" y="43">N / 0°</text><text x="520" y="253">E / 90°</text><text x="300" y="469">S / 180°</text><text x="75" y="253">W / 270°</text></g>
+<g fill="#98b1c5" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle"><text x="320" y="238">ZENIT</text><text x="302" y="364">30°</text><text x="302" y="306">60°</text></g>
+<g stroke="#b4c9d0" stroke-opacity=".19"><path d="M288 246h24M300 233v26"/></g>
+</svg>
+<div class="s6-readout" aria-live="polite" aria-atomic="true">
+<div><span>WYSOKOŚĆ h</span><output id="s6Altitude">74,4°</output></div>
+<div><span>AZYMUT A</span><output id="s6Azimuth">180,0°</output></div>
+</div>
+<div class="s6-status" id="s6Status"><strong>GWIAZDA OKOŁOBIEGUNOWA</strong><p>Wega w Gdańsku nie zachodzi geometrycznie poniżej płaskiego horyzontu.</p></div>
+</div>
+</div>
+<div class="s6-math-note"><span>WZÓR ZA ODCZYTEM</span><p><code>sin h = sin φ · sin δ + cos φ · cos δ · cos H</code></p><p><strong>φ</strong> — szerokość obserwatora, <strong>δ</strong> — deklinacja gwiazdy, <strong>H</strong> — jej kąt godzinny. Azymut liczymy od północy przez wschód. Model pokazuje położenia gwiazd na sferze niebieskiej — nie przewiduje, które gwiazdy faktycznie widać na jasnym niebie. <a class="s6-ref" href="#zrodla">[3, 9]</a></p></div>
+<p class="s6-tool-disclaimer">Wszystkie gwiazdy mają orientacyjne, stałe deklinacje z epoki J2000; ich pozycje są liczone dla idealnego geometrycznego nieba. Bez refrakcji atmosferycznej, zabudowy, terenu, precesji, ruchu własnego i dokładnej daty. Zmiana kąta godzinnego to eksperyment w obrębie doby gwiazdowej, a <strong>nie lokalny zegar ani prognoza widoczności na dzisiejszą noc.</strong></p>
+</section>
+
+<section class="s6-season" id="niebo-w-roku">
+<div class="s6-season-top"><span>06 / NIEBO NIE POWTARZA SIĘ W TEJ SAMEJ GODZINIE</span><h2>O tej samej porze jutro gwiazdy będą <em>odrobinę dalej.</em></h2><p>Doba gwiazdowa trwa prawie cztery minuty krócej niż słoneczna. Dlatego daną gwiazdę widzimy o tej samej godzinie zegarowej każdego kolejnego wieczoru średnio nieco dalej na jej pozornej drodze ku zachodowi. W przybliżeniu oznacza to przesunięcie o <strong>jeden stopień na dobę</strong> przy porównywaniu tego samego czasu słonecznego. <a class="s6-ref" href="#zrodla">[1, 6]</a></p></div>
+<div class="s6-season-scale"><div><span>JEDNA DOBA SŁONECZNA</span><strong>~4 <small>minuty</small></strong><p>przesunięcia czasu powrotu gwiazdy do południka</p></div><div><span>JEDEN MIESIĄC</span><strong>~2 <small>godziny</small></strong><p>różnicy w przybliżonym położeniu gwiazd o tej samej godzinie</p></div><div><span>JEDEN ROK</span><strong>~360<small>°</small></strong><p>cały roczny cykl sezonowego wyglądu nocnego nieba</p></div></div>
+<div class="s6-season-coda"><span>ZAPAMIĘTAJ</span><p>Niebo zimowe i letnie nie jest po prostu inaczej oświetlone. <em>Nocna strona Ziemi patrzy w inną część kosmosu</em>, gdy nasza planeta krąży wokół Słońca. <a class="s6-ref" href="#zrodla">[1]</a></p></div>
+</section>
+
+<section class="s6-workshop" id="zadania">
+<div class="s6-workshop-heading"><span>07 / SPRAWDŹ W PEŁNYM PLANETARIUM</span><h2>Znasz już horyzont. <em>Teraz wejdź w niego.</em></h2><p>Przed otwarciem pełnej sceny 3D wykonaj trzy doświadczenia w kompasie nieba. Później możesz zmieniać współrzędne obserwatora i oglądać Słońce oraz Księżyc z powierzchni Ziemi w oryginalnym silniku Atlasu.</p></div>
+<div class="s6-workshop-grid">
+<div><span>01 / PÓŁNOC</span><h3>Gdzie podziała się Polarna?</h3><p>Wybierz Polaris i Gdańsk, następnie Sydney. Dlaczego w jednym miejscu znajduje się wysoko nad północnym horyzontem, a w drugim nigdy nie wschodzi?</p></div>
+<div><span>02 / ZAWSZE NA NIEBIE</span><h3>Wega nie zachodzi?</h3><p>Ustaw Gdańsk i Wegę. Przewiń pełne 24 godziny kąta godzinnego. Nawet najniżej położona Wega pozostaje nieco nad idealnym horyzontem.</p></div>
+<div><span>03 / GWIAZDA UKRYTA</span><h3>Gdzie zobaczysz Kanopusa?</h3><p>W Gdańsku nie wschodzi. Przenieś obserwatora na południową półkulę. Wybierz godzinę górnej kulminacji i porównaj wysokości.</p></div>
+<div><span>04 / POWIERZCHNIA ZIEMI</span><h3>Otwórz widok z terenu.</h3><p>W planetarium przełącz się na obserwację z powierzchni. Zmień szerokość i długość geograficzną, obejrzyj azymut i wysokość Słońca. Porównaj je z kompasem gwiazd — to dwa różne rodzaje obiektów.</p></div>
+</div>
+<p class="s6-workshop-limits"><strong>Ograniczenia:</strong> mały kompas wylicza orientacyjne pozycje czterech gwiazd wyłącznie na podstawie deklinacji i kąta godzinnego. Właściwy widok z powierzchni w ATLAS SOLARIS ma osobny model geometrii ciał Układu Słonecznego, wykorzystuje przybliżone elementy NASA/JPL i uproszczone osie IAU. Rozmiary, gwiazdy tła, refrakcja i szczegóły lokalnego krajobrazu mogą być przedstawione schematycznie. Nie jest to narzędzie nawigacyjne ani dokładna prognoza astronomiczna.</p>
+</section>
+</article>
+
+<section class="s6-lab" id="laboratorium" aria-label="Laboratorium widoku nieba z powierzchni Ziemi">
+<div class="s6-lab-header"><div><span>ATLAS SOLARIS / 06 / STANOWISKO OBSERWATORA</span><h2>Teraz niech <em>ziemia zniknie spod stóp.</em></h2><p>Przejdź z kartki do rzeczywistej sceny 3D. Wybierz lokalizację, porę i punkt patrzenia, by zrozumieć, jak zmienia się niebo. Silnik pozostanie uśpiony podczas lektury.</p></div><small>START 3D WYŁĄCZNIE PO KLIKNIĘCIU</small></div>
+<div id="stageViewport" class="stage-viewport">
+<div class="s6-lab-placeholder"><div class="s6-lab-glyph" aria-hidden="true"><i></i></div><h3>Całe niebo zaczyna się od jednego miejsca.</h3><p>Pełny model korzysta z procesora graficznego. Czytanie artykułu i kompas nieba nie potrzebują jego uruchomienia.</p>
+<button type="button" id="stageStartLab">Uruchom niebo z powierzchni 3D <span aria-hidden="true">↗</span></button><small>Scena zostanie pobrana dopiero po Twojej decyzji.</small></div>
+<div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>OTWIERAMY NIEBO OBSERWATORA</strong><small>Przygotowanie kamery, Ziemi i pozycji ciał…</small></div>
+<iframe id="stageFrame" title="Etap 06 — niebo z powierzchni Ziemi, interaktywne planetarium 3D" data-lazy="true" data-manual="true" data-src="../../atlas.html?portal=earthsky" loading="lazy" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" hidden role="alert">Nie udało się otworzyć nieba 3D. <button type="button" id="stageReload">Spróbuj ponownie</button></div>
+<p class="s6-lab-foot">Wewnątrz planetarium skorzystaj z trybu „Powierzchnia” oraz pól szerokości i długości geograficznej. Jeżeli urządzenie nie obsługuje płynnej grafiki 3D, możesz pozostać przy statycznych ilustracjach i kalkulatorze.</p>
+</section>
+
+<section class="s6-sources" id="zrodla"><div class="s6-sources-header"><span>ANEKS / ZESTAW OBSERWATORA</span><h2>Za każdym kierunkiem <em>stoi rachunek.</em></h2><p>Główne źródła o ruchu dobowym nieba, obserwacji z Ziemi, wysokości i azymucie oraz współrzędnych gwiazd. Fotografia pochodzi z archiwum European Southern Observatory i ma wskazanego autora.</p></div>
+<ol>
+<li><a href="https://spaceplace.nasa.gov/constellations/sp/" target="_blank" rel="noopener noreferrer">NASA Space Place — What Are Constellations?</a><small>Dlaczego lokalizacja i pora roku decydują o gwiazdach widocznych na nocnym niebie.</small></li>
+<li><a href="https://science.nasa.gov/learn/basics-of-space-flight/chapter2-1/" target="_blank" rel="noopener noreferrer">NASA/JPL — Basics of Space Flight: Reference Systems</a><small>Układy odniesienia, oś obrotu Ziemi, Polaris, precesja i pozorny ruch gwiazd.</small></li>
+<li><a href="https://aa.usno.navy.mil/data/topocentric" target="_blank" rel="noopener noreferrer">US Naval Observatory — Topocentric Positions</a><small>Definicja kierunku lokalnego: odległość od zenitu i azymut względem obserwatora.</small></li>
+<li><a href="https://www.eso.org/public/images/potw1253a/" target="_blank" rel="noopener noreferrer">ESO — Whirling Southern Star Trails Over ALMA (2012)</a><small>Rzeczywista fotografia śladów gwiazd południowego nieba. © ESO/B. Tafreshi (twanight.org).</small></li>
+<li><a href="https://science.nasa.gov/image-article/apod-2025-september-13-star-trails-over-one-mile-radio-telescope/" target="_blank" rel="noopener noreferrer">NASA APOD — Star Trails over One-Mile Radio Telescope (2025)</a><small>Przykład północnych śladów gwiazd i położenia bieguna niebieskiego.</small></li>
+<li><a href="https://www.rmg.co.uk/file/2303/download" target="_blank" rel="noopener noreferrer">Royal Observatory Greenwich — Using Star Trails to Measure the Sidereal Day</a><small>Doba gwiazdowa trwająca około 23 godzin 56 minut 4 sekund.</small></li>
+<li><a href="https://simbad.harvard.edu/simbad/sim-id?Ident=Polaris" target="_blank" rel="noopener noreferrer">SIMBAD / CDS — Polaris</a><small>Współrzędne ICRS/J2000 gwiazdy Polarnej: deklinacja około +89,26°.</small></li>
+<li><a href="https://britastro.org/journal_contents_ite/absolute-beginners-no-5-right-ascension-and-declination" target="_blank" rel="noopener noreferrer">British Astronomical Association — Right Ascension and Declination</a><small>Objaśnienia deklinacji i przykład północnej Wegi oraz niewidocznego z Wielkiej Brytanii Kanopusa.</small></li>
+<li><a href="https://www.aa.quae.nl/en/reken/hemelpositie.html" target="_blank" rel="noopener noreferrer">Astronomical Algorithms — Equatorial to Horizontal Coordinates</a><small>Matematyczna zasada przeliczania szerokości, deklinacji i kąta godzinnego na wysokość i azymut.</small></li>
+<li><a href="https://imagine.gsfc.nasa.gov/ask_astro/night_sky.html" target="_blank" rel="noopener noreferrer">NASA/GSFC — Why Does the Night Sky Change?</a><small>Codzienny pozorny ruch, zmiana położenia Księżyca i sezonowe niebo.</small></li>
+</ol>
+<p class="s6-editorial">ATLAS SOLARIS / ETAP 06. Okładka, diagram horyzontu i kompas nieba są autorskimi, nieruchomymi wizualizacjami. Zdjęcie ESO stanowi prawdziwą obserwację z podaną atrybucją. Obliczenia w miniobserwatorium traktują gwiazdy jako kierunki stałe we współrzędnych równikowych i nie uwzględniają precesji, refrakcji atmosferycznej ani lokalnych przeszkód. Czas na suwaku jest kątem godzinnym gwiazdy, a nie czasem cywilnym.</p>
+</section>
+<footer class="s6-footer"><span>ATLAS SOLARIS / ETAP 06</span><span>BY ZOBACZYĆ, ŻE ZIEMIA SIĘ PORUSZA, CZASEM TRZEBA PO PROSTU STAĆ NIERUCHOMO.</span><a href="../../#etapy">Wróć do katalogu etapów ↑</a></footer>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ATLAS SOLARIS / ETAP 06</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h2>Niebo z powierzchni</h2><p class="stage-lead">Niebo nie krąży wokół ciebie</p><p>Wysokość, azymut, doba gwiazdowa, niebo północne i południowe. Zmieniaj lokalizację i kąt godzinny, a potem sprawdź widok z powierzchni w silniku 3D.</p><p class="stage-info-note">Kompas wyznacza pozycje geometryczne bez daty i pogody. Planetarium 3D uruchamia się dopiero po kliknięciu. Etapy 01–09 korzystają z aktualnego, wspólnego silnika Atlasu.</p><div id="stageRelated"></div></aside>
+<noscript><p class="stage-nojs">Tekst artykułu, fotografia i schematy nie wymagają JavaScript. Interaktywny kompas i pełne laboratorium 3D potrzebują włączonego JavaScript.</p></noscript>
 </body></html>

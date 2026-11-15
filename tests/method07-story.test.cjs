@@ -15,7 +15,7 @@ test('History, scientific limitations, JPL accuracy and a technical source dialo
  assert.match(html,/nie gwarancja|NIE GWARANCJA/);
  assert.match(html,/Część innych planet ma ilustracyjne tekstury proceduralne/);
  assert.match(engine,/ATLAS SOLARIS 7\.0 — metoda i ograniczenia/);
- assert.match(core,/Approximate Positions of the Planets/);
+ assert.match(core,/https:\/\/ssd\.jpl\.nasa\.gov\/planets\/approx_pos\.html/);
  assert.match(core,/const elements =/);
  for(const link of ['ssd.jpl.nasa.gov/planets/approx_pos.html','ssd.jpl.nasa.gov/horizons/manual.html','ssd.jpl.nasa.gov/astro_par.html','naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/req/abcorr.html','www.nasa.gov/history/175-years-ago-astronomers-discover-neptune-the-eighth-planet/','science.nasa.gov/photojournal/neptune-full-disk/'])assert.ok(html.includes(link),'Missing verified reference '+link);
 });

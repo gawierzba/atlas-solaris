@@ -41,7 +41,7 @@ test('Only static cover and lightweight geometric phases load when reader opens 
  assert.match(html,/data-lazy="true" data-manual="true"/);
  assert.match(html,/data-src="\.\.\/\.\.\/atlas\.html\?portal=moon"/);
  for(const id of ['stageStartLab','stageLaunch','stageReload','stageLoading','stageRelated','stageInfo'])assert.ok(html.includes('id="'+id+'"'),'Missing portal '+id);
- assert.match(stage,/const manualLab=iframe\?\.dataset\.manual==='true'/);
+ assert.match(stage,/const manualLab=!!\(iframe&&iframe\.dataset\.manual==='true'\)/);
  assert.match(data,/"05":\{"number":5/);
  assert.match(engine,/id="space"/);
  assert.doesNotMatch(html,/<canvas|<script[^>]+three(?:\.min)?\.js/);

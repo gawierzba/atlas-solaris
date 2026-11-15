@@ -41,7 +41,7 @@ test('Hero is genuinely static vector artwork; photos are credited and loaded la
 });
 test('Source links and deferred laboratory integrate with existing portal shell',()=>{
  for(const url of ['https://science.nasa.gov/universe/stars/','https://esawebb.org/images/weic2216a/','https://esawebb.org/images/weic2311a/','https://science.nasa.gov/mission/hubble/'])assert.ok(html.includes(url),'Missing source '+url);
- assert.match(shell,/const lazyLab=iframe\?\.dataset\.lazy==='true'/);
+ assert.match(shell,/const lazyLab=!!\(iframe&&iframe\.dataset\.lazy==='true'\)/);
  assert.match(shell,/IntersectionObserver/);
  assert.match(shell,/else startLab\(\)/);
  assert.match(shell,/atlas:portal:ready/);

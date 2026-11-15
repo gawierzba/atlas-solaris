@@ -1,0 +1,45 @@
+name: ATLAS SOLARIS — kosmiczny chronometr 02
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'etapy/02/**'
+      - 'portal/solar02-story.css'
+      - 'portal/media/solar02-cover.svg'
+      - 'portal/solar02-story.js'
+      - 'portal/stage.js'
+      - 'tests/solar02-story.test.cjs'
+      - 'tests/solar02-story-browser.test.cjs'
+      - '.github/workflows/solar02-story.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chronometer:
+    name: Rzetelnosc Keplera, wydajnosc i telefon
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Sprawdz geometrię, kod i źródła
+        run: |
+          node --check portal/solar02-story.js
+          node --check portal/stage.js
+          node --test tests/solar02-story.test.cjs
+      - name: Instalacja Chromium
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium-headless-shell
+      - name: Prawdziwy test na komputerze i dwoch telefonach
+        run: node tests/solar02-story-browser.test.cjs
+      - name: Zachowaj zrzuty dla audytu graficznego
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-solaris-solar02-editorial-previews
+          path: _solar02_story/*.png
+          if-no-files-found: ignore
+          retention-days: 7

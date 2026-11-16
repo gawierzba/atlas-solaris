@@ -1,6 +1,14 @@
 /* ATLAS SOLARIS 27 · stage shell, full-page browser navigation. */
 (() => {
 'use strict';
+// Wspólna nawigacja długich stron i stopka artykułów.
+const readerUrl = document.currentScript && document.currentScript.src;
+if (readerUrl && !document.querySelector('script[data-atlas-reader-ui]')) {
+ const readerScript = document.createElement('script');
+ readerScript.setAttribute('data-atlas-reader-ui', '');
+ readerScript.src = new URL('reader-ui.js?v=1.0', readerUrl).href;
+ document.head.appendChild(readerScript);
+}
 const data=window.ATLAS_PORTAL_DATA;
 if(!data)return;
 const kind=document.body.dataset.kind, id=document.body.dataset.route;

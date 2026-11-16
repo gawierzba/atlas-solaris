@@ -44,3 +44,27 @@
 /* ATLAS SOLARIS 33 — featured magnetar card */
 .feature-card[data-art=magnetar] .feature-back{background:linear-gradient(180deg,rgba(4,8,21,.08),rgba(4,7,19,.97)),url('media/magnetar33-cover.svg') center center/cover no-repeat}
 .feature-card[data-art=magnetar] .feature-art{display:none}
+
+/* Kierunki odkrywania 33.5 — wprowadzenie do działów i polecane etapy */
+.category-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;z-index:1}
+.category-index{color:#718ea7;font-size:9px;letter-spacing:.16em;font-weight:800;white-space:nowrap}
+.category-card .category-count{color:#bad0df;font-size:10px;letter-spacing:.015em;text-align:right;line-height:1.4;text-transform:uppercase}
+.category-card .category-foot{position:relative;z-index:1;gap:10px}
+.category-card .category-desc{max-width:290px}
+.category-card{min-height:212px}
+.category-card .category-arrow{flex:none}
+.category-hero-stats{display:flex;gap:11px;flex-wrap:wrap;margin:24px 0 0}
+.category-hero-stats span{display:inline-block;padding:8px 11px;border:1px solid #4b769a66;background:#16304968;border-radius:6px;color:#b6dce9;font-size:11px;letter-spacing:.04em;font-weight:700}
+.category-featured{margin-top:44px}
+.category-featured-label{font-size:10px!important;letter-spacing:.18em!important;color:#a4c8da!important;font-weight:800;margin:0 0 13px!important}
+.category-featured-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.category-featured-link{position:relative;display:flex;flex-direction:column;gap:8px;min-height:137px;padding:22px 48px 23px 23px;border-radius:12px;border:1px solid #36536d;background:linear-gradient(115deg,#13263c,#0b182b);transition:border-color .18s,background .18s}
+.category-featured-link:hover{border-color:var(--cat-color);background:#162d43}
+.category-featured-link span{font-size:10px;letter-spacing:.14em;font-weight:750;color:var(--cat-color)}
+.category-featured-link strong{font-size:19px;letter-spacing:-.025em;font-weight:650;color:#ebf5ff;line-height:1.25}
+.category-featured-link small{color:#94acbf;font-size:12px;line-height:1.5}
+.category-featured-link b{position:absolute;right:23px;bottom:22px;color:#c5e6f8;font-size:22px;font-weight:400}
+.category-back{margin-top:35px}
+@media(max-width:800px){.category-featured-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.category-card{min-height:180px}.category-top{gap:8px}.category-index{font-size:8px}.category-card .category-count{font-size:9px}.category-featured{margin-top:32px}.category-featured-link{min-height:120px;padding:18px 38px 18px 18px}.category-featured-link strong{font-size:17px}.category-featured-link b{right:15px;bottom:16px}}
+@media(prefers-reduced-motion:reduce){.category-featured-link{transition:none}}

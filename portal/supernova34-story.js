@@ -34,7 +34,7 @@ function start(){
   var modeName=document.getElementById('sn34ViewName');
   if(!ageEl||!energyEl||!densityEl)return;
   var age=Number(ageEl.value),energy=Number(energyEl.value),density=Number(densityEl.value);
-  var mode='shock',angle=0,playing=false,frame=0,lastTime=0,drag=false,lastPointer=0;
+  var mode='shock',angle=0,playing=false,frame=0,lastTime=0,drag=false,lastPointer=0,animationAge=age;
   var modes={
     shock:{label:'FALA UDERZENIOWA',help:'W modelu adiabatycznym fala zbiera gaz międzygwiazdowy. Zwiększ energię lub zmniejsz gęstość, aby porównać orientacyjny zasięg ekspansji.'},
     nebula:{label:'WNĘTRZE MGŁAWICY',help:'Włókna, smugi i punkty są syntetyczną ilustracją nierównomiernej struktury. Przesuń widok palcem lub myszą; geometria nie pochodzi z obserwacji.'},
@@ -176,16 +176,16 @@ function start(){
     if(document.hidden){pause();return;}
     if(!lastTime)lastTime=timestamp;
     var delta=clamp(timestamp-lastTime,0,80);lastTime=timestamp;
-    age+=delta*.55;
-    if(age>=12000){age=12000;ageEl.value=String(age);render();pause();return;}
-    ageEl.value=String(Math.round(age/100)*100);
+    animationAge+=delta*.55;
+    if(animationAge>=12000){animationAge=12000;ageEl.value='12000';render();pause();return;}
+    ageEl.value=String(Math.round(animationAge/100)*100);
     render();
     frame=requestAnimationFrame(animate);
   }
   function togglePlay(){
     if(playing){pause();return;}
     if(Number(ageEl.value)>=12000){age=800;ageEl.value='800';}
-    playing=true;lastTime=0;
+    animationAge=Number(ageEl.value);playing=true;lastTime=0;
     if(playBtn)playBtn.textContent='Ⅱ Zatrzymaj czas';
     frame=requestAnimationFrame(animate);
   }
@@ -196,7 +196,7 @@ function start(){
   Array.prototype.forEach.call(tabEls,function(btn){btn.addEventListener('click',function(){changeMode(btn.getAttribute('data-sn34-view'));});});
   if(playBtn)playBtn.addEventListener('click',togglePlay);
   if(resetBtn)resetBtn.addEventListener('click',function(){
-    pause();ageEl.value='4500';energyEl.value='1';densityEl.value='1';angle=0;changeMode('shock');render();
+    pause();ageEl.value='4500';energyEl.value='1';densityEl.value='1';animationAge=4500;angle=0;changeMode('shock');render();
   });
   canvas.addEventListener('pointerdown',function(e){drag=true;lastPointer=e.clientX;if(canvas.setPointerCapture)try{canvas.setPointerCapture(e.pointerId);}catch(_){ }});
   canvas.addEventListener('pointermove',function(e){if(!drag)return;angle+=(e.clientX-lastPointer)*.012;lastPointer=e.clientX;draw();});

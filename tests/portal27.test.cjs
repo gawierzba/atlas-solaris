@@ -10,7 +10,7 @@ for(const [key,item] of Object.entries(data.stages)){
  assert.ok(item.number);assert.ok(item.title&&item.description&&item.mode);
  assert.ok(data.categories[item.category]);
  const page=html(item.path+'index.html');
- if(item.mode==='magnetar33'||item.mode==='supernova34'){
+ if(item.mode==='magnetar33'||item.mode==='supernova34'||item.mode==='starbirth35'){
   assert.match(page,/<article\b/,'Samodzielny artykul ma wlasna opowiesc');
   assert.match(page,/<canvas\b/,'Samodzielny artykul ma interaktywne laboratorium');
  }else{

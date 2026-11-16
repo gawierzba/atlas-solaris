@@ -68,3 +68,9 @@
 @media(max-width:800px){.category-featured-grid{grid-template-columns:1fr}}
 @media(max-width:650px){.category-card{min-height:180px}.category-top{gap:8px}.category-index{font-size:8px}.category-card .category-count{font-size:9px}.category-featured{margin-top:32px}.category-featured-link{min-height:120px;padding:18px 38px 18px 18px}.category-featured-link strong{font-size:17px}.category-featured-link b{right:15px;bottom:16px}}
 @media(prefers-reduced-motion:reduce){.category-featured-link{transition:none}}
+
+/* ATLAS SOLARIS 34 — najnowsza wyprawa. Natywna ilustracja SVG, brak zależności. */
+.feature-card[data-art=supernova] .feature-back{background:linear-gradient(0deg,#061020e6,transparent 75%),url('media/supernova34-cover.svg') 65% 43%/cover no-repeat,#0b1125}
+.feature-card[data-art=supernova] .feature-art{width:90%;left:18%;top:-14%;height:90%;opacity:.45;border:1px solid #92e4ee78;box-shadow:0 0 60px #cf95c955,inset 0 0 40px #d9adc922;background:radial-gradient(circle at 60% 47%,#fadbd722,transparent 42%)}
+.feature-card[data-art=supernova] .feature-art:before{inset:6% 4%;border-color:#f1b5ca88;border-width:2px;transform:rotate(33deg)}
+.feature-card[data-art=supernova] .feature-art:after{inset:24% 12%;border-color:#99e1f28c;transform:rotate(-38deg)}

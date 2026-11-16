@@ -94,3 +94,12 @@ body.m33-page .stage-info{position:fixed}
 .m33-artwork figcaption span{color:#b2a9ea;font-size:10px;letter-spacing:.14em;font-weight:700}
 .m33-artwork figcaption p{color:#aebbd2;font-size:13px;line-height:1.75;margin:0}
 @media(max-width:630px){.m33-artwork{padding:0 3px}.m33-artwork-frame{border-radius:12px}.m33-artwork-stamp{font-size:8px;left:12px;bottom:12px}.m33-artwork figcaption{display:block;padding:12px 4px 0}.m33-artwork figcaption p{margin-top:8px}}
+
+/* Most do rozdziału 34 */
+.m33-next-read{max-width:1050px;margin:8px auto 86px;padding:0 18px}
+.m33-next-read a{display:flex;flex-direction:column;gap:13px;padding:29px clamp(22px,4vw,43px);border:1px solid #7568946c;border-radius:12px;background:linear-gradient(115deg,#16162c,#0b1a30);text-decoration:none;transition:border-color .2s,transform .2s}
+.m33-next-read a:hover{border-color:#a4dfe9;transform:translateY(-2px)}
+.m33-next-read span{font-size:10px;font-weight:800;letter-spacing:.17em;color:#a7dfe9}
+.m33-next-read strong{font-family:Georgia,"Times New Roman",serif;font-size:clamp(26px,4vw,48px);font-weight:400;letter-spacing:-.045em;color:#f4eaf6;line-height:1.12}
+.m33-next-read em{font-size:13px;font-style:normal;color:#aebed2;line-height:1.5}
+@media(prefers-reduced-motion:reduce){.m33-next-read a{transition:none}}

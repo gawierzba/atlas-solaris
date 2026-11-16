@@ -10,9 +10,9 @@ for(const [key,item] of Object.entries(data.stages)){
  assert.ok(item.number);assert.ok(item.title&&item.description&&item.mode);
  assert.ok(data.categories[item.category]);
  const page=html(item.path+'index.html');
- if(item.mode==='magnetar33'){
-  assert.match(page,/<article\b/,'Magnetar ma wlasna opowiesc');
-  assert.match(page,/<canvas\b/,'Magnetar ma interaktywne laboratorium');
+ if(item.mode==='magnetar33'||item.mode==='supernova34'){
+  assert.match(page,/<article\b/,'Samodzielny artykul ma wlasna opowiesc');
+  assert.match(page,/<canvas\b/,'Samodzielny artykul ma interaktywne laboratorium');
  }else{
   if(item.src) assert.ok(page.includes(item.src), `Missing custom src for \${key}`);
   else assert.match(page,new RegExp('portal='+item.mode));

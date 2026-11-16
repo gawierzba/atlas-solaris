@@ -1,5 +1,5 @@
 {
-  "version": "34.0",
+  "version": "35.0",
   "categories": {
     "planety": {
       "id": "planety",
@@ -40,13 +40,13 @@
     "gwiazdy": {
       "id": "gwiazdy",
       "title": "Gwiazdy i niebo",
-      "description": "Od egzoplanet i konstelacji po supernowe, pulsary i magnetary.",
+      "description": "Od narodzin gwiazd i egzoplanet po supernowe, pulsary i magnetary.",
       "symbol": "✦",
       "color": "#b4a1ff",
       "path": "dzialy/gwiazdy/",
       "highlights": [
-        34,
-        33
+        35,
+        34
       ]
     },
     "relatywistyka": {
@@ -330,6 +330,16 @@
       "category": "gwiazdy",
       "mode": "supernova34",
       "path": "etapy/34/",
+      "kind": "stage"
+    },
+    "35": {
+      "number": 35,
+      "title": "Tam, gdzie rodzą się gwiazdy",
+      "lead": "Z ciemności powstaje światło",
+      "description": "Odkryj zimne obłoki, narodziny protogwiazdy, wirujący dysk i dżety. Pięć pięknych ilustracji oraz laboratorium grawitacji, dysku i pierwszego światła.",
+      "category": "gwiazdy",
+      "mode": "starbirth35",
+      "path": "etapy/35/",
       "kind": "stage"
     },
     "01": {

@@ -1,53 +1,77 @@
 {
-  "version": "33.0",
+  "version": "34.0",
   "categories": {
     "planety": {
       "id": "planety",
       "title": "Światy i orbity",
-      "description": "Ziemia, Księżyc, planety i ich ruch.",
+      "description": "Wyrusz od Słońca, odkryj rytm planet, Księżyc i wielkie księżyce Jowisza.",
       "symbol": "◌",
       "color": "#60baff",
-      "path": "dzialy/planety/"
+      "path": "dzialy/planety/",
+      "highlights": [
+        1,
+        8
+      ]
     },
     "misje": {
       "id": "misje",
-      "title": "Misje kosmiczne",
-      "description": "Trajektorie, asysty grawitacyjne, odkrywcze wyprawy.",
+      "title": "Podróże i misje",
+      "description": "Zaplanuj lot, wybierz okno startowe i poznaj najodważniejsze wyprawy sond.",
       "symbol": "↗",
       "color": "#68ddd0",
-      "path": "dzialy/misje/"
+      "path": "dzialy/misje/",
+      "highlights": [
+        10,
+        14
+      ]
     },
     "zjawiska": {
       "id": "zjawiska",
-      "title": "Zjawiska na niebie",
-      "description": "Zaćmienia, światło, geometria cienia.",
+      "title": "Światło i zaćmienia",
+      "description": "Zobacz, jak rodzi się cień, kiedy nastąpi zaćmienie i dokąd powędruje.",
       "symbol": "◉",
       "color": "#fbab8e",
-      "path": "dzialy/zjawiska/"
+      "path": "dzialy/zjawiska/",
+      "highlights": [
+        9,
+        17
+      ]
     },
     "gwiazdy": {
       "id": "gwiazdy",
-      "title": "Gwiazdy i czas",
-      "description": "Obserwatorium, konstelacje, ekliptyka.",
+      "title": "Gwiazdy i niebo",
+      "description": "Od egzoplanet i konstelacji po supernowe, pulsary i magnetary.",
       "symbol": "✦",
       "color": "#b4a1ff",
-      "path": "dzialy/gwiazdy/"
+      "path": "dzialy/gwiazdy/",
+      "highlights": [
+        34,
+        33
+      ]
     },
     "relatywistyka": {
       "id": "relatywistyka",
-      "title": "Czarne dziury",
-      "description": "Horyzonty, fale grawitacyjne, LIGO.",
+      "title": "Czasoprzestrzeń",
+      "description": "Czarne dziury, fale grawitacyjne, LIGO i światło zakrzywiane przez masę.",
       "symbol": "◎",
       "color": "#d5a0f7",
-      "path": "dzialy/relatywistyka/"
+      "path": "dzialy/relatywistyka/",
+      "highlights": [
+        20,
+        31
+      ]
     },
     "nauka": {
       "id": "nauka",
-      "title": "Naukowe laboratoria",
-      "description": "Modelowanie, pomiary, precyzja i dane.",
+      "title": "Jak poznajemy kosmos",
+      "description": "Naukowe metody, asteroidy, grawitacja, granice Wszechświata i kulisy Atlasu.",
       "symbol": "⌁",
       "color": "#8bdab6",
-      "path": "dzialy/nauka/"
+      "path": "dzialy/nauka/",
+      "highlights": [
+        7,
+        28
+      ]
     }
   },
   "stages": {
@@ -296,6 +320,16 @@
       "category": "gwiazdy",
       "mode": "magnetar33",
       "path": "etapy/33/",
+      "kind": "stage"
+    },
+    "34": {
+      "number": 34,
+      "title": "Pozostałości po supernowych",
+      "lead": "Po gwieździe zostaje światło",
+      "description": "Od Mgławicy Krab i Cassiopei A po fale uderzeniowe i chemię gwiazd. Prześledź historię wybuchu i uruchom interaktywne laboratorium ekspansji.",
+      "category": "gwiazdy",
+      "mode": "supernova34",
+      "path": "etapy/34/",
       "kind": "stage"
     },
     "01": {

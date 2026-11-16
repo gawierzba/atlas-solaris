@@ -1,6 +1,14 @@
 /* ATLAS SOLARIS 33.0 · no dependencies; accessible search and responsive portal. */
 (() => {
 'use strict';
+// Wspólna nawigacja długich stron i stopka artykułów.
+const readerUrl = document.currentScript && document.currentScript.src;
+if (readerUrl && !document.querySelector('script[data-atlas-reader-ui]')) {
+ const readerScript = document.createElement('script');
+ readerScript.setAttribute('data-atlas-reader-ui', '');
+ readerScript.src = new URL('reader-ui.js?v=1.0', readerUrl).href;
+ document.head.appendChild(readerScript);
+}
 const data = window.ATLAS_PORTAL_DATA;
 const host = document.getElementById('portalApp');
 if (!host || !data) return;

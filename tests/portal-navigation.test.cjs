@@ -12,10 +12,10 @@ const categories=Object.values(data.categories);
 const stages=Object.values(data.stages);
 const bonuses=Object.values(data.bonuses);
 const localPage=route=>path.join(root,route,'index.html');
-test('35 etapów w sześciu kompletnych działach',()=>{
+test('36 etapów w sześciu kompletnych działach',()=>{
   assert.equal(categories.length,6);
-  assert.equal(stages.length,35);
-  assert.deepEqual(stages.map(s=>s.number).sort((a,b)=>a-b),Array.from({length:35},(_,i)=>i+1));
+  assert.equal(stages.length,36);
+  assert.deepEqual(stages.map(s=>s.number).sort((a,b)=>a-b),Array.from({length:36},(_,i)=>i+1));
   for(const s of stages) assert.ok(data.categories[s.category],'Brak kategorii: etap '+s.number);
 });
 test('Wszystkie odnośniki katalogu prowadzą do istniejących stron',()=>{

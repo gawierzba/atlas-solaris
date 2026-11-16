@@ -80,3 +80,9 @@
 .feature-card[data-art=starbirth] .feature-back{background:radial-gradient(ellipse at 62% 38%,#4e519d85,transparent 65%),#0a1429}
 .feature-card[data-art=starbirth] .feature-art{display:none}
 .feature-card[data-art=starbirth]:after{background:linear-gradient(0deg,#06101cf5 4%,#06101cdd 39%,#0712261c)}
+
+/* ATLAS SOLARIS 36 / karta premiery z ilustracją IMG */
+.feature-card[data-art=planetbirth] .feature-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:53% 44%;z-index:-1;opacity:.97}
+.feature-card[data-art=planetbirth] .feature-back{background:radial-gradient(ellipse at 60% 45%,#3b4d8c55,transparent 55%),#0c162b}
+.feature-card[data-art=planetbirth] .feature-art{display:none}
+.feature-card[data-art=planetbirth]:after{background:linear-gradient(0deg,#050e1bf4 6%,#08172ae5 36%,#08172a15)}

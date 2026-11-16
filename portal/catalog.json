@@ -1,16 +1,16 @@
 {
-  "version": "35.0",
+  "version": "36.0",
   "categories": {
     "planety": {
       "id": "planety",
       "title": "Światy i orbity",
-      "description": "Wyrusz od Słońca, odkryj rytm planet, Księżyc i wielkie księżyce Jowisza.",
+      "description": "Od narodzin układów planetarnych po Ziemię, Księżyc i światy Układu Słonecznego.",
       "symbol": "◌",
       "color": "#60baff",
       "path": "dzialy/planety/",
       "highlights": [
         1,
-        8
+        36
       ]
     },
     "misje": {
@@ -340,6 +340,16 @@
       "category": "gwiazdy",
       "mode": "starbirth35",
       "path": "etapy/35/",
+      "kind": "stage"
+    },
+    "36": {
+      "number": 36,
+      "title": "Narodziny układów planetarnych",
+      "lead": "Ziarno, które stanie się światem",
+      "description": "Zajrzyj do dysku protoplanetarnego, zobacz wzrost ziaren, granicę lodu i młode protoplanety. Pięć ilustracji między akapitami oraz laboratorium z prawami Keplera.",
+      "category": "planety",
+      "mode": "planetbirth36",
+      "path": "etapy/36/",
       "kind": "stage"
     },
     "01": {

@@ -40,10 +40,10 @@ test('Trzy tryby, suwaki, tryb kinowy, źródła i powiązania',()=>{
  assert.match(html,/science\.nasa\.gov/);assert.match(html,/Jeansa/);assert.match(html,/href="\.\.\/34\/"/);
  assert.ok(read('etapy/34/index.html').includes('href="../35/"'));
 });
-test('Zgodna numeracja: 35 etapów, dział gwiazd i katalog JSON',()=>{
+test('Rozdział 35 pozostaje kompletny w rozwijającym się katalogu',()=>{
  const box={window:{}};vm.runInNewContext(read('portal/data.js'),box);
  const d=box.window.ATLAS_PORTAL_DATA;const json=JSON.parse(read('portal/catalog.json'));
- assert.equal(d.version,'35.0');assert.equal(Object.keys(d.stages).length,35);
+ assert.ok(Object.keys(d.stages).length>=35);
  assert.equal(d.stages['35'].category,'gwiazdy');assert.equal(d.stages['35'].mode,'starbirth35');
- assert.equal(d.categories.gwiazdy.highlights[0],35);assert.equal(json.version,d.version);assert.equal(Object.keys(json.stages).length,35);
+ assert.ok(d.categories.gwiazdy.highlights.includes(35));assert.equal(json.version,d.version);assert.equal(Object.keys(json.stages).length,Object.keys(d.stages).length);
 });

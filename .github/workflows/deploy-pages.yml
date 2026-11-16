@@ -35,6 +35,7 @@ on:
       - 'tests/portal-navigation.test.cjs'
       - 'tests/supernova34.test.cjs'
       - 'tests/starbirth35.test.cjs'
+      - 'tests/planetbirth36.test.cjs'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -123,6 +124,15 @@ jobs:
           test -s etapy/32/index.html
           node --check portal/data.js
           node --check portal/site.js
+          test -s etapy/36/index.html
+          test -s portal/planetbirth36-story.css
+          test -s portal/planetbirth36-story.js
+          test -s portal/media/planetbirth36-disk.svg
+          test -s portal/media/planetbirth36-pebbles.svg
+          test -s portal/media/planetbirth36-planetesimals.svg
+          test -s portal/media/planetbirth36-protoplanets.svg
+          node --check portal/planetbirth36-story.js
+          node --test tests/planetbirth36.test.cjs
           test -s etapy/35/index.html
           test -s portal/starbirth35-story.css
           test -s portal/starbirth35-story.js

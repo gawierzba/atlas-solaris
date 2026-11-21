@@ -1,13 +1,158 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Asysty grawitacyjne | ATLAS SOLARIS</title><meta name="description" content="Sprawdź, jak sonda może zmienić prędkość dzięki spotkaniu z planetą.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="13" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 13 / Misje kosmiczne</span><strong>Asysty grawitacyjne</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Asysty grawitacyjne — interaktywne laboratorium" src="../../atlas.html?portal=assist" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 13</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Asysty grawitacyjne</h1><p class="stage-lead">Energia ukryta w przelocie</p><p>Sprawdź, jak sonda może zmienić prędkość dzięki spotkaniu z planetą.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07121d">
+<title>Jak ukraść prędkość Jowiszowi? Asysty grawitacyjne | ATLAS SOLARIS 13</title>
+<meta name="description" content="Etap 13 ATLAS SOLARIS: odkryj fizykę asyst grawitacyjnych, misje Voyager, Cassini i MESSENGER oraz interaktywne laboratorium przelotów planetarnych.">
+<meta property="og:type" content="article"><meta property="og:title" content="Jak ukraść prędkość Jowiszowi? · ATLAS SOLARIS 13"><meta property="og:description" content="Sonda może przyspieszyć lub zwolnić, przelatując obok poruszającej się planety. Odkryj dwa układy odniesienia i przeprowadź własny eksperyment.">
+<meta property="og:image" content="https://gawierzba.github.io/atlas-solaris/portal/media/assist13-jupiter.svg">
+<link rel="stylesheet" href="../../portal/stage.css"><link rel="stylesheet" href="../../portal/assist13-story.css?v=13.1">
+<script src="../../portal/data.js?v=36.1" defer></script><script src="../../portal/stage.js?v=13.1" defer></script><script src="../../portal/assist13-story.js?v=13.1" defer></script>
+</head>
+<body class="ga13-page" data-route="13" data-kind="stage">
+<a class="ga13-skip" href="#ga13Start">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 13 / PODRÓŻE I MISJE</span><strong>Asysty grawitacyjne</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja artykułu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><a class="ga13-to-lab" href="#ga13Laboratorium">Eksperyment ↗</a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main ga13-main" id="main">
+<article class="ga13-article" aria-labelledby="ga13Title">
+<section class="ga13-opening" id="ga13Start">
+<div class="ga13-chrome"><span><i></i> ATLAS SOLARIS / KRONIKI NAWIGATORÓW</span><span>XIII / XXXVI</span></div>
+<p class="ga13-eyebrow">ROZDZIAŁ 13 · ENERGIA UKRYTA W PRZELOCIE</p>
+<h1 id="ga13Title">Jak ukraść prędkość <em>Jowiszowi?</em></h1>
+<p class="ga13-lead">W przestrzeni międzyplanetarnej nie ma drogi, na której można się rozpędzić kołami. Sonda leci przez lata, a każda dodatkowa porcja paliwa waży i kosztuje. Tymczasem ogromna planeta pędzi po własnej orbicie. Wystarczy spotkać ją w odpowiedniej chwili — a jej grawitacja odmieni dalszą podróż.</p>
+<div class="ga13-open-actions"><a class="ga13-button ga13-main-button" href="#ga13Historia">Zacznij podróż <span aria-hidden="true">↓</span></a><a class="ga13-button ga13-outline-button" href="#ga13Laboratorium">Sprawdź manewr <span aria-hidden="true">↗</span></a></div>
+<div class="ga13-opening-bottom"><span>GRAWITACJA · WEKTORY · VOYAGER · WENUS</span><span>OPOWIEŚĆ POPULARNONAUKOWA / OK. 11 MIN</span></div>
+</section>
+<figure class="ga13-figure ga13-figure-cover">
+<img src="../../portal/media/assist13-jupiter.svg" width="1600" height="900" fetchpriority="high" alt="Autorska ilustracja: wielki Jowisz z pasami chmur, sonda i świetlisty łuk symbolizujący spotkanie grawitacyjne.">
+<figcaption><span>PLANSZA I / MOMENT SPOTKANIA</span><p><b>Witaj w polu grawitacyjnym Jowisza.</b> Autorska wizja artystyczna ATLAS SOLARIS. Świetlista trajektoria i rozmiary obiektów nie są pokazane w skali.</p></figcaption>
+</figure>
+<div class="ga13-dateline"><span>ATLAS SOLARIS / ETAP 13</span><span>PLANETA W RUCHU TO NATURALNE CENTRUM MANEWRU</span><span>MECHANIKA LOTU KOSMICZNEGO</span></div>
+
+<section class="ga13-section" id="ga13Historia">
+<div class="ga13-rule"><span>01 / SPOTKANIE Z PLANETĄ</span><i></i><span>KOSMICZNA KATAPULTA</span></div>
+<div class="ga13-prose"><p class="ga13-kicker">NAJWAŻNIEJSZE JEST TO, ŻE PLANETA SIĘ PORUSZA</p>
+<h2>W kosmosie można dostać impuls, <em>nie uruchamiając silnika.</em></h2>
+<p class="ga13-drop">Wyobraź sobie sondę lecącą w stronę Jowisza. Z daleka planeta jest jasnym punktem. Z każdym dniem rośnie; w końcu w polu widzenia pojawiają się jej potężne pasy chmur. Sonda zbliża się do grawitacyjnej studni, zaczyna przyspieszać, mija planetę i rusza dalej.</p>
+<p>Na pierwszy rzut oka brzmi to jak zwykła historia o przyspieszaniu. Ale gdyby planeta pozostawała nieruchoma i zaniedbalibyśmy inne oddziaływania, sonda w dalekiej odległości odleciałaby z <strong>taką samą szybkością względem planety</strong>, z jaką nadleciała. W drodze w dół studni grawitacyjnej przyspiesza, w drodze w górę zwalnia. Bilans energii w tym układzie pozostaje taki sam.</p>
+<p>Istnieje jednak drugi uczestnik spotkania: <strong>ruch orbitalny planety wokół Słońca</strong>. Jowisz nie czeka nieruchomo. Krąży wokół Słońca z prędkością rzędu trzynastu kilometrów na sekundę. Jeśli sonda odpowiednio go minie, jej kierunek ruchu względem planety się zmieni. Gdy nowy wektor dodamy do prędkości poruszającego się Jowisza, szybkość sondy względem Słońca może wzrosnąć.</p>
+</div>
+<div class="ga13-quote"><span>SEDNO MANEWRU</span><p>Grawitacja zakrzywia drogę sondy. <em>Ruch planety zmienia wynik w układzie Słońca.</em></p></div>
+</section>
+
+<section class="ga13-section ga13-section-dual" id="ga13Perspektywy">
+<div class="ga13-rule"><span>02 / JEDNO SPOTKANIE, DWA ODCZYTY</span><i></i><span>UKŁAD ODNIESIENIA</span></div>
+<div class="ga13-prose"><p class="ga13-kicker">DLACZEGO DWA POMIARY MOGĄ BYĆ JEDNOCZEŚNIE PRAWDZIWE?</p>
+<h2>Z perspektywy planety — ta sama szybkość. <em>Z perspektywy Słońca — inna historia.</em></h2>
+<p>Astronom opisujący sondę w układzie planety mierzy jej prędkość na wejściu i wyjściu z daleka od globu. W idealnym przelocie bez napędu wartość tej prędkości, oznaczana v∞, przed i po spotkaniu jest taka sama. Zmienia się jednak <em>kierunek</em> ruchu.</p>
+<p>Drugi astronom patrzy na to samo zdarzenie z układu Słońca. Dodaje do wektora sondy prędkość planety. Jeżeli po zakręcie sonda porusza się bardziej zgodnie z ruchem planety, jej szybkość heliocentryczna rośnie. Jeśli zwrot jest przeciwny, może się zmniejszyć.</p>
+<p>To nie jest tworzenie energii z niczego. Podczas spotkania energia i pęd są wymieniane pomiędzy planetą i sondą. Zmiana ruchu planety jest ekstremalnie mała — jej masa jest bowiem ogromna w porównaniu z masą sondy.</p></div>
+<figure class="ga13-figure"><img src="../../portal/media/assist13-frames.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Porównanie dwóch układów odniesienia. W układzie planety sonda zmienia kierunek bez zmiany dalekiej szybkości, natomiast względem Słońca jej szybkość może się zmienić.">
+<figcaption><span>PLANSZA II / DWA SPOJRZENIA</span><p><b>Jedno spotkanie nie musi dawać tego samego odczytu prędkości.</b> Schemat pokazuje zasadę; strzałki i ich długości nie są rysowane w skali jednego konkretnego przelotu.</p></figcaption></figure>
+<div class="ga13-math"><span>FIZYKA W JEDNEJ LINII</span><strong>v<sub>Słońce</sub> = v<sub>planeta</sub> + v<sub>sonda względem planety</sub></strong><p>To dodawanie <b>wektorowe</b>. Samo dodanie dwóch liczb nie wystarcza; liczą się także kierunki.</p></div>
+</section>
+
+<section class="ga13-section" id="ga13Geometria">
+<div class="ga13-rule"><span>03 / GEOMETRIA ZAMIAST CZARÓW</span><i></i><span>OD CZEGO ZALEŻY ZAKRĘT?</span></div>
+<div class="ga13-prose"><p class="ga13-kicker">PLANETA NIE JEST MAGNETYCZNYM HAKIEM</p>
+<h2>Jak mocno można zakręcić <em>bez kropli paliwa?</em></h2>
+<p>O sile zakrzywienia toru sondy decydują przede wszystkim trzy wielkości. Pierwsza to masa planety: im silniejsze jej przyciąganie, tym większe może być odchylenie. Druga to prędkość nadlatującej sondy względem planety: bardzo szybka sonda zwykle skręca słabiej. Trzecia to odległość najbliższego podejścia liczona od środka planety.</p>
+<p>Nie możemy zbliżyć się dowolnie. Planeta ma promień, niektóre planety — atmosferę, wokół mogą krążyć księżyce, a w pobliżu Jowisza czy Saturna występują obszary silnego promieniowania. Każde spotkanie musi być dokładnie zaplanowane.</p>
+<p>W modelu idealnego przelotu hiperbolicznego astronomowie wiążą kąt skrętu δ z parametrem grawitacyjnym μ = GM, najbliższym podejściem r<sub>p</sub> i szybkością v∞. To przybliżenie znakomicie wyjaśnia zasadę manewru — choć nie zastępuje rzeczywistej nawigacji wielociałowej.</p></div>
+<div class="ga13-formula"><span>MODEL HIPERBOLICZNEGO PRZELOTU</span><strong>δ = 2 arcsin [1 / (1 + r<sub>p</sub>v∞² / μ)]</strong><p>r<sub>p</sub> to odległość od <b>środka</b> planety w punkcie najbliższego przelotu. Kąt opisuje zmianę kierunku asymptotycznej prędkości sondy względem planety.</p></div>
+</section>
+
+<section class="ga13-section ga13-section-voyager" id="ga13Voyager">
+<div class="ga13-rule"><span>04 / WIELKA WYPRAWA</span><i></i><span>VOYAGER 2 / 1977–1989</span></div>
+<div class="ga13-prose"><p class="ga13-kicker">CZTERY OLBRZYMY, JEDNA SONDA</p><h2>Gdy planety stały się <em>kolejnymi drzwiami do kosmosu.</em></h2>
+<p>W latach siedemdziesiątych XX wieku naukowcy dostrzegli wyjątkowo korzystną konfigurację planet zewnętrznych. Dzięki odpowiednim spotkaniom grawitacyjnym Voyager 2 mógł dotrzeć kolejno do Jowisza, Saturna, Urana i Neptuna — bez ogromnych impulsów rakietowych potrzebnych do każdej zmiany trajektorii.</p>
+<p>Sonda wystartowała 20 sierpnia 1977 roku. Minęła Jowisza 9 lipca 1979 roku, Saturna 25 sierpnia 1981 roku, Urana 24 stycznia 1986 roku oraz Neptuna 25 sierpnia 1989 roku. Każde spotkanie było jednocześnie naukową wizytą i starannie wycelowanym zakrętem ku następnym odkryciom.</p>
+<p>NASA podaje, że asysty pozwoliły skrócić podróż do Neptuna z około 30 do 12 lat. To jedna z najpiękniejszych odpowiedzi na pytanie, dlaczego <strong>geometria potrafi być w astronautyce równie ważna jak moc silnika</strong>.</p></div>
+<figure class="ga13-figure"><img src="../../portal/media/assist13-voyager.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Mapa narracyjna kolejnych przelotów Voyagera 2: Jowisz 1979, Saturn 1981, Uran 1986, Neptun 1989.">
+<figcaption><span>PLANSZA III / GRAND TOUR</span><p><b>Voyager 2: cztery spotkania, które otworzyły drogę na obrzeża Układu Słonecznego.</b> Daty przelotów są historyczne; orbity, rozmiary i trajektoria mają charakter ilustracyjny.</p></figcaption></figure>
+<div class="ga13-timeline"><div><span>1977</span><strong>Start</strong><p>Voyager 2 opuszcza Ziemię.</p></div><div><span>1979</span><strong>Jowisz</strong><p>Pierwszy wielki zwrot.</p></div><div><span>1981</span><strong>Saturn</strong><p>Nowy kierunek ku Uranowi.</p></div><div><span>1986</span><strong>Uran</strong><p>Historyczny przelot.</p></div><div><span>1989</span><strong>Neptun</strong><p>Ostatnie spotkanie z planetą.</p></div></div>
+</section>
+
+<section class="ga13-section" id="ga13Hamowanie">
+<div class="ga13-rule"><span>05 / NIE KAŻDA ASYSTA PRZYSPIESZA</span><i></i><span>WENUS / MERKURY / SŁOŃCE</span></div>
+<div class="ga13-prose"><p class="ga13-kicker">TO NAJBARDZIEJ NIEINTUICYJNA CZĘŚĆ HISTORII</p><h2>Aby polecieć bliżej Słońca, <em>trzeba czasem zwolnić.</em></h2>
+<p>Na Ziemi intuicja mówi, że do bliższego celu należy ruszyć w jego stronę. Ale Ziemia krąży wokół Słońca z szybkością około 30 kilometrów na sekundę. Sonda wystrzelona z Ziemi dziedziczy znaczną część jej ruchu orbitalnego. Żeby zejść na orbitę znacznie bliższą Słońcu, musi zwykle zmniejszyć energię heliocentryczną.</p>
+<p>Tu asysta działa w przeciwną stronę: odpowiednio skierowany przelot może <strong>odebrać sondzie część energii orbitalnej względem Słońca</strong>. MESSENGER wykorzystał przelot obok Ziemi, dwa spotkania z Wenus i trzy spotkania z Merkurym w drodze do jego orbity. Parker Solar Probe korzystała z Wenus, aby coraz bardziej zbliżać się do Słońca.</p>
+<p>Asysta nie jest więc po prostu „dopalaczem”. To narzędzie do świadomej wymiany energii i zmiany kierunku lotu. Ta sama planeta może pomóc polecieć dalej albo głębiej do wnętrza Układu Słonecznego.</p></div>
+<figure class="ga13-figure"><img src="../../portal/media/assist13-venus.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Wizja artystyczna przelotu sondy przy Wenus i zmiany jej energii heliocentrycznej, z Merkurym w oddali."><figcaption><span>PLANSZA IV / WENUS</span><p><b>Nie zawsze potrzebne jest przyspieszenie.</b> Artystyczna ilustracja hamowania heliocentrycznego; nie jest odwzorowaniem trajektorii konkretnej misji.</p></figcaption></figure>
+</section>
+
+<section class="ga13-section ga13-section-missions" id="ga13Cassini">
+<div class="ga13-rule"><span>06 / KOSMICZNA EKONOMIA</span><i></i><span>CASSINI / PROJEKTOWANIE TRASY</span></div>
+<div class="ga13-prose"><p class="ga13-kicker">RAKIETA NIE MUSI ROBIĆ WSZYSTKIEGO SAMA</p><h2>Dlaczego inżynierowie wolą <em>spotkanie od dodatkowego paliwa?</em></h2>
+<p>Wyobraź sobie ciężki statek z instrumentami, anteną i osłonami. Każda dodatkowa porcja paliwa oznacza większą masę, a większa masa może wymagać jeszcze większego wysiłku przy starcie i w trakcie lotu. Dlatego trasa misji jest częścią jej projektu, a nie tylko kreską na mapie.</p>
+<p>Cassini, sonda skierowana do Saturna, po starcie w 1997 roku wykonała dwie asysty przy Wenus, jedną przy Ziemi i jedną przy Jowiszu. Ta złożona trasa pozwoliła dostarczyć dużą sondę do odległego celu, mimo ograniczeń dostępnej energii startowej.</p>
+<p>Nie istnieją jednak darmowe podróże w sensie dosłownym. Za asysty płaci się czasem lotu, koniecznością dokładnego wycelowania w poruszającą się planetę i ryzykiem związanym z bliskim przelotem. Zysk jest ogromny: możliwość realizacji misji, która przy innej trasie wymagałaby znacznie większych manewrów silnikowych.</p></div>
+</section>
+
+<section class="ga13-lab-section" id="ga13Laboratorium" aria-labelledby="ga13LabTitle">
+<div class="ga13-rule"><span>07 / LABORATORIUM ASYST</span><i></i><span>PRZELEĆ Z DWÓCH STRON PLANETY</span></div>
+<div class="ga13-lab-intro"><div><p class="ga13-kicker">JEDNA PLANETA. DWA MOŻLIWE WYNIKI.</p><h2 id="ga13LabTitle">Ile prędkości można <em>zyskać — albo oddać?</em></h2><p>Wybierz planetę, szybkość zbliżania, wysokość przelotu i kierunek zakrętu. Idealizowany model obliczy kąt odchylenia i prędkości względem Słońca. Rysunek pokazuje wektory, a nie ephemerydy rzeczywistej sondy.</p></div><span class="ga13-big-number">13</span></div>
+<div class="ga13-lab-shell">
+<div class="ga13-lab-header"><span><i></i> ATLAS / FLYBY LAB</span><span>IDEALIZOWANY PRZELOT HIPERBOLICZNY</span></div>
+<div class="ga13-lab-layout">
+<div class="ga13-stage-screen">
+<canvas id="ga13Canvas" width="900" height="650" role="img" aria-label="Interaktywne porównanie wektorów prędkości sondy względem planety i względem Słońca."></canvas>
+<div class="ga13-screen-labels"><span id="ga13PlanetTitle">JOWISZ</span><span>PLANETA W RUCHU →</span></div>
+<div class="ga13-screen-footer"><span>SCHEMAT WEKTORÓW / NIE TRAJEKTORIA MISJI</span><button id="ga13Cinema" type="button" aria-pressed="false">⤢ Tryb kinowy</button></div>
+</div>
+<div class="ga13-lab-controls">
+<div class="ga13-controls-head"><span>PARAMETRY SPOTKANIA</span><span>GEOMETRIA 2D</span></div>
+<div class="ga13-field"><label for="ga13Planet">Planeta</label><select id="ga13Planet"><option value="jupiter" selected>Jowisz</option><option value="saturn">Saturn</option><option value="earth">Ziemia</option><option value="venus">Wenus</option></select></div>
+<div class="ga13-control"><label for="ga13Vinf">Szybkość względem planety <output id="ga13VinfOut" for="ga13Vinf">10,0 km/s</output></label><input id="ga13Vinf" type="range" min="4" max="30" value="10" step="0.5"><div class="ga13-range-minmax"><span>4 km/s</span><span>30 km/s</span></div></div>
+<div class="ga13-control"><label for="ga13Altitude">Wysokość przelotu <output id="ga13AltitudeOut" for="ga13Altitude">30 000 km</output></label><input id="ga13Altitude" type="range" min="1000" max="200000" step="1000" value="30000"><div class="ga13-range-minmax"><span>1 000 km</span><span>200 000 km</span></div></div>
+<div class="ga13-field"><span class="ga13-field-caption">Strona zakrętu w modelu</span><div class="ga13-switch" role="group" aria-label="Rodzaj manewru"><button id="ga13Boost" type="button" class="is-active" aria-pressed="true">↗ Przyspiesz</button><button id="ga13Brake" type="button" aria-pressed="false">↘ Wyhamuj</button></div></div>
+<div class="ga13-readouts"><div><span>KĄT ZAKRĘTU</span><strong id="ga13Turn">—</strong><small>stopnie (δ)</small></div><div><span>SZYBKOŚĆ SŁONECZNA</span><strong id="ga13Speed">—</strong><small>po przelocie · km/s</small></div><div><span>ZMIANA SZYBKOŚCI</span><strong id="ga13Delta">—</strong><small>km/s · względem Słońca</small></div><div><span>v∞ WZGLĘDEM PLANETY</span><strong id="ga13PlanetRelative">—</strong><small>taka sama przed i po</small></div></div>
+<div class="ga13-play-controls"><button type="button" id="ga13Reset">↺ Przywróć przykład</button></div>
+<p class="ga13-lab-help" id="ga13Explanation" aria-live="polite">Wybierz parametry, aby poznać wynik przelotu.</p>
+</div></div></div>
+<div class="ga13-method"><strong>Metoda i ograniczenia</strong><p>Model jest płaski i nie używa napędu. Oblicza kąt przelotu z μ, v∞ i r<sub>p</sub> = R<sub>planety</sub> + h. W układzie planety v∞ ma wartość stałą przed i po manewrze. Dla wybranej geometrii ustawiamy początkowy wektor sondy (0, −v∞), a wychodzący obracamy o ±δ; następnie dodajemy wektor ruchu planety (U, 0). To <b>ilustracja zasady patched-conics</b>, a nie rekonstrukcja konkretnej misji. W szczególności pomija grawitację Słońca podczas spotkania, ruch po orbitach eliptycznych, księżyce, atmosfery, promieniowanie i ograniczenia bezpieczeństwa. Zmiana szybkości heliocentrycznej nie jest równoznaczna z impulsem Δv wymaganym od silnika.</p></div>
+</section>
+
+<section class="ga13-original" id="ga13StarySymulator" aria-labelledby="ga13OldLab">
+<div class="ga13-rule"><span>08 / PEŁNY SILNIK ATLASU</span><i></i><span>ZACHOWANY DOTYCHCZASOWY SYMULATOR</span></div>
+<div class="ga13-original-copy"><p class="ga13-kicker">TO LABORATORIUM JUŻ ZNASZ — NICZEGO NIE USUWAMY</p>
+<h2 id="ga13OldLab">A teraz zajrzyj do <em>centrum sterowania.</em></h2>
+<p>Nowy kalkulator wyjaśnia zasadę wektorów i energii. Wcześniejsze laboratorium etapu 13 nadal pozwala śledzić asysty w większej symulacji Układu Słonecznego. Uruchomi się dopiero po kliknięciu, dzięki czemu nie obciąża strony podczas czytania.</p>
+<button class="ga13-launch" id="stageStartLab" type="button">Uruchom pełny symulator asyst grawitacyjnych <span aria-hidden="true">↗</span></button>
+</div>
+<div class="stage-viewport ga13-legacy-viewport" id="stageViewport">
+<div class="stage-loader" id="stageLoading" hidden aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div>
+<iframe id="stageFrame" title="Asysty grawitacyjne — oryginalny symulator ATLAS SOLARIS" data-src="../../atlas.html?portal=assist" data-lazy="true" data-manual="true" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić symulatora. <button id="stageReload" type="button">Spróbuj ponownie</button> <a href="../../atlas.html?portal=assist">Otwórz laboratorium osobno ↗</a></div>
+</section>
+
+<section class="ga13-section ga13-conclusion">
+<div class="ga13-rule"><span>09 / EPILOG</span><i></i><span>NAUKA, KTÓRA ZAMIENIA DROGĘ W ENERGIĘ</span></div>
+<div class="ga13-prose"><p class="ga13-kicker">OPOWIEŚĆ O NIEWIDZIALNEJ WYMIANIE</p><h2>Wszystko zależy od tego, <em>gdzie i kiedy się spotkacie.</em></h2>
+<p>Patrząc na Jowisza przez teleskop, widzimy pasy chmur i księżyce. Konstruktor sondy widzi jeszcze coś innego: olbrzymie ciało w ruchu, które może stać się kolejnym rozdziałem misji. Ta sama planeta potrafi pomóc przyspieszyć ku odległym światom albo skierować statek w zupełnie inną stronę.</p>
+<p>Asysta grawitacyjna nie oszukuje praw fizyki. Wykorzystuje je z taką precyzją, że po wieloletnim locie niewielka sonda przechodzi w odpowiedniej odległości od potężnej planety, aby polecieć tam, gdzie sama rakieta nie dałaby rady.</p>
+<p class="ga13-last">Największym wynalazkiem kosmicznej podróży bywa nie silnik. Bywa nim dobrze wybrana droga.</p></div>
+<div class="ga13-sources"><strong>Źródła, daty i metodologia</strong><p>Tekst opiera się na materiałach NASA/JPL oraz ESA. Plansze I–IV są autorskimi ilustracjami ATLAS SOLARIS, a laboratorium stanowi idealizowaną wizualizację fizyki manewru.</p><ul>
+<li><a href="https://science.nasa.gov/learn/basics-of-space-flight/primer/" target="_blank" rel="noopener noreferrer">NASA/JPL — Gravity Assist Primer</a></li>
+<li><a href="https://science.nasa.gov/learn/basics-of-space-flight/chapter4-1/" target="_blank" rel="noopener noreferrer">NASA/JPL — Trajectories, Basics of Space Flight</a></li>
+<li><a href="https://science.nasa.gov/mission/voyager/planetary-voyage/" target="_blank" rel="noopener noreferrer">NASA — Voyager: Planetary Voyage</a></li>
+<li><a href="https://science.nasa.gov/mission/cassini/gravity-assists/" target="_blank" rel="noopener noreferrer">NASA — Cassini: Gravity Assists</a></li>
+<li><a href="https://science.nasa.gov/mission/messenger/" target="_blank" rel="noopener noreferrer">NASA — MESSENGER</a></li>
+<li><a href="https://www.esa.int/Enabling_Support/Operations/What_are_gravity_assists" target="_blank" rel="noopener noreferrer">ESA — What are gravity assists?</a></li>
+</ul></div>
+<nav class="ga13-next" aria-label="Sąsiednie rozdziały"><a href="../12/"><span>POPRZEDNI ETAP · 12</span><strong>← Laboratorium Grawitacji</strong><small>Punkty Lagrange’a i trzy ciała</small></a><a href="../14/"><span>NASTĘPNY ETAP · 14</span><strong>Archiwum Misji →</strong><small>Śladami Voyagera i Cassini</small></a></nav>
+</section>
+</article>
+</main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie">
+<div class="stage-info-head"><span>ETAP 13</span><button id="stageInfoClose" aria-label="Zamknij informacje" type="button">✕</button></div>
+<h1>Asysty grawitacyjne</h1><p class="stage-lead">Jak ukraść prędkość Jowiszowi?</p>
+<p>Rozbudowany artykuł, cztery ilustracje w treści, opowieść o Voyager 2, Cassini i MESSENGER, nowe laboratorium geometrii przelotu oraz zachowany wcześniejszy symulator.</p>
+<div id="stageRelated"></div></aside>
+<noscript><p class="ga13-noscript">Artykuł i ilustracje można czytać bez JavaScript. Interaktywne laboratoria wymagają jego włączenia.</p></noscript>
 </body></html>

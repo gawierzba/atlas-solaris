@@ -86,3 +86,9 @@
 .feature-card[data-art=planetbirth] .feature-back{background:radial-gradient(ellipse at 60% 45%,#3b4d8c55,transparent 55%),#0c162b}
 .feature-card[data-art=planetbirth] .feature-art{display:none}
 .feature-card[data-art=planetbirth]:after{background:linear-gradient(0deg,#050e1bf4 6%,#08172ae5 36%,#08172a15)}
+
+/* ETAP 13 / rekomendowana wyprawa: asysty grawitacyjne */
+.feature-card[data-art=assist] .feature-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:59% 42%;z-index:-1;opacity:.93}
+.feature-card[data-art=assist] .feature-back{background:radial-gradient(ellipse at 68% 40%,#1c616074,transparent 60%),#0b202b}
+.feature-card[data-art=assist] .feature-art{display:none}
+.feature-card[data-art=assist]:after{background:linear-gradient(0deg,#05141bf4 7%,#061824e8 38%,#0b19221a)}

@@ -16,12 +16,12 @@
     "misje": {
       "id": "misje",
       "title": "Podróże i misje",
-      "description": "Zaplanuj lot, wybierz okno startowe i poznaj najodważniejsze wyprawy sond.",
+      "description": "Od okien startowych po asysty grawitacyjne i historyczne wyprawy sond.",
       "symbol": "↗",
       "color": "#68ddd0",
       "path": "dzialy/misje/",
       "highlights": [
-        10,
+        13,
         14
       ]
     },
@@ -108,8 +108,8 @@
     "13": {
       "number": 13,
       "title": "Asysty grawitacyjne",
-      "lead": "Energia ukryta w przelocie",
-      "description": "Sprawdź, jak sonda może zmienić prędkość dzięki spotkaniu z planetą.",
+      "lead": "Jak ukraść prędkość Jowiszowi?",
+      "description": "Jak sonda wykorzystuje ruch planety, by przyspieszyć lub wyhamować? Odkryj historię Voyagera i sprawdź dwa układy odniesienia w interaktywnym laboratorium.",
       "category": "misje",
       "mode": "assist",
       "path": "etapy/13/",

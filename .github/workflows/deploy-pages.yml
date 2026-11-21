@@ -246,6 +246,9 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
+      - name: Poczekaj na widoczność przesłanego artefaktu Pages
+        shell: bash
+        run: sleep 10
       - name: Opublikuj GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -3,6 +3,8 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+// Detector 24.0 depends on the orbital waveform engine from stage 23.
+const GW=require('../js/merger23-core.js');
 const C=require('../js/ligo24-core.js');
 const near=(a,b,tol=1e-11)=>assert.ok(Math.abs(a-b)<=tol*Math.max(1,Math.abs(b)),'Expected '+a+' to be close to '+b);
 

@@ -44,7 +44,7 @@ test('Facts and explanations clearly distinguish model from data',()=>{
  for(const x of ['4 kilometrów','1064 nm','40 kilogramów','6,9 milisekundy','szum','filtr dopasowany','interferometr','optyczny','GW150914']) assert.ok(h.includes(x),'No '+x);
  assert.match(h,/nie pobiera surowego odczytu LIGO/i);
  assert.match(h,/wykres obserwacyjny LIGO, nie nasza symulacja/i);
- assert.match(h,/pomiędzy detektorami/i);
+ assert.match(h,/między detektorami/i);
  assert.doesNotMatch(h,/\*\*[^*]+\*\*/);
 });
 test('Laser optical story relies on original, tested stage 24 core',()=>{

@@ -93,8 +93,8 @@ function draw(){
  ctx.beginPath();ctx.arc(point[0],point[1],7,0,2*Math.PI);ctx.fillStyle='#fff6fa';ctx.fill();
  var centerR=rad*.43;
  ctx.beginPath();ctx.arc(cx,cy,centerR,0,Math.PI*2);ctx.fillStyle='rgba(12,14,41,.90)';ctx.fill();
- label('☉',cx,cy-rad*.155,28,'#fad0ef','center','400');
- label('SŁOŃCE',cx,cy-rad*.02,11,'#baa6d8');
+ label('⊕',cx,cy-rad*.155,28,'#fad0ef','center','400');
+ label('WIDOK Z ZIEMI',cx,cy-rad*.02,11,'#baa6d8');
  label(fmt(l,1)+'°',cx,cy+rad*.115,W<530?25:32,'#f5e7ff','center','400');
  label('DŁUGOŚĆ EKLIPTYCZNA',cx,cy+rad*.235,8,'#a79acb');
  label(mode==='both'?'13 GWIAZDOZBIORÓW + 12 ZNAKÓW':'13 OBSZARÓW NA EKLIPTYCE',17,34,10,'#e0c5f2','left');

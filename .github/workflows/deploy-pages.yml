@@ -46,6 +46,7 @@ on:
       - 'tests/blackhole20-story.test.cjs'
       - 'tests/kerr21-story.test.cjs'
       - 'tests/camera22-story.test.cjs'
+      - 'tests/merger23-story.test.cjs'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -134,6 +135,11 @@ jobs:
           test -s etapy/32/index.html
           node --check portal/data.js
           node --check portal/site.js
+          test -s etapy/23/index.html
+          test -s portal/merger23-story.css
+          test -s portal/merger23-story.js
+          node --check portal/merger23-story.js
+          node --test tests/merger23-story.test.cjs
           test -s etapy/22/index.html
           test -s portal/camera22-story.css
           test -s portal/camera22-story.js

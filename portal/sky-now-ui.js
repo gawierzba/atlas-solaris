@@ -104,7 +104,7 @@ function draw(){
  clear();drawGrid();
  var k=state.red;
  var visible=state.scene.filter(function(o){return o.altitudeDeg>=0;});
- var byId=Object.fromEntries(visible.map(function(o){return[o.id,o];}));
+ var byId={};visible.forEach(function(o){byId[o.id]=o;});
  ctx.save();ctx.beginPath();ctx.arc(state.cx,state.cy,state.r-1,0,Math.PI*2);ctx.clip();
  C.lines.forEach(function(group){
   for(var i=1;i<group.length;i++){

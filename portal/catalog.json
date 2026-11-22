@@ -40,13 +40,13 @@
     "gwiazdy": {
       "id": "gwiazdy",
       "title": "Gwiazdy i niebo",
-      "description": "Od narodzin gwiazd i egzoplanet po supernowe, pulsary i magnetary.",
+      "description": "Od narodzin gwiazd i egzoplanet po supernowe, pulsary oraz magnetary.",
       "symbol": "✦",
       "color": "#b4a1ff",
       "path": "dzialy/gwiazdy/",
       "highlights": [
-        35,
-        34
+        15,
+        35
       ]
     },
     "relatywistyka": {
@@ -127,9 +127,9 @@
     },
     "15": {
       "number": 15,
-      "title": "Łowca Egzoplanet",
-      "lead": "Odkryj planetę światłem gwiazdy",
-      "description": "Wygeneruj krzywą blasku i rozpoznaj tranzyt egzoplanety.",
+      "title": "Światy, których nigdy nie widzieliśmy",
+      "lead": "Łowca Egzoplanet — odkrywanie planet za pomocą światła",
+      "description": "Jak z cienia odczytać daleką planetę? Sześć obrazów NASA i ESA, Kepler, TRAPPIST-1, atmosfera WASP-39 b, laboratorium krzywej blasku i oryginalny Łowca Egzoplanet.",
       "category": "gwiazdy",
       "mode": "exo",
       "path": "etapy/15/",

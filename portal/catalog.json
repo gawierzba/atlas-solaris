@@ -16,13 +16,13 @@
     "misje": {
       "id": "misje",
       "title": "Podróże i misje",
-      "description": "Od okien startowych po asysty grawitacyjne i historyczne wyprawy sond.",
+      "description": "Od asyst grawitacyjnych po podróże Voyagerów, Cassini i wiadomości z głębokiego kosmosu.",
       "symbol": "↗",
       "color": "#68ddd0",
       "path": "dzialy/misje/",
       "highlights": [
-        13,
-        14
+        14,
+        13
       ]
     },
     "zjawiska": {
@@ -117,9 +117,9 @@
     },
     "14": {
       "number": 14,
-      "title": "Archiwum Misji",
-      "lead": "Śladami Voyagera i Cassini",
-      "description": "Zobacz historyczne trajektorie sond na podstawie próbek danych NASA/JPL.",
+      "title": "Wiadomości z krańca Układu Słonecznego",
+      "lead": "Voyager, Cassini i Złota Płyta",
+      "description": "Sześć obrazów NASA/JPL, historia sond Voyager i Cassini, sieć Deep Space Network, Pale Blue Dot i interaktywne laboratorium opóźnień sygnału. Zachowany dotychczasowy symulator Archiwum Misji.",
       "category": "misje",
       "mode": "archive",
       "path": "etapy/14/",

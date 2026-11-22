@@ -50,13 +50,13 @@ test('Editorial scientific honesty: observation separate from NASA visualization
  const h=read('etapy/23/index.html');
  assert.match(h,/nie jest pomiarem LIGO ani pełną symulacją/i);
  assert.match(h,/nie są barwami widzialnymi/i);
- assert.match(h,/od obserwacyjnych/i);
+ assert.match(h,/Warianty hipotetyczne służą/i);
  assert.match(h,/2026/);
  assert.match(h,/Hawkinga/);
 });
 test('Canvas lab has all inputs, readouts and existing physics loaded first',()=>{
  const h=read('etapy/23/index.html'),js=read('portal/merger23-story.js');
- const coreIndex=h.indexOf('src="../../js/merger23-core.js"');
+ const coreIndex=h.indexOf('src="../../js/merger23-core.js?');
  assert.ok(coreIndex>=0);
  assert.ok(h.indexOf('src="../../portal/merger23-story.js')>coreIndex);
  for(const id of ['mg23Canvas','mg23Play','mg23Progress','mg23Incline','mg23Frequency',

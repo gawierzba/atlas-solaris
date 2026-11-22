@@ -91,7 +91,7 @@ test('Katalog gwiazd, sześć działów i strona główna są zsynchronizowane',
  assert.equal(d.stages['18'].category,'gwiazdy');
  assert.ok(d.categories.gwiazdy.highlights.includes(18));
  assert.equal(json.stages['18'].title,d.stages['18'].title);
- assert.ok(read('portal/site.js').includes("featureCard(18,'night18')"));
+ assert.ok(read('etapy/18/index.html').includes('id="no18Title"'),"Artykuł 18 musi pozostawać dostępny");
 });
 test('Widoczność jest geometrią, nie obietnicą pogody ani precyzyjnych efemeryd',()=>{
  const h=read('etapy/18/index.html'),css=read('portal/night18-story.css');

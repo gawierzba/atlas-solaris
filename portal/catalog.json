@@ -54,13 +54,14 @@
     "relatywistyka": {
       "id": "relatywistyka",
       "title": "Czasoprzestrzeń",
-      "description": "Granice czasoprzestrzeni: horyzonty czarnych dziur, zakrzywienie światła, dylatacja czasu, ergosfera, fale grawitacyjne i soczewkowanie.",
+      "description": "Od horyzontu i ergosfery obracającej się czarnej dziury po sondę w czasoprzestrzeni Kerra, soczewkowanie i fale grawitacyjne.",
       "symbol": "◎",
       "color": "#d5a0f7",
       "path": "dzialy/relatywistyka/",
       "highlights": [
-        20,
         21,
+        20,
+        22,
         31
       ]
     },
@@ -190,9 +191,9 @@
     },
     "21": {
       "number": 21,
-      "title": "Misja przez ergosferę",
-      "lead": "Lot sondy w pobliżu horyzontu",
-      "description": "Symuluj trajektorie w czasoprzestrzeni Kerra i odczytuj zegary.",
+      "title": "Gdy wiruje sama przestrzeń",
+      "lead": "Misja przez ergosferę — spin Kerra i granica statyczności",
+      "description": "Sześć obrazów ESO i NASA, w tym obserwacje gwiazdy S301 z 2026 r., naukowe wizualizacje ergosfery, wleczenie układów odniesienia, proces Penrose’a oraz laboratorium wirującej czarnej dziury Kerra.",
       "category": "relatywistyka",
       "mode": "probe",
       "path": "etapy/21/",

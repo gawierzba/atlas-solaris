@@ -134,3 +134,9 @@
 .feature-card[data-art=blackhole20] .feature-back{background:radial-gradient(ellipse at 60% 36%,#55353388,transparent 66%),#12101c}
 .feature-card[data-art=blackhole20] .feature-art{display:none}
 .feature-card[data-art=blackhole20]:after{background:linear-gradient(0deg,#0b0c15f5 8%,#14101cdd 43%,#1910170f)}
+
+/* ATLAS SOLARIS 21 — ilustracja M87 w polecanych */
+.feature-card[data-art=kerr21] .feature-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:51% 45%;z-index:-1;opacity:.94}
+.feature-card[data-art=kerr21] .feature-back{background:radial-gradient(ellipse at 57% 38%,#543b7c8d,transparent 66%),#0d0f28}
+.feature-card[data-art=kerr21] .feature-art{display:none}
+.feature-card[data-art=kerr21]:after{background:linear-gradient(0deg,#0b0b23f5 5%,#131332dd 45%,#18102a10)}

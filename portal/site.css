@@ -104,3 +104,9 @@
 .feature-card[data-art=exo15] .feature-back{background:radial-gradient(ellipse at 60% 38%,#2c5d6885,transparent 65%),#0b1e2b}
 .feature-card[data-art=exo15] .feature-art{display:none}
 .feature-card[data-art=exo15]:after{background:linear-gradient(0deg,#06101df2 7%,#09172bd7 40%,#10172910)}
+
+/* ATLAS SOLARIS 16 — polecany rozdział z rzeczywistym obrazem 67P */
+.feature-card[data-art=smallbodies16] .feature-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 42%;z-index:-1;opacity:.93}
+.feature-card[data-art=smallbodies16] .feature-back{background:radial-gradient(ellipse at 65% 34%,#4833478a,transparent 68%),#110f20}
+.feature-card[data-art=smallbodies16] .feature-art{display:none}
+.feature-card[data-art=smallbodies16]:after{background:linear-gradient(0deg,#0b0e1cf4 5%,#0e101ed5 40%,#11101b14)}

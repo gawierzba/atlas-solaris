@@ -64,13 +64,13 @@
     "nauka": {
       "id": "nauka",
       "title": "Jak poznajemy kosmos",
-      "description": "Naukowe metody, asteroidy, grawitacja, granice Wszechświata i kulisy Atlasu.",
+      "description": "Jak badamy kosmos? Od komet i planetoid po zderzenia, próbki, odległe galaktyki i narzędzia astronomii.",
       "symbol": "⌁",
       "color": "#8bdab6",
       "path": "dzialy/nauka/",
       "highlights": [
-        7,
-        28
+        16,
+        7
       ]
     }
   },
@@ -137,9 +137,9 @@
     },
     "16": {
       "number": 16,
-      "title": "Asteroidy i komety",
-      "lead": "Bliskie spotkania z Ziemią",
-      "description": "Oglądaj dane o małych ciałach Układu Słonecznego i ich orbitalne wizualizacje.",
+      "title": "Kamienie, które pamiętają początek",
+      "lead": "Asteroidy i komety — od Rosetty po DART",
+      "description": "Sześć autentycznych fotografii NASA/ESA; Rosetta, Philae, NEOWISE, Westa, Bennu i DART. Laboratorium przelotu NEO z grawitacyjnym ogniskowaniem i zachowany pierwotny symulator.",
       "category": "nauka",
       "mode": "neo",
       "path": "etapy/16/",

@@ -106,7 +106,7 @@ test('Standalone new sky page loads existing science first, with no remote JS/re
  for(const id of ['skyCanvas','skyPlace','skyLat','skyLon','skyDate','skyTime','skySlider','skyRed','skyNow','skyEarlier','skyLater','skyBodiesList','skyStarList','skyMoonPhase','skySelectedHeading'])
   assert.ok(mapHtml.includes('id="'+id+'"'),id);
  assert.match(mapHtml,/NASA\/JPL/);
- assert.match(mapHtml,/strefie Twojego urządzenia/);
+ assert.match(mapHtml,/lokalnej strefie urządzenia/);
  assert.match(mapHtml,/nie zna ani nie zapisuje Twojej pozycji/);
  assert.doesNotMatch(mapHtml,/<script src="https?:\/\//);
 });

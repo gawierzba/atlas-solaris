@@ -49,6 +49,7 @@ on:
       - 'tests/merger23-story.test.cjs'
       - 'tests/ligo24-story.test.cjs'
       - 'tests/zodiac25-story.test.cjs'
+      - 'tests/time26-story.test.cjs'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -137,6 +138,11 @@ jobs:
           test -s etapy/32/index.html
           node --check portal/data.js
           node --check portal/site.js
+          test -s etapy/26/index.html
+          test -s portal/time26-story.css
+          test -s portal/time26-story.js
+          node --check portal/time26-story.js
+          node --test tests/time26-story.test.cjs
           test -s etapy/25/index.html
           test -s portal/zodiac25-story.css
           test -s portal/zodiac25-story.js

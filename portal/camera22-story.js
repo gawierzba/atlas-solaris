@@ -3,9 +3,15 @@
    Original high-fidelity cockpit engine is loaded on explicit request below. */
 (function(){
 'use strict';
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+function aberration(beta,theta){var mu=Math.cos(theta);return Math.acos(clamp((mu+beta)/(1+beta*mu),-1,1));}
+function doppler(beta,theta){return(1+beta*Math.cos(theta))/Math.sqrt(1-beta*beta);}
+window.ATLAS_CV22_PHYSICS={aberration:aberration,doppler:doppler};
 var C=document.getElementById('cv22Canvas');
 if(!C||!C.getContext)return;
-var ctx=C.getContext('2d'),speed=document.getElementById('cv22Speed'),angle=document.getElementById('cv22Angle'),p=document.querySelectorAll('[data-cv22-speed]');
+var ctx=C.getContext('2d');
+if(!ctx)return;
+var speed=document.getElementById('cv22Speed'),angle=document.getElementById('cv22Angle'),p=document.querySelectorAll('[data-cv22-speed]');
 if(!speed||!angle)return;
 var stars=[],N=470;
 function pseudo(i){var n=Math.sin(i*147.531+23.86)*43758.5453123;return n-Math.floor(n);}
@@ -13,10 +19,6 @@ for(var i=0;i<N;i++){
  var u=2*pseudo(1+i)-1,theta=Math.acos(u),phi=2*Math.PI*pseudo(i+1353);
  stars.push({theta:theta,phi:phi,m:.5+pseudo(i+2771)*1.3,a:.28+pseudo(i+3725)*.60});
 }
-function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
-function aberration(beta,theta){var mu=Math.cos(theta);return Math.acos(clamp((mu+beta)/(1+beta*mu),-1,1));}
-function doppler(beta,theta){return(1+beta*Math.cos(theta))/Math.sqrt(1-beta*beta);}
-window.ATLAS_CV22_PHYSICS={aberration:aberration,doppler:doppler};
 function fmt(n,places){return n.toLocaleString('pl-PL',{minimumFractionDigits:places,maximumFractionDigits:places});}
 function put(id,t){var el=document.getElementById(id);if(el)el.textContent=t;}
 var dpr=1,W=800,H=600;

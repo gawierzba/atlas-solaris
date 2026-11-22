@@ -135,3 +135,23 @@ body.no18-page{background:var(--no18-bg);color:var(--no18-ink);font-family:Inter
 @media(max-width:720px){.no18-story{padding:8px 8px 65px}.no18-opening{min-height:0;padding:44px 22px 27px;border-radius:10px 10px 0 0}.no18-topline{font-size:9px}.no18-eyebrow{margin:68px 0 18px}.no18-opening h1{font-size:clamp(51px,11vw,78px);margin-bottom:26px}.no18-lead{font-size:16px}.no18-actions{margin:29px 0 53px;flex-direction:column;align-items:stretch}.no18-bottom{font-size:8px}.no18-figure{margin:32px auto;padding:0}.no18-cover{margin:0;padding:0 0 20px}.no18-figure>a{border-radius:8px}.no18-cover>a{border-radius:0}.no18-figure figcaption{display:block;margin:14px 3px 0;padding-top:14px}.no18-figure figcaption span{display:block;margin-bottom:10px}.no18-cover figcaption{margin:0 17px;padding-top:16px}.no18-dateline{padding:17px;font-size:8px}.no18-chapter,.no18-original{padding:65px 19px}.no18-rule{font-size:9px;gap:10px;margin-bottom:35px}.no18-rule span:last-child{display:none}.no18-copy h2,.no18-lab-intro h2{font-size:clamp(38px,9vw,57px);margin-bottom:28px}.no18-copy p{font-size:15px;line-height:1.83}.no18-factline{grid-template-columns:1fr}.no18-factline>div{border-right:0;border-bottom:1px solid #436365;padding:20px}.no18-factline>div:last-child{border:0}.no18-equation{padding:22px 19px}.no18-lab{padding:64px 13px}.no18-numeral{display:none}.no18-lab-intro p:last-child{font-size:14px}.no18-visual{min-height:500px}.no18-visual-top,.no18-visual-bottom{padding:12px;font-size:8px}.no18-visual-bottom span{max-width:170px}.no18-panel{padding:22px 17px}.no18-results strong{font-size:20px}.no18-method{padding:21px 17px}.no18-legacy-viewport.is-started{min-height:450px!important}.no18-outro{padding:56px 13px}.no18-sources{padding:22px 17px}.no18-next{grid-template-columns:1fr}}
 @media(max-width:390px){.no18-opening h1{font-size:47px}.no18-date-row{grid-template-columns:1fr}.no18-visual{min-height:450px}.no18-visual-top span:last-child{display:none}.no18-results strong{font-size:18px}.no18-page .no18-nav-lab{display:none}}
 @media(prefers-reduced-motion:reduce){html,body{scroll-behavior:auto}.no18-cta{transition:none}}
+
+/* ETAP 18 → NIEBO NAD TOBĄ / natural continuation of observatory lesson */
+.no18-skybridge{max-width:1320px;margin:58px auto 90px;display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);background:radial-gradient(ellipse at 23% 45%,#2a716354,transparent 49%),#102832;border:1px solid #79aaa0;overflow:hidden;border-radius:8px}
+.no18-skybridge-art{position:relative;min-height:430px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle,#1e5053,#0e2734 70%)}
+.no18-skybridge-art .no18-skybridge-ring{width:320px;aspect-ratio:1;border:1px solid #b5e8d36e;border-radius:50%;position:absolute;display:block;transform:rotate(24deg)}
+.no18-skybridge-art .no18-skybridge-ring.second{width:220px;border-style:dashed;border-color:#e5decf81}
+.no18-skybridge-art .no18-skybridge-ring.third{width:115px;border-color:#e0f5d59f}
+.no18-skybridge-art>span{position:absolute;top:23px;color:#c6f5e1;font-weight:850;letter-spacing:.12em}
+.no18-skybridge-art>b{font:400 79px/1 Georgia,serif;color:#e6ffda;text-shadow:0 0 55px #b9fac3}
+.no18-skybridge-art>small{position:absolute;bottom:17px;color:#a4ceca;letter-spacing:.13em;font-size:9px}
+.no18-skybridge-copy{padding:clamp(26px,4vw,62px);align-self:center}
+.no18-skybridge-kicker{display:block;font-size:10px;font-weight:800;letter-spacing:.13em;color:#b1e7d3;margin-bottom:20px}
+.no18-skybridge h2{font:400 clamp(35px,4.2vw,60px)/1.05 Georgia,serif;color:#f3f9f3;letter-spacing:-.04em;margin:0 0 25px}
+.no18-skybridge h2 em{color:#d5f1cb}
+.no18-skybridge p{color:#bdced0;line-height:1.86;font-size:13px;margin:0 0 18px}
+.no18-skybridge-cta{display:inline-flex;gap:24px;justify-content:space-between;align-items:center;background:#def5dc;color:#15362f!important;border-radius:4px;padding:14px 18px;margin-top:13px;font-weight:880;font-size:11px;letter-spacing:.07em}
+.no18-skybridge-cta:hover{background:#fff4dc}
+.no18-skybridge-cta span{font-size:20px}
+@media(max-width:750px){.no18-skybridge{margin:40px 8px 60px;grid-template-columns:1fr}.no18-skybridge-art{min-height:230px}.no18-skybridge-art .no18-skybridge-ring{width:200px}.no18-skybridge-art .no18-skybridge-ring.second{width:142px}.no18-skybridge-art .no18-skybridge-ring.third{width:74px}.no18-skybridge-art>b{font-size:49px}.no18-skybridge-copy{padding:30px 23px}.no18-skybridge h2{font-size:clamp(34px,8vw,48px)}}
+@media(prefers-reduced-motion:reduce){.no18-skybridge-cta{transition:none}}

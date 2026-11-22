@@ -202,8 +202,8 @@
     "22": {
       "number": 22,
       "title": "Kamera sondy",
-      "lead": "Oczy obserwatora w relatywistyce",
-      "description": "Zobacz niebo i dysk czarnej dziury z pokładu poruszającej się sondy.",
+      "lead": "Niebo, które ucieka do przodu",
+      "description": "Osiem obrazów NASA i EHT, optyka relatywistyczna, aberracja i efekt Dopplera, naukowe kadry 4K/8K, interaktywny demonstrator oraz oryginalna Kamera sondy.",
       "category": "relatywistyka",
       "mode": "cockpit",
       "path": "etapy/22/",

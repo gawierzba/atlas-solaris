@@ -1,0 +1,124 @@
+/* ATLAS SOLARIS / ODKRYCIA — 2026 magazine issue.
+   Autonomous editorial identity: mineral-white paper, midnight ink, vivid coral.
+   Runs without remote fonts, JS frameworks, cookies or a back end. */
+:root{--mag-ink:#16232b;--mag-paper:#f2f0ea;--mag-pale:#faf9f5;--mag-muted:#607078;--mag-orange:#ec694c;--mag-teal:#2d7777;--mag-rule:#d2d6d0;--mag-serif:Georgia,"Times New Roman",serif;--mag-sans:"Segoe UI",Inter,Arial,sans-serif}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body.mag-page{margin:0;background:var(--mag-paper);color:var(--mag-ink);overflow-x:hidden;font-family:var(--mag-sans);font-size:15px}
+.mag-page *{box-sizing:border-box}
+.mag-page img{display:block;width:100%;height:auto}
+.mag-page a{color:inherit;text-decoration:none}
+.mag-page button{font:inherit;cursor:pointer}
+.mag-page a:focus-visible,.mag-page button:focus-visible{outline:3px solid #ed735e;outline-offset:4px}
+.mag-wrap{max-width:1500px;margin:auto;padding:0 clamp(21px,5vw,90px)}
+.mag-header{position:relative;z-index:12;background:#172630;color:#f7faf7;min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px clamp(22px,5vw,80px);border-bottom:1px solid #5a7470}
+.mag-brand{display:flex;align-items:center;gap:12px;white-space:nowrap;font-size:15px;font-weight:900;letter-spacing:.155em}
+.mag-brand-symbol{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;border:1px solid #6dbfbd;font-size:14px;color:#94ecdc}
+.mag-brand em{font-style:normal;color:#9bd9db;font-weight:500}
+.mag-mainnav{display:flex;align-items:center;gap:clamp(12px,2.1vw,33px);flex-wrap:wrap}
+.mag-mainnav a{font-size:11px;font-weight:800;letter-spacing:.085em;color:#c6d7d4;transition:color .2s}
+.mag-mainnav a[aria-current=page]{color:#ffd6ce}
+.mag-mainnav a:hover{color:#fff}
+.mag-issuebar{background:#e1e6e0;border-bottom:1px solid #bcc9c6;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px clamp(21px,5vw,80px);color:#3b6667;font-size:10px;font-weight:900;letter-spacing:.14em;flex-wrap:wrap}
+.mag-issuebar span:last-child{color:#5b666b}
+.mag-section-kicker{font-size:11px;font-weight:900;letter-spacing:.16em;color:var(--mag-teal);margin:0 0 22px}
+.mag-italic{font-style:italic;font-family:var(--mag-serif);font-weight:400}
+.mag-page .mag-label{font-size:10px;letter-spacing:.15em;font-weight:900;color:#c0654d}
+.mag-issue-intro{padding:clamp(54px,7vw,110px) 0 42px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(250px,.5fr);gap:40px;align-items:end}
+.mag-issue-intro h1{font:400 clamp(76px,13vw,190px)/.86 var(--mag-serif);letter-spacing:-.077em;margin:0;color:#16242c}
+.mag-issue-intro h1 em{font-weight:400;font-style:italic;color:var(--mag-orange)}
+.mag-issue-intro p{font:400 clamp(15px,1.3vw,20px)/1.7 var(--mag-serif);color:#53676b;margin:0 0 12px}
+.mag-issue-intro small{display:block;font-size:10px;line-height:1.8;color:#57707a;letter-spacing:.07em;margin-top:14px}
+.mag-issue-rule{height:1px;background:#a9b8b3;margin-bottom:35px}
+.mag-cover{display:grid;grid-template-columns:1.3fr 1fr;min-height:600px;background:#0f262b;color:#f6f3eb;overflow:hidden}
+.mag-cover-visual{position:relative;min-height:600px;background:#20343b}
+.mag-cover-visual img{height:100%;min-height:600px;object-fit:cover;object-position:52% 52%}
+.mag-cover-visual:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 65%,#0d20254a)}
+.mag-cover-index{position:absolute;bottom:20px;left:25px;color:white;font-size:10px;letter-spacing:.15em;font-weight:900;z-index:1}
+.mag-cover-copy{display:flex;flex-direction:column;justify-content:space-between;padding:clamp(33px,5vw,74px)}
+.mag-cover-copy>div:first-child{display:flex;justify-content:space-between;gap:10px;font-size:10px;letter-spacing:.15em;font-weight:900;color:#98ded2}
+.mag-cover-copy h2{font:400 clamp(48px,5vw,86px)/1 var(--mag-serif);letter-spacing:-.055em;margin:38px 0 28px}
+.mag-cover-copy h2 em{font-style:italic;color:#f4b9ac}
+.mag-cover-copy p{max-width:520px;color:#c2d7d3;font-size:15px;line-height:1.85;margin:0 0 30px}
+.mag-arrowlink{display:inline-flex;align-items:center;justify-content:space-between;gap:25px;border-top:1px solid #86aaa4;padding:16px 0;color:#f0f3ed;font-weight:850;letter-spacing:.08em;font-size:11px}
+.mag-arrowlink span:last-child{font-size:23px}
+.mag-grid-label{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;border-bottom:1px solid #a4b6b1;padding:24px 0 18px;margin:55px 0 25px}
+.mag-grid-label h2{font:400 clamp(32px,4vw,51px)/1.1 var(--mag-serif);margin:0}
+.mag-grid-label span{font-size:10px;font-weight:900;letter-spacing:.13em;color:#536c70}
+.mag-article-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.mag-article-card{background:#fcfbf6;border:1px solid #d4d7cf;min-width:0;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+.mag-article-card:hover{transform:translateY(-4px);border-color:#a8c1ba}
+.mag-article-card .mag-card-visual{aspect-ratio:1.25;overflow:hidden;background:#102028}
+.mag-article-card .mag-card-visual img{height:100%;object-fit:cover;transition:transform .45s}
+.mag-article-card:hover .mag-card-visual img{transform:scale(1.045)}
+.mag-card-copy{display:flex;flex-direction:column;flex:1;padding:24px}
+.mag-card-copy>span{font-size:10px;color:#ad5e49;font-weight:900;letter-spacing:.1em}
+.mag-card-copy h3{font:400 clamp(28px,2.8vw,39px)/1.08 var(--mag-serif);letter-spacing:-.036em;margin:16px 0}
+.mag-card-copy p{font-size:13px;line-height:1.8;color:#5c6a6b;margin:0 0 30px;flex:1}
+.mag-card-foot{border-top:1px solid #cbd4d0;padding-top:14px;display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:900;letter-spacing:.1em;color:#2b6a6c}
+.mag-method-note{border-top:1px solid #cbd2cf;border-bottom:1px solid #cbd2cf;padding:33px 0;margin:55px 0 70px;display:grid;grid-template-columns:.65fr 2fr;gap:35px}
+.mag-method-note strong{color:#356b6c;font-size:11px;letter-spacing:.12em}
+.mag-method-note p{font:400 15px/1.8 var(--mag-serif);color:#54686d;margin:0}
+.mag-article-header{padding:clamp(55px,7vw,94px) 0 48px;max-width:1190px}
+.mag-article-header .mag-section-kicker{margin-bottom:23px}
+.mag-article-header h1{font:400 clamp(54px,8.3vw,126px)/.98 var(--mag-serif);letter-spacing:-.068em;margin:0 0 30px;max-width:1120px}
+.mag-article-header h1 em{color:#d8654c;font-weight:400}
+.mag-article-deck{font:400 clamp(18px,2vw,25px)/1.6 var(--mag-serif);max-width:900px;color:#56696c;margin:0 0 32px}
+.mag-story-meta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;border-top:1px solid #bcc8c3;padding-top:15px;font-size:10px;font-weight:850;letter-spacing:.12em;color:#5b7272}
+.mag-story-hero{margin:0;background:#16282f;position:relative}
+.mag-story-hero img{max-height:790px;min-height:310px;object-fit:contain;margin:auto}
+.mag-story-hero figcaption{display:grid;grid-template-columns:190px 1fr;gap:28px;max-width:1450px;margin:auto;padding:20px clamp(22px,5vw,80px);background:#1b343b;color:#b9d6d2;font-size:12px;line-height:1.7}
+.mag-story-hero figcaption strong{color:#9be5d8;font-size:10px;letter-spacing:.12em}
+.mag-story-hero figcaption a{text-decoration:underline;text-underline-offset:3px;color:#e7f5e8}
+.mag-story-layout{max-width:1410px;margin:auto;padding:clamp(50px,6vw,94px) clamp(21px,5vw,80px) 40px;display:grid;grid-template-columns:230px minmax(0,760px);justify-content:center;gap:clamp(35px,6vw,110px)}
+.mag-story-aside{font-size:11px;line-height:1.85;color:#617479}
+.mag-story-aside>div{border-top:2px solid #1c5c63;padding:19px 0 32px}
+.mag-story-aside strong{display:block;color:#26656a;letter-spacing:.15em;font-size:10px}
+.mag-story-aside p{margin:9px 0}
+.mag-story-aside a{color:#2d676a;text-decoration:underline;text-underline-offset:3px}
+.mag-story-text h2{font:400 clamp(32px,4vw,55px)/1.12 var(--mag-serif);letter-spacing:-.04em;margin:65px 0 23px}
+.mag-story-text h2:first-child{margin-top:0}
+.mag-story-text h2 em{color:#c56853}
+.mag-story-text p{font:400 clamp(17px,1.5vw,20px)/1.9 var(--mag-serif);color:#34464b;margin:0 0 25px}
+.mag-story-text p strong{font-weight:700;color:#142d37}
+.mag-story-text .mag-lede:first-letter{float:left;font:400 100px/.8 var(--mag-serif);padding:6px 11px 0 0;color:#bf5f4e}
+.mag-story-text .mag-fact{padding:29px 33px;background:#dae8e2;border-left:4px solid #3c8886;margin:41px 0}
+.mag-story-text .mag-fact b{font:400 clamp(27px,3vw,41px)/1 var(--mag-serif);color:#216163}
+.mag-story-text .mag-fact p{font-size:16px;line-height:1.75;margin:12px 0 0}
+.mag-inline-figure{margin:46px 0 48px;overflow:hidden;background:#e4e9e4}
+.mag-inline-figure img{max-height:660px;object-fit:contain;background:#111f2b}
+.mag-inline-figure figcaption{padding:18px 22px;color:#527074;font-size:11px;line-height:1.8;border:1px solid #c3d1ca}
+.mag-inline-figure figcaption a{color:#13666d;text-decoration:underline}
+.mag-bottom-nav{border-top:1px solid #b8c4bd;margin-top:60px;padding:35px 0 20px;display:flex;gap:16px;flex-wrap:wrap}
+.mag-bottom-nav a{padding:18px 25px;border:1px solid #9eb7b1;background:#eff5ed;color:#245962;font-size:12px;font-weight:850;line-height:1.5}
+.mag-bottom-nav a:hover{background:#d7ebe1}
+.mag-trust{border-top:1px solid #bfc9c4;background:#e3eae4;padding:45px clamp(24px,5vw,85px)}
+.mag-trust-inner{max-width:1240px;margin:auto}
+.mag-trust h2{font:400 37px/1.1 var(--mag-serif);margin:0 0 15px}
+.mag-trust p{color:#476468;font-size:13px;line-height:1.85;max-width:950px}
+.mag-trust ul{max-width:980px;padding-left:20px;color:#33646a;font-size:12px;line-height:2.1}
+.mag-trust a{text-decoration:underline;text-underline-offset:3px}
+.mag-footer{background:#122831;color:#b9d3d0;padding:55px clamp(22px,5vw,80px) 25px}
+.mag-footer-inner{max-width:1400px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:38px}
+.mag-footer h2{font:400 40px/1.15 var(--mag-serif);color:#e9f2e7;margin:0 0 12px}
+.mag-footer p{max-width:540px;font-size:12px;line-height:1.8;color:#a9c4c2}
+.mag-footer nav{display:flex;flex-direction:column;gap:13px;font-size:12px}
+.mag-footer nav strong{font-size:10px;letter-spacing:.15em;color:#a6e8da;margin-bottom:10px}
+.mag-footer nav a:hover{text-decoration:underline}
+.mag-copyright{max-width:1400px;margin:43px auto 0;border-top:1px solid #476a6b;padding-top:18px;font-size:10px;letter-spacing:.14em;display:flex;justify-content:space-between;gap:15px}
+.mag-spectrum{border:1px solid #9cb6b3;margin:47px 0 25px;background:#142932;color:#d6eee6;padding:16px}
+.mag-spectrum-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:7px 8px 16px}
+.mag-spectrum-head>strong{font-size:11px;letter-spacing:.15em;color:#e0f5e9}
+.mag-spectrum-controls{display:flex;gap:7px;flex-wrap:wrap}
+.mag-spectrum-controls button{border:1px solid #87a7a4;border-radius:4px;padding:10px 14px;color:#b5d6d3;background:#203b44;font-size:11px}
+.mag-spectrum-controls button[aria-pressed=true]{background:#e6f1e3;color:#153638}
+.mag-spectrum-pictures{position:relative;background:#07151f;min-height:200px}
+.mag-spectrum-pictures img{width:100%;height:min(66vw,680px);object-fit:contain}
+.mag-spectrum-pictures img[hidden]{display:none}
+.mag-spectrum-caption{padding:16px 9px 4px;font-size:12px;color:#accdcb;line-height:1.8}
+.mag-spectrum-note{font:400 13px/1.7 var(--mag-serif)!important;margin:12px 0 0!important;color:#b6d5d2!important}
+.mag-story-text .mag-sources{font:400 13px/1.8 var(--mag-sans);padding-top:20px;border-top:1px solid #bfcac5;color:#597175}
+.mag-story-text .mag-sources a{color:#226973;text-decoration:underline}
+@media(max-width:1070px){.mag-cover{grid-template-columns:1fr 1fr}.mag-cover-copy{padding:34px}.mag-cover-copy h2{font-size:clamp(38px,4.6vw,67px)}.mag-story-layout{grid-template-columns:160px minmax(0,1fr);gap:35px}.mag-article-grid{gap:12px}.mag-card-copy{padding:18px}.mag-card-copy h3{font-size:30px}}
+@media(max-width:720px){.mag-mainnav{gap:14px}.mag-mainnav a{font-size:10px}.mag-header{min-height:72px;flex-wrap:wrap}.mag-brand{font-size:12px}.mag-issuebar{font-size:9px}.mag-issue-intro{grid-template-columns:1fr;gap:15px;padding-top:50px}.mag-issue-intro h1{font-size:clamp(67px,15vw,110px)}.mag-cover{grid-template-columns:1fr}.mag-cover-visual,.mag-cover-visual img{min-height:310px;max-height:500px}.mag-cover-copy{min-height:400px;padding:30px}.mag-article-grid{grid-template-columns:1fr 1fr}.mag-article-card:first-child{grid-column:span 2}.mag-article-card:first-child{display:grid;grid-template-columns:1.05fr 1fr}.mag-article-card:first-child .mag-card-visual{height:100%;aspect-ratio:auto}.mag-story-hero figcaption{grid-template-columns:1fr;gap:8px}.mag-story-layout{grid-template-columns:1fr;padding-top:45px}.mag-story-aside{display:grid;grid-template-columns:1fr 1fr;gap:25px}.mag-story-aside>div{padding:14px 0}.mag-story-text h2{margin-top:45px}.mag-method-note{grid-template-columns:1fr}.mag-footer-inner{grid-template-columns:1fr 1fr}.mag-footer-inner>div:first-child{grid-column:span 2}.mag-copyright{flex-direction:column}.mag-story-header h1{font-size:clamp(48px,10vw,80px)}}
+@media(max-width:500px){.mag-header{gap:12px;padding:17px 19px}.mag-mainnav{justify-content:flex-start}.mag-brand{font-size:11px}.mag-issuebar{padding:11px 19px}.mag-issue-intro h1{font-size:clamp(62px,16vw,85px)}.mag-cover-copy{min-height:365px}.mag-cover-copy h2{font-size:55px}.mag-article-grid{grid-template-columns:1fr}.mag-article-card:first-child{display:flex;grid-column:span 1}.mag-article-card:first-child .mag-card-visual{aspect-ratio:1.25}.mag-story-aside{grid-template-columns:1fr}.mag-story-aside>div{padding:10px 0}.mag-story-text .mag-lede:first-letter{font-size:77px}.mag-story-text p{font-size:17px}.mag-spectrum-controls{width:100%}.mag-spectrum-controls button{flex:1}.mag-footer-inner{grid-template-columns:1fr}.mag-footer-inner>div:first-child{grid-column:auto}.mag-story-hero img{min-height:230px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mag-article-card,.mag-card-visual img{transition:none}}

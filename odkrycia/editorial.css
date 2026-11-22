@@ -122,3 +122,59 @@ body.mag-page{margin:0;background:var(--mag-paper);color:var(--mag-ink);overflow
 @media(max-width:720px){.mag-mainnav{gap:14px}.mag-mainnav a{font-size:10px}.mag-header{min-height:72px;flex-wrap:wrap}.mag-brand{font-size:12px}.mag-issuebar{font-size:9px}.mag-issue-intro{grid-template-columns:1fr;gap:15px;padding-top:50px}.mag-issue-intro h1{font-size:clamp(67px,15vw,110px)}.mag-cover{grid-template-columns:1fr}.mag-cover-visual,.mag-cover-visual img{min-height:310px;max-height:500px}.mag-cover-copy{min-height:400px;padding:30px}.mag-article-grid{grid-template-columns:1fr 1fr}.mag-article-card:first-child{grid-column:span 2}.mag-article-card:first-child{display:grid;grid-template-columns:1.05fr 1fr}.mag-article-card:first-child .mag-card-visual{height:100%;aspect-ratio:auto}.mag-story-hero figcaption{grid-template-columns:1fr;gap:8px}.mag-story-layout{grid-template-columns:1fr;padding-top:45px}.mag-story-aside{display:grid;grid-template-columns:1fr 1fr;gap:25px}.mag-story-aside>div{padding:14px 0}.mag-story-text h2{margin-top:45px}.mag-method-note{grid-template-columns:1fr}.mag-footer-inner{grid-template-columns:1fr 1fr}.mag-footer-inner>div:first-child{grid-column:span 2}.mag-copyright{flex-direction:column}.mag-story-header h1{font-size:clamp(48px,10vw,80px)}}
 @media(max-width:500px){.mag-header{gap:12px;padding:17px 19px}.mag-mainnav{justify-content:flex-start}.mag-brand{font-size:11px}.mag-issuebar{padding:11px 19px}.mag-issue-intro h1{font-size:clamp(62px,16vw,85px)}.mag-cover-copy{min-height:365px}.mag-cover-copy h2{font-size:55px}.mag-article-grid{grid-template-columns:1fr}.mag-article-card:first-child{display:flex;grid-column:span 1}.mag-article-card:first-child .mag-card-visual{aspect-ratio:1.25}.mag-story-aside{grid-template-columns:1fr}.mag-story-aside>div{padding:10px 0}.mag-story-text .mag-lede:first-letter{font-size:77px}.mag-story-text p{font-size:17px}.mag-spectrum-controls{width:100%}.mag-spectrum-controls button{flex:1}.mag-footer-inner{grid-template-columns:1fr}.mag-footer-inner>div:first-child{grid-column:auto}.mag-story-hero img{min-height:230px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mag-article-card,.mag-card-visual img{transition:none}}
+
+/* ODKRYCIA ↔ LABORATORIA / visible continuation in all four stories */
+.mag-story-meta .mag-meta-lab{
+  display:inline-flex;align-items:center;
+  margin-left:auto;padding:7px 11px;border:1px solid #9bb8ad;
+  font:800 10px/1.35 "Segoe UI",system-ui,sans-serif;
+  text-decoration:none;color:#2b6768;background:#e1ece5;
+  letter-spacing:.08em;white-space:normal
+}
+.mag-story-meta .mag-meta-lab:hover{background:#d4e7dc}
+.mag-related-lab{position:relative;isolation:isolate;overflow:hidden;margin:54px 0 33px;
+  background:#102a36;color:#f0f6ed;border:1px solid #7ca8a3;
+  box-shadow:0 15px 40px #15262b13}
+.mag-related-lab::before{content:"";position:absolute;right:-15%;top:-38%;width:62%;height:120%;
+  border:1px solid #a5d5c344;border-radius:50%;box-shadow:0 0 0 39px #92d9b00d;pointer-events:none}
+.mag-related-lab-header{position:relative;z-index:1;padding:24px 30px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid #668d8c}
+.mag-related-lab-header strong{font:850 11px/1.5 "Segoe UI",system-ui,sans-serif;
+  letter-spacing:.14em;color:#a9e5d5}
+.mag-related-lab-header span{font:750 10px/1.5 "Segoe UI",system-ui,sans-serif;
+  letter-spacing:.11em;color:#d2e3dc}
+.mag-related-lab-body{position:relative;z-index:1;display:grid;
+  grid-template-columns:minmax(0,1.17fr) minmax(170px,.73fr);gap:24px;
+  align-items:center;padding:29px 30px 34px}
+.mag-related-lab-copy{min-width:0}
+.mag-story-text .mag-related-lab h2{font:400 clamp(32px,3.5vw,48px)/1.08 Georgia,"Times New Roman",serif;
+  margin:0 0 17px;color:#fcfff7;letter-spacing:-.035em}
+.mag-story-text .mag-related-lab h2 em{color:#b9f1d3;font-style:italic}
+.mag-story-text .mag-related-lab p{font:400 13px/1.78 "Segoe UI",system-ui,sans-serif;
+  margin:0 0 20px;color:#c5d9d8}
+.mag-related-lab-photo{align-self:stretch;min-height:235px;display:flex;align-items:center;
+  background:radial-gradient(ellipse at center,#264855,#081925 80%);
+  border:1px solid #608b91;overflow:hidden}
+.mag-related-lab-photo img{width:100%;height:auto;max-height:290px;display:block;
+  object-fit:contain;filter:saturate(.85)}
+.mag-related-lab-actions{display:flex;flex-wrap:wrap;gap:10px}
+.mag-related-lab-actions a{display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 14px;min-height:44px;line-height:1.45;font-size:11px;font-weight:850;
+  text-align:center;text-decoration:none!important;border:1px solid #abddd0;
+  letter-spacing:.015em;max-width:100%}
+.mag-related-lab-actions a:first-child{background:#d8f3e2;color:#173b3e}
+.mag-related-lab-actions a:last-child{background:transparent;color:#e3f7ec}
+.mag-related-lab-actions a:hover{filter:brightness(1.12)}
+.mag-story-text .mag-related-lab .mag-related-lab-note{margin:17px 0 0;
+  font-size:11px;line-height:1.75;color:#a3c3c7}
+@media(max-width:720px){
+ .mag-story-meta .mag-meta-lab{margin-left:0;width:100%;justify-content:center}
+ .mag-related-lab{margin:39px 0 28px}
+ .mag-related-lab-header{padding:18px}
+ .mag-related-lab-body{grid-template-columns:1fr;padding:23px 18px}
+ .mag-related-lab-photo{min-height:170px;max-height:210px;order:-1}
+ .mag-related-lab-photo img{max-height:210px}
+ .mag-story-text .mag-related-lab h2{font-size:clamp(31px,7vw,42px)}
+}
+@media(max-width:390px){.mag-related-lab-actions a{width:100%}}

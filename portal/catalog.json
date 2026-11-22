@@ -222,8 +222,8 @@
     "24": {
       "number": 24,
       "title": "Obserwatorium LIGO",
-      "lead": "Wykryj sygnał ukryty w szumie",
-      "description": "Przeprowadź eksperyment detekcji fali grawitacyjnej w dwóch detektorach.",
+      "lead": "Cztery kilometry ciszy",
+      "description": "Dziesięć fotografii i wykresów LIGO, reportaż z Hanford i Livingston, 4 km ramiona, lasery podczerwone 1064 nm, mikroskopijne drgania i dwa interaktywne laboratoria fal grawitacyjnych.",
       "category": "relatywistyka",
       "mode": "ligo",
       "path": "etapy/24/",

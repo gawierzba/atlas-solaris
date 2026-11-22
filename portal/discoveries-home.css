@@ -1,0 +1,41 @@
+/* ATLAS SOLARIS portal / ODKRYCIA #01 — editorial module.
+   Visually distinct paper edition embedded without modifying 36-stage portal. */
+#odkrycia{scroll-margin-top:75px;padding:clamp(55px,6vw,105px) max(3vw,18px) 0;background:linear-gradient(180deg,#07111d,#06111c);position:relative}
+.asj-wrap{max-width:1390px;margin:auto;background:#f0f0e9;color:#192c34;overflow:hidden;border:1px solid #bfd0c7}
+.asj-heading{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(230px,.6fr);gap:30px;align-items:end;padding:clamp(22px,4vw,65px) clamp(20px,4.5vw,75px) 42px}
+.asj-overline{color:#287275;font:850 10px/1.5 "Segoe UI",sans-serif;letter-spacing:.18em;margin:0 0 15px}
+.asj-heading h2{font:400 clamp(56px,8vw,113px)/.83 Georgia,serif;letter-spacing:-.077em;color:#172a2f;margin:0}
+.asj-heading h2 em{color:#dd624a;font-weight:400}
+.asj-heading p{color:#5b6c6e;font:400 16px/1.75 Georgia,serif;margin:0}
+.asj-heading .asj-edition{font:800 10px/1.9 "Segoe UI",sans-serif;letter-spacing:.1em;color:#567978;margin-top:17px}
+.asj-lead{display:grid;grid-template-columns:1.17fr 1fr;margin:0 clamp(20px,4.5vw,75px);min-height:470px;background:#132932;color:#f3f5ee;overflow:hidden}
+.asj-lead-image{position:relative;min-height:430px;background:#1b303a;overflow:hidden}
+.asj-lead-image img{display:block;width:100%;height:100%;min-height:430px;object-fit:cover;transition:transform .5s}
+.asj-lead:hover img{transform:scale(1.035)}
+.asj-lead-copy{display:flex;flex-direction:column;justify-content:space-between;padding:clamp(25px,4vw,52px)}
+.asj-lead-copy>span{font-size:10px;letter-spacing:.15em;font-weight:900;color:#8be3cc}
+.asj-lead-copy h3{font:400 clamp(43px,4.3vw,69px)/1.03 Georgia,serif;letter-spacing:-.05em;margin:28px 0 22px;color:#f7f8ef}
+.asj-lead-copy h3 em{color:#ffbaa5;font-style:italic}
+.asj-lead-copy p{font-size:13px;line-height:1.85;color:#b9d3ce;max-width:450px;margin:0 0 25px}
+.asj-lead-copy b{display:flex;justify-content:space-between;border-top:1px solid #719992;padding-top:17px;font-size:10px;letter-spacing:.1em;font-weight:900;color:#f0f4e8}
+.asj-lead-copy b span:last-child{font-size:21px}
+.asj-stories{padding:37px clamp(20px,4.5vw,75px) 40px}
+.asj-stories-head{display:flex;justify-content:space-between;gap:25px;align-items:center;border-bottom:1px solid #acbcb6;padding-bottom:16px;margin-bottom:17px}
+.asj-stories-head h3{margin:0;font:400 28px/1.2 Georgia,serif}
+.asj-stories-head a{font-size:10px;color:#236c70;font-weight:900;letter-spacing:.08em}
+.asj-stories-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:21px}
+.asj-story{display:block;min-width:0}
+.asj-story figure{margin:0 0 15px;aspect-ratio:1.65;overflow:hidden;background:#152c33}
+.asj-story img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.asj-story:hover img{transform:scale(1.05)}
+.asj-story small{display:block;font-size:9px;font-weight:900;color:#c0634e;letter-spacing:.095em}
+.asj-story h4{font:400 clamp(24px,2.7vw,34px)/1.12 Georgia,serif;margin:9px 0 12px;letter-spacing:-.035em}
+.asj-story>span{font-size:11px;color:#246f72;letter-spacing:.1em;font-weight:900}
+.asj-outro{display:flex;gap:25px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:#e0e9e3;border-top:1px solid #c5d0c9;padding:25px clamp(20px,4.5vw,75px)}
+.asj-outro p{max-width:740px;margin:0;color:#476567;font-size:11px;line-height:1.8}
+.asj-outro a{display:inline-flex;align-items:center;justify-content:center;padding:13px 17px;background:#1b4c50;color:#f2f7e9;font-weight:900;font-size:10px;letter-spacing:.1em;white-space:nowrap}
+#odkrycia a:focus-visible{outline:3px solid #ed795f;outline-offset:4px}
+@media(max-width:950px){.asj-heading{grid-template-columns:1fr}.asj-heading h2{font-size:clamp(59px,10vw,95px)}.asj-lead{grid-template-columns:1fr 1fr}.asj-lead-image,.asj-lead-image img{min-height:360px}.asj-lead-copy{padding:26px}.asj-lead-copy h3{font-size:clamp(38px,5.2vw,58px)}.asj-stories-list{gap:13px}}
+@media(max-width:700px){#odkrycia{padding:45px 10px 0}.asj-heading{padding:30px 22px}.asj-heading h2{font-size:clamp(55px,12vw,83px)}.asj-lead{grid-template-columns:1fr;margin:0 16px}.asj-lead-image,.asj-lead-image img{min-height:260px;max-height:460px}.asj-lead-copy{min-height:330px}.asj-lead-copy h3{font-size:54px}.asj-stories{padding:35px 16px}.asj-stories-list{grid-template-columns:1fr}.asj-story{display:grid;grid-template-columns:130px 1fr;column-gap:16px;padding-bottom:20px;border-bottom:1px solid #cbd7cd}.asj-story figure{grid-row:span 4;aspect-ratio:1;min-height:145px}.asj-story h4{font-size:26px}.asj-story small{align-self:end}.asj-outro{padding:25px 16px}}
+@media(max-width:425px){.asj-story{grid-template-columns:105px 1fr;gap:0 12px}.asj-story figure{min-height:138px}.asj-story h4{font-size:23px}.asj-lead-copy h3{font-size:49px}.asj-stories-head h3{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.asj-story img,.asj-lead-image img{transition:none}}

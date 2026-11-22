@@ -119,7 +119,7 @@ test('Mobile responsive layout, accessible controls, daylight and red-only mode'
  assert.match(mapHtml,/aria-pressed="false"/);
  assert.match(mapHtml,/aria-label="Interaktywna mapa azymutalna/);
  assert.match(js,/canvas\.addEventListener\('keydown'/);
- assert.match(js,/solarSystemEquatorial/);
+ assert.match(read('portal/sky-now-core.js'),/solarSystemEquatorial/);
  assert.match(js,/\.riseSet\(/);
  assert.match(js,/toLocaleTimeString\('pl-PL'/);
  assert.doesNotMatch(js,/geolocation\.|localStorage|fetch\(|WebGL|THREE\./);

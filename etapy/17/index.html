@@ -1,13 +1,140 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Laboratorium Zaćmień | ATLAS SOLARIS</title><meta name="description" content="Eksperymentuj z geometrią stożków cienia i obliczeniami zaćmień.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="17" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 17 / Zjawiska na niebie</span><strong>Laboratorium Zaćmień</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Laboratorium Zaćmień — interaktywne laboratorium" src="../../atlas.html?portal=geometry" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 17</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Laboratorium Zaćmień</h1><p class="stage-lead">Od syzygii do cienia</p><p>Eksperymentuj z geometrią stożków cienia i obliczeniami zaćmień.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080c19">
+<title>Gdy znika Słońce — Laboratorium Zaćmień | ATLAS SOLARIS 17</title>
+<meta name="description" content="ATLAS SOLARIS 17: zaćmienia Słońca i Księżyca, węzły orbity, cień i półcień. Sześć fotografii NASA, nowe laboratorium geometrii oraz zachowany symulator.">
+<meta property="og:type" content="article"><meta property="og:title" content="Gdy znika Słońce · ATLAS SOLARIS 17"><meta property="og:description" content="Sześć autentycznych zdjęć NASA, naukowa opowieść o zaćmieniach i interaktywna geometria cienia.">
+<meta property="og:image" content="https://images-assets.nasa.gov/image/NHQ202404080101/NHQ202404080101~large.jpg">
+<link rel="stylesheet" href="../../portal/stage.css"><link rel="stylesheet" href="../../portal/eclipse17-story.css?v=17.1">
+<script src="../../portal/data.js?v=36.1" defer></script><script src="../../portal/stage.js?v=17.1" defer></script><script src="../../portal/eclipse17-story.js?v=17.1" defer></script>
+</head><body class="ec17-page" data-route="17" data-kind="stage">
+<a class="ec17-skip" href="#ec17Top">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 17 / ŚWIATŁO I ZAĆMIENIA</span><strong>Laboratorium Zaćmień</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja artykułu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><a class="ec17-lab-nav" href="#ec17Lab">Eksperyment ↗</a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main ec17-main" id="main"><article class="ec17-story" aria-labelledby="ec17Title">
+<section class="ec17-opening" id="ec17Top">
+<div class="ec17-topline"><span><i></i> ATLAS SOLARIS / KRONIKI ŚWIATŁA</span><span>XVII / XXXVI</span></div>
+<p class="ec17-eyebrow">ROZDZIAŁ 17 / GEOMETRIA CIENIA</p>
+<h1 id="ec17Title">Gdy znika <em>Słońce.</em></h1>
+<p class="ec17-lead">W samym środku dnia zaczyna gasnąć światło. Powietrze chłodnieje, na horyzoncie pojawia się nieziemska poświata, a nad nami — ciemne koło otoczone jasnymi smugami. Nic nie zgasło. Po prostu trzy ciała niebieskie ułożyły się prawie idealnie w jednej linii.</p>
+<div class="ec17-buttons"><a class="ec17-button ec17-button-main" href="#ec17Intro">Odkryj tajemnicę <span>↓</span></a><a class="ec17-button ec17-button-alt" href="#ec17Lab">Zbuduj zaćmienie <span>↗</span></a></div>
+<div class="ec17-bottomline"><span>SYZYGIA · WĘZŁY · UMBRA · PENUMBRA</span><span>ASTRONOMIA OBSERWACYJNA / 2026</span></div>
+</section>
+<figure class="ec17-photo ec17-cover"><a href="https://science.nasa.gov/image-detail/amf-nhq202404080101/" rel="noopener noreferrer" target="_blank" aria-label="Otwórz stronę źródłową NASA"><img src="https://images-assets.nasa.gov/image/NHQ202404080101/NHQ202404080101~large.jpg" width="1600" height="1000" loading="eager" decoding="async" alt="Ciemna tarcza Księżyca otoczona białą koroną Słońca na czarnym tle."></a><figcaption><span>01 / KORONA SŁOŃCA</span><div><strong>Gdy ciemna tarcza odsłania koronę</strong><p>Całkowite zaćmienie Słońca, Dallas, 8 kwietnia 2024 r. Rzeczywista fotografia NASA/Keegan Barber. <a href="https://science.nasa.gov/image-detail/amf-nhq202404080101/" rel="noopener noreferrer" target="_blank">Źródło NASA ↗</a></p></div></figcaption></figure>
+<div class="ec17-dateline"><span>ATLAS SOLARIS / ETAP 17</span><span>ŚWIATŁO I CIEŃ SĄ GEOMETRIĄ</span><span>OK. 12 MIN CZYTANIA</span></div>
+
+<section class="ec17-section" id="ec17Intro"><div class="ec17-rule"><span>01 / CHWILA, GDY DZIEŃ ZAMIENIA SIĘ W NOC</span><i></i><span>CAŁKOWITE ZAĆMIENIE SŁOŃCA</span></div>
+<div class="ec17-prose"><p class="ec17-kicker">TARCZA KSIĘŻYCA — ZASKAKUJĄCY KLUCZ DO WIDOKU</p>
+<h2>Słońce nie znika. <em>Księżyc staje dokładnie przed nim.</em></h2>
+<p class="ec17-drop">8 kwietnia 2024 roku przez część Ameryki Północnej przeszedł pas całkowitego zaćmienia Słońca. Ludzie stojący w wąskiej strefie cienia Księżyca zobaczyli coś niezwykłego: jasna tarcza Słońca została całkowicie zasłonięta, a wokół niej rozciągnęła się srebrzysta korona.</p>
+<p>To astronomiczny zbieg proporcji. Słońce jest około 400 razy większe średnicą od Księżyca i znajduje się mniej więcej 400 razy dalej od Ziemi. Dlatego ich rozmiary <strong>kątowe</strong> na niebie mogą wyglądać niemal jednakowo. Ten przybliżony stosunek nie pozostaje stały — odległości obu ciał zmieniają się podczas ich orbit.</p>
+<p>Jeśli Księżyc jest wystarczająco blisko Ziemi, może zasłonić całą tarczę Słońca obserwatorowi w wąskiej strefie. Jeśli jest dalej, jego pozorny rozmiar bywa za mały, a wokół ciemnego dysku pozostaje jasny pierścień.</p>
+<p>W obu przypadkach źródło zjawiska jest wspólne: <strong>położenie, rozmiar i odległość</strong>. Dzięki temu możemy przewidywać zaćmienia z bardzo dużą precyzją, choć nie są one codziennym wydarzeniem.</p></div>
+<div class="ec17-quote"><span>NAJPROSTSZA ZAGADKA ZAĆMIENIA</span><p>Dlaczego to zjawisko zdarza się rzadko, skoro Księżyc przechodzi przez nów co miesiąc?</p></div></section>
+
+<section class="ec17-section ec17-section-nodes" id="ec17Nodes"><div class="ec17-rule"><span>02 / NIE KAŻDY NÓW PRZYNOSI CIEŃ</span><i></i><span>WĘZŁY ORBITY / 5,145°</span></div>
+<div class="ec17-prose"><p class="ec17-kicker">NAJWAŻNIEJSZA LINIA JEST NIEWIDZIALNA</p>
+<h2>Orbita Księżyca jest <em>lekko przechylona.</em></h2>
+<p>Orbita Księżyca nie leży dokładnie w płaszczyźnie orbity Ziemi wokół Słońca. Jest nachylona do ekliptyki o około <strong>5,145 stopnia</strong>. Przez większość nowiów Księżyc przechodzi więc na ziemskim niebie nieco powyżej albo poniżej Słońca. Podobnie przy pełni cień Ziemi zwykle nie trafia w Księżyc.</p>
+<p>Miejsca, w których orbita Księżyca przecina płaszczyznę ekliptyki, nazywamy <strong>węzłami</strong>. Jeżeli nów lub pełnia przypada wystarczająco blisko jednego z węzłów, pojawia się możliwość zaćmienia. Gdy Słońce znajduje się blisko linii węzłów, trwa tak zwany sezon zaćmień.</p>
+<p>To tłumaczy, dlaczego zaćmienia występują w seriach, czasami w odstępie około dwóch tygodni — na przykład zaćmienie Słońca przy nowiu, a potem Księżyca przy pełni. Same daty faz Księżyca nie wystarczą: potrzeba jeszcze geometrii orbity.</p></div>
+<div class="ec17-formula"><span>IDEALIZOWANY MODEL DLA NASZEGO LABORATORIUM</span><strong>β = arcsin(sin i · sin λ)</strong><p>i to nachylenie orbity, λ — odległość kątowa od węzła, a β — szerokość ekliptyczna Księżyca. W rzeczywistości pozycje oblicza się z pełniejszych modeli ruchu; to równanie ilustruje wpływ przechylenia.</p></div></section>
+
+<section class="ec17-section ec17-section-annular" id="ec17Annular"><div class="ec17-rule"><span>03 / CZASAMI ZOSTAJE PIERŚCIEŃ</span><i></i><span>ZAĆMIENIE OBRĄCZKOWE</span></div>
+<div class="ec17-prose"><p class="ec17-kicker">NIEWIELKA RÓŻNICA ODLEGŁOŚCI ZMIENIA CAŁY WIDOK</p>
+<h2>Niebo nie ciemnieje całkowicie. <em>Wokół Księżyca płonie okrąg.</em></h2>
+<p>14 października 2023 roku obserwatorzy w odpowiednich częściach obu Ameryk mogli podziwiać zaćmienie obrączkowe. Księżyc znalazł się na tle Słońca, lecz jego pozorna tarcza była zbyt mała, aby zasłonić je całkowicie.</p>
+<p>Z perspektywy geometrii oznacza to, że stożek pełnego cienia Księżyca kończy się przed powierzchnią Ziemi. Dalej zaczyna się obszar <strong>przedłużenia cienia, zwany antumbrą</strong>. Obserwator w tym obszarze widzi jasny pierścień Słońca wokół czarnej tarczy Księżyca.</p>
+<p><strong>Zaćmienie obrączkowe nigdy nie jest bezpieczne do obserwacji gołym okiem.</strong> Odsłonięta część Słońca pozostaje niezwykle jasna, nawet gdy większa część jego tarczy jest zasłonięta.</p></div>
+<figure class="ec17-photo "><a href="https://science.nasa.gov/image-detail/amf-b18416a7-3e99-4c7c-b8b8-f41342ecd0b8/" rel="noopener noreferrer" target="_blank" aria-label="Otwórz stronę źródłową NASA"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/cds/general/images/2023/12/53261650839-69540d1c1d-k.jpg?fit=clip&amp;w=1800" width="1600" height="1000" loading="lazy" decoding="async" alt="Cienki, pomarańczowy pierścień światła Słońca wokół ciemnej tarczy Księżyca."></a><figcaption><span>02 / PIERŚCIEŃ OGNIA</span><div><strong>Słońce, którego Księżyc nie zakrył do końca</strong><p>Obrączkowe zaćmienie nad Albuquerque w Nowym Meksyku, 14 października 2023 r. Fotografia NASA/Jim Spann. <a href="https://science.nasa.gov/image-detail/amf-b18416a7-3e99-4c7c-b8b8-f41342ecd0b8/" rel="noopener noreferrer" target="_blank">Źródło NASA ↗</a></p></div></figcaption></figure>
+<div class="ec17-prose"><p>Różnica pomiędzy zaćmieniem całkowitym a obrączkowym wynika więc z geometrii, a nie z tego, czy Księżyc „przeszedł dokładniej”. Dwa bardzo podobne ustawienia w przestrzeni mogą dać całkowicie inny widok.</p></div></section>
+
+<section class="ec17-section" id="ec17Shadows"><div class="ec17-rule"><span>04 / CIEŃ W PODRÓŻY</span><i></i><span>UMBRA · PENUMBRA · ANTUMBRA</span></div>
+<div class="ec17-prose"><p class="ec17-kicker">JEDEN KSIĘŻYC, RÓŻNE DOŚWIADCZENIA NA ZIEMI</p>
+<h2>Z kosmosu widać, <em>jak cień płynie po planecie.</em></h2>
+<p>Podczas zaćmienia Słońca cień Księżyca przecina Ziemię tylko na niewielkim obszarze. W samym środku może znajdować się wąski pas pełnego cienia, czyli <strong>umbry</strong>; dalej rozciąga się szerszy półcień — <strong>penumbra</strong>. Ludzie oddaleni od pasa całkowitości mogą dostrzec jedynie częściowe zaćmienie.</p>
+<p>W sierpniu 2017 roku kamera EPIC umieszczona na sondzie DSCOVR zarejestrowała tę scenę z daleka. Z perspektywy kosmosu to nie magiczne znikanie Słońca: to fragment Ziemi, na który nie dochodzi całe światło naszej gwiazdy.</p></div>
+<figure class="ec17-photo "><a href="https://epic.gsfc.nasa.gov/galleries/2017/total_solar_eclipse" rel="noopener noreferrer" target="_blank" aria-label="Otwórz stronę źródłową NASA"><img src="https://epic.gsfc.nasa.gov/epic-galleries/2017/total_solar_eclipse/full/epic_1b_20170821174450.png" width="1600" height="1000" loading="lazy" decoding="async" alt="Pełna tarcza Ziemi sfotografowana z kosmosu, z ciemnym cieniem Księżyca nad Ameryką Północną."></a><figcaption><span>03 / CIEMNOŚĆ WIDZIANA Z KOSMOSU</span><div><strong>Cień, który przemierza całą Ziemię</strong><p>Obraz Ziemi i cienia Księżyca z kamery EPIC sondy DSCOVR podczas całkowitego zaćmienia 21 sierpnia 2017 r. NASA/NOAA. <a href="https://epic.gsfc.nasa.gov/galleries/2017/total_solar_eclipse" rel="noopener noreferrer" target="_blank">Źródło NASA ↗</a></p></div></figcaption></figure>
+<div class="ec17-prose"><p>Obliczenie rzeczywistej trasy cienia na powierzchni wymaga uwzględnienia także obrotu Ziemi, kształtu jej powierzchni oraz dokładnych położeń Słońca i Księżyca. Dlatego mapy zaćmień tworzy się ze znacznie bardziej złożonych obliczeń niż nasz laboratoryjny przekrój.</p></div></section>
+
+<section class="ec17-section ec17-section-beads" id="ec17Beads"><div class="ec17-rule"><span>05 / OSTATNIE ŚWIECĄCE PUNKTY</span><i></i><span>KORALIKI BAILY’EGO</span></div>
+<div class="ec17-prose"><p class="ec17-kicker">KSIĘŻYC NIE MA IDEALNIE GŁADKIEJ KRAWĘDZI</p>
+<h2>Zanim zniknie ostatni promień, <em>światło przeciska się przez doliny.</em></h2>
+<p>Na granicy całkowitego zaćmienia można czasem zobaczyć jasne punkty wzdłuż krawędzi Księżyca. To <strong>koraliki Baily’ego</strong>: światło słoneczne przenikające przez nierówności księżycowej rzeźby terenu. Gdy zostaje ostatni szczególnie silny punkt, obraz może przypominać pierścionek z diamentem.</p>
+<p>Ten widok jest niezwykle krótki i bardzo niebezpieczny dla niechronionych oczu. Podczas pojawiania się koralików i „diamentu” nadal należy używać certyfikowanych okularów do obserwacji Słońca. Dopiero w pełnej fazie całkowitego zaćmienia, kiedy jasna tarcza Słońca jest całkowicie zakryta, obserwator w pasie całkowitości może na moment zdjąć ochronę — i musi założyć ją ponownie, zanim Słońce znów zacznie się odsłaniać.</p></div>
+<figure class="ec17-photo "><a href="https://science.nasa.gov/image-detail/amf-68b7b45e-bf7d-474f-9267-a9e353ecdbd3/" rel="noopener noreferrer" target="_blank" aria-label="Otwórz stronę źródłową NASA"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar/internal_resources/5731/5663_Bailys_Beads-1.jpeg?fit=clip&amp;w=1800" width="1600" height="1000" loading="lazy" decoding="async" alt="Wąskie błyszczące punkty na krawędzi czarnego Księżyca, ze słabą koroną Słońca w tle."></a><figcaption><span>04 / KORALIKI BAILY’EGO</span><div><strong>Ostatnie promienie przez doliny Księżyca</strong><p>Koraliki Baily’ego podczas zaćmienia całkowitego 21 sierpnia 2017 r., Madras w stanie Oregon. Fotografia NASA. <a href="https://science.nasa.gov/image-detail/amf-68b7b45e-bf7d-474f-9267-a9e353ecdbd3/" rel="noopener noreferrer" target="_blank">Źródło NASA ↗</a></p></div></figcaption></figure>
+<div class="ec17-prose"><p>Na tak pozornie prostym zdjęciu spotykają się dwa światy badań: astronomia Słońca i topografia Księżyca. Kształt jego krawędzi decyduje o tym, w którym miejscu ukaże się ostatni błysk.</p></div></section>
+
+<section class="ec17-section ec17-section-lunar" id="ec17BloodMoon"><div class="ec17-rule"><span>06 / GDY ZIEMIA ZASŁANIA SŁOŃCE</span><i></i><span>ZAĆMIENIE KSIĘŻYCA</span></div>
+<div class="ec17-prose"><p class="ec17-kicker">TERAZ ZAMIENIAMY MIEJSCAMI BOHATERÓW</p>
+<h2>Pełnia wchodzi w cień Ziemi. <em>A Księżyc staje się czerwony.</em></h2>
+<p>Podczas zaćmienia Księżyca to <strong>Ziemia znajduje się pomiędzy Słońcem a Księżycem</strong>. Jej cień przesuwa się po tarczy pełni. Gdy cały Księżyc zanurzy się w umbrze, mówimy o całkowitym zaćmieniu Księżyca.</p>
+<p>Dlaczego nie jest wtedy zupełnie czarny? Promienie Słońca przechodzące przez brzegowe warstwy ziemskiej atmosfery ulegają rozproszeniu i załamaniu. Krótsze fale niebieskie są rozpraszane silniej, a część czerwonego światła zostaje skierowana w stronę Księżyca. To dlatego podczas całkowitego zaćmienia może on przybrać miedziany, pomarańczowy lub ciemnoczerwony kolor.</p>
+<p>W przeciwieństwie do zaćmienia Słońca, <strong>zaćmienie Księżyca można obserwować bez specjalnych filtrów</strong>. Jest widoczne z dużej części nocnej półkuli Ziemi, jeśli Księżyc znajduje się nad horyzontem.</p></div>
+<figure class="ec17-photo "><a href="https://science.nasa.gov/resource/as-the-moon-arcs-across-the-sky/" rel="noopener noreferrer" target="_blank" aria-label="Otwórz stronę źródłową NASA"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/lunar-science/2023/09/afrc2018-0020-06_eclipse_composite_cropped-1.jpg?fit=clip&amp;w=1800" width="1600" height="1000" loading="lazy" decoding="async" alt="Kolejne pozycje Księżyca w czasie zaćmienia nad budynkiem NASA, jedna z tarcz ma czerwony kolor."></a><figcaption><span>05 / CZERWONY KSIĘŻYC</span><div><strong>Nie jeden Księżyc, lecz kolejne chwile tego samego zaćmienia</strong><p>Wielokrotna ekspozycja pokazująca zaćmienie Księżyca 31 stycznia 2018 r. nad ośrodkiem NASA Armstrong. NASA/Ken Ulbrich. To kompozycja czasowa, nie jeden kadr. <a href="https://science.nasa.gov/resource/as-the-moon-arcs-across-the-sky/" rel="noopener noreferrer" target="_blank">Źródło NASA ↗</a></p></div></figcaption></figure>
+<div class="ec17-prose"><p>W tej kompozycji z 31 stycznia 2018 roku kolejne pozycje Księżyca tworzą łuk nad budynkiem NASA. To nie kilkanaście księżyców na niebie jednocześnie, lecz <strong>połączone obrazy wykonane w różnych chwilach</strong>. Dzięki temu dobrze widać, jak zjawisko rozwija się w czasie.</p></div></section>
+
+<section class="ec17-section" id="ec17LastLight"><div class="ec17-rule"><span>07 / KORONA, KTÓREJ ZWYKLE NIE WIDZIMY</span><i></i><span>DIAMENTOWY PIERŚCIEŃ</span></div>
+<div class="ec17-prose"><p class="ec17-kicker">ZAĆMIENIE JEST TAKŻE NARZĘDZIEM NAUKI</p>
+<h2>W chwili ciemności <em>Słońce pokazuje nam więcej.</em></h2>
+<p>Gdy Księżyc przesłania intensywnie świecącą fotosferę, nad tarczą widoczna staje się korona słoneczna: rozległa, bardzo gorąca atmosfera zewnętrzna. Jej wygląd zależy od aktywności magnetycznej Słońca. Podczas zaćmień naukowcy mogą badać struktury korony, a obserwatorzy podziwiać ją bez oślepiającego blasku samej tarczy.</p>
+<p>Nie wszystkie ważne informacje pochodzą ze zwykłego zdjęcia. Teleskopy kosmiczne, koronografy i obserwacje w różnych długościach fal pomagają badać koronę także poza momentami zaćmień. Jednak całkowite zaćmienie wciąż pozostaje wyjątkową okazją do równoczesnych obserwacji z wielu miejsc na Ziemi.</p></div>
+<figure class="ec17-photo "><a href="https://science.nasa.gov/solar-system/skywatching/how-is-the-2024-total-solar-eclipse-different-than-the-2017-eclipse/" rel="noopener noreferrer" target="_blank" aria-label="Otwórz stronę źródłową NASA"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar/2023/09/3/3dld.jpg?fit=clip&amp;w=2000" width="1600" height="1000" loading="lazy" decoding="async" alt="Bardzo jasny punkt na krawędzi przesłoniętego Słońca przypominający diament, wokół widoczna delikatna korona."></a><figcaption><span>06 / DIAMENTOWY PIERŚCIEŃ</span><div><strong>Gdy ułamek sekundy staje się widowiskiem</strong><p>Obraz efektu diamentowego pierścienia i protuberancji przy krawędzi Księżyca. Materiał ilustracyjny NASA Science o zaćmieniach w latach 2017 i 2024. <a href="https://science.nasa.gov/solar-system/skywatching/how-is-the-2024-total-solar-eclipse-different-than-the-2017-eclipse/" rel="noopener noreferrer" target="_blank">Źródło NASA ↗</a></p></div></figcaption></figure>
+</section>
+
+<section class="ec17-lab" id="ec17Lab" aria-labelledby="ec17LabTitle">
+<div class="ec17-rule"><span>08 / LABORATORIUM GEOMETRII CIENIA</span><i></i><span>SŁOŃCE · ZIEMIA · KSIĘŻYC</span></div>
+<div class="ec17-lab-intro"><div><p class="ec17-kicker">ZMIENIAJ USTAWIENIE, OBSERWUJ WYNIK</p>
+<h2 id="ec17LabTitle">Zbuduj własne <em>zaćmienie.</em></h2>
+<p>Wybierz zaćmienie Słońca albo Księżyca. Przesuwaj Księżyc względem węzła orbity i zmieniaj jego odległość od Ziemi. Model oblicza, czy stożki cienia w uproszczonym przekroju mogą doprowadzić do zaćmienia, oraz pokazuje rozmiary obszarów cienia.</p></div><span class="ec17-roman">XVII</span></div>
+<div class="ec17-lab-frame" id="ec17LabFrame">
+<div class="ec17-view"><div class="ec17-view-top"><span><i></i> ATLAS / ECLIPSE GEOMETRY</span><span>PRZEKRÓJ SCHEMATYCZNY · NIE W SKALI</span></div>
+<canvas id="ec17Canvas" width="1000" height="630" role="img" aria-label="Graficzny przekrój stożków cienia, położeń Słońca, Ziemi i Księżyca oraz obliczonego przekroju cienia."></canvas>
+<div class="ec17-view-bottom"><span>WYKRES GEOMETRII / NIE MAPA WIDOCZNOŚCI</span><button type="button" id="ec17Animate" aria-pressed="false">Ⅱ Zatrzymaj</button></div></div>
+<div class="ec17-panel"><div class="ec17-panel-heading"><span>PARAMETRY GEOMETRII</span><span>MODEL 2D/3D</span></div>
+<div class="ec17-modes" role="group" aria-label="Wybierz rodzaj zaćmienia"><button type="button" id="ec17Solar" class="is-active" aria-pressed="true">☀️ Słońce</button><button type="button" id="ec17Lunar" aria-pressed="false">🌕 Księżyc</button></div>
+<div class="ec17-presets" role="group" aria-label="Wybierz przykład"><button type="button" data-ec17-preset="total" class="is-active">Całkowite</button><button type="button" data-ec17-preset="annular">Obrączkowe</button><button type="button" data-ec17-preset="partial">Częściowe</button><button type="button" data-ec17-preset="none">Bez zaćmienia</button></div>
+<div class="ec17-control"><label for="ec17Node">Odległość od węzła orbity <output id="ec17NodeValue">0,0°</output></label><input id="ec17Node" type="range" min="0" max="20" step=".1" value="0"><div class="ec17-range"><span>0° / węzeł</span><span>20°</span></div></div>
+<div class="ec17-control"><label for="ec17MoonDistance">Odległość Księżyc–Ziemia <output id="ec17DistanceValue">360 000 km</output></label><input id="ec17MoonDistance" type="range" min="356000" max="407000" step="1000" value="360000"><div class="ec17-range"><span>356 tys. km</span><span>407 tys. km</span></div></div>
+<div class="ec17-readouts"><div><span>WYNIK MODELU</span><strong id="ec17ResultType">—</strong><small>przybliżenie globalne</small></div><div><span>SZEROKOŚĆ EKLIPTYCZNA</span><strong id="ec17Latitude">—</strong><small>β · stopnie</small></div><div><span>OŚ CIENIA</span><strong id="ec17Axis">—</strong><small>odległość od środka celu</small></div><div><span>RDZEŃ CIENIA</span><strong id="ec17Core">—</strong><small>promień w przekroju</small></div></div>
+<p class="ec17-explain" id="ec17Explanation" aria-live="polite">Przestaw suwaki i zobacz, co zmienia się w geometrii.</p>
+<button class="ec17-reset" type="button" id="ec17Reset">↺ Przywróć całkowite zaćmienie Słońca</button>
+</div></div>
+<div class="ec17-method"><strong>Granice wiarygodności modelu</strong><p>Używamy stałych przybliżonych: promień Słońca 695 700 km, Ziemi 6371 km, Księżyca 1737,4 km, odległość Ziemia–Słońce 149 597 870,7 km i nachylenie orbity 5,145°. Pozycję orbitalną przy węźle przybliżamy jako β = arcsin(sin i · sin λ), a przesunięcie osi cienia jako d·tan|β|. Stożki cienia i półcienia liczymy z podobieństwa trójkątów. Wynik dotyczy idealizowanego przekroju, bez obrotu Ziemi, dokładnej eliptyczności i ruchu węzłów, refrakcji atmosferycznej ani topografii. <b>To demonstracja geometrii, nie wyznaczenie lokalnego czasu, pasa ani daty zaćmienia.</b> Dla realnych prognoz korzystaj z tablic NASA/GSFC.</p></div>
+</section>
+
+<section class="ec17-section ec17-safe" id="ec17Safety"><div class="ec17-rule"><span>09 / OGLĄDAĆ, ALE BEZPIECZNIE</span><i></i><span>NAJWAŻNIEJSZA ZASADA OBSERWACJI</span></div>
+<div class="ec17-prose"><p class="ec17-kicker">SŁOŃCE NIE STAJE SIĘ BEZPIECZNE TYLKO DLATEGO, ŻE JEST ZASŁONIĘTE</p>
+<h2>Cudowny widok nie wart jest <em>utraty wzroku.</em></h2>
+<p>Przy częściowym i obrączkowym zaćmieniu Słońca należy przez cały czas używać odpowiednich okularów do obserwacji Słońca zgodnych z ISO 12312-2 lub bezpiecznej metody projekcyjnej. Zwykłe okulary przeciwsłoneczne nie wystarczą. Nigdy nie patrz na Słońce przez lornetkę, teleskop albo aparat bez właściwego filtra zamontowanego przed optyką — skoncentrowane światło może poważnie uszkodzić wzrok.</p>
+<p>Jedyny wyjątek dla obserwacji bez ochrony to krótka pełna faza <strong>całkowitego</strong> zaćmienia Słońca u osób znajdujących się na ścieżce całkowitości, gdy jasna tarcza jest w całości ukryta. Załóż ochronę natychmiast, gdy pojawi się pierwszy jasny fragment fotosfery. Zaćmienie Księżyca można oglądać gołym okiem.</p></div></section>
+
+<section class="ec17-original" id="ec17Original"><div class="ec17-rule"><span>10 / ORYGINALNE LABORATORIUM</span><i></i><span>PEŁNY SILNIK ATLAS SOLARIS</span></div>
+<div class="ec17-prose"><p class="ec17-kicker">DOTYCHCZASOWY SYMULATOR POZOSTAJE NA MIEJSCU</p>
+<h2>Teraz uruchom <em>centrum dowodzenia zaćmieniami.</em></h2>
+<p>Nowy eksperyment wyjaśnia podstawy fizyki cienia. Dotychczasowe laboratorium etapu 17 z obliczeniami i wizualizacją ruchu ciał jest nadal dostępne. Uruchomi się dopiero po kliknięciu, aby artykuł pozostał lekki także na telefonach i starszych urządzeniach.</p>
+<button id="stageStartLab" type="button" class="ec17-launch">Uruchom pełne Laboratorium Zaćmień <span aria-hidden="true">↗</span></button></div>
+<div class="stage-viewport ec17-legacy-viewport" id="stageViewport">
+<div class="stage-loader" id="stageLoading" hidden aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie astronomicznego silnika…</small></div>
+<iframe id="stageFrame" title="Oryginalne Laboratorium Zaćmień ATLAS SOLARIS" data-src="../../atlas.html?portal=geometry" data-lazy="true" data-manual="true" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić symulatora. <button id="stageReload" type="button">Spróbuj ponownie</button></div>
+</section>
+<section class="ec17-outro"><div class="ec17-sources"><strong>Źródła i zdjęcia</strong><p>W tekście wykorzystano sześć autentycznych zdjęć i materiałów obserwacyjnych NASA (w tym kompozycję czasową z 2018 r.). Zdjęcia nie są komputerowymi rekonstrukcjami zaćmień, a laboratorium jest uproszczonym modelem dydaktycznym. Wpisy NASA pod ilustracjami prowadzą do stron z datami i autorami.</p>
+<ul>
+<li><a href="https://science.nasa.gov/eclipses/geometry/" target="_blank" rel="noopener noreferrer">NASA — Why Do Eclipses Happen?</a></li>
+<li><a href="https://science.nasa.gov/eclipses/types/" target="_blank" rel="noopener noreferrer">NASA — Types of Solar Eclipses</a></li>
+<li><a href="https://science.nasa.gov/moon/eclipses/" target="_blank" rel="noopener noreferrer">NASA — Eclipses and the Moon</a></li>
+<li><a href="https://science.nasa.gov/eclipses/faq/" target="_blank" rel="noopener noreferrer">NASA — Eclipse FAQ, bezpieczeństwo obserwacji</a></li>
+<li><a href="https://eclipse.gsfc.nasa.gov/eclipse.html" target="_blank" rel="noopener noreferrer">NASA/GSFC — katalogi i obliczenia zaćmień</a></li>
+<li><a href="https://svs.gsfc.nasa.gov/14572/" target="_blank" rel="noopener noreferrer">NASA SVS — fotografie zaćmienia w 2024 r.</a></li>
+</ul></div>
+<nav class="ec17-next" aria-label="Sąsiednie rozdziały"><a href="../16/"><span>POPRZEDNI ETAP / 16</span><strong>← Kamienie, które pamiętają początek</strong><small>Asteroidy i komety</small></a><a href="../18/"><span>NASTĘPNY ETAP / 18</span><strong>Żywe Obserwatorium →</strong><small>Planer nocnego nieba</small></a></nav></section>
+</article></main>
+<aside class="stage-info" id="stageInfo" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 17</span><button id="stageInfoClose" type="button" aria-label="Zamknij informacje">✕</button></div>
+<h1>Laboratorium Zaćmień</h1><p class="stage-lead">Gdy znika Słońce</p>
+<p>Naukowy artykuł z sześcioma obrazami NASA, nowym interaktywnym eksperymentem geometrii cieni oraz zachowanym wcześniejszym symulatorem.</p><div id="stageRelated"></div></aside>
+<noscript><p class="ec17-noscript">Artykuł oraz ilustracje są dostępne bez JavaScript. Laboratoria potrzebują JavaScript.</p></noscript>
 </body></html>

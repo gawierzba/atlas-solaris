@@ -144,6 +144,7 @@ function init(){
   ctx.beginPath();
   for(var j=0;j<=360;j++){
    var ang=j*Math.PI*2/360,thetaDeg=ang*180/Math.PI;
+   if(thetaDeg>180)thetaDeg=360-thetaDeg;
    var e=staticLimitRg(s.spin,thetaDeg);
    var pt=P(ang,e);if(j===0)ctx.moveTo(pt.x,pt.y);else ctx.lineTo(pt.x,pt.y);
   }

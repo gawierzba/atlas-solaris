@@ -1,13 +1,154 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Łowca Egzoplanet | ATLAS SOLARIS</title><meta name="description" content="Wygeneruj krzywą blasku i rozpoznaj tranzyt egzoplanety.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="15" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 15 / Gwiazdy i czas</span><strong>Łowca Egzoplanet</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Łowca Egzoplanet — interaktywne laboratorium" src="../../atlas.html?portal=exo" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 15</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Łowca Egzoplanet</h1><p class="stage-lead">Odkryj planetę światłem gwiazdy</p><p>Wygeneruj krzywą blasku i rozpoznaj tranzyt egzoplanety.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08131f">
+<title>Światy, których nigdy nie widzieliśmy — Łowca Egzoplanet | ATLAS SOLARIS 15</title>
+<meta name="description" content="ATLAS SOLARIS 15: Kepler, TRAPPIST-1, WASP-39 b i teleskop Jamesa Webba. Sześć obrazów NASA/ESA w artykule i interaktywne laboratorium tranzytów egzoplanet.">
+<meta property="og:type" content="article"><meta property="og:title" content="Światy, których nigdy nie widzieliśmy · ATLAS SOLARIS 15">
+<meta property="og:description" content="Jak odkryć świat, którego nie potrafimy zobaczyć? Wyprawa przez tranzyty, Keplera i atmosfery egzoplanet.">
+<meta property="og:image" content="https://assets.science.nasa.gov/dynamicimage/assets/science/astro/exo-explore/2023/09/e/exoplanetstar1280.jpeg?fit=clip&amp;w=1600">
+<link rel="stylesheet" href="../../portal/stage.css"><link rel="stylesheet" href="../../portal/exoplanet15-story.css?v=15.1">
+<script defer src="../../portal/data.js?v=36.1"></script><script defer src="../../portal/stage.js?v=15.1"></script><script defer src="../../portal/exoplanet15-story.js?v=15.1"></script>
+</head>
+<body class="ex15-page" data-route="15" data-kind="stage">
+<a href="#ex15Start" class="ex15-skip">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 15 / GWIAZDY I NIEBO</span><strong>Łowca Egzoplanet</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><a href="#ex15Lab" class="ex15-nav-lab">Odkryj planetę ↗</a><button id="stageAbout" type="button" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main ex15-main" id="main"><article class="ex15-story" aria-labelledby="ex15Title">
+<section id="ex15Start" class="ex15-opening">
+<div class="ex15-topline"><span><i></i> ATLAS SOLARIS / NIEZNANE ŚWIATY</span><span>XV / XXXVI</span></div>
+<p class="ex15-eyebrow">ROZDZIAŁ 15 / ŁOWCA EGZOPLANET</p>
+<h1 id="ex15Title">Światy, których <em>nigdy nie widzieliśmy.</em></h1>
+<p class="ex15-lead">Odległa gwiazda. Pozornie nieruchoma. Nagle jej blask słabnie o maleńki ułamek procenta — i wraca. Dla większości ludzi nie wydarzyło się nic. Dla astronomów może to być początek odkrycia nowej planety, której nie potrafimy zobaczyć bezpośrednio.</p>
+<div class="ex15-actions"><a href="#ex15Story" class="ex15-cta">Otwórz opowieść <span>↓</span></a><a href="#ex15Lab" class="ex15-cta ex15-cta-alt">Zostań odkrywcą <span>↗</span></a></div>
+<div class="ex15-bottom"><span>KEPLER · TRAPPIST-1 · JWST · ŚWIATŁO</span><span>ASTRONOMIA OBSERWACYJNA / 2026</span></div>
+</section>
+<figure class="ex15-figure ex15-cover"><a href="https://science.nasa.gov/universe/stars/know-the-star-know-the-planet/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz opis obrazu na oficjalnej stronie źródłowej"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/astro/exo-explore/2023/09/e/exoplanetstar1280.jpeg?fit=clip&amp;w=1600" width="1600" height="900" loading="eager" decoding="async" alt="Ciemna egzoplaneta przechodzi na tle olbrzymiej pomarańczowej gwiazdy."></a><figcaption><span>01 / ŚLAD NA TARCZY GWIAZDY</span><div><strong>Cień zdradza istnienie obcego świata</strong><p>Wizja artystyczna tranzytu egzoplanety na tle gwiazdy, a nie fotografia planety. NASA Science. <a href="https://science.nasa.gov/universe/stars/know-the-star-know-the-planet/" target="_blank" rel="noopener noreferrer">Zobacz źródło ↗</a></p></div></figcaption></figure>
+<div class="ex15-dateline"><span>ATLAS SOLARIS 15</span><span>JEDNA GWIAZDA. JEDEN CIEŃ. CAŁY NOWY ŚWIAT.</span><span>OK. 12 MIN CZYTANIA</span></div>
+
+<section class="ex15-chapter" id="ex15Story">
+<div class="ex15-rule"><span>01 / CIEŃ W ŚWIETLE GWIAZDY</span><i></i><span>METODA TRANZYTÓW</span></div>
+<div class="ex15-copy"><p class="ex15-kicker">TAJEMNICA UKRYTA W UŁAMKU PROCENTA</p>
+<h2>Planeta nie musi świecić, <em>żebyśmy wiedzieli, że istnieje.</em></h2>
+<p class="ex15-drop">Wyobraź sobie obserwowanie jednej gwiazdy, dzień po dniu. Wśród milionów innych punktów nieba ta jedna wydaje się zwyczajna. Aż pewnego dnia jej jasność delikatnie spada. Po chwili wszystko wraca do normy. Podobny spadek pojawia się ponownie — po dokładnie takim samym czasie.</p>
+<p>Jeśli planeta przechodzi pomiędzy gwiazdą a naszym teleskopem, zasłania fragment jej świecącej powierzchni. To <strong>tranzyt</strong>. Dla planety znacznie mniejszej od gwiazdy, przy centralnym przejściu i po pominięciu wpływu pociemnienia brzegowego, głębokość spadku blasku jest w przybliżeniu równa stosunkowi pól tarcz: <strong>δ ≈ (R<sub>p</sub>/R<sub>★</sub>)²</strong>.</p>
+<p>W przypadku Ziemi przechodzącej przed tarczą Słońca spadek jasności byłby zaledwie około <strong>0,0084%</strong>, czyli 84 części na milion. Trzeba niezwykle stabilnych instrumentów i uważnej analizy, aby oddzielić taki sygnał od szumu, zmienności gwiazdy i błędów pomiarowych.</p>
+<p>Jedna ciemniejsza chwila jeszcze nie jest dowodem istnienia planety. Liczą się powtarzalność, kształt tranzytu, zgodność z innymi pomiarami i wykluczenie pozornie podobnych zjawisk, takich jak układy gwiazd zaćmieniowych.</p></div>
+<div class="ex15-math"><span>GEOMETRIA W JEDNYM RÓWNANIU</span><strong>głębokość tranzytu ≈ (promień planety / promień gwiazdy)²</strong><p>Proste przybliżenie dla jednolicie świecącej tarczy gwiazdy i planety, która w pełni na nią zachodzi. Przy tranzycie niecentralnym lub z pociemnieniem brzegowym wynik i kształt krzywej są bardziej złożone.</p></div>
+</section>
+
+<section class="ex15-chapter ex15-chapter-deep" id="ex15Kepler">
+<div class="ex15-rule"><span>02 / MASZYNA, KTÓRA PATRZYŁA BEZ PRZERWY</span><i></i><span>KEPLER / 2009–2018</span></div>
+<div class="ex15-copy"><p class="ex15-kicker">REWOLUCJA ZACZĘŁA SIĘ OD CIERPLIWOŚCI</p>
+<h2>Kepler nie szukał planet. <em>Szukał ich cieni.</em></h2>
+<p>W marcu 2009 roku NASA wysłała w przestrzeń kosmiczną teleskop Keplera. Jego zadanie było z pozoru monotonne: przez długi czas obserwować olbrzymie pole gwiazd i z niespotykaną precyzją mierzyć, jak zmienia się ich jasność. W rzeczywistości był to jeden z najważniejszych eksperymentów w historii poznawania planet poza Układem Słonecznym.</p>
+<p>Kepler monitorował jednocześnie jasność ponad stu tysięcy gwiazd. Szukał powtarzających się, regularnych spadków blasku. Nie fotografował oceanów i kontynentów odległych światów — mierzył pojedyncze, maleńkie zmiany natężenia światła. Z tej serii liczb wyłonił się obraz Galaktyki pełnej planet.</p>
+<p>Na poniższym kadrze widać coś niezwykłego: <strong>prawdziwy obraz pola gwiazd z kamery Keplera</strong>. Czarny układ prostokątów pokazuje granice detektorów; każdy z tych fragmentów nieba krył setki i tysiące gwiazd, które mogły mieć własne planety.</p></div>
+<figure class="ex15-figure "><a href="https://science.nasa.gov/resource/full-focal-plane-image-first-light-for-kepler-photometer-with-labels/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz opis obrazu na oficjalnej stronie źródłowej"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/astro/exo-explore/2023/09/ffi04132009hot300yellow_95-1494-full.jpeg?fit=clip&amp;w=1600" width="1600" height="900" loading="lazy" decoding="async" alt="Prawdziwa mozaika gęstego pola gwiazd widzianego przez fotometr teleskopu Keplera, z ciemnymi granicami modułów kamery."></a><figcaption><span>02 / PRAWDZIWE ŚWIATŁO KEPLERA</span><div><strong>Pole widzenia Keplera, kwiecień 2009</strong><p>Autentyczny mozaikowy obraz nieba z kamery teleskopu Keplera, z granicami segmentów detektorów. NASA/Ames/JPL-Caltech. <a href="https://science.nasa.gov/resource/full-focal-plane-image-first-light-for-kepler-photometer-with-labels/" target="_blank" rel="noopener noreferrer">Zobacz źródło ↗</a></p></div></figcaption></figure>
+<div class="ex15-copy"><p>Misja zakończyła pracę w 2018 roku, ale jej dane nadal pozostają bezcenne. Kepler radykalnie zmienił nasze wyobrażenie o Wszechświecie: planety okazały się powszechną częścią Galaktyki, nie rzadkim wyjątkiem.</p></div>
+</section>
+
+<section class="ex15-chapter" id="ex15Rocky">
+<div class="ex15-rule"><span>03 / PIERWSZE ZNAKI ZNAJOMEGO ŚWIATA</span><i></i><span>KEPLER-186f</span></div>
+<div class="ex15-copy"><p class="ex15-kicker">TA SAMA WIELKOŚĆ NIE OZNACZA TEGO SAMEGO ŻYCIA</p>
+<h2>Planeta podobna rozmiarem do Ziemi. <em>Cała reszta pozostaje zagadką.</em></h2>
+<p>W 2014 roku potwierdzono Kepler-186f — jedną z pierwszych planet wielkości Ziemi odkrytych w strefie zamieszkiwalnej swojej gwiazdy. To obszar, w którym przy odpowiednich warunkach atmosferycznych na powierzchni skalistej planety mogłaby istnieć ciekła woda.</p>
+<p>W takim odkryciu łatwo popuścić wodze wyobraźni. Czy ma oceany? Chmury? Góry? Czy jest tam życie? <strong>Nie wiemy.</strong> Z samego tranzytu nie odczytamy wyglądu powierzchni. Możemy oszacować promień planety, a z dodatkowymi danymi — lepiej poznać jej masę, gęstość i warunki orbitalne.</p></div>
+<figure class="ex15-figure "><a href="https://science.nasa.gov/photojournal/kepler-186f-the-first-earth-size-planet-in-the-habitable-zone-artists-concept/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz opis obrazu na oficjalnej stronie źródłowej"><img src="https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia17/pia17999/PIA17999.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Artystyczna wizja planety Kepler-186f o częściowo oświetlonej, skalistej tarczy."></a><figcaption><span>03 / NA GRANICY WYOBRAŹNI</span><div><strong>Kepler-186f — skalisty świat, którego powierzchni nie znamy</strong><p>Autorska wizualizacja NASA/JPL-Caltech/T. Pyle. Wygląd powierzchni i atmosfera są hipotetyczne. <a href="https://science.nasa.gov/photojournal/kepler-186f-the-first-earth-size-planet-in-the-habitable-zone-artists-concept/" target="_blank" rel="noopener noreferrer">Zobacz źródło ↗</a></p></div></figcaption></figure>
+<div class="ex15-copy"><p>Artystyczna wizja może być piękna i jednocześnie uczciwa naukowo, jeśli jasno powiemy, gdzie kończą się dane, a zaczyna interpretacja. Kepler-186f nie jest drugą Ziemią, którą już zobaczyliśmy. Jest światem, który znamy dzięki subtelnej zmianie światła.</p></div>
+</section>
+
+<section class="ex15-chapter ex15-chapter-violet" id="ex15Trappist">
+<div class="ex15-rule"><span>04 / SIEDEM PLANET, JEDNA GWIAZDA</span><i></i><span>TRAPPIST-1</span></div>
+<div class="ex15-copy"><p class="ex15-kicker">CAŁY UKŁAD MNIEJSZY OD ORBITY MERKUREGO</p>
+<h2>Mała czerwona gwiazda. <em>Siedem skalistych światów.</em></h2>
+<p>Około czterdziestu lat świetlnych od nas znajduje się niezwykły system TRAPPIST-1. Wokół chłodnego czerwonego karła krąży siedem planet o rozmiarach zbliżonych do Ziemi. Ich orbity są bardzo ciasne. Cała rodzina zmieściłaby się wewnątrz orbity Merkurego, a mimo to niektóre z tych światów otrzymują ilość energii z gwiazdy porównywalną z planetami naszego Układu Słonecznego.</p>
+<p>To nie gwarancja życia ani nawet istnienia atmosfery. Czerwone karły bywają aktywne, a bliskość planety do gwiazdy ma poważne konsekwencje dla jej klimatu, promieniowania i ewolucji. Naukowcy badają atmosfery tych ciał, ale nie znaleźli jeszcze potwierdzenia życia na żadnym z nich.</p></div>
+<figure class="ex15-figure "><a href="https://science.nasa.gov/photojournal/trappist-1-planet-lineup/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz opis obrazu na oficjalnej stronie źródłowej"><img src="https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia21/pia21422/PIA21422.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Zestawienie siedmiu artystycznie przedstawionych skalistych egzoplanet układu TRAPPIST-1."></a><figcaption><span>04 / SIEDEM NIEZNANYCH ŚWIATÓW</span><div><strong>TRAPPIST-1 — siedem planet wielkości Ziemi</strong><p>Wizje artystyczne NASA/JPL-Caltech stworzone na podstawie szacowanych rozmiarów i właściwości; to nie zdjęcia powierzchni planet. <a href="https://science.nasa.gov/photojournal/trappist-1-planet-lineup/" target="_blank" rel="noopener noreferrer">Zobacz źródło ↗</a></p></div></figcaption></figure>
+<div class="ex15-facts"><div><strong>7</strong><span>planet o rozmiarach podobnych do Ziemi</span></div><div><strong>~40</strong><span>lat świetlnych od nas</span></div><div><strong>1</strong><span>mały czerwony karzeł w centrum</span></div></div>
+<div class="ex15-copy"><p>Każdy z tych światów może mieć zupełnie inną historię. Jedne mogą być pozbawione gęstej atmosfery, inne mogą zachować jej część. Dla naukowców ważniejsze od efektownego słowa „druga Ziemia” jest powolne odsłanianie rzeczywistych właściwości planet.</p></div>
+</section>
+
+<section class="ex15-chapter" id="ex15Webb">
+<div class="ex15-rule"><span>05 / KIEDY ŚWIATŁO OPOWIADA O POWIETRZU</span><i></i><span>WEBB / WASP-39 b</span></div>
+<div class="ex15-copy"><p class="ex15-kicker">ATMOSFERA, KTÓREJ NIE WIDZIMY, POZOSTAWIA PODPIS</p>
+<h2>Nie zobaczyliśmy tej planety. <em>Ale odczytaliśmy jej atmosferę.</em></h2>
+<p>WASP-39 b to bardzo gorący gazowy olbrzym, krążący blisko swojej gwiazdy. Jeden obieg zajmuje mu nieco ponad cztery ziemskie doby. Gdy planeta przechodzi na tle gwiazdy, niewielka część światła przechodzi przez zewnętrzne warstwy jej atmosfery.</p>
+<p>Atomy i cząsteczki pochłaniają światło o wybranych długościach fali. Astronomowie mierzą, o ile mocniejszy jest tranzyt w różnych zakresach promieniowania. Powstaje <strong>widmo transmisyjne</strong> — odcisk palca składu atmosferycznego. Teleskop Jamesa Webba wykrył w atmosferze WASP-39 b m.in. wyraźną sygnaturę dwutlenku węgla.</p>
+<p>To nie zdjęcie gazów zawieszonych w chmurach, lecz interpretacja pomiarów światła. W tej metodzie piękne jest właśnie to, że z odległości setek lat świetlnych możemy mierzyć obecność cząsteczek, nie podróżując do celu.</p></div>
+<figure class="ex15-figure "><a href="https://esawebb.org/images/weic2213a/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz opis obrazu na oficjalnej stronie źródłowej"><img src="https://cdn.esawebb.org/archives/images/large/weic2213a.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Artystyczny obraz gorącego olbrzyma WASP-39 b w fioletowo-różowej poświacie blisko jasnej gwiazdy."></a><figcaption><span>05 / ŚWIAT WASP-39 B</span><div><strong>WASP-39 b — planeta, której atmosferę odczytano ze światła</strong><p>Oficjalna ilustracja NASA/ESA/CSA/J. Olmsted (STScI). Webb nie sfotografował bezpośrednio tej planety. <a href="https://esawebb.org/images/weic2213a/" target="_blank" rel="noopener noreferrer">Zobacz źródło ↗</a></p></div></figcaption></figure>
+<div class="ex15-copy"><p>Następna plansza jest szczególna. W przeciwieństwie do wizji artystycznej pokazuje <strong>realne dane spektroskopowe</strong>. Pomiary w zakresie około 4,3 mikrometra ujawniły charakterystyczną cechę absorpcji CO₂.</p></div>
+<figure class="ex15-figure "><a href="https://esawebb.org/images/weic2213b/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz opis obrazu na oficjalnej stronie źródłowej"><img src="https://cdn.esawebb.org/archives/images/large/weic2213b.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Rzeczywisty wykres widma tranzytowego WASP-39 b z wyraźną cechą absorpcji dwutlenku węgla około 4,3 mikrometra."></a><figcaption><span>06 / WYNIK PRAWDZIWEGO POMIARU</span><div><strong>Widmo, w którym pojawił się dwutlenek węgla</strong><p>Dane JWST/NIRSpec z 10 lipca 2022 r.; szczyt absorpcji CO₂ w okolicach 4,3 μm. NASA/ESA/CSA/L. Hustak (STScI) i zespół ERS. <a href="https://esawebb.org/images/weic2213b/" target="_blank" rel="noopener noreferrer">Zobacz źródło ↗</a></p></div></figcaption></figure>
+<div class="ex15-pull"><span>OD PLANETY DO WIDMA</span><strong>Nie zawsze musimy coś zobaczyć bezpośrednio, żeby dowiedzieć się, z czego się składa.</strong></div>
+</section>
+
+<section class="ex15-chapter ex15-chapter-measure" id="ex15Interpret">
+<div class="ex15-rule"><span>06 / CO NAPRAWDĘ MIERZYMY?</span><i></i><span>ŚWIATŁO A PEWNOŚĆ WNIOSKÓW</span></div>
+<div class="ex15-copy"><p class="ex15-kicker">ODKRYCIE NIE KOŃCZY SIĘ NA ŁADNYM WYKRESIE</p><h2>Głębokość, czas i rytm. <em>Trzy ślady jednej planety.</em></h2>
+<p>Głębokość tranzytu w prostym modelu mówi o stosunku promieni planety i gwiazdy. Odstęp pomiędzy kolejnymi tranzytami pozwala oszacować okres orbitalny. Czas trwania i kształt spadku blasku niosą informacje o geometrii orbity, rozmiarach i ruchu, ale wymagają przyjęcia lub sprawdzenia dodatkowych parametrów.</p>
+<p>Jeżeli tor planety mija tarczę gwiazdy z naszej perspektywy, tranzytu po prostu nie zobaczymy. To ważne ograniczenie: <strong>brak wykrytego tranzytu nie oznacza braku planety</strong>. Podobnie do tranzytu może wyglądać zaćmienie w układzie dwóch gwiazd albo zmiana jasności samej gwiazdy.</p>
+<p>Dlatego naukowcy łączą obserwacje: fotometrię, prędkości radialne, widma, obrazy bezpośrednie i inne metody, a także kontrolują wpływ gwiazd sąsiednich, plam na tarczy gwiazdy czy szumów detektora.</p></div>
+</section>
+
+<section class="ex15-lab" id="ex15Lab" aria-labelledby="ex15LabTitle">
+<div class="ex15-rule"><span>07 / LABORATORIUM ŁOWCY</span><i></i><span>WYSZUKAJ SYGNAŁ W ŚWIETLE</span></div>
+<div class="ex15-lab-intro"><div><p class="ex15-kicker">TERAZ TY PATRZYSZ NA GWIAZDĘ</p><h2 id="ex15LabTitle">Czy dostrzeżesz <em>planetę w cieniu?</em></h2><p>Steruj rozmiarem planety, gwiazdą, okresem orbitalnym, nachyleniem i poziomem szumu. Obok animowanego tranzytu zobaczysz krzywą blasku i wielkości obliczane z uproszczonego modelu.</p></div><span class="ex15-lab-numeral">15</span></div>
+<div class="ex15-lab-frame" id="ex15LabFrame">
+<div class="ex15-lab-visual">
+<div class="ex15-visual-top"><span><i></i> OBSERWATORIUM TRANZYTÓW</span><span>MODEL FIZYCZNY / CANVAS 2D</span></div>
+<canvas id="ex15Canvas" width="1100" height="660" role="img" aria-label="Symulowana tarcza gwiazdy podczas tranzytu oraz wykres jej chwilowej jasności w czasie."></canvas>
+<div class="ex15-visual-bottom"><span id="ex15ObservationType">SYGNAŁ SYMULOWANY / NIE DANE NASA</span><button id="ex15Play" type="button" aria-pressed="false">Ⅱ Zatrzymaj</button></div>
+</div>
+<div class="ex15-panel">
+<div class="ex15-panel-heading"><span>PARAMETRY EKSPERYMENTU</span><span>01 / TRANZYT</span></div>
+<div class="ex15-presets" role="group" aria-label="Przykłady planet"><button type="button" data-ex15-preset="earth" class="is-active">Ziemia / Słońce</button><button type="button" data-ex15-preset="giant">Gazowy olbrzym</button><button type="button" data-ex15-preset="red">Czerwony karzeł</button></div>
+<div class="ex15-control"><label for="ex15Planet">Promień planety <output id="ex15PlanetValue" for="ex15Planet">1,0 R⊕</output></label><input id="ex15Planet" type="range" min=".5" max="12" step=".1" value="1"><div class="ex15-minmax"><span>0,5 R⊕</span><span>12 R⊕</span></div></div>
+<div class="ex15-control"><label for="ex15Star">Promień gwiazdy <output id="ex15StarValue" for="ex15Star">1,00 R☉</output></label><input id="ex15Star" type="range" min=".1" max="1.5" step=".05" value="1"><div class="ex15-minmax"><span>0,10 R☉</span><span>1,50 R☉</span></div></div>
+<div class="ex15-control"><label for="ex15Period">Okres orbitalny <output id="ex15PeriodValue" for="ex15Period">365 dni</output></label><input id="ex15Period" type="range" min="1" max="365" step="1" value="365"><div class="ex15-minmax"><span>1 dzień</span><span>365 dni</span></div></div>
+<div class="ex15-control"><label for="ex15Inclination">Nachylenie orbity <output id="ex15InclinationValue" for="ex15Inclination">90,0°</output></label><input id="ex15Inclination" type="range" min="85" max="90" step=".1" value="90"><div class="ex15-minmax"><span>85°</span><span>90° / krawędź</span></div></div>
+<div class="ex15-control"><label for="ex15Noise">Szum pomiaru <output id="ex15NoiseValue" for="ex15Noise">20 ppm</output></label><input id="ex15Noise" type="range" min="0" max="400" step="5" value="20"><div class="ex15-minmax"><span>0 ppm</span><span>400 ppm</span></div></div>
+<div class="ex15-results"><div><span>GŁĘBOKOŚĆ TRANZYTU</span><strong id="ex15Depth">—</strong><small>ppm / części na milion</small></div><div><span>ODLEGŁOŚĆ ORBITALNA</span><strong id="ex15Orbit">—</strong><small>AU · zakładamy 1 M☉</small></div><div><span>GEOMETRIA</span><strong id="ex15Geometry">—</strong><small>czy tranzyt jest widoczny?</small></div><div><span>CZAS TRANZYTU</span><strong id="ex15Duration">—</strong><small>godz. · proste przybliżenie</small></div></div>
+<p id="ex15Result" class="ex15-result" aria-live="polite">Zmieniaj parametry i obserwuj.</p>
+<button id="ex15Reset" class="ex15-reset" type="button">↺ Przywróć Ziemię i Słońce</button>
+</div>
+</div>
+<div class="ex15-method"><strong>Jaki model działa w laboratorium?</strong><p>Zakładamy orbitę kołową, masę gwiazdy równą 1 M☉ i jednolitą jasność tarczy, bez pociemnienia brzegowego oraz atmosfery planety. Półosią wielką rządzi III prawo Keplera: a/AU = (P/365,25 dni)<sup>2/3</sup>. Parametr trafienia b = (a/R☉)·cos(i) przy R☉ = 0,00465047 AU; dla geometrycznego tranzytu konieczne jest |b| ≤ 1 + R<sub>p</sub>/R<sub>★</sub>. Przy całkowitym zasłanianiu planetą małej części gwiazdy δ ≈ (R<sub>p</sub>/R<sub>★</sub>)²; przy kontakcie brzegowym liczymy obszar wspólny dwóch tarcz. Czas T<sub>14</sub> to uproszczona geometryczna estymacja na podstawie długości cięciwy, z uwzględnieniem nachylenia. Wartości ppm i wykres nie są prawdziwymi danymi astronomicznymi. Szum jest sztucznie generowany, a rozmiary w wizualizacji są powiększane dla czytelności. Nie jest to pełny model gwiazdy o rzeczywistej zależności masy od promienia.</p></div>
+</section>
+
+<section class="ex15-chapter ex15-outro" id="ex15Life">
+<div class="ex15-rule"><span>08 / JESZCZE NIE WIEMY</span><i></i><span>PYTANIE O ŻYCIE</span></div>
+<div class="ex15-copy"><p class="ex15-kicker">GDY WIEDZA SPOTYKA SIĘ Z POKORĄ</p>
+<h2>Strefa zamieszkiwalna <em>to nie dowód życia.</em></h2>
+<p>Wśród tysięcy poznanych światów astronomowie szukają tych, które mogłyby mieć ciekłą wodę, atmosferę i stabilne warunki. Samo znalezienie planety odpowiedniego rozmiaru ani nawet wykrycie pewnych gazów nie oznacza odkrycia organizmów. Atmosfera może tworzyć skomplikowane związki w procesach całkowicie niebiologicznych.</p>
+<p>Żeby zrozumieć odległy świat, musimy poznać również jego gwiazdę, masę, historię promieniowania, możliwe chmury i złożone procesy chemiczne. To praca na lata, z wieloma niepewnościami i potrzebą potwierdzeń.</p>
+<p class="ex15-final-line">Być może kiedyś dostrzeżemy w świetle którejś gwiazdy ślad naprawdę niezwykłego świata. A wszystko zacznie się tak samo: od cienia mniejszego niż jedna tysięczna jej blasku.</p>
+</div>
+</section>
+<section class="ex15-original" id="ex15OldLab">
+<div class="ex15-rule"><span>09 / PEŁNY SILNIK ATLAS SOLARIS</span><i></i><span>DOTYCHCZASOWY ŁOWCA EGZOPLANET</span></div>
+<div class="ex15-copy"><p class="ex15-kicker">NICZEGO NIE USUWAMY</p><h2>Uruchom pełny <em>symulator astronomiczny.</em></h2>
+<p>Nowe laboratorium pokazuje samą zasadę tranzytu i krzywej blasku. Wcześniejszy symulator „Łowca Egzoplanet” jest zachowany pod spodem i włącza się dopiero po Twoim kliknięciu — dzięki temu artykuł pozostaje lekki na telefonach i starszych przeglądarkach.</p>
+<button id="stageStartLab" class="ex15-launch" type="button">Uruchom oryginalnego Łowcę Egzoplanet <span aria-hidden="true">↗</span></button></div>
+<div id="stageViewport" class="stage-viewport ex15-legacy-viewport"><div id="stageLoading" class="stage-loader" hidden aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY ŁOWCĘ EGZOPLANET</strong><small>Ładowanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Łowca Egzoplanet — oryginalne laboratorium ATLAS SOLARIS" data-src="../../atlas.html?portal=exo" data-lazy="true" data-manual="true" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<div id="stageError" role="alert" hidden>Nie udało się uruchomić symulatora. <button id="stageReload" type="button">Spróbuj ponownie</button></div>
+</section>
+<section class="ex15-end">
+<div class="ex15-sources"><strong>Źródła, autorzy zdjęć i metodologia</strong><p>Obrazy NASA/JPL i ESA/Webb umieszczono między fragmentami tekstu jako osobne ilustracje. Pierwsze światło Keplera i widmo WASP-39 b są danymi pomiarowymi; pozostałe kadry to wizje artystyczne, a nie fotografie planet. Laboratorium to własny model edukacyjny, nie dane z satelitów.</p>
+<ul>
+<li><a href="https://science.nasa.gov/exoplanets/whats-a-transit/" target="_blank" rel="noopener noreferrer">NASA — What’s a Transit?</a></li>
+<li><a href="https://science.nasa.gov/mission/kepler/" target="_blank" rel="noopener noreferrer">NASA — Kepler / K2</a></li>
+<li><a href="https://science.nasa.gov/resource/full-focal-plane-image-first-light-for-kepler-photometer-with-labels/" target="_blank" rel="noopener noreferrer">NASA — pierwsze zdjęcie pola gwiazd Keplera</a></li>
+<li><a href="https://science.nasa.gov/exoplanets/trappist1/" target="_blank" rel="noopener noreferrer">NASA — system TRAPPIST-1</a></li>
+<li><a href="https://science.nasa.gov/missions/webb/nasas-webb-detects-carbon-dioxide-in-exoplanet-atmosphere/" target="_blank" rel="noopener noreferrer">NASA/Webb — odkrycie CO₂ w WASP-39 b</a></li>
+<li><a href="https://esawebb.org/images/weic2213b/" target="_blank" rel="noopener noreferrer">ESA/Webb — źródłowy wykres NIRSpec</a></li>
+<li><a href="https://science.nasa.gov/mission/webb/science-overview/science-explainers/what-is-webb-revealing-about-the-trappist-1-system/" target="_blank" rel="noopener noreferrer">NASA — badania atmosfer TRAPPIST-1</a></li>
+</ul></div>
+<nav class="ex15-next" aria-label="Sąsiednie etapy"><a href="../14/"><span>POPRZEDNI ETAP / 14</span><strong>← Wiadomości z krańca Układu Słonecznego</strong><small>Voyager i Cassini</small></a><a href="../16/"><span>NASTĘPNY ETAP / 16</span><strong>Asteroidy i komety →</strong><small>Ślady małych ciał</small></a></nav>
+</section>
+</article></main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 15</span><button id="stageInfoClose" type="button" aria-label="Zamknij informacje">✕</button></div><h1>Łowca Egzoplanet</h1><p class="stage-lead">Światy, których nigdy nie widzieliśmy</p><p>Rozbudowany artykuł o tranzytach, Keplerze, TRAPPIST-1 i Webb. Sześć obrazów NASA/ESA, dwa laboratoria: model krzywej blasku i zachowany wcześniejszy symulator.</p><div id="stageRelated"></div></aside>
+<noscript><p class="ex15-noscript">Artykuł i ilustracje są dostępne bez JavaScript. Laboratoria wymagają jego włączenia.</p></noscript>
 </body></html>

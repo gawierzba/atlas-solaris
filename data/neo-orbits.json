@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-11-15T14:44:08+00:00",
+  "generatedAt": "2026-11-22T15:15:22+00:00",
   "mode": "jpl-sbdb-snapshot",
   "source": "https://ssd-api.jpl.nasa.gov/sbdb.api",
   "objects": {
@@ -173,6 +173,25 @@
       "orbit_id": "3",
       "soln_date": "2021-04-15 22:10:20",
       "source": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=2019%20XF2",
+      "approx": false
+    },
+    "2026 WJ": {
+      "des": "2026 WJ",
+      "name": "(2026 WJ)",
+      "kind": "asteroid",
+      "epoch": 2461200.5,
+      "equinox": "J2000",
+      "a": 2.41751142060432,
+      "e": 0.59947130163956,
+      "i": 5.220402350475064,
+      "om": 59.46190347185297,
+      "w": 20.53456787752325,
+      "ma": 312.2778094162199,
+      "moid": 0.00226539,
+      "period": 1372.938957754752,
+      "orbit_id": "4",
+      "soln_date": "2026-11-22 05:45:12",
+      "source": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=2026%20WJ",
       "approx": false
     }
   }

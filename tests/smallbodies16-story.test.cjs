@@ -68,7 +68,7 @@ test('Katalog, polecane wyprawy i oddzielna podstrona są spójne',()=>{
  assert.equal(d.stages['16'].category,'nauka');
  assert.ok(d.categories.nauka.highlights.includes(16));
  assert.equal(c.stages['16'].title,d.stages['16'].title);
- assert.ok(read('portal/site.js').includes("featureCard(16,'smallbodies16')"));
+ assert.ok(read('etapy/16/index.html').includes('id="sb16Title"'),"Etap 16 musi pozostać samodzielnie dostępny");
 });
 test('Brak WebGL, jest tryb mobilny i ostrzeżenia o ograniczeniach',()=>{
  const html=read('etapy/16/index.html'),css=read('portal/smallbodies16-story.css'),js=read('portal/smallbodies16-story.js');

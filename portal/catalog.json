@@ -40,11 +40,12 @@
     "gwiazdy": {
       "id": "gwiazdy",
       "title": "Gwiazdy i niebo",
-      "description": "Od obserwowania nocnego nieba i katalogu Messiera po egzoplanety, narodziny gwiazd i supernowe.",
+      "description": "Od nocnego obserwatorium i trójwymiarowej podróży między gwiazdami po egzoplanety, narodziny gwiazd i supernowe.",
       "symbol": "✦",
       "color": "#b4a1ff",
       "path": "dzialy/gwiazdy/",
       "highlights": [
+        19,
         18,
         15,
         35
@@ -168,9 +169,9 @@
     },
     "19": {
       "number": 19,
-      "title": "Podróż między gwiazdami",
-      "lead": "Ponad 7400 gwiazd w przestrzeni",
-      "description": "Zmień miejsce obserwacji w rzeczywistym układzie współrzędnych 3D.",
+      "title": "Gwiazdozbiory, które rozpadają się w podróży",
+      "lead": "Podróż między gwiazdami — dwa spojrzenia na Wielki Wóz",
+      "description": "Sześć autentycznych zdjęć i map ESA/NASA/ESO. Alfa Centauri, Proxima, Syriusz, Gaia i Gwiazda Barnarda. Laboratorium zmiany perspektywy siedmiu gwiazd w geometrii 3D i oryginalny silnik 7400+ gwiazd.",
       "category": "gwiazdy",
       "mode": "interstellar",
       "path": "etapy/19/",

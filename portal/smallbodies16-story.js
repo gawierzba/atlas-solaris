@@ -76,7 +76,7 @@ function init(){
    else state.textContent='Model przewiduje minięcie Ziemi: najbliższa odległość od środka wynosi '+fmt(s.rpKm,0)+' km, czyli około '+fmt(s.altitudeKm,0)+' km ponad umowną powierzchnią. Nie jest to prognoza żadnej prawdziwej planetoidy.';
   }
   presets.forEach(function(btn){
-   var map={safe:[3,15,150,2000],near:[1.6,7,120,1800],impact:[.6,15,220,2800]};
+   var map={safe:[3,15,150,2000],near:[2.2,7,120,1800],impact:[.6,15,220,2800]};
    var x=map[btn.getAttribute('data-sb16-preset')];
    var active=!!x&&x[0]===s.bRe&&x[1]===s.vInf&&x[2]===s.diameterM&&x[3]===s.density;
    btn.classList.toggle('is-active',active);btn.setAttribute('aria-pressed',active?'true':'false');
@@ -183,7 +183,7 @@ function init(){
  }
  function refresh(){if(play){play.textContent=running?'Ⅱ Zatrzymaj':'▶ Uruchom';play.setAttribute('aria-pressed',running?'false':'true');}if(running)schedule();else stop();}
  function apply(name){
-  var params={safe:[3,15,150,2000],near:[1.6,7,120,1800],impact:[.6,15,220,2800]}[name];if(!params)return;
+  var params={safe:[3,15,150,2000],near:[2.2,7,120,1800],impact:[.6,15,220,2800]}[name];if(!params)return;
   inputs.b.value=String(params[0]);inputs.v.value=String(params[1]);inputs.d.value=String(params[2]);inputs.rho.value=String(params[3]);phase=0;update();
  }
  Object.keys(inputs).forEach(function(key){inputs[key].addEventListener('input',update);});

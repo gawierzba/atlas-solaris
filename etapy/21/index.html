@@ -1,13 +1,164 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Misja przez ergosferę | ATLAS SOLARIS</title><meta name="description" content="Symuluj trajektorie w czasoprzestrzeni Kerra i odczytuj zegary.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="21" data-kind="stage">
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a0b19">
+<title>Gdy wiruje sama przestrzeń — Misja przez ergosferę | ATLAS SOLARIS 21</title>
+<meta name="description" content="ATLAS SOLARIS 21: czarna dziura Kerra, ergosfera, wleczenie układów odniesienia, gwiazda S301 odkryta w 2026, Penrose i laboratorium spinu. Obrazy NASA i ESO.">
+<meta property="og:type" content="article"><meta property="og:title" content="Gdy wiruje sama przestrzeń · ATLAS SOLARIS 21">
+<meta property="og:description" content="Wyrusz przez ergosferę, porównaj horyzont z granicą statyczności i odkryj, jak czarna dziura może oddawać energię obrotu.">
+<meta property="og:image" content="https://cdn.eso.org/images/large/eso2305b.jpg">
+<link rel="stylesheet" href="../../portal/stage.css"><link rel="stylesheet" href="../../portal/kerr21-story.css?v=21.1">
+<script src="../../portal/data.js?v=36.1" defer></script><script src="../../portal/stage.js?v=21.1" defer></script><script src="../../portal/kerr21-story.js?v=21.1" defer></script>
+</head><body class="ke21-page" data-kind="stage" data-route="21">
+<a href="#ke21Top" class="ke21-skip">Przejdź do artykułu</a>
 <header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 21 / Czarne dziury</span><strong>Misja przez ergosferę</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Misja przez ergosferę — interaktywne laboratorium" src="../../atlas.html?portal=probe" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 21</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Misja przez ergosferę</h1><p class="stage-lead">Lot sondy w pobliżu horyzontu</p><p>Symuluj trajektorie w czasoprzestrzeni Kerra i odczytuj zegary.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<div class="stage-crumb"><span>ETAP 21 / CZASOPRZESTRZEŃ</span><strong>Misja przez ergosferę</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><a class="ke21-nav-lab" href="#ke21Lab">Kokpit sondy ↗</a><button id="stageAbout" type="button" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" aria-label="Strona główna">⌂</a></nav></header>
+<main class="stage-main ke21-main" id="main"><article class="ke21-story" aria-labelledby="ke21Title">
+<section class="ke21-hero" id="ke21Top">
+<div class="ke21-topline"><span><i></i> ATLAS SOLARIS / MISJA KERR</span><span>XXI / XXXVI</span></div>
+<p class="ke21-eyebrow">ROZDZIAŁ 21 / OBRACAJĄCA SIĘ CZARNA DZIURA</p>
+<h1 id="ke21Title">Gdy wiruje <em>sama przestrzeń.</em></h1>
+<p class="ke21-lead">Wyobraź sobie sondę, która zbliża się do czarnej dziury. Jej silniki mogą jeszcze działać. Może nawet nie przekroczyła horyzontu zdarzeń. A jednak nadchodzi granica, za którą nie będzie mogła pozostać nieruchoma względem odległych gwiazd. Nie dlatego, że zawiódł napęd. Dlatego, że obraca się sama czasoprzestrzeń.</p>
+<div class="ke21-hero-actions"><a href="#ke21Intro" class="ke21-button">Wejdź w opowieść <span>↓</span></a><a href="#ke21Lab" class="ke21-button ke21-button-ghost">Uruchom sondę <span>↗</span></a></div>
+<div class="ke21-bottomline"><span>ROY KERR · ERGOSFERA · PENROSE · S301</span><span>ASTROFIZYKA / 2026</span></div></section>
+<figure class="ke21-figure ke21-cover"><a href="https://www.eso.org/public/images/eso2305b/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalne źródło obrazu"><img src="https://cdn.eso.org/images/large/eso2305b.jpg" width="1600" height="900" loading="eager" decoding="async" alt="Kosmiczna wizja wirującej materii wokół czarnej dziury w fiolecie i bieli, z potężnym dżetem strzelającym ukośnie w przestrzeń."></a><figcaption><span>01 / WIZJA ARTYSTYCZNA — ESO</span><div><strong>Jądro M87: wyobrażenie obrotu, dysku i dżetu</strong><p>Wizja artystyczna S. Dagnello (NRAO/AUI/NSF) udostępniona przez ESO w kwietniu 2023 r. Materiał inspirowany prawdziwymi obserwacjami radiowymi M87. Nie jest fotografią czarnej dziury ani dowodem na konkretną trajektorię dżetu. <a href="https://www.eso.org/public/images/eso2305b/" target="_blank" rel="noopener noreferrer">Pełny opis i źródło ↗</a></p></div></figcaption></figure>
+<div class="ke21-dateline"><span>ATLAS SOLARIS / ETAP 21</span><span>JAK MIERZYĆ OBRÓT CZARNEJ DZIURY</span><span>OK. 13 MIN CZYTANIA</span></div>
+
+<section class="ke21-section" id="ke21Intro">
+<div class="ke21-rule"><span>01 / NIE JEDNA, LECZ DWIE GEOMETRIE</span><i></i><span>SCHWARZSCHILD → KERR</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">KAŻDA GWIAZDA MA OBRÓT — CZARNA DZIURA MOŻE GO ZACHOWAĆ</p>
+<h2>W poprzednim rozdziale czasoprzestrzeń była nieruchoma. <em>Teraz się obraca.</em></h2>
+<p class="ke21-drop">Czarna dziura nie musi być nierotująca. Gdy masywna gwiazda zapada się albo czarna dziura pochłania materię, jej moment pędu może pozostać niezerowy. W 1963 roku matematyk Roy Kerr znalazł rozwiązanie równań Einsteina opisujące idealną obracającą się czarną dziurę bez ładunku elektrycznego.</p>
+<p>W teorii Schwarzschilda do opisu wystarcza masa. W teorii Kerra potrzebujemy także <strong>momentu pędu</strong>. Jego wpływ nie sprowadza się do tego, że coś „wiruje na powierzchni”. W idealnej próżni obracająca się masa sprawia, że geometria czasoprzestrzeni nie pozostaje statyczna względem odległych gwiazd.</p>
+<p>To zjawisko nazywa się <strong>wleczeniem układów odniesienia</strong> (*frame dragging*). Blisko obracającej się czarnej dziury narasta ono do tego stopnia, że możliwe kierunki ruchu materialnych obserwatorów są ograniczone przez geometrię. Nie oznacza to jednak, że każda pobliska sonda natychmiast musi wpaść za horyzont.</p>
+<p>Obraz otwierający rozdział jest wizją artystyczną ESO z 2023 roku. Wspaniale oddaje atmosferę otoczenia czarnej dziury M87*, ale nie przedstawia fotografii jej ergosfery ani dokładnego rozwiązania trajektorii. Prawdziwe dane i model będą w następnych częściach.</p></div>
+<div class="ke21-figures"><div><strong>1963</strong><span>Roy Kerr znajduje rozwiązanie dla wirującej czarnej dziury</span></div><div><strong>2</strong><span>główne parametry: masa i moment pędu</span></div><div><strong>0…1</strong><span>bezwymiarowa miara spinu a*</span></div></div></section>
+
+<section class="ke21-section ke21-section-s301" id="ke21S301">
+<div class="ke21-rule"><span>02 / GWIAZDA, KTÓRA POMOŻE ZMIERZYĆ OBRÓT</span><i></i><span>GRAVITY+ / S301 / 2026</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">ODKRYCIE OGŁOSZONE 19 SIERPNIA 2026 ROKU</p>
+<h2>Jedna gwiazda może być <em>zegarowym wskaźnikiem obrotu Galaktyki.</em></h2>
+<p>W sierpniu 2026 roku Europejskie Obserwatorium Południowe poinformowało o odkryciu gwiazdy S301, która krąży bardzo blisko Sagittarius A* — supermasywnej czarnej dziury w centrum naszej Drogi Mlecznej. Gwiazda wykonuje pełne okrążenie w około <strong>8,7 roku</strong>. Podczas największego zbliżenia osiąga prędkość około <strong>25 tysięcy kilometrów na sekundę</strong>, czyli ponad osiem procent prędkości światła.</p>
+<p>Jej najmniejsza odległość od centrum czarnej dziury wynosi około <strong>1,78 miliarda kilometrów</strong> — to mniej więcej dwanaście odległości Ziemia–Słońce. Obserwacje wykonano przy użyciu instrumentu GRAVITY w interferometrze VLTI. Dzięki takim pomiarom astronomowie nie widzą „małego planetarium przy czarnej dziurze”; mierzą położenia punktów światła i dopasowują fizyczną orbitę.</p>
+<p>Dlaczego S301 jest tak ważna? Jej droga może stopniowo odróżniać wpływ nierotującego pola grawitacyjnego od dodatkowego efektu Lensego–Thirringa powodowanego przez spin. <strong>To dopiero obietnica przyszłego pomiaru</strong> — zespół nie ogłosił w sierpniu 2026 roku bezpośredniego wyznaczenia spinu Sagittarius A* z orbity tej gwiazdy. Kolejne obserwacje, w tym bliskie przejście planowane na 2031 rok, mogą to umożliwić.</p></div>
+<figure class="ke21-figure "><a href="https://www.eso.org/public/images/eso2612a/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalne źródło obrazu"><img src="https://cdn.eso.org/images/large/eso2612a.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Cztery panele obserwacyjne ESO z jasnymi punktami gwiazd i narysowaną białą orbitą S301 blisko Sagittarius A*."></a><figcaption><span>02 / PRAWDZIWE DANE OBSERWACYJNE — 2026</span><div><strong>S301 — gwiazda, którą naprawdę śledzą astronomowie</strong><p>Sekwencja rzeczywistych obrazów instrumentu GRAVITY/VLTI z naniesioną obliczoną orbitą S301, opublikowana 19 sierpnia 2026 r. Pomarańczowe punkty to obserwowane gwiazdy; linie oznaczają dopasowaną i prognozowaną orbitę. ESO/GRAVITY Collaboration. <a href="https://www.eso.org/public/images/eso2612a/" target="_blank" rel="noopener noreferrer">Pełny opis i źródło ↗</a></p></div></figcaption></figure>
+<div class="ke21-prose"><p>Na rzeczywistych danych ESO zobaczysz jasne punkty gwiazd. Białe krzywe są wyznaczonymi torami, a ich fragmenty wykraczające poza czas obserwacji pokazują prognozę. To piękny przykład sytuacji, w której <strong>obraz nieba i równania Einsteina naprawdę się spotykają</strong>.</p></div></section>
+
+<section class="ke21-section ke21-section-ergo" id="ke21Ergo">
+<div class="ke21-rule"><span>03 / GRANICA BEZ STATYCZNOŚCI</span><i></i><span>ERGOSFERA ≠ HORYZONT</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">SONDA JESZCZE MOŻE UCIEC — ALE NIE MOŻE ZAWISNĄĆ WZGLĘDEM DALEKICH GWIAZD</p>
+<h2>Wchodzimy do ergosfery. <em>Tu „stać w miejscu” przestaje być możliwe.</em></h2>
+<p>Obrót czarnej dziury Kerra tworzy poza horyzontem charakterystyczny obszar zwany <strong>ergosferą</strong>. Jej zewnętrzną granicę nazywamy <strong>granicą statyczności</strong>. W tej strefie nie istnieje fizyczny obserwator, który zachowując stałe współrzędne względem dalekiego Wszechświata, pozostawałby nieruchomy.</p>
+<p>To nie jest osobna, twarda powłoka otaczająca horyzont. Współrzędna radialna jej zewnętrznej granicy zależy od kierunku względem osi obrotu: <strong>przy biegunach styka się z horyzontem</strong>, a w równiku jest od niego najbardziej oddalona. Jej kształt na rysunkach często przypomina spłaszczone wrzeciono.</p>
+<p>W modelu Kerra używamy jednostki grawitacyjnej <strong>r<sub>g</sub> = GM/c²</strong>. Dla braku rotacji zewnętrzny horyzont ma promień współrzędnej 2 r<sub>g</sub>. Wraz ze wzrostem spinu maleje aż do 1 r<sub>g</sub> w formalnym granicznym przypadku ekstremalnym. Na równiku granica statyczności pozostaje na poziomie <strong>2 r<sub>g</sub></strong>, dlatego ergosfera się poszerza.</p></div>
+<div class="ke21-equation"><span>METRYKA KERRA / GRANICA STATYCZNOŚCI</span>
+<strong>r₊ = r<sub>g</sub>(1 + √(1 − a*²))</strong>
+<strong>r<sub>E</sub>(θ) = r<sub>g</sub>(1 + √(1 − a*² cos²θ))</strong>
+<p>r₊ — zewnętrzny horyzont, r<sub>E</sub>(θ) — granica statyczności, θ — kąt od osi obrotu, a* — bezwymiarowy spin. To współrzędne Boyera–Lindquista, nie bezpośrednio zmierzone odległości linijką w przestrzeni.</p></div></section>
+
+<section class="ke21-section ke21-section-particles" id="ke21Particles">
+<div class="ke21-rule"><span>04 / DROGI CZĄSTEK W ZAKRZYWIONEJ GEOMETRII</span><i></i><span>NASA / HIPOTETYCZNA CIEMNA MATERIA</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">NIE OBSERWUJEMY CZARNEJ DZIURY W PROFILU — OBLICZAMY MOŻLIWE TRAJEKTORIE</p>
+<h2>Najbardziej niezwykłe jest to, <em>że sama przestrzeń narzuca kierunek.</em></h2>
+<p>Wizualizacja NASA Goddard pokazuje numeryczne trajektorie hipotetycznych cząstek ciemnej materii w pobliżu szybko obracającej się czarnej dziury. Cząstki, które daleko od niej poruszają się w rozmaitych kierunkach, blisko horyzontu coraz silniej poddają się wleczeniu układów odniesienia. Turkusowy obszar oznacza ergosferę.</p>
+<p>Ten obraz nie został wykonany przez teleskop. Ślady i kolory kodują wynik symulacji, a ich duża liczba pozwala zobaczyć ogólną tendencję. <strong>Ergosfera nie świeci sama z siebie na turkusowo</strong>. Po prostu wyznaczono ten obszar w geometrycznym modelu.</p></div>
+<figure class="ke21-figure "><a href="https://svs.gsfc.nasa.gov/11894/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalne źródło obrazu"><img src="https://svs.gsfc.nasa.gov/vis/a010000/a011800/a011894/DMBH_layered.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Gęste białe i różowe smugi wyliczonych torów cząstek wirują wokół niebieskiej, spłaszczonej ergosfery i czarnej dziury."></a><figcaption><span>03 / SYMULACJA KOMPUTEROWA — NASA GODDARD</span><div><strong>W ergosferze nawet przestrzeń jest wciągana w obrót</strong><p>Naukowa wizualizacja ruchu hipotetycznych cząstek ciemnej materii wokół maksymalnie wirującej czarnej dziury. Turkusowy obszar oznacza ergosferę; ślady cząstek są wynikiem obliczeń, a nie fotografią. NASA Goddard Scientific Visualization Studio (2015). <a href="https://svs.gsfc.nasa.gov/11894/" target="_blank" rel="noopener noreferrer">Pełny opis i źródło ↗</a></p></div></figcaption></figure>
+<div class="ke21-prose"><p>Wewnątrz ergosfery sonda może jeszcze wykonywać manewry i w pewnych warunkach opuścić okolicę czarnej dziury. To właśnie odróżnia ją od horyzontu zdarzeń. Kluczowe pytanie brzmi więc nie tylko „czy uciekniemy?”, ale również „ile energii przy tym zyskamy lub stracimy?”.</p></div></section>
+
+<section class="ke21-section ke21-section-drag" id="ke21Dragging">
+<div class="ke21-rule"><span>05 / EFEKT LENSEGO–THIRRINGA</span><i></i><span>WIROWANIE UKŁADÓW ODNIESIENIA</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">KIEDY OBRÓT WPŁYWA NA ORBITĘ</p>
+<h2>To nie zwyczajna siła odśrodkowa. <em>To skręcanie geometrii czasu i przestrzeni.</em></h2>
+<p>Gdy czarna dziura się obraca, wpływa nie tylko na szybkość ruchu w jej pobliżu, ale również na orientację orbit. U orbitalnych sond i gwiazd może pojawić się <strong>precesja węzłów orbitalnych</strong> — ich płaszczyzny stopniowo się obracają. Ten efekt zwany jest precesją Lensego–Thirringa.</p>
+<p>Nie należy mylić jej z precesją Schwarzschilda, która obraca kierunek elipsy orbitalnej również przy braku rotacji czarnej dziury. W przypadku S301 rozróżnienie tych wpływów jest szczególnie ważne, bo astronomowie chcą właśnie wykryć dodatkowy ślad spinu.</p>
+<p>Na ilustracji ESO z sierpnia 2026 roku krzywa siatka nie jest zmierzoną „tkaniną kosmosu”. Wyobraża, jak zmieniają się preferowane kierunki ruchu wokół wirującej masy. Nasze laboratorium niżej policzy <strong>kątową prędkość wleczenia</strong> dla obserwatora o zerowym momencie pędu (*ZAMO*).</p></div>
+<figure class="ke21-figure "><a href="https://www.eso.org/public/images/eso2612d/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalne źródło obrazu"><img src="https://cdn.eso.org/images/large/eso2612d.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Niebieska wygięta siatka czasoprzestrzeni, czarny centralny obiekt i strzałka wskazująca obrót; dodatkowe dwa zbliżenia."></a><figcaption><span>04 / ILUSTRACJA FIZYKI — ESO 2026</span><div><strong>Efekt Lensego–Thirringa: skręcone linie czasoprzestrzeni</strong><p>Ilustracja naukowa ESO/M. Kornmesser opublikowana 19 sierpnia 2026 r. Obraz nie jest pomiarem geometrii siatki w przestrzeni; wyjaśnia zmianę układu odniesienia wokół wirującej masy. <a href="https://www.eso.org/public/images/eso2612d/" target="_blank" rel="noopener noreferrer">Pełny opis i źródło ↗</a></p></div></figcaption></figure>
+</section>
+
+<section class="ke21-section ke21-section-energy" id="ke21Penrose">
+<div class="ke21-rule"><span>06 / JAK ODEBRAĆ ENERGIĘ CZARNEJ DZIURZE?</span><i></i><span>PROCES PENROSE’A / 1969</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">NIE MAGIA I NIE DARMOWA ENERGIA — JEST Z CZEGO JĄ ODEBRAĆ</p>
+<h2>Penrose odkrył paradoksalną możliwość. <em>Obrotowi czarnej dziury da się coś odebrać.</em></h2>
+<p>Roger Penrose pokazał, że w ergosferze czarnej dziury Kerra istnieją szczególne stany o <strong>ujemnej energii względem dalekiego obserwatora</strong>. Nie oznacza to ujemnej lokalnej energii mierzonej przez astronautę ani odkrycia perpetuum mobile. To cecha zachowania energii i momentu pędu w zakrzywionej, stacjonarnej geometrii.</p>
+<p>W myślowym eksperymencie ciało wchodzi do ergosfery i rozpada się na dwa fragmenty. Jeden fragment może wpaść za horyzont z odpowiednio określoną ujemną energią odniesioną do nieskończoności. Drugi ucieknie z energią większą niż miało ciało przed rozpadem. Różnica pochodzi ze zmniejszenia energii rotacyjnej czarnej dziury.</p>
+<p>W warunkach idealnych górna granica <strong>całkowitej wydobywalnej energii obrotu</strong> wynosi około <strong>29,3% energii Mc²</strong> ekstremalnej czarnej dziury Kerra. Nie jest to obietnica, że pojedyncza sonda może zamienić 29% masy czarnej dziury w paliwo, ani sprawność jednego manewru. To termodynamiczno-geometryczna granica idealnego procesu spowalniania jej obrotu.</p></div>
+<div class="ke21-quote"><span>JAKA JEST CENA ZYSKANEJ ENERGII?</span><p>Każda porcja energii, którą teoretycznie zabierzemy z ruchu czarnej dziury, musi mieć swoje źródło. Tym źródłem jest jej obrót.</p></div></section>
+
+<section class="ke21-section ke21-section-jets" id="ke21Jets">
+<div class="ke21-rule"><span>07 / OD TEORII DO PRAWDZIWYCH DŻETÓW</span><i></i><span>M87 / GMVA + ALMA / 2023</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">DWA ODDZIELNE OBRAZY — I JEDNO WIELKIE PYTANIE</p>
+<h2>Skąd energia ogromnych dżetów? <em>Wokół horyzontu dzieje się więcej niż spadanie materii.</em></h2>
+<p>W rzeczywistych układach czarne dziury nie znajdują się w idealnej próżni. Otacza je gorąca, namagnesowana plazma. Silne pola magnetyczne mogą przekazywać energię obrotową czarnej dziury materii poza horyzontem — mechanizm znany jako <strong>Blandforda–Znajka</strong> jest szczególnie ważny w modelach powstawania relatywistycznych dżetów.</p>
+<p>W kwietniu 2023 roku astronomowie opublikowali obraz M87, na którym po raz pierwszy pokazano razem w jednym zestawie radiowych danych pierścieniową strukturę wokół czarnej dziury oraz bazę dżetu. Obserwacje przeprowadzono przy długości fali 3,5 mm, a nie 1,3 mm jak w sławnym obrazie EHT z 2019 roku.</p>
+<p>Nie jest to fotografia ergosfery ani bezpośredni pomiar procesu Penrose’a. Pokazuje jednak, że obserwacje w różnych skalach i długościach fal pomagają badać połączenie między czarną dziurą, otaczającą ją materią i dżetem.</p></div>
+<figure class="ke21-figure "><a href="https://www.eso.org/public/images/eso2305a/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalne źródło obrazu"><img src="https://cdn.eso.org/images/large/eso2305a.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Rzeczywista rekonstrukcja radiowa: ciemne tło, jasne purpurowe rozmyte strumienie dżetu i wstawka z pierścieniem wokół ciemnego centrum."></a><figcaption><span>05 / RZECZYWISTA OBSERWACJA RADIOWA — GMVA/ALMA</span><div><strong>M87: cień czarnej dziury i dżet na tym samym obrazie</strong><p>Obserwacja z fal radiowych o długości 3,5 mm, opublikowana w kwietniu 2023 r. przez zespół GMVA, ALMA i Greenland Telescope. Nałożyła informacje o pierścieniu i dżecie, ale nie pokazuje bezpośrednio samej ergosfery. R.-S. Lu, E. Ros, S. Dagnello. <a href="https://www.eso.org/public/images/eso2305a/" target="_blank" rel="noopener noreferrer">Pełny opis i źródło ↗</a></p></div></figcaption></figure>
+</section>
+
+<section class="ke21-section ke21-section-orbits" id="ke21Orbits">
+<div class="ke21-rule"><span>08 / ORBITY JAK PĘTLE WYRYTE W CZASOPRZESTRZENI</span><i></i><span>NASA / EMRI / 2026</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">SIEDEM HIPOTETYCZNYCH UKŁADÓW, SIEDEM INNYCH RYSUNKÓW</p>
+<h2>Wokół wirującej czarnej dziury <em>orbita nie musi być zamkniętą elipsą.</em></h2>
+<p>W styczniu 2026 roku NASA udostępniła nowe wizualizacje układów *extreme mass ratio inspirals* (EMRI), w których znacznie lżejszy zwarty obiekt, na przykład mała czarna dziura, krąży wokół supermasywnego towarzysza. Ruch takiego układu może tworzyć skomplikowane pętle, rozety i wielokrotnie zmieniające się płaszczyzny orbity.</p>
+<p>W obrazie poniżej czarna dziura obraca się z 80% maksymalnego możliwego spinu, a mniejszy obiekt krąży przeciwnie do tego obrotu. Pomarańczowy tor tworzy trzy charakterystyczne płatki. To wyliczona trajektoria modelowego obiektu, nie ślad rakietowy ani obraz bezpośrednio z teleskopu.</p>
+<p>Tego typu układy będą ważnym celem przyszłego kosmicznego obserwatorium fal grawitacyjnych <strong>LISA</strong>, rozwijanego przez ESA we współpracy z NASA. Ich fale mogą ujawnić informacje o silnym polu grawitacyjnym i spinie supermasywnych czarnych dziur.</p></div>
+<figure class="ke21-figure "><a href="https://svs.gsfc.nasa.gov/5586/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalne źródło obrazu"><img src="https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005586/late_stage_bigscreen.png" width="1600" height="900" loading="lazy" decoding="async" alt="Pomarańczowa wielopętlowa trajektoria otacza czarną dziurę z turkusowym horyzontem i fioletową ergosferą na ciemnym tle."></a><figcaption><span>06 / SYMULACJA TRAJEKTORII — NASA 2026</span><div><strong>Kwiat z orbit: skomplikowana droga wokół wirującej czarnej dziury</strong><p>Kadr z modelu NASA Goddard opublikowanego 20 stycznia 2026 r. Pokazuje hipotetyczną gwiezdną pozostałość na orbicie wokół czarnej dziury wirującej z 80% maksymalnego spinu. Fioletowa obręcz oznacza ergosferę. Nie jest prawdziwą fotografią ani trajektorią statku. NASA SVS. <a href="https://svs.gsfc.nasa.gov/5586/" target="_blank" rel="noopener noreferrer">Pełny opis i źródło ↗</a></p></div></figcaption></figure>
+</section>
+
+<section class="ke21-lab" id="ke21Lab" aria-labelledby="ke21LabTitle">
+<div class="ke21-rule"><span>09 / KOKPIT MISJI KERR</span><i></i><span>SPIN · HORYZONT · ERGOSFERA · ZAMO</span></div>
+<div class="ke21-lab-intro"><div><p class="ke21-kicker">POŁÓŻ HIPOTETYCZNĄ SONDĘ W PRZEKROJU CZASOPRZESTRZENI</p>
+<h2 id="ke21LabTitle">Przekrocz granicę statyczności. <em>Zobacz, co się zmienia.</em></h2>
+<p>Wybierz masę i spin, następnie ustaw położenie oraz szerokość kątową sondy względem osi obrotu. Obliczymy horyzont, granicę ergosfery, prędkość wleczenia układów odniesienia i idealną górną granicę energii rotacyjnej możliwej do odzyskania.</p></div><span class="ke21-numeral">XXI</span></div>
+<div class="ke21-lab-shell" id="ke21LabShell">
+<div class="ke21-visual"><div class="ke21-visual-top"><span><i></i> PRZEKRÓJ KERRA / BOYER–LINDQUIST</span><span>WIZUALIZACJA SCHEMATYCZNA · CANVAS 2D</span></div>
+<canvas id="ke21Canvas" width="1100" height="740" role="img" aria-label="Schemat przekroju ergosfery i horyzontu wirującej czarnej dziury z położeniem sondy oraz łukami kierunku obrotu."></canvas>
+<div class="ke21-visual-bottom"><span>WSPÓŁRZĘDNA r ≠ FIZYCZNA ODLEGŁOŚĆ LINIOWA</span><button type="button" id="ke21Play" aria-pressed="false">Ⅱ Zatrzymaj ruch</button></div></div>
+<div class="ke21-panel"><div class="ke21-panel-top"><span>PARAMETRY MISJI</span><span>MODEL ANALITYCZNY</span></div>
+<label class="ke21-field">Masa czarnej dziury<select id="ke21Mass"><option value="10">10 M☉ — czarna dziura gwiazdowa</option><option value="4300000" selected>4,3 mln M☉ — podobna do Sgr A*</option><option value="6500000000">6,5 mld M☉ — podobna do M87*</option></select></label>
+<div class="ke21-presets" role="group" aria-label="Przykładowe ustawienia"><button type="button" data-ke21-preset="still">Bez obrotu</button><button type="button" data-ke21-preset="moderate">Spin 0,5</button><button type="button" data-ke21-preset="fast" class="is-active">Spin 0,9</button><button type="button" data-ke21-preset="extreme">Spin 0,998</button></div>
+<div class="ke21-control"><label for="ke21Spin">Spin czarnej dziury a* <output id="ke21SpinOut">0,900</output></label><input type="range" id="ke21Spin" min="0" max=".998" step=".001" value=".9"><div class="ke21-limits"><span>0 / brak rotacji</span><span>0,998 / niemal graniczna</span></div></div>
+<div class="ke21-control"><label for="ke21Radius">Położenie sondy — r <output id="ke21RadiusOut">1,80 r<sub>g</sub></output></label><input type="range" id="ke21Radius" min="1" max="6" step=".01" value="1.8"><div class="ke21-limits"><span>1 r<sub>g</sub></span><span>6 r<sub>g</sub></span></div></div>
+<div class="ke21-control"><label for="ke21Theta">Kąt od osi obrotu θ <output id="ke21ThetaOut">90°</output></label><input type="range" id="ke21Theta" min="0" max="90" step="1" value="90"><div class="ke21-limits"><span>0° / biegun</span><span>90° / równik</span></div></div>
+<div class="ke21-readouts">
+<div><span>HORYZONT ZEWNĘTRZNY</span><strong id="ke21Horizon">—</strong><small>r₊ w km</small></div>
+<div><span>GRANICA STATYCZNOŚCI</span><strong id="ke21Ergosphere">—</strong><small>w położeniu sondy</small></div>
+<div><span>WLECZENIE / Ω<sub>H</sub></span><strong id="ke21Dragging">—</strong><small>względem horyzontu</small></div>
+<div><span>MAX ENERGII OBROTU</span><strong id="ke21Extract">—</strong><small>udział całkowitej energii Mc²</small></div>
+</div>
+<p id="ke21Status" class="ke21-status" aria-live="polite">Wybierz spin i położenie sondy, aby sprawdzić, czy znajduje się poza ergosferą.</p>
+<button type="button" id="ke21Reset" class="ke21-reset">↺ Przywróć misję — spin 0,9</button>
+</div></div>
+<div class="ke21-method"><strong>Co rzeczywiście obliczamy?</strong><p>Model dotyczy idealnej, stacjonarnej, nieobciążonej plazmą i elektrycznie neutralnej czarnej dziury Kerra. Używamy współrzędnych Boyera–Lindquista w jednostkach r<sub>g</sub> = GM/c² i bezwymiarowego spinu a* = cJ/(GM²). Horyzont zewnętrzny ma r₊/r<sub>g</sub> = 1 + √(1−a*²), a granica statyczności r<sub>E</sub>/r<sub>g</sub> = 1 + √(1−a*²cos²θ). Dla obserwatora o zerowym momencie pędu (ZAMO) przyjmujemy Ω = 2 a*r / A w jednostkach c³/(GM), gdzie A = (r²+a²)² − a²(r²−2r+a²)sin²θ; wynik wyświetlamy jako część Ω<sub>H</sub> = a/(2r₊). Dla spinu 0 iloraz oznaczamy jako 0, bo nie zachodzi wleczenie. Maksymalny możliwy ułamek energii rotacyjnej wyliczamy ze wzoru 1−√[(1+√(1−a*²))/2]. <b>Wykres nie przedstawia fizycznych odległości w metrach ani numerycznie całkowanych geodezyjnych. Nie obliczamy trajektorii sondy, ciągu silników, czasu misji ani sprawności manewru Penrose’a.</b> Wynik „wewnątrz horyzontu” oznacza niedostępny dla sondy punkt na tym schemacie.</p></div>
+</section>
+
+<section class="ke21-section ke21-ending" id="ke21Ending"><div class="ke21-rule"><span>10 / JAK DALEKO SIĘGA NASZA WIEDZA?</span><i></i><span>OD S301 DO FAL GRAWITACYJNYCH</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">MATEMATYCZNA CZASOPRZESTRZEŃ STAJE SIĘ OBSERWOWALNĄ HISTORIĄ</p>
+<h2>Przestrzeń może wirować. <em>A my uczymy się mierzyć ten obrót.</em></h2>
+<p>Roy Kerr nie projektował kosmicznego silnika. Znajdował precyzyjne rozwiązanie równań Einsteina. Dzisiaj, ponad sześćdziesiąt lat później, obserwatoria radiowe, interferometry podczerwone i detektory fal grawitacyjnych zaczynają konfrontować tę geometrię z rzeczywistymi danymi.</p>
+<p>Nowa gwiazda S301 daje szansę na przyszły pomiar spinu Sagittarius A*. Obserwacje M87 pomagają badać przepływ materii i pola magnetyczne. A symulacje NASA pokazują, jak bardzo orbitalny taniec może różnić się od prostych elips na szkolnej tablicy.</p>
+<p>W ergosferze zyskujemy odrobinę pozornie niemożliwej intuicji: można opuścić obszar, w którym nie można być nieruchomym. Można nawet — przynajmniej teoretycznie — przejąć niewielką część energii obrotu tak gigantycznego obiektu. Z fizyki nie wyłania się bajka o darmowej mocy. Wyłania się <strong>jeszcze bardziej zadziwiający obraz Wszechświata</strong>.</p></div></section>
+
+<section class="ke21-original" id="ke21Original"><div class="ke21-rule"><span>11 / ORYGINALNY SILNIK ATLAS SOLARIS</span><i></i><span>PEŁNA PODRÓŻ SONĄ W CZASOPRZESTRZENI KERRA</span></div>
+<div class="ke21-prose"><p class="ke21-kicker">ZACHOWALIŚMY ISTNIEJĄCĄ SYMULACJĘ</p><h2>Przejdź od modelu do <em>pełnej misji sondy.</em></h2>
+<p>Nowe laboratorium wyjaśnia granice i tempo wleczenia w idealnej geometrii. Pierwotny silnik etapu 21 — interaktywny lot sondy w pobliżu wirującej czarnej dziury — pozostał nienaruszony. Uruchamia się na żądanie, żeby artykuł zachowywał płynność na telefonach i starszych przeglądarkach.</p>
+<button id="stageStartLab" type="button" class="ke21-launch">Uruchom oryginalną Misję przez ergosferę <span aria-hidden="true">↗</span></button></div>
+<div id="stageViewport" class="stage-viewport ke21-legacy-viewport"><div id="stageLoading" class="stage-loader" hidden aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY SILNIK MISJI</strong><small>Wczytywanie pełnego modelu…</small></div>
+<iframe id="stageFrame" title="Oryginalna Misja przez ergosferę ATLAS SOLARIS" data-src="../../atlas.html?portal=probe" data-lazy="true" data-manual="true" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić misji. <button type="button" id="stageReload">Spróbuj ponownie</button></div></section>
+
+<section class="ke21-outro"><div class="ke21-sources"><strong>Źródła, obserwacje i wizualizacje</strong><p>Rozdział rozdziela prawdziwe dane naukowe (VLTI/GRAVITY i obserwacje radiowe M87) od ilustracji ESO oraz numerycznych symulacji NASA. Żaden obraz nie przedstawia bezpośredniej fotografii ergosfery. Każdy ma podpis, źródło i informację o pochodzeniu. Model w laboratorium jest uproszczonym przekrojem analitycznej geometrii Kerra.</p>
+<ul>
+<li><a href="https://www.eso.org/public/news/eso2612/" target="_blank" rel="noopener noreferrer">ESO — odkrycie S301, 19 sierpnia 2026 r.</a></li>
+<li><a href="https://www.eso.org/public/images/eso2612a/" target="_blank" rel="noopener noreferrer">ESO — sekwencja rzeczywistych obserwacji S301</a></li>
+<li><a href="https://www.eso.org/public/images/eso2612d/" target="_blank" rel="noopener noreferrer">ESO — wizualizacja Lensego–Thirringa</a></li>
+<li><a href="https://www.eso.org/public/images/eso2305a/" target="_blank" rel="noopener noreferrer">ESO / GMVA / ALMA — pierścień i dżet M87</a></li>
+<li><a href="https://svs.gsfc.nasa.gov/11894/" target="_blank" rel="noopener noreferrer">NASA SVS — numeryczny model ergosfery i cząstek</a></li>
+<li><a href="https://svs.gsfc.nasa.gov/5586/" target="_blank" rel="noopener noreferrer">NASA SVS — symulacje EMRI (2026)</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6894168/" target="_blank" rel="noopener noreferrer">Penrose process — przegląd naukowy</a></li>
+<li><a href="https://cpoli.github.io/physicskit/api/gallery/relativity/kerr/plot_ergosphere_and_penrose.html" target="_blank" rel="noopener noreferrer">Metryka Kerra — zależności i testy analityczne</a></li>
+</ul></div>
+<nav class="ke21-next" aria-label="Sąsiednie etapy"><a href="../20/"><span>POPRZEDNI ETAP / 20</span><strong>← Granica, zza której nie wraca światło</strong><small>Schwarzschild / horyzont</small></a><a href="../22/"><span>NASTĘPNY ETAP / 22</span><strong>Etap 22 →</strong><small>Kolejny rozdział Atlasu</small></a></nav></section>
+</article></main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 21</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Misja przez ergosferę</h1><p class="stage-lead">Gdy wiruje sama przestrzeń</p><p>Opowieść o geometrii Kerra, odkryciu S301, procesie Penrose’a, wizualizacjach NASA oraz nowym laboratorium spinu i zachowanej oryginalnej misji.</p><div id="stageRelated"></div></aside>
+<noscript><p class="ke21-noscript">Artykuł i obrazy działają bez JavaScript. Laboratoria potrzebują JavaScript.</p></noscript>
 </body></html>

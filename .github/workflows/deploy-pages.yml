@@ -45,6 +45,7 @@ on:
       - 'tests/interstellar19-story.test.cjs'
       - 'tests/blackhole20-story.test.cjs'
       - 'tests/kerr21-story.test.cjs'
+      - 'tests/camera22-story.test.cjs'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -133,6 +134,11 @@ jobs:
           test -s etapy/32/index.html
           node --check portal/data.js
           node --check portal/site.js
+          test -s etapy/22/index.html
+          test -s portal/camera22-story.css
+          test -s portal/camera22-story.js
+          node --check portal/camera22-story.js
+          node --test tests/camera22-story.test.cjs
           test -s etapy/21/index.html
           test -s portal/kerr21-story.css
           test -s portal/kerr21-story.js

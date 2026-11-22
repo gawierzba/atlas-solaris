@@ -28,13 +28,13 @@
     "zjawiska": {
       "id": "zjawiska",
       "title": "Światło i zaćmienia",
-      "description": "Zobacz, jak rodzi się cień, kiedy nastąpi zaćmienie i dokąd powędruje.",
+      "description": "Od zaćmień Słońca i Księżyca po geometrię cieni, pory roku i zjawiska świetlne.",
       "symbol": "◉",
       "color": "#fbab8e",
       "path": "dzialy/zjawiska/",
       "highlights": [
-        9,
-        17
+        17,
+        9
       ]
     },
     "gwiazdy": {
@@ -147,9 +147,9 @@
     },
     "17": {
       "number": 17,
-      "title": "Laboratorium Zaćmień",
-      "lead": "Od syzygii do cienia",
-      "description": "Eksperymentuj z geometrią stożków cienia i obliczeniami zaćmień.",
+      "title": "Gdy znika Słońce",
+      "lead": "Laboratorium Zaćmień — od syzygii do cienia",
+      "description": "Sześć autentycznych fotografii NASA, węzły orbity Księżyca, umbra, półcień, zaćmienia Słońca i Księżyca oraz interaktywne doświadczenie z geometrią cieni. Oryginalny symulator został zachowany.",
       "category": "zjawiska",
       "mode": "geometry",
       "path": "etapy/17/",

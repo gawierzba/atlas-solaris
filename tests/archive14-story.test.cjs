@@ -59,5 +59,5 @@ test('Katalog i nawigacja prowadzą do rozbudowanego etapu 14',()=>{
  assert.equal(d.stages['14'].category,'misje');
  assert.equal(json.stages['14'].title,d.stages['14'].title);
  assert.ok(d.categories.misje.highlights.includes(14));
- assert.ok(read('portal/site.js').includes("featureCard(14,'archive14')"));
+ assert.ok(read('etapy/14/index.html').includes('id="ar14Title"'),"Etap 14 ma pozostać samodzielnie dostępny");
 });

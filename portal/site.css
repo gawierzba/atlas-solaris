@@ -110,3 +110,9 @@
 .feature-card[data-art=smallbodies16] .feature-back{background:radial-gradient(ellipse at 65% 34%,#4833478a,transparent 68%),#110f20}
 .feature-card[data-art=smallbodies16] .feature-art{display:none}
 .feature-card[data-art=smallbodies16]:after{background:linear-gradient(0deg,#0b0e1cf4 5%,#0e101ed5 40%,#11101b14)}
+
+/* ATLAS SOLARIS 17: prawdziwe zdjęcie korony Słońca w polecanym artykule */
+.feature-card[data-art=eclipse17] .feature-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 43%;z-index:-1;opacity:.96}
+.feature-card[data-art=eclipse17] .feature-back{background:radial-gradient(ellipse at 62% 42%,#3c345b80,transparent 66%),#0a1126}
+.feature-card[data-art=eclipse17] .feature-art{display:none}
+.feature-card[data-art=eclipse17]:after{background:linear-gradient(0deg,#070d20f2 5%,#0b1328d4 45%,#0b112012)}

@@ -153,6 +153,12 @@ function init(){
    disc(right,moonY,Math.max(13,Math.min(22,w*.039)),s.kind==='total'?'redmoon':'moon');
    line(mid,y0,right,moonY,'rgba(221,172,207,.54)',1.1,[5,6]);
   }
+  // A tiny traveling highlight represents the passage of a light signal.
+  // The body positions themselves are NOT time-accurate trajectories.
+  var frac=(phase%1),rayX=left+(right-left)*frac;
+  var rayY=y0+(mode==='solar'?-shift*.10:0)*frac;
+  ctx.beginPath();ctx.arc(rayX,rayY,2.5+1.1*Math.sin(phase*6)*Math.sin(phase*6),0,Math.PI*2);
+  ctx.fillStyle='rgba(241,221,252,.75)';ctx.fill();
   ctx.font='700 10px Arial,sans-serif';ctx.fillStyle='#dbe5f6';ctx.textAlign='center';
   ctx.fillText('SŁOŃCE',left,Math.max(45,y0-68));
   ctx.fillText(mode==='solar'?'KSIĘŻYC':'ZIEMIA',mid,Math.max(45,y0-75));

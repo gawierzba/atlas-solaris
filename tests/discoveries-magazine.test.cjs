@@ -106,3 +106,58 @@ test('Mobile homepage stories stack photos above text without overlapping column
  assert.ok(!small.includes('grid-template-columns:105px 1fr'),'No side-by-side narrow layout');
  assert.ok(home.includes('portal/discoveries-home.css?v=1.1'),'Invalidate older CSS cache');
 });
+
+test('Every discovery now features a prominent lab card and direct experiment link',()=>{
+ const map={
+  n159:{stage:'35',lab:'sb35Laboratorium'},
+  bao:{stage:'30',lab:'laboratorium'},
+  'kocia-glowa':{stage:'35',lab:'sb35Laboratorium'},
+  'beta-pictoris':{stage:'15',lab:'ex15Lab'}
+ };
+ for(const {name,html:h} of articles){
+  const {stage,lab}=map[name];
+  assert.match(h,/id="magRelatedLab"/,name+' missing related-lab panel');
+  assert.match(h,/id="magRelatedLabTitle"/,name+' missing heading');
+  assert.match(h,/POWIĄZANE LABORATORIUM/,name+' missing clear lab label');
+  assert.ok(h.includes('href="#magRelatedLab"'),name+' missing early shortcut');
+  assert.ok(h.includes('href="../../etapy/'+stage+'/"'),name+' missing stage CTA');
+  assert.ok(h.includes('href="../../etapy/'+stage+'/#'+lab+'"'),name+' missing experiment CTA');
+  assert.match(h,/Uruchom eksperyment/,name+' missing direct CTA');
+  assert.match(h,/Poznaj etap/,name+' missing full stage CTA');
+  assert.match(h,/mag-related-lab-photo.+?<img[^>]+alt="/s,name+' missing illustrated related lab');
+  assert.ok(h.includes('../editorial.css?v=1.1'),name+' CSS not cache-busted');
+ }
+});
+test('Three original stages link back to exact four discoveries, without replacing simulation',()=>{
+ const byStage={
+  '15':['beta-pictoris'],
+  '30':['bao'],
+  '35':['n159','kocia-glowa']
+ };
+ for(const [number,slugs] of Object.entries(byStage)){
+  const h=read('etapy/'+number+'/index.html');
+  assert.match(h,/id="powiazane-odkrycia"/,number+' missing discovery rail');
+  assert.match(h,/portal\/related-discoveries\.css\?v=1\.0/,number+' missing rail stylesheet');
+  assert.equal((h.match(/class="as-related-item"/g)||[]).length,slugs.length,number+' card count');
+  assert.equal((h.match(/<h3>[^<]+<\/h3>/g)||[]).length>=slugs.length,true,number+' semantic titles');
+  for(const slug of slugs)assert.ok(h.includes('href="../../odkrycia/'+slug+'/"'),number+' missing '+slug);
+  assert.ok(h.includes('id="'),number+' malformed stage');
+ }
+ for(const [n,marker] of [['15','data-src="../../atlas.html?portal=exo"'],['30','data-src="../../laboratoria/gwiazdy-podwojne/index.html?v=30.1"'],['35','id="sb35Laboratorium"']]){
+  assert.ok(read('etapy/'+n+'/index.html').includes(marker),'Original laboratory altered '+n);
+ }
+});
+test('Discovery rail is responsive, has separate light and dark themes and no scripting',()=>{
+ const c=read('portal/related-discoveries.css');
+ assert.match(c,/\.as-related-grid/);
+ assert.match(c,/\.as-related-grid--single/);
+ assert.match(c,/body\[data-route="30"\] \.as-related/);
+ assert.match(c,/@media\(max-width:700px\)/);
+ assert.match(c,/prefers-reduced-motion:reduce/);
+ assert.ok(!c.includes('position:fixed'),'Related rail must not cover original labs');
+});
+test('Magazine issue labels stages 15, 30 and 35 before opening the story',()=>{
+ assert.match(intro,/REPORTAŻ OTWARCIA · ETAP 35/);
+ for(const n of ['15','30','35'])assert.ok(intro.includes('POWIĄZANY ETAP '+n),'Missing index link to '+n);
+ assert.match(intro,/editorial\.css\?v=1\.2/);
+});

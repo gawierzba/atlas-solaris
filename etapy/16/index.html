@@ -1,13 +1,156 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050c17">
-<title>Asteroidy i komety | ATLAS SOLARIS</title><meta name="description" content="Oglądaj dane o małych ciałach Układu Słonecznego i ich orbitalne wizualizacje.">
-<link rel="stylesheet" href="../../portal/stage.css"><script src="../../portal/data.js" defer></script><script src="../../portal/stage.js" defer></script></head>
-<body data-route="16" data-kind="stage">
-<header class="stage-nav"><a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
-<div class="stage-crumb"><span>ETAP 16 / Naukowe laboratoria</span><strong>Asteroidy i komety</strong></div>
-<nav class="stage-actions" aria-label="Nawigacja eksperymentu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O doświadczeniu</span></button><a class="stage-home" href="../../" title="Strona główna">⌂</a></nav></header>
-<main class="stage-main"><div id="stageViewport" class="stage-viewport"><div id="stageLoading" class="stage-loader" aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Asteroidy i komety — interaktywne laboratorium" src="../../atlas.html?portal=neo" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button id="stageReload" type="button">Spróbuj ponownie</button></div></main>
-<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 16</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Asteroidy i komety</h1><p class="stage-lead">Bliskie spotkania z Ziemią</p><p>Oglądaj dane o małych ciałach Układu Słonecznego i ich orbitalne wizualizacje.</p><p class="stage-info-note">Oglądasz aktualne laboratorium w samodzielnym adresie. Wczesne etapy 01–09 to tematyczne widoki obecnego silnika, nie kopie historycznych wydań.</p><div id="stageRelated"></div></aside>
-<noscript><p class="stage-nojs">Do działania eksperymentów potrzebny jest JavaScript.</p></noscript>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10141f">
+<title>Kamienie, które pamiętają początek — Asteroidy i komety | ATLAS SOLARIS 16</title>
+<meta name="description" content="ATLAS SOLARIS 16 — Asteroidy i komety: Rosetta, Philae, Bennu, Westa, NEOWISE i DART. Sześć autentycznych zdjęć z misji i interaktywne laboratorium bliskich przelotów.">
+<meta property="og:type" content="article"><meta property="og:title" content="Kamienie, które pamiętają początek · ATLAS SOLARIS 16"><meta property="og:description" content="Małe ciała Układu Słonecznego, sześć prawdziwych fotografii i laboratorium grawitacji Ziemi.">
+<meta property="og:image" content="https://science.nasa.gov/wp-content/uploads/2024/12/comet-67p.jpg">
+<link rel="stylesheet" href="../../portal/stage.css">
+<link rel="stylesheet" href="../../portal/smallbodies16-story.css?v=16.1">
+<script src="../../portal/data.js?v=36.1" defer></script>
+<script src="../../portal/stage.js?v=16.1" defer></script>
+<script src="../../portal/smallbodies16-story.js?v=16.1" defer></script>
+</head>
+<body class="sb16-page" data-route="16" data-kind="stage">
+<a class="sb16-skip" href="#sb16Top">Przejdź do artykułu</a>
+<header class="stage-nav">
+<a class="stage-brand" href="../../" aria-label="ATLAS SOLARIS — strona główna"><span class="stage-brand-mark"><i></i></span><span>ATLAS <b>SOLARIS</b></span></a>
+<div class="stage-crumb"><span>ETAP 16 / JAK POZNAJEMY KOSMOS</span><strong>Asteroidy i komety</strong></div>
+<nav class="stage-actions" aria-label="Nawigacja etapu"><a class="stage-catalog" href="../../#etapy">← <span>Katalog</span></a><a class="sb16-nav-lab" href="#sb16Lab">Laboratorium ↗</a><button type="button" id="stageAbout" aria-expanded="false" aria-controls="stageInfo">ⓘ <span>O etapie</span></button><a class="stage-home" href="../../" aria-label="Strona główna">⌂</a></nav>
+</header>
+<main class="stage-main sb16-main" id="main"><article class="sb16-story" aria-labelledby="sb16Title">
+<section class="sb16-opening" id="sb16Top">
+<div class="sb16-topline"><span><i></i> ATLAS SOLARIS / KRONIKI DAWNEGO KOSMOSU</span><span>XVI / XXXVI</span></div>
+<p class="sb16-eyebrow">ROZDZIAŁ 16 / ASTEROIDY I KOMETY</p>
+<h1 id="sb16Title">Kamienie, które <em>pamiętają początek.</em></h1>
+<p class="sb16-lead">W przestrzeni między planetami krążą miliardy niewielkich ciał. Niektóre nigdy nie wyrosły na planety. Inne przetrwały niemal niezmienione przez miliardy lat. Gdy wysyłamy do nich sondę, zaglądamy w materię, z której powstawał nasz Układ Słoneczny.</p>
+<div class="sb16-actions"><a class="sb16-cta" href="#sb16Story">Otwórz opowieść <span>↓</span></a><a class="sb16-cta sb16-cta-alt" href="#sb16Lab">Sprawdź bliski przelot <span>↗</span></a></div>
+<div class="sb16-bottom"><span>ROSETTA · DAWN · OSIRIS-REX · DART</span><span>ASTRONOMIA / HISTORIA I FIZYKA</span></div>
+</section>
+<figure class="sb16-figure sb16-cover"><a href="https://science.nasa.gov/image-detail/comet-67p/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalną stronę źródłową fotografii"><img src="https://science.nasa.gov/wp-content/uploads/2024/12/comet-67p.jpg" width="1500" height="1000" loading="eager" decoding="async" alt="Czarno-biały obraz dwupłatowego, skalistego jądra komety 67P z ciemnym tłem i smugami aktywności."></a><figcaption><span>01 / KOMETA Z BLISKA</span><div><strong>67P: świat o dwóch połączonych częściach</strong><p>Rzeczywisty obraz z kamery NAVCAM sondy Rosetta, 14 marca 2015 r., z odległości ok. 85 km od środka komety. Przetworzony dla podkreślenia szczegółów aktywności. ESA/Rosetta/NAVCAM. <a href="https://science.nasa.gov/image-detail/comet-67p/" target="_blank" rel="noopener noreferrer">Oryginalne źródło ↗</a></p></div></figcaption></figure>
+<div class="sb16-dateline"><span>ATLAS SOLARIS 16</span><span>OD ZAMROŻONEGO PYŁU PO OBRONĘ PLANETARNĄ</span><span>~12 MIN CZYTANIA</span></div>
+
+<section class="sb16-chapter" id="sb16Story">
+<div class="sb16-rule"><span>01 / PRZETRWAŁY POCZĄTKI</span><i></i><span>4,6 MILIARDA LAT HISTORII</span></div>
+<div class="sb16-copy"><p class="sb16-kicker">PIERWSZY ROZDZIAŁ OSTATNICH OKRUCHÓW</p>
+<h2>Nie wszystkie światy <em>stały się planetami.</em></h2>
+<p class="sb16-drop">Gdy wokół młodego Słońca krążył dysk gazu i pyłu, jego drobiny zderzały się, sklejały i tworzyły coraz większe ciała. Z części materii powstały planety. Dużo innych fragmentów pozostało w mniejszych rozmiarach — jako planetoidy, komety i pokrewne obiekty.</p>
+<p>Nie są one wszystkie takie same. Jedne są ciemne i bogate w związki węgla. Inne zawierają skały powstałe w warunkach znacznego ogrzewania. W kometach przetrwały lody, pył i złożone związki organiczne. Ich dzisiejszy skład bywa zmieniony przez zderzenia, promieniowanie i procesy cieplne, ale nadal dostarcza informacji o młodości Układu Słonecznego.</p>
+<p><strong>„Kosmiczny gruz” to zbyt skromne określenie.</strong> W niepozornym obiekcie o średnicy kilkuset metrów możemy znaleźć wskazówki, których nie zachowały aktywne geologicznie planety. Niektóre planetoidy są zbiorowiskami luźno związanych głazów i pyłu, inne mają bardziej zwarty charakter.</p></div>
+<div class="sb16-facts"><div><strong>~4,6 mld</strong><span>lat od narodzin Układu Słonecznego</span></div><div><strong>3 rodzaje</strong><span>skały, metale i lody w różnych proporcjach</span></div><div><strong>1 pytanie</strong><span>co pozostało z początkowego materiału?</span></div></div>
+</section>
+
+<section class="sb16-chapter sb16-comet" id="sb16Comet">
+<div class="sb16-rule"><span>02 / GŁOWA, KOMETA I DWA WARKOCZE</span><i></i><span>NEOWISE / 2020</span></div>
+<div class="sb16-copy"><p class="sb16-kicker">SŁOŃCE BUDZI ZAMROŻONY ŚWIAT</p>
+<h2>Niektóre kamienie <em>zaczynają świecić ogonem.</em></h2>
+<p>Wiele komet spędza większość czasu daleko od Słońca. Kiedy taka kometa zbliża się do naszej gwiazdy, część lodów sublimuje — przechodzi w gaz bez wcześniejszego tworzenia cieczy. Z powierzchni uwalniają się gazy i drobiny pyłu, tworząc rozmytą otoczkę zwaną komą.</p>
+<p>Warkocz komety nie jest smugą zostawioną dokładnie za kierunkiem jej lotu, jak ślad za samolotem. <strong>Wiatr słoneczny i ciśnienie promieniowania</strong> kształtują dwa różne rodzaje struktur: warkocz jonowy zwykle skierowany przeciwnie do Słońca i często bardziej zakrzywiony warkocz pyłowy. Kierunek obu zależy przede wszystkim od działania Słońca, a nie od tego, dokąd porusza się kometa.</p>
+<p>Latem 2020 roku kometa C/2020 F3 NEOWISE pojawiła się na niebie półkuli północnej. Dla wielu obserwatorów była przypomnieniem, że niebo wciąż potrafi zmienić się z dnia na dzień, nawet bez wielkich teleskopów.</p></div>
+<figure class="sb16-figure "><a href="https://science.nasa.gov/asset/hubble/comet-neowise/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalną stronę źródłową fotografii"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/missions/hubble/releases/2020/08/STScI-01EVST5JTG5EF5XY9DEHJMB453.tif?fit=clip&amp;w=1600" width="1600" height="1000" loading="lazy" decoding="async" alt="Kometa NEOWISE na niebie ze świecącym warkoczem; na kompozycie umieszczono osobne zbliżenie jej komy z teleskopu Hubble'a."></a><figcaption><span>02 / PRAWDZIWE NIEBO</span><div><strong>NEOWISE: kometa, która rozświetliła lato 2020</strong><p>Fotografia komety C/2020 F3 NEOWISE z 16 lipca 2020 r. z dodatkowym zbliżeniem wykonanym przez Hubble’a w sierpniu. Ujęcie dokumentacyjne NASA/ESA/STScI i współautorów; nie jest jedną fotografią z jednego teleskopu. <a href="https://science.nasa.gov/asset/hubble/comet-neowise/" target="_blank" rel="noopener noreferrer">Oryginalne źródło ↗</a></p></div></figcaption></figure>
+<div class="sb16-quote"><span>NAJWAŻNIEJSZY SZCZEGÓŁ</span><strong>Kometa ma warkocz nie dlatego, że leci szybko, lecz dlatego, że Słońce uruchamia materię na jej powierzchni.</strong></div>
+</section>
+
+<section class="sb16-chapter sb16-vesta" id="sb16Vesta">
+<div class="sb16-rule"><span>03 / WIELCY NIEZREALIZOWANI</span><i></i><span>WESTA / MISJA DAWN</span></div>
+<div class="sb16-copy"><p class="sb16-kicker">DUŻA PLANETOIDA, WIELKA HISTORIA</p>
+<h2>Westa pamięta czasy, <em>gdy rosły przyszłe planety.</em></h2>
+<p>W pasie planetoid między Marsem a Jowiszem znajduje się Westa — jedno z największych ciał tego obszaru. Jej powierzchnia jest poprzecinana kraterami i śladami ogromnych zderzeń. Nie przypomina bezkształtnej kupki pyłu: przeszła w swojej historii procesy ogrzewania i różnicowania wnętrza, podobnie jak większe światy.</p>
+<p>W lipcu 2011 roku sonda Dawn weszła na orbitę Westy i rozpoczęła szczegółowe badania. Zdjęcia ujawniły rozległe baseny uderzeniowe, wielkie różnice wysokości i złożoną historię materiału skalnego. Później Dawn odwiedziła również planetę karłowatą Ceres.</p>
+<p>Nie wszystkie planetoidy są identycznymi fragmentami. <strong>Badanie różnych typów małych ciał pozwala porównywać środowiska, w których rodziły się planety.</strong></p></div>
+<figure class="sb16-figure "><a href="https://science.nasa.gov/photojournal/full-frame-image-of-vesta/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalną stronę źródłową fotografii"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia14/pia14317/PIA14317.jpg?fit=clip&amp;w=1500" width="1500" height="1000" loading="lazy" decoding="async" alt="Szara, pokryta kraterami planetoida Westa, sfotografowana przez sondę Dawn."></a><figcaption><span>03 / ODLEGŁY GRUZ, DAWNY ŚWIAT</span><div><strong>Westa: olbrzymia planetoida ze śladami dawnych zderzeń</strong><p>Prawdziwe zdjęcie z sondy Dawn, 24 lipca 2011 r. NASA/JPL-Caltech/UCLA/MPS/DLR/IDA. <a href="https://science.nasa.gov/photojournal/full-frame-image-of-vesta/" target="_blank" rel="noopener noreferrer">Oryginalne źródło ↗</a></p></div></figcaption></figure>
+</section>
+
+<section class="sb16-chapter sb16-rosetta" id="sb16Rosetta">
+<div class="sb16-rule"><span>04 / DOTKNĄĆ KOMETY</span><i></i><span>ROSETTA / PHILAE</span></div>
+<div class="sb16-copy"><p class="sb16-kicker">KIEDY LĄDOWANIE STAJE SIĘ HISTORIĄ</p>
+<h2>Rosetta poleciała za kometą. <em>Philae spróbował na niej stanąć.</em></h2>
+<p>W 2014 roku europejska sonda Rosetta dotarła do komety 67P/Czuriumow-Gierasimienko. Po raz pierwszy statek kosmiczny przez długi czas towarzyszył komecie podczas jej podróży i zmian aktywności pod wpływem Słońca. Z bliska okazało się, że jej jądro ma niezwykły dwupłatowy kształt, poszarpaną powierzchnię i miejsca, z których ucieka materia.</p>
+<p>12 listopada 2014 roku Rosetta wypuściła lądownik Philae. Udało mu się osiągnąć powierzchnię, ale z powodu problemów z zakotwiczeniem odbił się i ostatecznie spoczął w znacznie mniej korzystnym miejscu. Pomimo trudności przesłał cenne dane. Rosetta kontynuowała obserwacje aż do zakończenia misji w 2016 roku.</p>
+<p>Poniższy kadr nie jest wizualizacją komputerową. Widzisz prawdziwą powierzchnię komety przez kamerę lądownika podczas opadania. Tak wyglądała obca kraina w ostatnich minutach przed spotkaniem.</p></div>
+<figure class="sb16-figure "><a href="https://science.nasa.gov/photojournal/view-of-comet-from-lander-during-descent/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalną stronę źródłową fotografii"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia18/pia18874/PIA18874.jpg?fit=clip&amp;w=1500" width="1500" height="1000" loading="lazy" decoding="async" alt="Czarno-białe zdjęcie pofałdowanej, ciemnej powierzchni komety 67P zarejestrowane przez kamerę lądownika podczas zejścia."></a><figcaption><span>04 / ZEJŚCIE NA KOMETĘ</span><div><strong>Co widział Philae, opadając na powierzchnię 67P</strong><p>Kadr z kamery ROLIS lądownika Philae, 12 listopada 2014 r., ok. 3 km nad powierzchnią. ESA/Rosetta/Philae/DLR; zgodnie z warunkami użycia obrazów ESA, źródło i autorstwo wskazano w podpisie. <a href="https://science.nasa.gov/photojournal/view-of-comet-from-lander-during-descent/" target="_blank" rel="noopener noreferrer">Oryginalne źródło ↗</a></p></div></figcaption></figure>
+<div class="sb16-timeline"><div><span>2004</span><strong>Start Rosetty</strong><small>Misja ESA rozpoczyna podróż</small></div><div><span>2014</span><strong>Spotkanie z 67P</strong><small>Rosetta i lądowanie Philae</small></div><div><span>2015</span><strong>Aktywność komety</strong><small>Badania z bliska przy Słońcu</small></div><div><span>2016</span><strong>Finał</strong><small>Kontrolowane zejście sondy</small></div></div>
+</section>
+
+<section class="sb16-chapter" id="sb16Bennu">
+<div class="sb16-rule"><span>05 / PRÓBKA STARSZA OD NASZYCH PYTAŃ</span><i></i><span>OSIRIS-REX / BENNU</span></div>
+<div class="sb16-copy"><p class="sb16-kicker">Z KOSMOSU PROSTO DO LABORATORIUM</p>
+<h2>Można sfotografować asteroidę. <em>A można przywieźć jej pył do domu.</em></h2>
+<p>Bennu to niewielka planetoida bliska Ziemi, o średnicy około pół kilometra i wyglądzie zbliżonym do nierównego diamentu. W 2020 roku sonda OSIRIS-REx pobrała z jej powierzchni próbkę. We wrześniu 2023 roku specjalna kapsuła dostarczyła materiał na Ziemię.</p>
+<p>To ogromna różnica między oglądaniem a dotykaniem. W ziemskim laboratorium można badać strukturę kryształów, izotopy, minerały i związki organiczne z dokładnością niedostępną dla wielu instrumentów pokładowych. Próbki Bennu okazały się bogate m.in. w węgiel i minerały związane z obecnością wody w historii materiału.</p>
+<p><strong>Nie oznacza to odkrycia życia.</strong> To dowód, że surowce i procesy chemiczne ważne dla historii planet można badać w materii pozaziemskiej, która nie została silnie przetworzona przez warunki Ziemi.</p></div>
+<figure class="sb16-figure "><a href="https://osiris-rex.lpl.arizona.edu/bennu-at-300-px/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalną stronę źródłową fotografii"><img src="https://osiris-rex.lpl.arizona.edu/wp-content/uploads/2018/11/Bennu-at-300-px.png" width="1500" height="1000" loading="lazy" decoding="async" alt="Niewielka szara planetoida Bennu o kształcie zbliżonym do diamentu, widoczna na czarnym tle."></a><figcaption><span>05 / ŚLADY POCZĄTKÓW</span><div><strong>Bennu: niewielki świat, z którego przywieźliśmy próbki</strong><p>Rzeczywiste zdjęcie Bennu z kamery PolyCam sondy OSIRIS-REx, 16 listopada 2018 r., z odległości ok. 136 km. Kontrast obrazu został wzmocniony. NASA/Goddard/University of Arizona. <a href="https://osiris-rex.lpl.arizona.edu/bennu-at-300-px/" target="_blank" rel="noopener noreferrer">Oryginalne źródło ↗</a></p></div></figcaption></figure>
+</section>
+
+<section class="sb16-chapter sb16-defense" id="sb16Dart">
+<div class="sb16-rule"><span>06 / ZMIENIĆ CZYJĄŚ ORBITĘ</span><i></i><span>DART / DIMORPHOS / 2022</span></div>
+<div class="sb16-copy"><p class="sb16-kicker">NIE TYLKO OBSERWACJA, ALE I OBRONA</p>
+<h2>Mała sonda, mały księżyc planetoidy. <em>Wielkie znaczenie manewru.</em></h2>
+<p>26 września 2022 roku statek NASA DART celowo uderzył w Dimorphosa — mniejsze ciało krążące wokół planetoidy Didymos. To nie był eksperyment z obiektem lecącym w stronę Ziemi. Celem było sprawdzenie, czy fizyczne uderzenie sondy może zmienić ruch ciała niebieskiego.</p>
+<p>Udało się. Pomiary wykazały, że okres obiegu Dimorphosa wokół Didymosa skrócił się o około pół godziny. Wydostający się z powierzchni materiał również przeniósł pęd, wzmacniając efekt samego zderzenia sondy. DART stał się pierwszym pokazem techniki kinetycznego odchylania planetoidy na rzeczywistym obiekcie.</p>
+<p>Nie jest to jednak prosta recepta na każdy możliwy kosmiczny obiekt. Skuteczna obrona wymaga <strong>wczesnego wykrycia, dokładnej orbity, znajomości własności ciała i czasu na działanie</strong>. Najlepszy scenariusz to nie walka w ostatniej chwili, lecz wiele lat uprzedzenia.</p></div>
+<figure class="sb16-figure "><a href="https://science.nasa.gov/asset/hubble/surface-image-of-dimorphos/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz oficjalną stronę źródłową fotografii"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/missions/hubble/releases/2023/07/STScI-01H5Q6WNZ8GPX2B6JMHX4G3RMT.tif?fit=clip&amp;w=1500" width="1500" height="1000" loading="lazy" decoding="async" alt="Ostry czarno-biały kadr usianej głazami powierzchni Dimorphosa tuż przed uderzeniem sondy DART."></a><figcaption><span>06 / OSTATNI KADR PRZED UDERZENIEM</span><div><strong>Dimorphos — dwa sekundy przed zderzeniem z DART</strong><p>Prawdziwy obraz powierzchni planetoidy z kamery DRACO, 26 września 2022 r. Kadr obejmuje obszar około 31 m. NASA/Johns Hopkins APL. <a href="https://science.nasa.gov/asset/hubble/surface-image-of-dimorphos/" target="_blank" rel="noopener noreferrer">Oryginalne źródło ↗</a></p></div></figcaption></figure>
+</section>
+
+<section class="sb16-lab" id="sb16Lab" aria-labelledby="sb16LabTitle">
+<div class="sb16-rule"><span>07 / LABORATORIUM BLISKICH PRZELOTÓW</span><i></i><span>GRAWITACJA ZIEMI I GEOMETRIA ZBLIŻENIA</span></div>
+<div class="sb16-lab-intro"><div><p class="sb16-kicker">TO NIE JEST PROGNOZA REALNEJ PLANETOIDY</p><h2 id="sb16LabTitle">Jak blisko minie Ziemię <em>kosmiczny wędrowiec?</em></h2><p>Ustal parametry hipotetycznego przelotu. Zobacz, jak ziemska grawitacja zakrzywia drogę ciała, dlaczego mała prędkość może zwiększać efekt przyciągania oraz jak zmienia się energia przy hipotetycznym uderzeniu.</p></div><span class="sb16-numeral">16</span></div>
+<div class="sb16-lab-frame">
+<div class="sb16-lab-visual" id="sb16Visual">
+<div class="sb16-visual-top"><span><i></i> OBSERWATORIUM NEO</span><span>MODEL DWÓCH CIAŁ · NIE EPHEMERYDY NASA</span></div>
+<canvas id="sb16Canvas" width="1000" height="670" role="img" aria-label="Animowana, schematyczna wizualizacja asteroidy przelatującej blisko Ziemi i zakrzywienia toru grawitacyjnego."></canvas>
+<div class="sb16-visual-bottom"><span>ANIMACJA I ROZMIARY NIE SĄ W SKALI</span><button id="sb16Play" type="button" aria-pressed="false">Ⅱ Zatrzymaj</button></div>
+</div>
+<div class="sb16-panel">
+<div class="sb16-panel-head"><span>PARAMETRY WĘDRÓWKI</span><span>MODEL FIZYCZNY</span></div>
+<div class="sb16-presets" role="group" aria-label="Przykładowe przeloty"><button type="button" data-sb16-preset="safe" class="is-active">Daleki przelot</button><button type="button" data-sb16-preset="near">Bliski przelot</button><button type="button" data-sb16-preset="impact">Zderzenie</button></div>
+<div class="sb16-control"><label for="sb16B">Parametr mijania b <output id="sb16BValue">3,00 R⊕</output></label><input id="sb16B" type="range" min=".3" max="8" step=".1" value="3"><div class="sb16-range"><span>0,3 R⊕</span><span>8 R⊕</span></div></div>
+<div class="sb16-control"><label for="sb16Velocity">Szybkość z daleka v∞ <output id="sb16VelocityValue">15 km/s</output></label><input id="sb16Velocity" type="range" min="5" max="40" step="1" value="15"><div class="sb16-range"><span>5 km/s</span><span>40 km/s</span></div></div>
+<div class="sb16-control"><label for="sb16Diameter">Średnica ciała <output id="sb16DiameterValue">150 m</output></label><input id="sb16Diameter" type="range" min="20" max="1500" step="10" value="150"><div class="sb16-range"><span>20 m</span><span>1500 m</span></div></div>
+<div class="sb16-control"><label for="sb16Density">Gęstość uśredniona <output id="sb16DensityValue">2000 kg/m³</output></label><input id="sb16Density" type="range" min="1000" max="4000" step="250" value="2000"><div class="sb16-range"><span>1000 kg/m³</span><span>4000 kg/m³</span></div></div>
+<div class="sb16-readings">
+<div><span>NAJBLIŻSZA ODLEGŁOŚĆ</span><strong id="sb16Perigee">—</strong><small>od środka Ziemi</small></div>
+<div><span>WYNIK GEOMETRII</span><strong id="sb16Status">—</strong><small>bez atmosfery Ziemi</small></div>
+<div><span>SZYBKOŚĆ PRZY POWIERZCHNI</span><strong id="sb16SurfaceSpeed">—</strong><small>hipotetycznie · km/s</small></div>
+<div><span>ENERGIA PRZY UDERZENIU</span><strong id="sb16Energy">—</strong><small>Mt TNT · hipotetycznie</small></div>
+</div>
+<p class="sb16-summary" id="sb16Summary" aria-live="polite">Wybierz parametry, aby poznać wynik przelotu.</p>
+<button type="button" id="sb16Reset" class="sb16-reset">↺ Przywróć przykład</button>
+</div>
+</div>
+<div class="sb16-method"><strong>Założenia i ograniczenia modelu</strong><p>Obliczamy przelot hiperboliczny w polu grawitacyjnym Ziemi bez Księżyca, Słońca i atmosfery. Parametr b to poprzeczna odległość asymptoty nadlatującego ciała od środka Ziemi, liczona daleko od planety — nie wysokość nad powierzchnią. Dla μ = 398600,4418 km³/s² i R⊕ = 6371 km najbliższa odległość r<sub>p</sub> = b²v∞²/[μ + √(μ² + b²v∞⁴)]. Zderzenie w modelu zachodzi tylko, jeśli r<sub>p</sub> ≤ R⊕ + D/2. Prędkość przy powierzchni wynosi √(v∞² + 2μ/R⊕). Masa = πρD³/6, a energia hipotetycznego zderzenia = ½mv² (1 megatona TNT = 4,184·10¹⁵ J). Pomijamy rozpad w atmosferze, rzeczywisty kształt i wytrzymałość ciała, erozję, rotację, ziemską orbitę wokół Słońca oraz rozkład energii przy zderzeniu. Wizualizacja toru jest schematyczna; nie obliczamy prawdopodobieństwa trafienia Ziemi ani żadnej realnej trajektorii NEO.</p></div>
+</section>
+
+<section class="sb16-chapter sb16-conclusion" id="sb16End">
+<div class="sb16-rule"><span>08 / EPILOG</span><i></i><span>CO MÓWIĄ NAM MAŁE CIAŁA?</span></div>
+<div class="sb16-copy"><p class="sb16-kicker">NAJMNIEJSI ŚWIADKOWIE NAJWIĘKSZYCH ZDARZEŃ</p><h2>Te niewielkie światy <em>niosą ogromną pamięć.</em></h2>
+<p>Kometa może opowiedzieć o lodach, które krążyły wokół młodego Słońca. Planetoida zdradza ślady dawnych zderzeń i przetworzenia skał. Kilka gramów materiału zamkniętego w laboratorium pozwala szukać odpowiedzi, jak powstawały planety. A jedno precyzyjne uderzenie sondy udowadnia, że potrafimy w niewielkim stopniu zmieniać ich ruch.</p>
+<p>W tym sensie eksploracja asteroid i komet łączy dwa wielkie ludzkie pytania: <strong>skąd pochodzimy</strong> oraz <strong>jak lepiej chronić świat, na którym żyjemy</strong>.</p>
+<p class="sb16-last">Czasem, żeby dowiedzieć się czegoś o narodzinach planet, nie trzeba odwiedzać planety. Wystarczy zajrzeć do jednego z jej dawnych niedokończonych sąsiadów.</p></div>
+</section>
+<section class="sb16-original" id="sb16Legacy">
+<div class="sb16-rule"><span>09 / PEŁNY SILNIK ATLASU</span><i></i><span>ZACHOWANY DOTYCHCZASOWY SYMULATOR</span></div>
+<div class="sb16-copy"><p class="sb16-kicker">DAWNY TRYB NIE ZNIKNĄŁ</p><h2>Otwórz interaktywny <em>atlas asteroid i komet.</em></h2><p>Nowe laboratorium pokazuje jedną zasadę fizyczną. Dotychczasowy symulator małych ciał i orbit w Atlasie działa nadal. Uruchom go po kliknięciu, bez obciążania artykułu podczas czytania.</p>
+<button id="stageStartLab" class="sb16-launch" type="button">Uruchom oryginalny symulator asteroid i komet <span aria-hidden="true">↗</span></button></div>
+<div id="stageViewport" class="stage-viewport sb16-legacy-viewport"><div class="stage-loader" id="stageLoading" hidden aria-live="polite"><span class="stage-loading-orbit"><i></i></span><strong>URUCHAMIAMY LABORATORIUM</strong><small>Wczytywanie silnika astronomicznego…</small></div><iframe id="stageFrame" title="Asteroidy i komety — oryginalny symulator ATLAS SOLARIS" data-src="../../atlas.html?portal=neo" data-lazy="true" data-manual="true" allow="fullscreen; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<div id="stageError" hidden role="alert">Nie udało się uruchomić laboratorium. <button type="button" id="stageReload">Spróbuj ponownie</button></div>
+</section>
+<section class="sb16-end-section">
+<div class="sb16-sources"><strong>Źródła, obrazy i metoda naukowa</strong><p>Sześć obrazów pochodzi z NASA, ESA i zespołu OSIRIS-REx; wszystkie są rzeczywistymi zdjęciami bądź materiałami pomiarowymi, nie wizjami artystycznymi. Obraz NEOWISE ma charakter złożonej planszy, a nie pojedynczego ekspozycyjnego kadru. Model w laboratorium nie przedstawia aktualnego ryzyka uderzenia.</p>
+<ul>
+<li><a href="https://science.nasa.gov/solar-system/asteroids/" target="_blank" rel="noopener noreferrer">NASA — Asteroids</a></li>
+<li><a href="https://science.nasa.gov/solar-system/comets/" target="_blank" rel="noopener noreferrer">NASA — Comets</a></li>
+<li><a href="https://science.nasa.gov/image-detail/comet-67p/" target="_blank" rel="noopener noreferrer">ESA/Rosetta/NAVCAM przez NASA — kometa 67P</a></li>
+<li><a href="https://science.nasa.gov/asset/hubble/comet-neowise/" target="_blank" rel="noopener noreferrer">NASA/ESA — NEOWISE</a></li>
+<li><a href="https://www.esa.int/Science_Exploration/Space_Science/Rosetta/Rosetta_image_archive_complete" target="_blank" rel="noopener noreferrer">ESA — archiwum Rosetty</a></li>
+<li><a href="https://science.nasa.gov/mission/dawn/" target="_blank" rel="noopener noreferrer">NASA — Dawn i Westa</a></li>
+<li><a href="https://science.nasa.gov/mission/osiris-rex/" target="_blank" rel="noopener noreferrer">NASA — OSIRIS-REx</a></li>
+<li><a href="https://science.nasa.gov/mission/dart/" target="_blank" rel="noopener noreferrer">NASA — DART</a></li>
+<li><a href="https://www.esa.int/ESA_Multimedia/Copyright_Notice_Images" target="_blank" rel="noopener noreferrer">ESA — informacje o prawach do zdjęć</a></li>
+</ul></div>
+<nav class="sb16-next" aria-label="Sąsiednie etapy"><a href="../15/"><span>POPRZEDNI ETAP / 15</span><strong>← Światy, których nigdy nie widzieliśmy</strong><small>Łowca Egzoplanet</small></a><a href="../17/"><span>NASTĘPNY ETAP / 17</span><strong>Laboratorium Zaćmień →</strong><small>Geometria światła i cienia</small></a></nav>
+</section>
+</article></main>
+<aside id="stageInfo" class="stage-info" hidden aria-label="Informacje o etapie"><div class="stage-info-head"><span>ETAP 16</span><button type="button" id="stageInfoClose" aria-label="Zamknij informacje">✕</button></div><h1>Asteroidy i komety</h1><p class="stage-lead">Kamienie, które pamiętają początek</p><p>Rozbudowany artykuł ze zdjęciami NEOWISE, 67P, Westy, Bennu i Dimorphosa oraz interaktywnym laboratorium bliskich przelotów. Zachowany pierwotny symulator NEO.</p><div id="stageRelated"></div></aside>
+<noscript><p class="sb16-noscript">Artykuł i obrazy są dostępne bez JavaScript. Do laboratorium potrzebny jest JavaScript.</p></noscript>
 </body></html>

@@ -52,6 +52,8 @@ on:
       - 'tests/time26-story.test.cjs'
       - 'tests/discoveries-magazine.test.cjs'
       - 'odkrycia/**'
+      - 'niebo/**'
+      - 'tests/sky-now.test.cjs'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -141,6 +143,17 @@ jobs:
           node --check portal/data.js
           node --check portal/site.js
           # ODKRYCIA: redakcyjna część Atlasu i cztery autorskie reportaże
+          # NIEBO NAD TOBĄ — reuse stage18 and JPL approximate planetary orbits
+          test -s niebo/index.html
+          test -s portal/sky-now.css
+          test -s portal/sky-now-core.js
+          test -s portal/sky-now-ui.js
+          test -s portal/sky-now-home.css
+          test -s portal/sky-now-home.js
+          node --check portal/sky-now-core.js
+          node --check portal/sky-now-ui.js
+          node --check portal/sky-now-home.js
+          node --test tests/sky-now.test.cjs
           test -s odkrycia/index.html
           test -s odkrycia/editorial.css
           test -s odkrycia/editorial.js

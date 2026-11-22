@@ -40,11 +40,12 @@
     "gwiazdy": {
       "id": "gwiazdy",
       "title": "Gwiazdy i niebo",
-      "description": "Od narodzin gwiazd i egzoplanet po supernowe, pulsary oraz magnetary.",
+      "description": "Od obserwowania nocnego nieba i katalogu Messiera po egzoplanety, narodziny gwiazd i supernowe.",
       "symbol": "✦",
       "color": "#b4a1ff",
       "path": "dzialy/gwiazdy/",
       "highlights": [
+        18,
         15,
         35
       ]
@@ -157,9 +158,9 @@
     },
     "18": {
       "number": 18,
-      "title": "Żywe Obserwatorium",
-      "lead": "Planer obserwacji nocnego nieba",
-      "description": "Sprawdzaj wysokości obiektów, godziny obserwacji i katalog Messiera.",
+      "title": "Noc, która ma współrzędne",
+      "lead": "Żywe Obserwatorium — wybierz niebo, godzinę i cel",
+      "description": "Nocne niebo z sześcioma fotografiami NASA i ESA: Plejady, Orion, Andromeda, M13 i Webb. Interaktywne obliczenia czasu gwiazdowego, wysokości i azymutu, z zachowanym pełnym obserwatorium.",
       "category": "gwiazdy",
       "mode": "observatory",
       "path": "etapy/18/",

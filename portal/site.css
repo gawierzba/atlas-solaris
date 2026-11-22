@@ -116,3 +116,9 @@
 .feature-card[data-art=eclipse17] .feature-back{background:radial-gradient(ellipse at 62% 42%,#3c345b80,transparent 66%),#0a1126}
 .feature-card[data-art=eclipse17] .feature-art{display:none}
 .feature-card[data-art=eclipse17]:after{background:linear-gradient(0deg,#070d20f2 5%,#0b1328d4 45%,#0b112012)}
+
+/* ATLAS SOLARIS 18 — polecane Żywe Obserwatorium / IMG fotografie NASA */
+.feature-card[data-art=night18] .feature-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 45%;z-index:-1;opacity:.95}
+.feature-card[data-art=night18] .feature-back{background:radial-gradient(ellipse at 60% 37%,#1e58558c,transparent 67%),#0a1b24}
+.feature-card[data-art=night18] .feature-art{display:none}
+.feature-card[data-art=night18]:after{background:linear-gradient(0deg,#07161ff5 6%,#0a1c29d7 46%,#091b1f10)}

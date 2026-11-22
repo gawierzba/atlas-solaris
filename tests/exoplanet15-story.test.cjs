@@ -55,7 +55,7 @@ test('Katalog zgadza się z wpisem etapu 15',()=>{
  assert.equal(d.stages['15'].mode,'exo');assert.equal(d.stages['15'].category,'gwiazdy');
  assert.ok(d.categories.gwiazdy.highlights.includes(15));
  assert.equal(json.stages['15'].title,d.stages['15'].title);
- assert.ok(read('portal/site.js').includes("featureCard(15,'exo15')"));
+ assert.ok(read('etapy/15/index.html').includes('id="ex15Title"'),"Artykuł etapu 15 musi być nadal dostępny");
 });
 test('Mobilny, bez WebGL, z dostępnością i opisem ograniczeń',()=>{
  const html=read('etapy/15/index.html');

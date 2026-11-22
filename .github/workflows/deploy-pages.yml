@@ -48,6 +48,7 @@ on:
       - 'tests/camera22-story.test.cjs'
       - 'tests/merger23-story.test.cjs'
       - 'tests/ligo24-story.test.cjs'
+      - 'tests/zodiac25-story.test.cjs'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -136,6 +137,11 @@ jobs:
           test -s etapy/32/index.html
           node --check portal/data.js
           node --check portal/site.js
+          test -s etapy/25/index.html
+          test -s portal/zodiac25-story.css
+          test -s portal/zodiac25-story.js
+          node --check portal/zodiac25-story.js
+          node --test tests/zodiac25-story.test.cjs
           test -s etapy/24/index.html
           test -s portal/ligo24-story.css
           test -s portal/ligo24-story.js

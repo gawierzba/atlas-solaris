@@ -1,0 +1,25 @@
+/* ATLAS SOLARIS / NIEBO NAD TOBĄ — home-page feature */
+#skyHomePromo{padding:42px clamp(15px,5vw,82px);background:linear-gradient(180deg,#07121e,#06121e)}
+.sky-promo-inner{max-width:1420px;min-height:390px;margin:0 auto;overflow:hidden;border:1px solid #658b82;display:grid;grid-template-columns:1.28fr 1fr;position:relative;background:radial-gradient(ellipse at 83% 34%,#2d655462,transparent 36%),linear-gradient(120deg,#122c39,#071522)}
+.sky-promo-copy{padding:clamp(28px,4.8vw,66px);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.sky-promo-eyebrow{font-size:10px;font-weight:800;letter-spacing:.16em;color:#b9ead9}
+.sky-promo-eyebrow i{display:inline-block;width:6px;height:6px;background:#b0f9d9;border-radius:50%;box-shadow:0 0 10px #b0f9d9;margin-right:10px}
+.sky-promo-copy h2{font:400 clamp(51px,5.2vw,93px)/1.05 Georgia,serif;letter-spacing:-.07em;margin:18px 0 20px}
+.sky-promo-copy h2 em{font-weight:400;color:#d9e9c1}
+.sky-promo-copy p{color:#c1d5d2;font-size:13px;line-height:1.9;max-width:590px;margin:0 0 28px}
+.sky-promo-cta{align-self:start;display:inline-flex;justify-content:space-between;align-items:center;gap:30px;padding:13px 18px;background:#d2f1dc;color:#11322c!important;border-radius:4px;font-size:11px;font-weight:900;letter-spacing:.05em}
+.sky-promo-cta:hover{background:#f7f4db}
+.sky-promo-cta span{font-size:20px}
+.sky-promo-art{position:relative;min-height:390px;display:grid;place-items:center;overflow:hidden}
+.sky-promo-ring{position:absolute;width:340px;height:340px;border:1px solid #afdbcd72;border-radius:50%;transform:rotate(23deg)}
+.sky-promo-ring.b{width:225px;height:225px;border-color:#e2e0b176;border-style:dashed}
+.sky-promo-ring.c{width:107px;height:107px;border-color:#b5e9c9a3}
+.sky-promo-ring:before{content:"";position:absolute;inset:49% 0 auto;border-top:1px solid #84c2b536}
+.sky-promo-n,.sky-promo-s,.sky-promo-e,.sky-promo-w{position:absolute;font-size:12px;font-weight:800;letter-spacing:.1em;color:#b9e7d7}
+.sky-promo-n{top:27px}.sky-promo-s{bottom:29px}.sky-promo-e{right:24px}.sky-promo-w{left:24px}
+.sky-promo-pole{color:#e2f2c4;font-size:80px;text-shadow:0 0 45px #b9ebbd}
+.sky-promo-p1{position:absolute;left:71%;top:29%;color:#f6c9ac;font-size:19px;text-shadow:0 0 20px #ffbe9d}
+.sky-promo-caption{position:absolute;bottom:10px;right:20px;letter-spacing:.13em;font-size:8px;color:#a6c7c5}
+@media(max-width:940px){.sky-promo-inner{grid-template-columns:1.4fr .8fr}.sky-promo-ring{width:270px;height:270px}.sky-promo-ring.b{width:177px;height:177px}.sky-promo-ring.c{width:87px;height:87px}.sky-promo-copy h2{font-size:clamp(44px,6vw,71px)}}
+@media(max-width:700px){#skyHomePromo{padding:27px 12px}.sky-promo-inner{grid-template-columns:1fr}.sky-promo-copy{padding:32px 23px 35px}.sky-promo-copy h2{font-size:clamp(48px,11vw,70px)}.sky-promo-art{min-height:200px;border-top:1px solid #598276}.sky-promo-ring{width:210px;height:210px}.sky-promo-ring.b{width:146px;height:146px}.sky-promo-ring.c{width:70px;height:70px}.sky-promo-n{top:7px}.sky-promo-s{bottom:7px}.sky-promo-e{right:21%;top:50%}.sky-promo-w{left:21%;top:50%}.sky-promo-pole{font-size:47px}.sky-promo-caption{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.sky-promo-cta{transition:none}}

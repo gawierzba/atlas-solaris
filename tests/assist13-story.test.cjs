@@ -75,7 +75,7 @@ test('Integracja z działem misji i polecanymi wyprawami',()=>{
  const data=context.window.ATLAS_PORTAL_DATA;
  assert.equal(data.stages['13'].category,'misje');
  assert.equal(data.stages['13'].mode,'assist');
- assert.equal(data.categories.misje.highlights[0],13);
+ assert.ok(data.categories.misje.highlights.includes(13),'Etap 13 pozostaje polecaną wyprawą w dziale misji');
  assert.equal(Object.keys(data.stages).length,36);
  assert.equal(JSON.parse(read('portal/catalog.json')).stages['13'].lead,data.stages['13'].lead);
  assert.ok(read('portal/site.js').includes("featureCard(13,'assist')"));

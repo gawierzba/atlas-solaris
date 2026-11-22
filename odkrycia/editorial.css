@@ -178,3 +178,8 @@ body.mag-page{margin:0;background:var(--mag-paper);color:var(--mag-ink);overflow
  .mag-story-text .mag-related-lab h2{font-size:clamp(31px,7vw,42px)}
 }
 @media(max-width:390px){.mag-related-lab-actions a{width:100%}}
+
+/* Magazine contents: make the corresponding ATLAS stage unmistakable. */
+.mag-card-copy .mag-card-stage{display:block;margin:11px 0 -4px;color:#26706f;
+ font:800 10px/1.55 "Segoe UI",system-ui,sans-serif;letter-spacing:.08em;
+ border-left:2px solid #4e9a8d;padding-left:9px}

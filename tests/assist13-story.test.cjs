@@ -78,5 +78,5 @@ test('Integracja z działem misji i polecanymi wyprawami',()=>{
  assert.ok(data.categories.misje.highlights.includes(13),'Etap 13 pozostaje polecaną wyprawą w dziale misji');
  assert.equal(Object.keys(data.stages).length,36);
  assert.equal(JSON.parse(read('portal/catalog.json')).stages['13'].lead,data.stages['13'].lead);
- assert.ok(read('portal/site.js').includes("featureCard(13,'assist')"));
+ assert.ok(read('etapy/13/index.html').includes('id="ga13Title"'),'Etap 13 musi pozostać dostępny jako samodzielny artykuł');
 });

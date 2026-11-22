@@ -65,7 +65,7 @@ function init(){
   var p=value('planet'),s=value('star'),P=value('period'),i=value('inclination'),noise=value('noise');
   var k=radiusRatio(p,s),b=impactParameter(P,i,s);
   return{planet:p,star:s,period:P,inclination:i,noise:noise,k:k,b:b,transit:b<1+k,
-   depth:depthPpm(p,s),duration:durationHours(P,i,p,s),a:semimajorAu(P)};
+   depth:(1-transitFlux(b,p,s))*1e6,duration:durationHours(P,i,p,s),a:semimajorAu(P)};
  }
  function update(){
   var p=params();
@@ -79,7 +79,7 @@ function init(){
   if(status){
     status.classList.toggle('is-miss',!p.transit);
     if(!p.transit)status.textContent='W tej geometrii planeta omija tarczę gwiazdy, więc nie wystąpi tranzyt. To nie dowód, że planeta nie istnieje.';
-    else status.textContent='W modelu idealnym pełne zasłonięcie daje '+fmt(p.depth,0)+' ppm, czyli '+fmt(p.depth/1e4,4)+'% spadku jasności. Czas tranzytu: około '+fmt(p.duration,2)+' godz. Wykres automatycznie powiększa ten maleńki sygnał.';
+    else status.textContent='W tej geometrii maksymalny spadek blasku wynosi '+fmt(p.depth,0)+' ppm, czyli '+fmt(p.depth/1e4,4)+'% spadku jasności. Czas tranzytu: około '+fmt(p.duration,2)+' godz. Wykres automatycznie powiększa ten maleńki sygnał.';
   }
   presets.forEach(function(btn){
    var v=btn.getAttribute('data-ex15-preset'),targets={

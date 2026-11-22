@@ -26,7 +26,7 @@ test('Magazine hub exists as own page with four story links',()=>{
  assert.match(intro,/NR 01 \/ 2026/);
  for(const x of articles)assert.ok(intro.includes('href="'+x.name+'/'),x.name);
  assert.match(intro,/https:\/\/cdn\.esawebb\.org\/archives\/images\/publicationjpg\/potm2610a\.jpg/);
- assert.match(intro,/Nie.*automatyczn.*kanał/);
+ assert.match(intro,/nie automatyczny kanał newsowy/i);
 });
 test('All four articles have standalone titles, leads, sources and link back to magazine',()=>{
  for(const x of articles){

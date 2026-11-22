@@ -91,3 +91,17 @@ test('Magazine has no automatic location, tracking, live-data claims or heavy de
  assert.doesNotMatch(combined,/three\.min\.js|three\.js/);
  assert.match(intro,/nie automatyczny kanał newsowy/i);
 });
+
+test('Mobile homepage stories stack photos above text without overlapping columns',()=>{
+ const c=read('portal/discoveries-home.css');
+ const mobile=c.match(/@media\\(max-width:700px\\)\\{([\\s\\S]*?)(?=@media\\(max-width:425px\\))/);
+ assert.ok(mobile,'Expected mobile CSS block');
+ assert.match(mobile[1],/\\.asj-story\\{display:flex;flex-direction:column/);
+ assert.match(mobile[1],/\\.asj-story figure\\{[^}]*aspect-ratio:16\\/9/);
+ assert.match(mobile[1],/\\.asj-story h4\\{[^}]*overflow-wrap:anywhere/);
+ assert.doesNotMatch(mobile[1],/grid-template-columns:130px 1fr/);
+ const small=c.match(/@media\\(max-width:425px\\)\\{([\\s\\S]*?)(?=@media\\(prefers-reduced-motion:reduce\\))/);
+ assert.ok(small,'Expected smallest screen rules');
+ assert.doesNotMatch(small[1],/grid-template-columns:105px 1fr/);
+ assert.match(home,/portal\\/discoveries-home\\.css\\?v=1\\.1/);
+});

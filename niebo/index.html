@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071521">
+<title>Niebo nad Tobą — interaktywna mapa nieba | ATLAS SOLARIS</title>
+<meta name="description" content="Praktyczna mapa nieba ATLAS SOLARIS: wybierz miasto, datę i godzinę, znajdź planety, Księżyc i jasne gwiazdy. Prawdziwe współrzędne, kierunki świata, przybliżone wschody i zachody, połączenie z etapem 18.">
+<meta property="og:title" content="Niebo nad Tobą — ATLAS SOLARIS"><meta property="og:type" content="website">
+<meta property="og:description" content="Spójrz na niebo. Wybierz miejsce i godzinę, poznaj widoczne planety i gwiazdy, a potem odkryj naukę w laboratorium.">
+<link rel="stylesheet" href="../portal/sky-now.css?v=1.0">
+<script src="../portal/night18-story.js?v=18.1" defer></script>
+<script src="../portal/sky-now-core.js?v=1.0" defer></script>
+<script src="../portal/sky-now-ui.js?v=1.0" defer></script>
+</head>
+<body class="sky-page">
+<a class="sky-skip" href="#skyMain">Przejdź do mapy nieba</a>
+<header class="sky-header">
+<a class="sky-brand" href="../" aria-label="ATLAS SOLARIS, strona główna"><span class="sky-logo-mark" aria-hidden="true">✦</span><span>ATLAS <b>SOLARIS</b></span></a>
+<nav aria-label="Nawigacja"><a href="../">Atlas</a><a href="../etapy/18/">Etap 18</a><a href="../odkrycia/">Odkrycia</a><a class="sky-current" href="./" aria-current="page">Niebo nad Tobą</a></nav>
+</header>
+<main id="skyMain">
+<section class="sky-lead" aria-labelledby="skyTitle">
+<div class="sky-lead-top"><span>ATLAS SOLARIS / OBSERWATORIUM</span><span>EDYCJA 01 · NIEBO DLA KAŻDEGO</span></div>
+<div class="sky-lead-layout"><div><p class="sky-overline"><span class="sky-signal" aria-hidden="true"></span> OBSERWUJ RZECZYWISTE NIEBO</p>
+<h1 id="skyTitle">Niebo <em>nad Tobą.</em></h1>
+<p class="sky-lead-copy">Gdzie jest teraz Jowisz? Czy dziś można odnaleźć Plejady? W którą stronę patrzeć, żeby zobaczyć Księżyc? Wybierz miejscowość i godzinę — zobacz układ nieba, zanim spojrzysz w górę.</p>
+<a class="sky-primary" href="#skyLab">Otwórz mapę nieba <span aria-hidden="true">↓</span></a></div>
+<div class="sky-lead-orbit" aria-hidden="true"><div class="sky-orbit-o1"></div><div class="sky-orbit-o2"></div><div class="sky-orbit-o3"></div><span class="sky-orbit-n">N</span><span class="sky-orbit-s">S</span><span class="sky-orbit-star">✦</span><span class="sky-orbit-tag">TWÓJ HORYZONT · CAŁE NIEBO</span></div></div>
+<div class="sky-lead-bottom"><span>ASTRONOMIA / MIEJSCE / CZAS</span><span>NA PODSTAWIE ETAPU 18 I MODELU NASA/JPL</span></div>
+</section>
+<section class="sky-intro" id="skyLab" aria-labelledby="skyLabTitle">
+<div class="sky-section-heading"><div><p class="sky-overline">01 / INTERAKTYWNY HORYZONT</p><h2 id="skyLabTitle">Zobacz, co <em>jest nad głową.</em></h2></div><p>Obliczenia zachodzą bezpośrednio w przeglądarce. Mapa pokazuje geometrię położenia obiektów, nie symuluje pogody, zachmurzenia ani lokalnego zasłonięcia horyzontu.</p></div>
+<div class="sky-observatory">
+<div class="sky-map-column">
+<div class="sky-map-head"><span><i class="sky-signal" aria-hidden="true"></i> WIDOK CAŁEGO NIEBA</span><span id="skyMapContext">POŁOŻENIE OBIEKTÓW · AZYMUT / WYSOKOŚĆ</span></div>
+<div class="sky-chart-wrap"><canvas id="skyCanvas" role="img" tabindex="0" width="800" height="800" aria-label="Interaktywna mapa azymutalna nieba od horyzontu do zenitu. Kliknięcie obiektu pokazuje jego wysokość, azymut i powiązany etap ATLAS SOLARIS."></canvas>
+<div class="sky-chart-overlay"><span id="skyCondition">ŁADOWANIE POŁOŻEŃ…</span><span id="skyCoords">—</span></div></div>
+<div class="sky-map-legend" aria-label="Legenda mapy"><span><i class="sky-dot sky-dot-star"></i>Gwiazdy</span><span><i class="sky-dot sky-dot-planet"></i>Planety</span><span><i class="sky-dot sky-dot-moon"></i>Księżyc</span><span><i class="sky-dot sky-dot-sun"></i>Słońce</span><span><i class="sky-dot sky-dot-deep"></i>Obiekty głębokiego nieba</span></div>
+<p class="sky-chart-caption">Północ jest u góry, wschód po prawej. Środek to zenit (90°), zewnętrzne koło — horyzont (0°). Wielkości punktów są symboliczne. Położenia jasnych gwiazd odnoszą się orientacyjnie do katalogu J2000.</p>
+</div>
+<div class="sky-controls">
+<div class="sky-controls-head"><span>01 / USTAW OBSERWACJĘ</span><button type="button" id="skyRed" aria-pressed="false" class="sky-red-btn">◉ Tryb czerwony</button></div>
+<div class="sky-form">
+<label for="skyPlace">Wybierz miejscowość</label>
+<select id="skyPlace"><option value="gdansk">Gdańsk, Polska</option><option value="straszyn">Straszyn, Polska</option><option value="slupsk">Słupsk, Polska</option><option value="warszawa">Warszawa, Polska</option><option value="krakow">Kraków, Polska</option><option value="wroclaw">Wrocław, Polska</option><option value="zakopane">Zakopane, Polska</option><option value="sydney">Sydney, Australia</option><option value="own">Własne współrzędne</option></select>
+<div class="sky-geo" id="skyGeo">
+<div><label for="skyLat">Szerokość geograficzna (°N)</label><input id="skyLat" type="number" value="54.35" min="-90" max="90" step="0.0001" inputmode="decimal"></div>
+<div><label for="skyLon">Długość geograficzna (°E)</label><input id="skyLon" type="number" value="18.65" min="-180" max="180" step="0.0001" inputmode="decimal"></div>
+</div>
+<div class="sky-separator"></div>
+<label for="skyDate">Dzień obserwacji</label><input id="skyDate" type="date" min="2000-01-01" max="2050-12-31">
+<label for="skyTime">Godzina (strefa Twojego urządzenia)</label>
+<div class="sky-time-select"><input id="skyTime" type="time" step="60"><button id="skyNow" type="button">Teraz</button></div>
+<label for="skySlider">Przewiń dobę</label><input type="range" id="skySlider" min="0" max="1439" step="1" value="1100"><div class="sky-slider-marks"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:59</span></div>
+<div class="sky-time-actions"><button id="skyEarlier" type="button">← 1 godz.</button><button id="skyLater" type="button">1 godz. →</button></div>
+<p class="sky-tz-info" id="skyTimezone">Godziny są interpretowane w strefie czasowej urządzenia, również gdy wybierzesz miejscowość w innym kraju.</p>
+<p id="skyValidation" class="sky-error" role="alert" hidden></p>
+</div>
+<div class="sky-forecast">
+<div><span>WARUNKI ŚWIETLNE</span><strong id="skyDarkness">—</strong></div>
+<div><span>SŁOŃCE NAD HORYZONTEM</span><strong id="skySunAltitude">—</strong></div>
+<div><span>FAZA KSIĘŻYCA · OŚWIETLENIE</span><strong id="skyMoonPhase">—</strong></div>
+</div>
+</div>
+</div>
+</section>
+<section class="sky-bodies-section" aria-labelledby="skyBodiesTitle">
+<div class="sky-section-heading"><div><p class="sky-overline">02 / PRZEWODNIK OBSERWATORA</p><h2 id="skyBodiesTitle">W którą stronę <em>patrzeć?</em></h2></div><p>Wybierz obiekt na mapie albo na liście. Wysokość 0° oznacza horyzont, 90° — punkt nad głową. Obiekty poniżej horyzontu nie są widoczne z wybranej lokalizacji w danej chwili.</p></div>
+<div class="sky-info-layout">
+<div><h3 class="sky-subhead">Układ Słoneczny</h3><div id="skyBodiesList" class="sky-body-list" aria-label="Lista położeń Słońca, Księżyca i planet">
+<p>Ładowanie obliczeń…</p></div><p class="sky-list-disclaimer">Wschody i zachody są orientacyjne: geometryczny horyzont 0°, bez gór, budynków, refrakcji atmosferycznej i topocentrycznej paralaksy Księżyca. Wschód Księżyca może w rzeczywistości różnić się nawet o kilkadziesiąt minut.</p></div>
+<aside class="sky-selected" aria-labelledby="skySelectedHeading">
+<div class="sky-selected-top"><span>03 / WYBRANY OBIEKT</span><span id="skySelectedCategory">MAPA NIEBA</span></div>
+<h3 id="skySelectedHeading">Wskaż gwiazdę albo planetę.</h3>
+<p id="skySelectedDescription">Dotknij punkt na mapie lub wybierz obiekt na liście. Pokażę Ci jego kierunek, wysokość nad horyzontem i powiązany rozdział Atlasu.</p>
+<div class="sky-selected-metrics"><div><span>WYSOKOŚĆ</span><strong id="skySelectedAlt">—</strong></div><div><span>AZYMUT</span><strong id="skySelectedAz">—</strong></div><div><span>KIERUNEK</span><strong id="skySelectedDirection">—</strong></div></div>
+<div class="sky-selected-timing"><span>WSCHÓD / ZACHÓD DLA WYBRANEGO DNIA</span><strong id="skyRiseSet">—</strong></div>
+<a id="skyRelated" class="sky-lab-cta" href="../etapy/18/">Poznaj astronomię tego obiektu <span>↗</span></a>
+</aside>
+</div>
+<div class="sky-bright"><h3>Jasne gwiazdy i ciekawe obiekty</h3><p>Lista dostosowuje się do lokalizacji i czasu. Gwiazdy są pogrupowane tylko jako cele obserwacji — nie jest to pełny atlas wszystkich gwiazd.</p><div id="skyStarList" class="sky-star-buttons"></div></div>
+</section>
+<section class="sky-editorial">
+<div class="sky-editorial-photo"><a href="https://www.eso.org/public/images/potw2041a/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz źródłową fotografię ESO śladów gwiazd nad obserwatorium La Silla"><img src="https://cdn.eso.org/images/large/potw2041a.jpg" alt="Autentyczne ślady gwiazd nad teleskopami ESO na pustyni Atakama, koncentryczne kręgi i nieruchome kopuły obserwatorium." loading="lazy" decoding="async" width="1650" height="1100"></a><span>FOTOGRAFIA ESO / B. TAFRESHI · LA SILLA · 2020</span></div>
+<div class="sky-editorial-text"><p class="sky-overline">04 / WIDZIEĆ TO SAMEMU</p><h2>Mapa to początek. <em>Niebo jest naprawdę.</em></h2><p>Nasza mapa pozwala przewidzieć, po której stronie horyzontu szukać jasnych obiektów. Prawdziwe obserwacje zależą dodatkowo od pogody, przejrzystości atmosfery i oświetlenia okolicy.</p><p>Chcesz wiedzieć, skąd te obliczenia? Otwórz etap 18 — „Noc, która ma współrzędne”. W nim możesz prześledzić pojęcia rektascensji, deklinacji, czasu gwiazdowego i wysokości nad horyzontem.</p><a href="../etapy/18/" class="sky-primary">ETAP 18 · ŻYWE OBSERWATORIUM ↗</a></div>
+</section>
+<section class="sky-method" aria-labelledby="skyMethodTitle"><div><p class="sky-overline">05 / ŹRÓDŁA I GRANICE MODELU</p><h2 id="skyMethodTitle">Gdzie kończy się mapa, <em>a zaczyna pomiar?</em></h2></div><div>
+<p>Podstawą obliczeń położenia nad horyzontem jest <a href="../etapy/18/">oryginalny silnik etapu 18</a> ATLAS SOLARIS. Położenia planet są wyznaczane z orbitalnych elementów i ich zmian w czasie opublikowanych przez NASA/JPL dla lat 1800–2050. Jest to model uproszczony: nie uwzględnia wszystkich oddziaływań, drobnych poprawek obserwacyjnych ani ruchów własnych gwiazd. Współrzędne jasnych gwiazd są orientacyjnymi pozycjami J2000. Położenie Księżyca pochodzi z krótkiego rozwinięcia jego ruchu geocentrycznego, więc jest mniej dokładne niż efemerydy profesjonalne. Żadna z tych wartości nie powinna służyć do precyzyjnego nastawiania teleskopu, astrofotografii prowadzonej ani wyznaczania miejscowych okoliczności zaćmień.</p>
+<p>Godzina jest interpretowana w lokalnej strefie urządzenia, a nie automatycznie przeliczana na strefę wybranej miejscowości. Zmiana miejscowości nie pobiera lokalizacji telefonu. Serwis działa bez zewnętrznych API i nie zna ani nie zapisuje Twojej pozycji. Zakres dat jest ograniczony do lat 2000–2050.</p>
+<ul><li><a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html" target="_blank" rel="noopener noreferrer">NASA/JPL Solar System Dynamics — orbitalne elementy i zakres stosowania (Table 1)</a></li>
+<li><a href="https://gml.noaa.gov/grad/solcalc/solareqns.PDF" target="_blank" rel="noopener noreferrer">NOAA — pozycje Słońca i geometria horyzontu</a></li>
+<li><a href="https://www.eso.org/public/images/potw2041a/" target="_blank" rel="noopener noreferrer">ESO — fotografia śladów gwiazd i opis La Silla</a></li>
+<li><a href="../etapy/18/">ATLAS SOLARIS 18 — wyjaśnienie czasu gwiazdowego, rektascensji i deklinacji</a></li></ul>
+</div></section>
+</main>
+<footer class="sky-footer"><div><strong>ATLAS SOLARIS / NIEBO NAD TOBĄ</strong><p>Obserwuj, sprawdzaj, odkrywaj. Model edukacyjny · bez geolokalizacji, logowania i zewnętrznych połączeń.</p></div><nav aria-label="Nawigacja stopki"><a href="../">Strona główna</a><a href="../etapy/18/">Żywe Obserwatorium</a><a href="../etapy/05/">Księżyc</a><a href="../etapy/01/">Układ Słoneczny</a><a href="../odkrycia/">Magazyn Odkrycia</a></nav></footer>
+<noscript><p style="margin:0;padding:28px;background:#10202e;color:#fff">Do działania interaktywnej mapy nieba potrzebny jest JavaScript. Artykuł i źródła pozostają dostępne bez niego.</p></noscript>
+</body></html>

@@ -128,3 +128,9 @@
 .feature-card[data-art=interstellar19] .feature-back{background:radial-gradient(ellipse at 60% 36%,#40375e85,transparent 66%),#0a1127}
 .feature-card[data-art=interstellar19] .feature-art{display:none}
 .feature-card[data-art=interstellar19]:after{background:linear-gradient(0deg,#070e21f5 8%,#0b1328df 43%,#14132310)}
+
+/* ATLAS SOLARIS 20 — cienie i dane EHT w polecanym rozdziale */
+.feature-card[data-art=blackhole20] .feature-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:51% 47%;z-index:-1;opacity:.95}
+.feature-card[data-art=blackhole20] .feature-back{background:radial-gradient(ellipse at 60% 36%,#55353388,transparent 66%),#12101c}
+.feature-card[data-art=blackhole20] .feature-art{display:none}
+.feature-card[data-art=blackhole20]:after{background:linear-gradient(0deg,#0b0c15f5 8%,#14101cdd 43%,#1910170f)}

@@ -70,7 +70,7 @@ test('Katalog 17, nawigacja i tryb bez WebGL',()=>{
  assert.equal(d.stages['17'].category,'zjawiska');
  assert.ok(d.categories.zjawiska.highlights.includes(17));
  assert.equal(c.stages['17'].title,d.stages['17'].title);
- assert.ok(read('portal/site.js').includes("featureCard(17,'eclipse17')"));
+ assert.ok(read('etapy/17/index.html').includes('id="ec17Title"'),"Etap 17 musi pozostać dostępny jako samodzielny artykuł");
  const js=read('portal/eclipse17-story.js'),css=read('portal/eclipse17-story.css');
  assert.match(js,/getContext\('2d'\)/);
  assert.match(js,/prefers-reduced-motion/);

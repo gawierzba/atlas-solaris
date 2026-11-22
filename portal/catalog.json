@@ -54,12 +54,13 @@
     "relatywistyka": {
       "id": "relatywistyka",
       "title": "Czasoprzestrzeń",
-      "description": "Czarne dziury, fale grawitacyjne, LIGO i światło zakrzywiane przez masę.",
+      "description": "Granice czasoprzestrzeni: horyzonty czarnych dziur, zakrzywienie światła, dylatacja czasu, ergosfera, fale grawitacyjne i soczewkowanie.",
       "symbol": "◎",
       "color": "#d5a0f7",
       "path": "dzialy/relatywistyka/",
       "highlights": [
         20,
+        21,
         31
       ]
     },
@@ -179,9 +180,9 @@
     },
     "20": {
       "number": 20,
-      "title": "Czarna dziura",
-      "lead": "Na granicy czasoprzestrzeni",
-      "description": "Zobacz ugięcie światła, cień horyzontu i geometrię wirującej czarnej dziury.",
+      "title": "Granica, zza której nie wraca światło",
+      "lead": "Czarna dziura — czas, cień i zakrzywione światło",
+      "description": "Sześć autentycznych materiałów EHT, NASA i ESA, w tym wyraźnie oznaczona naukowa symulacja dysku. M87*, Sagittarius A*, dżety, zegary i laboratorium horyzontu Schwarzschilda.",
       "category": "relatywistyka",
       "mode": "blackhole",
       "path": "etapy/20/",

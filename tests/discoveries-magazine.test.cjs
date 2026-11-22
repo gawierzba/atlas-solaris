@@ -94,14 +94,15 @@ test('Magazine has no automatic location, tracking, live-data claims or heavy de
 
 test('Mobile homepage stories stack photos above text without overlapping columns',()=>{
  const c=read('portal/discoveries-home.css');
- const mobile=c.match(/@media\\(max-width:700px\\)\\{([\\s\\S]*?)(?=@media\\(max-width:425px\\))/);
+ const mobile=c.split('@media(max-width:700px)')[1]?.split('@media(max-width:425px)')[0];
  assert.ok(mobile,'Expected mobile CSS block');
- assert.match(mobile[1],/\\.asj-story\\{display:flex;flex-direction:column/);
- assert.match(mobile[1],/\\.asj-story figure\\{[^}]*aspect-ratio:16\\/9/);
- assert.match(mobile[1],/\\.asj-story h4\\{[^}]*overflow-wrap:anywhere/);
- assert.doesNotMatch(mobile[1],/grid-template-columns:130px 1fr/);
- const small=c.match(/@media\\(max-width:425px\\)\\{([\\s\\S]*?)(?=@media\\(prefers-reduced-motion:reduce\\))/);
+ assert.ok(mobile.includes('.asj-story{display:flex;flex-direction:column'),'Mobile stories must stack');
+ assert.ok(mobile.includes('.asj-story figure{display:block;width:100%;aspect-ratio:16/9'),'Photos above title');
+ assert.ok(mobile.includes('.asj-story h4{display:block;max-width:100%'),'Heading must wrap within card');
+ assert.ok(mobile.includes('overflow-wrap:anywhere'),'Long titles must wrap');
+ assert.ok(!mobile.includes('grid-template-columns:130px 1fr'),'Remove broken two-column layout');
+ const small=c.split('@media(max-width:425px)')[1]?.split('@media(prefers-reduced-motion:reduce)')[0];
  assert.ok(small,'Expected smallest screen rules');
- assert.doesNotMatch(small[1],/grid-template-columns:105px 1fr/);
- assert.match(home,/portal\\/discoveries-home\\.css\\?v=1\\.1/);
+ assert.ok(!small.includes('grid-template-columns:105px 1fr'),'No side-by-side narrow layout');
+ assert.ok(home.includes('portal/discoveries-home.css?v=1.1'),'Invalidate older CSS cache');
 });

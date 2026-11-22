@@ -5,7 +5,7 @@ const environment={window:{},document:{readyState:'loading',addEventListener(){}
 vm.runInNewContext(read('portal/smallbodies16-story.js'),environment);
 const m=environment.window.ATLAS_SB16_PHYSICS,close=(a,b,tol=1e-7)=>assert.ok(Math.abs(a-b)<tol,'Expected '+a+' ≈ '+b);
 test('Poprawna prędkość ucieczki i prędkość uderzenia przy Ziemi',()=>{
- close(m.escapeSpeedKmS(),11.185977,1e-4);
+ close(m.escapeSpeedKmS(),11.18613569,1e-5);
  close(m.surfaceSpeedKmS(15)**2-15**2,2*m.EARTH_MU_KM3_S2/m.EARTH_R_KM,1e-8);
  assert.ok(Number.isNaN(m.surfaceSpeedKmS(0)));
 });

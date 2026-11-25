@@ -1,13 +1,13 @@
 {
   "schema": 1,
   "mode": "jpl-cad-snapshot",
-  "generatedAt": "2026-11-24T18:51:49+00:00",
+  "generatedAt": "2026-11-25T17:56:27+00:00",
   "notice": "Statyczna kopia danych NASA/JPL. Nie stanowi oceny ryzyka zderzenia.",
   "source": "https://ssd-api.jpl.nasa.gov/cad.api",
   "query": {
     "body": "Earth",
-    "date-min": "2026-11-24",
-    "date-max": "2027-11-25",
+    "date-min": "2026-11-25",
+    "date-max": "2027-11-26",
     "dist-max": "0.05",
     "sort": "date",
     "limit": "100",
@@ -30,7 +30,7 @@
     "diameter_sigma",
     "fullname"
   ],
-  "total": 154,
+  "total": 155,
   "rows": [
     {
       "des": "2026 VV11",
@@ -50,16 +50,16 @@
     },
     {
       "des": "2026 VQ5",
-      "orbit_id": "12",
-      "jd": 2461370.389926419,
-      "cd": "2026-Nov-25 21:21",
-      "dist": 0.013432313511248,
-      "dist_min": 0.0134069473216225,
-      "dist_max": 0.0134576794261486,
-      "v_rel": 11.689113806817,
-      "v_inf": 11.6721315446087,
+      "orbit_id": "13",
+      "jd": 2461370.389943648,
+      "cd": "2026-Nov-25 21:22",
+      "dist": 0.0134295966020147,
+      "dist_min": 0.0134071429370242,
+      "dist_max": 0.013452050050743,
+      "v_rel": 11.6867073400668,
+      "v_inf": 11.6697181370187,
       "t_sigma_f": "< 00:01",
-      "h": 23.915,
+      "h": 23.923,
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2026 VQ5)"

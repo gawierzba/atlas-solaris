@@ -1,13 +1,13 @@
 {
   "schema": 1,
   "mode": "jpl-cad-snapshot",
-  "generatedAt": "2026-11-26T17:41:36+00:00",
+  "generatedAt": "2026-11-27T17:26:14+00:00",
   "notice": "Statyczna kopia danych NASA/JPL. Nie stanowi oceny ryzyka zderzenia.",
   "source": "https://ssd-api.jpl.nasa.gov/cad.api",
   "query": {
     "body": "Earth",
-    "date-min": "2026-11-26",
-    "date-max": "2027-11-27",
+    "date-min": "2026-11-27",
+    "date-max": "2027-11-28",
     "dist-max": "0.05",
     "sort": "date",
     "limit": "100",
@@ -30,40 +30,8 @@
     "diameter_sigma",
     "fullname"
   ],
-  "total": 153,
+  "total": 151,
   "rows": [
-    {
-      "des": "2026 VQ19",
-      "orbit_id": "9",
-      "jd": 2461370.927157238,
-      "cd": "2026-Nov-26 10:15",
-      "dist": 0.0101237883153874,
-      "dist_min": 0.0100866754620971,
-      "dist_max": 0.0101608980645327,
-      "v_rel": 6.77816327643791,
-      "v_inf": 6.73922232179121,
-      "t_sigma_f": "< 00:01",
-      "h": 25.298,
-      "diameter": null,
-      "diameter_sigma": null,
-      "fullname": "(2026 VQ19)"
-    },
-    {
-      "des": "2026 WX1",
-      "orbit_id": "1",
-      "jd": 2461371.344082681,
-      "cd": "2026-Nov-26 20:15",
-      "dist": 0.0356464934987276,
-      "dist_min": 0.0338795316517187,
-      "dist_max": 0.0374131399736707,
-      "v_rel": 8.70945662690876,
-      "v_inf": 8.70087007862347,
-      "t_sigma_f": "00:05",
-      "h": 27.577,
-      "diameter": null,
-      "diameter_sigma": null,
-      "fullname": "(2026 WX1)"
-    },
     {
       "des": "2026 WU1",
       "orbit_id": "1",
@@ -1631,6 +1599,38 @@
       "diameter": null,
       "diameter_sigma": null,
       "fullname": "(2021 RS)"
+    },
+    {
+      "des": "137108",
+      "orbit_id": "100",
+      "jd": 2461624.799043508,
+      "cd": "2027-Aug-07 07:11",
+      "dist": 0.0026060207695371,
+      "dist_min": 0.00260524407264729,
+      "dist_max": 0.00260679746682733,
+      "v_rel": 26.2840539548859,
+      "v_inf": 26.245125796325,
+      "t_sigma_f": "< 00:01",
+      "h": 18.05,
+      "diameter": null,
+      "diameter_sigma": null,
+      "fullname": "137108 (1999 AN10)"
+    },
+    {
+      "des": "2010 HA",
+      "orbit_id": "20",
+      "jd": 2461629.195538741,
+      "cd": "2027-Aug-11 16:42",
+      "dist": 0.0414004837622269,
+      "dist_min": 0.041399377246534,
+      "dist_max": 0.0414015903625697,
+      "v_rel": 4.65198697217616,
+      "v_inf": 4.6381316804036,
+      "t_sigma_f": "< 00:01",
+      "h": 24.04,
+      "diameter": 0.032,
+      "diameter_sigma": 0.004,
+      "fullname": "(2010 HA)"
     }
   ]
 }
